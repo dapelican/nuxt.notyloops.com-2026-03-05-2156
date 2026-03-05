@@ -1,0 +1,104 @@
+<script setup>
+import * as z from 'zod';
+
+const { t } = useI18n();
+
+useSeoMeta({
+  title: `${t('t_sign_up_step_1_of_2')} | OptiLeague`,
+});
+
+const fields = ref([
+  {
+    label: t('t_email'),
+    name: 'email',
+    placeholder: t('t_enter_your_email'),
+    required: true,
+    type: 'email',
+  },
+]);
+
+const schema = z.object({
+  email: z.email(),
+});
+
+const error_message = ref('');
+const handling_request = ref(false);
+const show_check_your_inbox_message = ref(false);
+
+const sendValidateEmailToken = async (form) => {
+  handling_request.value = true;
+
+  try {
+    // useAsyncData, useFetch or $fetch
+    await $fetch('/a/send-token-to-validate-email', {
+      method: 'POST',
+      body: {
+        email: form.data.email,
+      },
+    });
+
+    show_check_your_inbox_message.value = true;
+  } catch (error) {
+    const error_code = error?.data?.error_message;
+
+    switch (error_code) {
+      case 'error_invalid_email':
+        error_message.value = t('t_error_invalid_email');
+        break;
+      case 'error_email_already_in_use':
+        error_message.value = t('t_error_email_already_in_use');
+        break;
+      case 'error_email_token_already_sent':
+        error_message.value = t('t_error_email_token_already_sent');
+        break;
+      case 'error_maximum_retries_reached':
+        error_message.value = t('t_error_maximum_retries_reached');
+        break;
+      case 'error_corrupt_email':
+        error_message.value = t('t_error_corrupt_email');
+        break;
+      default:
+        handleFrontendError(error, error_code);
+        break;
+    }
+  } finally {
+    handling_request.value = false;
+  }
+};
+</script>
+
+<template>
+  <UContainer class="centered-max-width-400">
+    <UPageCard v-if="!show_check_your_inbox_message">
+      <UAuthForm
+        :disabled="handling_request"
+        :fields="fields"
+        :loading="handling_request"
+        :schema="schema"
+        :submit="{
+          class: 'cursor-pointer',
+          label: $t('t_confirm_email_address'),
+        }"
+        :title="$t('t_sign_up')"
+        @input="error_message = ''"
+        @submit="sendValidateEmailToken"
+      >
+        <template #validation>
+          <UAlert
+            v-if="error_message"
+            color="error"
+            :description="error_message"
+            icon="i-lucide-info"
+          />
+        </template>
+      </UAuthForm>
+    </UPageCard>
+
+    <UAlert
+      v-else
+      color="info"
+      :description="$t('t_check_your_inbox_message')"
+      icon="i-lucide-info"
+    />
+  </UContainer>
+</template>

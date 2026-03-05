@@ -1,0 +1,39 @@
+{
+  "type": "module",
+  "scripts": {
+    "check-new-packages": "npx npm-check-updates",
+    "cover": "vitest run --coverage",
+    "db-migrate": "node server/database/migrate.js run",
+    "db-status": "node server/database/migrate.js status",
+    "lint": "eslint .",
+    "local": "nuxt dev --port 2345",
+    "precover": "node server/tests/seeds/initializeData.js",
+    "pretest": "node server/tests/seeds/initializeData.js",
+    "test": "vitest run",
+    "sort-package-json": "npx sort-package-json"
+  },
+  "engines": {
+    "node": "24.x"
+  },
+  "dependencies": {
+    "@nuxt/ui": "^4.5.1",
+    "@nuxtjs/i18n": "^10.2.3",
+    "axios": "^1.13.6",
+    "bcrypt": "^6.0.0",
+    "ejs": "^5.0.1",
+    "luxon": "^3.7.2",
+    "nuxt": "^4.3.1",
+    "nuxt-auth-utils": "^0.5.29",
+    "pg": "^8.20.0",
+    "tailwindcss": "^4.2.1",
+    "uuid": "^13.0.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@nuxt/eslint": "^1.15.2",
+    "@vitest/coverage-v8": "^4.0.18",
+    "dotenv": "^17.3.1",
+    "eslint": "^9.39.3",
+    "vitest": "^4.0.18"
+  }
+}

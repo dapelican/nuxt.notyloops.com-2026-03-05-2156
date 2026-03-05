@@ -1,0 +1,9 @@
+'use strict';
+
+export default defineNuxtRouteMiddleware(() => {
+  const { loggedIn } = useUserSession();
+
+  if (!loggedIn.value) {
+    return navigateTo('/a/log-in');
+  }
+});

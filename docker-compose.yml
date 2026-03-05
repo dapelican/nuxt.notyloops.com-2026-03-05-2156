@@ -1,0 +1,14 @@
+# For local development only
+services:
+  test-xxx-pg-service:
+    image: postgres:latest
+    container_name: test-xxx-pg-container
+    restart: always
+    environment:
+      POSTGRES_USER: test_xxx_user
+      POSTGRES_PASSWORD: dummypassword123
+      POSTGRES_DB: test_xxx_db
+    ports:
+      - "2346:5432"
+    volumes:
+      - ./test_xxx_pg_volume:/var/lib/postgresql
