@@ -1,0 +1,13 @@
+CREATE TABLE note_tags (
+  id UUID PRIMARY KEY DEFAULT uuidv7(),
+  created_at TIMESTAMPTZ DEFAULT now() NOT NULL,
+  updated_at TIMESTAMPTZ DEFAULT now() NOT NULL,
+  user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  note_id UUID NOT NULL REFERENCES notes(id) ON DELETE CASCADE,
+  tag_id UUID NOT NULL REFERENCES tags(id) ON DELETE CASCADE
+);
+
+CREATE TRIGGER update_note_tags_timestamp
+BEFORE UPDATE ON note_tags
+FOR EACH ROW
+EXECUTE FUNCTION update_timestamp();

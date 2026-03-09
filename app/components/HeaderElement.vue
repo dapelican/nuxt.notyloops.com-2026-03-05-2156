@@ -67,6 +67,7 @@ const private_items = ref([
 </script>
 
 <template>
+  <!-- HeaderElement.vue -->
   <UHeader toggle-side="left">
     <template #title>
       OptiLeague

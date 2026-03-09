@@ -51,7 +51,7 @@ More info: [https://npmtrends.com/@nuxt/ui-vs-daisyui-vs-primevue](https://npmtr
 - server/database/migrate.js.
 
 ## server/helpers
-- Packages: `npm i ejs luxon uuid validator`.
+- Packages: `npm i ejs luxon uuid zod`.
 - sever/helpers/email-templates/*
 - server/helpers/constants.js.
 - server/helpers/get-subdomain.js.
@@ -99,4 +99,3 @@ More info: [https://npmtrends.com/@nuxt/ui-vs-daisyui-vs-primevue](https://npmtr
 - app/pages/a/log-in.vue.
 - app/pages/account/information.vue.
 - app/pages/a/password-forgotten.vue.
-

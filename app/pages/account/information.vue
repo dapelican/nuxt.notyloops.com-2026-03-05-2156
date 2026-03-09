@@ -36,7 +36,7 @@ const email_form_schema = z.object({
   new_email: z.email(),
 });
 
-const error_message_email = ref('');
+const email_form_error = ref('');
 
 const handling_request_2 = ref(false);
 
@@ -54,17 +54,17 @@ const changeEmail = async (form) => {
 
     return navigateTo('/a/log-in');
   } catch (error) {
-    const error_code = error?.data?.error_message;
+    const error_message = error?.data?.error_message;
 
-    switch (error_code) {
+    switch (error_message) {
       case 'error_invalid_email':
-        error_message_email.value = t('t_error_invalid_email');
+        email_form_error.value = t('t_error_invalid_email');
         break;
       case 'error_email_already_in_use':
-        error_message_email.value = t('t_error_email_already_in_use');
+        email_form_error.value = t('t_error_email_already_in_use');
         break;
       default:
-        handleFrontendError(null, error_code);
+        handleFrontendError(null, error_message);
         break;
     }
   } finally {
@@ -74,13 +74,11 @@ const changeEmail = async (form) => {
 
 const resetEmailForm = () => {
   email_form_state.new_email = '';
-  error_message_email.value = '';
+  email_form_error.value = '';
   modifying_email.value = false;
 };
 
 // password
-const show_passwords = ref(false);
-
 const modifying_password = ref(false);
 
 const password_form_state = reactive({
@@ -91,16 +89,16 @@ const password_form_state = reactive({
 
 const password_form_schema = z
   .object({
-    current_password: z.string().min(1, t('t_password_required')),
-    new_password_1: z.string().min(1, t('t_password_required')),
-    new_password_2: z.string().min(1, t('t_password_required')),
+    current_password: z.string().min(1, t('t_schema_error_empty_string')),
+    new_password_1: z.string().min(1, t('t_schema_error_empty_string')),
+    new_password_2: z.string().min(1, t('t_schema_error_empty_string')),
   })
   .refine((data) => data.new_password_1 === data.new_password_2, {
-    message: t('t_passwords_do_not_match'),
+    message: t('t_schema_error_passwords_do_not_match'),
     path: ['new_password_2'],
   });
 
-const error_message_password = ref('');
+const password_form_error = ref('');
 
 const changePassword = async (form) => {
   handling_request_2.value = true;
@@ -118,17 +116,17 @@ const changePassword = async (form) => {
 
     return navigateTo('/a/log-in');
   } catch (error) {
-    const error_code = error?.data?.error_message;
+    const error_message = error?.data?.error_message;
 
-    switch (error_code) {
+    switch (error_message) {
       case 'error_invalid_password':
-        error_message_password.value = t('t_error_invalid_password');
+        password_form_error.value = t('t_error_invalid_password');
         break;
       case 'error_wrong_credentials':
-        error_message_password.value = t('t_error_wrong_credentials');
+        password_form_error.value = t('t_error_wrong_credentials');
         break;
       default:
-        handleFrontendError(error, error_code);
+        handleFrontendError(error, error_message);
         break;
     }
   } finally {
@@ -140,7 +138,7 @@ const resetPasswordForm = () => {
   password_form_state.current_password = '';
   password_form_state.new_password_1 = '';
   password_form_state.new_password_2 = '';
-  error_message_password.value = '';
+  password_form_error.value = '';
   modifying_password.value = false;
 };
 </script>
@@ -153,7 +151,7 @@ const resetPasswordForm = () => {
 
     <hr class="separator-1">
 
-    <UProgress v-if="handling_request_1" />
+    <LoadingElement v-if="handling_request_1" />
 
     <section v-else>
       <h2>
@@ -177,10 +175,10 @@ const resetPasswordForm = () => {
 
       <UForm
         v-if="modifying_email"
+        class="space-y-4"
         :schema="email_form_schema"
         :state="email_form_state"
-        class="space-y-4"
-        @input="error_message = ''"
+        @input="email_form_error = ''"
         @submit="changeEmail"
       >
         <UFormField
@@ -195,9 +193,9 @@ const resetPasswordForm = () => {
         </UFormField>
 
         <UAlert
-          v-if="error_message_email"
+          v-if="email_form_error"
           color="error"
-          :description="error_message_email"
+          :description="email_form_error"
           icon="i-lucide-info"
         />
 
@@ -245,84 +243,34 @@ const resetPasswordForm = () => {
         :schema="password_form_schema"
         :state="password_form_state"
         class="space-y-4"
-        @input="error_message_password = ''"
+        @input="password_form_error = ''"
         @submit="changePassword"
       >
-        <UFormField
+        <InputPasswordElement
+          v-model="password_form_state.current_password"
           :label="$t('t_current_password')"
+          :disabled="handling_request_2"
           name="current_password"
-        >
-          <UInput
-            v-model="password_form_state.current_password"
-            :disabled="handling_request_2"
-            :type="show_passwords ? 'text' : 'password'"
-            class="input"
-          >
-            <template #trailing>
-              <UButton
-                type="button"
-                color="neutral"
-                size="sm"
-                variant="link"
-                :icon="show_passwords ? 'i-lucide-eye-off' : 'i-lucide-eye'"
-                @click="show_passwords = !show_passwords"
-              />
-            </template>
-          </UInput>
-        </UFormField>
+        />
 
-        <UFormField
+        <InputPasswordElement
+          v-model="password_form_state.new_password_1"
           :label="$t('t_new_password')"
+          :disabled="handling_request_2"
           name="new_password_1"
-        >
-          <UInput
-            v-model="password_form_state.new_password_1"
-            :disabled="handling_request_2"
-            :type="show_passwords ? 'text' : 'password'"
-            class="input"
-          >
-            <template #trailing>
-              <UButton
-                type="button"
-                color="neutral"
-                size="sm"
-                variant="link"
-                class="cursor-pointer"
-                :icon="show_passwords ? 'i-lucide-eye-off' : 'i-lucide-eye'"
-                @click="show_passwords = !show_passwords"
-              />
-            </template>
-          </UInput>
-        </UFormField>
+        />
 
-        <UFormField
+        <InputPasswordElement
+          v-model="password_form_state.new_password_2"
           :label="$t('t_new_password')"
+          :disabled="handling_request_2"
           name="new_password_2"
-        >
-          <UInput
-            v-model="password_form_state.new_password_2"
-            :disabled="handling_request_2"
-            :type="show_passwords ? 'text' : 'password'"
-            class="input"
-          >
-            <template #trailing>
-              <UButton
-                type="button"
-                color="neutral"
-                size="sm"
-                variant="link"
-                class="cursor-pointer"
-                :icon="show_passwords ? 'i-lucide-eye-off' : 'i-lucide-eye'"
-                @click="show_passwords = !show_passwords"
-              />
-            </template>
-          </UInput>
-        </UFormField>
+        />
 
         <UAlert
-          v-if="error_message_password"
+          v-if="password_form_error"
           color="error"
-          :description="error_message_password"
+          :description="password_form_error"
           icon="i-lucide-info"
         />
 

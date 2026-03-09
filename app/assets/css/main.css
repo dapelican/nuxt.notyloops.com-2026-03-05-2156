@@ -22,6 +22,10 @@ html {
 }
 
 /* Classes by alphabetical order */
+.center {
+  text-align: center;
+}
+
 .centered-max-width-400 {
   margin-left: auto;
   margin-right: auto;

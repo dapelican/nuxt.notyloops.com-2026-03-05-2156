@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 const items = [
   {
     label: 'Figma Kit',
@@ -19,6 +19,7 @@ const items = [
 </script>
 
 <template>
+  <!-- FooterElement.vue -->
   <UFooter>
     <template #left>
       <p class="text-muted text-sm">

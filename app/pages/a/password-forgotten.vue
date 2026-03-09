@@ -7,7 +7,7 @@ useSeoMeta({
   title: `${t('t_password_forgotten')} | OptiLeague`,
 });
 
-const fields = ref([
+const form_fields = ref([
   {
     label: t('t_email'),
     name: 'email',
@@ -17,11 +17,11 @@ const fields = ref([
   },
 ]);
 
-const schema = z.object({
-  email: z.email(),
+const form_schema = z.object({
+  email: z.email(t('t_schema_error_invalid_email_address')),
 });
 
-const error_message = ref('');
+const form_error = ref('');
 const handling_request = ref(false);
 const show_check_your_inbox_message = ref(false);
 
@@ -38,23 +38,23 @@ const sendPasswordForgottenEmail = async (form) => {
 
     show_check_your_inbox_message.value = true;
   } catch (error) {
-    const error_code = error?.data?.error_message;
+    const error_message = error?.data?.error_message;
 
-    switch (error_code) {
+    switch (error_message) {
       case 'error_invalid_email':
-        error_message.value = t('t_error_invalid_email');
+        form_error.value = t('t_error_invalid_email');
         break;
       case 'error_no_user_found':
-        error_message.value = t('t_error_no_user_found');
+        form_error.value = t('t_error_no_user_found');
         break;
       case 'error_email_token_failure':
-        error_message.value = t('t_error_email_token_failure');
+        form_error.value = t('t_error_email_token_failure');
         break;
       case 'error_maximum_retries_reached':
-        error_message.value = t('t_error_maximum_retries_reached');
+        form_error.value = t('t_error_maximum_retries_reached');
         break;
       default:
-        handleFrontendError(error, error_code);
+        handleFrontendError(error, error_message);
         break;
     }
   } finally {
@@ -68,22 +68,22 @@ const sendPasswordForgottenEmail = async (form) => {
     <UPageCard v-if="!show_check_your_inbox_message">
       <UAuthForm
         :disabled="handling_request"
-        :fields="fields"
+        :fields="form_fields"
         :loading="handling_request"
-        :schema="schema"
+        :schema="form_schema"
         :submit="{
           class: 'cursor-pointer',
           label: $t('t_submit'),
         }"
         :title="$t('t_password_forgotten')"
-        @input="error_message = ''"
+        @input="form_error = ''"
         @submit="sendPasswordForgottenEmail"
       >
         <template #validation>
           <UAlert
-            v-if="error_message"
+            v-if="form_error"
             color="error"
-            :description="error_message"
+            :description="form_error"
             icon="i-lucide-info"
           />
         </template>

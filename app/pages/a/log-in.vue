@@ -7,7 +7,7 @@ useSeoMeta({
   title: `${t('t_log_in')} | OptiLeague`,
 });
 
-const fields = ref([
+const form_fields = ref([
   {
     name: 'email',
     type: 'email',
@@ -24,12 +24,12 @@ const fields = ref([
   },
 ]);
 
-const schema = z.object({
-  email: z.email(t('t_invalid_email_address')),
-  password: z.string().min(1, t('t_password_required')),
+const form_schema = z.object({
+  email: z.email(t('t_schema_error_invalid_email_address')),
+  password: z.string().min(1, t('t_schema_error_empty_string')),
 });
 
-const error_message = ref('');
+const form_error = ref('');
 
 const handling_request = ref(false);
 
@@ -53,20 +53,20 @@ const logIn = async (form) => {
 
     return navigateTo(CONNECTED_USER_LANDING_PAGE);
   } catch (error) {
-    const error_code = error?.data?.error_message;
+    const error_message = error?.data?.error_message;
 
-    switch (error_code) {
+    switch (error_message) {
       case 'error_invalid_email':
-        error_message.value = t('t_error_invalid_email');
+        form_error.value = t('t_error_invalid_email');
         break;
       case 'error_invalid_password':
-        error_message.value = t('t_error_invalid_password');
+        form_error.value = t('t_error_invalid_password');
         break;
       case 'error_wrong_credentials':
-        error_message.value = t('t_error_wrong_credentials');
+        form_error.value = t('t_error_wrong_credentials');
         break;
       case 'error_account_not_confirmed':
-        error_message.value = t('t_error_account_not_confirmed');
+        form_error.value = t('t_error_account_not_confirmed');
         break;
       default:
         handleFrontendError(error, error_message);
@@ -83,22 +83,23 @@ const logIn = async (form) => {
     <UPageCard>
       <UAuthForm
         :disabled="handling_request"
-        :fields="fields"
+        :fields="form_fields"
         :loading="handling_request"
-        :schema="schema"
+        :schema="form_schema"
+        size="xl"
         :submit="{
           class: 'cursor-pointer',
           label: $t('t_log_in'),
         }"
         :title="$t('t_log_in')"
-        @input="error_message = ''"
+        @input="form_error = ''"
         @submit="logIn"
       >
         <template #validation>
           <UAlert
-            v-if="error_message"
+            v-if="form_error"
             color="error"
-            :description="error_message"
+            :description="form_error"
             icon="i-lucide-info"
           />
         </template>

@@ -9,7 +9,7 @@ useSeoMeta({
   title: `${t('t_reset_my_password')} | OptiLeague`,
 });
 
-const error_message_1 = ref('');
+const page_error = ref('');
 
 const route = useRoute();
 
@@ -21,15 +21,15 @@ const {
 } = await useFetch(`/a/verify-token-to-reset-password/${route.params.token_to_reset_password}`);
 
 if (verify_error.value) {
-  const error_code = verify_error.value.data?.error_message;
+  const error_message = verify_error.value.data?.error_message;
 
-  switch (error_code) {
+  switch (error_message) {
     case 'error_invalid_email_token':
-      error_message_1.value = t('t_error_invalid_email_token');
+      page_error.value = t('t_error_invalid_email_token');
       handling_request_1.value = false;
       break;
     default:
-      handleFrontendError(null, error_code);
+      handleFrontendError(null, error_message);
       break;
   }
 }
@@ -38,7 +38,7 @@ const email = ref(verify_data.value?.email);
 
 handling_request_1.value = false;
 
-const fields = ref([
+const form_fields = ref([
   {
     disabled: true,
     label: t('t_email'),
@@ -62,13 +62,13 @@ const fields = ref([
   },
 ]);
 
-const schema = z
+const form_schema = z
   .object({
-    password_1: z.string().min(1, t('t_password_required')),
-    password_2: z.string().min(1, t('t_password_required')),
+    password_1: z.string().min(1, t('t_schema_error_empty_string')),
+    password_2: z.string().min(1, t('t_schema_error_empty_string')),
   })
   .refine((data) => data.password_1 === data.password_2, {
-    message: t('t_passwords_do_not_match'),
+    message: t('t_schema_error_passwords_do_not_match'),
     path: ['password_2'],
   });
 
@@ -76,7 +76,7 @@ const {
   fetch: refreshSession,
 } = useUserSession();
 
-const error_message_2 = ref('');
+const form_error = ref('');
 
 const handling_request_2 = ref(false);
 
@@ -97,14 +97,14 @@ const resetPassword = async (form) => {
 
     return navigateTo(CONNECTED_USER_LANDING_PAGE);
   } catch (error) {
-    const error_code = error?.data?.error_message;
+    const error_message = error?.data?.error_message;
 
-    switch (error_code) {
+    switch (error_message) {
       case 'error_invalid_password':
-        error_message_2.value = t('t_error_invalid_password');
+        form_error.value = t('t_error_invalid_password');
         break;
       default:
-        handleFrontendError(error, error_code);
+        handleFrontendError(error, error_message);
         break;
     }
   } finally {
@@ -115,34 +115,34 @@ const resetPassword = async (form) => {
 
 <template>
   <UContainer class="centered-max-width-400">
-    <UProgress v-if="handling_request_1" />
+    <LoadingElement v-if="handling_request_1" />
 
     <UAlert
-      v-else-if="!handling_request_1 && error_message_1"
+      v-else-if="!handling_request_1 && page_error"
       color="error"
-      :description="error_message_1"
+      :description="page_error"
       icon="i-lucide-info"
     />
 
     <UPageCard v-else>
       <UAuthForm
         :disabled="handling_request_2"
-        :fields="fields"
+        :fields="form_fields"
         :loading="handling_request_2"
-        :schema
+        :schema="form_schema"
         :submit="{
           class: 'cursor-pointer',
           label: $t('t_reset'),
         }"
         :title="$t('t_reset_my_password')"
-        @input="error_message_2 = ''"
+        @input="form_error = ''"
         @submit="resetPassword"
       >
         <template #validation>
           <UAlert
-            v-if="error_message_2"
+            v-if="form_error"
             color="error"
-            :description="error_message_2"
+            :description="form_error"
             icon="i-lucide-info"
           />
         </template>
