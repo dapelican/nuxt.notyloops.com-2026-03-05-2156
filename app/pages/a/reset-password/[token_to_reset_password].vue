@@ -64,8 +64,10 @@ const form_fields = ref([
 
 const form_schema = z
   .object({
-    password_1: z.string().min(1, t('t_schema_error_empty_string')),
-    password_2: z.string().min(1, t('t_schema_error_empty_string')),
+    password_1: z.string({ invalid_type_error: t('t_schema_error_empty_string') })
+      .min(1, t('t_schema_error_empty_string')),
+    password_2: z.string({ invalid_type_error: t('t_schema_error_empty_string') })
+      .min(1, t('t_schema_error_empty_string')),
   })
   .refine((data) => data.password_1 === data.password_2, {
     message: t('t_schema_error_passwords_do_not_match'),

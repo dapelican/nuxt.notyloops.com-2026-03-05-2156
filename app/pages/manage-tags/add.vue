@@ -34,6 +34,16 @@ const createTag = async () => {
       },
     });
 
+    const {
+      all_user_tag_list,
+    } = useSearchAndSelectItems(ITEM_TYPE_NOTE);
+
+    const tag_list = await $fetch('/tags/get-user-tags');
+
+    if (tag_list.value) {
+      all_user_tag_list.value = tag_list.value;
+    }
+
     return navigateTo('/manage-tags/page/1');
   } catch (error) {
     const error_message = error?.data?.error_message;

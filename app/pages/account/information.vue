@@ -89,9 +89,12 @@ const password_form_state = reactive({
 
 const password_form_schema = z
   .object({
-    current_password: z.string().min(1, t('t_schema_error_empty_string')),
-    new_password_1: z.string().min(1, t('t_schema_error_empty_string')),
-    new_password_2: z.string().min(1, t('t_schema_error_empty_string')),
+    current_password: z.string({ invalid_type_error: t('t_schema_error_empty_string') })
+      .min(1, t('t_schema_error_empty_string')),
+    new_password_1: z.string({ invalid_type_error: t('t_schema_error_empty_string') })
+      .min(1, t('t_schema_error_empty_string')),
+    new_password_2: z.string({ invalid_type_error: t('t_schema_error_empty_string') })
+      .min(1, t('t_schema_error_empty_string')),
   })
   .refine((data) => data.new_password_1 === data.new_password_2, {
     message: t('t_schema_error_passwords_do_not_match'),

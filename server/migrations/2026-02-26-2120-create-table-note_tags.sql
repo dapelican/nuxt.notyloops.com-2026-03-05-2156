@@ -4,7 +4,8 @@ CREATE TABLE note_tags (
   updated_at TIMESTAMPTZ DEFAULT now() NOT NULL,
   user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
   note_id UUID NOT NULL REFERENCES notes(id) ON DELETE CASCADE,
-  tag_id UUID NOT NULL REFERENCES tags(id) ON DELETE CASCADE
+  tag_id UUID NOT NULL REFERENCES tags(id) ON DELETE CASCADE,
+  UNIQUE(user_id, note_id, tag_id)
 );
 
 CREATE TRIGGER update_note_tags_timestamp

@@ -1,7 +1,8 @@
 # Project requirements
 - Nuxt 4. Documentation: [https://nuxt.com/llms.txt](https://nuxt.com/llms.txt).
 - Nuxt UI 4. Documentation: [https://ui.nuxt.com/llms.txt](https://ui.nuxt.com/llms.txt).
-- Standard CSS over Tailwind CSS for CSS.
+- Tailwind CSS. Some documentation is available in the file tailwind-referential.md.
+- For the icons, use Lucide icons. [https://icones.js.org/collection/lucide](https://icones.js.org/collection/lucide)
 
 # Programming language
 - JavaScript.

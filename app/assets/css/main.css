@@ -57,7 +57,7 @@ html {
 }
 
 .primary-link {
-  color: var(--color-primary);
+  color: var(--ui-primary);
 }
 
 .separator-0-5 {
@@ -73,4 +73,24 @@ html {
 .separator-2 {
   border: none;
   height: 2rem;
+}
+
+/* Hover styles - only apply on devices that support hover */
+@media (hover: hover) {
+  a:hover {
+    color: var(--ui-secondary);
+  }
+}
+
+/* Responsive */
+@media (max-width: 1199px) {
+  .desktop-only {
+    display: none;
+  }
+}
+
+@media (min-width: 1200px) {
+  .mobile-only {
+    display: none;
+  }
 }

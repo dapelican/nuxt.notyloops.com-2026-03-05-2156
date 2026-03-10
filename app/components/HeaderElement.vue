@@ -12,7 +12,7 @@ const logOut = async () => {
   navigateTo('/a/log-in');
 };
 
-const public_items = ref([
+const public_items = computed(() => [
   {
     active: route.path.startsWith('/a/log-in'),
     label: $t('t_log_in'),
@@ -25,21 +25,21 @@ const public_items = ref([
   },
 ]);
 
-const private_items = ref([
+const private_items = computed(() => [
   {
-    active: route.path.startsWith('/manage-notes'),
+    active: route.path.startsWith('/manage-notes/page'),
     label: $t('t_manage_notes'),
     to: CONNECTED_USER_LANDING_PAGE,
   },
   {
-    active: route.path.startsWith('/manage-tags'),
+    active: route.path.startsWith('/manage-tags/page'),
     label: $t('t_manage_tags'),
     to: '/manage-tags/page/1',
   },
   {
     active: route.path.startsWith('/review'),
     label: $t('t_review'),
-    to: '/review"',
+    to: '/review',
   },
   {
     active: route.path.startsWith('/share'),
