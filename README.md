@@ -27,6 +27,7 @@
 Other alternatives for UI:
 - daisyui
 - primevue
+- flowbite
 
 More info: [https://npmtrends.com/@nuxt/ui-vs-daisyui-vs-primevue](https://npmtrends.com/@nuxt/ui-vs-daisyui-vs-primevue)
 
@@ -52,6 +53,8 @@ More info: [https://npmtrends.com/@nuxt/ui-vs-daisyui-vs-primevue](https://npmtr
 
 ## server/helpers
 - Packages: `npm i ejs luxon uuid zod`.
+Alternatives to zod: valibot, @regle/nuxt, yup, joi and superstruct: 
+[https://npmtrends.com/@regle/nuxt-vs-joi-vs-superstruct-vs-valibot-vs-yup-vs-zod](https://npmtrends.com/@regle/nuxt-vs-joi-vs-superstruct-vs-valibot-vs-yup-vs-zod)
 - sever/helpers/email-templates/*
 - server/helpers/constants.js.
 - server/helpers/get-subdomain.js.
@@ -91,7 +94,6 @@ More info: [https://npmtrends.com/@nuxt/ui-vs-daisyui-vs-primevue](https://npmtr
 
 ## authentication - frontend
 - app/components/HeaderElement.vue.
-- Package: `npm i zod`. Alternatives to zod: valibot, regle, yup, joi and superstruct.
 - app/composables/handleFrontendError.js.
 - app/pages/a/sign-up-1.vue.
 - app/pages/a/sign-up-2/[token_to_validate_email].vue.
