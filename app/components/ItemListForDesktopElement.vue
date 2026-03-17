@@ -33,6 +33,17 @@ if (props.item_type === ITEM_TYPE_NOTE) {
   ];
 }
 
+if (props.item_type === ITEM_TYPE_COLLECTION) {
+  column_list = [
+    { column_name: t('t_title'), column_key: 'title', column_type: 'neutral' },
+    { column_name: t('t_tags_to_include'), column_key: 'tag_list_to_include', column_type: 'tag' },
+    { column_name: t('t_tags_to_exclude'), column_key: 'tag_list_to_exclude', column_type: 'tag' },
+    { column_name: t('t_type'), column_key: 'type', column_type: 'neutral' },
+    { column_name: t('t_created'), column_key: 'created_at', column_type: 'date' },
+    { column_name: t('t_updated'), column_key: 'updated_at', column_type: 'date' },
+  ];
+}
+
 const route = useRoute();
 
 const page_number = computed(() => route.params.page_number);

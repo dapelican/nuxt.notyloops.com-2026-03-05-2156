@@ -2,7 +2,8 @@
 @import "@nuxt/ui";
 
 html {
-  font-size: 112.5%; /* 18px */
+  /* font-size: 112.5%; */
+  font-size: 125%; /* 20px */
 }
 
 @layer base {

@@ -37,6 +37,11 @@ const private_items = computed(() => [
     to: '/manage-tags/page/1',
   },
   {
+    active: route.path.startsWith('/manage-collections/page'),
+    label: $t('t_manage_collections'),
+    to: '/manage-collections/page/1',
+  },
+  {
     active: route.path.startsWith('/review'),
     label: $t('t_review'),
     to: '/review',

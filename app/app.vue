@@ -3,7 +3,7 @@
     <HeaderElement />
 
     <UMain class="page">
-      <NuxtPage />
+      <NuxtPage :key="$route.fullPath" />
     </UMain>
 
     <FooterElement />
@@ -13,7 +13,7 @@
 <style scoped>
 .page {
   margin-top: 1rem;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
+  margin-left: 0.3rem;
+  margin-right: 0.3rem;
 }
 </style>

@@ -2,7 +2,7 @@
 ## Projet et concurrents
 Je veux commercialiser une application en ligne (de type SAAS) qui proposera la création et la révision de notes.
 Mon app est différente des offres concurrentes sur les points suivants : 
-- Elle a un design beaucoup plus simple et minimaliste. Elle a un light/dark mode, et aura un comportement similaire sur tous les écrans. Pour les mobiles, l'application sera une progressive web app, disponilbe sur l'App stoer et Google Play Store.
+- Elle a un design beaucoup plus simple et minimaliste. Elle a un light/dark mode, et aura un comportement similaire sur tous les écrans. Pour les mobiles, l'application sera une progressive web app, disponible sur l'App store et le Google Play Store.
 - Elle ne propose pas uniquement de la répétition espacée.
 
 Mes concurrents sont les applications web de flashcards :
@@ -22,7 +22,7 @@ Je prévois 2 façons de faire de l'argent avec cette app :
 Actuellement : 
 - Pouvoir ajouter une image, un fichier audio ou fichier audio généré à partir de texte dans les notes.
 - Pouvoir réviser les notes par ordre aléatoire et ordre optimisé.
-- Pouvoir partager une collection de notes à plus de 2 personnes.
+- Pouvoir créer plus d'une collection ?
 - Pouvoir vendre des collections.
 
 ### Quel prix pour l'abonnement ?
@@ -55,11 +55,11 @@ Je pensais également faire une offre concurrente au magazine [Vocable](https://
 - Il peut attribuer un nombre illimité de tags à des notes. Il peut également les enlever.
 
 ## collections (gestion) - URLs : /collections/*
-- Un utilisateur peut créer une collection de notes. Limiter à une collection pour les utilisateurs gratuits.
+- Un utilisateur peut créer une collection de notes. Limiter à une collection pour les utilisateurs gratuits ?
 - Il doit donner un titre à la collection.
-- I doit donner une description à la collection.
+- I peut donner une description à la collection.
 - Il peut sélectionner les tags à inclure et ou exclure pour sa collection. Par défaut, sans tag inclus ou exclu, la collection prendra toutes ses notes.
-- Il peut désactiver le tracking du score de maîtrise pour la collection. Par défaut, il est activé. Lors des révisions, l'utilisateur peut choisir en un bouton "à revoir" et "je maîtrise" pour passer à la note suivante. "Je maîtrise" rajoute automatiquement +1 au score de la note revue.
+- Il peut désactiver le tracking du score de maîtrise pour la collection. Par défaut, il est activé. Lors des révisions, l'utilisateur peut choisir entre un bouton "à revoir" et "je maîtrise" pour passer à la note suivante. "Je maîtrise" rajoute automatiquement +1 au score de la note revue.
 - Il peut afficher ou masquer les titres des notes lors des révisions. Par défaut, les titres sont cachés.
 - Il peut déterminer un ordre d'affichage des notes par défaut pour ses révisions : 
 -- par ordre de création.
@@ -67,12 +67,14 @@ Je pensais également faire une offre concurrente au magazine [Vocable](https://
 -- par score de maîtrise.
 -- par répétition espacée.
 - Il peut garder sa collection privée (choix par défaut).
-- Il peut mettre sa collection en accès contrôlé (tribal_collection). Limiter à 2 personnes le partage d'une collection pour les utilisateurs gratuits. L'URL publique peut alors être partagée. Un utilisateur pourra demander un accès à cette collection par envoi de formulaire au propriétaire de la collection (avec adresse e-email du compte et informations de contrôle). Prévoir une table spécifique pour gérer cela "tribal_collections".
-- Il peut mettre sa collection en vente. Il détermine un prix de vente et il recevra 90 % des revenus HT. Prévoir une table "purchased_collections".
-- Il peut mettre sa collection publique.
+- Il peut mettre sa collection publique. Il peut mettre un prix de vente et il recevra 90 % des revenus HT. Prévoir une table "purchased_collections". Il peut également choisir de montrer gratuitement les n premières notes.
+- Il peut exporter une collection.
+- Il est possible d'épingler une note.
 
 ## collections (revoir) - URLs : /r/*
 - La page présente un onglet replié avec la stratégie préalablement choisie. Mais l'utilisateur peut la changer à nouveau.
 - Un bouton "Revoir" permet de revoir les notes de la collection, l'une après l'autre.
 - Une liste des notes avec les titres est disponible.
 - Sur une page de note spécifique, prévoir un bouton "Ajouter à mes notes" pour copier cette note.
+
+## sessions

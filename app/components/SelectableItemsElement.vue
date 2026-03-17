@@ -198,6 +198,13 @@ const selectAllPages = () => {
 
             <DeleteSelectedNotesPopup />
           </section>
+
+          <section
+            v-if="item_type === ITEM_TYPE_COLLECTION"
+            class="actions-on-selected-actions"
+          >
+            to complete
+          </section>
         </div>
       </template>
     </UAlert>

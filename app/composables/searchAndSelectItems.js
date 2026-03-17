@@ -1,4 +1,5 @@
 import {
+  ITEM_TYPE_COLLECTION,
   ITEM_TYPE_NOTE,
   ITEM_TYPE_TAG,
 } from '~/utils/constants';
@@ -90,12 +91,13 @@ export const useSearchAndSelectItems = (key) => {
 
     search_criteria_term.value = '';
 
-    if (key === ITEM_TYPE_TAG) {
-      sort_option.value = 'label:asc';
+    if (key === ITEM_TYPE_COLLECTION) {
+      sort_option.value = 'title:asc';
+
       if (page_number.value === 1) {
         searchItems();
       } else {
-        navigateTo('/manage-tags/page/1');
+        navigateTo('/manage-collections/page/1');
       }
     }
 
@@ -108,6 +110,15 @@ export const useSearchAndSelectItems = (key) => {
         searchItems();
       } else {
         navigateTo('/manage-notes/page/1');
+      }
+    }
+
+    if (key === ITEM_TYPE_TAG) {
+      sort_option.value = 'label:asc';
+      if (page_number.value === 1) {
+        searchItems();
+      } else {
+        navigateTo('/manage-tags/page/1');
       }
     }
   };
