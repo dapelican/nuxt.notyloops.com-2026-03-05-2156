@@ -1,15 +1,8 @@
 <script setup>
-const props = defineProps({
-  item_type: {
-    type: String,
-    required: true,
-  },
-});
-
 const {
   current_page_item_list,
   selected_item_id_set,
-} = useSearchAndSelectItems(props.item_type);
+} = useSearchAndSelectItems(ITEM_TYPE_NOTE);
 
 const route = useRoute();
 
@@ -23,7 +16,7 @@ const show_details = ref(false);
 </script>
 
 <template>
-  <!-- ItemListForMobileElement.vue -->
+  <!-- NoteListElement.vue -->
   <section v-if="current_page_item_list.length === 0">
     {{ $t('t_no_result_matching_your_search') }}
   </section>
@@ -37,22 +30,35 @@ const show_details = ref(false);
       :key="item.id"
     >
       <template #header>
-        <UCheckbox
-          class="cursor-pointer"
-          :label="item.label"
-          :model-value="isItemSelected(item.id)"
-          :ui="{
-            root: 'cursor-pointer',
-            container: 'cursor-pointer',
-            base: 'cursor-pointer',
-            label: 'cursor-pointer',
-          }"
-          @update:model-value="emit('toggle_item_selection', item.id)"
-        />
+        <section class="header">
+          <UCheckbox
+            class="cursor-pointer"
+            :label="item.label"
+            :model-value="isItemSelected(item.id)"
+            :ui="{
+              root: 'cursor-pointer',
+              container: 'cursor-pointer',
+              base: 'cursor-pointer',
+              label: 'cursor-pointer',
+            }"
+            @update:model-value="emit('toggle_item_selection', item.id)"
+          />
+
+          <span>
+            {{ item.title }}
+          </span>
+        </section>
       </template>
 
+      <section>
+        Tags<br>
+        Contenu<br>
+        Dates: date de création, date de denrière modification, date de 1ère révision, date de dernière révision
+        Statistiques : réviisons, score (en %)
+      </section>
+
       <section
-        v-if="item.tag_list && item.tag_list.length > 0"
+        v-if="item.tag_list.length > 0"
         class="item-card-tags"
       >
         <span
@@ -81,24 +87,10 @@ const show_details = ref(false);
 
         <NuxtLink
           class="primary-link"
-          :to="`/manage-${props.item_type}s/edit/${item.id}?page_number=${page_number}`"
+          :to="`/manage-${ITEM_TYPE_NOTE}s/edit/${item.id}?page_number=${page_number}`"
         >
           {{ $t('t_edit') }}
         </NuxtLink>
-      </section>
-
-      <section v-if="show_details">
-        <ul>
-          <li v-if="props.item_type === ITEM_TYPE_TAG">
-            {{ $t('t_attached_note_count_with_colon') }} {{ item.attached_note_count }}
-          </li>
-          <li>
-            {{ $t('t_created_at_with_colon') }} {{ formatDate(item.created_at) }}
-          </li>
-          <li>
-            {{ $t('t_updated_at_with_colon') }} {{ formatDate(item.updated_at) }}
-          </li>
-        </ul>
       </section>
     </UCard>
   </section>
@@ -129,6 +121,12 @@ const show_details = ref(false);
 .card-selected {
   background: var(--color-alert-info-bg);
   border-color: var(--color-alert-info-border);
+}
+
+.header {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
 }
 
 .item-card-header {

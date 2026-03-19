@@ -59,14 +59,16 @@ const handleCancel = () => {
     }"
     :title="$t('t_add_tags')"
   >
-    <UButton
-      class="cursor-pointer"
-      color="secondary"
-      icon="i-lucide:circle-plus"
-      variant="outline"
-    >
-      <span class="desktop-only">{{ $t('t_add_tags') }}</span>
-    </UButton>
+    <section>
+      <span class="desktop-only cursor-pointer">{{ $t('t_add_tags') }}</span>
+
+      <UIcon
+        name="i-lucide-circle-plus"
+        class="mobile-only cursor-pointer size-6"
+        color="info"
+        variant="solid"
+      />
+    </section>
 
     <template #body>
       <SelectTagsInputElement

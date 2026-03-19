@@ -161,133 +161,135 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <UContainer class="centered-max-width-1200">
-    <header class="center">
-      <h1>{{ $t('t_manage_notes') }}</h1>
+  <section>
+    <UContainer class="centered-max-width-1200">
+      <header class="center">
+        <h1>{{ $t('t_manage_notes') }}</h1>
 
-      <hr class="separator-1">
+        <hr class="separator-1">
 
-      <UButton
-        class="cursor-pointer"
-        icon="i-lucide-plus"
-        @click="navigateTo('/manage-notes/add')"
-      >
-        <span>{{ $t('t_add_note') }}</span>
-      </UButton>
-    </header>
+        <UButton
+          class="cursor-pointer"
+          icon="i-lucide-plus"
+          @click="navigateTo('/manage-notes/add')"
+        >
+          <span>{{ $t('t_add_note') }}</span>
+        </UButton>
+      </header>
 
-    <hr class="separator-2">
+      <hr class="separator-2">
 
-    <template v-if="total_user_note_count > 0">
-      <LoadingElement v-if="handling_request" />
+      <template v-if="total_user_note_count > 0">
+        <LoadingElement v-if="handling_request" />
 
-      <template v-if="!handling_request">
-        <div class="action-bar">
-          <section class="action-bar-left">
-            <UButton
-              class="cursor-pointer"
-              icon="i-lucide-search"
-              :variant="show_search_input ? 'solid' : 'outline'"
-              @click="handleActionBarClick('show_search_input')"
-            >
-              <span class="desktop-only">
-                {{ $t('t_search') }}
-              </span>
-            </UButton>
-
-            <UButton
-              class="cursor-pointer"
-              icon="i-lucide-tag"
-              :variant="show_filter_tags_input ? 'solid' : 'outline'"
-              @click="handleActionBarClick('show_filter_tags_input')"
-            >
-              <span class="desktop-only">
-                {{ $t('t_filter_by_tags') }}
-              </span>
-            </UButton>
-
-            <UButton
-              class="cursor-pointer"
-              icon="i-lucide-arrow-down-wide-narrow"
-              :variant="show_order_options ? 'solid' : 'outline'"
-              @click="handleActionBarClick('show_order_options')"
-            >
-              <span class="desktop-only">
-                {{ $t('t_reorder') }}
-              </span>
-            </UButton>
-
-            <UButton
-              class="cursor-pointer"
-              icon="i-lucide-square-check"
-              :variant="show_master_checkbox ? 'solid' : 'outline'"
-              @click="handleActionBarClick('show_master_checkbox')"
-            >
-              <span class="desktop-only">
-                {{ $t('t_select_all') }}
-              </span>
-            </UButton>
-          </section>
-
-          <section
-            class="action-bar-right"
-            @click="reinitializeSearch"
-          >
-            <UIcon
-              name="i-lucide-refresh-cw"
-            />
-            <span class="desktop-only">
-              {{ $t('t_reset_filters') }}
-            </span>
-          </section>
-        </div>
-
-        <div class="action-bar-details">
-          <UInput
-            v-if="show_search_input"
-            v-model="search_criteria_term"
-            icon="i-lucide-search"
-            :placeholder="$t('t_search_notes')"
-            @input="onSearchInput"
-          >
-            <template
-              v-if="search_criteria_term?.length > 0"
-              #trailing
-            >
+        <template v-if="!handling_request">
+          <div class="action-bar">
+            <section class="action-bar-left">
               <UButton
-                color="neutral"
-                variant="link"
-                size="sm"
-                icon="i-lucide-circle-x"
-                :aria-label="$t('t_clear_input')"
-                @click="onClearingInput"
+                class="cursor-pointer"
+                icon="i-lucide-search"
+                :variant="show_search_input ? 'solid' : 'outline'"
+                @click="handleActionBarClick('show_search_input')"
+              >
+                <span class="desktop-only">
+                  {{ $t('t_search') }}
+                </span>
+              </UButton>
+
+              <UButton
+                class="cursor-pointer"
+                icon="i-lucide-tag"
+                :variant="show_filter_tags_input ? 'solid' : 'outline'"
+                @click="handleActionBarClick('show_filter_tags_input')"
+              >
+                <span class="desktop-only">
+                  {{ $t('t_filter_by_tags') }}
+                </span>
+              </UButton>
+
+              <UButton
+                class="cursor-pointer"
+                icon="i-lucide-arrow-down-wide-narrow"
+                :variant="show_order_options ? 'solid' : 'outline'"
+                @click="handleActionBarClick('show_order_options')"
+              >
+                <span class="desktop-only">
+                  {{ $t('t_reorder') }}
+                </span>
+              </UButton>
+
+              <UButton
+                class="cursor-pointer"
+                icon="i-lucide-square-check"
+                :variant="show_master_checkbox ? 'solid' : 'outline'"
+                @click="handleActionBarClick('show_master_checkbox')"
+              >
+                <span class="desktop-only">
+                  {{ $t('t_select_all') }}
+                </span>
+              </UButton>
+            </section>
+
+            <section
+              class="action-bar-right"
+              @click="reinitializeSearch"
+            >
+              <UIcon
+                name="i-lucide-refresh-cw"
               />
-            </template>
-          </UInput>
+              <span class="desktop-only">
+                {{ $t('t_reset_filters') }}
+              </span>
+            </section>
+          </div>
 
-          <SelectTagsInputElements
-            v-if="show_filter_tags_input"
-            :tag_list="all_user_tag_list"
-            :selected_tag_id_list="search_criteria_tag_id_list"
-            @update:selected_tag_id_list="onTagFilterChange"
-          />
+          <div class="action-bar-details">
+            <UInput
+              v-if="show_search_input"
+              v-model="search_criteria_term"
+              icon="i-lucide-search"
+              :placeholder="$t('t_search_notes')"
+              @input="onSearchInput"
+            >
+              <template
+                v-if="search_criteria_term?.length > 0"
+                #trailing
+              >
+                <UButton
+                  color="neutral"
+                  variant="link"
+                  size="sm"
+                  icon="i-lucide-circle-x"
+                  :aria-label="$t('t_clear_input')"
+                  @click="onClearingInput"
+                />
+              </template>
+            </UInput>
 
-          <URadioGroup
-            v-if="show_order_options"
-            v-model="sort_option"
-            :items="sort_option_list"
-            value-key="id"
-            @change="onSortChange"
-          />
-        </div>
+            <SelectTagsInputElements
+              v-if="show_filter_tags_input"
+              :tag_list="all_user_tag_list"
+              :selected_tag_id_list="search_criteria_tag_id_list"
+              @update:selected_tag_id_list="onTagFilterChange"
+            />
 
-        <SelectableItemsElement
-          :item_type="ITEM_TYPE_NOTE"
-          :show_master_checkbox
-        />
+            <URadioGroup
+              v-if="show_order_options"
+              v-model="sort_option"
+              :items="sort_option_list"
+              value-key="id"
+              @change="onSortChange"
+            />
+          </div>
+        </template>
       </template>
-    </template>
-  </UContainer>
+    </UContainer>
+
+    <SelectableItemsElement
+      :item_type="ITEM_TYPE_NOTE"
+      :show_master_checkbox
+    />
+  </section>
 </template>
 
 <style scoped>

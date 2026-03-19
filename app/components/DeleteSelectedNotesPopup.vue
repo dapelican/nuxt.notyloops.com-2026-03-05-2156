@@ -50,14 +50,14 @@ const deleteNotes = async () => {
     }"
     :title="$t('t_delete')"
   >
-    <UButton
-      class="cursor-pointer"
-      color="error"
-      icon="i-lucide-trash-2"
-      variant="outline"
-    >
-      <span class="desktop-only">{{ $t('t_delete') }}</span>
-    </UButton>
+    <section>
+      <span class="desktop-only cursor-pointer">{{ $t('t_delete') }}</span>
+
+      <UIcon
+        name="i-lucide-trash-2"
+        class="mobile-only cursor-pointer size-6 text-error"
+      />
+    </section>
 
     <template #body>
       <p>

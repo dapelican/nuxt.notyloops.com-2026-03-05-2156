@@ -4,6 +4,8 @@ import {
   ITEM_TYPE_TAG,
 } from '~/utils/constants';
 
+const MAX_ITEMS_PER_PAGE = 10;
+
 export const useSearchAndSelectItems = (key) => {
   const route = useRoute();
 
@@ -17,7 +19,7 @@ export const useSearchAndSelectItems = (key) => {
     return n;
   });
 
-  const items_per_page = useState(`items_per_page_${key}`, () => 2);
+  const items_per_page = useState(`items_per_page_${key}`, () => MAX_ITEMS_PER_PAGE);
 
   const offset = computed(() => (page_number.value - 1) * items_per_page.value);
 

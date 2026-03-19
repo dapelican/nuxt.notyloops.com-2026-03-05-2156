@@ -13,7 +13,5 @@
 <style scoped>
 .page {
   margin-top: 1rem;
-  margin-left: 0.3rem;
-  margin-right: 0.3rem;
 }
 </style>

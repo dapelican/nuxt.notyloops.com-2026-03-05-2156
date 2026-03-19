@@ -113,7 +113,7 @@ const selectAllPages = () => {
 
 <template>
   <!-- SelectableItemsElement.vue -->
-  <UContainer class="centered-max-width-1200">
+  <UContainer>
     <div
       v-if="!handling_request && searched_item_count === 0 && search_criteria_term"
       class="empty-state"
@@ -125,40 +125,17 @@ const selectAllPages = () => {
       <p>{{ $t('t_no_tags_match_your_search') }}</p>
     </div>
 
-    <NoteListElement
-      v-if="props.item_type === ITEM_TYPE_NOTE"
-      :item_list="current_page_item_list"
-      @toggle_item_selection="handleCheckboxClick"
-    />
-
-    <hr class="separator-2">
-
-    <div
-      v-if="total_pages > 1"
-      class="flex justify-center"
-    >
-      <UPagination
-        v-model:page="page_number"
-        :items-per-page="items_per_page"
-        :to="(p) => `/manage-${item_type}s/page/${p}`"
-        :total="searched_item_count"
-      />
-    </div>
-  </UContainer>
-
-  <nav class="nav">
     <UAlert
       v-if="!handling_request && searched_item_count > 0
         && (show_master_checkbox || has_selection)"
-      class="rounded-none"
+      class="selection-banner"
       color="primary"
-      variant="solid"
+      variant="subtle"
     >
       <template #description>
         <div class="selection-banner-content">
           <section class="master-checkbox">
             <UCheckbox
-              color="secondary"
               :model-value="master_checked"
               :indeterminate="master_indeterminate"
               :ui="{
@@ -231,7 +208,37 @@ const selectAllPages = () => {
         </div>
       </template>
     </UAlert>
-  </nav>
+
+    <div class="desktop-only">
+      <ItemListForDesktopElement
+        :item_list="current_page_item_list"
+        :item_type
+        @toggle_item_selection="handleCheckboxClick"
+      />
+    </div>
+
+    <div class="mobile-only">
+      <ItemListForMobileElement
+        :item_list="current_page_item_list"
+        :item_type
+        @toggle_item_selection="handleCheckboxClick"
+      />
+    </div>
+
+    <hr class="separator-2">
+
+    <div
+      v-if="total_pages > 1"
+      class="flex justify-center"
+    >
+      <UPagination
+        v-model:page="page_number"
+        :items-per-page="items_per_page"
+        :to="(p) => `/manage-${item_type}s/page/${p}`"
+        :total="searched_item_count"
+      />
+    </div>
+  </UContainer>
 </template>
 
 <style scoped>
@@ -280,11 +287,8 @@ const selectAllPages = () => {
   gap: 0.5rem;
 }
 
-.nav {
-  bottom: 0;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
-  position: sticky;
+.selection-banner {
+  margin-bottom: 0.5rem;
 }
 
 .selection-banner-content {
