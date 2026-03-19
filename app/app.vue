@@ -3,7 +3,7 @@
     <HeaderElement />
 
     <UMain class="page">
-      <NuxtPage :key="$route.fullPath" />
+      <NuxtPage />
     </UMain>
 
     <FooterElement />

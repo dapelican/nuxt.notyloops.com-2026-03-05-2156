@@ -2,11 +2,15 @@
 defineProps({
   color: {
     type: String,
-    default: 'neutral',
+    default: 'secondary',
   },
   label: {
     type: String,
     required: true,
+  },
+  removable: {
+    type: Boolean,
+    default: false,
   },
 });
 
@@ -15,14 +19,26 @@ defineEmits(['remove_tag']);
 
 <template>
   <UBadge :color>
-    {{ label }}
-    <template #trailing>
-      <UButton
+    <template #leading>
+      <UIcon
+        color="white"
+        name="i-lucide-tag"
+        variant="solid"
+      />
+    </template>
+
+    <span>
+      {{ label }}
+    </span>
+
+    <template
+      v-if="removable"
+      #trailing
+    >
+      <UIcon
+        class="cursor-pointer"
         color="neutral"
-        variant="ghost"
-        size="xs"
-        icon="i-lucide-x"
-        :aria-label="$t('t_remove_tag')"
+        name="i-lucide-x"
         @click.stop="$emit('remove_tag')"
       />
     </template>

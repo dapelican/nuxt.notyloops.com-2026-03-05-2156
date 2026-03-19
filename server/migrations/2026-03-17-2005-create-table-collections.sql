@@ -1,18 +1,20 @@
 CREATE TABLE collections (
   id UUID PRIMARY KEY DEFAULT uuidv7(),
-  created_at TIMESTAMPTZ DEFAULT now() NOT NULL,
-  updated_at TIMESTAMPTZ DEFAULT now() NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now() ,
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
   user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-  type TEXT NOT NULL DEFAULT 'private',
+  type TEXT NOT NULL DEFAULT 'private', -- private, shared, public
   title TEXT NOT NULL,
   description TEXT,
   tag_id_list_to_include JSONB,
+  inclusion_type TEXT NOT NULL DEFAULT 'AND' CHECK (inclusion_type IN ('AND', 'OR')),
   tag_id_list_to_exclude JSONB,
+  exclusion_type TEXT NOT NULL DEFAULT 'AND' CHECK (exclusion_type IN ('AND', 'OR')),
   track_scores BOOLEAN NOT NULL DEFAULT TRUE,
-  display_titles BOOLEAN NOT NULL DEFAULT FALSE,
-  review_order TEXT NOT NULL DEFAULT 'creation_order',
+  hide_note_titles BOOLEAN NOT NULL DEFAULT TRUE,
+  review_strategy TEXT NOT NULL DEFAULT 'creation_order',
   pinned BOOLEAN NOT NULL DEFAULT FALSE,
-  price_without_vat INTEGER,
+  price_without_tax INTEGER,
   slug TEXT
 );
 

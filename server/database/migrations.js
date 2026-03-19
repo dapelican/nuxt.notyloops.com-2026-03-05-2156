@@ -17,7 +17,7 @@ const createMigrationsTable = async () => {
     CREATE TABLE IF NOT EXISTS migrations (
       id SERIAL PRIMARY KEY,
       filename TEXT NOT NULL UNIQUE,
-      executed_at TIMESTAMPTZ DEFAULT now() NOT NULL
+      executed_at TIMESTAMPTZ NOT NULL DEFAULT now()
     );
   `;
 

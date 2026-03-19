@@ -357,3 +357,20 @@ export const GOOGLE_TEXT_TO_SPEECH_LANGUAGE_LIST = [
     },
   },
 ];
+
+export const COLLECTION_TYPE_LIST = [
+  'private',
+  'shared',
+  'paywalled',
+  'public',
+];
+
+export const REVIEW_STRATEGY_LIST = [
+  'spaced_repetition',
+  'random',
+  'by_score_lowest_to_highest',
+  'by_last_review_date_oldest_to_newest',
+  'by_creation_date_oldest_to_newest',
+  'by_lexicographical_order',
+  'diary',
+];

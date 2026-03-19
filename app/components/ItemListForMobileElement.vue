@@ -9,7 +9,7 @@ const props = defineProps({
 const {
   current_page_item_list,
   selected_item_id_set,
-} = useSearchAndSelectItems(props.item_type);
+} = useSearchAndSelectItemsOrInject(props.item_type);
 
 const route = useRoute();
 

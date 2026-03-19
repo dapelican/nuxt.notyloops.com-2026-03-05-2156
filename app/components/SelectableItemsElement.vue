@@ -18,7 +18,7 @@ const {
   searched_item_id_set,
   selected_item_id_set,
   search_criteria_term,
-} = useSearchAndSelectItems(props.item_type);
+} = useSearchAndSelectItemsOrInject(props.item_type);
 
 const searched_item_count = computed(() => {
   return searched_item_id_set.value.size;
@@ -127,6 +127,18 @@ const selectAllPages = () => {
 
     <NoteListElement
       v-if="props.item_type === ITEM_TYPE_NOTE"
+      :item_list="current_page_item_list"
+      @toggle_item_selection="handleCheckboxClick"
+    />
+
+    <TagListElement
+      v-if="props.item_type === ITEM_TYPE_TAG"
+      :item_list="current_page_item_list"
+      @toggle_item_selection="handleCheckboxClick"
+    />
+
+    <CollectionListElement
+      v-if="props.item_type === ITEM_TYPE_COLLECTION"
       :item_list="current_page_item_list"
       @toggle_item_selection="handleCheckboxClick"
     />

@@ -1,7 +1,7 @@
 CREATE TABLE user_session_tokens (
   id UUID PRIMARY KEY DEFAULT uuidv7(),
-  created_at TIMESTAMPTZ DEFAULT now() NOT NULL,
-  updated_at TIMESTAMPTZ DEFAULT now() NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now() ,
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
   expires_at TIMESTAMPTZ,
   user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
   token TEXT,

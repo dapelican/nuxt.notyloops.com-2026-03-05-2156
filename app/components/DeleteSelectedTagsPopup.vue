@@ -1,10 +1,11 @@
 <script setup>
 const {
+  all_user_tag_list,
   clearSelection,
   page_number,
   selected_item_id_set,
   searchItems,
-} = useSearchAndSelectItems(ITEM_TYPE_TAG);
+} = useSearchAndSelectItemsOrInject(ITEM_TYPE_TAG);
 
 const show_popup = ref(false);
 const is_deleting = ref(false);
@@ -22,6 +23,10 @@ const deleteTags = async () => {
         tag_id_list: [...selected_item_id_set.value],
       },
     });
+
+    const response = await $fetch('/tags/count-user-tags');
+
+    all_user_tag_list.value = response.all_user_tag_list;
 
     clearSelection();
     show_popup.value = false;

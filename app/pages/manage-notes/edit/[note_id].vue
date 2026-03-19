@@ -316,7 +316,7 @@ const updateNote = async () => {
           class="cursor-pointer"
           color="error"
           variant="outline"
-          @click="navigateTo(CONNECTED_USER_LANDING_PAGE)"
+          :to="CONNECTED_USER_LANDING_PAGE"
         >
           {{ $t('t_cancel') }}
         </UButton>

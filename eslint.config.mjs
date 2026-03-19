@@ -24,7 +24,7 @@ export default withNuxt(
       'sort-imports': 'error',
       'vue/no-multiple-template-root': 'off',
       'vue/no-v-html': 'off',
-      'vue/object-curly-newline': ['error', { multiline: true, minProperties: 1 }],
+      'vue/object-curly-newline': ['error', { multiline: true, minProperties: 2 }],
       'vue/prop-name-casing': ['error', 'snake_case'],
     },
   }

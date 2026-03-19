@@ -10,7 +10,7 @@ const {
   all_user_tag_list,
   clearSelection,
   searchItems,
-} = useSearchAndSelectItems(ITEM_TYPE_NOTE);
+} = useSearchAndSelectItemsOrInject(ITEM_TYPE_NOTE);
 
 const selected_tag_id_list = ref([]);
 

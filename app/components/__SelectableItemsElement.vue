@@ -18,7 +18,7 @@ const {
   searched_item_id_set,
   selected_item_id_set,
   search_criteria_term,
-} = useSearchAndSelectItems(props.item_type);
+} = useSearchAndSelectItemsOrInject(props.item_type);
 
 const searched_item_count = computed(() => {
   return searched_item_id_set.value.size;

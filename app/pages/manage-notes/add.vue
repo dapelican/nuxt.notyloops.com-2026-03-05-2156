@@ -276,15 +276,23 @@ const createNote = async () => {
       </ul>
 
       <nav class="flex-ce-ce-gap-2">
-        <UButton
+        <NuxtLink
+          :to="CONNECTED_USER_LANDING_PAGE"
+        >
+          {{ $t('t_cancel') }}
+        </NuxtLink>
+
+        <!-- <UButton
+          class="cursor-pointer"
           color="error"
           variant="outline"
           @click="navigateTo(CONNECTED_USER_LANDING_PAGE)"
         >
           {{ $t('t_cancel') }}
-        </UButton>
+        </UButton> -->
 
         <UButton
+          class="cursor-pointer"
           color="primary"
           variant="solid"
           :disabled="handling_request"

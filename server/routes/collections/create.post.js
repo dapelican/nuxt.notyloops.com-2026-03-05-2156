@@ -24,6 +24,8 @@ import {
   verifySessionAndReturnUser,
 } from '../../helpers/verify-session-and-return-user.js';
 
+import { z } from 'zod';
+
 export default defineEventHandler(async (event) => {
   try {
     const user = await verifySessionAndReturnUser(event);
@@ -37,48 +39,58 @@ export default defineEventHandler(async (event) => {
     }
 
     const {
+      description,
+      exclusion_type,
+      hide_note_titles,
+      inclusion_type,
+      price_without_tax,
+      review_strategy,
       tag_id_list_to_exclude,
       tag_id_list_to_include,
       title,
-      // description,
+      track_scores,
       type,
-      // track_scores,
-      // display_titles,
-      // review_order,
-      // pinned,
-      // price_without_vat,
-      // slug,
     } = await readBody(event);
 
-    if (!title) {
+    const AND_OR_LIST = ['AND', 'OR'];
+
+    if (!AND_OR_LIST.includes(inclusion_type)) {
       setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
-        error_message: 'error_invalid_input',
+        error_message: 'error_invalid_inclusion_type',
       };
     }
 
-    if (!tag_id_list_to_include || !Array.isArray(tag_id_list_to_include)) {
+    if (!AND_OR_LIST.includes(exclusion_type)) {
       setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
-        error_message: 'error_invalid_input',
+        error_message: 'error_invalid_exclusion_type',
       };
     }
 
-    if (!tag_id_list_to_exclude || !Array.isArray(tag_id_list_to_exclude)) {
+    if (!z.string().min(1).safeParse(title).success) {
       setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
-        error_message: 'error_invalid_input',
+        error_message: 'error_invalid_collection_title',
       };
     }
 
-    if (!type) {
+    if (!COLLECTION_TYPE_LIST.includes(type)) {
       setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
-        error_message: 'error_invalid_input',
+        error_message: 'error_invalid_collection_type',
+      };
+    }
+
+    if (type === 'private' && !REVIEW_STRATEGY_LIST.includes(review_strategy)) {
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+
+      return {
+        error_message: 'error_invalid_collection_review_strategy',
       };
     }
 
@@ -87,15 +99,29 @@ export default defineEventHandler(async (event) => {
       user_id,
       title,
       tag_id_list_to_include,
+      inclusion_type,
       tag_id_list_to_exclude,
-      type
-      ) VALUES ($1, $2, $3, $4, $5) RETURNING *`,
+      exclusion_type,
+      type,
+      review_strategy,
+      hide_note_titles,
+      track_scores,
+      description,
+      price_without_tax
+      ) VALUES ($1, $2, $3::jsonb, $4, $5::jsonb, $6, $7, $8, $9, $10, $11, $12) RETURNING *`,
       [
         user.id,
         title,
         JSON.stringify(tag_id_list_to_include),
+        inclusion_type,
         JSON.stringify(tag_id_list_to_exclude),
+        exclusion_type,
         type,
+        review_strategy,
+        hide_note_titles,
+        track_scores,
+        description,
+        price_without_tax,
       ]
     );
 

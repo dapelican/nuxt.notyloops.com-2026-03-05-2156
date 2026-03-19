@@ -2,7 +2,7 @@
 const {
   current_page_item_list,
   selected_item_id_set,
-} = useSearchAndSelectItems(ITEM_TYPE_NOTE);
+} = useSearchAndSelectItemsOrInject(ITEM_TYPE_NOTE);
 
 const route = useRoute();
 
@@ -12,7 +12,61 @@ const emit = defineEmits(['toggle_item_selection']);
 
 const isItemSelected = (item_id) => selected_item_id_set.value.has(item_id);
 
-const show_details = ref(false);
+const statistics_open_by_note_id = ref({});
+const content_open_by_note_id = ref({});
+
+const note_detail_list_by_note_id = ref({});
+const note_detail_loading = ref({});
+
+const load_note_detail_list = async (note_id) => {
+  if (Array.isArray(note_detail_list_by_note_id.value[note_id])) {
+    return;
+  }
+
+  note_detail_loading.value = {
+    ...note_detail_loading.value,
+    [note_id]: true,
+  };
+
+  try {
+    const data = await $fetch(`/note_details/${note_id}`);
+
+    if (data?.error_message) {
+      handleFrontendError(null, data.error_message);
+      return;
+    }
+
+    note_detail_list_by_note_id.value = {
+      ...note_detail_list_by_note_id.value,
+      [note_id]: data.note_detail_list ?? [],
+    };
+  } catch (error) {
+    handleFrontendError(error, error?.data?.error_message);
+  } finally {
+    note_detail_loading.value = {
+      ...note_detail_loading.value,
+      [note_id]: false,
+    };
+  }
+};
+
+const set_statistics_open = (note_id, is_open) => {
+  statistics_open_by_note_id.value = {
+    ...statistics_open_by_note_id.value,
+    [note_id]: is_open,
+  };
+};
+
+const on_content_open_change = async (note_id, is_open) => {
+  content_open_by_note_id.value = {
+    ...content_open_by_note_id.value,
+    [note_id]: is_open,
+  };
+
+  if (is_open) {
+    await load_note_detail_list(note_id);
+  }
+};
 </script>
 
 <template>
@@ -50,58 +104,116 @@ const show_details = ref(false);
         </section>
       </template>
 
-      <section>
-        Tags<br>
-        Contenu<br>
-        Dates: date de création, date de denrière modification, date de 1ère révision, date de dernière révision
-        Statistiques : réviisons, score (en %)
-      </section>
+      <main class="main">
+        <section class="actions">
+          <NuxtLink
+            class="primary-link"
+            :to="`/manage-${ITEM_TYPE_NOTE}s/edit/${item.id}?page_number=${page_number}`"
+          >
+            {{ $t('t_edit') }}
+          </NuxtLink>
 
-      <section
-        v-if="item.tag_list.length > 0"
-        class="item-card-tags"
-      >
-        <span
-          v-for="tag in item.tag_list"
-          :key="tag.id"
-          class="tag-badge"
-        >
-          {{ tag.label }}
-        </span>
-      </section>
-
-      <section class="item-card-actions">
-        <div
-          class="chevron-zone"
-          @click="show_details = !show_details"
-        >
-          <span>
-            {{ $t('t-details') }}
-          </span>
-
-          <UIcon
-            :name="show_details ? 'i-lucide-chevron-up' : 'i-lucide-chevron-down'"
-            class="icon-right"
+          <DeleteNotePopup
+            :note_id="item.id"
+            :note_title="item.title"
           />
-        </div>
+        </section>
 
-        <NuxtLink
-          class="primary-link"
-          :to="`/manage-${ITEM_TYPE_NOTE}s/edit/${item.id}?page_number=${page_number}`"
+        <section
+          v-if="item.tag_list.length > 0"
+          class="tags"
         >
-          {{ $t('t_edit') }}
-        </NuxtLink>
-      </section>
+          <TagElement
+            v-for="tag in item.tag_list"
+            :key="tag.id"
+            :label="tag.label"
+          />
+        </section>
+
+        <UCollapsible
+          :open="!!statistics_open_by_note_id[item.id]"
+          @update:open="(is_open) => set_statistics_open(item.id, is_open)"
+        >
+          <div class="chevron-zone">
+            <span>
+              {{ $t('t_statistics') }}
+            </span>
+
+            <UIcon
+              :name="statistics_open_by_note_id[item.id] ? 'i-lucide-chevron-up' : 'i-lucide-chevron-down'"
+              class="icon-right"
+            />
+          </div>
+
+          <template #content>
+            <ul>
+              <li>
+                {{ $t('t_created_at_with_colon') }} {{ formatDate(item.created_at) }}
+              </li>
+              <li>
+                {{ $t('t_updated_at_with_colon') }} {{ formatDate(item.updated_at) }}
+              </li>
+              <li>
+                {{ $t('t_first_revision_at_with_colon') }} {{ formatDate(item.first_revision_at) }}
+              </li>
+              <li>
+                {{ $t('t_last_revision_at_with_colon') }} {{ formatDate(item.last_revision_at) }}
+              </li>
+              <li>
+                {{ $t('t_revisions_count_with_colon') }} {{ item.revision_count }}
+              </li>
+              <li>
+                {{ $t('t_score_with_colon') }} {{ item.score }}
+              </li>
+            </ul>
+          </template>
+        </UCollapsible>
+
+        <UCollapsible
+          :open="!!content_open_by_note_id[item.id]"
+          @update:open="(is_open) => on_content_open_change(item.id, is_open)"
+        >
+          <div class="chevron-zone">
+            <span>
+              {{ $t('t_content') }}
+            </span>
+
+            <UIcon
+              :name="content_open_by_note_id[item.id] ? 'i-lucide-chevron-up' : 'i-lucide-chevron-down'"
+              class="icon-right"
+            />
+          </div>
+
+          <template #content>
+            <LoadingElement
+              v-if="note_detail_loading[item.id]"
+              class="py-4 w-full max-w-md mx-auto"
+            />
+            <NoteDisplayerElement
+              v-else
+              :hide_title="false"
+              :note_detail_list="note_detail_list_by_note_id[item.id] ?? []"
+              :title="item.title"
+            />
+          </template>
+        </UCollapsible>
+      </main>
     </UCard>
   </section>
 </template>
 
 <style scoped>
+.actions {
+  align-items: center;
+  display: flex;
+  gap: 2rem;
+}
+
 .chevron-zone {
   align-items: center;
   cursor: pointer;
   display: flex;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 .item-card-list {
@@ -111,59 +223,21 @@ const show_details = ref(false);
   margin-top: 1rem;
 }
 
-.item-card-actions {
-  align-items: flex-start;
-  display: flex;
-  justify-content: space-between;
-  margin-top: 0.5rem;
-}
-
-.card-selected {
-  background: var(--color-alert-info-bg);
-  border-color: var(--color-alert-info-border);
-}
-
 .header {
   align-items: center;
   display: flex;
   gap: 0.5rem;
 }
 
-.item-card-header {
-  align-items: center;
+.main {
   display: flex;
+  flex-direction: column;
   gap: 0.5rem;
 }
 
-.item-card-header input {
-  cursor: pointer;
-  flex-shrink: 0;
-  height: 16px;
-  width: 16px;
-}
-
-.item-card-title {
-  font-size: 1rem;
-  font-weight: 600;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.item-card-tags {
+.tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.3rem;
-  margin-top: 0.4rem;
-  padding-left: 1.6rem;
-}
-
-.tag-badge {
-  background: var(--color-pagination-hover);
-  border-radius: 10px;
-  display: inline-block;
-  font-size: 0.75rem;
-  padding: 2px 8px;
-  white-space: nowrap;
 }
 </style>

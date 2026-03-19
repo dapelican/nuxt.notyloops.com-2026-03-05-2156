@@ -90,7 +90,7 @@ const private_items = computed(() => [
     />
 
     <template #right>
-      <UColorModeButton />
+      <UColorModeButton class="cursor-pointer" />
     </template>
 
     <template #body>

@@ -29,9 +29,6 @@ import { z } from 'zod';
 const ALLOWED_SORT_COLUMNS = ['title', 'created_at', 'updated_at'];
 const ALLOWED_SORT_ORDERS = ['asc', 'desc'];
 
-const DEFAULT_SORT_BY = 'created_at';
-const DEFAULT_SORT_ORDER = 'desc';
-
 export default defineEventHandler(async (event) => {
   try {
     const user = await verifySessionAndReturnUser(event);
@@ -64,13 +61,16 @@ export default defineEventHandler(async (event) => {
       };
     }
 
-    sort_by = ALLOWED_SORT_COLUMNS.includes(sort_by)
-      ? sort_by
-      : DEFAULT_SORT_BY;
+    if (
+      !ALLOWED_SORT_COLUMNS.includes(sort_by)
+      || !ALLOWED_SORT_ORDERS.includes(sort_order)
+    ) {
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
-    sort_order = ALLOWED_SORT_ORDERS.includes(sort_order)
-      ? sort_order
-      : DEFAULT_SORT_ORDER;
+      return {
+        error_message: 'error_invalid_input',
+      };
+    }
 
     const where_clause_list = ['n.user_id = $1 and n.deleted_at IS NULL'];
     const parameter_list = [user.id];
@@ -126,9 +126,9 @@ export default defineEventHandler(async (event) => {
     setResponseStatus(event, HTTP_CODE_200_OK);
 
     return {
+      current_page_note_list,
       searched_note_id_list,
       searched_note_count: searched_note_id_list.length,
-      current_page_note_list,
     };
   } catch (error) {
     /* c8 ignore next */

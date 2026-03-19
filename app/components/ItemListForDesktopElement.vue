@@ -11,7 +11,7 @@ const { t } = useI18n();
 const {
   current_page_item_list,
   selected_item_id_set,
-} = useSearchAndSelectItems(props.item_type);
+} = useSearchAndSelectItemsOrInject(props.item_type);
 
 let column_list = [];
 

@@ -1,10 +1,11 @@
 CREATE TABLE tags (
   id UUID PRIMARY KEY DEFAULT uuidv7(),
-  created_at TIMESTAMPTZ DEFAULT now() NOT NULL,
-  updated_at TIMESTAMPTZ DEFAULT now() NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now() ,
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
   user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
   label TEXT NOT NULL,
-  lowercase_label TEXT
+  lowercase_label TEXT,
+  color TEXT DEFAULT NULL
 );
 
 CREATE TRIGGER update_tags_timestamp

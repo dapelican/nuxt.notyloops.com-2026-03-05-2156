@@ -2,8 +2,8 @@
 @import "@nuxt/ui";
 
 html {
-  /* font-size: 112.5%; */
-  font-size: 125%; /* 20px */
+  font-size: 112.5%; /* 18px */
+  /* font-size: 125%; */
 }
 
 @layer base {
@@ -21,6 +21,11 @@ html {
     line-height: 1.2;
   }
 }
+
+/* @theme {
+  --text-sm: 1rem;
+  --text-sm--line-height: 1.5rem;
+} */
 
 /* Classes by alphabetical order */
 .center {

@@ -7,12 +7,21 @@ useSeoMeta({
   title: `${t('t_manage_tags')} | OptiLeague`,
 });
 
+const {
+  handling_request,
+  page_number,
+  reinitializeSearch,
+  sort_option,
+  search_criteria_term,
+  searchItems,
+} = provideSearchAndSelectItems(ITEM_TYPE_TAG);
+
 const total_user_tag_count = ref(0);
 
 const {
   data: count_data,
   error: count_error,
-} = await useFetch('/tags/count-user-tags');
+} = await useFetch('/tags/count-user-tags', { key: 'tags-manage-count' });
 
 if (count_error.value) {
   handleFrontendError(null, count_error.value.data?.error_message);
@@ -21,15 +30,6 @@ if (count_error.value) {
 if (count_data.value) {
   total_user_tag_count.value = count_data.value.total_user_tag_count;
 }
-
-const {
-  handling_request,
-  page_number,
-  reinitializeSearch,
-  sort_option,
-  search_criteria_term,
-  searchItems,
-} = useSearchAndSelectItems(ITEM_TYPE_TAG);
 
 // Action bar actions
 const show_order_options = ref(false);
@@ -122,9 +122,8 @@ const onClearingInput = () => {
 
 onMounted(() => {
   searchItems();
+  watch(page_number, searchItems);
 });
-
-watch(page_number, searchItems);
 
 onUnmounted(() => {
   clearTimeout(search_timeout);
@@ -132,138 +131,128 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <UContainer class="centered-max-width-1200">
-    <header class="center">
-      <h1>{{ $t('t_manage_tags') }}</h1>
+  <section>
+    <UContainer class="centered-max-width-1200">
+      <header class="center">
+        <h1>{{ $t('t_manage_tags') }}</h1>
 
-      <hr class="separator-1">
+        <hr class="separator-1">
 
-      <UButton
-        class="cursor-pointer"
-        icon="i-lucide-plus"
-        @click="navigateTo('/manage-tags/add')"
-      >
-        <span>{{ $t('t_add_tag') }}</span>
-      </UButton>
-    </header>
+        <UButton
+          class="cursor-pointer hover:text-inverted!"
+          icon="i-lucide-plus"
+          :to="'/manage-tags/add'"
+        >
+          <span>{{ $t('t_add_tag') }}</span>
+        </UButton>
+      </header>
 
-    <hr class="separator-2">
+      <hr class="separator-2">
 
-    <template v-if="total_user_tag_count > 0">
-      <LoadingElement v-if="handling_request" />
+      <template v-if="total_user_tag_count > 0">
+        <LoadingElement v-if="handling_request" />
 
-      <template v-if="!handling_request">
-        <div class="action-bar">
-          <section class="action-bar-left">
-            <UButton
-              class="cursor-pointer"
-              icon="i-lucide-search"
-              :variant="show_search_input ? 'solid' : 'outline'"
-              @click="handleActionBarClick('show_search_input')"
-            >
-              <span class="desktop-only">
-                {{ $t('t_search') }}
-              </span>
-            </UButton>
-
-            <UButton
-              class="cursor-pointer"
-              icon="i-lucide-arrow-down-wide-narrow"
-              :variant="show_order_options ? 'solid' : 'outline'"
-              @click="handleActionBarClick('show_order_options')"
-            >
-              <span class="desktop-only">
-                {{ $t('t_reorder') }}
-              </span>
-            </UButton>
-
-            <UButton
-              class="cursor-pointer"
-              icon="i-lucide-square-check"
-              :variant="show_master_checkbox ? 'solid' : 'outline'"
-              @click="handleActionBarClick('show_master_checkbox')"
-            >
-              <span class="desktop-only">
-                {{ $t('t_select_all') }}
-              </span>
-            </UButton>
-          </section>
-
-          <section
-            class="action-bar-right"
-            @click="reinitializeSearch"
-          >
-            <UIcon
-              name="i-lucide-refresh-cw"
-            />
-            <span class="desktop-only">
-              {{ $t('t_reset_filters') }}
-            </span>
-          </section>
-        </div>
-
-        <div class="action-bar-details">
-          <UInput
-            v-if="show_search_input"
-            v-model="search_criteria_term"
-            icon="i-lucide-search"
-            :placeholder="$t('t_search_tags')"
-            @input="onSearchInput"
-          >
-            <template
-              v-if="search_criteria_term?.length > 0"
-              #trailing
-            >
+        <template v-if="!handling_request">
+          <section class="ml-auto mr-auto mb-4 max-w-fit">
+            <div class="flex justify-center gap-2 mb-4">
               <UButton
-                color="neutral"
-                variant="link"
-                size="sm"
-                icon="i-lucide-circle-x"
-                :aria-label="$t('t_clear_input')"
-                @click="onClearingInput"
+                class="cursor-pointer"
+                icon="i-lucide-search"
+                :variant="show_search_input ? 'solid' : 'outline'"
+                @click="handleActionBarClick('show_search_input')"
+              >
+                <span class="desktop-only">
+                  {{ $t('t_search') }}
+                </span>
+              </UButton>
+
+              <UButton
+                class="cursor-pointer"
+                icon="i-lucide-arrow-down-wide-narrow"
+                :variant="show_order_options ? 'solid' : 'outline'"
+                @click="handleActionBarClick('show_order_options')"
+              >
+                <span class="desktop-only">
+                  {{ $t('t_reorder') }}
+                </span>
+              </UButton>
+
+              <UButton
+                class="cursor-pointer"
+                icon="i-lucide-square-check"
+                :variant="show_master_checkbox ? 'solid' : 'outline'"
+                @click="handleActionBarClick('show_master_checkbox')"
+              >
+                <span class="desktop-only">
+                  {{ $t('t_select_all') }}
+                </span>
+              </UButton>
+
+              <section
+                class="reinitialize-button text-sm"
+                @click="reinitializeSearch"
+              >
+                <UIcon
+                  name="i-lucide-refresh-cw"
+                />
+                <span class="desktop-only">
+                  {{ $t('t_reset_filters') }}
+                </span>
+              </section>
+            </div>
+
+            <div class="ml-auto mr-auto">
+              <UInput
+                v-if="show_search_input"
+                v-model="search_criteria_term"
+                class="w-full"
+                icon="i-lucide-search"
+                :placeholder="$t('t_search_tags')"
+                @input="onSearchInput"
+              >
+                <template
+                  v-if="search_criteria_term?.length > 0"
+                  #trailing
+                >
+                  <UButton
+                    color="neutral"
+                    variant="link"
+                    size="sm"
+                    icon="i-lucide-circle-x"
+                    :aria-label="$t('t_clear_input')"
+                    @click="onClearingInput"
+                  />
+                </template>
+              </UInput>
+
+              <URadioGroup
+                v-if="show_order_options"
+                v-model="sort_option"
+                :items="sort_option_list"
+                value-key="id"
+                @change="onSortChange"
               />
-            </template>
-          </UInput>
-
-          <URadioGroup
-            v-if="show_order_options"
-            v-model="sort_option"
-            :items="sort_option_list"
-            value-key="id"
-            @change="onSortChange"
-          />
-        </div>
-
-        <SelectableItemsElement
-          :item_type="ITEM_TYPE_TAG"
-          :show_master_checkbox
-        />
+            </div>
+          </section>
+        </template>
       </template>
-    </template>
-  </UContainer>
+    </UContainer>
+
+    <SelectableItemsElement
+      v-if="total_user_tag_count > 0"
+      :item_type="ITEM_TYPE_TAG"
+      :show_master_checkbox
+    />
+  </section>
 </template>
 
 <style scoped>
-.action-bar {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-}
-
-.action-bar-left {
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
-.action-bar-right {
+.reinitialize-button {
   align-items: center;
   color: var(--color-primary);
   cursor: pointer;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 0.5rem;
 }
 </style>
