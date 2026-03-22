@@ -26,6 +26,8 @@ import {
 
 import { z } from 'zod';
 
+const AND_OR_LIST = ['AND', 'OR'];
+
 export default defineEventHandler(async (event) => {
   try {
     const user = await verifySessionAndReturnUser(event);
@@ -51,8 +53,6 @@ export default defineEventHandler(async (event) => {
       track_scores,
       type,
     } = await readBody(event);
-
-    const AND_OR_LIST = ['AND', 'OR'];
 
     if (!AND_OR_LIST.includes(inclusion_type)) {
       setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
@@ -91,6 +91,24 @@ export default defineEventHandler(async (event) => {
 
       return {
         error_message: 'error_invalid_collection_review_strategy',
+      };
+    }
+
+    const uuid_array_schema = z.array(z.uuid()).nullable().optional();
+
+    if (!uuid_array_schema.safeParse(tag_id_list_to_include).success) {
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+
+      return {
+        error_message: 'error_invalid_tag_id_list_to_include',
+      };
+    }
+
+    if (!uuid_array_schema.safeParse(tag_id_list_to_exclude).success) {
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+
+      return {
+        error_message: 'error_invalid_tag_id_list_to_exclude',
       };
     }
 

@@ -91,7 +91,7 @@ const handleDrop = (event) => {
     return;
   }
 
-  const file = event.dataTransfer?.files?.[0];
+  const file = event.dataTransfer?.files?.at(0);
 
   if (!file) {
     return;
@@ -102,7 +102,7 @@ const handleDrop = (event) => {
 };
 
 const handleFileInputChange = (event) => {
-  const file = event.target?.files?.[0];
+  const file = event.target?.files?.at(0);
 
   if (!file) {
     return;
@@ -148,9 +148,7 @@ const handleFileInputChange = (event) => {
           v-if="!max_retries_reached"
           :class="[
             'flex flex-col items-center justify-center gap-2.5 w-full h-32 overflow-hidden relative rounded-lg border-2 border-dashed cursor-pointer transition-[border-color,background-color] duration-200 border-default hover:border-primary',
-            {
-              'border-primary bg-accented': is_dragging,
-            },
+            { 'border-primary bg-accented': is_dragging },
           ]"
           @dragenter.prevent="is_dragging = true"
           @dragleave.prevent="is_dragging = false"

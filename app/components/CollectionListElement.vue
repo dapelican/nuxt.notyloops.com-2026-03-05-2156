@@ -61,8 +61,17 @@ const tag_name_list = (tag_id_list) => {
       <main class="main">
         <section class="actions">
           <NuxtLink
+            v-if="!['spaced_repetition', 'diary'].includes(item.review_strategy)"
             class="text-primary"
-            :to="`/review/${item.id}`"
+            :to="`/review/collection/${item.id}`"
+          >
+            {{ $t('t_review') }}
+          </NuxtLink>
+
+          <NuxtLink
+            v-if="item.review_strategy === 'diary'"
+            class="text-primary"
+            :to="`/review/diary/${item.id}`"
           >
             {{ $t('t_review') }}
           </NuxtLink>

@@ -367,10 +367,11 @@ export const COLLECTION_TYPE_LIST = [
 
 export const REVIEW_STRATEGY_LIST = [
   'spaced_repetition',
+  'diary',
   'random',
   'by_score_lowest_to_highest',
   'by_last_review_date_oldest_to_newest',
   'by_creation_date_oldest_to_newest',
-  'by_lexicographical_order',
-  'diary',
+  'by_title_in_lexicographical_order',
+  'super_random',
 ];

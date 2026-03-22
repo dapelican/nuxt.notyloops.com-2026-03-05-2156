@@ -1,4 +1,6 @@
 <script setup>
+import { DateTime } from 'luxon';
+
 definePageMeta({ middleware: 'auth' });
 
 const { locale, t } = useI18n();
@@ -24,39 +26,15 @@ if (count_data.value) {
 
 const spaced_repetition_due_notes_data = ref(null);
 
-const spaced_due_notes_snapshot = useState('manage_collections_spaced_due_snapshot_v2', () => null);
-const spaced_due_fetch_inflight = useState('manage_collections_spaced_due_inflight_v2', () => null);
-
-const load_spaced_repetition_due_notes = () => {
-  if (spaced_due_notes_snapshot.value) {
-    spaced_repetition_due_notes_data.value = spaced_due_notes_snapshot.value;
-    return Promise.resolve(spaced_due_notes_snapshot.value);
-  }
-
-  if (spaced_due_fetch_inflight.value) {
-    return spaced_due_fetch_inflight.value;
-  }
-
-  spaced_due_fetch_inflight.value = $fetch('/review/spaced-repetition/get-due-notes')
-    .then((data) => {
-      spaced_due_notes_snapshot.value = data;
-      spaced_repetition_due_notes_data.value = data;
-      return data;
-    })
-    .catch((error) => {
-      handleFrontendError(error, error?.data?.error_message);
-      throw error;
-    })
-    .finally(() => {
-      spaced_due_fetch_inflight.value = null;
+const load_spaced_repetition_due_notes = async () => {
+  try {
+    spaced_repetition_due_notes_data.value = await $fetch('/review/spaced-repetition/get-due-notes', {
+      query: { date: DateTime.local().toISODate() },
     });
-
-  return spaced_due_fetch_inflight.value;
+  } catch (error) {
+    handleFrontendError(error, error?.data?.error_message);
+  }
 };
-
-onBeforeRouteLeave(() => {
-  spaced_due_notes_snapshot.value = null;
-});
 
 const spaced_repetition_due_note_count = computed(() =>
   spaced_repetition_due_notes_data.value?.spaced_repetition_due_note_count ?? 0
@@ -100,31 +78,13 @@ const parse_next_due_date_input = (date_value) => {
     return null;
   }
 
-  const part = String(date_value).slice(0, 10);
-  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(part);
+  const dt = DateTime.fromISO(String(date_value).slice(0, 10));
 
-  if (!match) {
-    return null;
-  }
-
-  const year = Number(match[1]);
-  const month_index = Number(match[2]) - 1;
-  const day = Number(match[3]);
-
-  return new Date(year, month_index, day, 12, 0, 0, 0);
+  return dt.isValid ? dt : null;
 };
 
-const calendar_day_diff_from_today = (local_date) => {
-  const now = new Date();
-  const today_start = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-  const target_start = new Date(
-    local_date.getFullYear(),
-    local_date.getMonth(),
-    local_date.getDate()
-  );
-
-  return Math.round((target_start - today_start) / 86_400_000);
-};
+const calendar_day_diff_from_today = (dt) =>
+  Math.round(dt.startOf('day').diff(DateTime.local().startOf('day'), 'days').days);
 
 const format_next_due_date_1 = (date_value) => {
   const target = parse_next_due_date_input(date_value);
@@ -161,7 +121,7 @@ const format_next_due_date_2 = (date_value) => {
     day: 'numeric',
     month: 'long',
     weekday: 'long',
-  }).format(target);
+  }).format(target.toJSDate());
 };
 
 const {

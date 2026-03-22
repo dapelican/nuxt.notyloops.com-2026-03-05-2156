@@ -103,6 +103,24 @@ export default defineEventHandler(async (event) => {
       };
     }
 
+    const uuid_array_schema = z.array(z.uuid()).nullable().optional();
+
+    if (!uuid_array_schema.safeParse(tag_id_list_to_include).success) {
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+
+      return {
+        error_message: 'error_invalid_tag_id_list_to_include',
+      };
+    }
+
+    if (!uuid_array_schema.safeParse(tag_id_list_to_exclude).success) {
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+
+      return {
+        error_message: 'error_invalid_tag_id_list_to_exclude',
+      };
+    }
+
     const {
       rows: existing_collection_list,
     } = await executeSQLQuery(

@@ -47,7 +47,7 @@ const grouped_blocks = computed(() => {
       idx += 1;
     }
 
-    blocks.push(group.length > 1 ? group : group[0]);
+    blocks.push(group.length > 1 ? group : group.at(0));
   }
 
   return blocks;

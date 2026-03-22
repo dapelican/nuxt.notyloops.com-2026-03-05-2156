@@ -169,7 +169,7 @@ export default defineEventHandler(async (event) => {
       ]
     );
 
-    Promise.all([
+    await Promise.all([
       executeSQLQuery(
         `INSERT INTO note_reviews (note_id, user_id, collection_id, review_strategy, score)
         VALUES ($1, $2, $3, 'spaced_repetition', $4)`,
