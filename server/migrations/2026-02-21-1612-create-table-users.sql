@@ -5,6 +5,7 @@ CREATE TABLE users (
   email TEXT NOT NULL,
   password TEXT,
   status TEXT,
+  premium_status_expiration_date TIMESTAMPTZ,
   subdomain TEXT,
   UNIQUE(email)
 );

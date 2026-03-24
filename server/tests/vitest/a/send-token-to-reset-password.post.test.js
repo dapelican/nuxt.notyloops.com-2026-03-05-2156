@@ -35,14 +35,14 @@ describe('POST /a/send-token-to-reset-password', () => {
     expect(data.error_message).toBe('error_invalid_email');
   });
 
-  it('returns 400 when no user is found', async () => {
+  it('returns 201 with empty body when no user is found (enumeration-safe)', async () => {
     const response = await post({ email: 'nonexistent@example.com' });
 
-    expect(response.status).toBe(HTTP_CODE_400_BAD_REQUEST);
+    expect(response.status).toBe(HTTP_CODE_201_CREATED);
 
     const data = await response.json();
 
-    expect(data.error_message).toBe('error_no_user_found');
+    expect(data).toEqual({});
   });
 
   it('returns 403 when a reset token was already sent recently', async () => {

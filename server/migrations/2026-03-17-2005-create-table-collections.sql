@@ -3,7 +3,7 @@ CREATE TABLE collections (
   created_at TIMESTAMPTZ NOT NULL DEFAULT now() ,
   updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
   user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-  type TEXT NOT NULL DEFAULT 'private', -- private, shared, public
+  type TEXT NOT NULL DEFAULT 'private', -- private, public_free, public_paywalled
   title TEXT NOT NULL,
   description TEXT,
   tag_id_list_to_include JSONB,
@@ -11,10 +11,11 @@ CREATE TABLE collections (
   tag_id_list_to_exclude JSONB,
   exclusion_type TEXT NOT NULL DEFAULT 'AND' CHECK (exclusion_type IN ('AND', 'OR')),
   track_scores BOOLEAN NOT NULL DEFAULT TRUE,
-  hide_note_titles BOOLEAN NOT NULL DEFAULT TRUE,
   review_strategy TEXT NOT NULL DEFAULT 'creation_order',
-  pinned BOOLEAN NOT NULL DEFAULT FALSE,
+  super_random_counter INTEGER NOT NULL DEFAULT 0,
+  preview_note_id_list JSONB,
   price_without_tax INTEGER,
+  stripe_payment_link_id TEXT,
   slug TEXT
 );
 

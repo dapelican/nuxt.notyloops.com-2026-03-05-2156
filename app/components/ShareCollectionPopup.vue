@@ -31,9 +31,9 @@ const show_popup = ref(false);
     </section>
 
     <template #body>
-      <section v-if="props.collection_type === 'public'">
+      <section v-if="props.collection_type === 'public_free'">
         <p>
-          {{ $t('t_you-can_share_your_collection_with_this_link') }}
+          {{ $t('t_you_can_share_your_collection_with_this_link') }}
         </p>
 
         <NuxtLink
@@ -46,7 +46,7 @@ const show_popup = ref(false);
 
       <section v-if="props.collection_type === 'shared'">
         <p>
-          {{ $t('t_you-can_share_your_collection_with_this_link') }}
+          {{ $t('t_you_can_share_your_collection_with_this_link') }}
         </p>
 
         <NuxtLink

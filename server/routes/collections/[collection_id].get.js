@@ -24,6 +24,10 @@ import {
   verifySessionAndReturnUser,
 } from '../../helpers/verify-session-and-return-user.js';
 
+import {
+  z,
+} from 'zod';
+
 export default defineEventHandler(async (event) => {
   try {
     const user = await verifySessionAndReturnUser(event);
@@ -38,11 +42,11 @@ export default defineEventHandler(async (event) => {
 
     const collection_id = getRouterParam(event, 'collection_id');
 
-    if (!collection_id) {
+    if (!z.uuid().safeParse(collection_id).success) {
       setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
-        error_message: 'error_invalid_input',
+        error_message: 'error_invalid_collection_id',
       };
     }
 
@@ -59,11 +63,11 @@ export default defineEventHandler(async (event) => {
       setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
-        error_message: 'error_invalid_input',
+        error_message: 'error_no_item_found_for_user',
       };
     }
 
-    if (collection.type === 'private' && collection.user_id !== user.id) {
+    if (collection.type === COLLECTION_TYPE_PRIVATE && collection.user_id !== user.id) {
       setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
 
       return {

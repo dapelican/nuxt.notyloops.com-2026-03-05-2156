@@ -54,10 +54,8 @@ const handleCancel = () => {
   <!-- RemoveTagsFromNotesPopup.vue -->
   <UModal
     v-model:open="show_popup"
-    :close="{
-      class: 'cursor-pointer',
-    }"
-    :title="$t('t_add_tags')"
+    :close="{ class: 'cursor-pointer' }"
+    :title="$t('t_remove_tags')"
   >
     <section>
       <span class="desktop-only cursor-pointer">{{ $t('t_remove_tags') }}</span>
@@ -82,7 +80,7 @@ const handleCancel = () => {
       <div class="popup-actions">
         <UButton
           class="cursor-pointer"
-          color="error"
+          color="neutral"
           variant="outline"
           @click="handleCancel"
         >

@@ -4,7 +4,7 @@ definePageMeta({ middleware: 'auth' });
 const { t } = useI18n();
 
 useSeoMeta({
-  title: `${t('t_review_collection_note')} | OptiLeague`,
+  title: `${t('t_review_collection_note')} | NotyLoops`,
 });
 
 const route = useRoute();
@@ -60,6 +60,28 @@ const pending = computed(() => note_details_pending.value || note_row_pending.va
 
 const submitting_feedback = ref(false);
 
+const read_track_scores_enabled_from_storage = () => {
+  if (!import.meta.client) {
+    return true;
+  }
+
+  const raw = localStorage.getItem(LOCAL_STORAGE_KEY_REVIEW_COLLECTION_TRACK_SCORES);
+
+  if (raw === null) {
+    return true;
+  }
+
+  try {
+    return JSON.parse(raw) === true;
+  } catch {
+    return true;
+  }
+};
+
+const track_scores_enabled = ref(read_track_scores_enabled_from_storage());
+
+const navigating_next = ref(false);
+
 const parse_note_id_list_from_storage = () => {
   if (!import.meta.client) {
     return [];
@@ -109,6 +131,16 @@ const navigate_to_next_note_or_end = async () => {
   }
 };
 
+const continue_to_next_note_or_end = async () => {
+  navigating_next.value = true;
+
+  try {
+    await navigate_to_next_note_or_end();
+  } finally {
+    navigating_next.value = false;
+  }
+};
+
 const submit_feedback = async (feedback) => {
   submitting_feedback.value = true;
 
@@ -149,27 +181,57 @@ const submit_feedback = async (feedback) => {
         :title="note_title"
       />
 
-      <section class="mt-8 flex flex-wrap justify-center gap-4">
+      <ClientOnly>
+        <nav
+          v-if="track_scores_enabled"
+          class="mt-8 flex flex-wrap justify-center gap-4"
+        >
+          <UButton
+            class="cursor-pointer"
+            color="neutral"
+            :loading="submitting_feedback"
+            icon="i-lucide-thumbs-down"
+            variant="subtle"
+            @click="submit_feedback('negative')"
+          >
+            {{ $t('t_feedback_negative') }}
+          </UButton>
+
+          <UButton
+            class="cursor-pointer"
+            :loading="submitting_feedback"
+            icon="i-lucide-thumbs-up"
+            @click="submit_feedback('positive')"
+          >
+            {{ $t('t_feedback_positive') }}
+          </UButton>
+        </nav>
+
+        <nav
+          v-else
+          class="mt-8 flex flex-wrap justify-center gap-4"
+        >
+          <UButton
+            class="cursor-pointer"
+            :loading="navigating_next"
+            icon="i-lucide-chevron-right"
+            @click="continue_to_next_note_or_end"
+          >
+            {{ $t('t_continue_to_next_note') }}
+          </UButton>
+        </nav>
+      </ClientOnly>
+
+      <nav class="mt-8 flex justify-center">
         <UButton
           class="cursor-pointer"
           color="neutral"
-          :loading="submitting_feedback"
-          icon="i-lucide-thumbs-down"
-          variant="subtle"
-          @click="submit_feedback('negative')"
+          variant="outline"
+          :to="'/review/collection/end'"
         >
-          {{ $t('t_spaced_repetition_mark_negative') }}
+          {{ $t('t_end_review_session') }}
         </UButton>
-
-        <UButton
-          class="cursor-pointer"
-          :loading="submitting_feedback"
-          icon="i-lucide-thumbs-up"
-          @click="submit_feedback('positive')"
-        >
-          {{ $t('t_spaced_repetition_mark_positive') }}
-        </UButton>
-      </section>
+      </nav>
     </template>
   </UContainer>
 </template>

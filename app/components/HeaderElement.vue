@@ -14,14 +14,29 @@ const logOut = async () => {
 
 const public_items = computed(() => [
   {
+    active: route.path === '/',
+    label: $t('t_homepage'),
+    to: '/',
+  },
+  {
     active: route.path.startsWith('/a/log-in'),
     label: $t('t_log_in'),
     to: '/a/log-in',
   },
   {
-    active: route.path.startsWith('/a/sign-up-1'),
-    label: $t('t_sign_up'),
-    to: '/a/sign-up-1',
+    active: route.path.startsWith('/a/join-waiting-list'),
+    label: $t('t_join_waiting_list'),
+    to: '/a/join-waiting-list',
+  },
+  // {
+  //   active: route.path.startsWith('/a/sign-up-1'),
+  //   label: $t('t_sign_up'),
+  //   to: '/a/sign-up-1',
+  // },
+  {
+    active: route.path.startsWith('/pc'),
+    label: $t('t_public_notes'),
+    to: '/pc',
   },
 ]);
 
@@ -42,15 +57,20 @@ const private_items = computed(() => [
     to: '/manage-collections/page/1',
   },
   {
-    active: route.path.startsWith('/review'),
-    label: $t('t_review'),
-    to: '/review',
+    active: route.path.startsWith('/pc'),
+    label: $t('t_public_notes'),
+    to: '/pc',
   },
-  {
-    active: route.path.startsWith('/share'),
-    label: $t('t_share'),
-    to: '/share',
-  },
+  // {
+  //   active: route.path.startsWith('/review'),
+  //   label: $t('t_review'),
+  //   to: '/review',
+  // },
+  // {
+  //   active: route.path.startsWith('/share'),
+  //   label: $t('t_share'),
+  //   to: '/share',
+  // },
   {
     label: $t('t_my_account'),
     active: route.path.startsWith('/account'),
@@ -75,7 +95,7 @@ const private_items = computed(() => [
   <!-- HeaderElement.vue -->
   <UHeader toggle-side="left">
     <template #title>
-      OptiLeague
+      NotyLoops
     </template>
 
     <UNavigationMenu

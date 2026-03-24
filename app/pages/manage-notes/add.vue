@@ -4,7 +4,7 @@ definePageMeta({ middleware: 'auth' });
 const { t } = useI18n();
 
 useSeoMeta({
-  title: `${t('t_add_note')} | OptiLeague`,
+  title: `${t('t_add_note')} | NotyLoops`,
 });
 
 const handling_request = ref(false);
@@ -28,6 +28,21 @@ if (tag_error.value) {
 if (tag_data.value) {
   all_user_tag_list.value = tag_data.value.all_user_tag_list;
 }
+
+const {
+  data: user_data,
+  error: user_error,
+} = await useFetch('/a/user', { key: 'notes-manage-user' });
+
+if (user_error.value) {
+  handleFrontendError(null, user_error.value.data?.error_message);
+}
+
+const user_is_premium_or_admin = computed(() => {
+  const s = user_data.value?.status;
+
+  return s === USER_STATUS_PREMIUM || s === USER_STATUS_ADMIN;
+});
 
 const addText = () => {
   note_details.value.push({
@@ -121,6 +136,7 @@ const createNote = async () => {
 </script>
 
 <template>
+  <!-- app/pages/manage-notes/add.vue -->
   <main class="centered-max-width-650">
     <h1 class="center">
       {{ $t('t_add_note') }}
@@ -245,23 +261,96 @@ const createNote = async () => {
         </DashedAreaElement>
 
         <FileUploaderPopup
+          v-if="user_is_premium_or_admin"
           file_type="image"
           @file_url="addFileUrl"
         />
 
+        <LimitedFeaturePopup
+          v-if="!user_is_premium_or_admin"
+        >
+          <DashedAreaElement>
+            <div class="flex gap-4 items-center">
+              <UIcon
+                name="i-lucide-lock"
+              />
+              <span>
+                {{ $t('t_add_image') }}
+              </span>
+            </div>
+          </DashedAreaElement>
+
+          <template #content>
+            <p class="m-0">
+              {{ $t('t_this_feature_is_reserved_to_premium_users') }}
+            </p>
+          </template>
+        </LimitedFeaturePopup>
+
         <FileUploaderPopup
+          v-if="user_is_premium_or_admin"
           file_type="audio"
           @file_url="addFileUrl"
         />
 
-        <DashedAreaElement>
-          {{ $t('t_add_audio') }}  (popup)
-        </DashedAreaElement>
+        <LimitedFeaturePopup
+          v-if="!user_is_premium_or_admin"
+        >
+          <DashedAreaElement>
+            <div class="flex gap-4 items-center">
+              <UIcon
+                name="i-lucide-lock"
+              />
+              <span>
+                {{ $t('t_add_audio_file') }}
+              </span>
+            </div>
+          </DashedAreaElement>
+
+          <template #content>
+            <p class="m-0">
+              {{ $t('t_this_feature_is_reserved_to_premium_users') }}
+            </p>
+          </template>
+        </LimitedFeaturePopup>
+
+        <TextToSpeechPopup
+          v-if="user_is_premium_or_admin"
+          file_type="audio"
+          @file_url="addFileUrl"
+        />
+
+        <LimitedFeaturePopup
+          v-if="!user_is_premium_or_admin"
+        >
+          <DashedAreaElement>
+            <div class="flex gap-4 items-center">
+              <UIcon
+                name="i-lucide-lock"
+              />
+              <span>
+                {{ $t('t_generate_audio_from_text') }}
+              </span>
+            </div>
+          </DashedAreaElement>
+
+          <template #content>
+            <p class="m-0">
+              {{ $t('t_this_feature_is_reserved_to_premium_users') }}
+            </p>
+          </template>
+        </LimitedFeaturePopup>
       </div>
+
+      <hr class="separator-2">
 
       <h2>
         {{ $t('t_tags') }}
       </h2>
+
+      <AddTagPopup />
+
+      <hr class="separator-1">
 
       <SelectTagsInputElement
         :tag_list="all_user_tag_list"
@@ -269,27 +358,17 @@ const createNote = async () => {
         @update:selected_tag_id_list="updateSelectedTagIdList"
       />
 
-      <ul>
-        <li>
-          Free users are limited to 2 blocks, and they cannot generate audio.
-        </li>
-      </ul>
+      <hr class="separator-2">
 
       <nav class="flex-ce-ce-gap-2">
-        <NuxtLink
+        <UButton
+          class="cursor-pointer"
+          color="neutral"
+          variant="outline"
           :to="CONNECTED_USER_LANDING_PAGE"
         >
           {{ $t('t_cancel') }}
-        </NuxtLink>
-
-        <!-- <UButton
-          class="cursor-pointer"
-          color="error"
-          variant="outline"
-          @click="navigateTo(CONNECTED_USER_LANDING_PAGE)"
-        >
-          {{ $t('t_cancel') }}
-        </UButton> -->
+        </UButton>
 
         <UButton
           class="cursor-pointer"

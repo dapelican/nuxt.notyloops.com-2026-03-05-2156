@@ -7,6 +7,13 @@ import {
 } from '../../../../helpers/http-status-codes.js';
 
 import {
+  REVIEW_STRATEGY_DIARY,
+  REVIEW_STRATEGY_LIST,
+  REVIEW_STRATEGY_SPACED_REPETITION,
+  REVIEW_STRATEGY_SUPER_RANDOM,
+} from '#shared/utils/constants.js';
+
+import {
   defineEventHandler,
   getRouterParam,
   setResponseStatus,
@@ -131,11 +138,24 @@ export default defineEventHandler(async (event) => {
 
     let note_id_list_to_review = [];
 
-    if (collection.review_strategy === 'super_random') {
+    if (collection.review_strategy === REVIEW_STRATEGY_SUPER_RANDOM) {
       const strategy_list = REVIEW_STRATEGY_LIST
-        .filter((strategy) => !['spaced_repetition', 'diary', 'super_random'].includes(strategy));
+        .filter((strategy) => ![
+          REVIEW_STRATEGY_SPACED_REPETITION,
+          REVIEW_STRATEGY_DIARY,
+          REVIEW_STRATEGY_SUPER_RANDOM,
+        ].includes(strategy));
 
-      const random_index = Math.floor(Math.random() * strategy_list.length);
+      const prev_super_random_counter = Number(collection.super_random_counter) || 0;
+      const new_super_random_counter = prev_super_random_counter + 1;
+      const random_index = new_super_random_counter % strategy_list.length;
+
+      await executeSQLQuery(
+        `UPDATE collections
+        SET super_random_counter = $1
+        WHERE id = $2 AND user_id = $3`,
+        [new_super_random_counter, collection_id, user.id]
+      );
 
       const random_strategy = strategy_list[random_index];
 
@@ -148,6 +168,7 @@ export default defineEventHandler(async (event) => {
 
     return {
       note_id_list_to_review,
+      track_scores: collection.track_scores,
     };
   } catch (error) {
     /* c8 ignore next */

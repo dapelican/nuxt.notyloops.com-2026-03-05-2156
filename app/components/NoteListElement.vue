@@ -1,54 +1,49 @@
 <script setup>
+const props = defineProps({
+  collection_type: {
+    type: String,
+    default: COLLECTION_TYPE_PRIVATE,
+  },
+  collection_id: {
+    type: String,
+    default: '',
+  },
+  preview_note_id_list: {
+    type: Array,
+    default: undefined,
+  },
+});
+
 const {
   current_page_item_list,
+  page_number,
+  search_criteria_tag_id_set,
+  searchItems,
   selected_item_id_set,
 } = useSearchAndSelectItemsOrInject(ITEM_TYPE_NOTE);
 
-const route = useRoute();
+const addTagToFilter = (tag_id) => {
+  if (search_criteria_tag_id_set.value.has(tag_id)) {
+    return;
+  }
 
-const page_number = computed(() => route.params.page_number);
+  search_criteria_tag_id_set.value = new Set([
+    ...search_criteria_tag_id_set.value,
+    tag_id,
+  ]);
+
+  if (page_number.value !== 1) {
+    navigateTo('/manage-notes/page/1');
+  } else {
+    searchItems();
+  }
+};
 
 const emit = defineEmits(['toggle_item_selection']);
 
 const isItemSelected = (item_id) => selected_item_id_set.value.has(item_id);
 
 const statistics_open_by_note_id = ref({});
-const content_open_by_note_id = ref({});
-
-const note_detail_list_by_note_id = ref({});
-const note_detail_loading = ref({});
-
-const load_note_detail_list = async (note_id) => {
-  if (Array.isArray(note_detail_list_by_note_id.value[note_id])) {
-    return;
-  }
-
-  note_detail_loading.value = {
-    ...note_detail_loading.value,
-    [note_id]: true,
-  };
-
-  try {
-    const data = await $fetch(`/note_details/${note_id}`);
-
-    if (data?.error_message) {
-      handleFrontendError(null, data.error_message);
-      return;
-    }
-
-    note_detail_list_by_note_id.value = {
-      ...note_detail_list_by_note_id.value,
-      [note_id]: data.note_detail_list ?? [],
-    };
-  } catch (error) {
-    handleFrontendError(error, error?.data?.error_message);
-  } finally {
-    note_detail_loading.value = {
-      ...note_detail_loading.value,
-      [note_id]: false,
-    };
-  }
-};
 
 const set_statistics_open = (note_id, is_open) => {
   statistics_open_by_note_id.value = {
@@ -57,15 +52,14 @@ const set_statistics_open = (note_id, is_open) => {
   };
 };
 
-const on_content_open_change = async (note_id, is_open) => {
-  content_open_by_note_id.value = {
-    ...content_open_by_note_id.value,
-    [note_id]: is_open,
-  };
+const calculateScore = (score, review_count) => {
+  const count = Number(review_count);
 
-  if (is_open) {
-    await load_note_detail_list(note_id);
+  if (count === 0) {
+    return 0;
   }
+
+  return Math.round((Number(score) / count) * 100);
 };
 </script>
 
@@ -123,11 +117,16 @@ const on_content_open_change = async (note_id, is_open) => {
           v-if="item.tag_list.length > 0"
           class="tags"
         >
-          <TagElement
+          <span
             v-for="tag in item.tag_list"
             :key="tag.id"
-            :label="tag.label"
-          />
+            class="tag-filter-trigger"
+            @click="addTagToFilter(tag.id)"
+          >
+            <TagElement
+              :label="tag.label"
+            />
+          </span>
         </section>
 
         <UCollapsible
@@ -154,49 +153,52 @@ const on_content_open_change = async (note_id, is_open) => {
                 {{ $t('t_updated_at_with_colon') }} {{ formatDate(item.updated_at) }}
               </li>
               <li>
-                {{ $t('t_first_revision_at_with_colon') }} {{ formatDate(item.first_revision_at) }}
+                <span>
+                  {{ $t('t_first_revision_at_with_colon') }}
+                </span>
+                <span v-if="item.first_review_date">
+                  {{ formatDate(item.first_review_date) }}
+                </span>
+                <span v-else>
+                  -
+                </span>
               </li>
               <li>
-                {{ $t('t_last_revision_at_with_colon') }} {{ formatDate(item.last_revision_at) }}
+                <span>
+                  {{ $t('t_last_revision_at_with_colon') }}
+                </span>
+                <span v-if="item.last_review_date">
+                  {{ formatDate(item.last_review_date) }}
+                </span>
+                <span v-else>
+                  -
+                </span>
               </li>
               <li>
-                {{ $t('t_revisions_count_with_colon') }} {{ item.revision_count }}
+                {{ $t('t_revisions_count_with_colon') }} {{ item.review_count }}
               </li>
               <li>
-                {{ $t('t_score_with_colon') }} {{ item.score }}
+                <span>
+                  {{ $t('t_score_with_colon') }}
+                </span>
+                <span v-if="item.review_count">
+                  {{ $t('t_x_percentage', { percentage: calculateScore(item.score, item.review_count) }) }}
+                </span>
+                <span v-else>
+                  -
+                </span>
               </li>
             </ul>
           </template>
         </UCollapsible>
 
-        <UCollapsible
-          :open="!!content_open_by_note_id[item.id]"
-          @update:open="(is_open) => on_content_open_change(item.id, is_open)"
-        >
-          <div class="chevron-zone">
-            <span>
-              {{ $t('t_content') }}
-            </span>
-
-            <UIcon
-              :name="content_open_by_note_id[item.id] ? 'i-lucide-chevron-up' : 'i-lucide-chevron-down'"
-              class="icon-right"
-            />
-          </div>
-
-          <template #content>
-            <LoadingElement
-              v-if="note_detail_loading[item.id]"
-              class="py-4 w-full max-w-md mx-auto"
-            />
-            <NoteDisplayerElement
-              v-else
-              :hide_title="false"
-              :note_detail_list="note_detail_list_by_note_id[item.id] ?? []"
-              :title="item.title"
-            />
-          </template>
-        </UCollapsible>
+        <NoteCollapsibleContentElement
+          :collection_id="props.collection_id"
+          :collection_type="props.collection_type"
+          :note_id="item.id"
+          :preview_note_id_list="props.preview_note_id_list"
+          :title="item.title"
+        />
       </main>
     </UCard>
   </section>
@@ -213,7 +215,7 @@ const on_content_open_change = async (note_id, is_open) => {
   align-items: center;
   cursor: pointer;
   display: flex;
-  gap: 1rem;
+  justify-content: space-between;
 }
 
 .item-card-list {
@@ -233,6 +235,11 @@ const on_content_open_change = async (note_id, is_open) => {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+}
+
+.tag-filter-trigger {
+  cursor: pointer;
+  display: inline-flex;
 }
 
 .tags {

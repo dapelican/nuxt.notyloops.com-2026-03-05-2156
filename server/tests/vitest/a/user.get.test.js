@@ -7,6 +7,10 @@ import {
 
 import { describe, expect, it } from 'vitest';
 
+import {
+  USER_STATUS_PREMIUM,
+} from '#shared/utils/constants.js';
+
 import { createTestHandler } from '../create-test-handler.js';
 
 import handler from '../../../routes/a/user.get.js';
@@ -41,6 +45,6 @@ describe('GET /a/user', () => {
 
     expect(data).toHaveProperty('id');
     expect(data.email).toBe('userget@example.com');
-    expect(data.status).toBe('tier_1');
+    expect(data.status).toBe(USER_STATUS_PREMIUM);
   });
 });

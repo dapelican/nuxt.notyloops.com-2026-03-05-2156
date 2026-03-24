@@ -1,17 +1,12 @@
 <script setup>
 import * as z from 'zod';
 
-import {
-  COLLECTION_TYPE_LIST,
-  REVIEW_STRATEGY_LIST,
-} from '../../../shared/utils/constants.js';
-
 definePageMeta({ middleware: 'auth' });
 
 const { t } = useI18n();
 
 useSeoMeta({
-  title: `${t('t_edit_collection')} | OptiLeague`,
+  title: `${t('t_edit_collection')} | NotyLoops`,
 });
 
 const route = useRoute();
@@ -52,9 +47,8 @@ const collection_form_state = reactive({
   title: '',
   tag_id_list_to_include: [],
   tag_id_list_to_exclude: [],
-  type: 'private',
+  type: COLLECTION_TYPE_PRIVATE,
   review_strategy: '',
-  hide_note_titles: true,
   track_scores: true,
   description: '',
   price_without_tax: 0,
@@ -70,13 +64,29 @@ if (collection_data.value) {
   collection_form_state.tag_id_list_to_exclude = c.tag_id_list_to_exclude;
   collection_form_state.type = c.type;
   collection_form_state.review_strategy = c.review_strategy;
-  collection_form_state.hide_note_titles = c.hide_note_titles;
-  collection_form_state.track_scores = c.track_scores;
+  collection_form_state.track_scores = c.review_strategy === REVIEW_STRATEGY_SPACED_REPETITION
+    ? true
+    : c.review_strategy === REVIEW_STRATEGY_DIARY
+      ? false
+      : c.track_scores;
   collection_form_state.description = c.description;
   collection_form_state.price_without_tax = c.price_without_tax;
   collection_form_state.inclusion_type = c.inclusion_type ?? 'AND';
   collection_form_state.exclusion_type = c.exclusion_type ?? 'OR';
 }
+
+const {
+  data: user_data,
+  error: user_error,
+} = await useFetch('/a/user', { key: 'notes-manage-user' });
+
+if (user_error.value) {
+  handleFrontendError(null, user_error.value.data?.error_message);
+}
+
+const user_status = computed(() => {
+  return user_data.value?.status;
+});
 
 handling_request_1.value = false;
 
@@ -96,6 +106,24 @@ const tag_list_for_include = computed(() => {
 const tag_list_for_exclude = computed(() => {
   const include_set = new Set(collection_form_state.tag_id_list_to_include);
   return all_user_tag_list.value.filter((tag) => !include_set.has(tag.id));
+});
+
+const tag_name_list_to_include = computed(() => {
+  return collection_form_state.tag_id_list_to_include
+    .map((tag_id) => {
+      return all_user_tag_list.value
+        .find((tag) => tag.id === tag_id)
+        ?.label;
+    });
+});
+
+const tag_name_list_to_exclude = computed(() => {
+  return collection_form_state.tag_id_list_to_exclude
+    .map((tag_id) => {
+      return all_user_tag_list.value
+        .find((tag) => tag.id === tag_id)
+        ?.label;
+    });
 });
 
 const updateSelectedTagIdListToInclude = (new_tag_id_list) => {
@@ -146,6 +174,33 @@ const and_or_list = ref([
   },
 ]);
 
+watch(
+  () => collection_form_state.review_strategy,
+  (next, prev) => {
+    if (next === REVIEW_STRATEGY_SPACED_REPETITION) {
+      collection_form_state.track_scores = true;
+      return;
+    }
+
+    if (next === REVIEW_STRATEGY_DIARY) {
+      collection_form_state.track_scores = false;
+      return;
+    }
+
+    if (
+      prev === REVIEW_STRATEGY_SPACED_REPETITION
+      || prev === REVIEW_STRATEGY_DIARY
+    ) {
+      collection_form_state.track_scores = true;
+    }
+  }
+);
+
+const track_scores_disabled = computed(() => {
+  return collection_form_state.review_strategy === REVIEW_STRATEGY_SPACED_REPETITION
+    || collection_form_state.review_strategy === REVIEW_STRATEGY_DIARY;
+});
+
 const handling_request_2 = ref(false);
 
 const updateCollection = async () => {
@@ -163,7 +218,6 @@ const updateCollection = async () => {
         exclusion_type: collection_form_state.exclusion_type,
         type: collection_form_state.type,
         review_strategy: collection_form_state.review_strategy,
-        hide_note_titles: collection_form_state.hide_note_titles,
         track_scores: collection_form_state.track_scores,
         description: collection_form_state.description,
         price_without_tax: collection_form_state.price_without_tax,
@@ -232,6 +286,42 @@ const updateCollection = async () => {
           />
         </UFormField>
 
+        <UAlert
+          color="info"
+          variant="subtle"
+          icon="i-lucide-info"
+        >
+          <template #description>
+            <span v-if="collection_form_state.tag_id_list_to_include.length === 0">
+              {{ $t('t_all_notes_will_be_included') }}
+            </span>
+
+            <span v-if="collection_form_state.tag_id_list_to_include.length === 1">
+              {{ $t('t_notes_with_tag') }}
+              {{ tag_name_list_to_include.at(0) }}
+              {{ $t('t_will_be_included') }}
+            </span>
+
+            <span
+              v-if="collection_form_state.tag_id_list_to_include.length > 1
+                && collection_form_state.inclusion_type === 'AND'"
+            >
+              {{ $t('t_notes_with_tag') }}
+              {{ tag_name_list_to_include.join(` ${$t('t_and')} `) }}
+              {{ $t('t_will_be_included') }}
+            </span>
+
+            <span
+              v-if="collection_form_state.tag_id_list_to_include.length > 1
+                && collection_form_state.inclusion_type === 'OR'"
+            >
+              {{ $t('t_notes_with_tag') }}
+              {{ tag_name_list_to_include.join(` ${$t('t_or')} `) }}
+              {{ $t('t_will_be_included') }}
+            </span>
+          </template>
+        </UAlert>
+
         <UFormField
           :label="$t('t_tags_to_exclude')"
           name="tag_id_list_to_exclude"
@@ -255,7 +345,41 @@ const updateCollection = async () => {
           />
         </UFormField>
 
+        <UAlert
+          v-if="collection_form_state.tag_id_list_to_exclude.length > 0"
+          color="info"
+          variant="subtle"
+          icon="i-lucide-info"
+        >
+          <template #description>
+            <span v-if="collection_form_state.tag_id_list_to_exclude.length === 1">
+              {{ $t('t_notes_with_tag') }}
+              {{ tag_name_list_to_exclude.at(0) }}
+              {{ $t('t_will_be_excluded') }}
+            </span>
+
+            <span
+              v-if="collection_form_state.tag_id_list_to_exclude.length > 1
+                && collection_form_state.exclusion_type === 'AND'"
+            >
+              {{ $t('t_notes_with_tag') }}
+              {{ tag_name_list_to_exclude.join(` ${$t('t_and')} `) }}
+              {{ $t('t_will_be_excluded') }}
+            </span>
+
+            <span
+              v-if="collection_form_state.tag_id_list_to_exclude.length > 1
+                && collection_form_state.exclusion_type === 'OR'"
+            >
+              {{ $t('t_notes_with_tag') }}
+              {{ tag_name_list_to_exclude.join(` ${$t('t_or')} `) }}
+              {{ $t('t_will_be_excluded') }}
+            </span>
+          </template>
+        </UAlert>
+
         <UFormField
+          v-if="user_status === USER_STATUS_ADMIN"
           :label="$t('t_collection_type')"
           name="type"
         >
@@ -266,7 +390,7 @@ const updateCollection = async () => {
         </UFormField>
 
         <UFormField
-          v-if="collection_form_state.type === 'private'"
+          v-if="collection_form_state.type === COLLECTION_TYPE_PRIVATE"
           :label="$t('t_review_strategy')"
           name="review_strategy"
         >
@@ -277,54 +401,39 @@ const updateCollection = async () => {
         </UFormField>
 
         <UFormField
-          v-if="collection_form_state.type === 'private'"
-          :label="$t('t_hide_note_titles')"
-          name="hide_note_titles"
-        >
-          <URadioGroup
-            v-model="collection_form_state.hide_note_titles"
-            :items="yes_no_list"
-            orientation="horizontal"
-          />
-        </UFormField>
-
-        <UFormField
-          v-if="collection_form_state.type === 'private'
-            && !['spaced_repetition', 'diary'].includes(collection_form_state.review_strategy)"
+          v-if="collection_form_state.type === COLLECTION_TYPE_PRIVATE"
           :label="$t('t_track_scores')"
           name="track_scores"
         >
           <URadioGroup
             v-model="collection_form_state.track_scores"
+            :disabled="track_scores_disabled"
             :items="yes_no_list"
             orientation="horizontal"
           />
         </UFormField>
 
         <UFormField
-          v-if="collection_form_state.type === 'public'"
+          v-if="collection_form_state.type === COLLECTION_TYPE_PUBLIC_PAYWALLLED"
           :label="$t('t_price_without_tax')"
           name="price_without_tax"
         >
           <UInputNumber
             v-model="collection_form_state.price_without_tax"
-            :decrement="{
-              class: 'cursor-pointer',
-            }"
+            :decrement="{ class: 'cursor-pointer' }"
             :format-options="{
               style: 'currency',
               currency: 'EUR',
               currencyDisplay: 'code',
               currencySign: 'accounting',
             }"
-            :increment="{
-              class: 'cursor-pointer',
-            }"
+            :increment="{ class: 'cursor-pointer' }"
             :min="5"
           />
         </UFormField>
 
         <UFormField
+          v-if="user_status === USER_STATUS_ADMIN"
           :label="$t('t_description')"
           name="description"
         >
@@ -346,11 +455,14 @@ const updateCollection = async () => {
         <hr class="separator-1">
 
         <nav class="flex-ce-ce-gap-2">
-          <NuxtLink
+          <UButton
+            class="cursor-pointer"
+            color="neutral"
+            variant="outline"
             :to="`/manage-collections/page/${page_number}`"
           >
             {{ $t('t_cancel') }}
-          </NuxtLink>
+          </UButton>
 
           <UButton
             class="cursor-pointer"

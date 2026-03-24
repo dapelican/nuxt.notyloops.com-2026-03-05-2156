@@ -2,7 +2,6 @@
 
 import {
   EMAIL_VALIDATION_TOKEN_DURATION_IN_HOURS,
-  USER_STATUS_UNVERIFIED,
   USER_TOKEN_VALIDATE_EMAIL,
 } from '../../helpers/constants.js';
 
@@ -28,6 +27,10 @@ import {
 } from 'luxon';
 
 import {
+  USER_STATUS_UNVERIFIED,
+} from '#shared/utils/constants.js';
+
+import {
   executeSQLQuery,
 } from '../../database/query.js';
 
@@ -44,7 +47,7 @@ import {
 } from '../../services/smtp2go/send-email.js';
 
 import {
-  v4 as uuidv4,
+  v7 as uuidv7,
 } from 'uuid';
 
 import {
@@ -59,10 +62,10 @@ const getEmailTokenDurationHoursAgo = () => DateTime
   .toISO();
 
 const sendTokenToValidateEmail = async (user, subdomain) => {
-  const uuid = uuidv4();
+  const uuid = uuidv7();
 
   try {
-    const uuid = uuidv4();
+    const uuid = uuidv7();
 
     await Promise.all([
       executeSQLQuery(

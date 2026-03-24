@@ -13,7 +13,7 @@ import {
 } from './get-authorization-data.js';
 
 import {
-  v4 as uuidv4,
+  v7 as uuidv7,
 } from 'uuid';
 
 const {
@@ -50,7 +50,7 @@ const uploadFile = async (file_buffer, content_type) => {
 
     const { upload_url, upload_auth_token } = await getUploadUrl(authorization_token, api_url);
 
-    const unique_name = `${DateTime.utc().toFormat('yyyy-MM-dd-HH-mm-ss')}-${uuidv4()}`;
+    const unique_name = `${DateTime.utc().toFormat('yyyy-MM-dd-HH-mm-ss')}-${uuidv7()}`;
 
     const file_sha1 = crypto.createHash('sha1').update(file_buffer).digest('hex');
 

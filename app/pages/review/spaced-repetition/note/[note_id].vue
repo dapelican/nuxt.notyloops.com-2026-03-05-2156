@@ -4,7 +4,7 @@ definePageMeta({ middleware: 'auth' });
 const { t } = useI18n();
 
 useSeoMeta({
-  title: `${t('t_review_spaced_repetition_note')} | OptiLeague`,
+  title: `${t('t_review_spaced_repetition_note')} | NotyLoops`,
 });
 
 const route = useRoute();
@@ -163,7 +163,7 @@ const submit_feedback = async (feedback) => {
           variant="subtle"
           @click="submit_feedback('negative')"
         >
-          {{ $t('t_spaced_repetition_mark_negative') }}
+          {{ $t('t_feedback_negative') }}
         </UButton>
 
         <UButton
@@ -172,7 +172,7 @@ const submit_feedback = async (feedback) => {
           icon="i-lucide-thumbs-up"
           @click="submit_feedback('positive')"
         >
-          {{ $t('t_spaced_repetition_mark_positive') }}
+          {{ $t('t_feedback_positive') }}
         </UButton>
       </section>
     </template>

@@ -101,6 +101,10 @@ export default defineEventHandler(async (event) => {
       n.title,
       n.created_at,
       n.updated_at,
+      n.first_review_date,
+      n.last_review_date,
+      n.review_count,
+      n.score,
       COALESCE(
         json_agg(
           json_build_object('id', t.id, 'label', t.label)

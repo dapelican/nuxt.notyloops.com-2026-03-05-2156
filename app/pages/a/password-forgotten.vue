@@ -4,7 +4,7 @@ import * as z from 'zod';
 const { t } = useI18n();
 
 useSeoMeta({
-  title: `${t('t_password_forgotten')} | OptiLeague`,
+  title: `${t('t_password_forgotten')} | NotyLoops`,
 });
 
 const form_fields = ref([

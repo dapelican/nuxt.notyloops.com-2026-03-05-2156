@@ -13,6 +13,10 @@ import {
 } from 'h3';
 
 import {
+  buildGroupedNoteDetailList,
+} from '../../helpers/build-grouped-note-detail-list.js';
+
+import {
   executeSQLQuery,
 } from '../../database/query.js';
 
@@ -27,32 +31,6 @@ import {
 import {
   verifySessionAndReturnUser,
 } from '../../helpers/verify-session-and-return-user.js';
-
-const build_grouped_note_detail_list = (rows) => {
-  const final_note_detail_list = [];
-  let idx = 0;
-
-  while (idx < rows.length) {
-    const current_content_position = rows[idx].content_position;
-    const same_position_group = [];
-
-    while (
-      idx < rows.length
-      && rows[idx].content_position === current_content_position
-    ) {
-      same_position_group.push(rows[idx]);
-      idx += 1;
-    }
-
-    if (same_position_group.length > 1) {
-      final_note_detail_list.push(shuffleArray(same_position_group));
-    } else {
-      final_note_detail_list.push(same_position_group.at(0));
-    }
-  }
-
-  return final_note_detail_list;
-};
 
 export default defineEventHandler(async (event) => {
   try {
@@ -100,7 +78,7 @@ export default defineEventHandler(async (event) => {
       [note_id]
     );
 
-    const grouped = build_grouped_note_detail_list(note_detail_list);
+    const grouped = buildGroupedNoteDetailList(note_detail_list);
 
     if (note_detail_list.length === 2 && note.swappable_sides) {
       setResponseStatus(event, HTTP_CODE_200_OK);

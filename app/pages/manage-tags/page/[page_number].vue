@@ -4,17 +4,8 @@ definePageMeta({ middleware: 'auth' });
 const { t } = useI18n();
 
 useSeoMeta({
-  title: `${t('t_manage_tags')} | OptiLeague`,
+  title: `${t('t_manage_tags')} | NotyLoops`,
 });
-
-const {
-  handling_request,
-  page_number,
-  reinitializeSearch,
-  sort_option,
-  search_criteria_term,
-  searchItems,
-} = provideSearchAndSelectItems(ITEM_TYPE_TAG);
 
 const total_user_tag_count = ref(0);
 
@@ -31,16 +22,25 @@ if (count_data.value) {
   total_user_tag_count.value = count_data.value.total_user_tag_count;
 }
 
-// Action bar actions
-const show_order_options = ref(false);
+const {
+  handling_request,
+  page_number,
+  reinitializeSearch,
+  sort_option,
+  search_criteria_term,
+  searchItems,
+} = provideSearchAndSelectItems(ITEM_TYPE_TAG);
 
+// Action bar actions
 const show_search_input = ref(false);
+
+const show_order_options = ref(false);
 
 const show_master_checkbox = ref(false);
 
 const action_bar_refs = {
-  show_order_options,
   show_search_input,
+  show_order_options,
   show_master_checkbox,
 };
 
@@ -74,22 +74,22 @@ const sort_option_list = [
   },
   {
     id: 'created_at:desc',
-    label: t('t_newest_created_at_first'),
+    label: t('t_created_at_from_newest_to_oldest'),
     value: 'created_at:desc',
   },
   {
     id: 'created_at:asc',
-    label: t('t_oldest_created_at_first'),
+    label: t('t_created_at_from_oldest_to_newest'),
     value: 'created_at:asc',
   },
   {
     id: 'updated_at:desc',
-    label: t('t_newest_updated_at_first'),
+    label: t('t_updated_at_from_newest_to_oldest'),
     value: 'updated_at:desc',
   },
   {
     id: 'updated_at:asc',
-    label: t('t_oldest_updated_at_first'),
+    label: t('t_updated_at_from_oldest_to_newest'),
     value: 'updated_at:asc',
   },
 ];
@@ -131,28 +131,29 @@ onUnmounted(() => {
 </script>
 
 <template>
+  <!-- app/pages/manage-tags/page/[page_number].vue -->
   <section>
-    <UContainer class="centered-max-width-1200">
-      <header class="center">
-        <h1>{{ $t('t_manage_tags') }}</h1>
+    <LoadingElement v-if="handling_request" />
 
-        <hr class="separator-1">
+    <div v-else>
+      <UContainer class="centered-max-width-1200">
+        <header class="center">
+          <h1>{{ $t('t_manage_tags') }}</h1>
 
-        <UButton
-          class="cursor-pointer hover:text-inverted!"
-          icon="i-lucide-plus"
-          :to="'/manage-tags/add'"
-        >
-          <span>{{ $t('t_add_tag') }}</span>
-        </UButton>
-      </header>
+          <hr class="separator-1">
 
-      <hr class="separator-2">
+          <UButton
+            class="cursor-pointer hover:text-inverted!"
+            icon="i-lucide-plus"
+            :to="'/manage-tags/add'"
+          >
+            <span>{{ $t('t_add_tag') }}</span>
+          </UButton>
+        </header>
 
-      <template v-if="total_user_tag_count > 0">
-        <LoadingElement v-if="handling_request" />
+        <hr class="separator-2">
 
-        <template v-if="!handling_request">
+        <template v-if="total_user_tag_count > 0">
           <section class="ml-auto mr-auto mb-4 max-w-fit">
             <div class="flex justify-center gap-2 mb-4">
               <UButton
@@ -235,14 +236,14 @@ onUnmounted(() => {
             </div>
           </section>
         </template>
-      </template>
-    </UContainer>
+      </UContainer>
 
-    <SelectableItemsElement
-      v-if="total_user_tag_count > 0"
-      :item_type="ITEM_TYPE_TAG"
-      :show_master_checkbox
-    />
+      <SelectableItemsElement
+        v-if="total_user_tag_count > 0"
+        :item_type="ITEM_TYPE_TAG"
+        :show_master_checkbox
+      />
+    </div>
   </section>
 </template>
 

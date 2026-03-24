@@ -1,6 +1,6 @@
-# Tailwind referential
+# UI referential
 
-## Sizes
+## tailwind sizes
 
 Tailwind’s “sizes” usually come from the spacing scale (used for width, height, padding, margin, gap, and the size-* utilities). Here are the default values and their rem equivalents.
 

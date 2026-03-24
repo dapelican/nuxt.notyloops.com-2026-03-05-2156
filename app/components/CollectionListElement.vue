@@ -5,22 +5,98 @@ const {
   selected_item_id_set,
 } = useSearchAndSelectItemsOrInject(ITEM_TYPE_COLLECTION);
 
+const {
+  total_user_note_count,
+} = useSearchAndSelectItemsOrInject(ITEM_TYPE_NOTE);
+
 const route = useRoute();
 
 const page_number = computed(() => route.params.page_number);
+
+const {
+  data: user_data,
+  error: user_error,
+} = await useFetch('/a/user', { key: 'notes-manage-user' });
+
+if (user_error.value) {
+  handleFrontendError(null, user_error.value.data?.error_message);
+}
+
+const user_status = computed(() => {
+  return user_data.value?.status;
+});
 
 const emit = defineEmits(['toggle_item_selection']);
 
 const isItemSelected = (item_id) => selected_item_id_set.value.has(item_id);
 
-const tag_name_list = (tag_id_list) => {
-  return tag_id_list
-    .map((tag_id) => {
-      return all_user_tag_list.value
-        .find((tag) => tag.id === tag_id)
-        ?.label;
-    });
+const tag_label_for_id = (tag_id) => {
+  return all_user_tag_list.value
+    .find((tag) => tag.id === tag_id)
+    ?.label;
 };
+
+const reviewStrategyForTranslationKey = (strategy) => {
+  if (strategy == null || strategy === '') {
+    return strategy ?? '';
+  }
+
+  const s = String(strategy);
+
+  return s.at(0).toLowerCase() + s.slice(1);
+};
+
+const config = useRuntimeConfig();
+
+const is_exporting_collection_id = ref(null);
+
+const exportCollection = async (collection_id) => {
+  is_exporting_collection_id.value = collection_id;
+
+  try {
+    const blob = await $fetch('/collections/export', {
+      body: {
+        collection_id,
+      },
+      method: 'POST',
+      responseType: 'blob',
+    });
+
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement('a');
+    anchor.href = url;
+    anchor.download = `${collection_id}.csv`;
+    anchor.click();
+    URL.revokeObjectURL(url);
+  } catch (error) {
+    let message = error?.data?.error_message;
+
+    if (error?.data instanceof Blob) {
+      try {
+        const text = await error.data.text();
+        const parsed = JSON.parse(text);
+
+        message = parsed.error_message ?? message;
+      } catch {
+        /* ignore parse errors */
+      }
+    }
+
+    handleFrontendError(error, message);
+  } finally {
+    is_exporting_collection_id.value = null;
+  }
+};
+
+const user_is_premium_or_admin = computed(() => {
+  const s = user_data.value?.status;
+
+  return s === USER_STATUS_PREMIUM || s === USER_STATUS_ADMIN;
+});
+
+const user_can_review_notes = computed(() => {
+  return user_is_premium_or_admin.value || total_user_note_count.value < FREEMIUM_NOTE_LIMIT;
+});
 </script>
 
 <template>
@@ -61,27 +137,43 @@ const tag_name_list = (tag_id_list) => {
       <main class="main">
         <section class="actions">
           <NuxtLink
-            v-if="!['spaced_repetition', 'diary'].includes(item.review_strategy)"
+            v-if="user_can_review_notes && item.type === COLLECTION_TYPE_PRIVATE
+              && ![REVIEW_STRATEGY_SPACED_REPETITION, REVIEW_STRATEGY_DIARY].includes(item.review_strategy)"
             class="text-primary"
             :to="`/review/collection/${item.id}`"
           >
             {{ $t('t_review') }}
           </NuxtLink>
 
-          <NuxtLink
-            v-if="item.review_strategy === 'diary'"
-            class="text-primary"
-            :to="`/review/diary/${item.id}`"
+          <LimitedFeaturePopup
+            v-if="!user_can_review_notes && item.type === COLLECTION_TYPE_PRIVATE
+              && ![REVIEW_STRATEGY_SPACED_REPETITION, REVIEW_STRATEGY_DIARY].includes(item.review_strategy)"
           >
-            {{ $t('t_review') }}
-          </NuxtLink>
+            <div class="flex items-center gap-2 cursor-pointer">
+              <UIcon
+                name="i-lucide-lock"
+                class="text-primary size-3"
+              />
 
-          <ShareCollectionPopup
-            v-if="['shared', 'public'].includes(item.type)"
-            :collection_id="item.id"
-            :collection_title="item.title"
-            :collection_type="item.type"
-          />
+              <span class="text-primary">
+                {{ $t('t_review') }}
+              </span>
+            </div>
+
+            <template #content>
+              <p class="m-0">
+                {{ $t('t_you_have_reached_the_freemium_limit_for_reviewing_notes') }}
+              </p>
+            </template>
+          </LimitedFeaturePopup>
+
+          <span
+            class="text-secondary cursor-pointer"
+            :class="{ 'pointer-events-none opacity-50': is_exporting_collection_id === item.id }"
+            @click="exportCollection(item.id)"
+          >
+            {{ $t('t_export_collection') }}
+          </span>
 
           <NuxtLink
             class="text-secondary"
@@ -96,34 +188,71 @@ const tag_name_list = (tag_id_list) => {
           />
         </section>
 
-        <section v-if="item.tag_id_list_to_include.length > 0">
+        <section
+          v-if="item.tag_id_list_to_include.length > 0"
+          class="tags"
+        >
           <span>
             {{ $t('t_tags_to_include_with_colon') }}
-            {{ tag_name_list(item.tag_id_list_to_include).join(` ${$t(item.inclusion_type)} `) }}
           </span>
+
+          <template
+            v-for="(tag_id, index) in item.tag_id_list_to_include"
+            :key="tag_id"
+          >
+            <TagElement
+              v-if="tag_label_for_id(tag_id)"
+              :label="tag_label_for_id(tag_id)"
+            />
+
+            <span
+              v-if="index < item.tag_id_list_to_include.length - 1"
+            >
+              {{ $t(item.inclusion_type) }}
+            </span>
+          </template>
         </section>
 
-        <section v-if="item.tag_id_list_to_exclude.length > 0">
+        <section
+          v-if="item.tag_id_list_to_exclude.length > 0"
+          class="tags"
+        >
           <span>
             {{ $t('t_tags_to_exclude_with_colon') }}
-            {{ tag_name_list(item.tag_id_list_to_exclude).join(` ${$t(item.exclusion_type)} `) }}
           </span>
+
+          <template
+            v-for="(tag_id, index) in item.tag_id_list_to_exclude"
+            :key="tag_id"
+          >
+            <TagElement
+              v-if="tag_label_for_id(tag_id)"
+              :label="tag_label_for_id(tag_id)"
+            />
+
+            <span
+              v-if="index < item.tag_id_list_to_exclude.length - 1"
+            >
+              {{ $t(item.exclusion_type) }}
+            </span>
+          </template>
         </section>
 
-        <section>
-          {{ $t('type_with_colon') }} {{ item.type }}
+        <section v-if="user_status === USER_STATUS_ADMIN">
+          {{ $t('t_type_with_colon') }} {{ item.type }}
         </section>
 
-        <section>
-          {{ $t('t_review_strategy_with_colon') }} {{ $t(`t_${item.review_strategy}`) }}
+        <section v-if="item.type === COLLECTION_TYPE_PRIVATE">
+          {{ $t('t_review_strategy_with_colon') }} {{ reviewStrategyForTranslationKey($t(`t_${item.review_strategy}`)) }}
         </section>
 
-        <section v-if="item.type === 'private'">
-          {{ item.hide_note_titles ? $t('t_hide_note_titles') : $t('t_show_note_titles') }}
-        </section>
-
-        <section v-if="!['spaced_repetition', 'diary'].includes(item.review_strategy)">
-          {{ item.track_scores ? $t('t_track_progress') : $t('t_do_not_track_progress') }}
+        <section v-if="item.type !== COLLECTION_TYPE_PRIVATE">
+          {{ $t('t_public_url') }}
+          <NuxtLink
+            :to="`${config.public.domain}/pc/${item.id}`"
+          >
+            {{ `${config.public.domain}/pc/${item.id}` }}
+          </NuxtLink>
         </section>
       </main>
     </UCard>
@@ -164,8 +293,9 @@ const tag_name_list = (tag_id_list) => {
 }
 
 .tags {
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.3rem;
+  gap: 0.5rem;
 }
 </style>

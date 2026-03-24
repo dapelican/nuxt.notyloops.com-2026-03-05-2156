@@ -168,7 +168,7 @@ const handleFileInputChange = (event) => {
           />
 
           <span class="upload-file-text">{{ choose_file }}</span>
-          <span class="upload-file-text">{{ $t('maximum_size_10_MB') }}</span>
+          <span class="upload-file-text">{{ $t('t_maximum_size_10_MB') }}</span>
         </label>
 
         <div
@@ -192,7 +192,7 @@ const handleFileInputChange = (event) => {
       <div class="popup-actions">
         <UButton
           class="cursor-pointer"
-          color="error"
+          color="neutral"
           variant="outline"
           @click="closePopupAndResetVariables"
         >

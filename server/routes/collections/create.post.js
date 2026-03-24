@@ -43,7 +43,6 @@ export default defineEventHandler(async (event) => {
     const {
       description,
       exclusion_type,
-      hide_note_titles,
       inclusion_type,
       price_without_tax,
       review_strategy,
@@ -86,7 +85,7 @@ export default defineEventHandler(async (event) => {
       };
     }
 
-    if (type === 'private' && !REVIEW_STRATEGY_LIST.includes(review_strategy)) {
+    if (type === COLLECTION_TYPE_PRIVATE && !REVIEW_STRATEGY_LIST.includes(review_strategy)) {
       setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
@@ -122,11 +121,10 @@ export default defineEventHandler(async (event) => {
       exclusion_type,
       type,
       review_strategy,
-      hide_note_titles,
       track_scores,
       description,
       price_without_tax
-      ) VALUES ($1, $2, $3::jsonb, $4, $5::jsonb, $6, $7, $8, $9, $10, $11, $12) RETURNING *`,
+      ) VALUES ($1, $2, $3::jsonb, $4, $5::jsonb, $6, $7, $8, $9, $10, $11) RETURNING *`,
       [
         user.id,
         title,
@@ -136,7 +134,6 @@ export default defineEventHandler(async (event) => {
         exclusion_type,
         type,
         review_strategy,
-        hide_note_titles,
         track_scores,
         description,
         price_without_tax,

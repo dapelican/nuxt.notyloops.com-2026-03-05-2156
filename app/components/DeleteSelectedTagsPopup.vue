@@ -50,9 +50,7 @@ const deleteTags = async () => {
   <!-- DeleteSelectedTagsPopup.vue -->
   <UModal
     v-model:open="show_popup"
-    :close="{
-      class: 'cursor-pointer',
-    }"
+    :close="{ class: 'cursor-pointer' }"
     title="$t('t_delete')"
   >
     <UButton
@@ -65,18 +63,13 @@ const deleteTags = async () => {
     </UButton>
 
     <template #body>
-      <p>
-        selected_item_id_set.size:{{ selected_item_id_set.size }}
-      </p>
       <p class="mt-0 mb-0">
-        {{ $t('t_are_you_sure_you_want_to_delete_the_selected_tags') }}
+        {{ $t('t_are_you_sure_you_want_to_delete_the_x_selected_tags', { count: selected_item_id_set.size }) }}
       </p>
     </template>
 
     <template
-      #footer="{
-        close,
-      }"
+      #footer="{ close }"
     >
       <div class="popup-actions">
         <UButton

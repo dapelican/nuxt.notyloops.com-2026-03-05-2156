@@ -4,7 +4,7 @@ definePageMeta({ middleware: 'auth' });
 const { t } = useI18n();
 
 useSeoMeta({
-  title: `${t('t_manage_notes')} | OptiLeague`,
+  title: `${t('t_manage_notes')} | NotyLoops`,
 });
 
 const {
@@ -16,8 +16,18 @@ const {
   sort_option,
   search_criteria_term,
   searchItems,
-  total_user_note_count,
 } = provideSearchAndSelectItems(ITEM_TYPE_NOTE);
+
+const {
+  data: user_data,
+  error: user_error,
+} = await useFetch('/a/user', { key: 'notes-manage-user' });
+
+if (user_error.value) {
+  handleFrontendError(null, user_error.value.data?.error_message);
+}
+
+const total_user_note_count = ref(0);
 
 const {
   data: count_data,
@@ -45,30 +55,29 @@ if (tag_data.value) {
   all_user_tag_list.value = tag_data.value.all_user_tag_list;
 }
 
+const user_is_premium_or_admin = computed(() => {
+  const s = user_data.value?.status;
+
+  return s === USER_STATUS_PREMIUM || s === USER_STATUS_ADMIN;
+});
+
+const user_can_create_notes = computed(() => {
+  return user_is_premium_or_admin.value || total_user_note_count.value < FREEMIUM_NOTE_LIMIT;
+});
+
 // Action bar actions
-const search_criteria_tag_id_list = computed(() => Array.from(search_criteria_tag_id_set.value));
-
-const onTagFilterChange = (new_selected_tag_id_list) => {
-  search_criteria_tag_id_set.value = new Set(new_selected_tag_id_list);
-  if (page_number.value !== 1) {
-    navigateTo('/manage-notes/page/1');
-  } else {
-    searchItems();
-  }
-};
-
-const show_order_options = ref(false);
+const show_search_input = ref(false);
 
 const show_filter_tags_input = ref(false);
 
-const show_search_input = ref(false);
+const show_order_options = ref(false);
 
 const show_master_checkbox = ref(false);
 
 const action_bar_refs = {
-  show_order_options,
-  show_filter_tags_input,
   show_search_input,
+  show_filter_tags_input,
+  show_order_options,
   show_master_checkbox,
 };
 
@@ -92,22 +101,22 @@ const sort_option_list = [
   },
   {
     id: 'created_at:desc',
-    label: t('t_newest_created_at_first'),
+    label: t('t_created_at_from_newest_to_oldest'),
     value: 'created_at:desc',
   },
   {
     id: 'created_at:asc',
-    label: t('t_oldest_created_at_first'),
+    label: t('t_created_at_from_oldest_to_newest'),
     value: 'created_at:asc',
   },
   {
     id: 'updated_at:desc',
-    label: t('t_newest_updated_at_first'),
+    label: t('t_updated_at_from_newest_to_oldest'),
     value: 'updated_at:desc',
   },
   {
     id: 'updated_at:asc',
-    label: t('t_oldest_updated_at_first'),
+    label: t('t_updated_at_from_oldest_to_newest'),
     value: 'updated_at:asc',
   },
 ];
@@ -138,6 +147,17 @@ const onClearingInput = () => {
   searchItems();
 };
 
+const search_criteria_tag_id_list = computed(() => Array.from(search_criteria_tag_id_set.value));
+
+const onTagFilterChange = (new_selected_tag_id_list) => {
+  search_criteria_tag_id_set.value = new Set(new_selected_tag_id_list);
+  if (page_number.value !== 1) {
+    navigateTo('/manage-notes/page/1');
+  } else {
+    searchItems();
+  }
+};
+
 onMounted(() => {
   searchItems();
   watch(page_number, searchItems);
@@ -149,28 +169,71 @@ onUnmounted(() => {
 </script>
 
 <template>
+  <!-- app/pages/manage-notes/page/[page_number].vue -->
   <section>
-    <UContainer class="centered-max-width-1200">
-      <header class="center">
-        <h1>{{ $t('t_manage_notes') }}</h1>
+    <LoadingElement v-if="handling_request" />
 
-        <hr class="separator-1">
+    <div v-else>
+      <UContainer class="centered-max-width-1200">
+        <header class="center">
+          <h1>{{ $t('t_manage_notes') }}</h1>
 
-        <UButton
-          class="cursor-pointer hover:text-inverted!"
-          icon="i-lucide-plus"
-          :to="'/manage-notes/add'"
-        >
-          <span>{{ $t('t_add_note') }}</span>
-        </UButton>
-      </header>
+          <hr class="separator-1">
 
-      <hr class="separator-2">
+          <div class="flex flex-wrap justify-center gap-2">
+            <UButton
+              v-if="user_can_create_notes"
+              class="cursor-pointer hover:text-inverted!"
+              icon="i-lucide-plus"
+              :to="'/manage-notes/add'"
+            >
+              <span>{{ $t('t_add_note') }}</span>
+            </UButton>
 
-      <template v-if="total_user_note_count > 0">
-        <LoadingElement v-if="handling_request" />
+            <LimitedFeaturePopup v-if="!user_can_create_notes">
+              <UButton
+                class="cursor-pointer hover:text-inverted!"
+                icon="i-lucide-lock"
+              >
+                <span>{{ $t('t_add_note') }}</span>
+              </UButton>
 
-        <template v-if="!handling_request">
+              <template #content>
+                <p class="m-0">
+                  {{ $t('t_you_have_reached_the_freemium_limit_for_creating_notes') }}
+                </p>
+              </template>
+            </LimitedFeaturePopup>
+
+            <ImportNotesPopup v-if="user_is_premium_or_admin">
+              <UButton
+                class="cursor-pointer hover:text-inverted!"
+                icon="i-lucide-file-up"
+              >
+                <span>{{ $t('t_import_notes') }}</span>
+              </UButton>
+            </ImportNotesPopup>
+
+            <LimitedFeaturePopup v-else>
+              <UButton
+                class="cursor-pointer hover:text-inverted!"
+                icon="i-lucide-lock"
+              >
+                <span>{{ $t('t_import_notes') }}</span>
+              </UButton>
+
+              <template #content>
+                <p class="m-0">
+                  {{ $t('t_this_feature_is_reserved_to_premium_users') }}
+                </p>
+              </template>
+            </LimitedFeaturePopup>
+          </div>
+        </header>
+
+        <hr class="separator-2">
+
+        <template v-if="total_user_note_count > 0">
           <section class="ml-auto mr-auto mb-4 max-w-fit">
             <div class="flex justify-center gap-2 mb-4">
               <UButton
@@ -271,14 +334,14 @@ onUnmounted(() => {
             </div>
           </section>
         </template>
-      </template>
-    </UContainer>
+      </UContainer>
 
-    <SelectableItemsElement
-      v-if="total_user_note_count > 0"
-      :item_type="ITEM_TYPE_NOTE"
-      :show_master_checkbox
-    />
+      <SelectableItemsElement
+        v-if="total_user_note_count > 0"
+        :item_type="ITEM_TYPE_NOTE"
+        :show_master_checkbox
+      />
+    </div>
   </section>
 </template>
 

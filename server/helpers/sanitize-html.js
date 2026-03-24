@@ -1,5 +1,7 @@
 'use strict';
 
+/* Markdown to HTML for persisted html_content only (no KaTeX). Math renders client-side from markdown_content (shared/render-note-markdown.js). */
+
 import {
   JSDOM,
 } from 'jsdom';

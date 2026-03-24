@@ -112,6 +112,11 @@ export default defineEventHandler(async (event) => {
 
     const user = user_list.at(0);
 
+    await executeSQLQuery(
+      `UPDATE user_session_tokens SET blacklisted = true WHERE user_id = $1`,
+      [user.id]
+    );
+
     await sendEmailToNotifyPasswordReset(user);
 
     setResponseStatus(event, HTTP_CODE_200_OK);

@@ -1,5 +1,9 @@
 'use strict';
 
+import {
+  fileURLToPath,
+} from 'node:url';
+
 export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
@@ -23,12 +27,21 @@ export default defineNuxtConfig({
     DB_CONNECTION_STRING: process.env.DB_CONNECTION_STRING,
     EMAILABLE_API_KEY: process.env.EMAILABLE_API_KEY,
     GOOGLE_CLOUD_API_KEY: process.env.GOOGLE_CLOUD_API_KEY,
+    PLUNK_SECRET_KEY: process.env.PLUNK_SECRET_KEY,
     SESSION_MAX_AGE_DAYS: process.env.SESSION_MAX_AGE_DAYS,
     SMTP2GO_API_KEY: process.env.SMTP2GO_API_KEY,
+    STRIPE_ENDPOINT_SECRET: process.env.STRIPE_ENDPOINT_SECRET,
+    STRIPE_SECRET_API_KEY: process.env.STRIPE_SECRET_API_KEY,
+    public: {
+      domain: process.env.DOMAIN,
+    },
     session: {
       // Implicitly used by nuxt-auth-utils to st the cookie lifespan
       maxAge: 60 * 60 * 24 * Number(process.env.SESSION_MAX_AGE_DAYS),
     },
+  },
+  alias: {
+    '#shared': fileURLToPath(new URL('./shared', import.meta.url)),
   },
   compatibilityDate: '2026-03-05',
   nitro: {

@@ -23,7 +23,7 @@ const verifySessionAndReturnUser = async (event) => {
     }
 
     const { rows: result_list } = await executeSQLQuery(
-      `SELECT u.id, u.email, u.status, ust.updated_at
+      `SELECT u.id, u.email, u.status, u.premium_status_expiration_date, ust.updated_at
       FROM user_session_tokens ust
       JOIN users u ON u.id = ust.user_id
       WHERE ust.id = $1 AND ust.blacklisted = false AND ust.expires_at > now()`,
@@ -35,7 +35,13 @@ const verifySessionAndReturnUser = async (event) => {
       return null;
     }
 
-    const { id, email, status, updated_at } = result_list.at(0);
+    const {
+      id,
+      email,
+      status,
+      premium_status_expiration_date,
+      updated_at,
+    } = result_list.at(0);
 
     const minutes_since_update = DateTime.utc()
       .diff(DateTime.fromJSDate(updated_at), 'minutes')
@@ -65,7 +71,12 @@ const verifySessionAndReturnUser = async (event) => {
       });
     }
 
-    return { id, email, status };
+    return {
+      id,
+      email,
+      premium_status_expiration_date,
+      status,
+    };
   } catch (error) {
     /* c8 ignore next */
     return handleBackendError(error, event);

@@ -4,7 +4,7 @@ import * as z from 'zod';
 const { t } = useI18n();
 
 useSeoMeta({
-  title: `${t('t_log_in')} | OptiLeague`,
+  title: `${t('t_log_in')} | NotyLoops`,
 });
 
 const form_fields = ref([
@@ -87,7 +87,6 @@ const logIn = async (form) => {
         :fields="form_fields"
         :loading="handling_request"
         :schema="form_schema"
-        size="xl"
         :submit="{
           class: 'cursor-pointer',
           label: $t('t_log_in'),
@@ -111,7 +110,7 @@ const logIn = async (form) => {
 
     <NuxtLink
       to="/a/password-forgotten"
-      class="primary-link"
+      class="primary-link text-[16px]"
     >{{ $t('t_password_forgotten_question') }}</NuxtLink>
   </UContainer>
 </template>

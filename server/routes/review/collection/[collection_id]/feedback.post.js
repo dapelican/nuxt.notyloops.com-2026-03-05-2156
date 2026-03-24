@@ -44,6 +44,16 @@ export default defineEventHandler(async (event) => {
       };
     }
 
+    const collection_id = getRouterParam(event, 'collection_id');
+
+    if (!z.uuid().safeParse(collection_id).success) {
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+
+      return {
+        error_message: 'error_invalid_collection_id',
+      };
+    }
+
     const {
       feedback,
       note_id,
@@ -66,6 +76,25 @@ export default defineEventHandler(async (event) => {
     }
 
     const {
+      rows: collection_list,
+    } = await executeSQLQuery(
+      `SELECT *
+      FROM collections
+      WHERE id = $1 AND user_id = $2`,
+      [collection_id, user.id]
+    );
+
+    if (collection_list.length === 0) {
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+
+      return {
+        error_message: 'error_no_item_found_for_user',
+      };
+    }
+
+    const collection = collection_list.at(0);
+
+    const {
       rows: note_list,
     } = await executeSQLQuery(
       `SELECT *
@@ -85,11 +114,12 @@ export default defineEventHandler(async (event) => {
     await Promise.all([
       executeSQLQuery(
         `INSERT INTO note_reviews (note_id, user_id, collection_id, review_strategy, score)
-        VALUES ($1, $2, $3, 'spaced_repetition', $4)`,
+        VALUES ($1, $2, $3, $4, $5)`,
         [
           note_id,
           user.id,
-          null,
+          collection_id,
+          collection.review_strategy,
           feedback === 'positive' ? 1 : 0,
         ]
       ),

@@ -39,7 +39,7 @@ import {
 } from '../../services/smtp2go/send-email.js';
 
 import {
-  v4 as uuidv4,
+  v7 as uuidv7,
 } from 'uuid';
 
 const getEmailTokenDurationHoursAgo = () => DateTime
@@ -50,7 +50,7 @@ const getEmailTokenDurationHoursAgo = () => DateTime
   .toISO();
 
 const sendTokenToResetPassword = async (user, subdomain) => {
-  const uuid = uuidv4();
+  const uuid = uuidv7();
 
   await executeSQLQuery(
     `INSERT INTO user_email_tokens (user_id, token, usage)
@@ -97,11 +97,9 @@ export default defineEventHandler(async (event) => {
     );
 
     if (user_list.length === 0) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      setResponseStatus(event, HTTP_CODE_201_CREATED);
 
-      return {
-        error_message: 'error_no_user_found',
-      };
+      return {};
     }
 
     const user = user_list.at(0);

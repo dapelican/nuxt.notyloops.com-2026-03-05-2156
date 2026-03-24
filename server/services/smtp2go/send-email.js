@@ -21,7 +21,7 @@ const sendEmail = async (input) => {
 
   const data = {
     html_body: `<div style="font-size: 16px;">${html_body}</div>`,
-    sender: sender || 'OptiLeague <support@optileague.com>',
+    sender: sender || 'NotyLoops <support@notyloops.com>',
     subject,
     to,
   };

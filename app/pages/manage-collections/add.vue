@@ -6,7 +6,7 @@ definePageMeta({ middleware: 'auth' });
 const { t } = useI18n();
 
 useSeoMeta({
-  title: `${t('t_add_collection')} | OptiLeague`,
+  title: `${t('t_add_collection')} | NotyLoops`,
 });
 
 const {
@@ -26,15 +26,27 @@ if (tag_data.value) {
   all_user_tag_list.value = tag_data.value.all_user_tag_list;
 }
 
+const {
+  data: user_data,
+  error: user_error,
+} = await useFetch('/a/user', { key: 'notes-manage-user' });
+
+if (user_error.value) {
+  handleFrontendError(null, user_error.value.data?.error_message);
+}
+
+const user_status = computed(() => {
+  return user_data.value?.status;
+});
+
 const handling_request = ref(false);
 
 const collection_form_state = reactive({
   title: '',
   tag_id_list_to_include: [],
   tag_id_list_to_exclude: [],
-  type: 'private',
-  review_strategy: 'by_creation_date_oldest_to_newest',
-  hide_note_titles: true,
+  type: COLLECTION_TYPE_PRIVATE,
+  review_strategy: REVIEW_STRATEGY_BY_CREATION_DATE_OLDEST_TO_NEWEST,
   track_scores: true,
   description: '',
   price_without_tax: 0,
@@ -126,6 +138,33 @@ const and_or_list = ref([
   },
 ]);
 
+watch(
+  () => collection_form_state.review_strategy,
+  (next, prev) => {
+    if (next === REVIEW_STRATEGY_SPACED_REPETITION) {
+      collection_form_state.track_scores = true;
+      return;
+    }
+
+    if (next === REVIEW_STRATEGY_DIARY) {
+      collection_form_state.track_scores = false;
+      return;
+    }
+
+    if (
+      prev === REVIEW_STRATEGY_SPACED_REPETITION
+      || prev === REVIEW_STRATEGY_DIARY
+    ) {
+      collection_form_state.track_scores = true;
+    }
+  }
+);
+
+const track_scores_disabled = computed(() => {
+  return collection_form_state.review_strategy === REVIEW_STRATEGY_SPACED_REPETITION
+    || collection_form_state.review_strategy === REVIEW_STRATEGY_DIARY;
+});
+
 const createCollection = async () => {
   handling_request.value = true;
 
@@ -194,14 +233,14 @@ const createCollection = async () => {
         />
       </UFormField>
 
-      <!-- <UAlert
+      <UAlert
         color="info"
         variant="subtle"
         icon="i-lucide-info"
       >
         <template #description>
           <span v-if="collection_form_state.tag_id_list_to_include.length === 0">
-            {{ $t('all_notes_will_be_included') }}
+            {{ $t('t_all_notes_will_be_included') }}
           </span>
 
           <span v-if="collection_form_state.tag_id_list_to_include.length === 1">
@@ -228,7 +267,7 @@ const createCollection = async () => {
             {{ $t('t_will_be_included') }}
           </span>
         </template>
-      </UAlert> -->
+      </UAlert>
 
       <UFormField
         :label="$t('t_tags_to_exclude')"
@@ -253,16 +292,13 @@ const createCollection = async () => {
         />
       </UFormField>
 
-      <!-- <UAlert
+      <UAlert
+        v-if="collection_form_state.tag_id_list_to_exclude.length > 0"
         color="info"
         variant="subtle"
         icon="i-lucide-info"
       >
         <template #description>
-          <span v-if="collection_form_state.tag_id_list_to_exclude.length === 0">
-            {{ $t('all_notes_will_be_excluded') }}
-          </span>
-
           <span v-if="collection_form_state.tag_id_list_to_exclude.length === 1">
             {{ $t('t_notes_with_tag') }}
             {{ tag_name_list_to_exclude.at(0) }}
@@ -287,9 +323,10 @@ const createCollection = async () => {
             {{ $t('t_will_be_excluded') }}
           </span>
         </template>
-      </UAlert> -->
+      </UAlert>
 
       <UFormField
+        v-if="user_status === USER_STATUS_ADMIN"
         :label="$t('t_collection_type')"
         name="type"
       >
@@ -300,7 +337,7 @@ const createCollection = async () => {
       </UFormField>
 
       <UFormField
-        v-if="collection_form_state.type === 'private'"
+        v-if="collection_form_state.type === COLLECTION_TYPE_PRIVATE"
         :label="$t('t_review_strategy')"
         name="review_strategy"
       >
@@ -311,54 +348,39 @@ const createCollection = async () => {
       </UFormField>
 
       <UFormField
-        v-if="collection_form_state.type === 'private'"
-        :label="$t('t_hide_note_titles')"
-        name="hide_note_titles"
-      >
-        <URadioGroup
-          v-model="collection_form_state.hide_note_titles"
-          :items="yes_no_list"
-          orientation="horizontal"
-        />
-      </UFormField>
-
-      <UFormField
-        v-if="collection_form_state.type === 'private'
-          && !['spaced_repetition', 'diary'].includes(collection_form_state.review_strategy)"
+        v-if="collection_form_state.type === COLLECTION_TYPE_PRIVATE"
         :label="$t('t_track_scores')"
         name="track_scores"
       >
         <URadioGroup
           v-model="collection_form_state.track_scores"
+          :disabled="track_scores_disabled"
           :items="yes_no_list"
           orientation="horizontal"
         />
       </UFormField>
 
       <UFormField
-        v-if="collection_form_state.type === 'public'"
+        v-if="collection_form_state.type === COLLECTION_TYPE_PUBLIC_PAYWALLLED"
         :label="$t('t_price_without_tax')"
         name="price_without_tax"
       >
         <UInputNumber
           v-model="collection_form_state.price_without_tax"
-          :decrement="{
-            class: 'cursor-pointer',
-          }"
+          :decrement="{ class: 'cursor-pointer' }"
           :format-options="{
             style: 'currency',
             currency: 'EUR',
             currencyDisplay: 'code',
             currencySign: 'accounting',
           }"
-          :increment="{
-            class: 'cursor-pointer',
-          }"
+          :increment="{ class: 'cursor-pointer' }"
           :min="5"
         />
       </UFormField>
 
       <UFormField
+        v-if="user_status === USER_STATUS_ADMIN"
         :label="$t('t_description')"
         name="description"
       >
@@ -380,11 +402,14 @@ const createCollection = async () => {
       <hr class="separator-1">
 
       <nav class="flex-ce-ce-gap-2">
-        <NuxtLink
-          :to="'/manage-collections/page/1'"
+        <UButton
+          class="cursor-pointer"
+          color="neutral"
+          variant="outline"
+          to="/manage-collections/page/1"
         >
           {{ $t('t_cancel') }}
-        </NuxtLink>
+        </UButton>
 
         <UButton
           class="cursor-pointer"

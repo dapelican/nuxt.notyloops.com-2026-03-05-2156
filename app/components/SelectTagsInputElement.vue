@@ -44,6 +44,7 @@ const onUpdateSelectedTagList = (new_value) => {
     delete-icon="i-lucide-x"
     :items="tag_list"
     multiple
+    :placeholder="$t('t_select_tags')"
     @update:model-value="onUpdateSelectedTagList"
   />
 </template>

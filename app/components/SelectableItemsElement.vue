@@ -113,7 +113,7 @@ const selectAllPages = () => {
 
 <template>
   <!-- SelectableItemsElement.vue -->
-  <UContainer class="centered-max-width-1200">
+  <UContainer class="centered-max-width-650">
     <div
       v-if="!handling_request && searched_item_count === 0 && search_criteria_term"
       class="empty-state"

@@ -7,11 +7,6 @@ import {
 } from '../../helpers/http-status-codes.js';
 
 import {
-  USER_STATUS_TIER_1,
-  USER_TOKEN_CONNECT,
-} from '../../helpers/constants.js';
-
-import {
   defineEventHandler,
   readBody,
   setResponseStatus,
@@ -21,6 +16,14 @@ import {
   validateEmail,
   validateNonEmptyInputFieldList,
 } from '../../helpers/validators.js';
+
+import {
+  USER_STATUS_FREE,
+} from '#shared/utils/constants.js';
+
+import {
+  USER_TOKEN_CONNECT,
+} from '../../helpers/constants.js';
 
 import bcrypt from 'bcrypt';
 
@@ -36,7 +39,7 @@ import {
   sendEmail,
 } from '../../services/smtp2go/send-email.js';
 
-import { v4 as uuidv4 } from 'uuid';
+import { v7 as uuidv7 } from 'uuid';
 
 const SALT_ROUND = 10;
 
@@ -105,14 +108,14 @@ export default defineEventHandler(async (event) => {
       WHERE email = $3 RETURNING *`,
       [
         bcrypt_password,
-        USER_STATUS_TIER_1,
+        USER_STATUS_FREE,
         email,
       ]
     );
 
     const updated_user = updated_user_list.at(0);
 
-    const session_token = uuidv4();
+    const session_token = uuidv7();
     const session_max_age_days = Number(useRuntimeConfig().SESSION_MAX_AGE_DAYS);
 
     const { rows: session_token_list } = await executeSQLQuery(
@@ -151,7 +154,7 @@ export default defineEventHandler(async (event) => {
         id: updated_user.id,
         subdomain: updated_user.subdomain,
       },
-      to: 'support@optileague.com',
+      to: 'support@notyloops.com',
     });
 
     setResponseStatus(event, HTTP_CODE_201_CREATED);

@@ -31,7 +31,7 @@ import {
   handleBackendError,
 } from '../../helpers/handle-backend-error.js';
 
-import { v4 as uuidv4 } from 'uuid';
+import { v7 as uuidv7 } from 'uuid';
 
 export default defineEventHandler(async (event) => {
   try {
@@ -99,7 +99,7 @@ export default defineEventHandler(async (event) => {
       };
     }
 
-    const session_token = uuidv4();
+    const session_token = uuidv7();
     const session_max_age_days = Number(useRuntimeConfig().SESSION_MAX_AGE_DAYS);
 
     const { rows: session_token_list } = await executeSQLQuery(

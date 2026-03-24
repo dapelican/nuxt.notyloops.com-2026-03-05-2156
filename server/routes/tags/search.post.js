@@ -86,10 +86,11 @@ export default defineEventHandler(async (event) => {
 
     const searched_tag_id_list = all_rows.map((row) => row.id);
 
-    let sql_query = `SELECT t.id, t.label, COUNT(nt.note_id)::int AS attached_note_count,
+    let sql_query = `SELECT t.id, t.label, COUNT(n.id)::int AS attached_note_count,
     t.created_at, t.updated_at
     FROM tags t
     LEFT JOIN note_tags nt ON nt.tag_id = t.id AND nt.user_id = t.user_id
+    LEFT JOIN notes n ON n.id = nt.note_id AND n.user_id = t.user_id AND n.deleted_at IS NULL
     ${where_clause}
     GROUP BY t.id, t.label`;
 

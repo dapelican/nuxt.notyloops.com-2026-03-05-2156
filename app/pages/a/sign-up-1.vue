@@ -4,14 +4,14 @@ import * as z from 'zod';
 const { t } = useI18n();
 
 useSeoMeta({
-  title: `${t('t_sign_up_step_1_of_2')} | OptiLeague`,
+  title: `${t('t_sign_up_step_1_of_2')} | NotyLoops`,
 });
 
 const form_fields = ref([
   {
-    label: t('t_email'),
+    label: $t('t_email'),
     name: 'email',
-    placeholder: t('t_enter_your_email'),
+    placeholder: $t('t_enter_your_email'),
     required: true,
     type: 'email',
   },
@@ -97,7 +97,7 @@ const sendValidateEmailToken = async (form) => {
     <UAlert
       v-else
       color="info"
-      :description="$t('t_check_your_inbox_message')"
+      :description="$t('t_you_are_now_on_the_waiting_list')"
       icon="i-lucide-info"
     />
   </UContainer>

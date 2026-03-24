@@ -62,6 +62,11 @@ export default defineEventHandler(async (event) => {
       [final_note_id_list]
     );
 
+    await executeSQLQuery(
+      'UPDATE note_details SET deleted_at = now() WHERE note_id = ANY($1::uuid[])',
+      [final_note_id_list]
+    );
+
     setResponseStatus(event, HTTP_CODE_204_NO_CONTENT);
 
     return {

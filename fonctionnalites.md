@@ -2,7 +2,7 @@
 # Projet
 Je veux commercialiser une application en ligne (de type SAAS) qui proposera la création et la révision de notes.
 Mon app est différente des offres concurrentes sur les points suivants : 
-- Elle a un design beaucoup plus simple et minimaliste. Elle a un light/dark mode, et aura un comportement similaire sur tous les écrans. Pour les mobiles, l'application sera une progressive web app (PWA), disponible sur l'App store et le Google Play Store.
+- Elle a un design simple, minimaliste et moderne. Elle a un comportement similaire sur tous les écrans. Pour les mobiles, l'application sera une progressive web app (PWA) (https://www.pwabuilder.com/ or https://capacitorjs.com/).
 - Elle ne propose pas uniquement de la répétition espacée (voir détails dans la section "collections" ci-dessous).
 
 # Concurrents
@@ -59,8 +59,8 @@ Mes concurrents sont les applications web de flashcards :
 - Pour les collections de type payante, l'URL publique s'affiche au niveau de la collection.
 - Pour les collections de type publique, l'URL publique s'affiche au niveau de la collection.
 
-## collections ouvertes - URLS : /public/*
-- Pour les collections de type partagée, mécanisme à définir. 
+## collections ouvertes - URLS : /pc/*
+- Pour les collections de type partagée, mécanisme à définir. import/export ?
 - Pour les collections de type payante, parcours à définir.
 - Pour les collections de type publique, parcours à définir.
 - Chaque page publique permet de copier toutes les notes de la collection publique vers le compte de l'utilisateur.
@@ -86,9 +86,9 @@ Je prévois 2 façons de faire de l'argent avec cette app :
 - Payer des youtubeurs qui font des vidéos sur les études supérieures pour qu'ils fassent la promotion du site. Viser en priorité les youtubeurs qui ont de petites audiences (moins de 1000 abonnés). Leur porposer un code de réduction pour les collections précédentes en anglais et en espagnol.
 - Créer des vidéos courtes TikTok et Instagram Reels pour montrer la simplicité de l'application.
 
-# Options et stratégies d'acquisition d'utilisateurs - 2 (plus tard)
+# Options et stratégies d'acquisition d'utilisateur - 2 (plus tard)
 - Contacter les maisons d'éditions d'ouvrages scolaires pour le supérieur pour leur proposer de vendre leurs ouvrages sous forme de notes payantes. Format très adapté aux livres scolaires, en particulier ceux ayant des exercices.
 - Contacter les maisons d'éditions qui publiquent des éphémérides pour leur proposer de vendre leurs ouvrages sous forme de note quotidienne.
 
 # Pour Claude
-Fais-moi tes retours sur projet dont les détails sont en instructions. En particulier, sur les options et stratégies d'acquisition d’utilisateurs. Sois critique et challenge-moi pour m'aider à améliorer la viabilité, la profitabilité et les chances de succès du projet. 
+Fais-moi tes retours sur projet dont les détails sont en instructions. En particulier, sur les options et stratégies d'acquisition d’utilisateurs. Sois critique et challenge-moi pour m'aider à améliorer la viabilité, la profitabilité et les chances de succès du projet. L'objectif est de faire 100 000 € de chiffre d'affaires par an.

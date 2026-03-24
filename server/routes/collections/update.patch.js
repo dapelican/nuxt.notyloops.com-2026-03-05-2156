@@ -41,7 +41,6 @@ export default defineEventHandler(async (event) => {
     const {
       description,
       exclusion_type,
-      hide_note_titles,
       id,
       inclusion_type,
       price_without_tax,
@@ -95,7 +94,7 @@ export default defineEventHandler(async (event) => {
       };
     }
 
-    if (type === 'private' && !REVIEW_STRATEGY_LIST.includes(review_strategy)) {
+    if (type === COLLECTION_TYPE_PRIVATE && !REVIEW_STRATEGY_LIST.includes(review_strategy)) {
       setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
@@ -155,11 +154,10 @@ export default defineEventHandler(async (event) => {
         exclusion_type = $6,
         type = $7,
         review_strategy = $8,
-        hide_note_titles = $9,
-        track_scores = $10,
-        description = $11,
-        price_without_tax = $12
-      WHERE id = $1 AND user_id = $13
+        track_scores = $9,
+        description = $10,
+        price_without_tax = $11
+      WHERE id = $1 AND user_id = $12
       RETURNING *`,
       [
         id,
@@ -170,7 +168,6 @@ export default defineEventHandler(async (event) => {
         exclusion_type,
         type,
         review_strategy,
-        hide_note_titles,
         track_scores,
         description,
         price_without_tax,

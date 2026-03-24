@@ -7,9 +7,19 @@ import {
 } from '../../helpers/http-status-codes.js';
 
 import {
+  TEXT_TO_SPEECH_FILE_CHARACTER_LIMIT,
+  USER_STATUS_ADMIN,
+  USER_STATUS_PREMIUM,
+} from '#shared/utils/constants.js';
+
+import {
   defineEventHandler,
   setResponseStatus,
 } from 'h3';
+
+import {
+  executeSQLQuery,
+} from '../../database/query.js';
 
 import fs from 'fs/promises';
 
@@ -124,6 +134,14 @@ export default defineEventHandler(async (event) => {
       };
     }
 
+    if (user.status !== USER_STATUS_PREMIUM && user.status !== USER_STATUS_ADMIN) {
+      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
+
+      return {
+        error_message: 'error_unauthorized',
+      };
+    }
+
     if (text?.length === 0 || !authorized_language_code_list.includes(language_code)) {
       setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
@@ -132,7 +150,24 @@ export default defineEventHandler(async (event) => {
       };
     }
 
+    if (typeof text === 'string' && text.length > TEXT_TO_SPEECH_FILE_CHARACTER_LIMIT) {
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+
+      return {
+        error_message: 't_error_text_to_speech_file_character_limit',
+      };
+    }
+
     const audio_url = await generateSpeechLink(text, language_code, user.id);
+
+    await executeSQLQuery(
+      `INSERT INTO text_to_speech_usage (character_count, user_id)
+      VALUES ($1, $2)`,
+      [
+        text.length,
+        user.id,
+      ]
+    );
 
     setResponseStatus(event, HTTP_CODE_200_OK);
 
@@ -140,8 +175,6 @@ export default defineEventHandler(async (event) => {
       audio_url,
     };
   } catch (error) {
-    console.log('!!!!!!!!!!!!!!!!!!error', error);
-
     /* c8 ignore next */
     return handleBackendError(error, event);
   }

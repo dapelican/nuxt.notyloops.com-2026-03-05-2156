@@ -16,11 +16,15 @@ onMounted(async () => {
       return;
     }
 
-    const { note_id_list_to_review } = data;
+    const { note_id_list_to_review, track_scores } = data;
 
     localStorage.setItem(LOCAL_STORAGE_KEY_REVIEW_COLLECTION_NOTE_ID_LIST, JSON.stringify(note_id_list_to_review));
     localStorage.setItem(LOCAL_STORAGE_KEY_REVIEW_COLLECTION_CURRENT_INDEX, '0');
     localStorage.setItem(LOCAL_STORAGE_KEY_REVIEW_COLLECTION_SCORE, '0');
+    localStorage.setItem(
+      LOCAL_STORAGE_KEY_REVIEW_COLLECTION_TRACK_SCORES,
+      JSON.stringify(Boolean(track_scores))
+    );
 
     await navigateTo(`/review/collection/${collection_id}/note/${note_id_list_to_review.at(0)}`);
   } catch (error) {

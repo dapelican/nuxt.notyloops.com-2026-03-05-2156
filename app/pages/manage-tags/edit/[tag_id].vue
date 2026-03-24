@@ -6,7 +6,7 @@ definePageMeta({ middleware: 'auth' });
 const { t } = useI18n();
 
 useSeoMeta({
-  title: `${t('t_edit_tag')} | OptiLeague`,
+  title: `${t('t_edit_tag')} | NotyLoops`,
 });
 
 const route = useRoute();
@@ -94,7 +94,7 @@ const updateTag = async () => {
         @submit="updateTag"
       >
         <UFormField
-          :label="$t('t_label')"
+          :label="$t('t_tag_label')"
           name="label"
         >
           <UInput
@@ -114,11 +114,14 @@ const updateTag = async () => {
         <hr class="separator-1">
 
         <nav class="flex-ce-ce-gap-2">
-          <NuxtLink
+          <UButton
+            class="cursor-pointer"
+            color="neutral"
+            variant="outline"
             :to="`/manage-tags/page/${page_number}`"
           >
             {{ $t('t_cancel') }}
-          </NuxtLink>
+          </UButton>
 
           <UButton
             class="cursor-pointer"

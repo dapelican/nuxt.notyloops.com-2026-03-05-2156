@@ -6,7 +6,7 @@ import * as z from 'zod';
 const { t } = useI18n();
 
 useSeoMeta({
-  title: `${t('t_reset_my_password')} | OptiLeague`,
+  title: `${t('t_reset_my_password')} | NotyLoops`,
 });
 
 const page_error = ref('');

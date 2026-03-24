@@ -125,6 +125,11 @@ export default defineEventHandler(async (event) => {
       [bcrypt_password, email]
     );
 
+    await executeSQLQuery(
+      `UPDATE user_session_tokens SET blacklisted = true WHERE user_id = $1`,
+      [existing_user.id]
+    );
+
     await sendEmailToNotifyPasswordChange(existing_user);
 
     setResponseStatus(event, HTTP_CODE_200_OK);

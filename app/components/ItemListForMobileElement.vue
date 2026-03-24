@@ -70,7 +70,7 @@ const show_details = ref(false);
           @click="show_details = !show_details"
         >
           <span>
-            {{ $t('t-details') }}
+            {{ $t('t_details') }}
           </span>
 
           <UIcon

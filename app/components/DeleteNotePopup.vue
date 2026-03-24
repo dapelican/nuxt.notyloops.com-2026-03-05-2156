@@ -53,9 +53,7 @@ const deleteNote = async () => {
   <!-- DeleteNotePopup.vue -->
   <UModal
     v-model:open="show_popup"
-    :close="{
-      class: 'cursor-pointer',
-    }"
+    :close="{ class: 'cursor-pointer' }"
     :title="$t('t_delete')"
   >
     <section>
@@ -73,13 +71,12 @@ const deleteNote = async () => {
     </template>
 
     <template
-      #footer="{
-        close,
-      }"
+      #footer="{ close }"
     >
       <div class="popup-actions">
         <UButton
           class="cursor-pointer"
+          color="neutral"
           :label="$t('t_cancel')"
           variant="outline"
           @click="close"
