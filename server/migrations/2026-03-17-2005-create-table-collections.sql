@@ -15,8 +15,7 @@ CREATE TABLE collections (
   super_random_counter INTEGER NOT NULL DEFAULT 0,
   preview_note_id_list JSONB,
   price_without_tax INTEGER,
-  stripe_payment_link_id TEXT,
-  slug TEXT
+  stripe_payment_link_id TEXT
 );
 
 CREATE TRIGGER update_collections_timestamp

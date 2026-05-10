@@ -242,12 +242,8 @@ useSeoMeta({
           <hr class="separator-1">
 
           <h3 class="numbers">
-            <span class="strikethrough">
-              75 €
-            </span>
-
             <span>
-              60 €
+              72 €
             </span>
           </h3>
         </div>

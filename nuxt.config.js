@@ -15,6 +15,49 @@ export default defineNuxtConfig({
   devtools: {
     enabled: false,
   },
+  app: {
+    head: {
+      htmlAttrs: {
+        lang: 'en',
+      },
+      link: [
+        {
+          rel: 'icon',
+          type: 'image/png',
+          sizes: '16x16',
+          href: '/images/notyloops-0016x0016.png',
+        },
+        {
+          rel: 'icon',
+          type: 'image/png',
+          sizes: '32x32',
+          href: '/images/notyloops-0032x0032.png',
+        },
+        {
+          rel: 'apple-touch-icon',
+          href: '/images/notyloops-0180x0180.png',
+        },
+      ],
+      meta: [
+        {
+          name: 'theme-color',
+          content: '#97BF0D',
+        },
+        {
+          name: 'mobile-web-app-capable',
+          content: 'yes',
+        },
+        {
+          name: 'apple-mobile-web-app-capable',
+          content: 'yes',
+        },
+        {
+          name: 'apple-mobile-web-app-status-bar-style',
+          content: 'default',
+        },
+      ],
+    },
+  },
   css: ['~/assets/css/main.css'],
   // to make the environment variables declared in the .env file
   // available in the app folder (client-side) and the sever folder (server-side).

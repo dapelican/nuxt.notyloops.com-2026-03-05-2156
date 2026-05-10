@@ -1,5 +1,9 @@
 <script setup>
 const items = [
+  {
+    label: $t('t_contact'),
+    to: '/contact',
+  },
   // {
   //   label: 'Figma Kit',
   //   to: 'https://go.nuxt.com/figma-ui',

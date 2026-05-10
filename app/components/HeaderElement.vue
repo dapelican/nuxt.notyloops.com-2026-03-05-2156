@@ -33,11 +33,6 @@ const public_items = computed(() => [
   //   label: $t('t_sign_up'),
   //   to: '/a/sign-up-1',
   // },
-  {
-    active: route.path.startsWith('/pc'),
-    label: $t('t_public_notes'),
-    to: '/pc',
-  },
 ]);
 
 const private_items = computed(() => [
@@ -55,11 +50,6 @@ const private_items = computed(() => [
     active: route.path.startsWith('/manage-collections/page'),
     label: $t('t_manage_collections'),
     to: '/manage-collections/page/1',
-  },
-  {
-    active: route.path.startsWith('/pc'),
-    label: $t('t_public_notes'),
-    to: '/pc',
   },
   // {
   //   active: route.path.startsWith('/review'),

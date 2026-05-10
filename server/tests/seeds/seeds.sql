@@ -7310,8 +7310,7 @@ INSERT INTO collections (
   exclusion_type,
   review_strategy,
   price_without_tax,
-  stripe_payment_link_id,
-  slug
+  stripe_payment_link_id
 )
 VALUES
 (
@@ -7331,8 +7330,7 @@ VALUES
   'AND',
   'random',
   NULL,
-  NULL,
-  'drapeaux-pays-afrique'
+  NULL
 ),
 (
   (SELECT id FROM users WHERE email = 'b@b.com'),
@@ -7351,8 +7349,7 @@ VALUES
   'AND',
   'random',
   NULL,
-  NULL,
-  'drapeaux-pays-amerique-du-nord'
+  NULL
 ),
 (
   (SELECT id FROM users WHERE email = 'b@b.com'),
@@ -7371,8 +7368,7 @@ VALUES
   'AND',
   'random',
   NULL,
-  NULL,
-  'drapeaux-pays-amerique-du-sud'
+  NULL
 ),
 (
   (SELECT id FROM users WHERE email = 'b@b.com'),
@@ -7391,8 +7387,7 @@ VALUES
   'AND',
   'random',
   5,
-  'test_fZu00j1qS3ogaVW4efc3m01',
-  'drapeaux-pays-asie'
+  'test_fZu00j1qS3ogaVW4efc3m01'
 ),
 (
   (SELECT id FROM users WHERE email = 'b@b.com'),
@@ -7411,8 +7406,7 @@ VALUES
   'AND',
   'random',
   NULL,
-  NULL,
-  'drapeaux-pays-europe'
+  NULL
 ),
 (
   (SELECT id FROM users WHERE email = 'b@b.com'),
@@ -7430,7 +7424,6 @@ VALUES
   '[]'::jsonb,
   'AND',
   'random',
-  NULL,
   NULL,
   NULL
 );
