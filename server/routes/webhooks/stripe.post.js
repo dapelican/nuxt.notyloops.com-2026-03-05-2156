@@ -31,7 +31,7 @@ import Stripe from 'stripe';
 const CHECKOUT_SESSION_COMPLETED = 'checkout.session.completed';
 
 const PREMIUM_ACCESS_PAYMENT_LINK_ID_LIST = [
-  'test_aFaeVdb1scYQ2pq4efc3m00',
+  'plink_1TTjoSEYprLvqgNnYLrr7XqZ',
 ];
 
 const finish_checkout_session_completed_processing = async ({
