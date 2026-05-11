@@ -149,8 +149,13 @@ export default defineEventHandler(async (event) => {
     if (stripe_event.type === CHECKOUT_SESSION_COMPLETED) {
       const session_from_event = stripe_event.data.object;
       const session = await stripe_client.checkout.sessions.retrieve(
-        session_from_event.id
+        session_from_event.id,
+        {
+          expand: ['line_items', 'line_items.data.price.product'],
+        }
       );
+
+      console.log('!!!!!!!session.line_items,', JSON.stringify(session.line_items));
 
       const payment_link_id = session.payment_link ?? null;
       const amount_paid = session.amount_total;
