@@ -2,7 +2,7 @@
 const { t } = useI18n();
 
 useSeoMeta({
-  title: `${t('t_price')} | NotyLoops`,
+  title: `${t('t_pricing')} | NotyLoops`,
 });
 </script>
 
@@ -10,7 +10,7 @@ useSeoMeta({
   <UContainer>
     <div class="center">
       <h1 class="center">
-        {{ $t('t_price') }}
+        {{ $t('t_pricing') }}
       </h1>
 
       <hr class="separator-2">

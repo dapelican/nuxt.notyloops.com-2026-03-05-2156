@@ -1,8 +1,15 @@
 <script setup>
-const { t } = useI18n();
+const { locale, t } = useI18n();
+
+let meta_description = '';
+
+if (locale.value === 'fr') {
+  meta_description = 'L\'appalication pour créer des notes et les revoir en utilisant la répétition espacée, le hasard ou une autre stratégie.';
+}
 
 useSeoMeta({
   title: `${t('t_the_notes_made_to_be_reviewed')} | NotyLoops`,
+  description: meta_description,
 });
 </script>
 
