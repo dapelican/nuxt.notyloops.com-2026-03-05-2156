@@ -58,9 +58,10 @@ if (collection.value?.type === COLLECTION_TYPE_PUBLIC_PAYWALLLED && logged_in.va
       },
     });
 
-    user_has_purchased_collection.value = payment_check_payload?.has_purchased ?? false;
-  } catch (error) {
-    handleFrontendError(error, error?.data?.error_message);
+    user_has_purchased_collection.value = payment_check_payload?.has_purchased;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  } catch (___) {
+    user_has_purchased_collection.value = false;
   }
 }
 
@@ -101,7 +102,7 @@ handling_request.value = false;
           <UButton
             class="cursor-pointer"
             color="primary"
-            variant="outline"
+            variant="solid"
           >
             <span>{{ $t('t_copy_collection') }}</span>
           </UButton>
@@ -109,6 +110,27 @@ handling_request.value = false;
           <template #content>
             <p class="m-0">
               {{ $t('t_you_own_this_collection_you_cannot_copy_it') }}
+            </p>
+          </template>
+        </LimitedFeaturePopup>
+
+        <LimitedFeaturePopup
+          v-else-if="logged_in
+            && !user_is_premium
+            && collection?.type === COLLECTION_TYPE_PUBLIC_PAYWALLLED
+            && !user_has_purchased_collection"
+        >
+          <UButton
+            class="cursor-pointer"
+            color="primary"
+            variant="solid"
+          >
+            <span>{{ $t('t_copy_collection') }}</span>
+          </UButton>
+
+          <template #content>
+            <p class="m-0">
+              {{ $t('t_you_must_have_a_premium_account_to_buy_this_collection') }}
             </p>
           </template>
         </LimitedFeaturePopup>
@@ -147,6 +169,7 @@ handling_request.value = false;
             :collection_type="collection?.type ?? 'public_free'"
             :note_id="note.id"
             :preview_note_id_list="collection?.preview_note_id_list"
+            :show_lock="true"
             :title="note.title"
           />
         </section>

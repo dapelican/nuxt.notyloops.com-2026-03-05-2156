@@ -197,6 +197,7 @@ const calculateScore = (score, review_count) => {
           :collection_type="props.collection_type"
           :note_id="item.id"
           :preview_note_id_list="props.preview_note_id_list"
+          :show_lock="false"
           :title="item.title"
         />
       </main>

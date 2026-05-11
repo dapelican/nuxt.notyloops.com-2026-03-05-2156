@@ -19,6 +19,11 @@ const public_items = computed(() => [
     to: '/',
   },
   {
+    active: route.path === '/price',
+    label: $t('t_price'),
+    to: '/price',
+  },
+  {
     active: route.path.startsWith('/a/log-in'),
     label: $t('t_log_in'),
     to: '/a/log-in',

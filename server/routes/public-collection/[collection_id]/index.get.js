@@ -59,7 +59,7 @@ export default defineEventHandler(async (event) => {
       setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
-        error_message: 'error_no_item_foundr',
+        error_message: 'error_no_item_found',
       };
     }
 

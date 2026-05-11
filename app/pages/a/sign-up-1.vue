@@ -97,7 +97,7 @@ const sendValidateEmailToken = async (form) => {
     <UAlert
       v-else
       color="info"
-      :description="$t('t_you_are_now_on_the_waiting_list')"
+      :description="$t('t_check_your_inbox_message')"
       icon="i-lucide-info"
     />
   </UContainer>

@@ -1,10 +1,6 @@
 <script setup>
 const props = defineProps({
-  note_id: {
-    type: String,
-    required: true,
-  },
-  title: {
+  collection_id: {
     type: String,
     default: '',
   },
@@ -12,13 +8,21 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  collection_id: {
+  note_id: {
     type: String,
-    default: '',
+    required: true,
   },
   preview_note_id_list: {
     type: Array,
     default: undefined,
+  },
+  show_lock: {
+    type: Boolean,
+    default: true,
+  },
+  title: {
+    type: String,
+    default: '',
   },
 });
 
@@ -28,7 +32,19 @@ const note_detail_loading = ref(false);
 
 const { loggedIn: logged_in } = useUserSession();
 
-const is_preview_locked = computed(() => {
+const show_locked_preview = computed(() => {
+  if (!props.show_lock) {
+    return false;
+  }
+
+  if (!logged_in.value) {
+    return true;
+  }
+
+  if (props.collection_type === COLLECTION_TYPE_PUBLIC_FREE) {
+    return false;
+  }
+
   const list = props.preview_note_id_list;
 
   if (!Array.isArray(list)) {
@@ -36,10 +52,6 @@ const is_preview_locked = computed(() => {
   }
 
   return !list.includes(props.note_id);
-});
-
-const show_locked_preview = computed(() => {
-  return is_preview_locked.value || !logged_in.value;
 });
 
 const note_detail_fetch_url = computed(() => {
@@ -80,7 +92,7 @@ const load_note_detail_list = async () => {
 const on_content_open_change = async (is_open) => {
   content_open.value = is_open;
 
-  if (is_open && !is_preview_locked.value && logged_in.value) {
+  if (is_open && !show_locked_preview.value && logged_in.value) {
     await load_note_detail_list();
   }
 };
