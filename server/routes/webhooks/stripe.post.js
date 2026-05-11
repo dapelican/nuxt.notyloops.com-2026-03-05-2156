@@ -139,7 +139,7 @@ export default defineEventHandler(async (event) => {
 
       const payment_link_id = session.payment_link ?? null;
       const amount_paid = session.amount_total;
-      const customer_id = session.customer;
+      const customer_id = session.client_reference_id;
 
       const post_ack_processing = finish_checkout_session_completed_processing({
         customer_id,
