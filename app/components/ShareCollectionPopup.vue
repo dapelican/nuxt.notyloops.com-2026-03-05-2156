@@ -21,9 +21,7 @@ const show_popup = ref(false);
   <!-- ShareCollectionPopup.vue -->
   <UModal
     v-model:open="show_popup"
-    :close="{
-      class: 'cursor-pointer',
-    }"
+    :close="{ class: 'cursor-pointer' }"
     :title="$t('t_share_the_collection')"
   >
     <section>
@@ -59,9 +57,7 @@ const show_popup = ref(false);
     </template>
 
     <template
-      #footer="{
-        close,
-      }"
+      #footer="{ close }"
     >
       <div class="popup-actions">
         <UButton

@@ -214,7 +214,7 @@ const run_import = async () => {
       <div class="popup-actions">
         <UButton
           class="cursor-pointer"
-          color="error"
+          color="neutral"
           variant="outline"
           :disabled="is_importing"
           @click="close_popup_and_reset"
