@@ -33,27 +33,11 @@ export default defineNuxtConfig({
           sizes: '32x32',
           href: '/images/notyloops-0032x0032.png',
         },
-        {
-          rel: 'apple-touch-icon',
-          href: '/images/notyloops-0180x0180.png',
-        },
       ],
       meta: [
         {
           name: 'theme-color',
           content: '#97BF0D',
-        },
-        {
-          name: 'mobile-web-app-capable',
-          content: 'yes',
-        },
-        {
-          name: 'apple-mobile-web-app-capable',
-          content: 'yes',
-        },
-        {
-          name: 'apple-mobile-web-app-status-bar-style',
-          content: 'default',
         },
       ],
     },
