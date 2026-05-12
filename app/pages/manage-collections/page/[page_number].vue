@@ -475,7 +475,7 @@ onUnmounted(() => {
                 @click="handleActionBarClick('show_master_checkbox')"
               >
                 <span class="desktop-only">
-                  {{ $t('t_select_all') }}
+                  {{ $t('t_select') }}
                 </span>
               </UButton>
 

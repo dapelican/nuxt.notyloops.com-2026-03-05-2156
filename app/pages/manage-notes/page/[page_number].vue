@@ -276,7 +276,7 @@ onUnmounted(() => {
                 @click="handleActionBarClick('show_master_checkbox')"
               >
                 <span class="desktop-only">
-                  {{ $t('t_select_all') }}
+                  {{ $t('t_select') }}
                 </span>
               </UButton>
 
@@ -293,7 +293,7 @@ onUnmounted(() => {
               </section>
             </div>
 
-            <div class="ml-auto mr-auto">
+            <div class="ml-auto mr-auto max-w-[800px]">
               <UInput
                 v-if="show_search_input"
                 v-model="search_criteria_term"
