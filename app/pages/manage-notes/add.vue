@@ -137,7 +137,7 @@ const createNote = async () => {
 
 <template>
   <!-- app/pages/manage-notes/add.vue -->
-  <main class="centered-max-width-650">
+  <UContainer class="centered-max-width-650">
     <h1 class="center">
       {{ $t('t_add_note') }}
     </h1>
@@ -382,7 +382,7 @@ const createNote = async () => {
         </UButton>
       </nav>
     </form>
-  </main>
+  </UContainer>
 </template>
 
 <style scoped>

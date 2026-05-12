@@ -11,6 +11,7 @@ const props = defineProps({
 });
 
 const {
+  all_user_tag_list,
   page_number,
   searchItems,
 } = useSearchAndSelectItemsOrInject(ITEM_TYPE_TAG);

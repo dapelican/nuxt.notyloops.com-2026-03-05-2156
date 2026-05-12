@@ -162,6 +162,8 @@
   "t_no": "Non",
   "t_no_notes_due_for_review_for_today": "Aucune note à revoir pour aujourd'hui",
   "t_no_result_matching_your_search": "Aucun résultat ne correspond à votre recherche",
+  "t_no_collections_match_your_search": "Aucune collection ne correspond à votre recherche",
+  "t_no_notes_match_your_search": "Aucune note ne correspond à votre recherche",
   "t_no_tags_match_your_search": "Aucun tag ne correspond à votre recherche",
   "t_note_count_due_for_review_with_colon": "Nombre de notes à revoir : ",
   "t_note_reviews": "Révisions de notes",

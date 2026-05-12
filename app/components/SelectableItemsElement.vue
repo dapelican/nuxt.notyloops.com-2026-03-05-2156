@@ -122,7 +122,7 @@ const selectAllPages = () => {
         name="i-lucide-search"
         class="empty-icon"
       />
-      <p>{{ $t('t_no_tags_match_your_search') }}</p>
+      <p>{{ $t(`t_no_${item_type}s_match_your_search`) }}</p>
     </div>
 
     <NoteListElement
