@@ -21,12 +21,6 @@ import {
 } from 'h3';
 
 import {
-  JSDOM,
-} from 'jsdom';
-
-import createDomPurify from 'dompurify';
-
-import {
   executeSQLQuery,
 } from '../../database/query.js';
 
@@ -47,8 +41,6 @@ import { v7 as uuidv7 } from 'uuid';
 import {
   verifySessionAndReturnUser,
 } from '../../helpers/verify-session-and-return-user.js';
-
-const dompurify = createDomPurify(new JSDOM().window);
 
 const CONTENT_TYPE_LIST = ['text', 'image', 'audio'];
 
@@ -88,24 +80,6 @@ const parse_int_or_null = (value) => {
   const n = Number.parseInt(s, 10);
 
   return Number.isNaN(n) ? null : n;
-};
-
-const html_for_insert = (markdown_raw, html_raw) => {
-  const markdown = markdown_raw?.trim();
-
-  if (markdown) {
-    return sanitizeHtml(markdown);
-  }
-
-  const html = html_raw?.trim();
-
-  if (html) {
-    return dompurify.sanitize(html, {
-      ADD_ATTR: ['target'],
-    });
-  }
-
-  return null;
 };
 
 const validate_row_list = (row_list) => {
@@ -309,7 +283,6 @@ export default defineEventHandler(async (event) => {
         }
 
         const markdown_content = normalize_cell(row.markdown_content);
-        const html_raw = normalize_cell(row.html_content);
         const file_url_raw = normalize_cell(row.file_url);
         const file_url = file_url_raw.trim() === '' ? null : file_url_raw;
 
@@ -331,10 +304,9 @@ export default defineEventHandler(async (event) => {
             content_sub_position,
             content_type,
             markdown_content.trim() === '' ? null : markdown_content,
-            html_for_insert(
-              markdown_content.trim() === '' ? null : markdown_content,
-              html_raw.trim() === '' ? null : html_raw
-            ),
+            markdown_content.trim() === ''
+              ? null
+              : sanitizeHtml(markdown_content.trim()),
             file_url,
             parse_boolean_or_null(row.to_be_hidden),
             parse_boolean_or_null(row.is_correct),

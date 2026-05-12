@@ -1,0 +1,85 @@
+card_name,card_id,content_index,image_url,markdown,is_correct
+,00cc8c68-89eb-4a36-9485-f244dfd55754,30,,Quel est l’antonyme du mot “hérétique” ?,false
+,00cc8c68-89eb-4a36-9485-f244dfd55754,41,,dissident,false
+,00cc8c68-89eb-4a36-9485-f244dfd55754,42,,hétérodoxe,false
+,00cc8c68-89eb-4a36-9485-f244dfd55754,43,,déviant,false
+,00cc8c68-89eb-4a36-9485-f244dfd55754,44,,dévot,true
+,00cc8c68-89eb-4a36-9485-f244dfd55754,50,,Un antonyme est le mot contraire. L’antonyme d’hérétique est dévot. Un dévot se conforme par définition au credo de la religion ou de l’idéologie dominante. Il suit la “doxa”.,false
+,231d3897-49be-41eb-b3e5-196c345f2936,30,,L’épigone est :,false
+,231d3897-49be-41eb-b3e5-196c345f2936,41,,une maladie virale,false
+,231d3897-49be-41eb-b3e5-196c345f2936,42,,un successeur,true
+,231d3897-49be-41eb-b3e5-196c345f2936,43,,une figure géométrique,false
+,231d3897-49be-41eb-b3e5-196c345f2936,44,,une variété d’épinards,false
+,231d3897-49be-41eb-b3e5-196c345f2936,50,,"Un épigone est un descendant. À l’origine, il s’agit du nom des héros grecs de la seconde expédition contre Thèbes.",false
+,31344243-70de-4361-8d20-8a2e115e98fe,30,,Qu’est-ce qu’un incunable ?,false
+,31344243-70de-4361-8d20-8a2e115e98fe,41,,un représentant du Tiers-État sous la Révolution,false
+,31344243-70de-4361-8d20-8a2e115e98fe,42,,une personne de caste inférieure en Inde,false
+,31344243-70de-4361-8d20-8a2e115e98fe,43,,un livre imprimé avant 1500,true
+,31344243-70de-4361-8d20-8a2e115e98fe,44,,une propriété mathématique indémontrable,false
+,4bf30589-f26c-4f93-8f49-05628de505be,30,,Un quinconce désigne :,false
+,4bf30589-f26c-4f93-8f49-05628de505be,41,,une ancienne unité de mesure,false
+,4bf30589-f26c-4f93-8f49-05628de505be,42,,un polyèdre irrégulier,false
+,4bf30589-f26c-4f93-8f49-05628de505be,43,,une disposition de cinq objets,true
+,4bf30589-f26c-4f93-8f49-05628de505be,44,,une crise de toux asthmatiforme,false
+,4bf30589-f26c-4f93-8f49-05628de505be,50,,L’expression “en quinquonce” se dit de 5 objets disposés aux 4 angles et au centre d’un carré.,false
+,6677756c-29b9-4867-9d05-eedf627bb39b,30,,Qu'est-ce que la Silicon Valley ?,
+,6677756c-29b9-4867-9d05-eedf627bb39b,41,,Une vallée du Mississippi où la pratique de la chirurgie esthétique est largement répandue,false
+,6677756c-29b9-4867-9d05-eedf627bb39b,42,,La zone lunaire séparant le cratère Kepler du cratère Copernic,false
+,6677756c-29b9-4867-9d05-eedf627bb39b,43,,Une vallée près de San Francisco où se concentrent de nombreuses industrie de pointe,true
+,6677756c-29b9-4867-9d05-eedf627bb39b,44,,Une vallée près de Tokyo spécialisée dans la production de silicium polycristallin,false
+,8506c4fc-6b15-42c8-9fe2-e7b24f1781ba,30,,Qu’est-ce que la curée ?,false
+,8506c4fc-6b15-42c8-9fe2-e7b24f1781ba,41,,l’opération de nettoyage d’une cavité organique,false
+,8506c4fc-6b15-42c8-9fe2-e7b24f1781ba,42,,un séjour thérapeutique dans une station thermale,false
+,8506c4fc-6b15-42c8-9fe2-e7b24f1781ba,43,,la lutte acharnée pour un partage,true
+,8506c4fc-6b15-42c8-9fe2-e7b24f1781ba,44,,une autre dénomination du presbytère,false
+,86f5c18c-c069-4a38-bf56-98d16b96d8fd,30,,Quel est le sens du mot expédient ?,false
+,86f5c18c-c069-4a38-bf56-98d16b96d8fd,41,,un courrier urgent,false
+,86f5c18c-c069-4a38-bf56-98d16b96d8fd,42,,un moyen pour arriver à ses fins,true
+,86f5c18c-c069-4a38-bf56-98d16b96d8fd,43,,un livreur à domicile,false
+,86f5c18c-c069-4a38-bf56-98d16b96d8fd,44,,une médication orale,false
+,9502f1f5-ebeb-4b24-98c2-fbf6492eac9a,30,,"Un amphigouri, c'est :",false
+,9502f1f5-ebeb-4b24-98c2-fbf6492eac9a,41,,une salle d'armes pour samouraïs,false
+,9502f1f5-ebeb-4b24-98c2-fbf6492eac9a,42,,une maison de retraite pour geishas,false
+,9502f1f5-ebeb-4b24-98c2-fbf6492eac9a,43,,un texte pompeux et incompréhensible,true
+,9502f1f5-ebeb-4b24-98c2-fbf6492eac9a,44,,un porc aquatique vivant dans les marigots,false
+,9b5d1293-1a4d-47bf-8b54-51ecbe8a8cbf,30,,D’où vient le mot phare ?,false
+,9b5d1293-1a4d-47bf-8b54-51ecbe8a8cbf,41,,"du nom de son inventeur, un ingénieur breton",false
+,9b5d1293-1a4d-47bf-8b54-51ecbe8a8cbf,42,,"de l’île de Pharos, au large d’Alexandrie",true
+,9b5d1293-1a4d-47bf-8b54-51ecbe8a8cbf,43,,du pharaon qui introduisit le culte du soleil,false
+,9b5d1293-1a4d-47bf-8b54-51ecbe8a8cbf,44,,du mont Faron qui domine la rade de Toulon,false
+,ab067fe5-b505-4a7a-b52f-7f006f267c1e,30,,Quelle hormone sert au traitement du diabète ?,false
+,ab067fe5-b505-4a7a-b52f-7f006f267c1e,41,,la morphine,false
+,ab067fe5-b505-4a7a-b52f-7f006f267c1e,42,,l’insuline,true
+,ab067fe5-b505-4a7a-b52f-7f006f267c1e,43,,l’adrénaline,false
+,ab067fe5-b505-4a7a-b52f-7f006f267c1e,44,,la folliculine,false
+,ab067fe5-b505-4a7a-b52f-7f006f267c1e,50,,L’insuline doit son nom au fait qu’elle est extraite des “îles” du pancréas (îlots de Langerhans).,false
+,c4babad2-3929-4c14-81fd-abf0043aaa77,30,,La musique de l’opéra <i>La Flûte enchantée</i> a été composée par :,false
+,c4babad2-3929-4c14-81fd-abf0043aaa77,41,,Gabriel Fauré,false
+,c4babad2-3929-4c14-81fd-abf0043aaa77,42,,Joseph Haydn,false
+,c4babad2-3929-4c14-81fd-abf0043aaa77,43,,Antonio Salieri,false
+,c4babad2-3929-4c14-81fd-abf0043aaa77,44,,Wolfgang Amadeus Mozart,true
+,c4babad2-3929-4c14-81fd-abf0043aaa77,45,,Monica Lewinski,false
+,c4babad2-3929-4c14-81fd-abf0043aaa77,46,,George Sand,false
+,c4babad2-3929-4c14-81fd-abf0043aaa77,50,,"Cet opéra “maçonnique” et conte fantastique fut joué à Vienne en 1791, et adapté au cinéma, notamment par Ingmar Bergman.",false
+,c756a056-4bae-484e-a8c8-ceb86eca8c9c,30,,Un moratoire est :,false
+,c756a056-4bae-484e-a8c8-ceb86eca8c9c,41,,une cérémonie commémorative,false
+,c756a056-4bae-484e-a8c8-ceb86eca8c9c,42,,une chambre funéraire,false
+,c756a056-4bae-484e-a8c8-ceb86eca8c9c,43,,un bassin d’alvinage en pisciculture,false
+,c756a056-4bae-484e-a8c8-ceb86eca8c9c,44,,une disposition légale aménageant un délai d’exécution,true
+,d6e54055-4065-432b-84b8-d9729185c691,30,,Celui qui distingue les objets dans la nuit est un :,false
+,d6e54055-4065-432b-84b8-d9729185c691,41,,lycanthrope,false
+,d6e54055-4065-432b-84b8-d9729185c691,42,,nycthémère,false
+,d6e54055-4065-432b-84b8-d9729185c691,43,,nyctophobe,false
+,d6e54055-4065-432b-84b8-d9729185c691,44,,nyctalope,true
+,e02ebeb5-a45f-4927-a380-b13a36e082ef,30,,Qui était bisaïeul de Louis XV ?,false
+,e02ebeb5-a45f-4927-a380-b13a36e082ef,41,,Henri IV,false
+,e02ebeb5-a45f-4927-a380-b13a36e082ef,42,,Louis XII,false
+,e02ebeb5-a45f-4927-a380-b13a36e082ef,43,,Louis XIII,false
+,e02ebeb5-a45f-4927-a380-b13a36e082ef,44,,Louis XIV,true
+,e02ebeb5-a45f-4927-a380-b13a36e082ef,50,https://f003.backblazeb2.com/file/optileague/1_1754726377880_genealogie-louis-xv.png,Un bisaïeul est un arrière-grand-père. L’arrière-grand-père de Louis XV était Louis XIV.,false
+,f097172d-4229-43ea-966c-de10695d98e7,30,,“La substantifique moelle” est une expression de :,false
+,f097172d-4229-43ea-966c-de10695d98e7,41,,Villon,false
+,f097172d-4229-43ea-966c-de10695d98e7,42,,Victor Hugo,false
+,f097172d-4229-43ea-966c-de10695d98e7,43,,Rabelais,true
+,f097172d-4229-43ea-966c-de10695d98e7,44,,Montaigne,false
+,f097172d-4229-43ea-966c-de10695d98e7,50,,"Dans le prologue de <i>Gargantua</i>, Rabelais compare, sans doute de façon ironique, le contenu de son livre à l’os qu’il faut ronger pour atteindre l’essentiel.",false

@@ -261,7 +261,7 @@ const vNoteExternalLinks = {
             color="primary"
             @click="evaluate_submission_for_block(block_idx)"
           >
-            {{ $t('t_submit') }}
+            {{ $t('t_validate') }}
           </UButton>
         </div>
 
@@ -338,6 +338,11 @@ const vNoteExternalLinks = {
 .note-displayer-html :deep(:where(*:not(.katex):not(.katex *)::before)),
 .note-displayer-html :deep(:where(*:not(.katex):not(.katex *)::after)) {
   all: revert;
+}
+
+/* Drop UA / prose top margin on the first injected node so blocks align with the row (checkbox / icon). */
+.note-displayer-html :deep(> *:first-child) {
+  margin-top: 0;
 }
 
 /* Inline and other <code> inside rendered HTML (after revert). */

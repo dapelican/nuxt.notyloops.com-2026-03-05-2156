@@ -1,0 +1,138 @@
+card_name,card_id,content_index,image_url,markdown,swappable_sides,audio_url
+,123a9c90-0613-493a-a2fd-1e605e09f15b,10,,What is the main goal of separating pure and impure functions in functional programming?,false,
+,123a9c90-0613-493a-a2fd-1e605e09f15b,20,,"To make the core program more predictable, easier to debug, and maintain by minimizing side effects and ensuring deterministic behavior in the main logic.",false,
+,17d529b7-6424-4552-aa89-1f3043f0fceb,10,,"<pre><code class=""language-javascript"">function encodeString(stringValue) {
+    return encodeURIComponent(stringValue);
+}</code></pre>
+
+Is this function pure?",false,
+,17d529b7-6424-4552-aa89-1f3043f0fceb,20,,This function is pure. It is deterministic and has no side effects because the built-in JavaScript function <code>encodeURIComponent</code> is pure.,false,
+,1871cbe2-7c06-4128-b9b6-b9bc2d8095d5,10,,"<pre><code class=""language-javascript"">function add(a, b) {
+    return a + b;
+}</code></pre>
+
+Is this function pure?",false,
+,1871cbe2-7c06-4128-b9b6-b9bc2d8095d5,20,,Thi function is pure. It is deterministic. The same input always returns the same output.,false,
+,1ce40bfd-cc73-4e95-a14c-9be9c4943256,10,,What makes a function impure when it uses variables from a hicher scope?,false,
+,1ce40bfd-cc73-4e95-a14c-9be9c4943256,20,,"Using variables from a higher scope means the function is not solely dependent on its input arguments, which breaks the principle of pure functions that should only rely on their direct inputs.",false,
+,275e7098-71c5-4f15-8684-2fca8aff66e3,10,,"In functional programming, what is the primary unit of organization?",false,
+,275e7098-71c5-4f15-8684-2fca8aff66e3,20,,A pure function,false,
+,3db17ad2-1949-4dd3-bbb8-282bdf16d784,10,,What does a pure function guarantee in functional programming?,false,
+,3db17ad2-1949-4dd3-bbb8-282bdf16d784,20,,"A pure function always returns the same output for a given input, has no side effects, and does not modify external state or data.",false,
+,42c7c706-8ac0-4ddb-9d78-1df980e7e001,10,,What is the key strategy for handling impurity in functional programming?,false,
+,42c7c706-8ac0-4ddb-9d78-1df980e7e001,20,,"Isolate impurity to the outer edge of the program, pushing side effects and non-deterministic operations to the program's periphery while keeping the core logic pure and deterministic.",false,
+,55cdadda-e1b5-4341-a673-ff4f86b31eac,10,,"<pre><code class=""language-javascript"">const xorTruthTable = () => {
+    console.log('XOR truth table:\n================\n');
+    const table = truthTable(logicalXor);
+    console.log('\tA\t|\tB\t|\tA xor B');
+    console.log('\t-----\t|\t-----\t|\t-----');
+    table.map(
+        ([A, B]) => console.log(`\t${A}\t|\t${B}\t|\t${logicalXor(A, B)}`)
+    );
+};</code></pre>
+
+Is this function pure?",false,
+,55cdadda-e1b5-4341-a673-ff4f86b31eac,20,,This function is impure because it has side effects (logging to the console).,false,
+,5bfca5dd-6535-44b0-9ea7-0ac67de1a30d,10,,"<pre><code class=""language-javascript"">const logicalXor = (A, B) => (A || B) && !(A && B);</code></pre>
+
+Is this function pure?",false,
+,5bfca5dd-6535-44b0-9ea7-0ac67de1a30d,20,,This function is pure.,false,
+,68f92690-56c7-4ade-8a20-4546be2db8e7,10,,"<pre><code class=""language-javascript"">const truthTable = (logicalOperator) => {
+    const values = [true, false];
+    const table = [];
+    for (const A of values) {
+        for (const B of values) {
+            table.push([A, B, logicalOperator(A, B)]);
+        }
+    }
+    return table;
+};</code></pre>
+
+Is this function pure?",false,
+,68f92690-56c7-4ade-8a20-4546be2db8e7,20,,This fucntion is pure. It has no external dependencies or side effects.,false,
+,6a43570c-a369-44bc-a495-ed2a49cab6a0,10,,"<pre><code class=""language-javascript"">const fileToJson = (filename) => {
+    const fs = require('fs');
+    const fileData = fs.readFileSync(filename, 'utf8');
+    return JSON.parse(fileData);
+}</code></pre>
+
+Is this function pure?",false,
+,6a43570c-a369-44bc-a495-ed2a49cab6a0,20,,"This function is impure. It depends on an external file that might change between runs. The same input (the filename, and not the file data) can output different results.",false,
+,76f402a0-62b2-416f-b589-59111449c901,10,,"<pre><code class=""language-javascript"">function getDate() {
+    return new Date().toDateString();
+}</code></pre>
+
+Is this function pure?",false,
+,76f402a0-62b2-416f-b589-59111449c901,20,,This function is impure beacuse it is not deterministic. It depends on the current time.,false,
+,87f4603a-49de-4293-9981-2309c40b1adf,10,,Why is logging to the console considered an impure operation in functional programming?,false,
+,87f4603a-49de-4293-9981-2309c40b1adf,20,,"Logging to the console is a side effect that changes the external environment and does not return a value, which violates the principles of pure functions.",false,
+,93216fec-d164-4ba7-afea-c8416fe07c68,10,,"<pre><code class=""language-javascript"">let first_name = 'Jean';
+
+function salute() {
+  console.log(`Hi t you, ${first_name}!`;
+}
+
+salute(); // Hi to you, Jean!
+
+first_name = 'Alain';
+salute(); // Hi to you, Alain!</code></pre>
+
+What makes the function <code class=""language-javascript"">salute</code> unpure?",false,
+,93216fec-d164-4ba7-afea-c8416fe07c68,20,,"1. The function uses a variable in the higher scope. The value of this variable should be passed as an input to the function (as an argument).
+2. The function logs, which is a side effect.
+3. The function doesn't return a meaningful value. It returns the implicit default <code class=""language-javascript"">undefined</code> value.",false,
+,9544386d-ab42-4ec5-b828-d02bd78067d2,10,,What is functional programming considered as a subset of?,false,
+,9544386d-ab42-4ec5-b828-d02bd78067d2,20,,Declarative programming,false,
+,9acac441-f00c-4869-b9ef-ef4f362e46fd,10,,How does functional programming approach state and behavior compared to object-oriented programming?,false,
+,9acac441-f00c-4869-b9ef-ef4f362e46fd,20,,"In functional programming, everything is wrapped in functions, whereas in object-oriented programming, state is wrapped in objects that call methods on each other",false,
+,b52bbe3b-4e2d-4962-ba5e-d6132c4a8ca9,10,,How can you transform an impure function into a pure function?,false,
+,b52bbe3b-4e2d-4962-ba5e-d6132c4a8ca9,20,,Make the external variable an input parameter and return the output value instead of logging or performing side effects.,false,
+,bab99319-c8b0-4c5b-9cd2-ec5d12610bc3,10,,"<pre><code class=""language-javascript"">function encodeArray(arrayValue) {
+    return arrayValue.map(encodeURIComponent).join(',');
+}</code></pre>
+
+Is this function pure?",false,
+,bab99319-c8b0-4c5b-9cd2-ec5d12610bc3,20,,"This function is impure. Arrays in JS are mutable, so it is not deterministic.",false,
+,bbd4f3be-0b4c-4730-b0f8-0e745707a21f,10,,How does imperative programming differ from declarative programming in terms of instructions?,false,
+,bbd4f3be-0b4c-4730-b0f8-0e745707a21f,20,,"In imperative programming, developers give step-by-step commands to the computer, while in declarative programming, developers specify the desired output and let the computer determine how to achieve it.",false,
+,c6dd4fc7-cc45-4b5a-80a4-97be2d5e2883,10,,What types of operations are typically considered impure in functional programming?,false,
+,c6dd4fc7-cc45-4b5a-80a4-97be2d5e2883,20,,"Impure operations include writing to console, reading/writing files, making network requests, generating random numbers, and modifying DOM or external state.",false,
+,c7567e83-1032-465e-b139-a6598c91ef83,10,,"<pre><code class=""language-javascript"">function sum(numArray) {
+    let total = 0;
+    for (let value of numArray) {
+        total += value;
+    }
+    return total;
+}</code></pre>
+
+Is this function pure?",false,
+,c7567e83-1032-465e-b139-a6598c91ef83,20,,"This fucntion is impure. Arrays in JS are mutable, so we can't be sure it will always return the same output when given the same array reference.",false,
+,de00922f-94e1-4a02-9c0a-df8d19cf93c1,10,,What are the key characteristics of a pure function?,false,
+,de00922f-94e1-4a02-9c0a-df8d19cf93c1,20,,"A pure function only looks at its input arguments, performs a computation, and returns an output without any side effects or external state changes.",false,
+,e0b47e11-d619-489b-8000-a3d3ec103d77,10,,"<pre><code class=""language-javascript"">const stringToJson = (jsonString) => {
+    return JSON.parse(jsonString);
+};</code></pre>
+
+Is this function pure?",false,
+,e0b47e11-d619-489b-8000-a3d3ec103d77,20,,"This function is pure. It is deterministic. Given the same input string, it will always return the same output.",false,
+,e15880f7-2493-440c-bfa8-036bf93dba31,10,,Name 2 examples of declarative programming languages,false,
+,e15880f7-2493-440c-bfa8-036bf93dba31,20,,"HTML, SQL",false,
+,e8769e72-fea6-45cd-a5a1-026937a3d3f0,10,,What are the two essential components of a recursive function?,false,
+,e8769e72-fea6-45cd-a5a1-026937a3d3f0,20,,"1. a base case, i.e. a non-recursive case that stops the recursion and prevents a stack overflow.
+2. A recursive case, where the function calls itself.",false,
+,e8e735a6-c910-43f3-ab2e-72abc9cf1b91,10,,What happens when a pure function calls an impure function?,false,
+,e8e735a6-c910-43f3-ab2e-72abc9cf1b91,20,,"The impurity of the called function 'infects' the calling function, making the entire function impure.",false,
+,f17fd0b6-1809-4ee1-9bab-bccb69498e72,10,,What makes an array function potentially impure in JavaScript?,false,
+,f17fd0b6-1809-4ee1-9bab-bccb69498e72,20,,"Arrays are mutable, so even if the same array is passed as an argument, someone else could modify the array between function calls, potentially changing the output.",false,
+,f21dfff4-bb97-43e2-9f6e-0f2f06370e5e,10,,What are the two defining characteristics of a pure function?,false,
+,f21dfff4-bb97-43e2-9f6e-0f2f06370e5e,20,,"1. It has no side effect. The function does not do anything besides returning a value.
+2. It is deterministic. It only depends on its input arguments.",false,
+,f6163b44-6552-48ee-b3d1-e2a72ee1272c,10,,"<pre><code class=""language-javascript"">function compareDateStrings(s1, s2) {
+    const d1 = new Date(s1);
+    const d2 = new Date(s2);
+    const delta = d2 - d1;
+    return `${s1} is ${delta > 0 ? 'after' : 'before'} ${s2}`;
+}</code></pre>
+
+Is this function pure?",false,
+,f6163b44-6552-48ee-b3d1-e2a72ee1272c,20,,"This function is pure. It is deterministic. Given the same input strings, the output will be the same.",false,

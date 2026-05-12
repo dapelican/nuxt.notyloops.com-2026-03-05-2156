@@ -1,0 +1,162 @@
+id,title,swappable_sides,content_position,content_sub_position,content_type,markdown_content,file_url,to_be_hidden,is_correct
+1,Front 01 (Q16),,1,0,text,Which property references the DOM object that dispatched an event?,,,
+1,Front 01 (Q16),,2,1,text,self,,,false
+1,Front 01 (Q16),,2,2,text,object,,,false
+1,Front 01 (Q16),,2,3,text,target,,,true
+1,Front 01 (Q16),,2,4,text,source,,,false
+1,Front 01 (Q16),,3,0,text,"Resource(s):
+- <a href=""https://developer.mozilla.org/en-US/docs/Web/API/Event/target"" target=""_blank"" rel=""noopener noreferrer"">target</a>.",,true,
+2,Front 02 (Q36),,1,0,text,"Which statement is true about the <code class=""language-html"">async</code> attribute for the HTML script tag?",,,
+2,Front 02 (Q36),,2,1,text,It can be used for both internal and external JavaScript code.,,,false
+2,Front 02 (Q36),,2,2,text,It can be used only for internal JavaScript code.,,,false
+2,Front 02 (Q36),,2,3,text,It can be used only for internal or external JavaScript code that exports a promise.,,,false
+2,Front 02 (Q36),,2,4,text,It can be used only for external JavaScript code.,,,true
+2,Front 02 (Q36),,3,0,text,"Resource(s):
+- <a href=""https://javascript.info/script-async-defer"" target=""_blank"" rel=""noopener noreferrer"">Scripts: async, defer</a>.",,true,
+3,Front 03 (Q48),,1,0,text,"What's one difference between the <code class=""language-html"">async</code> and <code class=""language-html"">defer</code> attributes of the HTML script tag?",,,
+3,Front 03 (Q48),,2,1,text,"The <code class=""language-html"">defer</code> attribute can work synchronously.",,,false
+3,Front 03 (Q48),,2,2,text,"The <code class=""language-html"">defer</code> attribute works only with generators.",,,false
+3,Front 03 (Q48),,2,3,text,"The <code class=""language-html"">defer</code> attribute works only with promises.",,,false
+3,Front 03 (Q48),,2,4,text,"The <code class=""language-html"">defer</code> attribute will asynchronously load the scripts in order.",,,true
+3,Front 03 (Q48),,3,0,text,"Resource(s):
+- <a href=""https://www.digitalocean.com/community/tutorials/html-defer-async"" target=""_blank"" rel=""noopener noreferrer"">Eliminate Render-Blocking JavaScript with Async and Defer</a>.",,true,
+4,Front 04 (Q50),,1,0,text,"<pre><code class=""language-html"">&lt;p class=""pull""&gt;lorem ipsum&lt;/p&gt;</code></pre><p>Which statement references the DOM node created by the previous code?</p>",,,
+4,Front 04 (Q50),,2,1,text,"<code class=""language-javascript"">document.querySelector('class.pull')</code>",,,false
+4,Front 04 (Q50),,2,2,text,"<code class=""language-javascript"">document.querySelector('.pull');</code>",,,true
+4,Front 04 (Q50),,2,3,text,"<code class=""language-javascript"">document.querySelector('pull')</code>",,,false
+4,Front 04 (Q50),,2,4,text,"<code class=""language-javascript"">document.querySelector('#pull')</code>",,,false
+4,Front 04 (Q50),,3,0,text,"Resource(s):
+- a href=""https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector"" target=""_blank"" rel=""noopener noreferrer"">Document: querySelector() method</a>.",,true,
+5,Front 05 (Q61),,1,0,text,Which method cancels event default behavior?,,,
+5,Front 05 (Q61),,2,1,text,"<code class=""language-javascript"">cancel()</code>",,,false
+5,Front 05 (Q61),,2,2,text,"<code class=""language-javascript"">stop()</code>",,,false
+5,Front 05 (Q61),,2,3,text,"<code class=""language-javascript"">preventDefault()</code>",,,true
+5,Front 05 (Q61),,2,4,text,"<code class=""language-javascript"">prevent()</code>",,,false
+5,Front 05 (Q61),,3,0,text,"Resource(s):
+- <a href=""https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault"" target=""_blank"" rel=""noopener noreferrer"">Event: preventDefault() method</a>.",,true,
+6,Front 06 (Q62),,1,0,text,Which method do you use to attach one DOM node to another?,,,
+6,Front 06 (Q62),,2,1,text,"<code class=""language-javascript"">attachNode()</code>",,,false
+6,Front 06 (Q62),,2,2,text,"<code class=""language-javascript"">getNode()</code>",,,false
+6,Front 06 (Q62),,2,3,text,"<code class=""language-javascript"">querySelector()</code>",,,false
+6,Front 06 (Q62),,2,4,text,"<code class=""language-javascript"">appendChild()</code>",,,true
+6,Front 06 (Q62),,3,0,text,"Resource(s):
+- <a href=""https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild"" target=""_blank"" rel=""noopener noreferrer"">Node: appendChild() method</a>.",,true,
+7,Front 07 (Q70),,1,0,text,"<pre><code class=""language-javascript"">button.addEventListener(
+  'click',
+  function (e) {
+     button.className = 'clicked';
+  },
+  false,
+);</code></pre>
+<p>You've written the event listener shown above for a form button, but each time you click the button, the page reloads. Which statement would stop this from happening?</p>",,,
+7,Front 07 (Q70),,2,1,text,"<code class=""language-javascript"">e.blockReload();</code>",,,false
+7,Front 07 (Q70),,2,2,text,"<code class=""language-javascript"">button.preventDefault();</code>",,,false
+7,Front 07 (Q70),,2,3,text,"<code class=""language-javascript"">button.blockReload();</code>",,,false
+7,Front 07 (Q70),,2,4,text,"<code class=""language-javascript"">e.preventDefault();</code>",,,true
+7,Front 07 (Q70),,3,0,text,"Resource(s):
+- <a href=""https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault"" target=""_blank"" rel=""noopener noreferrer"">Event: preventDefault() method.</a>",,true,
+8,Front 08 (Q72),,1,0,text,"Which statement selects all <code class=""language-html"">img</code> elements in the DOM tree?",,,
+8,Front 08 (Q72),,2,1,text,"<code class=""language-javascript"">Document.querySelector('img')</code>",,,false
+8,Front 08 (Q72),,2,2,text,"<code class=""language-javascript"">Document.querySelectorAll('&lt;img&gt;')</code>",,,false
+8,Front 08 (Q72),,2,3,text,"<code class=""language-javascript"">Document.querySelectorAll('img')</code>",,,true
+8,Front 08 (Q72),,2,4,text,"<code class=""language-javascript"">Document.querySelector('&lt;img&gt;')</code>",,,false
+8,Front 08 (Q72),,3,0,text,"Resource(s):
+- <a href=""https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector"" target=""_blank"" rel=""noopener noreferrer"">Document: querySelector() method</a>.
+- <a href=""https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll"" target=""_blank"" rel=""noopener noreferrer"">Document: querySelectorAll()  method</a>.",,true,
+9,Front 09 (Q75),,1,0,text,"Which event is fired on a text field within a form when a user tabs to it, or clicks or touches it?",,,
+9,Front 09 (Q75),,2,1,text,focus,,,true
+9,Front 09 (Q75),,2,2,text,blur,,,false
+9,Front 09 (Q75),,2,3,text,hover,,,false
+9,Front 09 (Q75),,2,4,text,enter,,,false
+9,Front 09 (Q75),,3,0,text,"Resource(s):
+- <a href=""https://developer.mozilla.org/en-US/docs/Web/Events"" target=""_blank"" rel=""noopener noreferrer"">Event reference</a>.",,true,
+10,Front 10 (Q87),,1,0,text,Which tag pair is used in HTML to embed JavaScript?,,,
+10,Front 10 (Q87),,2,1,text,"<code class=""language-javascript"">&lt;script&gt;&lt;/script&gt;</code>",,,true
+10,Front 10 (Q87),,2,2,text,"<code class=""language-javascript"">&lt;js&gt;&lt;/js&gt;</code>",,,false
+10,Front 10 (Q87),,2,3,text,"<code class=""language-javascript"">&lt;javascript&gt;&lt;/javascript&gt;</code>",,,false
+10,Front 10 (Q87),,2,4,text,"<code class=""language-javascript"">&lt;code&gt;&lt;/code&gt;</code>",,,false
+10,Front 10 (Q87),,3,0,text,"Resource(s):
+- <a href=""https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script"" target=""_blank"" rel=""noopener noreferrer"">&lt;script&gt;: The Script element.</a>",,true,
+11,Front 11 (Q88),,1,0,text,"If your app receives data from a third-party API, which HTTP response header must the server specify to allow exceptions to the same-origin policy?",,,
+11,Front 11 (Q88),,2,1,text,Security-Mode,,,false
+11,Front 11 (Q88),,2,2,text,Access-Control-Allow-Origin,,,true
+11,Front 11 (Q88),,2,3,text,Different-Origin,,,false
+11,Front 11 (Q88),,2,4,text,Same-Origin,,,false
+11,Front 11 (Q88),,3,0,text,"Resource(s):
+- <a href=""https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS"" target=""_blank"" rel=""noopener noreferrer"">Cross-Origin Resource Sharing (CORS)</a>.",,true,
+12,Front 12 (Q108),,1,0,text,"<pre><code class=""language-html"">//HTML Markup
+&lt;div id=""A""&gt;
+  &lt;div id=""B""&gt;
+    &lt;div id=""C""&gt;Click Here&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<pre><code class=""language-javascript"">//JavaScript
+document.querySelectorAll('div').forEach((e) => {
+  e.onclick = (e) => console.log(e.currentTarget.id);
+});</code></pre>
+
+<p>What is the output that is printed when the <code class=""language-html"">div</code> containing the text ""Click Here"" is clicked?</p>",,,
+12,Front 12 (Q108),,2,1,text,C B A,,,true
+12,Front 12 (Q108),,2,2,text,A,,,false
+12,Front 12 (Q108),,2,3,text,C,,,false
+12,Front 12 (Q108),,2,4,text,A B C,,,false
+12,Front 12 (Q108),,3,0,text,"Resource(s):
+- a href=""https://developer.mozilla.org/en-US/docs/Web/Events"" target=""_blank"" rel=""noopener noreferrer"">Events</a>.
+- <a href=""https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll"" target=""_blank"" rel=""noopener noreferrer"">Document: querySelectorAll()  method</a>.",,true,
+13,Front 13 (Q113),,1,0,text,"<pre><code class=""language-html"">&lt;h1 class=""content""&gt;Dapelican 1&lt;/h1&gt;
+&lt;div class=""content""&gt;
+  &lt;span class=""content""&gt;Dapelican 2&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+
+<p>Which statement can be used to select the element from the DOM containing the text ""Dapelican 2"" from the previous markup?</p>",,,
+13,Front 13 (Q113),,2,1,text,"<code class=""language-javascript"">document.querySelector(""div.content"")</code>",,,false
+13,Front 13 (Q113),,2,2,text,"<code class=""language-javascript"">document.querySelector(""span.content"")</code>",,,true
+13,Front 13 (Q113),,2,3,text,"<code class=""language-javascript"">document.querySelector("".content"")</code>",,,false
+13,Front 13 (Q113),,2,4,text,"<code class=""language-javascript"">document.querySelector(""div.span"")</code>",,,false
+14,Front 14 (Q133),,1,0,text,"<p>How would you add a data item named <code class=""language-javascript"">animal</code> with a value of <code class=""language-javascript"">sloth</code> to local storage for the current domain?</p>",,,
+14,Front 14 (Q133),,2,1,text,"<code class=""language-javascript"">LocalStorage.setItem('animal', 'sloth');</code>",,,false
+14,Front 14 (Q133),,2,2,text,"<code class=""language-javascript"">document.localStorage.setItem('animal', 'sloth');</code>",,,false
+14,Front 14 (Q133),,2,3,text,"<code class=""language-javascript"">localStorage.setItem({ animal: 'sloth' });</code>",,,false
+14,Front 14 (Q133),,2,4,text,"<code class=""language-javascript"">localStorage.setItem('animal','sloth');</code>",,,true
+14,Front 14 (Q133),,3,0,text,"Resource(s):
+- <a href=""https://blog.logrocket.com/localstorage-javascript-complete-guide/#setitem"" target=""_blank"" rel=""noopener noreferrer"">localStorage in JavaScript: A complete guide</a>.",,true,
+15,Front 15 (Q138),,1,0,text,<p>Which document method is not used to get a reference to a DOM node?</p>,,,
+15,Front 15 (Q138),,2,1,text,"<code class=""language-javascript"">document.getNode();</code>",,,true
+15,Front 15 (Q138),,2,2,text,"<code class=""language-javascript"">document.getElementsByClassName();</code>",,,false
+15,Front 15 (Q138),,2,3,text,"<code class=""language-javascript"">document.querySelectorAll();</code>",,,false
+15,Front 15 (Q138),,2,4,text,"<code class=""language-javascript"">document.querySelector();</code>",,,false
+16,Front 16 (Q146),,1,0,text,"<pre><code class=""language-html"">&lt;script type=""text/javascript""&gt;a = 5 + ""9"";
+console.log(a);&lt;/script&gt;</code></pre>
+
+<p>What will be the output of the previous code snippet?</p>",,,
+16,Front 16 (Q146),,2,1,text,Compilation Error.,,,false
+16,Front 16 (Q146),,2,2,text,"<code class=""language-javascript"">14</code>.",,,false
+16,Front 16 (Q146),,2,3,text,Runtime Error.,,,false
+16,Front 16 (Q146),,2,4,text,"<code class=""language-javascript"">59</code>.",,,true
+16,Front 16 (Q146),,3,0,text,"Resource(s):
+- <a href=""https://developer.mozilla.org/en-US/docs/Glossary/Type_coercion"" target=""_blank"" rel=""noopener noreferrer"">Type coercion</a>.",,true,
+17,Front 17 (Q147),,1,0,text,Which of the following methods can be used to display data in some form using Javascript?,,,
+17,Front 17 (Q147),,2,1,text,"<code class=""language-javascript"">document.write()</code>",,,false
+17,Front 17 (Q147),,2,2,text,"<code class=""language-javascript"">console.log()</code>",,,false
+17,Front 17 (Q147),,2,3,text,"<code class=""language-javascript"">window.alert()</code>",,,false
+17,Front 17 (Q147),,2,4,text,All of the other solutions,,,true
+17,Front 17 (Q147),,3,0,text,"<p>Note that using <code class=""language-javascript"">document.write(</code>) is <a href=""https://developer.mozilla.org/en-US/docs/Web/API/Document/write"" target=""_blank"" rel=""noopener noreferrer"">discouraged</a>.</p>",,true,
+18,Front 18 (Q149),,1,0,text,"Which statement is applicable to the <code class=""language-html"">defer</code> attribute of the HTML <code class=""language-html"">&lt;script&gt;</code> tag?",,,
+18,Front 18 (Q149),,2,1,text,"<code class=""language-html"">defer</code> allows the browser to continue processing the page while the script loads in the background.",,,true
+18,Front 18 (Q149),,2,2,text,"<code class=""language-html"">defer</code> causes the script to be loaded from the backup content delivery network (CDN).",,,false
+18,Front 18 (Q149),,2,3,text,"<code class=""language-html"">defer</code> blocks the browser from processing HTML below the tag until the script is completely loaded.",,,false
+18,Front 18 (Q149),,2,4,text,"<code class=""language-html"">defer</code> lazy loads the script, causing it to download only when it is called by another script on the page.",,,false
+18,Front 18 (Q149),,3,0,text,"Resource(s):
+- <a href=""https://javascript.info/script-async-defer"" target=""_blank"" rel=""noopener noreferrer"">Scripts: async, defer</a>.",,true,
+19,Front 19 (Q154),,1,0,text,"<pre><code class=""language-html"">&lt;h2 id=""cleverest""&gt;girls&lt;/h2&gt;</code></pre>
+
+<p>How would you change the color of this header to pink?</p>",,,
+19,Front 19 (Q154),,2,1,text,"<code class=""language-javascript"">document.getElementByName(""cleverest"").style.color = ""pink"";</code>",,,false
+19,Front 19 (Q154),,2,2,text,"<code class=""language-javascript"">document.getElementsByTagName(""h2"").style.color = ""pink"";</code>",,,false
+19,Front 19 (Q154),,2,3,text,"<code class=""language-javascript"">document.getElementByName(""h2"").style.color = ""pink"";</code>",,,false
+19,Front 19 (Q154),,2,4,text,"<code class=""language-javascript"">document.getElementById(""cleverest"").style.color = ""pink"";</code>",,,true
+19,Front 19 (Q154),,3,0,text,"Resource(s):
+- <a href=""https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByName"" target=""_blank"" rel=""noopener noreferrer"">Document: getElementsByName() method</a>.
+- <a href=""https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByTagName"" target=""_blank"" rel=""noopener noreferrer"">Element: getElementsByTagName() method</a>. <code class=""language-javascript"">getElementsByTagName()</code> returns an HTMLCollection. Note that the answer <code class=""language-javascript"">document.getElementsByTagName(""h2"")[0].style.color = ""pink"";</code> would have been OK.
+- <a href=""https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById"" target=""_blank"" rel=""noopener noreferrer"">Document: getElementById() method</a>.",,true,

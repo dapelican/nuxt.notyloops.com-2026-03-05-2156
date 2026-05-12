@@ -46,7 +46,6 @@ const CSV_COLUMNS = [
   'content_sub_position',
   'content_type',
   'markdown_content',
-  'html_content',
   'file_url',
   'to_be_hidden',
   'is_correct',
@@ -109,7 +108,6 @@ export default defineEventHandler(async (event) => {
           nd.content_sub_position,
           nd.content_type,
           nd.markdown_content,
-          nd.html_content,
           nd.file_url,
           nd.to_be_hidden,
           nd.is_correct
@@ -143,7 +141,6 @@ export default defineEventHandler(async (event) => {
       content_sub_position: row.content_sub_position,
       content_type: row.content_type,
       markdown_content: row.markdown_content,
-      html_content: row.html_content,
       file_url: row.file_url,
       to_be_hidden: row.to_be_hidden,
       is_correct: row.is_correct,

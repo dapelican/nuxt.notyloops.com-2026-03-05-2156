@@ -1,0 +1,1368 @@
+card_name,card_id,content_index,image_url,markdown,swappable_sides,audio_url
+Arrays 11,019c3814-8214-740f-af52-db2b9fef8abc,10,,"<pre><code class=""language-javascript"">const numbers = [0, 1, 2, 3, 4, 5];</code></pre>
+      
+<p>
+        Create a new array <code class=""language-javascript"">selected</code> that contains all values of <code class=""language-javascript"">numbers</code> from index 1 to index 3.
+</p>",false,
+Arrays 11,019c3814-8214-740f-af52-db2b9fef8abc,20,,"<pre><code class=""language-javascript"">const numbers = [0, 1, 2, 3, 4, 5];
+
+const selected = numbers.slice(1, 1 + 3);</code></pre>
+
+<p>
+      When we want to select consecutive elements of an array,
+      the <code class=""language-javascript"">Array.prototype.slice()</code> method is the one to use.
+</p>
+
+<h3>Array.prototype.slice()</h3>
+
+<p>
+      In this method, the first index is the index of the first element to select,
+      but the last index is not the index of the last element to select.
+      It is the first index of the element to <strong>not</strong> select anymore.
+</p>
+
+<p>
+      This might seem weird and inconvenient, but in fact, it is quite practical.
+      If you have the first index and the number of elements to select, then
+      the second index to use with the method is simply the addition of the first index with
+      the number of elements. That is why we used  <code class=""language-javascript"">1 + 3</code>
+      in our code above to compute the right last index to use in the method.
+</p>
+
+<p>
+      The <code class=""language-javascript"">Array.prototype.slice()</code> method returns a shallow
+      copy of a portion of an array into a new array object selected from <code class=""language-javascript"">start</code>
+      to <code class=""language-javascript"">end</code> (<code class=""language-javascript"">end</code> <strong>not included</strong>)
+      where <code class=""language-javascript"">start</code> and <code class=""language-javascript"">end</code>
+      represent the index of elements in that array.
+</p>
+
+<p>
+      The <code class=""language-javascript"">Array.prototype.slice()</code>
+      method does <strong>NOT</strong> mutate the original array.
+      A <strong>new array is returned</strong>. Don't confuse it with
+      <code class=""language-javascript"">Array.prototype.splice()</code>, which is a mutating method.
+</p>
+    
+<p>
+      When we use <code class=""language-javascript"">Array.prototype.slice()</code> 
+      without any parameter, the method returns a new array that is a shallow copy of the original array.
+      Shallow means that the arrays are interdependent.
+      Changing one array affects the other one, but only if the original array contains objects or references.
+      However, if the original array contains only primitive values, then the
+      <code class=""language-javascript"">Array.prototype.slice()</code> creates <strong>unintentionally</strong>
+      a deep copy of the array, i.e. a totally independent array. So, in other words,
+      remember that <code class=""language-javascript"">Array.prototype.slice()</code>
+      creates a shallow copy of the original array, unless the original array happen to only have primitive values.
+</p>
+
+<p>When we use <code class=""language-javascript"">Array.prototype.slice()</code> with only one parameter (the <code class=""language-javascript"">start</code> index), the method returns a copy of the array from the <code class=""language-javascript"">start</code> index until the end of the original array.</p>
+    <p>It is possible to use a negative indices to select a number of elements starting from the end of the array. For example, <code class=""language-javascript"">numbers.slice(-3)</code> selects the last 3 elements of the array. <code class=""language-javascript"">numbers.slice(-3, -1)</code> selects all elements from index -3 to index -2 (index -1 is excluded from the selection).</p>",false,
+Arrays 12,019c3815-cce1-7e02-a8c0-909e6f4be784,10,,"<pre><code class=""language-javascript"">const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];</code></pre>
+      
+<p>
+        Delete the values <code class=""language-javascript"">2</code> and <code class=""language-javascript"">3</code>
+        in <code class=""language-javascript"">numbers</code> and replace them with
+        <code class=""language-javascript"">'a'</code> and <code class=""language-javascript"">'b'</code>.
+</p>",false,
+Arrays 12,019c3815-cce1-7e02-a8c0-909e6f4be784,20,,"<pre><code class=""language-javascript"">const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+numbers.splice(2, 2, 'a', 'b');</code></pre>
+
+<h3>Array.prototype.splice()</h3>
+
+<p>
+        The <code class=""language-javascript"">Array.prototype.splice()</code> is a <strong>very powerful</strong> method.
+        You can delete, replace or add elements to an array with just this single method.
+</p>
+      
+<p>
+        The method takes 1 mandatory argument and 2 or more optional arguments:
+</p>
+
+<ol>
+        <li>
+          A mandatory <code class=""language-javascript"">start</code> integer which is the index at which to start changing the array.
+        </li>
+        <li>
+          An optional <code class=""language-javascript"">deleteCount</code> integer that
+          indicates the number of elements in the array to remove from <code class=""language-javascript"">start</code>.
+          If <code class=""language-javascript"">deleteCount</code> is omitted, or if its value is equal to or larger than
+          <code class=""language-javascript"">array.length - start</code> (that is, if it is equal to or greater
+          than the number of elements left in the array, starting at <code class=""language-javascript"">start</code>),
+          then all the elements from <code class=""language-javascript"">start</code> to the end of the array will be deleted.
+          If <code class=""language-javascript"">deleteCount</code> is 0 or negative, no elements are removed.
+        </li>
+        <li>
+          Optional elements, which are the elements to add to the array, beginning from
+          <code class=""language-javascript"">start</code>. If you do not specify any elements,
+          <code class=""language-javascript"">splice()</code> will only remove elements from the array.
+        </li>
+</ol>
+
+<p>
+        Note that the return value of the <code class=""language-javascript"">Array.prototype.splice()</code>
+        is <b>NOT</b> the mutated original array.
+        The method returns an array containing the deleted elements.
+        If only one element is removed, an array of one element is returned.
+        If no elements are removed, an empty array is returned.
+</p>
+
+<p>
+        Be careful when you want to just add elements to the array, without deleting any.
+        In this case, the method adds the elements before the <code class=""language-javascript"">start</code>
+        index you specify, not after. For example:
+</p>
+
+<pre><code class=""language-javascript"">const numbers = [0, 1, 2];
+
+numbers.splice(2, 0, 'a', 'b');
+
+console.log(numbers); // [0, 1, 'a', 'b', 2]</code></pre>",false,
+Arrays 13,019c3817-10e5-7ee5-ac23-79a4df876460,10,,"<pre><code class=""language-javascript"">const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];</code></pre>
+      
+<p>
+        Delete all values from <code class=""language-javascript"">numbers</code>, starting at index <code class=""language-javascript"">4</code>.
+        <code class=""language-javascript"">numbers</code> should only contain the values of indices 0, 1, 2 and 3.
+</p>",false,
+Arrays 13,019c3817-10e5-7ee5-ac23-79a4df876460,20,,"<pre><code class=""language-javascript"">const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+numbers.splice(4);</code></pre>
+
+<p>
+        This exercise is a special use of the <code class=""language-javascript"">Array.prototype.splice()</code>
+        for only deleting elements in an array.
+</p>
+
+<p>
+        When only one argument, the <code class=""language-javascript"">start</code> index,
+        is passed to the method, then all of the elements from index <code class=""language-javascript"">start</code>
+        to the end of the array are deleted. Note that the element at the <code class=""language-javascript"">start</code>
+        is also deleted.
+        In this case, the <code class=""language-javascript"">start</code> index is the index of the first element to delete.
+</p>",false,
+Arrays 14,019c381a-94d4-7145-9bd6-cda942c0db57,10,,"<pre><code class=""language-javascript"">const a = [1, 2, 3, 4, 5];</code></pre>
+      
+<p>
+        Check if any value of <code class=""language-javascript"">a</code> is negative
+        and store the resulting value into a new variable <code class=""language-javascript"">any</code>.
+</p>",false,
+Arrays 14,019c381a-94d4-7145-9bd6-cda942c0db57,20,,"<h3>Solution 1: Array.prototype.some()</h3>
+
+<pre><code class=""language-javascript"">// Solution 1
+const a = [1, 2, 3, 4, 5];
+
+const any = a.some(el =&gt; el &lt; 0);</code></pre>
+
+<p>
+        <code class=""language-javascript"">Array.prototype.some()</code> checks if at least one element
+        passes the test implemented by the provided function argument (the callback function).
+        The function argument should return a Boolean value, and the method
+        <code class=""language-javascript"">Array.prototype.some()</code> returns a Boolean value.
+</p>
+
+<p>
+        <code class=""language-javascript"">Array.prototype.some()</code>, like many other Array methods,
+        uses a <a href='/js-array-callback' target='_blank'>standard array callback</a> function.
+</p>
+
+<h3>Solutions 2: custom functions</h3>
+
+<p>
+        If you do not know <code class=""language-javascript"">Array.prototype.some()</code>,
+        you can create a function that does the same thing (solutions 2a, 2b or 2c).
+        Since we need to iterate through the elements of an array, the use of a <code class=""language-javascript"">for</code>
+        loop is perfect for the job. We can use 3 different <code class=""language-javascript"">for</code>
+        statements to iterate through an array.
+</p>
+
+<p>
+        Resources:
+</p>
+
+<ul>
+        <li>
+          <a href=""/js-array-for"" target=""_blank"" rel=""noopener noreferrer"">
+            iterate through Arrays with for statements</a>.
+        </li>
+</ul>
+
+<pre><code class=""language-javascript"">// Solution 2a
+const a = [1, 2, 3, 4, 5];
+
+const some = (array, test) =&gt; {
+  for (let i = 0; i &lt; array.length; i += 1) {
+    if (test(array[i])) {
+      return true;
+    }
+  }
+  return false;
+};
+
+const any = some(a, el =&gt; el &lt; 0);</code></pre>
+
+<pre><code class=""language-javascript"">// Solution 2b
+const a = [1, 2, 3, 4, 5];
+
+const some = (array, test) =&gt; {
+  for (let el of array) {
+    if (test(el)) {
+      return true;
+    }
+  }
+  return false;
+};
+
+const any = some(a, el =&gt; el &lt; 0);</code></pre>
+
+<pre><code class=""language-javascript"">// Solution 2c
+const a = [1, 2, 3, 4, 5];
+
+const some = (array, test) =&gt; {
+  for (let idx in array) {
+    if (test(array[idx])) {
+      return true;
+    }
+  }
+  return false;
+};
+
+const any = some(a, el =&gt; el &lt; 0);</code></pre>",false,
+Classes 01: classy cat,019c381d-906e-70c0-922c-1068f7e32687,10,,"<ol>
+        <li>
+          Declare a constuctor function named <code class=""language-javascript"">Cat()</code>,
+          that can set the properties <code class=""language-javascript"">_age</code> and
+          <code class=""language-javascript"">_name</code> of any instance of a cat.
+        </li>
+        <li>
+          Add a function <code class=""language-javascript"">jump()</code> that can be common to all cat instances.
+          Do not modify the code of the <code class=""language-javascript"">Cat()</code>constructor function you already declared.
+          The <code class=""language-javascript"">jump()</code> method should log the string <code class=""language-javascript"">'Fiuuuuu!'</code>.
+        </li>
+        <li>
+          Create a cat <code class=""language-javascript"">felix</code> named <code class=""language-javascript"">'Felix'</code>
+          and aged <code class=""language-javascript"">3</code>.
+        </li>
+        <li>
+          Create a cat <code class=""language-javascript"">tom</code> named <code class=""language-javascript"">'Tom'</code>
+          and aged <code class=""language-javascript"">5</code>.
+        </li>
+        <li>
+          Add a getter method for getting any cat name.
+          The getter should be defined in the prototype of <code class=""language-javascript"">Cat</code>.
+        </li>
+        <li>
+          Use the getter function to print to the screen the names of <code class=""language-javascript"">felix</code>
+          an <code class=""language-javascript"">tom</code> in 2 separate statements.
+        </li>
+</ol>",false,
+Classes 01: classy cat,019c381d-906e-70c0-922c-1068f7e32687,20,,"<pre><code class=""language-javascript"">// 1
+function Cat(name, age) {
+  this._age = age;
+  this._name = name;
+}
+
+// 2
+Cat.prototype.jump = function() {
+  console.log('Fiuuuuu!');
+}
+
+// 3
+const felix = new Cat('Felix', 3);
+
+// 4
+const tom = new Cat('Tom', 5);
+
+// 5
+Object.defineProperty(Cat.prototype, 'name', {
+  get: function() {
+  return this._name;
+}
+});
+
+// 6
+console.log(felix.name);
+console.log(tom.name);</code></pre>
+
+<h3>
+        1
+</h3>
+
+<p>
+        The keyword <code class=""language-javascript"">class</code> is syntactic sugar
+        introduced in the ES6/ES2015 specification to make the creation of classes easier.
+        However, it was possible to create classes of objects before this ECMAScript specification.
+</p>
+
+<p>
+        The first function <code class=""language-javascript"">Cat()</code>
+        (with the PascalCase to signal that it is a constructor function)
+        is the constructor function that lets us store the specific data properties for cats:
+        their <code class=""language-javascript"">_age</code> and their <code class=""language-javascript"">_name</code>.
+        By convention, we prepend the property names with an underscore to signal that these properties
+        should not be accessed directly, but only through getter and setter methods.
+</p>
+
+<h3>
+        2
+</h3>
+
+<p>
+        Every constructor function has a prototype object that any object created with the
+        function inherits properties from. So, we add the function <code class=""language-javascript"">jump()</code>
+        directly as another property of the <code class=""language-javascript"">Cat.prototype</code> object.
+        Any <code class=""language-javascript"">Cat</code> object will have access to the method
+        <code class=""language-javascript"">jump()</code> that is stored in a single place.
+        We could also have added the function directly in the constructor function like this:
+</p>
+
+<pre><code class=""language-javascript"">function Cat(name, age) {
+  this._age = age;
+  this._name = name;
+  this.jump = function() {
+    console.log('Fiuuuuu!');
+  }
+}</code></pre>
+
+<p>
+        But this doesn't follow the DRY pattern (Don't Repeat Yourself),
+        as every <code class=""language-javascript"">Cat</code> objects would have the exact same function defined at the instance level,
+        rather than at the prototype level.
+</p>
+
+<h3>
+        3 and 4
+</h3>
+
+<p>
+        We create 2 new <code class=""language-javascript"">Cat</code> objects by invoking the constructor function
+        <code class=""language-javascript"">Cat()</code> with the <code class=""language-javascript"">new</code> operator.
+        The constructor function takes in the name and the age of the <code class=""language-javascript"">Cat</code>
+        object we want to create as arguments.
+</p>
+
+<h3>
+        5
+</h3>
+
+<p>
+        We add the getter method <code class=""language-javascript"">name()</code> by using the method
+        <code class=""language-javascript"">Object.defineProperty()</code>.
+</p>
+
+<h3>
+        6
+</h3>
+
+<p>
+        Then, we are able to log the name of each cat by calling the getter method <code class=""language-javascript"">name()</code>
+        just like we would access a data property of the <code class=""language-javascript"">Cat</code> object.
+</p>",false,
+Arrays 10,119d556f-3931-433f-83ba-1b8741059a6f,10,,"<pre><code class=""language-javascript"">const numbers = [0, 1, 2, 3, 4, 5];
+const words = ['Pizza', 'Cheesy Cannelloni', 'Osso buco'];</code></pre>
+
+<ol>
+        <li>
+          Use the method <code class=""language-javascript"">reduce()</code> to calculate the sum of all
+          values contained in the array <code class=""language-javascript"">numbers</code>.
+          Assign the result to a new variable <code class=""language-javascript"">sum</code>.
+        </li>
+        <li>
+          Use the method <code class=""language-javascript"">reduce()</code> to find the longest word in the array <code class=""language-javascript"">words</code>.
+          Assign the result to a new variable <code class=""language-javascript"">longest</code>.
+        </li>
+</ol>",false,
+Arrays 10,119d556f-3931-433f-83ba-1b8741059a6f,20,,"<pre><code class=""language-javascript"">const numbers = [0, 1, 2, 3, 4, 5];
+const words = ['Pizza', 'Cheesy Cannelloni', 'Osso buco'];
+
+const sum = numbers.reduce((acc, number) =&gt; acc + number);
+
+const longest = words.reduce((acc, word) =&gt; {
+  if (word.length &gt; acc.length) {
+    return word;
+  } else {
+    return acc;
+  }
+});</code></pre>
+
+<p>
+        The <code class=""language-javascript"">Array.prototype.reduce()</code>
+        method has a logic that is not easy to comprehend at first.
+        The most important thing to keep in mind is that at each iteration,
+        the return value of the callback function, called the <strong>reducer function</strong>,
+        is always assigned to the accumulator variable.  And, at last, the method returns the last
+        value that was assigned to the accumulator variable during the last iteration.
+</p>
+
+<p>
+        Make sure that the callback always return a value explicitly.
+        More specifically, if you use conditionals, make sure that each
+        conditional branch returns a value explicitly, otherwise the
+        <code class=""language-javascript"">undefined</code> value will be returned,
+        and it is rarely a useful value while using the <code class=""language-javascript"">reduce()</code> function.
+</p>
+
+<p>
+        In other words, the <code class=""language-javascript"">Array.prototype.reduce()</code>
+        method executes a reducer function (that you provide) on each element of the array,
+        resulting in single output value, which is the value of the accumulator at the end of the iteration.
+</p>
+      
+<p>
+        The reducer function is similar to the standard array callback function used by other Array methods,
+        except that the first argument of the callback is the accumulator.
+</p>
+
+<h3>The reducer function</h3>
+
+<p>
+        Let's have  a look at the parameters of the reducer function used by
+        <code class=""language-javascript"">Array.prototype.reduce()</code>.
+</p>
+      
+<ol>
+        <li>
+          The first parameter, <code class=""language-javascript"">accumulator</code>, is mandatory.
+          The accumulator ""accumulates""  the return values of the reducer function.
+          It is the accumulated value previously returned in the last invocation of the reducer function,
+          or <code class=""language-javascript"">initialValue</code>, if it was supplied (see below).
+          Here are some alternative shorter names that can be used for this parameter:
+          <code class=""language-javascript"">acc</code> or <code class=""language-javascript"">ac</code>.
+        </li>
+        <li>
+          The second parameter, <code class=""language-javascript"">currentValue</code>
+          is also mandatory. It is the current value or element being processed in the array.
+          Here are some alternative shorter names that can be used for this parameter:
+          <code class=""language-javascript"">currVal</code>, <code class=""language-javascript"">value</code>,
+          <code class=""language-javascript"">val</code>, <code class=""language-javascript"">element</code>,
+          <code class=""language-javascript"">currEl</code> or <code class=""language-javascript"">el</code>.
+        </li>
+        <li>
+          The third parameter, <code class=""language-javascript"">index</code>, is optional.
+          It is the index of  the <code class=""language-javascript"">currentValue</code>.
+          Here are some alternative shorter names that can be used for this parameter:
+          <code class=""language-javascript"">idx</code>, <code class=""language-javascript"">id</code>.
+        </li>
+        <li>
+          The fourth parameter, <code class=""language-javascript"">array</code> is also optional.
+          It is the array on which the method was called on.
+          Here are some alternative shorter names that can be used for this parameter:
+          <code class=""language-javascript"">arr</code>, <code class=""language-javascript"">ar</code>.
+        </li>
+</ol>
+
+<p>Here are some options for the short identifiers of the reducer function:</p>
+
+<pre><code class=""language-javascript"">// 3-letter identifiers
+(acc, val, idx, arr) =&gt; {};
+(acc, val, idx) =&gt; {};
+(acc, val) =&gt; {};
+
+// 2-letter identifiers
+(ac, el, id, ar) =&gt; {};
+(ac, el, id) =&gt; {};
+(ac, el) =&gt; {};</code></pre>
+
+<h3>The initialValue</h3>
+
+<p>
+        <code class=""language-javascript"">Array.prototype.reduce()</code> can have an optional second argument,
+        <code class=""language-javascript"">initialValue</code>, alongside the reducer function which is
+        the mandatory first argument. The <code class=""language-javascript"">initialValue</code> is a value
+        to use as the first argument to the first call of the reducer function.
+        If no <code class=""language-javascript"">initialValue</code> is supplied,
+        the first element in the array will be used as the initial <code class=""language-javascript"">accumulator</code>
+        value and skipped as <code class=""language-javascript"">currentValue</code>.
+        Calling <code class=""language-javascript"">reduce()</code> on an empty array without an
+        <code class=""language-javascript"">initialValue</code> will throw a <code class=""language-javascript"">TypeError</code>.
+</p>
+
+<p>
+        The first time the reducer function is called, <code class=""language-javascript"">accumulator</code>
+        and <code class=""language-javascript"">currentValue</code> can be one of two values.
+        If <code class=""language-javascript"">initialValue</code> is provided in the call to
+        <code class=""language-javascript"">reduce()</code>, then <code class=""language-javascript"">accumulator</code>
+        will be equal to <code class=""language-javascript"">initialValue</code>, and
+        <code class=""language-javascript"">currentValue</code> will be equal to the first value in the array.
+        If no <code class=""language-javascript"">initialValue</code> is provided,
+        then <code class=""language-javascript"">accumulator</code> will be equal to the first value in the array (at index 0)
+        and <code class=""language-javascript"">currentValue</code> will be equal to the second value in the array (at index 1).
+</p>
+
+<p>
+        In other words, if <code class=""language-javascript"">initialValue</code> is not provided,
+        <code class=""language-javascript"">reduce()</code> will execute the reducer
+        function starting at index 1, skipping the first index. If <code class=""language-javascript"">initialValue</code>
+        is provided, it will start at index 0.
+</p>",false,
+Arrays 02,2e584879-93df-4397-b924-b67f98044d03,10,,"<pre><code class=""language-javascript"">const a = [1, 2, 3, 4, 5];</code></pre>
+
+<p>
+        Create 3 arrays <code class=""language-javascript"">a1</code>, <code class=""language-javascript"">a2</code>
+        and <code class=""language-javascript"">a3</code> in 3 different ways so that they contain the same elements as <code class=""language-javascript"">a</code>
+        and so that they are independent from one another. Mutating the array <code class=""language-javascript"">a</code> should not mutate any of the 3 other arrays.
+</p>",false,
+Arrays 02,2e584879-93df-4397-b924-b67f98044d03,20,,"<h3>Solution 1: Array.prototype.slice()</h3>
+
+<pre><code class=""language-javascript"">// Solution 1: Array.prototype.slice()
+const a = [1, 2, 3, 4, 5];
+
+const a1 = a.slice();</code></pre>
+
+<p>
+        When used with no arguments, the <code class=""language-javascript"">Array.prototype.slice()</code>
+        creates a shallow copy of the original array.
+</p>
+
+<p>
+        A shallow copy of an array is a new array that is independent from the 1st array,
+        but only to a <strong>certain extent</strong>.
+        If the original array contains objects (or references),
+        then mutating the object in the original array would also affect the shallow copies.
+        A totally independent copy of an array is called a <strong>deep copy</strong>.
+</p>
+
+<h3>Solution 2: the spread syntax</h3>
+
+<pre><code class=""language-javascript"">// Solution 2: the spread syntax
+const a = [1, 2, 3, 4, 5];
+
+const a2 = [...a];</code></pre>
+
+<p class=""subtitle"">
+        Resources:
+</p>
+
+<ul>
+        <li>
+          <a href=""/js-3-dots"" target=""_blank"" rel=""noopener noreferrer"">
+            The 3 dots syntax</a>.
+        </li>
+</ul>
+
+<h3>Solution 3: Array.from()</h3>
+
+<pre><code class=""language-javascript"">// Solution 3: Array.from()
+const a = [1, 2, 3, 4, 5];
+
+const a3 = Array.from(a);</code></pre>
+
+<p class=""subtitle"">
+        Resources:
+</p>
+
+<ul>
+        <li>
+          <a href=""/js-create-arrays"" target=""_blank"" rel=""noopener noreferrer"">
+            How to create arrays in JavaScript?</a>
+        </li>
+</ul>",false,
+Arrays 06,38ebaa95-5aa8-4f77-a310-9ba5fc3f4862,10,,"<pre><code class=""language-javascript"">const a = [5, 4, 3, 2, 1];</code></pre>
+      
+<p>
+        Create a new array <code class=""language-javascript"">b</code> that contains the values from <code class=""language-javascript"">a</code> that are even.
+</p>",false,
+Arrays 06,38ebaa95-5aa8-4f77-a310-9ba5fc3f4862,20,,"<h3>
+        Even integers
+</h3>
+
+<p>
+        We can test if an integer is even or not by using the modulo operator (<code class=""language-javascript"">%</code>).
+        If a number is even, the division of this number (the dividend) by 2 (the divisor)
+        has a remainder equal to 0. Since the modulo operator ""produces"" the remainder,
+        the following expression allows us to test if an integer is even or not:
+        <code class=""language-javascript"">el % 2 === 0</code>.
+        This expression produces a value <code class=""language-javascript"">true</code>
+        if the integer <code class=""language-javascript"">el</code> is even,
+        or <code class=""language-javascript"">false</code> if the integer
+        <code class=""language-javascript"">el</code> is not (or is odd).
+</p>
+
+<h3>Solution 1: Array.prototype.filter()</h3>
+
+<pre><code class=""language-javascript"">// Solution 1: Array.prototype.filter()
+const a = [5, 4, 3, 2, 1];
+
+const b = a.filter(el =&gt; el % 2 === 0);</code></pre>
+
+<ol>
+        <li>
+          The <code class=""language-javascript"">Array.prototype.filter()</code> method
+          creates a new array with all elements that pass the test implemented by the provided callback function.
+        </li>
+        <li>
+          The method <code class=""language-javascript"">Array.prototype.filter()</code>,
+          like many other Array methods, uses a
+          <a href=""/js-array-callback"" target=""_blank"" rel=""noopener noreferrer"">standard array callback function</a>.
+        </li>
+</ol>
+
+<h3>Solution 2: for statement</h3>
+
+<pre><code class=""language-javascript"">// Solution 2a
+const a = [5, 4, 3, 2, 1];
+const b = [];
+
+for (let i = 0; i &lt; a.length; i += 1) {
+  if (a[i] % 2 === 0) {
+    b.push(a[i]);
+  }
+}</code></pre>
+          
+<pre><code class=""language-javascript"">// Solution 2b
+const a = [5, 4, 3, 2, 1];
+const b = [];
+
+for (let el of a) {
+  if (el % 2 === 0) {
+    b.push(el);
+  }
+}</code></pre>
+          
+<pre><code class=""language-javascript"">// Solution 2c
+const a = [5, 4, 3, 2, 1];
+const b = [];
+
+for (let idx in array) {
+  if (a[idx] % 2 === 0) {
+    b.push(a[idx]);
+  }
+}</code></pre>
+
+<p>
+        If you don't know the <code class=""language-javascript"">Array.prototype.filter()</code> method, 
+        you can iterate through the array with a <code class=""language-javascript"">for</code> statement,
+        and populate a new array with the right values.
+</p>
+
+<h3>Solution 3: for statement within a custom function</h3>
+
+<pre><code class=""language-javascript"">// Solution 3a
+const a = [5, 4, 3, 2, 1];
+
+const filter = (array, test) =&gt; {
+const newArray = [];
+for (let i = 0; i &lt; array.length; i += 1) {
+  if (test(array[i])) {
+    newArray.push(array[i]);
+  }
+  return newArray;
+};
+
+const b = filter(a, el =&gt; el % 2 === 0);</code></pre>
+        
+<pre><code class=""language-javascript"">// Solution 3b
+const a = [5, 4, 3, 2, 1];
+
+const filter = (array, test) =&gt; {
+const newArray = [];
+for (let el of array) {
+  if (test(el)) {
+    newArray.push(el);
+  }
+  return newArray;
+};
+
+const b = filter(a, el =&gt; el % 2 === 0);</code></pre>
+        
+<pre><code class=""language-javascript"">// Solution 3c
+const a = [5, 4, 3, 2, 1];
+
+const filter = (array, test) =&gt; {
+const newArray = [];
+for (let idx in array) {
+  if (test(array[idx])) {
+    newArray.push(array[idx]);
+  }
+  return newArray;
+};
+
+const b = filter(a, el =&gt; el % 2 === 0);</code></pre>
+
+<p>We can also code a custom function. A custom function offers more flexibility:</p>
+
+<ol>
+        <li>It can be reused further down the code if need be.</li>
+        <li>
+          We can change the criteria to select numbers.
+          Instead of selecting even numbers, we could select odd numbers.
+        </li>
+</ol>",false,
+Arrays 09,600e4f09-a2a4-4d2b-9dcd-811b4e0b7c29,10,,"<pre><code class=""language-javascript"">const a = [1, 2, 3, 4, 5];</code></pre>
+      
+<p>
+        Check if all values of <code class=""language-javascript"">a</code> are greater or equal to 10
+        and store the resulting value into a new variable <code class=""language-javascript"">all</code>.
+</p>",false,
+Arrays 09,600e4f09-a2a4-4d2b-9dcd-811b4e0b7c29,20,,"<h3>Solution 1: Array.prototype.every()</h3>
+
+<pre><code class=""language-javascript"">// Solution 1
+const a = [1, 2, 3, 4, 5];
+
+const all = a.every(el =&gt; el &gt;= 10 );</code></pre>
+
+<ol>
+      <li>
+        <code class=""language-javascript"">Array.prototype.every()</code> checks
+        if all elements pass the test implemented by the provided function argument (the callback function).
+        The function argument should return a Boolean value, and
+        the method <code class=""language-javascript"">Array.prototype.every()</code> returns a Boolean value.
+      </li>
+      <li>
+        <code class=""language-javascript"">Array.prototype.every()</code>, like many other Array methods,
+        uses a <a href='/js-array-callback' target='_blank'>standard array callback function</a>.
+      </li>
+</ol>
+
+<h3>Solution 2: custom function</h3>
+
+<p>
+      If you do not know <code class=""language-javascript"">Array.prototype.every()</code>,
+      you can create a function that does the same thing (Solution 2a, 2b or 2c).
+      Since we need to iterate through the elements of an array,
+      the use of a <code class=""language-javascript"">for</code> loop is perfect for the job.
+</p>
+
+<p class=""subtitle"">
+      Resources:
+</p>
+
+<ul>
+      <li>
+        <a href=""/js-array-for"" target=""_blank"" rel=""noopener noreferrer"">
+          iterate through Arrays with for statements</a>.
+      </li>
+</ul>
+
+<pre><code class=""language-javascript"">// Solution 2a
+const a = [1, 2, 3, 4, 5];
+
+const every = (array, test) =&gt; {
+  for (let i = 0; i &lt; array.length; i += 1) {
+    if (!test(array[i])) {
+      return false;
+    }
+    return true;
+  }
+};
+
+const all = every(a, el =&gt; el &gt;= 10 );</code></pre>
+
+<pre><code class=""language-javascript"">// Solution 2b
+const a = [1, 2, 3, 4, 5];
+
+const every = (array, test) =&gt; {
+  for (let el of array) {
+    if (!test(el)) {
+      return false;
+    }
+    return true;
+  }
+};
+
+const all = every(a, el =&gt; el &gt;= 10 );</code></pre>
+
+<pre><code class=""language-javascript"">// Solution 2c
+const a = [1, 2, 3, 4, 5];
+
+const every = (array, test) =&gt; {
+  for (let idx in array) {
+    if (!test(array[idx])) {
+      return false;
+    }
+    return true;
+};
+
+const all = every(a, el =&gt; el &gt;= 10 );</code></pre>",false,
+Arrays 03,a2fc0f15-5881-4570-bacb-16d8472abea3,10,,"<pre><code class=""language-javascript"">let letters = [...'Elephant'];</code></pre>
+      
+<p>
+        Iterate through the <code class=""language-javascript"">letters</code> array to display each letter to the screen. Do it in 5 different ways.
+</p>",false,
+Arrays 03,a2fc0f15-5881-4570-bacb-16d8472abea3,20,,"<h3>
+        The spread syntax
+</h3>
+
+<pre><code class=""language-javascript"">let letters = [...'Elephant'];</code></pre>
+
+<p>
+        On the first line, we declare a variable <code class=""language-javascript"">letters</code>
+        and assign it an array. The array literal uses a special syntax called the <strong>spread syntax</strong>.
+        A spread syntax ""spreads"" the elements of an iterable object in an array literal or an object literal.
+        The variable <code class=""language-javascript"">letters</code> gets assigned the array
+        <code class=""language-javascript"">['E', 'l', 'e', 'p', 'h', 'a', 'n', 't']</code>.
+</p>
+
+<p class=""subtitle"">
+        Resources:
+</p>
+
+<ul>
+        <li>
+          <a href=""/js-3-dots"" target=""_blank"" rel=""noopener noreferrer"">
+            The 3 dots syntax</a>.
+        </li>
+</ul>
+
+<h3>
+        Solution 1: for statement
+</h3>
+
+<pre><code class=""language-javascript"">// Solution 1a
+let letters = [...'Elephant'];
+
+for (let i = 0; i &lt; letters.length; i += 1) {
+console.log(letters[i]);
+}</code></pre>
+
+<pre><code class=""language-javascript"">// Solution 1b
+let letters = [...'Elephant'];
+
+for (let letter of letters) {
+console.log(letter);
+}</code></pre>
+
+<pre><code class=""language-javascript"">// Solution 1c
+let letters = [...'Elephant'];
+
+for (let index in letters) {
+console.log(letters[index]);
+}</code></pre>
+
+<p>
+        Solution 1a is the most straightforward and uses the universal and simplest way of
+        iterating through an array: the <code class=""language-javascript"">for</code> loop.
+        This is a tank that crushes everything on its way.
+</p>
+
+<p class=""subtitle"">
+        Resources:
+</p>
+
+<ul>
+        <li>
+          <a href=""/js-array-for"" target=""_blank"" rel=""noopener noreferrer"">
+            Iterate through Arrays with for statements</a>.
+        </li>
+</ul>
+
+<h3>
+        Solution 2: while
+</h3>
+
+<pre><code class=""language-javascript"">// Solution 2: while
+let letters = [...'Elephant'];
+
+let i = 0;
+
+while (i &lt; letters.length) {
+console.log(letters[i]);
+i += 1;
+}</code></pre>
+
+<p>
+        Solution 2 uses the <code class=""language-javascript"">while</code> loop.
+        Unlike the <code class=""language-javascript"">for</code> loop, it requires you to declare a variable before the
+        <code class=""language-javascript"">while</code> statement.
+</p>
+
+<h3>Solution 3: Array.prototype.forEach()</h3>
+
+<pre><code class=""language-javascript"">// Solution 3: Array.prototype.forEach()
+let letters = [...'Elephant'];
+
+letters.forEach((el) =&gt; {
+console.log(el);
+});</code></pre>
+
+<p>
+        Solution 3 uses the method <code class=""language-javascript"">Array.prototype.forEach()</code>.
+</p>
+
+<ol>
+        <li>
+          <code class=""language-javascript"">Array.prototype.forEach()</code> always returns <code class=""language-javascript"">undefined</code>.
+        </li>
+        <li>
+          <code class=""language-javascript"">Array.prototype.forEach()</code> uses the <a href=""/js-array-callback"" target=""_blank"" rel=""noopener noreferrer"">standard callback function</a>.
+        </li>
+</ol>",false,
+Arrays 07,ad38b945-7b4e-4f3d-82aa-093e6f42145d,10,,"<pre><code class=""language-javascript"">const a = [1, 2, 3, 4, 5];</code></pre>
+      
+<p>
+        Find the 1st element in <code class=""language-javascript"">a</code> that is greater or equal to 3
+        and assign the value to a new variable <code class=""language-javascript"">b</code>.
+</p>",false,
+Arrays 07,ad38b945-7b4e-4f3d-82aa-093e6f42145d,20,,"<h3>Solution 1: Array.prototype.find()</h3>
+
+<pre><code class=""language-javascript"">// Solution 1: Array.prototype.find()
+const a = [1, 2, 3, 4, 5];
+
+const b = a.find(el =&gt; el &gt;= 3);</code></pre>
+
+<ol>
+        <li>
+          <code class=""language-javascript"">Array.prototype.find()</code>
+          returns the value of the first element in the provided array
+          that satisfies the provided testing function.
+          If no values satisfy the testing function, <code class=""language-javascript"">undefined</code> is returned.
+        </li>
+        <li>
+          <code class=""language-javascript"">Array.prototype.find()</code>,
+          like many other Array methods, uses a <a href=""/js-array-callback"" target=""_blank"" rel=""noopener noreferrer"">
+            standard array callback</a>.
+        </li>
+</ol>
+
+<h3>Solution 2: for statement</h3>
+
+<pre><code class=""language-javascript"">// Solution 2a
+const a = [1, 2, 3, 4, 5];
+let b;
+
+for (let i = 0; i &lt; a.length; i += 1) {
+  if (a[i] =&gt; 3) {
+    b = a[i];
+    return;
+}</code></pre>
+        
+<pre><code class=""language-javascript"">// Solution 2b
+const a = [1, 2, 3, 4, 5];
+let b = [];
+
+for (let el of a) {
+  if (el =&gt; 3) {
+  b = el;
+  return;
+}</code></pre>
+
+<pre><code class=""language-javascript"">// Solution 2c
+const a = [1, 2, 3, 4, 5];
+let b = [];
+
+for (let idx in a) {
+  if (a[idx] =&gt; 3) {
+  b = a[idx];
+  return;
+}</code></pre>
+
+<p>
+        If you don't know the <code class=""language-javascript"">Array.prototype.find()</code> method, 
+        you can iterate through the array with a <code class=""language-javascript"">for</code> statement.
+</p>
+
+<h3>Solution 3: for statement within a custom function</h3>
+
+<pre><code class=""language-javascript"">// Solution 3a
+const a = [1, 2, 3, 4, 5];
+
+const find = (array, test) =&gt; {
+for (let i = 0; i &lt; array.length; i += 1) {
+  if (test(array[i])) {
+    return (array[i])
+  }
+  return null;
+};
+
+const b = find(a, el =&gt; el &gt;= 3);</code></pre>
+
+<pre><code class=""language-javascript"">// Solution 3b
+const a = [1, 2, 3, 4, 5];
+
+const find = (array, test) =&gt; {
+  for (let el of array) {
+    if (test(el)) {
+      return (el)
+    }
+  return undefined;
+};
+
+const b = find(a, el =&gt; el &gt;= 3);</code></pre>
+
+<pre><code class=""language-javascript"">// Solution 3c
+const a = [1, 2, 3, 4, 5];
+
+const find = (array, test) =&gt; {
+  for (let idx in array) {
+    if (test(array[idx])) {
+    return (array[idx])
+    }
+  return undefined;
+};
+
+const b = find(a, el =&gt; el &gt;= 3);</code></pre>
+
+<p>
+        We can also code a custom function. A custom function offers more flexibility:
+</p>
+
+<ol>
+        <li>It can be reused further down the code if need be.</li>
+        <li>
+          We can change the criteria to find an element.
+        </li>
+</ol>",false,
+Arrays 08,ae989a9d-45eb-4b8f-91c6-0aa926dc19d9,10,,"<pre><code class=""language-javascript"">const a = [1, 2, 3, 4, 5];</code></pre>
+      
+<p>
+        Find the index of the 1st element that is even 
+        and assign the value to a new variable <code class=""language-javascript"">b</code>.
+</p>",false,
+Arrays 08,ae989a9d-45eb-4b8f-91c6-0aa926dc19d9,20,,"<h3>Even integers</h3>
+
+<p>
+        We can test if an integer is even or not by using the modulo operator (<code class=""language-javascript"">%</code>).
+        If a number is even, the division of this number (the dividend) by 2 (the divisor)
+        has a remainder equal to 0. Since the modulo operator ""produces"" the remainder,
+        the following expression allow us to test if an integer is even or not:
+        <code class=""language-javascript"">el % 2 === 0</code>.
+        This expression produces a value <code class=""language-javascript"">true</code> if the integer
+        <code class=""language-javascript"">el</code> is even, or <code class=""language-javascript"">false</code>
+        if the integer <code class=""language-javascript"">el</code> is not (or is odd).
+</p>
+
+<h3>Solution 1: Array.prototype.findIndex()</h3>
+
+<pre><code class=""language-javascript"">// Solution 1: Array.prototype.findIndex()
+const a = [1, 2, 3, 4, 5];
+
+const b = a.findIndex(el =&gt; el % 2 === 0);</code></pre>
+
+<ol>
+        <li>
+          <code class=""language-javascript"">Array.prototype.findIndex()</code> 
+          returns the index of the first element in the array that satisfies the provided testing function.
+          Otherwise, it returns <code class=""language-javascript"">-1</code>, indicating that no element passed the test.
+        </li>
+        <li>
+          <code class=""language-javascript"">Array.prototype.findIndex()</code>,
+          like many other Array methods, uses a <a href=""/js-array-callback"" target=""_blank"" rel=""noopener noreferrer"">standard array callback function</a>.
+        </li>
+</ol>
+
+<h3>Solution 2: for statement</h3>
+
+<pre><code class=""language-javascript"">// Solution 2a
+const a = [1, 2, 3, 4, 5];
+let b;
+
+for (let i = 0; i < a.length; i += 1) {
+  if (a[i] % 2 === 0) {
+    b = i;
+    return;
+  }
+}</code></pre>
+
+<pre><code class=""language-javascript"">// Solution 2b
+const a = [1, 2, 3, 4, 5];
+let b;
+
+for (let idx in a) {
+  if (a[idx] % 2 === 0) {
+    b = idx;
+    return;
+  }
+}</code></pre>
+
+<h3>Solution 3: for statement within a custom function</h3>
+
+<pre><code class=""language-javascript"">// Solution 3a
+const a = [1, 2, 3, 4, 5];
+
+const findIndex = (array, test) =&gt; {
+  for (let i = 0; i &lt; array.length; i += 1) {
+    if (test(array[i])) {
+      return i;
+    }
+    return -1;
+  }
+};
+
+const b = findIndex(a, el =&gt; el % 2 === 0);</code></pre>
+
+<pre><code class=""language-javascript"">// Solution 3b
+const a = [1, 2, 3, 4, 5];
+
+const findIndex = (array, test) =&gt; {
+  for (let idx in array) {
+    if (test(array[idx])) {
+      return idx;
+    }
+    return -1;
+  }
+};
+
+const b = findIndex(a, el =&gt; el % 2 === 0);</code></pre>",false,
+Arrays 05,bd910682-cc7f-4350-a6ac-889fff2cb4ec,10,,"<pre><code class=""language-javascript"">const numbers = [0, 1, 2, 3, 4, 5];</code></pre>
+      
+<p>
+        Create 3 new arrays <code class=""language-javascript"">doubled_1</code>, <code class=""language-javascript"">doubled_2</code>,
+        <code class=""language-javascript"">doubled_3</code>
+        that have doubled values compared to <code class=""language-javascript"">numbers</code>. Use 4 different ways to do so.
+</p>",false,
+Arrays 05,bd910682-cc7f-4350-a6ac-889fff2cb4ec,20,,"<h3>Solution 1: for statement</h3>
+
+<pre><code class=""language-javascript"">// Solution 1a
+const numbers = [0, 1, 2, 3, 4, 5];
+
+const doubled_1a = [];
+
+for (let i = 0; i &lt; numbers.length; i += 1) {
+doubled_1a.push(numbers[i] * 2);
+}</code></pre>
+
+<pre><code class=""language-javascript"">// Solution 1b
+const numbers = [0, 1, 2, 3, 4, 5];
+
+const doubled_1b = [];
+
+for (let number of numbers) {
+doubled_1b.push(number * 2);
+}</code></pre>
+
+<pre><code class=""language-javascript"">// Solution 1c
+const numbers = [0, 1, 2, 3, 4, 5];
+
+const doubled_1c = [];
+
+for (let idx in numbers) {
+doubled_1c.push(numbers[idx] * 2);
+}</code></pre>
+
+<p>
+        We went the extra mile with this exercise by offering three sub-solutions for solution 1.
+</p>
+<p class=""subtitle"">
+        Resources:
+</p>
+
+<ul>
+        <li>
+          <a href=""/js-array-for"" target=""_blank"" rel=""noopener noreferrer"">
+            Iterate through Arrays with for statements</a>.
+        </li>
+</ul>
+
+<h3>Solution 2: Array.prototype.forEach()</h3>
+
+<pre><code class=""language-javascript"">// Solution 2: Array.prototype.forEach()
+const numbers = [0, 1, 2, 3, 4, 5];
+
+const doubled_2 = [];
+numbers.forEach((el) =&gt; doubled_2.push(el * 2));</code></pre>
+
+<ol>
+        <li>
+          <code class=""language-javascript"">Array.prototype.forEach()</code> always returns
+          <code class=""language-javascript"">undefined</code>.
+        </li>
+        <li>
+          <code class=""language-javascript"">Array.prototype.forEach()</code> uses
+          <a href=""/js-array-callback"" target=""_blank"" rel=""noopener noreferrer"">
+            the standard callback function</a>.
+        </li>
+</ol>
+
+<h3>Solution 3: Array.prototype.map()</h3>
+
+<pre><code class=""language-javascript"">// Solution 3: Array.prototype.map()
+const numbers = [0, 1, 2, 3, 4, 5];
+
+const doubled_3 = numbers.map((el) =&gt; el * 2);</code></pre>
+
+<ol>
+        <li>
+          <code class=""language-javascript"">Array.prototype.map()</code> always returns a new array.
+        </li>
+        <li>
+          <code class=""language-javascript"">Array.prototype.map()</code>, like many other Array methods,
+          uses a <a href=""/js-array-callback"" target=""_blank"" rel=""noopener noreferrer"">standard array callback function</a>.
+        </li>
+</ol>
+
+<h3>Solution 4: Array.from()</h3>
+
+<pre><code class=""language-javascript"">// Solution 4: Array.from()
+const numbers = [0, 1, 2, 3, 4, 5];
+
+const doubled_4 = Array.from(numbers, el =&gt; el * 2);</code></pre>
+
+<p class=""subtitle"">
+        Resources:
+</p>
+
+<ul>
+        <li>
+          <a href=""/js-create-arrays"" target=""_blank"" rel=""noopener noreferrer"">
+            How to create arrays in JavaScript?</a>
+        </li>
+</ul>",false,
+Arrays 01,c544187f-e499-42cd-9838-bb1920cc04d8,10,,"<ol>
+        <li>
+          Create 3 empty arrays <code class=""language-javascript"">e1</code>,
+          <code class=""language-javascript"">e2</code>, <code class=""language-javascript"">e3</code>,
+          in 3 different ways.
+        </li>
+        <li>
+          Create 2 arrays <code class=""language-javascript"">a1</code> and 
+          <code class=""language-javascript"">a2</code>, 
+          containing a single element <code class=""language-javascript"">1</code>, in 2 different ways.
+        </li>
+</ol>",false,
+Arrays 01,c544187f-e499-42cd-9838-bb1920cc04d8,20,,"<pre><code class=""language-javascript"">// Array literal notation
+const e1 = [];
+
+// Array constructor function
+const e2 = new Array();
+
+// Array.of() method
+const e3 = Array.of();
+
+// Array literal notation
+const a1 = [1];
+
+// Array.of() method
+const a2 = Array.of(1);</code></pre>
+
+<p>
+        This exercise is strange, isn't it?
+        I ask you to create an empty array in 3 different ways, but to create an array containing a single integer in only 2 different ways.
+</p>
+
+<p>
+        The tasks do not look that different at first sight.
+        But, as weird as it may seem, we cannot create an array containing a single integer with the <code class=""language-javascript"">Array()</code> constructor function.
+        That's because this constructor function has a flaw.
+</p>
+
+<p class=""subtitle"">
+        Resources:
+</p>
+
+<ul>
+        <li>
+          <a href=""/js-create-arrays"" target=""_blank"" rel=""noopener noreferrer"">
+            How to create arrays in JavaScript?</a>
+        </li>
+</ul>",false,
+Arrays 04,faf5c478-c056-4b15-9c9f-86c61070eee0,10,,"<pre><code class=""language-javascript"">const numbers_1 = [1, 2, 3];
+      const numbers_2 = [4, 5, 6];</code></pre>
+
+<p>
+        Concatenate the 2 arrays <code class=""language-javascript"">numbers_1</code> and <code class=""language-javascript"">numbers_2</code>
+        and assign the result to a new variable called <code class=""language-javascript"">numbers</code>.
+</p>",false,
+Arrays 04,faf5c478-c056-4b15-9c9f-86c61070eee0,20,,"<h3>Solution 1: Array.prototype.concat()</h3>
+
+<pre><code class=""language-javascript"">// Solution 1a
+const numbers_1 = [1, 2, 3];
+const numbers_2 = [4, 5, 6];
+
+const numbers = numbers_1.concat(numbers_2);</code></pre>
+
+<pre><code class=""language-javascript"">// Solution 1b
+const numbers_1 = [1, 2, 3];
+const numbers_2 = [4, 5, 6];
+
+const numbers = [].concat(numbers_1, numbers_2);</code></pre>
+
+<p>
+        In these solutions, we use the method <code class=""language-javascript"">Array.prototype.concat()</code>. 
+        This method always returns a new array.
+        Solution 1b has the advantage to show more intent than solution 1a: we clearly see that a new array is created.
+</p>
+
+<h3>Solution 2: the spread syntax</h3>
+
+<pre><code class=""language-javascript"">// Solution 2: the spread syntax
+const numbers_1 = [1, 2, 3];
+const numbers_2 = [4, 5, 6];
+
+const numbers = [...numbers_1, ...numbers_2];</code></pre>
+
+<p>
+        In this solution, we use the
+        <a href=""/js-3-dots"" target=""_blank"">
+          spread syntax</a>.
+</p>
+
+<h3>Solution 3: iterations</h3>
+
+<p>
+        Another solution is to iterate through the initial arrays in order to build the new array.
+        Solutions 3a, 3b and 3c use a
+        <a href=""/js-array-for"" target=""_blank"" rel=""noopener noreferrer"">for loop</a>.
+        Solution 3d uses the method <code class=""language-javascript"">Array.prototype.forEach()</code>.
+        Solution 3e uses <code class=""language-javascript"">while</code> statements.
+</p>
+
+<pre><code class=""language-javascript"">// solution 3a
+const numbers_1 = [1, 2, 3];
+const numbers_2 = [4, 5, 6];
+const numbers = [];
+
+for (let i = 0; i &lt; numbers_1.length; i += 1) {
+numbers.push(numbers_1[i]);
+}
+
+for (let i = 0; i &lt; numbers_2.length; i += 1) {
+numbers.push(numbers_2[i]);
+}</code></pre>
+
+<pre><code class=""language-javascript"">// Solution 3b
+const numbers_1 = [1, 2, 3];
+const numbers_2 = [4, 5, 6];
+const numbers = [];
+
+for (let number of numbers_1) {
+numbers.push(number);
+}
+
+for (let number of numbers_2) {
+numbers.push(number);
+}</code></pre>
+
+<pre><code class=""language-javascript"">// Solution 3c
+const numbers_1 = [1, 2, 3];
+const numbers_2 = [4, 5, 6];
+const numbers = [];
+
+for (let index in numbers_1) {
+numbers.push(numbers_1[index]);
+}
+
+for (let number in numbers_2) {
+numbers.push(numbers_2[index]);
+}</code></pre>
+
+<pre><code class=""language-javascript"">// Solution 3d
+const numbers_1 = [1, 2, 3];
+const numbers_2 = [4, 5, 6];
+const numbers = [];
+
+numbers_1.forEach( (el) =&gt; {
+numbers.push(el);
+});
+
+numbers_2.forEach( (el) =&gt; {
+numbers.push(el);
+});</code></pre>
+
+<pre><code class=""language-javascript"">// Solution 3e
+const numbers_1 = [1, 2, 3];
+const numbers_2 = [4, 5, 6];
+const numbers = [];
+
+let i = 0;
+
+while (i &lt; numbers_1.length) {
+numbers.push(numbers_1[i]);
+i += 1;
+}
+
+let j = 0;
+
+while (j &lt; numbers_2.length) {
+numbers.push(numbers_2[j]);
+j += 1;
+}</code></pre>",false,
