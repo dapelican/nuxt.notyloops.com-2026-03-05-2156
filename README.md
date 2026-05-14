@@ -81,7 +81,7 @@ Alternatives to zod: valibot, @regle/nuxt, yup, joi and superstruct:
 ## server/services
 - Packages: `npm i axios`.
 - server/services/emailable/verify-email.js.
-- server/services/smtp2go/send-email.js.
+- server/services/plunk/send-email.js.
 
 ## tests
 - Packages: `npm i -D vitest @vitest/coverage-v8`.

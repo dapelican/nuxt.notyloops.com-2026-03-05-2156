@@ -82,9 +82,7 @@ const table_columns = [
     :data="current_page_item_list"
   >
     <template
-      #select-cell="{
-        row,
-      }"
+      #select-cell="{ row }"
     >
       <UCheckbox
         class="cursor-pointer"
@@ -100,25 +98,19 @@ const table_columns = [
     </template>
 
     <template
-      #created_at-cell="{
-        row,
-      }"
+      #created_at-cell="{ row }"
     >
       {{ formatDate(row.original.created_at) }}
     </template>
 
     <template
-      #updated_at-cell="{
-        row,
-      }"
+      #updated_at-cell="{ row }"
     >
       {{ formatDate(row.original.updated_at) }}
     </template>
 
     <template
-      #tag_list-cell="{
-        row,
-      }"
+      #tag_list-cell="{ row }"
     >
       <span
         v-for="tag in row.original.tag_list"
@@ -130,9 +122,7 @@ const table_columns = [
     </template>
 
     <template
-      #actions-cell="{
-        row,
-      }"
+      #actions-cell="{ row }"
     >
       <NuxtLink
         class="primary-link"

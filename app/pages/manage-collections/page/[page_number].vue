@@ -369,6 +369,11 @@ onUnmounted(() => {
             </template>
           </UAlert>
 
+          <hr
+            v-if="spaced_repetition_due_note_count > 0 && next_due_date"
+            class="separator-2"
+          >
+
           <UAlert
             v-if="next_due_date"
             class="mx-auto w-fit"
@@ -393,7 +398,10 @@ onUnmounted(() => {
             </template>
           </UAlert>
 
-          <hr class="separator-2">
+          <hr
+            v-if="next_due_date && diary_due_note_count > 0"
+            class="separator-2"
+          >
 
           <UAlert
             v-if="diary_due_note_count > 0"
@@ -441,8 +449,6 @@ onUnmounted(() => {
               </div>
             </template>
           </UAlert>
-
-          <hr class="separator-2">
 
           <section class="ml-auto mr-auto mb-4 max-w-fit">
             <div class="flex justify-center gap-2 mb-4">

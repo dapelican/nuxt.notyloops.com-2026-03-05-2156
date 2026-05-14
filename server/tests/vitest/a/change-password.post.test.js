@@ -12,7 +12,7 @@ import { createTestHandler } from '../create-test-handler.js';
 
 import handler from '../../../routes/a/change-password.post.js';
 
-vi.mock('../../../services/smtp2go/send-email.js', () => ({
+vi.mock('../../../services/plunk/send-email.js', () => ({
   sendEmail: vi.fn(() => Promise.resolve()),
 }));
 

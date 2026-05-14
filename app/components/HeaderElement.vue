@@ -136,6 +136,6 @@ const private_items = computed(() => [
 <style scoped>
 .header-element-title-font {
   font-family: 'Permanent Marker', cursive;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
 }
 </style>
