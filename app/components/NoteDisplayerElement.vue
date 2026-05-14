@@ -388,9 +388,9 @@ const vNoteExternalLinks = {
   text-decoration: underline;
 }
 
-@media (hover: hover) {
+/* @media (hover: hover) {
   .note-displayer-html :deep(a[target="_blank"]:hover) {
     color: var(--ui-secondary);
   }
-}
+} */
 </style>

@@ -116,7 +116,7 @@ const signUp = async (form) => {
 </script>
 
 <template>
-  <UContainer class="centered-max-width-400">
+  <UContainer class="centered-max-width-400 mt-10">
     <LoadingElement v-if="handling_request_1" />
 
     <UAlert

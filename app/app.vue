@@ -1,12 +1,14 @@
 <template>
   <UApp>
-    <HeaderElement />
+    <div class="flex min-h-dvh flex-col">
+      <HeaderElement />
 
-    <UMain class="page">
-      <NuxtPage />
-    </UMain>
+      <UMain class="page">
+        <NuxtPage />
+      </UMain>
 
-    <FooterElement />
+      <FooterElement />
+    </div>
   </UApp>
 </template>
 

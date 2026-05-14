@@ -56,7 +56,7 @@ const sendJoinWaitingListEmail = async (form) => {
 </script>
 
 <template>
-  <UContainer class="centered-max-width-400">
+  <UContainer class="centered-max-width-400 mt-10">
     <UPageCard v-if="!show_success_message">
       <UAuthForm
         :disabled="handling_request"

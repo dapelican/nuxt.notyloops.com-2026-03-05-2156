@@ -39,7 +39,7 @@ useSeoMeta({
             <li class="flex items-center gap-2">
               <UIcon
                 name="i-lucide-circle-check"
-                class="size-5 shrink-0 text-success"
+                class="size-5 shrink-0 text-primary"
               />
               <span>{{ $t('t_free_plan_3') }}</span>
             </li>
@@ -74,14 +74,14 @@ useSeoMeta({
             <li class="flex items-center gap-2">
               <UIcon
                 name="i-lucide-circle-check"
-                class="size-5 shrink-0 text-success"
+                class="size-5 shrink-0 text-primary"
               />
               <span>{{ $t('t_free_plan_8') }}</span>
             </li>
             <li class="flex items-center gap-2">
               <UIcon
                 name="i-lucide-circle-check"
-                class="size-5 shrink-0 text-success"
+                class="size-5 shrink-0 text-primary"
               />
               <span>{{ $t('t_free_plan_9') }}</span>
             </li>
@@ -110,70 +110,70 @@ useSeoMeta({
             <li class="flex items-center gap-2">
               <UIcon
                 name="i-lucide-circle-check"
-                class="size-5 shrink-0 text-success"
+                class="size-5 shrink-0 text-primary"
               />
               <span>{{ $t('t_premium_plan_1') }}</span>
             </li>
             <li class="flex items-center gap-2">
               <UIcon
                 name="i-lucide-circle-check"
-                class="size-5 shrink-0 text-success"
+                class="size-5 shrink-0 text-primary"
               />
               <span>{{ $t('t_premium_plan_2') }}</span>
             </li>
             <li class="flex items-center gap-2">
               <UIcon
                 name="i-lucide-circle-check"
-                class="size-5 shrink-0 text-success"
+                class="size-5 shrink-0 text-primary"
               />
               <span>{{ $t('t_premium_plan_3') }}</span>
             </li>
             <li class="flex items-center gap-2">
               <UIcon
                 name="i-lucide-circle-check"
-                class="size-5 shrink-0 text-success"
+                class="size-5 shrink-0 text-primary"
               />
               <span>{{ $t('t_premium_plan_4') }}</span>
             </li>
             <li class="flex items-center gap-2">
               <UIcon
                 name="i-lucide-circle-check"
-                class="size-5 shrink-0 text-success"
+                class="size-5 shrink-0 text-primary"
               />
               <span>{{ $t('t_premium_plan_5') }}</span>
             </li>
             <li class="flex items-center gap-2">
               <UIcon
                 name="i-lucide-circle-check"
-                class="size-5 shrink-0 text-success"
+                class="size-5 shrink-0 text-primary"
               />
               <span>{{ $t('t_premium_plan_6') }}</span>
             </li>
             <li class="flex items-center gap-2">
               <UIcon
                 name="i-lucide-circle-check"
-                class="size-5 shrink-0 text-success"
+                class="size-5 shrink-0 text-primary"
               />
               <span>{{ $t('t_premium_plan_7') }}</span>
             </li>
             <li class="flex items-center gap-2">
               <UIcon
                 name="i-lucide-circle-check"
-                class="size-5 shrink-0 text-success"
+                class="size-5 shrink-0 text-primary"
               />
               <span>{{ $t('t_premium_plan_8') }}</span>
             </li>
             <li class="flex items-center gap-2">
               <UIcon
                 name="i-lucide-circle-check"
-                class="size-5 shrink-0 text-success"
+                class="size-5 shrink-0 text-primary"
               />
               <span>{{ $t('t_premium_plan_9') }}</span>
             </li>
             <li class="flex items-center gap-2">
               <UIcon
                 name="i-lucide-circle-check"
-                class="size-5 shrink-0 text-success"
+                class="size-5 shrink-0 text-primary"
               />
               <span>{{ $t('t_premium_plan_10') }}</span>
             </li>

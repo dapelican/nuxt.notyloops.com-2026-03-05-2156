@@ -64,7 +64,7 @@ const sendPasswordForgottenEmail = async (form) => {
 </script>
 
 <template>
-  <UContainer class="centered-max-width-400">
+  <UContainer class="centered-max-width-400 mt-10">
     <UPageCard v-if="!show_check_your_inbox_message">
       <UAuthForm
         :disabled="handling_request"

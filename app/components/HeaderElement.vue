@@ -1,4 +1,13 @@
 <script setup>
+useHead({
+  link: [
+    {
+      rel: 'stylesheet',
+      href: 'https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap',
+    },
+  ],
+});
+
 const {
   loggedIn: logged_in,
   clear,
@@ -90,7 +99,7 @@ const private_items = computed(() => [
   <!-- HeaderElement.vue -->
   <UHeader toggle-side="left">
     <template #title>
-      NotyLoops
+      <span class="header-element-title-font">NotyLoops</span>
     </template>
 
     <UNavigationMenu
@@ -123,3 +132,10 @@ const private_items = computed(() => [
     </template>
   </UHeader>
 </template>
+
+<style scoped>
+.header-element-title-font {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.5rem;
+}
+</style>

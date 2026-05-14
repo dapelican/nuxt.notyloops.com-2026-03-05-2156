@@ -25,7 +25,7 @@ useSeoMeta({
       <h2 class="flex items-center gap-4">
         <UIcon
           name="i-lucide-notebook-pen"
-          class="text-success"
+          class="text-primary"
         />
         <span>
           1. {{ $t('t_feature_1_title') }}
@@ -43,7 +43,7 @@ useSeoMeta({
       <h2 class="flex items-center gap-4">
         <UIcon
           name="i-lucide-tags"
-          class="text-success"
+          class="text-primary"
         />
         <span>
           2. {{ $t('t_feature_2_title') }}
@@ -61,7 +61,7 @@ useSeoMeta({
       <h2 class="flex items-center gap-4">
         <UIcon
           name="i-lucide-recycle"
-          class="text-success"
+          class="text-primary"
         />
         <span>
           3. {{ $t('t_feature_3_title') }}

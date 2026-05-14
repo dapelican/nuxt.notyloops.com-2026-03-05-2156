@@ -183,7 +183,7 @@ const stripe_payment_link = computed(() => {
 
 <template>
   <!-- app/pages/account/information.vue -->
-  <UContainer class="centered-max-width-400">
+  <UContainer class="centered-max-width-400 mt-10">
     <h1 class="mb-2">
       {{ $t('t_my_information') }}
     </h1>

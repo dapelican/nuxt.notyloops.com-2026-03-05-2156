@@ -80,7 +80,7 @@ const logIn = async (form) => {
 </script>
 
 <template>
-  <UContainer class="centered-max-width-400">
+  <UContainer class="centered-max-width-400 mt-10">
     <UPageCard>
       <UAuthForm
         :disabled="handling_request"
