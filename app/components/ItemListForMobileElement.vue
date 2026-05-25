@@ -80,7 +80,7 @@ const show_details = ref(false);
         </div>
 
         <NuxtLink
-          class="primary-link"
+          class="text-primary"
           :to="`/manage-${props.item_type}s/edit/${item.id}?page_number=${page_number}`"
         >
           {{ $t('t_edit') }}

@@ -125,7 +125,7 @@ const table_columns = [
       #actions-cell="{ row }"
     >
       <NuxtLink
-        class="primary-link"
+        class="text-primary"
         :to="`/manage-${props.item_type}s/edit/${row.original.id}?page_number=${page_number}`"
       >
         {{ $t('t_edit') }}

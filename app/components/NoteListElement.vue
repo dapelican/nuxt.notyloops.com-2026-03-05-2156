@@ -101,7 +101,7 @@ const calculateScore = (score, review_count) => {
       <main class="main">
         <section class="actions">
           <NuxtLink
-            class="primary-link"
+            class="text-primary"
             :to="`/manage-${ITEM_TYPE_NOTE}s/edit/${item.id}?page_number=${page_number}`"
           >
             {{ $t('t_edit') }}

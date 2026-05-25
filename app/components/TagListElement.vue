@@ -51,7 +51,7 @@ const isItemSelected = (item_id) => selected_item_id_set.value.has(item_id);
       <main class="main">
         <section class="actions">
           <NuxtLink
-            class="primary-link"
+            class="text-primary"
             :to="`/manage-${ITEM_TYPE_TAG}s/edit/${item.id}?page_number=${page_number}`"
           >
             {{ $t('t_edit') }}

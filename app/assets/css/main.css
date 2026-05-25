@@ -80,10 +80,6 @@ html {
   gap: 2rem;
 }
 
-.primary-link {
-  color: var(--ui-primary);
-}
-
 .separator-0-5 {
   border: none;
   height: 0.5rem;

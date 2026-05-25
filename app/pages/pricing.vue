@@ -7,6 +7,7 @@ useSeoMeta({
 </script>
 
 <template>
+  <!-- app/pages/pricing.vue -->
   <UContainer>
     <div class="center">
       <h1 class="center">
@@ -80,17 +81,10 @@ useSeoMeta({
             </li>
             <li class="flex items-center gap-2">
               <UIcon
-                name="i-lucide-circle-check"
-                class="size-5 shrink-0 text-primary"
-              />
-              <span>{{ $t('t_free_plan_9') }}</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <UIcon
                 name="i-lucide-circle-x"
                 class="size-5 shrink-0 text-error"
               />
-              <span>{{ $t('t_free_plan_10') }}</span>
+              <span>{{ $t('t_free_plan_9') }}</span>
             </li>
           </ul>
 
@@ -169,13 +163,6 @@ useSeoMeta({
                 class="size-5 shrink-0 text-primary"
               />
               <span>{{ $t('t_premium_plan_9') }}</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <UIcon
-                name="i-lucide-circle-check"
-                class="size-5 shrink-0 text-primary"
-              />
-              <span>{{ $t('t_premium_plan_10') }}</span>
             </li>
           </ul>
 

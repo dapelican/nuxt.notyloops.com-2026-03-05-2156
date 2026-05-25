@@ -110,7 +110,7 @@ const logIn = async (form) => {
 
     <NuxtLink
       to="/a/password-forgotten"
-      class="primary-link text-[16px]"
+      class="text-primary text-[16px]"
     >{{ $t('t_password_forgotten_question') }}</NuxtLink>
   </UContainer>
 </template>

@@ -381,7 +381,7 @@ const vNoteExternalLinks = {
 
 /*
  * target/_blank/rel are applied by v-note-external-links (CSS cannot set attributes).
- * Style links consistently with site links (main.css .primary-link).
+ * Style links consistently with site links.
  */
 .note-displayer-html :deep(a[target="_blank"]) {
   color: var(--ui-text-primary);
