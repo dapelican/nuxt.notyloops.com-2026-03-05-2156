@@ -203,6 +203,12 @@ onUnmounted(() => {
                   {{ $t('t_you_have_reached_the_freemium_limit_for_creating_notes') }}
                 </p>
               </template>
+
+              <template #footer>
+                <section class="flex justify-end">
+                  <BecomePremiumButtonElement />
+                </section>
+              </template>
             </LimitedFeaturePopup>
 
             <ImportNotesPopup v-if="user_is_premium_or_admin">
@@ -226,6 +232,12 @@ onUnmounted(() => {
                 <p class="m-0">
                   {{ $t('t_this_feature_is_reserved_to_premium_users') }}
                 </p>
+              </template>
+
+              <template #footer>
+                <section class="flex justify-end">
+                  <BecomePremiumButtonElement />
+                </section>
               </template>
             </LimitedFeaturePopup>
           </div>

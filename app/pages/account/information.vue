@@ -8,7 +8,7 @@ const {
   clear: clear_user_session,
 } = useUserSession();
 
-const { locale, t } = useI18n();
+const { t } = useI18n();
 
 useSeoMeta({
   title: `${t('t_my_information')} | NotyLoops`,
@@ -32,11 +32,16 @@ handling_request_1.value = false;
 
 const premium_status_expiration_date_fr = computed(() => {
   const raw = user_data.value?.premium_status_expiration_date;
+
   if (raw == null || raw === '') {
     return '';
   }
+
   const dt = DateTime.fromISO(String(raw));
-  return dt.isValid ? dt.setLocale('fr').toFormat('d MMMM yyyy') : '';
+
+  return dt.isValid
+    ? dt.setLocale('fr').toFormat('d MMMM yyyy')
+    : '';
 });
 
 // email
@@ -164,21 +169,6 @@ const resetPasswordForm = () => {
   password_form_error.value = '';
   modifying_password.value = false;
 };
-
-const user_email = ref(user_data.value?.email);
-const user_id = ref(user_data.value?.id);
-
-const stripe_payment_link = computed(() => {
-  let url = locale.value === 'fr'
-    ? 'https://buy.stripe.com/test_aFaeVdb1scYQ2pq4efc3m00'
-    : 'https://buy.stripe.com/test_aFaeVdb1scYQ2pq4efc3m00';
-
-  url += `?client_reference_id=${user_id.value}`;
-  url += `&prefilled_email=${encodeURIComponent(user_email.value)}`;
-  url += '&locale=fr';
-
-  return url;
-});
 </script>
 
 <template>
@@ -342,25 +332,26 @@ const stripe_payment_link = computed(() => {
 
       <section
         v-if="[USER_STATUS_FREE, USER_STATUS_PENDING].includes(user_data.status)"
-        class="flex items-center gap-8"
       >
         <p>
           {{ $t('t_free_account') }}
         </p>
 
-        <UButton
-          v-if="[USER_STATUS_FREE, USER_STATUS_PENDING].includes(user_data.status)"
-          class="cursor-pointer hover:text-inverted!"
-          color="primary"
-          :label="$t('t_become_premium')"
-          variant="solid"
-          :to="stripe_payment_link"
-        />
+        <BecomePremiumButtonElement />
       </section>
 
-      <p v-if="user_data.status === USER_STATUS_PREMIUM">
-        {{ $t('t_premium_account_until') }} {{ premium_status_expiration_date_fr }}
-      </p>
+      <section
+        v-if="user_data.status === USER_STATUS_PREMIUM"
+      >
+        <p>
+          {{ $t('t_premium_account_until') }} {{ premium_status_expiration_date_fr }}
+        </p>
+
+        <BecomePremiumButtonElement
+          class="mt-4"
+          extend_premium
+        />
+      </section>
 
       <p v-if="user_data.status === USER_STATUS_ADMIN">
         {{ $t('t_admin_account') }}

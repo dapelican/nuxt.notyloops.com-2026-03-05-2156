@@ -49,7 +49,7 @@ const collection_form_state = reactive({
   review_strategy: REVIEW_STRATEGY_BY_CREATION_DATE_OLDEST_TO_NEWEST,
   track_scores: true,
   description: '',
-  price_without_tax: 0,
+  pre_tax_price_in_cents: 0,
   inclusion_type: 'AND',
   exclusion_type: 'OR',
 });
@@ -362,11 +362,11 @@ const createCollection = async () => {
 
       <UFormField
         v-if="collection_form_state.type === COLLECTION_TYPE_PUBLIC_PAYWALLLED"
-        :label="$t('t_price_without_tax')"
-        name="price_without_tax"
+        :label="$t('t_pre_tax_price_in_cents')"
+        name="pre_tax_price_in_cents"
       >
         <UInputNumber
-          v-model="collection_form_state.price_without_tax"
+          v-model="collection_form_state.pre_tax_price_in_cents"
           :decrement="{ class: 'cursor-pointer' }"
           :format-options="{
             style: 'currency',

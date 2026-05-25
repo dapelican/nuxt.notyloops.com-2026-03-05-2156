@@ -1,1668 +1,266 @@
 -- =============================================
 -- Admin user for frontend testing - do not delete
 -- =============================================
-INSERT INTO users (email, password, status, subdomain)
+INSERT INTO users (id, email, password, status, subdomain)
 VALUES (
+  '10000000-0000-4000-8000-000000000001',
   'a@a.com',
   '$2b$10$A/gQANzmiA/uRAh9NxSqxOjVKYmMvEBMbN7xAwYku7wbbzOpPX9QS',
   'admin',
   'fr'
 );
 
-INSERT INTO users (email, password, status, premium_status_expiration_date, subdomain)
+INSERT INTO users (id, email, password, status, premium_status_expiration_date, subdomain)
 VALUES (
+  '10000000-0000-4000-8000-000000000002',
   'b@b.com',
   '$2b$10$A/gQANzmiA/uRAh9NxSqxOjVKYmMvEBMbN7xAwYku7wbbzOpPX9QS',
   'premium',
-  '2027-05-08T00:00:00.000Z',
+  now() + interval '1 year',
   'fr'
 );
 
-INSERT INTO users (email, password, status, subdomain)
+INSERT INTO users (id, email, password, status, subdomain)
 VALUES (
+  '10000000-0000-4000-8000-000000000003',
   'c@c.com',
   '$2b$10$A/gQANzmiA/uRAh9NxSqxOjVKYmMvEBMbN7xAwYku7wbbzOpPX9QS',
   'free',
   'fr'
 );
 
-INSERT INTO users (email, password, status, subdomain)
+INSERT INTO users (id, email, password, status, premium_status_expiration_date, subdomain)
 VALUES (
+  '10000000-0000-4000-8000-000000000004',
   'd@d.com',
   '$2b$10$A/gQANzmiA/uRAh9NxSqxOjVKYmMvEBMbN7xAwYku7wbbzOpPX9QS',
   'premium',
+    now() + interval '1 year',
   'fr'
 );
 
-WITH
-  afrique_01 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Afrique du Sud (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_02 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Algérie (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_03 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Angola (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_04 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Bénin (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_05 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Botswana (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_06 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Burkina Faso (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_07 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Burundi (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_08 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Cameroun (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_09 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Cap-Vert (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_10 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Comores (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_11 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Côte d''Ivoire (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_12 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Djibouti (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_13 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Égypte (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_14 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Érythrée (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_15 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Eswatini (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_16 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Éthiopie (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_17 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Gabon (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_18 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Gambie (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_19 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Ghana (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_20 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Guinée (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_21 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Guinée équatoriale (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_22 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Guinée-Bissau (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_23 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Kenya (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_24 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Lesotho (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_25 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Liberia (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_26 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Libye (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_27 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Madagascar (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_28 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Malawi (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_29 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Mali (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_30 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Maroc (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_31 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Maurice (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_32 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Mauritanie (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_33 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Mozambique (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_34 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Namibie (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_35 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Niger (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_36 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Nigeria (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_37 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Ouganda (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_38 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'République centrafricaine (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_39 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'République démocratique du Congo (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_40 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'République du Congo (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_41 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Rwanda (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_42 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Sao Tomé-et-Principe (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_43 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Sénégal (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_44 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Seychelles (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_45 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Sierra Leone (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_46 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Somalie (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_47 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Soudan (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_48 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Soudan du Sud (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_49 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Tanzanie (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_50 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Tchad (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_51 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Togo (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_52 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Tunisie (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_53 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Zambie (Afrique)'
-    )
-    RETURNING id
-  ),
-  afrique_54 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Zimbabwe (Afrique)'
-    )
-    RETURNING id
-  ),
-  amerique_du_nord_01 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Antigua-et-Barbuda (Amérique du Nord)'
-    )
-    RETURNING id
-  ),
-  amerique_du_nord_02 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Bahamas (Amérique du Nord)'
-    )
-    RETURNING id
-  ),
-  amerique_du_nord_03 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Barbade (Amérique du Nord)'
-    )
-    RETURNING id
-  ),
-  amerique_du_nord_04 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Belize (Amérique du Nord)'
-    )
-    RETURNING id
-  ),
-  amerique_du_nord_05 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Canada (Amérique du Nord)'
-    )
-    RETURNING id
-  ),
-  amerique_du_nord_06 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Costa Rica (Amérique du Nord)'
-    )
-    RETURNING id
-  ),
-  amerique_du_nord_07 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Cuba (Amérique du Nord)'
-    )
-    RETURNING id
-  ),
-  amerique_du_nord_08 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Dominique (Amérique du Nord)'
-    )
-    RETURNING id
-  ),
-  amerique_du_nord_09 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'États-Unis (Amérique du Nord)'
-    )
-    RETURNING id
-  ),
-  amerique_du_nord_10 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Grenade (Amérique du Nord)'
-    )
-    RETURNING id
-  ),
-  amerique_du_nord_11 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Guatemala (Amérique du Nord)'
-    )
-    RETURNING id
-  ),
-  amerique_du_nord_12 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Haïti (Amérique du Nord)'
-    )
-    RETURNING id
-  ),
-  amerique_du_nord_13 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Honduras (Amérique du Nord)'
-    )
-    RETURNING id
-  ),
-  amerique_du_nord_14 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Jamaïque (Amérique du Nord)'
-    )
-    RETURNING id
-  ),
-  amerique_du_nord_15 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Mexique (Amérique du Nord)'
-    )
-    RETURNING id
-  ),
-  amerique_du_nord_16 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Nicaragua (Amérique du Nord)'
-    )
-    RETURNING id
-  ),
-  amerique_du_nord_17 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Panama (Amérique du Nord)'
-    )
-    RETURNING id
-  ),
-  amerique_du_nord_18 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'République dominicaine (Amérique du Nord)'
-    )
-    RETURNING id
-  ),
-  amerique_du_nord_19 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Saint-Kitts-et-Nevis (Amérique du Nord)'
-    )
-    RETURNING id
-  ),
-  amerique_du_nord_20 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Saint-Vincent-et-les-Grenadines (Amérique du Nord)'
-    )
-    RETURNING id
-  ),
-  amerique_du_nord_21 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Sainte-Lucie (Amérique du Nord)'
-    )
-    RETURNING id
-  ),
-  amerique_du_nord_22 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Salvador (Amérique du Nord)'
-    )
-    RETURNING id
-  ),
-  amerique_du_nord_23 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Trinité-et-Tobago (Amérique du Nord)'
-    )
-    RETURNING id
-  ),
-  amerique_du_sud_01 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Argentine (Amérique du Sud)'
-    )
-    RETURNING id
-  ),
-  amerique_du_sud_02 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Bolivie (Amérique du Sud)'
-    )
-    RETURNING id
-  ),
-  amerique_du_sud_03 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Brésil (Amérique du Sud)'
-    )
-    RETURNING id
-  ),
-  amerique_du_sud_04 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Chili (Amérique du Sud)'
-    )
-    RETURNING id
-  ),
-  amerique_du_sud_05 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Colombie (Amérique du Sud)'
-    )
-    RETURNING id
-  ),
-  amerique_du_sud_06 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Équateur (Amérique du Sud)'
-    )
-    RETURNING id
-  ),
-  amerique_du_sud_07 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Guyana (Amérique du Sud)'
-    )
-    RETURNING id
-  ),
-  amerique_du_sud_08 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Paraguay (Amérique du Sud)'
-    )
-    RETURNING id
-  ),
-  amerique_du_sud_09 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Pérou (Amérique du Sud)'
-    )
-    RETURNING id
-  ),
-  amerique_du_sud_10 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Suriname (Amérique du Sud)'
-    )
-    RETURNING id
-  ),
-  amerique_du_sud_11 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Uruguay (Amérique du Sud)'
-    )
-    RETURNING id
-  ),
-  amerique_du_sud_12 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Venezuela (Amérique du Sud)'
-    )
-    RETURNING id
-  ),
-  asie_01 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Afghanistan (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_02 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Arabie saoudite (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_03 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Arménie (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_04 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Azerbaïdjan (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_05 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Bahreïn (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_06 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Bangladesh (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_07 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Bhoutan (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_08 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Birmanie (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_09 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Brunei (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_10 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Cambodge (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_11 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Chine (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_12 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Corée du Nord (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_13 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Corée du Sud (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_14 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Émirats arabes unis (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_15 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Géorgie (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_16 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Inde (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_17 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Indonésie (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_18 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Irak (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_19 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Iran (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_20 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Israël (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_21 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Japon (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_22 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Jordanie (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_23 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Kazakhstan (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_24 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Kirghizistan (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_25 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Koweït (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_26 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Laos (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_27 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Liban (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_28 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Malaisie (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_29 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Maldives (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_30 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Mongolie (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_31 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Népal (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_32 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Oman (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_33 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Ouzbékistan (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_34 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Pakistan (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_35 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Philippines (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_36 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Qatar (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_37 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Singapour (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_38 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Sri Lanka (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_39 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Syrie (Asie)'
-    )
-    RETURNING id
-  ),
-    asie_40 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Tadjikistan (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_41 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Thaïlande (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_42 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Timor oriental (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_43 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Turkménistan (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_44 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Turquie (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_45 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Viêt Nam (Asie)'
-    )
-    RETURNING id
-  ),
-  asie_46 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Yémen (Asie)'
-    )
-    RETURNING id
-  ),
-    europe_01 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Albanie (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_02 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Allemagne (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_03 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Andorre (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_04 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Autriche (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_05 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Belgique (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_06 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Biélorussie (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_07 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Bosnie-Herzégovine (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_08 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Bulgarie (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_09 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Chypre (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_10 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Croatie (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_11 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Danemark (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_12 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Espagne (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_13 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Estonie (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_14 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Finlande (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_15 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'France (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_16 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Grèce (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_17 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Hongrie (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_18 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Irlande (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_19 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Islande (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_20 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Italie (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_21 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Lettonie (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_22 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Liechtenstein (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_23 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Lituanie (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_24 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Luxembourg (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_25 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Macédoine du Nord (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_26 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Malte (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_27 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Moldavie (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_28 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Monaco (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_29 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Monténégro (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_30 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Norvège (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_31 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Pays-Bas (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_32 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Pologne (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_33 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Portugal (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_34 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Roumanie (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_35 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Royaume-Uni (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_36 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Russie (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_37 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Saint-Marin (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_38 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Serbie (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_39 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Slovaquie (Europe)'
-    )
-    RETURNING id
-  ),
-    europe_40 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Slovénie (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_41 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Suède (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_42 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Suisse (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_43 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Tchéquie (République tchèque) (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_44 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Ukraine (Europe)'
-    )
-    RETURNING id
-  ),
-  europe_45 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Vatican (Europe)'
-    )
-    RETURNING id
-  ),
-  oceanie_01 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Australie (Océanie)'
-    )
-    RETURNING id
-  ),
-  oceanie_02 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Etats fédérés de Micronésie (Océanie)'
-    )
-    RETURNING id
-  ),
-  oceanie_03 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Fidji (Océanie)'
-    )
-    RETURNING id
-  ),
-  oceanie_04 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Iles Marshall (Océanie)'
-    )
-    RETURNING id
-  ),
-  oceanie_05 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Iles Salomon (Océanie)'
-    )
-    RETURNING id
-  ),
-  oceanie_06 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Kitibati (Océanie)'
-    )
-    RETURNING id
-  ),
-  oceanie_07 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Nauru (Océanie)'
-    )
-    RETURNING id
-  ),
-  oceanie_08 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Nouvelle-Zélande (Océanie)'
-    )
-    RETURNING id
-  ),
-  oceanie_09 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Palaos (Océanie)'
-    )
-    RETURNING id
-  ),
-  oceanie_10 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Papouasie-Nouvelle-Guinée (Océanie)'
-    )
-    RETURNING id
-  ),
-  oceanie_11 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Samoa (Océanie)'
-    )
-    RETURNING id
-  ),
-  oceanie_12 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Tonga (Océanie)'
-    )
-    RETURNING id
-  ),
-  oceanie_13 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Tuvalu (Océanie)'
-    )
-    RETURNING id
-  ),
-  oceanie_14 AS (
-    INSERT INTO notes (user_id, title)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Vanuatu (Océanie)'
-    )
-    RETURNING id
-  ),
-  tag_afrique AS (
-    INSERT INTO tags (user_id, label, lowercase_label)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Afrique',
-      'afrique'
-    )
-    RETURNING id
-  ),
-  tag_amerique_du_nord AS (
-    INSERT INTO tags (user_id, label, lowercase_label)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Amérique du Nord',
-      'amérique du nord'
-    )
-    RETURNING id
-  ),
-  tag_amerique_du_sud AS (
-    INSERT INTO tags (user_id, label, lowercase_label)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Amérique du Sud',
-      'amérique du sud'
-    )
-    RETURNING id
-  ),
-  tag_asie AS (
-    INSERT INTO tags (user_id, label, lowercase_label)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Asie',
-      'asie'
-    )
-    RETURNING id
-  ),
-  tag_drapeaux_pays AS (
-    INSERT INTO tags (user_id, label, lowercase_label)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Drapeaux des pays',
-      'drapeaux des pays'
-    )
-    RETURNING id
-  ),
-  tag_europe AS (
-    INSERT INTO tags (user_id, label, lowercase_label)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Europe',
-      'europe'
-    )
-    RETURNING id
-  ),
-  tag_oceanie AS (
-    INSERT INTO tags (user_id, label, lowercase_label)
-    VALUES (
-      (SELECT id FROM users WHERE email = 'b@b.com'),
-      'Océanie',
-      'océanie'
-    )
-    RETURNING id
-  ),
-  inserted_details AS (
-    INSERT INTO note_details (
-      note_id,
-      content_position,
-      content_type,
-      markdown_content,
-      html_content,
-      file_url,
-      to_be_hidden
-    )
-    VALUES
-    (
-      (SELECT id FROM afrique_01),
+-- =============================================
+-- Country flag notes, tags, details and note_tags (user b@b.com)
+-- =============================================
+INSERT INTO notes (id, user_id, title)
+VALUES
+  ('30000000-0000-4000-8000-000000000001', '10000000-0000-4000-8000-000000000002', 'Afrique du Sud (Afrique)'),
+  ('30000000-0000-4000-8000-000000000002', '10000000-0000-4000-8000-000000000002', 'Algérie (Afrique)'),
+  ('30000000-0000-4000-8000-000000000003', '10000000-0000-4000-8000-000000000002', 'Angola (Afrique)'),
+  ('30000000-0000-4000-8000-000000000004', '10000000-0000-4000-8000-000000000002', 'Bénin (Afrique)'),
+  ('30000000-0000-4000-8000-000000000005', '10000000-0000-4000-8000-000000000002', 'Botswana (Afrique)'),
+  ('30000000-0000-4000-8000-000000000006', '10000000-0000-4000-8000-000000000002', 'Burkina Faso (Afrique)'),
+  ('30000000-0000-4000-8000-000000000007', '10000000-0000-4000-8000-000000000002', 'Burundi (Afrique)'),
+  ('30000000-0000-4000-8000-000000000008', '10000000-0000-4000-8000-000000000002', 'Cameroun (Afrique)'),
+  ('30000000-0000-4000-8000-000000000009', '10000000-0000-4000-8000-000000000002', 'Cap-Vert (Afrique)'),
+  ('30000000-0000-4000-8000-00000000000a', '10000000-0000-4000-8000-000000000002', 'Comores (Afrique)'),
+  ('30000000-0000-4000-8000-00000000000b', '10000000-0000-4000-8000-000000000002', 'Côte d''Ivoire (Afrique)'),
+  ('30000000-0000-4000-8000-00000000000c', '10000000-0000-4000-8000-000000000002', 'Djibouti (Afrique)'),
+  ('30000000-0000-4000-8000-00000000000d', '10000000-0000-4000-8000-000000000002', 'Égypte (Afrique)'),
+  ('30000000-0000-4000-8000-00000000000e', '10000000-0000-4000-8000-000000000002', 'Érythrée (Afrique)'),
+  ('30000000-0000-4000-8000-00000000000f', '10000000-0000-4000-8000-000000000002', 'Eswatini (Afrique)'),
+  ('30000000-0000-4000-8000-000000000010', '10000000-0000-4000-8000-000000000002', 'Éthiopie (Afrique)'),
+  ('30000000-0000-4000-8000-000000000011', '10000000-0000-4000-8000-000000000002', 'Gabon (Afrique)'),
+  ('30000000-0000-4000-8000-000000000012', '10000000-0000-4000-8000-000000000002', 'Gambie (Afrique)'),
+  ('30000000-0000-4000-8000-000000000013', '10000000-0000-4000-8000-000000000002', 'Ghana (Afrique)'),
+  ('30000000-0000-4000-8000-000000000014', '10000000-0000-4000-8000-000000000002', 'Guinée (Afrique)'),
+  ('30000000-0000-4000-8000-000000000015', '10000000-0000-4000-8000-000000000002', 'Guinée équatoriale (Afrique)'),
+  ('30000000-0000-4000-8000-000000000016', '10000000-0000-4000-8000-000000000002', 'Guinée-Bissau (Afrique)'),
+  ('30000000-0000-4000-8000-000000000017', '10000000-0000-4000-8000-000000000002', 'Kenya (Afrique)'),
+  ('30000000-0000-4000-8000-000000000018', '10000000-0000-4000-8000-000000000002', 'Lesotho (Afrique)'),
+  ('30000000-0000-4000-8000-000000000019', '10000000-0000-4000-8000-000000000002', 'Liberia (Afrique)'),
+  ('30000000-0000-4000-8000-00000000001a', '10000000-0000-4000-8000-000000000002', 'Libye (Afrique)'),
+  ('30000000-0000-4000-8000-00000000001b', '10000000-0000-4000-8000-000000000002', 'Madagascar (Afrique)'),
+  ('30000000-0000-4000-8000-00000000001c', '10000000-0000-4000-8000-000000000002', 'Malawi (Afrique)'),
+  ('30000000-0000-4000-8000-00000000001d', '10000000-0000-4000-8000-000000000002', 'Mali (Afrique)'),
+  ('30000000-0000-4000-8000-00000000001e', '10000000-0000-4000-8000-000000000002', 'Maroc (Afrique)'),
+  ('30000000-0000-4000-8000-00000000001f', '10000000-0000-4000-8000-000000000002', 'Maurice (Afrique)'),
+  ('30000000-0000-4000-8000-000000000020', '10000000-0000-4000-8000-000000000002', 'Mauritanie (Afrique)'),
+  ('30000000-0000-4000-8000-000000000021', '10000000-0000-4000-8000-000000000002', 'Mozambique (Afrique)'),
+  ('30000000-0000-4000-8000-000000000022', '10000000-0000-4000-8000-000000000002', 'Namibie (Afrique)'),
+  ('30000000-0000-4000-8000-000000000023', '10000000-0000-4000-8000-000000000002', 'Niger (Afrique)'),
+  ('30000000-0000-4000-8000-000000000024', '10000000-0000-4000-8000-000000000002', 'Nigeria (Afrique)'),
+  ('30000000-0000-4000-8000-000000000025', '10000000-0000-4000-8000-000000000002', 'Ouganda (Afrique)'),
+  ('30000000-0000-4000-8000-000000000026', '10000000-0000-4000-8000-000000000002', 'République centrafricaine (Afrique)'),
+  ('30000000-0000-4000-8000-000000000027', '10000000-0000-4000-8000-000000000002', 'République démocratique du Congo (Afrique)'),
+  ('30000000-0000-4000-8000-000000000028', '10000000-0000-4000-8000-000000000002', 'République du Congo (Afrique)'),
+  ('30000000-0000-4000-8000-000000000029', '10000000-0000-4000-8000-000000000002', 'Rwanda (Afrique)'),
+  ('30000000-0000-4000-8000-00000000002a', '10000000-0000-4000-8000-000000000002', 'Sao Tomé-et-Principe (Afrique)'),
+  ('30000000-0000-4000-8000-00000000002b', '10000000-0000-4000-8000-000000000002', 'Sénégal (Afrique)'),
+  ('30000000-0000-4000-8000-00000000002c', '10000000-0000-4000-8000-000000000002', 'Seychelles (Afrique)'),
+  ('30000000-0000-4000-8000-00000000002d', '10000000-0000-4000-8000-000000000002', 'Sierra Leone (Afrique)'),
+  ('30000000-0000-4000-8000-00000000002e', '10000000-0000-4000-8000-000000000002', 'Somalie (Afrique)'),
+  ('30000000-0000-4000-8000-00000000002f', '10000000-0000-4000-8000-000000000002', 'Soudan (Afrique)'),
+  ('30000000-0000-4000-8000-000000000030', '10000000-0000-4000-8000-000000000002', 'Soudan du Sud (Afrique)'),
+  ('30000000-0000-4000-8000-000000000031', '10000000-0000-4000-8000-000000000002', 'Tanzanie (Afrique)'),
+  ('30000000-0000-4000-8000-000000000032', '10000000-0000-4000-8000-000000000002', 'Tchad (Afrique)'),
+  ('30000000-0000-4000-8000-000000000033', '10000000-0000-4000-8000-000000000002', 'Togo (Afrique)'),
+  ('30000000-0000-4000-8000-000000000034', '10000000-0000-4000-8000-000000000002', 'Tunisie (Afrique)'),
+  ('30000000-0000-4000-8000-000000000035', '10000000-0000-4000-8000-000000000002', 'Zambie (Afrique)'),
+  ('30000000-0000-4000-8000-000000000036', '10000000-0000-4000-8000-000000000002', 'Zimbabwe (Afrique)'),
+  ('30000000-0000-4000-8000-000000000037', '10000000-0000-4000-8000-000000000002', 'Antigua-et-Barbuda (Amérique du Nord)'),
+  ('30000000-0000-4000-8000-000000000038', '10000000-0000-4000-8000-000000000002', 'Bahamas (Amérique du Nord)'),
+  ('30000000-0000-4000-8000-000000000039', '10000000-0000-4000-8000-000000000002', 'Barbade (Amérique du Nord)'),
+  ('30000000-0000-4000-8000-00000000003a', '10000000-0000-4000-8000-000000000002', 'Belize (Amérique du Nord)'),
+  ('30000000-0000-4000-8000-00000000003b', '10000000-0000-4000-8000-000000000002', 'Canada (Amérique du Nord)'),
+  ('30000000-0000-4000-8000-00000000003c', '10000000-0000-4000-8000-000000000002', 'Costa Rica (Amérique du Nord)'),
+  ('30000000-0000-4000-8000-00000000003d', '10000000-0000-4000-8000-000000000002', 'Cuba (Amérique du Nord)'),
+  ('30000000-0000-4000-8000-00000000003e', '10000000-0000-4000-8000-000000000002', 'Dominique (Amérique du Nord)'),
+  ('30000000-0000-4000-8000-00000000003f', '10000000-0000-4000-8000-000000000002', 'États-Unis (Amérique du Nord)'),
+  ('30000000-0000-4000-8000-000000000040', '10000000-0000-4000-8000-000000000002', 'Grenade (Amérique du Nord)'),
+  ('30000000-0000-4000-8000-000000000041', '10000000-0000-4000-8000-000000000002', 'Guatemala (Amérique du Nord)'),
+  ('30000000-0000-4000-8000-000000000042', '10000000-0000-4000-8000-000000000002', 'Haïti (Amérique du Nord)'),
+  ('30000000-0000-4000-8000-000000000043', '10000000-0000-4000-8000-000000000002', 'Honduras (Amérique du Nord)'),
+  ('30000000-0000-4000-8000-000000000044', '10000000-0000-4000-8000-000000000002', 'Jamaïque (Amérique du Nord)'),
+  ('30000000-0000-4000-8000-000000000045', '10000000-0000-4000-8000-000000000002', 'Mexique (Amérique du Nord)'),
+  ('30000000-0000-4000-8000-000000000046', '10000000-0000-4000-8000-000000000002', 'Nicaragua (Amérique du Nord)'),
+  ('30000000-0000-4000-8000-000000000047', '10000000-0000-4000-8000-000000000002', 'Panama (Amérique du Nord)'),
+  ('30000000-0000-4000-8000-000000000048', '10000000-0000-4000-8000-000000000002', 'République dominicaine (Amérique du Nord)'),
+  ('30000000-0000-4000-8000-000000000049', '10000000-0000-4000-8000-000000000002', 'Saint-Kitts-et-Nevis (Amérique du Nord)'),
+  ('30000000-0000-4000-8000-00000000004a', '10000000-0000-4000-8000-000000000002', 'Saint-Vincent-et-les-Grenadines (Amérique du Nord)'),
+  ('30000000-0000-4000-8000-00000000004b', '10000000-0000-4000-8000-000000000002', 'Sainte-Lucie (Amérique du Nord)'),
+  ('30000000-0000-4000-8000-00000000004c', '10000000-0000-4000-8000-000000000002', 'Salvador (Amérique du Nord)'),
+  ('30000000-0000-4000-8000-00000000004d', '10000000-0000-4000-8000-000000000002', 'Trinité-et-Tobago (Amérique du Nord)'),
+  ('30000000-0000-4000-8000-00000000004e', '10000000-0000-4000-8000-000000000002', 'Argentine (Amérique du Sud)'),
+  ('30000000-0000-4000-8000-00000000004f', '10000000-0000-4000-8000-000000000002', 'Bolivie (Amérique du Sud)'),
+  ('30000000-0000-4000-8000-000000000050', '10000000-0000-4000-8000-000000000002', 'Brésil (Amérique du Sud)'),
+  ('30000000-0000-4000-8000-000000000051', '10000000-0000-4000-8000-000000000002', 'Chili (Amérique du Sud)'),
+  ('30000000-0000-4000-8000-000000000052', '10000000-0000-4000-8000-000000000002', 'Colombie (Amérique du Sud)'),
+  ('30000000-0000-4000-8000-000000000053', '10000000-0000-4000-8000-000000000002', 'Équateur (Amérique du Sud)'),
+  ('30000000-0000-4000-8000-000000000054', '10000000-0000-4000-8000-000000000002', 'Guyana (Amérique du Sud)'),
+  ('30000000-0000-4000-8000-000000000055', '10000000-0000-4000-8000-000000000002', 'Paraguay (Amérique du Sud)'),
+  ('30000000-0000-4000-8000-000000000056', '10000000-0000-4000-8000-000000000002', 'Pérou (Amérique du Sud)'),
+  ('30000000-0000-4000-8000-000000000057', '10000000-0000-4000-8000-000000000002', 'Suriname (Amérique du Sud)'),
+  ('30000000-0000-4000-8000-000000000058', '10000000-0000-4000-8000-000000000002', 'Uruguay (Amérique du Sud)'),
+  ('30000000-0000-4000-8000-000000000059', '10000000-0000-4000-8000-000000000002', 'Venezuela (Amérique du Sud)'),
+  ('30000000-0000-4000-8000-00000000005a', '10000000-0000-4000-8000-000000000002', 'Afghanistan (Asie)'),
+  ('30000000-0000-4000-8000-00000000005b', '10000000-0000-4000-8000-000000000002', 'Arabie saoudite (Asie)'),
+  ('30000000-0000-4000-8000-00000000005c', '10000000-0000-4000-8000-000000000002', 'Arménie (Asie)'),
+  ('30000000-0000-4000-8000-00000000005d', '10000000-0000-4000-8000-000000000002', 'Azerbaïdjan (Asie)'),
+  ('30000000-0000-4000-8000-00000000005e', '10000000-0000-4000-8000-000000000002', 'Bahreïn (Asie)'),
+  ('30000000-0000-4000-8000-00000000005f', '10000000-0000-4000-8000-000000000002', 'Bangladesh (Asie)'),
+  ('30000000-0000-4000-8000-000000000060', '10000000-0000-4000-8000-000000000002', 'Bhoutan (Asie)'),
+  ('30000000-0000-4000-8000-000000000061', '10000000-0000-4000-8000-000000000002', 'Birmanie (Asie)'),
+  ('30000000-0000-4000-8000-000000000062', '10000000-0000-4000-8000-000000000002', 'Brunei (Asie)'),
+  ('30000000-0000-4000-8000-000000000063', '10000000-0000-4000-8000-000000000002', 'Cambodge (Asie)'),
+  ('30000000-0000-4000-8000-000000000064', '10000000-0000-4000-8000-000000000002', 'Chine (Asie)'),
+  ('30000000-0000-4000-8000-000000000065', '10000000-0000-4000-8000-000000000002', 'Corée du Nord (Asie)'),
+  ('30000000-0000-4000-8000-000000000066', '10000000-0000-4000-8000-000000000002', 'Corée du Sud (Asie)'),
+  ('30000000-0000-4000-8000-000000000067', '10000000-0000-4000-8000-000000000002', 'Émirats arabes unis (Asie)'),
+  ('30000000-0000-4000-8000-000000000068', '10000000-0000-4000-8000-000000000002', 'Géorgie (Asie)'),
+  ('30000000-0000-4000-8000-000000000069', '10000000-0000-4000-8000-000000000002', 'Inde (Asie)'),
+  ('30000000-0000-4000-8000-00000000006a', '10000000-0000-4000-8000-000000000002', 'Indonésie (Asie)'),
+  ('30000000-0000-4000-8000-00000000006b', '10000000-0000-4000-8000-000000000002', 'Irak (Asie)'),
+  ('30000000-0000-4000-8000-00000000006c', '10000000-0000-4000-8000-000000000002', 'Iran (Asie)'),
+  ('30000000-0000-4000-8000-00000000006d', '10000000-0000-4000-8000-000000000002', 'Israël (Asie)'),
+  ('30000000-0000-4000-8000-00000000006e', '10000000-0000-4000-8000-000000000002', 'Japon (Asie)'),
+  ('30000000-0000-4000-8000-00000000006f', '10000000-0000-4000-8000-000000000002', 'Jordanie (Asie)'),
+  ('30000000-0000-4000-8000-000000000070', '10000000-0000-4000-8000-000000000002', 'Kazakhstan (Asie)'),
+  ('30000000-0000-4000-8000-000000000071', '10000000-0000-4000-8000-000000000002', 'Kirghizistan (Asie)'),
+  ('30000000-0000-4000-8000-000000000072', '10000000-0000-4000-8000-000000000002', 'Koweït (Asie)'),
+  ('30000000-0000-4000-8000-000000000073', '10000000-0000-4000-8000-000000000002', 'Laos (Asie)'),
+  ('30000000-0000-4000-8000-000000000074', '10000000-0000-4000-8000-000000000002', 'Liban (Asie)'),
+  ('30000000-0000-4000-8000-000000000075', '10000000-0000-4000-8000-000000000002', 'Malaisie (Asie)'),
+  ('30000000-0000-4000-8000-000000000076', '10000000-0000-4000-8000-000000000002', 'Maldives (Asie)'),
+  ('30000000-0000-4000-8000-000000000077', '10000000-0000-4000-8000-000000000002', 'Mongolie (Asie)'),
+  ('30000000-0000-4000-8000-000000000078', '10000000-0000-4000-8000-000000000002', 'Népal (Asie)'),
+  ('30000000-0000-4000-8000-000000000079', '10000000-0000-4000-8000-000000000002', 'Oman (Asie)'),
+  ('30000000-0000-4000-8000-00000000007a', '10000000-0000-4000-8000-000000000002', 'Ouzbékistan (Asie)'),
+  ('30000000-0000-4000-8000-00000000007b', '10000000-0000-4000-8000-000000000002', 'Pakistan (Asie)'),
+  ('30000000-0000-4000-8000-00000000007c', '10000000-0000-4000-8000-000000000002', 'Philippines (Asie)'),
+  ('30000000-0000-4000-8000-00000000007d', '10000000-0000-4000-8000-000000000002', 'Qatar (Asie)'),
+  ('30000000-0000-4000-8000-00000000007e', '10000000-0000-4000-8000-000000000002', 'Singapour (Asie)'),
+  ('30000000-0000-4000-8000-00000000007f', '10000000-0000-4000-8000-000000000002', 'Sri Lanka (Asie)'),
+  ('30000000-0000-4000-8000-000000000080', '10000000-0000-4000-8000-000000000002', 'Syrie (Asie)'),
+  ('30000000-0000-4000-8000-000000000081', '10000000-0000-4000-8000-000000000002', 'Tadjikistan (Asie)'),
+  ('30000000-0000-4000-8000-000000000082', '10000000-0000-4000-8000-000000000002', 'Thaïlande (Asie)'),
+  ('30000000-0000-4000-8000-000000000083', '10000000-0000-4000-8000-000000000002', 'Timor oriental (Asie)'),
+  ('30000000-0000-4000-8000-000000000084', '10000000-0000-4000-8000-000000000002', 'Turkménistan (Asie)'),
+  ('30000000-0000-4000-8000-000000000085', '10000000-0000-4000-8000-000000000002', 'Turquie (Asie)'),
+  ('30000000-0000-4000-8000-000000000086', '10000000-0000-4000-8000-000000000002', 'Viêt Nam (Asie)'),
+  ('30000000-0000-4000-8000-000000000087', '10000000-0000-4000-8000-000000000002', 'Yémen (Asie)'),
+  ('30000000-0000-4000-8000-000000000088', '10000000-0000-4000-8000-000000000002', 'Albanie (Europe)'),
+  ('30000000-0000-4000-8000-000000000089', '10000000-0000-4000-8000-000000000002', 'Allemagne (Europe)'),
+  ('30000000-0000-4000-8000-00000000008a', '10000000-0000-4000-8000-000000000002', 'Andorre (Europe)'),
+  ('30000000-0000-4000-8000-00000000008b', '10000000-0000-4000-8000-000000000002', 'Autriche (Europe)'),
+  ('30000000-0000-4000-8000-00000000008c', '10000000-0000-4000-8000-000000000002', 'Belgique (Europe)'),
+  ('30000000-0000-4000-8000-00000000008d', '10000000-0000-4000-8000-000000000002', 'Biélorussie (Europe)'),
+  ('30000000-0000-4000-8000-00000000008e', '10000000-0000-4000-8000-000000000002', 'Bosnie-Herzégovine (Europe)'),
+  ('30000000-0000-4000-8000-00000000008f', '10000000-0000-4000-8000-000000000002', 'Bulgarie (Europe)'),
+  ('30000000-0000-4000-8000-000000000090', '10000000-0000-4000-8000-000000000002', 'Chypre (Europe)'),
+  ('30000000-0000-4000-8000-000000000091', '10000000-0000-4000-8000-000000000002', 'Croatie (Europe)'),
+  ('30000000-0000-4000-8000-000000000092', '10000000-0000-4000-8000-000000000002', 'Danemark (Europe)'),
+  ('30000000-0000-4000-8000-000000000093', '10000000-0000-4000-8000-000000000002', 'Espagne (Europe)'),
+  ('30000000-0000-4000-8000-000000000094', '10000000-0000-4000-8000-000000000002', 'Estonie (Europe)'),
+  ('30000000-0000-4000-8000-000000000095', '10000000-0000-4000-8000-000000000002', 'Finlande (Europe)'),
+  ('30000000-0000-4000-8000-000000000096', '10000000-0000-4000-8000-000000000002', 'France (Europe)'),
+  ('30000000-0000-4000-8000-000000000097', '10000000-0000-4000-8000-000000000002', 'Grèce (Europe)'),
+  ('30000000-0000-4000-8000-000000000098', '10000000-0000-4000-8000-000000000002', 'Hongrie (Europe)'),
+  ('30000000-0000-4000-8000-000000000099', '10000000-0000-4000-8000-000000000002', 'Irlande (Europe)'),
+  ('30000000-0000-4000-8000-00000000009a', '10000000-0000-4000-8000-000000000002', 'Islande (Europe)'),
+  ('30000000-0000-4000-8000-00000000009b', '10000000-0000-4000-8000-000000000002', 'Italie (Europe)'),
+  ('30000000-0000-4000-8000-00000000009c', '10000000-0000-4000-8000-000000000002', 'Lettonie (Europe)'),
+  ('30000000-0000-4000-8000-00000000009d', '10000000-0000-4000-8000-000000000002', 'Liechtenstein (Europe)'),
+  ('30000000-0000-4000-8000-00000000009e', '10000000-0000-4000-8000-000000000002', 'Lituanie (Europe)'),
+  ('30000000-0000-4000-8000-00000000009f', '10000000-0000-4000-8000-000000000002', 'Luxembourg (Europe)'),
+  ('30000000-0000-4000-8000-0000000000a0', '10000000-0000-4000-8000-000000000002', 'Macédoine du Nord (Europe)'),
+  ('30000000-0000-4000-8000-0000000000a1', '10000000-0000-4000-8000-000000000002', 'Malte (Europe)'),
+  ('30000000-0000-4000-8000-0000000000a2', '10000000-0000-4000-8000-000000000002', 'Moldavie (Europe)'),
+  ('30000000-0000-4000-8000-0000000000a3', '10000000-0000-4000-8000-000000000002', 'Monaco (Europe)'),
+  ('30000000-0000-4000-8000-0000000000a4', '10000000-0000-4000-8000-000000000002', 'Monténégro (Europe)'),
+  ('30000000-0000-4000-8000-0000000000a5', '10000000-0000-4000-8000-000000000002', 'Norvège (Europe)'),
+  ('30000000-0000-4000-8000-0000000000a6', '10000000-0000-4000-8000-000000000002', 'Pays-Bas (Europe)'),
+  ('30000000-0000-4000-8000-0000000000a7', '10000000-0000-4000-8000-000000000002', 'Pologne (Europe)'),
+  ('30000000-0000-4000-8000-0000000000a8', '10000000-0000-4000-8000-000000000002', 'Portugal (Europe)'),
+  ('30000000-0000-4000-8000-0000000000a9', '10000000-0000-4000-8000-000000000002', 'Roumanie (Europe)'),
+  ('30000000-0000-4000-8000-0000000000aa', '10000000-0000-4000-8000-000000000002', 'Royaume-Uni (Europe)'),
+  ('30000000-0000-4000-8000-0000000000ab', '10000000-0000-4000-8000-000000000002', 'Russie (Europe)'),
+  ('30000000-0000-4000-8000-0000000000ac', '10000000-0000-4000-8000-000000000002', 'Saint-Marin (Europe)'),
+  ('30000000-0000-4000-8000-0000000000ad', '10000000-0000-4000-8000-000000000002', 'Serbie (Europe)'),
+  ('30000000-0000-4000-8000-0000000000ae', '10000000-0000-4000-8000-000000000002', 'Slovaquie (Europe)'),
+  ('30000000-0000-4000-8000-0000000000af', '10000000-0000-4000-8000-000000000002', 'Slovénie (Europe)'),
+  ('30000000-0000-4000-8000-0000000000b0', '10000000-0000-4000-8000-000000000002', 'Suède (Europe)'),
+  ('30000000-0000-4000-8000-0000000000b1', '10000000-0000-4000-8000-000000000002', 'Suisse (Europe)'),
+  ('30000000-0000-4000-8000-0000000000b2', '10000000-0000-4000-8000-000000000002', 'Tchéquie (République tchèque) (Europe)'),
+  ('30000000-0000-4000-8000-0000000000b3', '10000000-0000-4000-8000-000000000002', 'Ukraine (Europe)'),
+  ('30000000-0000-4000-8000-0000000000b4', '10000000-0000-4000-8000-000000000002', 'Vatican (Europe)'),
+  ('30000000-0000-4000-8000-0000000000b5', '10000000-0000-4000-8000-000000000002', 'Australie (Océanie)'),
+  ('30000000-0000-4000-8000-0000000000b6', '10000000-0000-4000-8000-000000000002', 'Etats fédérés de Micronésie (Océanie)'),
+  ('30000000-0000-4000-8000-0000000000b7', '10000000-0000-4000-8000-000000000002', 'Fidji (Océanie)'),
+  ('30000000-0000-4000-8000-0000000000b8', '10000000-0000-4000-8000-000000000002', 'Iles Marshall (Océanie)'),
+  ('30000000-0000-4000-8000-0000000000b9', '10000000-0000-4000-8000-000000000002', 'Iles Salomon (Océanie)'),
+  ('30000000-0000-4000-8000-0000000000ba', '10000000-0000-4000-8000-000000000002', 'Kitibati (Océanie)'),
+  ('30000000-0000-4000-8000-0000000000bb', '10000000-0000-4000-8000-000000000002', 'Nauru (Océanie)'),
+  ('30000000-0000-4000-8000-0000000000bc', '10000000-0000-4000-8000-000000000002', 'Nouvelle-Zélande (Océanie)'),
+  ('30000000-0000-4000-8000-0000000000bd', '10000000-0000-4000-8000-000000000002', 'Palaos (Océanie)'),
+  ('30000000-0000-4000-8000-0000000000be', '10000000-0000-4000-8000-000000000002', 'Papouasie-Nouvelle-Guinée (Océanie)'),
+  ('30000000-0000-4000-8000-0000000000bf', '10000000-0000-4000-8000-000000000002', 'Samoa (Océanie)'),
+  ('30000000-0000-4000-8000-0000000000c0', '10000000-0000-4000-8000-000000000002', 'Tonga (Océanie)'),
+  ('30000000-0000-4000-8000-0000000000c1', '10000000-0000-4000-8000-000000000002', 'Tuvalu (Océanie)'),
+  ('30000000-0000-4000-8000-0000000000c2', '10000000-0000-4000-8000-000000000002', 'Vanuatu (Océanie)');
+
+INSERT INTO tags (id, user_id, label, lowercase_label)
+VALUES
+  ('20000000-0000-4000-8000-000000000001', '10000000-0000-4000-8000-000000000002', 'Afrique', 'afrique'),
+  ('20000000-0000-4000-8000-000000000002', '10000000-0000-4000-8000-000000000002', 'Amérique du Nord', 'amérique du nord'),
+  ('20000000-0000-4000-8000-000000000003', '10000000-0000-4000-8000-000000000002', 'Amérique du Sud', 'amérique du sud'),
+  ('20000000-0000-4000-8000-000000000004', '10000000-0000-4000-8000-000000000002', 'Asie', 'asie'),
+  ('20000000-0000-4000-8000-000000000005', '10000000-0000-4000-8000-000000000002', 'Drapeaux des pays', 'drapeaux des pays'),
+  ('20000000-0000-4000-8000-000000000006', '10000000-0000-4000-8000-000000000002', 'Europe', 'europe'),
+  ('20000000-0000-4000-8000-000000000007', '10000000-0000-4000-8000-000000000002', 'Océanie', 'océanie');
+
+INSERT INTO note_details (
+  note_id,
+  content_position,
+  content_type,
+  markdown_content,
+  html_content,
+  file_url,
+  to_be_hidden
+)
+VALUES
+(
+      '30000000-0000-4000-8000-000000000001',
       1,
       'image',
       null,
@@ -1671,7 +269,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_01),
+      '30000000-0000-4000-8000-000000000001',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -1680,7 +278,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_01),
+      '30000000-0000-4000-8000-000000000001',
       3,
       'text',
       'Afrique du Sud',
@@ -1689,7 +287,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_02),
+      '30000000-0000-4000-8000-000000000002',
       1,
       'image',
       null,
@@ -1698,7 +296,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_02),
+      '30000000-0000-4000-8000-000000000002',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -1707,7 +305,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_02),
+      '30000000-0000-4000-8000-000000000002',
       3,
       'text',
       'Algérie',
@@ -1716,7 +314,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_03),
+      '30000000-0000-4000-8000-000000000003',
       1,
       'image',
       null,
@@ -1725,7 +323,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_03),
+      '30000000-0000-4000-8000-000000000003',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -1734,7 +332,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_03),
+      '30000000-0000-4000-8000-000000000003',
       3,
       'text',
       'Angola',
@@ -1743,7 +341,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_04),
+      '30000000-0000-4000-8000-000000000004',
       1,
       'image',
       null,
@@ -1752,7 +350,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_04),
+      '30000000-0000-4000-8000-000000000004',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -1761,7 +359,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_04),
+      '30000000-0000-4000-8000-000000000004',
       3,
       'text',
       'Bénin',
@@ -1770,7 +368,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_05),
+      '30000000-0000-4000-8000-000000000005',
       1,
       'image',
       null,
@@ -1779,7 +377,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_05),
+      '30000000-0000-4000-8000-000000000005',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -1788,7 +386,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_05),
+      '30000000-0000-4000-8000-000000000005',
       3,
       'text',
       'Botswana',
@@ -1797,7 +395,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_06),
+      '30000000-0000-4000-8000-000000000006',
       1,
       'image',
       null,
@@ -1806,7 +404,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_06),
+      '30000000-0000-4000-8000-000000000006',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -1815,7 +413,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_06),
+      '30000000-0000-4000-8000-000000000006',
       3,
       'text',
       'Burkina Faso',
@@ -1824,7 +422,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_07),
+      '30000000-0000-4000-8000-000000000007',
       1,
       'image',
       null,
@@ -1833,7 +431,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_07),
+      '30000000-0000-4000-8000-000000000007',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -1842,7 +440,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_07),
+      '30000000-0000-4000-8000-000000000007',
       3,
       'text',
       'Burundi',
@@ -1851,7 +449,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_08),
+      '30000000-0000-4000-8000-000000000008',
       1,
       'image',
       null,
@@ -1860,7 +458,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_08),
+      '30000000-0000-4000-8000-000000000008',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -1869,7 +467,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_08),
+      '30000000-0000-4000-8000-000000000008',
       3,
       'text',
       'Cameroun',
@@ -1878,7 +476,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_09),
+      '30000000-0000-4000-8000-000000000009',
       1,
       'image',
       null,
@@ -1887,7 +485,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_09),
+      '30000000-0000-4000-8000-000000000009',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -1896,7 +494,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_09),
+      '30000000-0000-4000-8000-000000000009',
       3,
       'text',
       'Cap-Vert',
@@ -1905,7 +503,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_10),
+      '30000000-0000-4000-8000-00000000000a',
       1,
       'image',
       null,
@@ -1914,7 +512,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_10),
+      '30000000-0000-4000-8000-00000000000a',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -1923,7 +521,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_10),
+      '30000000-0000-4000-8000-00000000000a',
       3,
       'text',
       'Comores',
@@ -1932,7 +530,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_11),
+      '30000000-0000-4000-8000-00000000000b',
       1,
       'image',
       null,
@@ -1941,7 +539,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_11),
+      '30000000-0000-4000-8000-00000000000b',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -1950,7 +548,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_11),
+      '30000000-0000-4000-8000-00000000000b',
       3,
       'text',
       'Côte d''Ivoire',
@@ -1959,7 +557,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_12),
+      '30000000-0000-4000-8000-00000000000c',
       1,
       'image',
       null,
@@ -1968,7 +566,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_12),
+      '30000000-0000-4000-8000-00000000000c',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -1977,7 +575,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_12),
+      '30000000-0000-4000-8000-00000000000c',
       3,
       'text',
       'Djibouti',
@@ -1986,7 +584,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_13),
+      '30000000-0000-4000-8000-00000000000d',
       1,
       'image',
       null,
@@ -1995,7 +593,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_13),
+      '30000000-0000-4000-8000-00000000000d',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -2004,7 +602,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_13),
+      '30000000-0000-4000-8000-00000000000d',
       3,
       'text',
       'Égypte',
@@ -2013,7 +611,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_14),
+      '30000000-0000-4000-8000-00000000000e',
       1,
       'image',
       null,
@@ -2022,7 +620,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_14),
+      '30000000-0000-4000-8000-00000000000e',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -2031,7 +629,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_14),
+      '30000000-0000-4000-8000-00000000000e',
       3,
       'text',
       'Érythrée',
@@ -2040,7 +638,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_15),
+      '30000000-0000-4000-8000-00000000000f',
       1,
       'image',
       null,
@@ -2049,7 +647,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_15),
+      '30000000-0000-4000-8000-00000000000f',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -2058,7 +656,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_15),
+      '30000000-0000-4000-8000-00000000000f',
       3,
       'text',
       'Eswatini',
@@ -2067,7 +665,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_16),
+      '30000000-0000-4000-8000-000000000010',
       1,
       'image',
       null,
@@ -2076,7 +674,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_16),
+      '30000000-0000-4000-8000-000000000010',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -2085,7 +683,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_16),
+      '30000000-0000-4000-8000-000000000010',
       3,
       'text',
       'Éthiopie',
@@ -2094,7 +692,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_17),
+      '30000000-0000-4000-8000-000000000011',
       1,
       'image',
       null,
@@ -2103,7 +701,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_17),
+      '30000000-0000-4000-8000-000000000011',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -2112,7 +710,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_17),
+      '30000000-0000-4000-8000-000000000011',
       3,
       'text',
       'Gabon',
@@ -2121,7 +719,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_18),
+      '30000000-0000-4000-8000-000000000012',
       1,
       'image',
       null,
@@ -2130,7 +728,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_18),
+      '30000000-0000-4000-8000-000000000012',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -2139,7 +737,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_18),
+      '30000000-0000-4000-8000-000000000012',
       3,
       'text',
       'Gambie',
@@ -2148,7 +746,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_19),
+      '30000000-0000-4000-8000-000000000013',
       1,
       'image',
       null,
@@ -2157,7 +755,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_19),
+      '30000000-0000-4000-8000-000000000013',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -2166,7 +764,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_19),
+      '30000000-0000-4000-8000-000000000013',
       3,
       'text',
       'Ghana',
@@ -2175,7 +773,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_20),
+      '30000000-0000-4000-8000-000000000014',
       1,
       'image',
       null,
@@ -2184,7 +782,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_20),
+      '30000000-0000-4000-8000-000000000014',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -2193,7 +791,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_20),
+      '30000000-0000-4000-8000-000000000014',
       3,
       'text',
       'Guinée',
@@ -2202,7 +800,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_21),
+      '30000000-0000-4000-8000-000000000015',
       1,
       'image',
       null,
@@ -2211,7 +809,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_21),
+      '30000000-0000-4000-8000-000000000015',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -2220,7 +818,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_21),
+      '30000000-0000-4000-8000-000000000015',
       3,
       'text',
       'Guinée équatoriale',
@@ -2229,7 +827,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_22),
+      '30000000-0000-4000-8000-000000000016',
       1,
       'image',
       null,
@@ -2238,7 +836,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_22),
+      '30000000-0000-4000-8000-000000000016',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -2247,7 +845,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_22),
+      '30000000-0000-4000-8000-000000000016',
       3,
       'text',
       'Guinée-Bissau',
@@ -2256,7 +854,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_23),
+      '30000000-0000-4000-8000-000000000017',
       1,
       'image',
       null,
@@ -2265,7 +863,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_23),
+      '30000000-0000-4000-8000-000000000017',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -2274,7 +872,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_23),
+      '30000000-0000-4000-8000-000000000017',
       3,
       'text',
       'Kenya',
@@ -2283,7 +881,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_24),
+      '30000000-0000-4000-8000-000000000018',
       1,
       'image',
       null,
@@ -2292,7 +890,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_24),
+      '30000000-0000-4000-8000-000000000018',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -2301,7 +899,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_24),
+      '30000000-0000-4000-8000-000000000018',
       3,
       'text',
       'Lesotho',
@@ -2310,7 +908,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_25),
+      '30000000-0000-4000-8000-000000000019',
       1,
       'image',
       null,
@@ -2319,7 +917,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_25),
+      '30000000-0000-4000-8000-000000000019',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -2328,7 +926,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_25),
+      '30000000-0000-4000-8000-000000000019',
       3,
       'text',
       'Liberia',
@@ -2337,7 +935,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_26),
+      '30000000-0000-4000-8000-00000000001a',
       1,
       'image',
       null,
@@ -2346,7 +944,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_26),
+      '30000000-0000-4000-8000-00000000001a',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -2355,7 +953,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_26),
+      '30000000-0000-4000-8000-00000000001a',
       3,
       'text',
       'Libye',
@@ -2364,7 +962,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_27),
+      '30000000-0000-4000-8000-00000000001b',
       1,
       'image',
       null,
@@ -2373,7 +971,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_27),
+      '30000000-0000-4000-8000-00000000001b',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -2382,7 +980,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_27),
+      '30000000-0000-4000-8000-00000000001b',
       3,
       'text',
       'Madagascar',
@@ -2391,7 +989,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_28),
+      '30000000-0000-4000-8000-00000000001c',
       1,
       'image',
       null,
@@ -2400,7 +998,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_28),
+      '30000000-0000-4000-8000-00000000001c',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -2409,7 +1007,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_28),
+      '30000000-0000-4000-8000-00000000001c',
       3,
       'text',
       'Malawi',
@@ -2418,7 +1016,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_29),
+      '30000000-0000-4000-8000-00000000001d',
       1,
       'image',
       null,
@@ -2427,7 +1025,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_29),
+      '30000000-0000-4000-8000-00000000001d',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -2436,7 +1034,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_29),
+      '30000000-0000-4000-8000-00000000001d',
       3,
       'text',
       'Mali',
@@ -2445,7 +1043,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_30),
+      '30000000-0000-4000-8000-00000000001e',
       1,
       'image',
       null,
@@ -2454,7 +1052,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_30),
+      '30000000-0000-4000-8000-00000000001e',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -2463,7 +1061,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_30),
+      '30000000-0000-4000-8000-00000000001e',
       3,
       'text',
       'Maroc',
@@ -2472,7 +1070,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_31),
+      '30000000-0000-4000-8000-00000000001f',
       1,
       'image',
       null,
@@ -2481,7 +1079,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_31),
+      '30000000-0000-4000-8000-00000000001f',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -2490,7 +1088,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_31),
+      '30000000-0000-4000-8000-00000000001f',
       3,
       'text',
       'Maurice',
@@ -2499,7 +1097,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_32),
+      '30000000-0000-4000-8000-000000000020',
       1,
       'image',
       null,
@@ -2508,7 +1106,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_32),
+      '30000000-0000-4000-8000-000000000020',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -2517,7 +1115,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_32),
+      '30000000-0000-4000-8000-000000000020',
       3,
       'text',
       'Mauritanie',
@@ -2526,7 +1124,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_33),
+      '30000000-0000-4000-8000-000000000021',
       1,
       'image',
       null,
@@ -2535,7 +1133,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_33),
+      '30000000-0000-4000-8000-000000000021',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -2544,7 +1142,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_33),
+      '30000000-0000-4000-8000-000000000021',
       3,
       'text',
       'Mozambique',
@@ -2553,7 +1151,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_34),
+      '30000000-0000-4000-8000-000000000022',
       1,
       'image',
       null,
@@ -2562,7 +1160,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_34),
+      '30000000-0000-4000-8000-000000000022',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -2571,7 +1169,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_34),
+      '30000000-0000-4000-8000-000000000022',
       3,
       'text',
       'Namibie',
@@ -2580,7 +1178,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_35),
+      '30000000-0000-4000-8000-000000000023',
       1,
       'image',
       null,
@@ -2589,7 +1187,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_35),
+      '30000000-0000-4000-8000-000000000023',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -2598,7 +1196,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_35),
+      '30000000-0000-4000-8000-000000000023',
       3,
       'text',
       'Niger',
@@ -2607,7 +1205,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_36),
+      '30000000-0000-4000-8000-000000000024',
       1,
       'image',
       null,
@@ -2616,7 +1214,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_36),
+      '30000000-0000-4000-8000-000000000024',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -2625,7 +1223,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_36),
+      '30000000-0000-4000-8000-000000000024',
       3,
       'text',
       'Nigeria',
@@ -2634,7 +1232,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_37),
+      '30000000-0000-4000-8000-000000000025',
       1,
       'image',
       null,
@@ -2643,7 +1241,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_37),
+      '30000000-0000-4000-8000-000000000025',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -2652,7 +1250,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_37),
+      '30000000-0000-4000-8000-000000000025',
       3,
       'text',
       'Ouganda',
@@ -2661,7 +1259,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_38),
+      '30000000-0000-4000-8000-000000000026',
       1,
       'image',
       null,
@@ -2670,7 +1268,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_38),
+      '30000000-0000-4000-8000-000000000026',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -2679,7 +1277,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_38),
+      '30000000-0000-4000-8000-000000000026',
       3,
       'text',
       'République centrafricaine',
@@ -2688,7 +1286,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_39),
+      '30000000-0000-4000-8000-000000000027',
       1,
       'image',
       null,
@@ -2697,7 +1295,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_39),
+      '30000000-0000-4000-8000-000000000027',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -2706,7 +1304,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_39),
+      '30000000-0000-4000-8000-000000000027',
       3,
       'text',
       'République démocratique du Congo',
@@ -2715,7 +1313,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_40),
+      '30000000-0000-4000-8000-000000000028',
       1,
       'image',
       null,
@@ -2724,7 +1322,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_40),
+      '30000000-0000-4000-8000-000000000028',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -2733,7 +1331,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_40),
+      '30000000-0000-4000-8000-000000000028',
       3,
       'text',
       'République du Congo',
@@ -2742,7 +1340,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_41),
+      '30000000-0000-4000-8000-000000000029',
       1,
       'image',
       null,
@@ -2751,7 +1349,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_41),
+      '30000000-0000-4000-8000-000000000029',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -2760,7 +1358,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_41),
+      '30000000-0000-4000-8000-000000000029',
       3,
       'text',
       'Rwanda',
@@ -2769,7 +1367,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_42),
+      '30000000-0000-4000-8000-00000000002a',
       1,
       'image',
       null,
@@ -2778,7 +1376,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_42),
+      '30000000-0000-4000-8000-00000000002a',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -2787,7 +1385,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_42),
+      '30000000-0000-4000-8000-00000000002a',
       3,
       'text',
       'Sao Tomé-et-Principe',
@@ -2796,7 +1394,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_43),
+      '30000000-0000-4000-8000-00000000002b',
       1,
       'image',
       null,
@@ -2805,7 +1403,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_43),
+      '30000000-0000-4000-8000-00000000002b',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -2814,7 +1412,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_43),
+      '30000000-0000-4000-8000-00000000002b',
       3,
       'text',
       'Sénégal',
@@ -2823,7 +1421,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_44),
+      '30000000-0000-4000-8000-00000000002c',
       1,
       'image',
       null,
@@ -2832,7 +1430,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_44),
+      '30000000-0000-4000-8000-00000000002c',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -2841,7 +1439,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_44),
+      '30000000-0000-4000-8000-00000000002c',
       3,
       'text',
       'Seychelles',
@@ -2850,7 +1448,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_45),
+      '30000000-0000-4000-8000-00000000002d',
       1,
       'image',
       null,
@@ -2859,7 +1457,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_45),
+      '30000000-0000-4000-8000-00000000002d',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -2868,7 +1466,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_45),
+      '30000000-0000-4000-8000-00000000002d',
       3,
       'text',
       'Sierra Leone',
@@ -2877,7 +1475,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_46),
+      '30000000-0000-4000-8000-00000000002e',
       1,
       'image',
       null,
@@ -2886,7 +1484,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_46),
+      '30000000-0000-4000-8000-00000000002e',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -2895,7 +1493,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_46),
+      '30000000-0000-4000-8000-00000000002e',
       3,
       'text',
       'Somalie',
@@ -2904,7 +1502,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_47),
+      '30000000-0000-4000-8000-00000000002f',
       1,
       'image',
       null,
@@ -2913,7 +1511,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_47),
+      '30000000-0000-4000-8000-00000000002f',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -2922,7 +1520,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_47),
+      '30000000-0000-4000-8000-00000000002f',
       3,
       'text',
       'Soudan',
@@ -2931,7 +1529,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_48),
+      '30000000-0000-4000-8000-000000000030',
       1,
       'image',
       null,
@@ -2940,7 +1538,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_48),
+      '30000000-0000-4000-8000-000000000030',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -2949,7 +1547,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_48),
+      '30000000-0000-4000-8000-000000000030',
       3,
       'text',
       'Soudan du Sud',
@@ -2958,7 +1556,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_49),
+      '30000000-0000-4000-8000-000000000031',
       1,
       'image',
       null,
@@ -2967,7 +1565,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_49),
+      '30000000-0000-4000-8000-000000000031',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -2976,7 +1574,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_49),
+      '30000000-0000-4000-8000-000000000031',
       3,
       'text',
       'Tanzanie',
@@ -2985,7 +1583,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_50),
+      '30000000-0000-4000-8000-000000000032',
       1,
       'image',
       null,
@@ -2994,7 +1592,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_50),
+      '30000000-0000-4000-8000-000000000032',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -3003,7 +1601,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_50),
+      '30000000-0000-4000-8000-000000000032',
       3,
       'text',
       'Tchad',
@@ -3012,7 +1610,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_51),
+      '30000000-0000-4000-8000-000000000033',
       1,
       'image',
       null,
@@ -3021,7 +1619,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_51),
+      '30000000-0000-4000-8000-000000000033',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -3030,7 +1628,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_51),
+      '30000000-0000-4000-8000-000000000033',
       3,
       'text',
       'Togo',
@@ -3039,7 +1637,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_52),
+      '30000000-0000-4000-8000-000000000034',
       1,
       'image',
       null,
@@ -3048,7 +1646,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_52),
+      '30000000-0000-4000-8000-000000000034',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -3057,7 +1655,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_52),
+      '30000000-0000-4000-8000-000000000034',
       3,
       'text',
       'Tunisie',
@@ -3066,7 +1664,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_53),
+      '30000000-0000-4000-8000-000000000035',
       1,
       'image',
       null,
@@ -3075,7 +1673,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_53),
+      '30000000-0000-4000-8000-000000000035',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -3084,7 +1682,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_53),
+      '30000000-0000-4000-8000-000000000035',
       3,
       'text',
       'Zambie',
@@ -3093,7 +1691,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM afrique_54),
+      '30000000-0000-4000-8000-000000000036',
       1,
       'image',
       null,
@@ -3102,7 +1700,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_54),
+      '30000000-0000-4000-8000-000000000036',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -3111,7 +1709,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM afrique_54),
+      '30000000-0000-4000-8000-000000000036',
       3,
       'text',
       'Zimbabwe',
@@ -3120,7 +1718,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM amerique_du_nord_01),
+      '30000000-0000-4000-8000-000000000037',
       1,
       'image',
       null,
@@ -3129,7 +1727,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_01),
+      '30000000-0000-4000-8000-000000000037',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -3138,7 +1736,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_01),
+      '30000000-0000-4000-8000-000000000037',
       3,
       'text',
       'Antigua-et-Barbuda',
@@ -3147,7 +1745,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM amerique_du_nord_02),
+      '30000000-0000-4000-8000-000000000038',
       1,
       'image',
       null,
@@ -3156,7 +1754,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_02),
+      '30000000-0000-4000-8000-000000000038',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -3165,7 +1763,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_02),
+      '30000000-0000-4000-8000-000000000038',
       3,
       'text',
       'Bahamas',
@@ -3174,7 +1772,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM amerique_du_nord_03),
+      '30000000-0000-4000-8000-000000000039',
       1,
       'image',
       null,
@@ -3183,7 +1781,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_03),
+      '30000000-0000-4000-8000-000000000039',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -3192,7 +1790,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_03),
+      '30000000-0000-4000-8000-000000000039',
       3,
       'text',
       'Barbade',
@@ -3201,7 +1799,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM amerique_du_nord_04),
+      '30000000-0000-4000-8000-00000000003a',
       1,
       'image',
       null,
@@ -3210,7 +1808,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_04),
+      '30000000-0000-4000-8000-00000000003a',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -3219,7 +1817,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_04),
+      '30000000-0000-4000-8000-00000000003a',
       3,
       'text',
       'Belize',
@@ -3228,7 +1826,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM amerique_du_nord_05),
+      '30000000-0000-4000-8000-00000000003b',
       1,
       'image',
       null,
@@ -3237,7 +1835,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_05),
+      '30000000-0000-4000-8000-00000000003b',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -3246,7 +1844,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_05),
+      '30000000-0000-4000-8000-00000000003b',
       3,
       'text',
       'Canada',
@@ -3255,7 +1853,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM amerique_du_nord_06),
+      '30000000-0000-4000-8000-00000000003c',
       1,
       'image',
       null,
@@ -3264,7 +1862,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_06),
+      '30000000-0000-4000-8000-00000000003c',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -3273,7 +1871,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_06),
+      '30000000-0000-4000-8000-00000000003c',
       3,
       'text',
       'Costa Rica',
@@ -3282,7 +1880,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM amerique_du_nord_07),
+      '30000000-0000-4000-8000-00000000003d',
       1,
       'image',
       null,
@@ -3291,7 +1889,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_07),
+      '30000000-0000-4000-8000-00000000003d',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -3300,7 +1898,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_07),
+      '30000000-0000-4000-8000-00000000003d',
       3,
       'text',
       'Cuba',
@@ -3309,7 +1907,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM amerique_du_nord_08),
+      '30000000-0000-4000-8000-00000000003e',
       1,
       'image',
       null,
@@ -3318,7 +1916,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_08),
+      '30000000-0000-4000-8000-00000000003e',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -3327,7 +1925,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_08),
+      '30000000-0000-4000-8000-00000000003e',
       3,
       'text',
       'Dominique',
@@ -3336,7 +1934,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM amerique_du_nord_09),
+      '30000000-0000-4000-8000-00000000003f',
       1,
       'image',
       null,
@@ -3345,7 +1943,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_09),
+      '30000000-0000-4000-8000-00000000003f',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -3354,7 +1952,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_09),
+      '30000000-0000-4000-8000-00000000003f',
       3,
       'text',
       'États-Unis',
@@ -3363,7 +1961,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM amerique_du_nord_10),
+      '30000000-0000-4000-8000-000000000040',
       1,
       'image',
       null,
@@ -3372,7 +1970,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_10),
+      '30000000-0000-4000-8000-000000000040',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -3381,7 +1979,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_10),
+      '30000000-0000-4000-8000-000000000040',
       3,
       'text',
       'Grenade',
@@ -3390,7 +1988,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM amerique_du_nord_11),
+      '30000000-0000-4000-8000-000000000041',
       1,
       'image',
       null,
@@ -3399,7 +1997,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_11),
+      '30000000-0000-4000-8000-000000000041',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -3408,7 +2006,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_11),
+      '30000000-0000-4000-8000-000000000041',
       3,
       'text',
       'Guatemala',
@@ -3417,7 +2015,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM amerique_du_nord_12),
+      '30000000-0000-4000-8000-000000000042',
       1,
       'image',
       null,
@@ -3426,7 +2024,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_12),
+      '30000000-0000-4000-8000-000000000042',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -3435,7 +2033,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_12),
+      '30000000-0000-4000-8000-000000000042',
       3,
       'text',
       'Haïti',
@@ -3444,7 +2042,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM amerique_du_nord_13),
+      '30000000-0000-4000-8000-000000000043',
       1,
       'image',
       null,
@@ -3453,7 +2051,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_13),
+      '30000000-0000-4000-8000-000000000043',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -3462,7 +2060,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_13),
+      '30000000-0000-4000-8000-000000000043',
       3,
       'text',
       'Honduras',
@@ -3471,7 +2069,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM amerique_du_nord_14),
+      '30000000-0000-4000-8000-000000000044',
       1,
       'image',
       null,
@@ -3480,7 +2078,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_14),
+      '30000000-0000-4000-8000-000000000044',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -3489,7 +2087,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_14),
+      '30000000-0000-4000-8000-000000000044',
       3,
       'text',
       'Jamaïque',
@@ -3498,7 +2096,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM amerique_du_nord_15),
+      '30000000-0000-4000-8000-000000000045',
       1,
       'image',
       null,
@@ -3507,7 +2105,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_15),
+      '30000000-0000-4000-8000-000000000045',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -3516,7 +2114,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_15),
+      '30000000-0000-4000-8000-000000000045',
       3,
       'text',
       'Mexique',
@@ -3525,7 +2123,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM amerique_du_nord_16),
+      '30000000-0000-4000-8000-000000000046',
       1,
       'image',
       null,
@@ -3534,7 +2132,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_16),
+      '30000000-0000-4000-8000-000000000046',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -3543,7 +2141,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_16),
+      '30000000-0000-4000-8000-000000000046',
       3,
       'text',
       'Nicaragua',
@@ -3552,7 +2150,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM amerique_du_nord_17),
+      '30000000-0000-4000-8000-000000000047',
       1,
       'image',
       null,
@@ -3561,7 +2159,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_17),
+      '30000000-0000-4000-8000-000000000047',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -3570,7 +2168,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_17),
+      '30000000-0000-4000-8000-000000000047',
       3,
       'text',
       'Panama',
@@ -3579,7 +2177,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM amerique_du_nord_18),
+      '30000000-0000-4000-8000-000000000048',
       1,
       'image',
       null,
@@ -3588,7 +2186,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_18),
+      '30000000-0000-4000-8000-000000000048',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -3597,7 +2195,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_18),
+      '30000000-0000-4000-8000-000000000048',
       3,
       'text',
       'République dominicaine',
@@ -3606,7 +2204,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM amerique_du_nord_19),
+      '30000000-0000-4000-8000-000000000049',
       1,
       'image',
       null,
@@ -3615,7 +2213,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_19),
+      '30000000-0000-4000-8000-000000000049',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -3624,7 +2222,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_19),
+      '30000000-0000-4000-8000-000000000049',
       3,
       'text',
       'Saint-Kitts-et-Nevis, Saint-Christophe-et-Niévès, ou Saint-Christophe-et-Nevis',
@@ -3633,7 +2231,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM amerique_du_nord_20),
+      '30000000-0000-4000-8000-00000000004a',
       1,
       'image',
       null,
@@ -3642,7 +2240,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_20),
+      '30000000-0000-4000-8000-00000000004a',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -3651,7 +2249,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_20),
+      '30000000-0000-4000-8000-00000000004a',
       3,
       'text',
       'Saint-Vincent-et-les-Grenadines',
@@ -3660,7 +2258,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM amerique_du_nord_21),
+      '30000000-0000-4000-8000-00000000004b',
       1,
       'image',
       null,
@@ -3669,7 +2267,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_21),
+      '30000000-0000-4000-8000-00000000004b',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -3678,7 +2276,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_21),
+      '30000000-0000-4000-8000-00000000004b',
       3,
       'text',
       'Sainte-Lucie',
@@ -3687,7 +2285,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM amerique_du_nord_22),
+      '30000000-0000-4000-8000-00000000004c',
       1,
       'image',
       null,
@@ -3696,7 +2294,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_22),
+      '30000000-0000-4000-8000-00000000004c',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -3705,7 +2303,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_22),
+      '30000000-0000-4000-8000-00000000004c',
       3,
       'text',
       'Salvador',
@@ -3714,7 +2312,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM amerique_du_nord_23),
+      '30000000-0000-4000-8000-00000000004d',
       1,
       'image',
       null,
@@ -3723,7 +2321,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_23),
+      '30000000-0000-4000-8000-00000000004d',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -3732,7 +2330,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_nord_23),
+      '30000000-0000-4000-8000-00000000004d',
       3,
       'text',
       'Trinité-et-Tobago',
@@ -3741,7 +2339,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM amerique_du_sud_01),
+      '30000000-0000-4000-8000-00000000004e',
       1,
       'image',
       null,
@@ -3750,7 +2348,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_sud_01),
+      '30000000-0000-4000-8000-00000000004e',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -3759,7 +2357,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_sud_01),
+      '30000000-0000-4000-8000-00000000004e',
       3,
       'text',
       'Argentine',
@@ -3768,7 +2366,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM amerique_du_sud_02),
+      '30000000-0000-4000-8000-00000000004f',
       1,
       'image',
       null,
@@ -3777,7 +2375,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_sud_02),
+      '30000000-0000-4000-8000-00000000004f',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -3786,7 +2384,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_sud_02),
+      '30000000-0000-4000-8000-00000000004f',
       3,
       'text',
       'Bolivie',
@@ -3795,7 +2393,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM amerique_du_sud_03),
+      '30000000-0000-4000-8000-000000000050',
       1,
       'image',
       null,
@@ -3804,7 +2402,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_sud_03),
+      '30000000-0000-4000-8000-000000000050',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -3813,7 +2411,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_sud_03),
+      '30000000-0000-4000-8000-000000000050',
       3,
       'text',
       'Brésil',
@@ -3822,7 +2420,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM amerique_du_sud_04),
+      '30000000-0000-4000-8000-000000000051',
       1,
       'image',
       null,
@@ -3831,7 +2429,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_sud_04),
+      '30000000-0000-4000-8000-000000000051',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -3840,7 +2438,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_sud_04),
+      '30000000-0000-4000-8000-000000000051',
       3,
       'text',
       'Chili',
@@ -3849,7 +2447,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM amerique_du_sud_05),
+      '30000000-0000-4000-8000-000000000052',
       1,
       'image',
       null,
@@ -3858,7 +2456,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_sud_05),
+      '30000000-0000-4000-8000-000000000052',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -3867,7 +2465,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_sud_05),
+      '30000000-0000-4000-8000-000000000052',
       3,
       'text',
       'Colombie',
@@ -3876,7 +2474,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM amerique_du_sud_06),
+      '30000000-0000-4000-8000-000000000053',
       1,
       'image',
       null,
@@ -3885,7 +2483,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_sud_06),
+      '30000000-0000-4000-8000-000000000053',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -3894,7 +2492,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_sud_06),
+      '30000000-0000-4000-8000-000000000053',
       3,
       'text',
       'Équateur',
@@ -3903,7 +2501,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM amerique_du_sud_07),
+      '30000000-0000-4000-8000-000000000054',
       1,
       'image',
       null,
@@ -3912,7 +2510,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_sud_07),
+      '30000000-0000-4000-8000-000000000054',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -3921,7 +2519,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_sud_07),
+      '30000000-0000-4000-8000-000000000054',
       3,
       'text',
       'Guyana',
@@ -3930,7 +2528,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM amerique_du_sud_08),
+      '30000000-0000-4000-8000-000000000055',
       1,
       'image',
       null,
@@ -3939,7 +2537,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_sud_08),
+      '30000000-0000-4000-8000-000000000055',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -3948,7 +2546,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_sud_08),
+      '30000000-0000-4000-8000-000000000055',
       3,
       'text',
       'Paraguay',
@@ -3957,7 +2555,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM amerique_du_sud_09),
+      '30000000-0000-4000-8000-000000000056',
       1,
       'image',
       null,
@@ -3966,7 +2564,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_sud_09),
+      '30000000-0000-4000-8000-000000000056',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -3975,7 +2573,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_sud_09),
+      '30000000-0000-4000-8000-000000000056',
       3,
       'text',
       'Pérou',
@@ -3984,7 +2582,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM amerique_du_sud_10),
+      '30000000-0000-4000-8000-000000000057',
       1,
       'image',
       null,
@@ -3993,7 +2591,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_sud_10),
+      '30000000-0000-4000-8000-000000000057',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -4002,7 +2600,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_sud_10),
+      '30000000-0000-4000-8000-000000000057',
       3,
       'text',
       'Suriname',
@@ -4011,7 +2609,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM amerique_du_sud_11),
+      '30000000-0000-4000-8000-000000000058',
       1,
       'image',
       null,
@@ -4020,7 +2618,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_sud_11),
+      '30000000-0000-4000-8000-000000000058',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -4029,7 +2627,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_sud_11),
+      '30000000-0000-4000-8000-000000000058',
       3,
       'text',
       'Uruguay',
@@ -4038,7 +2636,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM amerique_du_sud_12),
+      '30000000-0000-4000-8000-000000000059',
       1,
       'image',
       null,
@@ -4047,7 +2645,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_sud_12),
+      '30000000-0000-4000-8000-000000000059',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -4056,7 +2654,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM amerique_du_sud_12),
+      '30000000-0000-4000-8000-000000000059',
       3,
       'text',
       'Venezuela',
@@ -4065,7 +2663,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_01),
+      '30000000-0000-4000-8000-00000000005a',
       1,
       'image',
       null,
@@ -4074,7 +2672,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_01),
+      '30000000-0000-4000-8000-00000000005a',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -4083,7 +2681,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_01),
+      '30000000-0000-4000-8000-00000000005a',
       3,
       'text',
       'Afghanistan',
@@ -4092,7 +2690,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_02),
+      '30000000-0000-4000-8000-00000000005b',
       1,
       'image',
       null,
@@ -4101,7 +2699,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_02),
+      '30000000-0000-4000-8000-00000000005b',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -4110,7 +2708,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_02),
+      '30000000-0000-4000-8000-00000000005b',
       3,
       'text',
       'Arabie saoudite',
@@ -4119,7 +2717,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_03),
+      '30000000-0000-4000-8000-00000000005c',
       1,
       'image',
       null,
@@ -4128,7 +2726,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_03),
+      '30000000-0000-4000-8000-00000000005c',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -4137,7 +2735,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_03),
+      '30000000-0000-4000-8000-00000000005c',
       3,
       'text',
       'Arménie',
@@ -4146,7 +2744,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_04),
+      '30000000-0000-4000-8000-00000000005d',
       1,
       'image',
       null,
@@ -4155,7 +2753,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_04),
+      '30000000-0000-4000-8000-00000000005d',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -4164,7 +2762,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_04),
+      '30000000-0000-4000-8000-00000000005d',
       3,
       'text',
       'Azerbaïdjan',
@@ -4173,7 +2771,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_05),
+      '30000000-0000-4000-8000-00000000005e',
       1,
       'image',
       null,
@@ -4182,7 +2780,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_05),
+      '30000000-0000-4000-8000-00000000005e',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -4191,7 +2789,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_05),
+      '30000000-0000-4000-8000-00000000005e',
       3,
       'text',
       'Bahreïn',
@@ -4200,7 +2798,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_06),
+      '30000000-0000-4000-8000-00000000005f',
       1,
       'image',
       null,
@@ -4209,7 +2807,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_06),
+      '30000000-0000-4000-8000-00000000005f',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -4218,7 +2816,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_06),
+      '30000000-0000-4000-8000-00000000005f',
       3,
       'text',
       'Bangladesh',
@@ -4227,7 +2825,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_07),
+      '30000000-0000-4000-8000-000000000060',
       1,
       'image',
       null,
@@ -4236,7 +2834,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_07),
+      '30000000-0000-4000-8000-000000000060',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -4245,7 +2843,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_07),
+      '30000000-0000-4000-8000-000000000060',
       3,
       'text',
       'Bhoutan',
@@ -4254,7 +2852,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_08),
+      '30000000-0000-4000-8000-000000000061',
       1,
       'image',
       null,
@@ -4263,7 +2861,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_08),
+      '30000000-0000-4000-8000-000000000061',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -4272,7 +2870,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_08),
+      '30000000-0000-4000-8000-000000000061',
       3,
       'text',
       'Birmanie',
@@ -4281,7 +2879,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_09),
+      '30000000-0000-4000-8000-000000000062',
       1,
       'image',
       null,
@@ -4290,7 +2888,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_09),
+      '30000000-0000-4000-8000-000000000062',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -4299,7 +2897,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_09),
+      '30000000-0000-4000-8000-000000000062',
       3,
       'text',
       'Brunei',
@@ -4308,7 +2906,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_10),
+      '30000000-0000-4000-8000-000000000063',
       1,
       'image',
       null,
@@ -4317,7 +2915,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_10),
+      '30000000-0000-4000-8000-000000000063',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -4326,7 +2924,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_10),
+      '30000000-0000-4000-8000-000000000063',
       3,
       'text',
       'Cambodge',
@@ -4335,7 +2933,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_11),
+      '30000000-0000-4000-8000-000000000064',
       1,
       'image',
       null,
@@ -4344,7 +2942,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_11),
+      '30000000-0000-4000-8000-000000000064',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -4353,7 +2951,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_11),
+      '30000000-0000-4000-8000-000000000064',
       3,
       'text',
       'Chine',
@@ -4362,7 +2960,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_12),
+      '30000000-0000-4000-8000-000000000065',
       1,
       'image',
       null,
@@ -4371,7 +2969,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_12),
+      '30000000-0000-4000-8000-000000000065',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -4380,7 +2978,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_12),
+      '30000000-0000-4000-8000-000000000065',
       3,
       'text',
       'Corée du Nord',
@@ -4389,7 +2987,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_13),
+      '30000000-0000-4000-8000-000000000066',
       1,
       'image',
       null,
@@ -4398,7 +2996,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_13),
+      '30000000-0000-4000-8000-000000000066',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -4407,7 +3005,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_13),
+      '30000000-0000-4000-8000-000000000066',
       3,
       'text',
       'Corée du Sud',
@@ -4416,7 +3014,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_14),
+      '30000000-0000-4000-8000-000000000067',
       1,
       'image',
       null,
@@ -4425,7 +3023,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_14),
+      '30000000-0000-4000-8000-000000000067',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -4434,7 +3032,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_14),
+      '30000000-0000-4000-8000-000000000067',
       3,
       'text',
       'Émirats arabes unis',
@@ -4443,7 +3041,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_15),
+      '30000000-0000-4000-8000-000000000068',
       1,
       'image',
       null,
@@ -4452,7 +3050,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_15),
+      '30000000-0000-4000-8000-000000000068',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -4461,7 +3059,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_15),
+      '30000000-0000-4000-8000-000000000068',
       3,
       'text',
       'Géorgie',
@@ -4470,7 +3068,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_16),
+      '30000000-0000-4000-8000-000000000069',
       1,
       'image',
       null,
@@ -4479,7 +3077,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_16),
+      '30000000-0000-4000-8000-000000000069',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -4488,7 +3086,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_16),
+      '30000000-0000-4000-8000-000000000069',
       3,
       'text',
       'Inde',
@@ -4497,7 +3095,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_17),
+      '30000000-0000-4000-8000-00000000006a',
       1,
       'image',
       null,
@@ -4506,7 +3104,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_17),
+      '30000000-0000-4000-8000-00000000006a',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -4515,7 +3113,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_17),
+      '30000000-0000-4000-8000-00000000006a',
       3,
       'text',
       'Indonésie',
@@ -4524,7 +3122,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_18),
+      '30000000-0000-4000-8000-00000000006b',
       1,
       'image',
       null,
@@ -4533,7 +3131,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_18),
+      '30000000-0000-4000-8000-00000000006b',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -4542,7 +3140,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_18),
+      '30000000-0000-4000-8000-00000000006b',
       3,
       'text',
       'Irak',
@@ -4551,7 +3149,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_19),
+      '30000000-0000-4000-8000-00000000006c',
       1,
       'image',
       null,
@@ -4560,7 +3158,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_19),
+      '30000000-0000-4000-8000-00000000006c',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -4569,7 +3167,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_19),
+      '30000000-0000-4000-8000-00000000006c',
       3,
       'text',
       'Iran',
@@ -4578,7 +3176,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_20),
+      '30000000-0000-4000-8000-00000000006d',
       1,
       'image',
       null,
@@ -4587,7 +3185,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_20),
+      '30000000-0000-4000-8000-00000000006d',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -4596,7 +3194,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_20),
+      '30000000-0000-4000-8000-00000000006d',
       3,
       'text',
       'Israël',
@@ -4605,7 +3203,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_21),
+      '30000000-0000-4000-8000-00000000006e',
       1,
       'image',
       null,
@@ -4614,7 +3212,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_21),
+      '30000000-0000-4000-8000-00000000006e',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -4623,7 +3221,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_21),
+      '30000000-0000-4000-8000-00000000006e',
       3,
       'text',
       'Japon',
@@ -4632,7 +3230,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_22),
+      '30000000-0000-4000-8000-00000000006f',
       1,
       'image',
       null,
@@ -4641,7 +3239,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_22),
+      '30000000-0000-4000-8000-00000000006f',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -4650,7 +3248,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_22),
+      '30000000-0000-4000-8000-00000000006f',
       3,
       'text',
       'Jordanie',
@@ -4659,7 +3257,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_23),
+      '30000000-0000-4000-8000-000000000070',
       1,
       'image',
       null,
@@ -4668,7 +3266,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_23),
+      '30000000-0000-4000-8000-000000000070',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -4677,7 +3275,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_23),
+      '30000000-0000-4000-8000-000000000070',
       3,
       'text',
       'Kazakhstan',
@@ -4686,7 +3284,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_24),
+      '30000000-0000-4000-8000-000000000071',
       1,
       'image',
       null,
@@ -4695,7 +3293,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_24),
+      '30000000-0000-4000-8000-000000000071',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -4704,7 +3302,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_24),
+      '30000000-0000-4000-8000-000000000071',
       3,
       'text',
       'Kirghizistan',
@@ -4713,7 +3311,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_25),
+      '30000000-0000-4000-8000-000000000072',
       1,
       'image',
       null,
@@ -4722,7 +3320,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_25),
+      '30000000-0000-4000-8000-000000000072',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -4731,7 +3329,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_25),
+      '30000000-0000-4000-8000-000000000072',
       3,
       'text',
       'Koweït',
@@ -4740,7 +3338,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_26),
+      '30000000-0000-4000-8000-000000000073',
       1,
       'image',
       null,
@@ -4749,7 +3347,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_26),
+      '30000000-0000-4000-8000-000000000073',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -4758,7 +3356,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_26),
+      '30000000-0000-4000-8000-000000000073',
       3,
       'text',
       'Laos',
@@ -4767,7 +3365,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_27),
+      '30000000-0000-4000-8000-000000000074',
       1,
       'image',
       null,
@@ -4776,7 +3374,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_27),
+      '30000000-0000-4000-8000-000000000074',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -4785,7 +3383,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_27),
+      '30000000-0000-4000-8000-000000000074',
       3,
       'text',
       'Liban',
@@ -4794,7 +3392,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_28),
+      '30000000-0000-4000-8000-000000000075',
       1,
       'image',
       null,
@@ -4803,7 +3401,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_28),
+      '30000000-0000-4000-8000-000000000075',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -4812,7 +3410,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_28),
+      '30000000-0000-4000-8000-000000000075',
       3,
       'text',
       'Malaisie',
@@ -4821,7 +3419,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_29),
+      '30000000-0000-4000-8000-000000000076',
       1,
       'image',
       null,
@@ -4830,7 +3428,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_29),
+      '30000000-0000-4000-8000-000000000076',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -4839,7 +3437,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_29),
+      '30000000-0000-4000-8000-000000000076',
       3,
       'text',
       'Maldives',
@@ -4848,7 +3446,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_30),
+      '30000000-0000-4000-8000-000000000077',
       1,
       'image',
       null,
@@ -4857,7 +3455,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_30),
+      '30000000-0000-4000-8000-000000000077',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -4866,7 +3464,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_30),
+      '30000000-0000-4000-8000-000000000077',
       3,
       'text',
       'Mongolie',
@@ -4875,7 +3473,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_31),
+      '30000000-0000-4000-8000-000000000078',
       1,
       'image',
       null,
@@ -4884,7 +3482,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_31),
+      '30000000-0000-4000-8000-000000000078',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -4893,7 +3491,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_31),
+      '30000000-0000-4000-8000-000000000078',
       3,
       'text',
       'Népal',
@@ -4902,7 +3500,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_32),
+      '30000000-0000-4000-8000-000000000079',
       1,
       'image',
       null,
@@ -4911,7 +3509,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_32),
+      '30000000-0000-4000-8000-000000000079',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -4920,7 +3518,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_32),
+      '30000000-0000-4000-8000-000000000079',
       3,
       'text',
       'Oman',
@@ -4929,7 +3527,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_33),
+      '30000000-0000-4000-8000-00000000007a',
       1,
       'image',
       null,
@@ -4938,7 +3536,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_33),
+      '30000000-0000-4000-8000-00000000007a',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -4947,7 +3545,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_33),
+      '30000000-0000-4000-8000-00000000007a',
       3,
       'text',
       'Ouzbékistan',
@@ -4956,7 +3554,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_34),
+      '30000000-0000-4000-8000-00000000007b',
       1,
       'image',
       null,
@@ -4965,7 +3563,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_34),
+      '30000000-0000-4000-8000-00000000007b',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -4974,7 +3572,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_34),
+      '30000000-0000-4000-8000-00000000007b',
       3,
       'text',
       'Pakistan',
@@ -4983,7 +3581,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_35),
+      '30000000-0000-4000-8000-00000000007c',
       1,
       'image',
       null,
@@ -4992,7 +3590,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_35),
+      '30000000-0000-4000-8000-00000000007c',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -5001,7 +3599,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_35),
+      '30000000-0000-4000-8000-00000000007c',
       3,
       'text',
       'Philippines',
@@ -5010,7 +3608,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_36),
+      '30000000-0000-4000-8000-00000000007d',
       1,
       'image',
       null,
@@ -5019,7 +3617,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_36),
+      '30000000-0000-4000-8000-00000000007d',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -5028,7 +3626,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_36),
+      '30000000-0000-4000-8000-00000000007d',
       3,
       'text',
       'Qatar',
@@ -5037,7 +3635,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_37),
+      '30000000-0000-4000-8000-00000000007e',
       1,
       'image',
       null,
@@ -5046,7 +3644,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_37),
+      '30000000-0000-4000-8000-00000000007e',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -5055,7 +3653,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_37),
+      '30000000-0000-4000-8000-00000000007e',
       3,
       'text',
       'Singapour',
@@ -5064,7 +3662,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_38),
+      '30000000-0000-4000-8000-00000000007f',
       1,
       'image',
       null,
@@ -5073,7 +3671,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_38),
+      '30000000-0000-4000-8000-00000000007f',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -5082,7 +3680,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_38),
+      '30000000-0000-4000-8000-00000000007f',
       3,
       'text',
       'Sri Lanka',
@@ -5091,7 +3689,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_39),
+      '30000000-0000-4000-8000-000000000080',
       1,
       'image',
       null,
@@ -5100,7 +3698,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_39),
+      '30000000-0000-4000-8000-000000000080',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -5109,7 +3707,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_39),
+      '30000000-0000-4000-8000-000000000080',
       3,
       'text',
       'Syrie',
@@ -5118,7 +3716,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_40),
+      '30000000-0000-4000-8000-000000000081',
       1,
       'image',
       null,
@@ -5127,7 +3725,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_40),
+      '30000000-0000-4000-8000-000000000081',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -5136,7 +3734,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_40),
+      '30000000-0000-4000-8000-000000000081',
       3,
       'text',
       'Tadjikistan',
@@ -5145,7 +3743,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_41),
+      '30000000-0000-4000-8000-000000000082',
       1,
       'image',
       null,
@@ -5154,7 +3752,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_41),
+      '30000000-0000-4000-8000-000000000082',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -5163,7 +3761,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_41),
+      '30000000-0000-4000-8000-000000000082',
       3,
       'text',
       'Thaïlande',
@@ -5172,7 +3770,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_42),
+      '30000000-0000-4000-8000-000000000083',
       1,
       'image',
       null,
@@ -5181,7 +3779,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_42),
+      '30000000-0000-4000-8000-000000000083',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -5190,7 +3788,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_42),
+      '30000000-0000-4000-8000-000000000083',
       3,
       'text',
       'Timor oriental',
@@ -5199,7 +3797,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_43),
+      '30000000-0000-4000-8000-000000000084',
       1,
       'image',
       null,
@@ -5208,7 +3806,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_43),
+      '30000000-0000-4000-8000-000000000084',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -5217,7 +3815,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_43),
+      '30000000-0000-4000-8000-000000000084',
       3,
       'text',
       'Turkménistan',
@@ -5226,7 +3824,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_44),
+      '30000000-0000-4000-8000-000000000085',
       1,
       'image',
       null,
@@ -5235,7 +3833,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_44),
+      '30000000-0000-4000-8000-000000000085',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -5244,7 +3842,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_44),
+      '30000000-0000-4000-8000-000000000085',
       3,
       'text',
       'Turquie',
@@ -5253,7 +3851,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_45),
+      '30000000-0000-4000-8000-000000000086',
       1,
       'image',
       null,
@@ -5262,7 +3860,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_45),
+      '30000000-0000-4000-8000-000000000086',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -5271,7 +3869,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_45),
+      '30000000-0000-4000-8000-000000000086',
       3,
       'text',
       'Viêt Nam, Viet Nam ou Vietnam',
@@ -5280,7 +3878,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM asie_46),
+      '30000000-0000-4000-8000-000000000087',
       1,
       'image',
       null,
@@ -5289,7 +3887,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_46),
+      '30000000-0000-4000-8000-000000000087',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -5298,7 +3896,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM asie_46),
+      '30000000-0000-4000-8000-000000000087',
       3,
       'text',
       'Yémen',
@@ -5307,7 +3905,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_01),
+      '30000000-0000-4000-8000-000000000088',
       1,
       'image',
       null,
@@ -5316,7 +3914,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_01),
+      '30000000-0000-4000-8000-000000000088',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -5325,7 +3923,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_01),
+      '30000000-0000-4000-8000-000000000088',
       3,
       'text',
       'Albanie',
@@ -5334,7 +3932,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_02),
+      '30000000-0000-4000-8000-000000000089',
       1,
       'image',
       null,
@@ -5343,7 +3941,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_02),
+      '30000000-0000-4000-8000-000000000089',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -5352,7 +3950,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_02),
+      '30000000-0000-4000-8000-000000000089',
       3,
       'text',
       'Allemagne',
@@ -5361,7 +3959,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_03),
+      '30000000-0000-4000-8000-00000000008a',
       1,
       'image',
       null,
@@ -5370,7 +3968,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_03),
+      '30000000-0000-4000-8000-00000000008a',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -5379,7 +3977,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_03),
+      '30000000-0000-4000-8000-00000000008a',
       3,
       'text',
       'Andorre',
@@ -5388,7 +3986,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_04),
+      '30000000-0000-4000-8000-00000000008b',
       1,
       'image',
       null,
@@ -5397,7 +3995,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_04),
+      '30000000-0000-4000-8000-00000000008b',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -5406,7 +4004,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_04),
+      '30000000-0000-4000-8000-00000000008b',
       3,
       'text',
       'Autriche',
@@ -5415,7 +4013,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_05),
+      '30000000-0000-4000-8000-00000000008c',
       1,
       'image',
       null,
@@ -5424,7 +4022,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_05),
+      '30000000-0000-4000-8000-00000000008c',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -5433,7 +4031,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_05),
+      '30000000-0000-4000-8000-00000000008c',
       3,
       'text',
       'Belgique',
@@ -5442,7 +4040,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_06),
+      '30000000-0000-4000-8000-00000000008d',
       1,
       'image',
       null,
@@ -5451,7 +4049,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_06),
+      '30000000-0000-4000-8000-00000000008d',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -5460,7 +4058,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_06),
+      '30000000-0000-4000-8000-00000000008d',
       3,
       'text',
       'Biélorussie',
@@ -5469,7 +4067,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_07),
+      '30000000-0000-4000-8000-00000000008e',
       1,
       'image',
       null,
@@ -5478,7 +4076,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_07),
+      '30000000-0000-4000-8000-00000000008e',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -5487,7 +4085,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_07),
+      '30000000-0000-4000-8000-00000000008e',
       3,
       'text',
       'Bosnie-Herzégovine',
@@ -5496,7 +4094,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_08),
+      '30000000-0000-4000-8000-00000000008f',
       1,
       'image',
       null,
@@ -5505,7 +4103,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_08),
+      '30000000-0000-4000-8000-00000000008f',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -5514,7 +4112,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_08),
+      '30000000-0000-4000-8000-00000000008f',
       3,
       'text',
       'Bulgarie',
@@ -5523,7 +4121,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_09),
+      '30000000-0000-4000-8000-000000000090',
       1,
       'image',
       null,
@@ -5532,7 +4130,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_09),
+      '30000000-0000-4000-8000-000000000090',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -5541,7 +4139,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_09),
+      '30000000-0000-4000-8000-000000000090',
       3,
       'text',
       'Chypre',
@@ -5550,7 +4148,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_10),
+      '30000000-0000-4000-8000-000000000091',
       1,
       'image',
       null,
@@ -5559,7 +4157,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_10),
+      '30000000-0000-4000-8000-000000000091',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -5568,7 +4166,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_10),
+      '30000000-0000-4000-8000-000000000091',
       3,
       'text',
       'Croatie',
@@ -5577,7 +4175,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_11),
+      '30000000-0000-4000-8000-000000000092',
       1,
       'image',
       null,
@@ -5586,7 +4184,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_11),
+      '30000000-0000-4000-8000-000000000092',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -5595,7 +4193,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_11),
+      '30000000-0000-4000-8000-000000000092',
       3,
       'text',
       'Danemark',
@@ -5604,7 +4202,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_12),
+      '30000000-0000-4000-8000-000000000093',
       1,
       'image',
       null,
@@ -5613,7 +4211,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_12),
+      '30000000-0000-4000-8000-000000000093',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -5622,7 +4220,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_12),
+      '30000000-0000-4000-8000-000000000093',
       3,
       'text',
       'Espagne',
@@ -5631,7 +4229,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_13),
+      '30000000-0000-4000-8000-000000000094',
       1,
       'image',
       null,
@@ -5640,7 +4238,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_13),
+      '30000000-0000-4000-8000-000000000094',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -5649,7 +4247,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_13),
+      '30000000-0000-4000-8000-000000000094',
       3,
       'text',
       'Estonie',
@@ -5658,7 +4256,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_14),
+      '30000000-0000-4000-8000-000000000095',
       1,
       'image',
       null,
@@ -5667,7 +4265,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_14),
+      '30000000-0000-4000-8000-000000000095',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -5676,7 +4274,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_14),
+      '30000000-0000-4000-8000-000000000095',
       3,
       'text',
       'Finlande',
@@ -5685,7 +4283,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_15),
+      '30000000-0000-4000-8000-000000000096',
       1,
       'image',
       null,
@@ -5694,7 +4292,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_15),
+      '30000000-0000-4000-8000-000000000096',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -5703,7 +4301,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_15),
+      '30000000-0000-4000-8000-000000000096',
       3,
       'text',
       'France',
@@ -5712,7 +4310,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_16),
+      '30000000-0000-4000-8000-000000000097',
       1,
       'image',
       null,
@@ -5721,7 +4319,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_16),
+      '30000000-0000-4000-8000-000000000097',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -5730,7 +4328,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_16),
+      '30000000-0000-4000-8000-000000000097',
       3,
       'text',
       'Grèce',
@@ -5739,7 +4337,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_17),
+      '30000000-0000-4000-8000-000000000098',
       1,
       'image',
       null,
@@ -5748,7 +4346,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_17),
+      '30000000-0000-4000-8000-000000000098',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -5757,7 +4355,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_17),
+      '30000000-0000-4000-8000-000000000098',
       3,
       'text',
       'Hongrie',
@@ -5766,7 +4364,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_18),
+      '30000000-0000-4000-8000-000000000099',
       1,
       'image',
       null,
@@ -5775,7 +4373,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_18),
+      '30000000-0000-4000-8000-000000000099',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -5784,7 +4382,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_18),
+      '30000000-0000-4000-8000-000000000099',
       3,
       'text',
       'Irlande',
@@ -5793,7 +4391,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_19),
+      '30000000-0000-4000-8000-00000000009a',
       1,
       'image',
       null,
@@ -5802,7 +4400,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_19),
+      '30000000-0000-4000-8000-00000000009a',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -5811,7 +4409,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_19),
+      '30000000-0000-4000-8000-00000000009a',
       3,
       'text',
       'Islande',
@@ -5820,7 +4418,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_20),
+      '30000000-0000-4000-8000-00000000009b',
       1,
       'image',
       null,
@@ -5829,7 +4427,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_20),
+      '30000000-0000-4000-8000-00000000009b',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -5838,7 +4436,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_20),
+      '30000000-0000-4000-8000-00000000009b',
       3,
       'text',
       'Italie',
@@ -5847,7 +4445,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_21),
+      '30000000-0000-4000-8000-00000000009c',
       1,
       'image',
       null,
@@ -5856,7 +4454,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_21),
+      '30000000-0000-4000-8000-00000000009c',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -5865,7 +4463,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_21),
+      '30000000-0000-4000-8000-00000000009c',
       3,
       'text',
       'Lettonie',
@@ -5874,7 +4472,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_22),
+      '30000000-0000-4000-8000-00000000009d',
       1,
       'image',
       null,
@@ -5883,7 +4481,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_22),
+      '30000000-0000-4000-8000-00000000009d',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -5892,7 +4490,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_22),
+      '30000000-0000-4000-8000-00000000009d',
       3,
       'text',
       'Liechtenstein',
@@ -5901,7 +4499,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_23),
+      '30000000-0000-4000-8000-00000000009e',
       1,
       'image',
       null,
@@ -5910,7 +4508,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_23),
+      '30000000-0000-4000-8000-00000000009e',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -5919,7 +4517,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_23),
+      '30000000-0000-4000-8000-00000000009e',
       3,
       'text',
       'Lituanie',
@@ -5928,7 +4526,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_24),
+      '30000000-0000-4000-8000-00000000009f',
       1,
       'image',
       null,
@@ -5937,7 +4535,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_24),
+      '30000000-0000-4000-8000-00000000009f',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -5946,7 +4544,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_24),
+      '30000000-0000-4000-8000-00000000009f',
       3,
       'text',
       'Luxembourg',
@@ -5955,7 +4553,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_25),
+      '30000000-0000-4000-8000-0000000000a0',
       1,
       'image',
       null,
@@ -5964,7 +4562,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_25),
+      '30000000-0000-4000-8000-0000000000a0',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -5973,7 +4571,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_25),
+      '30000000-0000-4000-8000-0000000000a0',
       3,
       'text',
       'Macédoine du Nord',
@@ -5982,7 +4580,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_26),
+      '30000000-0000-4000-8000-0000000000a1',
       1,
       'image',
       null,
@@ -5991,7 +4589,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_26),
+      '30000000-0000-4000-8000-0000000000a1',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -6000,7 +4598,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_26),
+      '30000000-0000-4000-8000-0000000000a1',
       3,
       'text',
       'Malte',
@@ -6009,7 +4607,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_27),
+      '30000000-0000-4000-8000-0000000000a2',
       1,
       'image',
       null,
@@ -6018,7 +4616,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_27),
+      '30000000-0000-4000-8000-0000000000a2',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -6027,7 +4625,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_27),
+      '30000000-0000-4000-8000-0000000000a2',
       3,
       'text',
       'Moldavie',
@@ -6036,7 +4634,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_28),
+      '30000000-0000-4000-8000-0000000000a3',
       1,
       'image',
       null,
@@ -6045,7 +4643,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_28),
+      '30000000-0000-4000-8000-0000000000a3',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -6054,7 +4652,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_28),
+      '30000000-0000-4000-8000-0000000000a3',
       3,
       'text',
       'Monaco',
@@ -6063,7 +4661,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_29),
+      '30000000-0000-4000-8000-0000000000a4',
       1,
       'image',
       null,
@@ -6072,7 +4670,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_29),
+      '30000000-0000-4000-8000-0000000000a4',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -6081,7 +4679,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_29),
+      '30000000-0000-4000-8000-0000000000a4',
       3,
       'text',
       'Monténégro',
@@ -6090,7 +4688,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_30),
+      '30000000-0000-4000-8000-0000000000a5',
       1,
       'image',
       null,
@@ -6099,7 +4697,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_30),
+      '30000000-0000-4000-8000-0000000000a5',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -6108,7 +4706,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_30),
+      '30000000-0000-4000-8000-0000000000a5',
       3,
       'text',
       'Norvège',
@@ -6117,7 +4715,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_31),
+      '30000000-0000-4000-8000-0000000000a6',
       1,
       'image',
       null,
@@ -6126,7 +4724,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_31),
+      '30000000-0000-4000-8000-0000000000a6',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -6135,7 +4733,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_31),
+      '30000000-0000-4000-8000-0000000000a6',
       3,
       'text',
       'Pays-Bas',
@@ -6144,7 +4742,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_32),
+      '30000000-0000-4000-8000-0000000000a7',
       1,
       'image',
       null,
@@ -6153,7 +4751,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_32),
+      '30000000-0000-4000-8000-0000000000a7',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -6162,7 +4760,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_32),
+      '30000000-0000-4000-8000-0000000000a7',
       3,
       'text',
       'Pologne',
@@ -6171,7 +4769,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_33),
+      '30000000-0000-4000-8000-0000000000a8',
       1,
       'image',
       null,
@@ -6180,7 +4778,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_33),
+      '30000000-0000-4000-8000-0000000000a8',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -6189,7 +4787,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_33),
+      '30000000-0000-4000-8000-0000000000a8',
       3,
       'text',
       'Portugal',
@@ -6198,7 +4796,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_34),
+      '30000000-0000-4000-8000-0000000000a9',
       1,
       'image',
       null,
@@ -6207,7 +4805,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_34),
+      '30000000-0000-4000-8000-0000000000a9',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -6216,7 +4814,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_34),
+      '30000000-0000-4000-8000-0000000000a9',
       3,
       'text',
       'Roumanie',
@@ -6225,7 +4823,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_35),
+      '30000000-0000-4000-8000-0000000000aa',
       1,
       'image',
       null,
@@ -6234,7 +4832,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_35),
+      '30000000-0000-4000-8000-0000000000aa',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -6243,7 +4841,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_35),
+      '30000000-0000-4000-8000-0000000000aa',
       3,
       'text',
       'Royaume-Uni',
@@ -6252,7 +4850,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_36),
+      '30000000-0000-4000-8000-0000000000ab',
       1,
       'image',
       null,
@@ -6261,7 +4859,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_36),
+      '30000000-0000-4000-8000-0000000000ab',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -6270,7 +4868,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_36),
+      '30000000-0000-4000-8000-0000000000ab',
       3,
       'text',
       'Russie',
@@ -6279,7 +4877,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_37),
+      '30000000-0000-4000-8000-0000000000ac',
       1,
       'image',
       null,
@@ -6288,7 +4886,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_37),
+      '30000000-0000-4000-8000-0000000000ac',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -6297,7 +4895,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_37),
+      '30000000-0000-4000-8000-0000000000ac',
       3,
       'text',
       'Saint-Marin',
@@ -6306,7 +4904,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_38),
+      '30000000-0000-4000-8000-0000000000ad',
       1,
       'image',
       null,
@@ -6315,7 +4913,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_38),
+      '30000000-0000-4000-8000-0000000000ad',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -6324,7 +4922,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_38),
+      '30000000-0000-4000-8000-0000000000ad',
       3,
       'text',
       'Serbie',
@@ -6333,7 +4931,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_39),
+      '30000000-0000-4000-8000-0000000000ae',
       1,
       'image',
       null,
@@ -6342,7 +4940,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_39),
+      '30000000-0000-4000-8000-0000000000ae',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -6351,7 +4949,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_39),
+      '30000000-0000-4000-8000-0000000000ae',
       3,
       'text',
       'Slovaquie',
@@ -6360,7 +4958,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_40),
+      '30000000-0000-4000-8000-0000000000af',
       1,
       'image',
       null,
@@ -6369,7 +4967,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_40),
+      '30000000-0000-4000-8000-0000000000af',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -6378,7 +4976,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_40),
+      '30000000-0000-4000-8000-0000000000af',
       3,
       'text',
       'Slovénie',
@@ -6387,7 +4985,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_41),
+      '30000000-0000-4000-8000-0000000000b0',
       1,
       'image',
       null,
@@ -6396,7 +4994,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_41),
+      '30000000-0000-4000-8000-0000000000b0',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -6405,7 +5003,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_41),
+      '30000000-0000-4000-8000-0000000000b0',
       3,
       'text',
       'Suède',
@@ -6414,7 +5012,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_42),
+      '30000000-0000-4000-8000-0000000000b1',
       1,
       'image',
       null,
@@ -6423,7 +5021,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_42),
+      '30000000-0000-4000-8000-0000000000b1',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -6432,7 +5030,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_42),
+      '30000000-0000-4000-8000-0000000000b1',
       3,
       'text',
       'Suisse',
@@ -6441,7 +5039,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_43),
+      '30000000-0000-4000-8000-0000000000b2',
       1,
       'image',
       null,
@@ -6450,7 +5048,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_43),
+      '30000000-0000-4000-8000-0000000000b2',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -6459,7 +5057,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_43),
+      '30000000-0000-4000-8000-0000000000b2',
       3,
       'text',
       'Tchéquie (République tchèque)',
@@ -6468,7 +5066,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_44),
+      '30000000-0000-4000-8000-0000000000b3',
       1,
       'image',
       null,
@@ -6477,7 +5075,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_44),
+      '30000000-0000-4000-8000-0000000000b3',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -6486,7 +5084,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_44),
+      '30000000-0000-4000-8000-0000000000b3',
       3,
       'text',
       'Ukraine',
@@ -6495,7 +5093,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM europe_45),
+      '30000000-0000-4000-8000-0000000000b4',
       1,
       'image',
       null,
@@ -6504,7 +5102,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_45),
+      '30000000-0000-4000-8000-0000000000b4',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -6513,7 +5111,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM europe_45),
+      '30000000-0000-4000-8000-0000000000b4',
       3,
       'text',
       'Vatican',
@@ -6522,7 +5120,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM oceanie_01),
+      '30000000-0000-4000-8000-0000000000b5',
       1,
       'image',
       null,
@@ -6531,7 +5129,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM oceanie_01),
+      '30000000-0000-4000-8000-0000000000b5',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -6540,7 +5138,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM oceanie_01),
+      '30000000-0000-4000-8000-0000000000b5',
       3,
       'text',
       'Australie',
@@ -6549,7 +5147,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM oceanie_02),
+      '30000000-0000-4000-8000-0000000000b6',
       1,
       'image',
       null,
@@ -6558,7 +5156,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM oceanie_02),
+      '30000000-0000-4000-8000-0000000000b6',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -6567,7 +5165,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM oceanie_02),
+      '30000000-0000-4000-8000-0000000000b6',
       3,
       'text',
       'Etats fédérés de Micronésie (Océanie)',
@@ -6576,7 +5174,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM oceanie_03),
+      '30000000-0000-4000-8000-0000000000b7',
       1,
       'image',
       null,
@@ -6585,7 +5183,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM oceanie_03),
+      '30000000-0000-4000-8000-0000000000b7',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -6594,7 +5192,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM oceanie_03),
+      '30000000-0000-4000-8000-0000000000b7',
       3,
       'text',
       'Fidji (Océanie)',
@@ -6603,7 +5201,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM oceanie_04),
+      '30000000-0000-4000-8000-0000000000b8',
       1,
       'image',
       null,
@@ -6612,7 +5210,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM oceanie_04),
+      '30000000-0000-4000-8000-0000000000b8',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -6621,7 +5219,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM oceanie_04),
+      '30000000-0000-4000-8000-0000000000b8',
       3,
       'text',
       'Iles Marshall (Océanie)',
@@ -6630,7 +5228,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM oceanie_05),
+      '30000000-0000-4000-8000-0000000000b9',
       1,
       'image',
       null,
@@ -6639,7 +5237,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM oceanie_05),
+      '30000000-0000-4000-8000-0000000000b9',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -6648,7 +5246,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM oceanie_05),
+      '30000000-0000-4000-8000-0000000000b9',
       3,
       'text',
       'Iles Salomon (Océanie)',
@@ -6657,7 +5255,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM oceanie_06),
+      '30000000-0000-4000-8000-0000000000ba',
       1,
       'image',
       null,
@@ -6666,7 +5264,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM oceanie_06),
+      '30000000-0000-4000-8000-0000000000ba',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -6675,7 +5273,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM oceanie_06),
+      '30000000-0000-4000-8000-0000000000ba',
       3,
       'text',
       'Kitibati (Océanie)',
@@ -6684,7 +5282,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM oceanie_07),
+      '30000000-0000-4000-8000-0000000000bb',
       1,
       'image',
       null,
@@ -6693,7 +5291,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM oceanie_07),
+      '30000000-0000-4000-8000-0000000000bb',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -6702,7 +5300,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM oceanie_07),
+      '30000000-0000-4000-8000-0000000000bb',
       3,
       'text',
       'Nauru (Océanie)',
@@ -6711,7 +5309,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM oceanie_08),
+      '30000000-0000-4000-8000-0000000000bc',
       1,
       'image',
       null,
@@ -6720,7 +5318,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM oceanie_08),
+      '30000000-0000-4000-8000-0000000000bc',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -6729,7 +5327,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM oceanie_08),
+      '30000000-0000-4000-8000-0000000000bc',
       3,
       'text',
       'Nouvelle-Zélande (Océanie)',
@@ -6738,7 +5336,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM oceanie_09),
+      '30000000-0000-4000-8000-0000000000bd',
       1,
       'image',
       null,
@@ -6747,7 +5345,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM oceanie_09),
+      '30000000-0000-4000-8000-0000000000bd',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -6756,7 +5354,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM oceanie_09),
+      '30000000-0000-4000-8000-0000000000bd',
       3,
       'text',
       'Palaos (Océanie)',
@@ -6765,7 +5363,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM oceanie_10),
+      '30000000-0000-4000-8000-0000000000be',
       1,
       'image',
       null,
@@ -6774,7 +5372,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM oceanie_10),
+      '30000000-0000-4000-8000-0000000000be',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -6783,7 +5381,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM oceanie_10),
+      '30000000-0000-4000-8000-0000000000be',
       3,
       'text',
       'Papouasie-Nouvelle-Guinée (Océanie)',
@@ -6792,7 +5390,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM oceanie_11),
+      '30000000-0000-4000-8000-0000000000bf',
       1,
       'image',
       null,
@@ -6801,7 +5399,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM oceanie_11),
+      '30000000-0000-4000-8000-0000000000bf',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -6810,7 +5408,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM oceanie_11),
+      '30000000-0000-4000-8000-0000000000bf',
       3,
       'text',
       'Samoa (Océanie)',
@@ -6819,7 +5417,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM oceanie_12),
+      '30000000-0000-4000-8000-0000000000c0',
       1,
       'image',
       null,
@@ -6828,7 +5426,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM oceanie_12),
+      '30000000-0000-4000-8000-0000000000c0',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -6837,7 +5435,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM oceanie_12),
+      '30000000-0000-4000-8000-0000000000c0',
       3,
       'text',
       'Tonga (Océanie)',
@@ -6846,7 +5444,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM oceanie_13),
+      '30000000-0000-4000-8000-0000000000c1',
       1,
       'image',
       null,
@@ -6855,7 +5453,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM oceanie_13),
+      '30000000-0000-4000-8000-0000000000c1',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -6864,7 +5462,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM oceanie_13),
+      '30000000-0000-4000-8000-0000000000c1',
       3,
       'text',
       'Tuvalu (Océanie)',
@@ -6873,7 +5471,7 @@ WITH
       true
     ),
     (
-      (SELECT id FROM oceanie_14),
+      '30000000-0000-4000-8000-0000000000c2',
       1,
       'image',
       null,
@@ -6882,7 +5480,7 @@ WITH
       false
     ),
     (
-      (SELECT id FROM oceanie_14),
+      '30000000-0000-4000-8000-0000000000c2',
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
@@ -6891,415 +5489,411 @@ WITH
       false
     ),
     (
-      (SELECT id FROM oceanie_14),
+      '30000000-0000-4000-8000-0000000000c2',
       3,
       'text',
       'Vanuatu (Océanie)',
       '<p>Vanuatu (Océanie)</p>',
       null,
       true
-    )
-  )
+    );
+
 INSERT INTO note_tags (user_id, note_id, tag_id)
-SELECT
-  (SELECT id FROM users WHERE email = 'b@b.com'),
-  n.id,
-  n.tag_id
-FROM (
-  SELECT id, (SELECT id FROM tag_afrique) AS tag_id FROM afrique_01
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_02
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_03
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_04
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_05
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_06
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_07
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_08
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_09
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_10
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_11
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_12
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_13
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_14
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_15
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_16
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_17
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_18
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_19
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_20
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_21
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_22
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_23
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_24
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_25
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_26
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_27
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_28
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_29
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_30
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_31
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_32
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_33
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_34
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_35
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_36
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_37
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_38
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_39
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_40
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_41
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_42
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_43
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_44
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_45
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_46
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_47
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_48
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_49
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_50
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_51
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_52
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_53
-  UNION ALL SELECT id, (SELECT id FROM tag_afrique) FROM afrique_54
-  UNION ALL SELECT id, (SELECT id FROM tag_amerique_du_nord) FROM amerique_du_nord_01
-  UNION ALL SELECT id, (SELECT id FROM tag_amerique_du_nord) FROM amerique_du_nord_02
-  UNION ALL SELECT id, (SELECT id FROM tag_amerique_du_nord) FROM amerique_du_nord_03
-  UNION ALL SELECT id, (SELECT id FROM tag_amerique_du_nord) FROM amerique_du_nord_04
-  UNION ALL SELECT id, (SELECT id FROM tag_amerique_du_nord) FROM amerique_du_nord_05
-  UNION ALL SELECT id, (SELECT id FROM tag_amerique_du_nord) FROM amerique_du_nord_06
-  UNION ALL SELECT id, (SELECT id FROM tag_amerique_du_nord) FROM amerique_du_nord_07
-  UNION ALL SELECT id, (SELECT id FROM tag_amerique_du_nord) FROM amerique_du_nord_08
-  UNION ALL SELECT id, (SELECT id FROM tag_amerique_du_nord) FROM amerique_du_nord_09
-  UNION ALL SELECT id, (SELECT id FROM tag_amerique_du_nord) FROM amerique_du_nord_10
-  UNION ALL SELECT id, (SELECT id FROM tag_amerique_du_nord) FROM amerique_du_nord_11
-  UNION ALL SELECT id, (SELECT id FROM tag_amerique_du_nord) FROM amerique_du_nord_12
-  UNION ALL SELECT id, (SELECT id FROM tag_amerique_du_nord) FROM amerique_du_nord_13
-  UNION ALL SELECT id, (SELECT id FROM tag_amerique_du_nord) FROM amerique_du_nord_14
-  UNION ALL SELECT id, (SELECT id FROM tag_amerique_du_nord) FROM amerique_du_nord_15
-  UNION ALL SELECT id, (SELECT id FROM tag_amerique_du_nord) FROM amerique_du_nord_16
-  UNION ALL SELECT id, (SELECT id FROM tag_amerique_du_nord) FROM amerique_du_nord_17
-  UNION ALL SELECT id, (SELECT id FROM tag_amerique_du_nord) FROM amerique_du_nord_18
-  UNION ALL SELECT id, (SELECT id FROM tag_amerique_du_nord) FROM amerique_du_nord_19
-  UNION ALL SELECT id, (SELECT id FROM tag_amerique_du_nord) FROM amerique_du_nord_20
-  UNION ALL SELECT id, (SELECT id FROM tag_amerique_du_nord) FROM amerique_du_nord_21
-  UNION ALL SELECT id, (SELECT id FROM tag_amerique_du_nord) FROM amerique_du_nord_22
-  UNION ALL SELECT id, (SELECT id FROM tag_amerique_du_nord) FROM amerique_du_nord_23
-  UNION ALL SELECT id, (SELECT id FROM tag_amerique_du_sud) FROM amerique_du_sud_01
-  UNION ALL SELECT id, (SELECT id FROM tag_amerique_du_sud) FROM amerique_du_sud_02
-  UNION ALL SELECT id, (SELECT id FROM tag_amerique_du_sud) FROM amerique_du_sud_03
-  UNION ALL SELECT id, (SELECT id FROM tag_amerique_du_sud) FROM amerique_du_sud_04
-  UNION ALL SELECT id, (SELECT id FROM tag_amerique_du_sud) FROM amerique_du_sud_05
-  UNION ALL SELECT id, (SELECT id FROM tag_amerique_du_sud) FROM amerique_du_sud_06
-  UNION ALL SELECT id, (SELECT id FROM tag_amerique_du_sud) FROM amerique_du_sud_07
-  UNION ALL SELECT id, (SELECT id FROM tag_amerique_du_sud) FROM amerique_du_sud_08
-  UNION ALL SELECT id, (SELECT id FROM tag_amerique_du_sud) FROM amerique_du_sud_09
-  UNION ALL SELECT id, (SELECT id FROM tag_amerique_du_sud) FROM amerique_du_sud_10
-  UNION ALL SELECT id, (SELECT id FROM tag_amerique_du_sud) FROM amerique_du_sud_11
-  UNION ALL SELECT id, (SELECT id FROM tag_amerique_du_sud) FROM amerique_du_sud_12
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_01
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_02
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_03
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_04
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_05
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_06
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_07
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_08
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_09
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_10
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_11
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_12
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_13
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_14
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_15
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_16
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_17
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_18
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_19
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_20
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_21
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_22
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_23
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_24
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_25
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_26
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_27
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_28
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_29
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_30
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_31
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_32
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_33
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_34
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_35
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_36
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_37
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_38
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_39
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_40
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_41
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_42
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_43
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_44
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_45
-  UNION ALL SELECT id, (SELECT id FROM tag_asie) FROM asie_46
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_01
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_02
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_03
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_04
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_05
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_06
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_07
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_08
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_09
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_10
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_11
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_12
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_13
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_14
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_15
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_16
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_17
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_18
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_19
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_20
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_21
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_22
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_23
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_24
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_25
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_26
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_27
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_28
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_29
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_30
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_31
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_32
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_33
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_34
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_35
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_36
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_37
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_38
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_39
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_40
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_41
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_42
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_43
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_44
-  UNION ALL SELECT id, (SELECT id FROM tag_europe) FROM europe_45
-  UNION ALL SELECT id, (SELECT id FROM tag_oceanie) FROM oceanie_01
-  UNION ALL SELECT id, (SELECT id FROM tag_oceanie) FROM oceanie_02
-  UNION ALL SELECT id, (SELECT id FROM tag_oceanie) FROM oceanie_03
-  UNION ALL SELECT id, (SELECT id FROM tag_oceanie) FROM oceanie_04
-  UNION ALL SELECT id, (SELECT id FROM tag_oceanie) FROM oceanie_05
-  UNION ALL SELECT id, (SELECT id FROM tag_oceanie) FROM oceanie_06
-  UNION ALL SELECT id, (SELECT id FROM tag_oceanie) FROM oceanie_07
-  UNION ALL SELECT id, (SELECT id FROM tag_oceanie) FROM oceanie_08
-  UNION ALL SELECT id, (SELECT id FROM tag_oceanie) FROM oceanie_09
-  UNION ALL SELECT id, (SELECT id FROM tag_oceanie) FROM oceanie_10
-  UNION ALL SELECT id, (SELECT id FROM tag_oceanie) FROM oceanie_11
-  UNION ALL SELECT id, (SELECT id FROM tag_oceanie) FROM oceanie_12
-  UNION ALL SELECT id, (SELECT id FROM tag_oceanie) FROM oceanie_13
-  UNION ALL SELECT id, (SELECT id FROM tag_oceanie) FROM oceanie_14
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_01
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_02
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_03
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_04
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_05
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_06
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_07
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_08
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_09
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_10
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_11
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_12
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_13
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_14
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_15
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_16
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_17
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_18
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_19
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_20
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_21
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_22
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_23
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_24
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_25
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_26
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_27
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_28
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_29
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_30
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_31
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_32
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_33
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_34
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_35
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_36
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_37
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_38
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_39
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_40
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_41
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_42
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_43
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_44
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_45
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_46
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_47
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_48
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_49
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_50
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_51
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_52
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_53
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM afrique_54
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM amerique_du_nord_01
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM amerique_du_nord_02
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM amerique_du_nord_03
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM amerique_du_nord_04
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM amerique_du_nord_05
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM amerique_du_nord_06
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM amerique_du_nord_07
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM amerique_du_nord_08
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM amerique_du_nord_09
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM amerique_du_nord_10
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM amerique_du_nord_11
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM amerique_du_nord_12
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM amerique_du_nord_13
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM amerique_du_nord_14
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM amerique_du_nord_15
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM amerique_du_nord_16
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM amerique_du_nord_17
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM amerique_du_nord_18
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM amerique_du_nord_19
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM amerique_du_nord_20
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM amerique_du_nord_21
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM amerique_du_nord_22
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM amerique_du_nord_23
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM amerique_du_sud_01
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM amerique_du_sud_02
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM amerique_du_sud_03
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM amerique_du_sud_04
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM amerique_du_sud_05
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM amerique_du_sud_06
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM amerique_du_sud_07
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM amerique_du_sud_08
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM amerique_du_sud_09
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM amerique_du_sud_10
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM amerique_du_sud_11
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM amerique_du_sud_12
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_01
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_02
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_03
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_04
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_05
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_06
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_07
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_08
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_09
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_10
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_11
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_12
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_13
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_14
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_15
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_16
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_17
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_18
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_19
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_20
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_21
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_22
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_23
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_24
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_25
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_26
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_27
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_28
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_29
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_30
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_31
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_32
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_33
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_34
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_35
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_36
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_37
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_38
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_39
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_40
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_41
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_42
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_43
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_44
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_45
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM asie_46
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_01
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_02
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_03
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_04
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_05
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_06
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_07
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_08
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_09
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_10
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_11
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_12
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_13
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_14
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_15
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_16
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_17
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_18
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_19
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_20
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_21
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_22
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_23
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_24
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_25
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_26
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_27
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_28
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_29
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_30
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_31
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_32
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_33
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_34
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_35
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_36
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_37
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_38
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_39
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_40
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_41
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_42
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_43
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_44
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM europe_45
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM oceanie_01
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM oceanie_02
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM oceanie_03
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM oceanie_04
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM oceanie_05
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM oceanie_06
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM oceanie_07
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM oceanie_08
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM oceanie_09
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM oceanie_10
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM oceanie_11
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM oceanie_12
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM oceanie_13
-  UNION ALL SELECT id, (SELECT id FROM tag_drapeaux_pays) FROM oceanie_14
-) n;
+VALUES
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000001', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000001', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000002', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000002', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000003', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000003', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000004', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000004', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000005', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000005', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000006', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000006', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000007', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000007', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000008', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000008', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000009', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000009', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000000a', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000000a', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000000b', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000000b', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000000c', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000000c', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000000d', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000000d', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000000e', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000000e', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000000f', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000000f', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000010', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000010', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000011', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000011', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000012', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000012', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000013', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000013', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000014', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000014', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000015', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000015', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000016', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000016', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000017', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000017', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000018', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000018', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000019', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000019', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000001a', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000001a', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000001b', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000001b', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000001c', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000001c', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000001d', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000001d', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000001e', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000001e', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000001f', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000001f', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000020', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000020', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000021', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000021', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000022', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000022', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000023', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000023', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000024', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000024', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000025', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000025', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000026', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000026', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000027', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000027', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000028', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000028', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000029', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000029', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000002a', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000002a', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000002b', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000002b', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000002c', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000002c', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000002d', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000002d', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000002e', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000002e', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000002f', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000002f', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000030', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000030', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000031', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000031', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000032', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000032', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000033', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000033', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000034', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000034', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000035', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000035', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000036', '20000000-0000-4000-8000-000000000001'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000036', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000037', '20000000-0000-4000-8000-000000000002'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000037', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000038', '20000000-0000-4000-8000-000000000002'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000038', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000039', '20000000-0000-4000-8000-000000000002'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000039', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000003a', '20000000-0000-4000-8000-000000000002'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000003a', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000003b', '20000000-0000-4000-8000-000000000002'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000003b', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000003c', '20000000-0000-4000-8000-000000000002'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000003c', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000003d', '20000000-0000-4000-8000-000000000002'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000003d', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000003e', '20000000-0000-4000-8000-000000000002'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000003e', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000003f', '20000000-0000-4000-8000-000000000002'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000003f', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000040', '20000000-0000-4000-8000-000000000002'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000040', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000041', '20000000-0000-4000-8000-000000000002'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000041', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000042', '20000000-0000-4000-8000-000000000002'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000042', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000043', '20000000-0000-4000-8000-000000000002'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000043', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000044', '20000000-0000-4000-8000-000000000002'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000044', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000045', '20000000-0000-4000-8000-000000000002'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000045', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000046', '20000000-0000-4000-8000-000000000002'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000046', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000047', '20000000-0000-4000-8000-000000000002'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000047', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000048', '20000000-0000-4000-8000-000000000002'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000048', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000049', '20000000-0000-4000-8000-000000000002'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000049', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000004a', '20000000-0000-4000-8000-000000000002'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000004a', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000004b', '20000000-0000-4000-8000-000000000002'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000004b', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000004c', '20000000-0000-4000-8000-000000000002'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000004c', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000004d', '20000000-0000-4000-8000-000000000002'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000004d', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000004e', '20000000-0000-4000-8000-000000000003'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000004e', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000004f', '20000000-0000-4000-8000-000000000003'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000004f', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000050', '20000000-0000-4000-8000-000000000003'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000050', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000051', '20000000-0000-4000-8000-000000000003'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000051', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000052', '20000000-0000-4000-8000-000000000003'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000052', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000053', '20000000-0000-4000-8000-000000000003'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000053', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000054', '20000000-0000-4000-8000-000000000003'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000054', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000055', '20000000-0000-4000-8000-000000000003'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000055', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000056', '20000000-0000-4000-8000-000000000003'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000056', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000057', '20000000-0000-4000-8000-000000000003'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000057', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000058', '20000000-0000-4000-8000-000000000003'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000058', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000059', '20000000-0000-4000-8000-000000000003'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000059', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000005a', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000005a', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000005b', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000005b', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000005c', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000005c', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000005d', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000005d', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000005e', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000005e', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000005f', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000005f', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000060', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000060', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000061', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000061', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000062', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000062', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000063', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000063', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000064', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000064', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000065', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000065', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000066', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000066', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000067', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000067', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000068', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000068', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000069', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000069', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000006a', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000006a', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000006b', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000006b', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000006c', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000006c', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000006d', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000006d', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000006e', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000006e', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000006f', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000006f', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000070', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000070', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000071', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000071', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000072', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000072', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000073', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000073', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000074', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000074', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000075', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000075', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000076', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000076', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000077', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000077', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000078', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000078', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000079', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000079', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000007a', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000007a', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000007b', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000007b', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000007c', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000007c', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000007d', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000007d', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000007e', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000007e', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000007f', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000007f', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000080', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000080', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000081', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000081', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000082', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000082', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000083', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000083', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000084', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000084', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000085', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000085', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000086', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000086', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000087', '20000000-0000-4000-8000-000000000004'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000087', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000088', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000088', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000089', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000089', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000008a', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000008a', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000008b', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000008b', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000008c', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000008c', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000008d', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000008d', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000008e', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000008e', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000008f', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000008f', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000090', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000090', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000091', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000091', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000092', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000092', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000093', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000093', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000094', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000094', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000095', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000095', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000096', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000096', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000097', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000097', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000098', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000098', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000099', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-000000000099', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000009a', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000009a', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000009b', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000009b', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000009c', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000009c', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000009d', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000009d', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000009e', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000009e', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000009f', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-00000000009f', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000a0', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000a0', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000a1', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000a1', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000a2', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000a2', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000a3', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000a3', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000a4', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000a4', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000a5', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000a5', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000a6', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000a6', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000a7', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000a7', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000a8', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000a8', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000a9', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000a9', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000aa', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000aa', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000ab', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000ab', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000ac', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000ac', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000ad', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000ad', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000ae', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000ae', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000af', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000af', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000b0', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000b0', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000b1', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000b1', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000b2', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000b2', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000b3', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000b3', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000b4', '20000000-0000-4000-8000-000000000006'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000b4', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000b5', '20000000-0000-4000-8000-000000000007'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000b5', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000b6', '20000000-0000-4000-8000-000000000007'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000b6', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000b7', '20000000-0000-4000-8000-000000000007'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000b7', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000b8', '20000000-0000-4000-8000-000000000007'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000b8', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000b9', '20000000-0000-4000-8000-000000000007'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000b9', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000ba', '20000000-0000-4000-8000-000000000007'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000ba', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000bb', '20000000-0000-4000-8000-000000000007'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000bb', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000bc', '20000000-0000-4000-8000-000000000007'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000bc', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000bd', '20000000-0000-4000-8000-000000000007'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000bd', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000be', '20000000-0000-4000-8000-000000000007'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000be', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000bf', '20000000-0000-4000-8000-000000000007'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000bf', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000c0', '20000000-0000-4000-8000-000000000007'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000c0', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000c1', '20000000-0000-4000-8000-000000000007'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000c1', '20000000-0000-4000-8000-000000000005'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000c2', '20000000-0000-4000-8000-000000000007'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000c2', '20000000-0000-4000-8000-000000000005');
 
 -- =============================================
 -- Collections publiques gratuites (une par continent tagué dans les seeds)
 -- =============================================
 INSERT INTO collections (
+  id,
   user_id,
   type,
   title,
@@ -7309,138 +5903,102 @@ INSERT INTO collections (
   tag_id_list_to_exclude,
   exclusion_type,
   review_strategy,
-  price_without_tax,
-  stripe_payment_link_id
+  pre_tax_price_in_cents
 )
 VALUES
 (
-  (SELECT id FROM users WHERE email = 'b@b.com'),
+  '40000000-0000-4000-8000-000000000001',
+  '10000000-0000-4000-8000-000000000002',
   'public_free',
   'Drapeaux des pays d''Afrique',
   'Quiz sur les drapeaux des pays d''Afrique.',
-  (
-    SELECT jsonb_build_array(id)
-    FROM tags
-    WHERE user_id = (SELECT id FROM users WHERE email = 'b@b.com')
-      AND label = 'Afrique'
-    LIMIT 1
-  ),
+  jsonb_build_array('20000000-0000-4000-8000-000000000001'::uuid),
   'AND',
   '[]'::jsonb,
   'AND',
   'random',
-  NULL,
   NULL
 ),
 (
-  (SELECT id FROM users WHERE email = 'b@b.com'),
+  '40000000-0000-4000-8000-000000000002',
+  '10000000-0000-4000-8000-000000000002',
   'public_free',
   'Drapeaux des pays d''Amérique du Nord',
   'Quiz sur les drapeaux des pays d''Amérique du Nord',
-  (
-    SELECT jsonb_build_array(id)
-    FROM tags
-    WHERE user_id = (SELECT id FROM users WHERE email = 'b@b.com')
-      AND label = 'Amérique du Nord'
-    LIMIT 1
-  ),
+  jsonb_build_array('20000000-0000-4000-8000-000000000002'::uuid),
   'AND',
   '[]'::jsonb,
   'AND',
   'random',
-  NULL,
   NULL
 ),
 (
-  (SELECT id FROM users WHERE email = 'b@b.com'),
+  '40000000-0000-4000-8000-000000000003',
+  '10000000-0000-4000-8000-000000000002',
   'public_free',
   'Drapeaux des pays d''Amérique du Sud',
   'Quiz sur les drapeaux des pays d''Amérique du Sud',
-  (
-    SELECT jsonb_build_array(id)
-    FROM tags
-    WHERE user_id = (SELECT id FROM users WHERE email = 'b@b.com')
-      AND label = 'Amérique du Sud'
-    LIMIT 1
-  ),
+  jsonb_build_array('20000000-0000-4000-8000-000000000003'::uuid),
   'AND',
   '[]'::jsonb,
   'AND',
   'random',
-  NULL,
   NULL
 ),
 (
-  (SELECT id FROM users WHERE email = 'b@b.com'),
+  '40000000-0000-4000-8000-000000000004',
+  '10000000-0000-4000-8000-000000000002',
   'public_paywalled',
   'Drapeaux des pays d''Asie',
   'Quiz sur les drapeaux des pays d''Asie',
-  (
-    SELECT jsonb_build_array(id)
-    FROM tags
-    WHERE user_id = (SELECT id FROM users WHERE email = 'b@b.com')
-      AND label = 'Asie'
-    LIMIT 1
-  ),
+  jsonb_build_array('20000000-0000-4000-8000-000000000004'::uuid),
   'AND',
   '[]'::jsonb,
   'AND',
   'random',
-  5,
-  'plink_1TVCyVEYprLvqgNnYGdYBiJZ'
+  5
 ),
 (
-  (SELECT id FROM users WHERE email = 'b@b.com'),
+  '40000000-0000-4000-8000-000000000005',
+  '10000000-0000-4000-8000-000000000002',
   'public_free',
   'Drapeaux des pays d''Europe',
   'Quiz sur les drapeaux des pays d''Europe',
-  (
-    SELECT jsonb_build_array(id)
-    FROM tags
-    WHERE user_id = (SELECT id FROM users WHERE email = 'b@b.com')
-      AND label = 'Europe'
-    LIMIT 1
-  ),
+  jsonb_build_array('20000000-0000-4000-8000-000000000006'::uuid),
   'AND',
   '[]'::jsonb,
   'AND',
   'random',
-  NULL,
   NULL
 ),
 (
-  (SELECT id FROM users WHERE email = 'b@b.com'),
+  '40000000-0000-4000-8000-000000000006',
+  '10000000-0000-4000-8000-000000000002',
   'public_free',
   'Drapeaux des pays d''Océanie',
   'Quiz sur les drapeaux des pays d''Océanie',
-  (
-    SELECT jsonb_build_array(id)
-    FROM tags
-    WHERE user_id = (SELECT id FROM users WHERE email = 'b@b.com')
-      AND label = 'Océanie'
-    LIMIT 1
-  ),
+  jsonb_build_array('20000000-0000-4000-8000-000000000007'::uuid),
   'AND',
   '[]'::jsonb,
   'AND',
   'random',
-  NULL,
   NULL
 );
 
 -- =============================================
 -- User for: ping test (GET /monitoring/ping)
 -- =============================================
-INSERT INTO users (email, status, subdomain)
-VALUES ('ping-test@example.com', 'unverified', 'www');
+INSERT INTO users (id, email, status, subdomain)
+VALUES ('50000000-0000-4000-8000-000000000001', 'ping-test@example.com', 'unverified', 'www');
 
 -- =============================================
 -- Confirmed user for: log-in tests (read-only lookups)
 -- Also reused by send-token-to-validate-email "already in use" test
 -- Password plaintext: Test1234!
 -- =============================================
-INSERT INTO users (email, password, status, subdomain)
+INSERT INTO users (id, email, password, status, subdomain)
 VALUES (
+  '50000000-0000-4000-8000-000000000002',
   'confirmed@example.com',
   '$2b$10$wL7tkbBZQyt/YiigMxI08egh.xU.pP.D87SLSGjq4NJxXAlyj/p0i',
   'premium',
@@ -7450,15 +6008,16 @@ VALUES (
 -- =============================================
 -- Unconfirmed user (NULL password) for: log-in "account not confirmed" test
 -- =============================================
-INSERT INTO users (email, password, status, subdomain)
-VALUES ('unconfirmed@example.com', NULL, 'unverified', 'www');
+INSERT INTO users (id, email, password, status, subdomain)
+VALUES ('50000000-0000-4000-8000-000000000003', 'unconfirmed@example.com', NULL, 'unverified', 'www');
 
 -- =============================================
 -- Dedicated user + session for: log-out tests
 -- Password plaintext: Test1234!
 -- =============================================
-INSERT INTO users (email, password, status, subdomain)
+INSERT INTO users (id, email, password, status, subdomain)
 VALUES (
+  '50000000-0000-4000-8000-000000000004',
   'logout-user@example.com',
   '$2b$10$wL7tkbBZQyt/YiigMxI08egh.xU.pP.D87SLSGjq4NJxXAlyj/p0i',
   'premium',
@@ -7466,17 +6025,21 @@ VALUES (
 );
 
 INSERT INTO user_session_tokens (id, user_id, token, expires_at, blacklisted)
-SELECT
+VALUES (
   'a0000000-0000-4000-8000-000000000001',
-  id, 'logout-session-token', now() + interval '30 days', false
-FROM users WHERE email = 'logout-user@example.com';
+  '50000000-0000-4000-8000-000000000004',
+  'logout-session-token',
+  now() + interval '30 days',
+  false
+);
 
 -- =============================================
 -- Dedicated user + session for: user.get tests
 -- Password plaintext: Test1234!
 -- =============================================
-INSERT INTO users (email, password, status, subdomain)
+INSERT INTO users (id, email, password, status, subdomain)
 VALUES (
+  '50000000-0000-4000-8000-000000000005',
   'userget@example.com',
   '$2b$10$wL7tkbBZQyt/YiigMxI08egh.xU.pP.D87SLSGjq4NJxXAlyj/p0i',
   'premium',
@@ -7484,28 +6047,31 @@ VALUES (
 );
 
 INSERT INTO user_session_tokens (id, user_id, token, expires_at, blacklisted)
-SELECT
+VALUES (
   'b0000000-0000-4000-8000-000000000002',
-  id, 'userget-session-token', now() + interval '30 days', false
-FROM users WHERE email = 'userget@example.com';
+  '50000000-0000-4000-8000-000000000005',
+  'userget-session-token',
+  now() + interval '30 days',
+  false
+);
 
 -- =============================================
 -- Unverified user for: sign-up test
 -- =============================================
-INSERT INTO users (email, status, subdomain)
-VALUES ('signup@example.com', 'unverified', 'www');
+INSERT INTO users (id, email, status, subdomain)
+VALUES ('50000000-0000-4000-8000-000000000006', 'signup@example.com', 'unverified', 'www');
 
 -- Email validation token for: sign-up test (to be blacklisted during sign-up)
 INSERT INTO user_email_tokens (user_id, token, usage, blacklisted)
-SELECT id, 'aabbccdd-1111-4111-8111-aabbccddeeff', 'validate_email', false
-FROM users WHERE email = 'signup@example.com';
+VALUES ('50000000-0000-4000-8000-000000000006', 'aabbccdd-1111-4111-8111-aabbccddeeff', 'validate_email', false);
 
 -- =============================================
 -- Dedicated user + session for: change-password tests
 -- Password plaintext: Test1234!
 -- =============================================
-INSERT INTO users (email, password, status, subdomain)
+INSERT INTO users (id, email, password, status, subdomain)
 VALUES (
+  '50000000-0000-4000-8000-000000000007',
   'changepw@example.com',
   '$2b$10$wL7tkbBZQyt/YiigMxI08egh.xU.pP.D87SLSGjq4NJxXAlyj/p0i',
   'premium',
@@ -7513,17 +6079,21 @@ VALUES (
 );
 
 INSERT INTO user_session_tokens (id, user_id, token, expires_at, blacklisted)
-SELECT
+VALUES (
   'c0000000-0000-4000-8000-000000000003',
-  id, 'changepw-session-token', now() + interval '30 days', false
-FROM users WHERE email = 'changepw@example.com';
+  '50000000-0000-4000-8000-000000000007',
+  'changepw-session-token',
+  now() + interval '30 days',
+  false
+);
 
 -- =============================================
 -- Dedicated user + session for: change-email tests
 -- Password plaintext: Test1234!
 -- =============================================
-INSERT INTO users (email, password, status, subdomain)
+INSERT INTO users (id, email, password, status, subdomain)
 VALUES (
+  '50000000-0000-4000-8000-000000000008',
   'changeemail@example.com',
   '$2b$10$wL7tkbBZQyt/YiigMxI08egh.xU.pP.D87SLSGjq4NJxXAlyj/p0i',
   'premium',
@@ -7531,14 +6101,18 @@ VALUES (
 );
 
 INSERT INTO user_session_tokens (id, user_id, token, expires_at, blacklisted)
-SELECT
+VALUES (
   'd0000000-0000-4000-8000-000000000004',
-  id, 'changeemail-session-token', now() + interval '30 days', false
-FROM users WHERE email = 'changeemail@example.com';
+  '50000000-0000-4000-8000-000000000008',
+  'changeemail-session-token',
+  now() + interval '30 days',
+  false
+);
 
 -- Extra user for: change-email "new email already in use" test
-INSERT INTO users (email, password, status, subdomain)
+INSERT INTO users (id, email, password, status, subdomain)
 VALUES (
+  '50000000-0000-4000-8000-000000000009',
   'taken@example.com',
   '$2b$10$wL7tkbBZQyt/YiigMxI08egh.xU.pP.D87SLSGjq4NJxXAlyj/p0i',
   'premium',
@@ -7549,55 +6123,50 @@ VALUES (
 -- Unverified user with active email validation token for:
 -- send-token-to-validate-email "token already sent" test
 -- =============================================
-INSERT INTO users (email, status, subdomain)
-VALUES ('unverified-active-token@example.com', 'unverified', 'www');
+INSERT INTO users (id, email, status, subdomain)
+VALUES ('50000000-0000-4000-8000-00000000000a', 'unverified-active-token@example.com', 'unverified', 'www');
 
 INSERT INTO user_email_tokens (user_id, token, usage, blacklisted)
-SELECT id, '22222222-2222-4222-8222-222222222222', 'validate_email', false
-FROM users WHERE email = 'unverified-active-token@example.com';
+VALUES ('50000000-0000-4000-8000-00000000000a', '22222222-2222-4222-8222-222222222222', 'validate_email', false);
 
 -- =============================================
 -- Unverified user with 3 expired validation tokens for:
 -- send-token-to-validate-email "maximum retries reached" test
 -- created_at set to 100 hours ago (beyond 72h EMAIL_VALIDATION_TOKEN_DURATION_IN_HOURS)
 -- =============================================
-INSERT INTO users (email, status, subdomain)
-VALUES ('unverified-max-retries@example.com', 'unverified', 'www');
+INSERT INTO users (id, email, status, subdomain)
+VALUES ('50000000-0000-4000-8000-00000000000b', 'unverified-max-retries@example.com', 'unverified', 'www');
 
 INSERT INTO user_email_tokens (user_id, token, usage, blacklisted, created_at)
-SELECT id, 'expired-validate-token-1', 'validate_email', false, now() - interval '100 hours'
-FROM users WHERE email = 'unverified-max-retries@example.com';
+VALUES ('50000000-0000-4000-8000-00000000000b', 'expired-validate-token-1', 'validate_email', false, now() - interval '100 hours');
 
 INSERT INTO user_email_tokens (user_id, token, usage, blacklisted, created_at)
-SELECT id, 'expired-validate-token-2', 'validate_email', false, now() - interval '100 hours'
-FROM users WHERE email = 'unverified-max-retries@example.com';
+VALUES ('50000000-0000-4000-8000-00000000000b', 'expired-validate-token-2', 'validate_email', false, now() - interval '100 hours');
 
 INSERT INTO user_email_tokens (user_id, token, usage, blacklisted, created_at)
-SELECT id, 'expired-validate-token-3', 'validate_email', false, now() - interval '100 hours'
-FROM users WHERE email = 'unverified-max-retries@example.com';
+VALUES ('50000000-0000-4000-8000-00000000000b', 'expired-validate-token-3', 'validate_email', false, now() - interval '100 hours');
 
 -- =============================================
 -- Unverified user with active + blacklisted validation tokens for:
 -- verify-token-to-validate-email tests
 -- =============================================
-INSERT INTO users (email, status, subdomain)
-VALUES ('verify-email-token@example.com', 'unverified', 'www');
+INSERT INTO users (id, email, status, subdomain)
+VALUES ('50000000-0000-4000-8000-00000000000c', 'verify-email-token@example.com', 'unverified', 'www');
 
 INSERT INTO user_email_tokens (user_id, token, usage, blacklisted)
-SELECT id, '33333333-3333-4333-8333-333333333333', 'validate_email', false
-FROM users WHERE email = 'verify-email-token@example.com';
+VALUES ('50000000-0000-4000-8000-00000000000c', '33333333-3333-4333-8333-333333333333', 'validate_email', false);
 
 INSERT INTO user_email_tokens (user_id, token, usage, blacklisted)
-SELECT id, '44444444-4444-4444-8444-444444444444', 'validate_email', true
-FROM users WHERE email = 'verify-email-token@example.com';
+VALUES ('50000000-0000-4000-8000-00000000000c', '44444444-4444-4444-8444-444444444444', 'validate_email', true);
 
 -- =============================================
 -- Dedicated user + active reset token for:
 -- verify-token-to-reset-password tests (read-only)
 -- Password plaintext: Test1234!
 -- =============================================
-INSERT INTO users (email, password, status, subdomain)
+INSERT INTO users (id, email, password, status, subdomain)
 VALUES (
+  '50000000-0000-4000-8000-00000000000d',
   'verify-reset-token@example.com',
   '$2b$10$wL7tkbBZQyt/YiigMxI08egh.xU.pP.D87SLSGjq4NJxXAlyj/p0i',
   'premium',
@@ -7605,16 +6174,16 @@ VALUES (
 );
 
 INSERT INTO user_email_tokens (user_id, token, usage, blacklisted)
-SELECT id, '55555555-5555-4555-8555-555555555555', 'reset_password', false
-FROM users WHERE email = 'verify-reset-token@example.com';
+VALUES ('50000000-0000-4000-8000-00000000000d', '55555555-5555-4555-8555-555555555555', 'reset_password', false);
 
 -- =============================================
 -- Dedicated user + active reset token for:
 -- reset-password test (will blacklist the token)
 -- Password plaintext: Test1234!
 -- =============================================
-INSERT INTO users (email, password, status, subdomain)
+INSERT INTO users (id, email, password, status, subdomain)
 VALUES (
+  '50000000-0000-4000-8000-00000000000e',
   'do-reset-pw@example.com',
   '$2b$10$wL7tkbBZQyt/YiigMxI08egh.xU.pP.D87SLSGjq4NJxXAlyj/p0i',
   'premium',
@@ -7622,16 +6191,16 @@ VALUES (
 );
 
 INSERT INTO user_email_tokens (user_id, token, usage, blacklisted)
-SELECT id, '77777777-7777-4777-8777-777777777777', 'reset_password', false
-FROM users WHERE email = 'do-reset-pw@example.com';
+VALUES ('50000000-0000-4000-8000-00000000000e', '77777777-7777-4777-8777-777777777777', 'reset_password', false);
 
 -- =============================================
 -- User with active reset token for:
 -- send-token-to-reset-password "token already sent" test
 -- Password plaintext: Test1234!
 -- =============================================
-INSERT INTO users (email, password, status, subdomain)
+INSERT INTO users (id, email, password, status, subdomain)
 VALUES (
+  '50000000-0000-4000-8000-00000000000f',
   'reset-active-token@example.com',
   '$2b$10$wL7tkbBZQyt/YiigMxI08egh.xU.pP.D87SLSGjq4NJxXAlyj/p0i',
   'premium',
@@ -7639,8 +6208,7 @@ VALUES (
 );
 
 INSERT INTO user_email_tokens (user_id, token, usage, blacklisted)
-SELECT id, '66666666-6666-4666-8666-666666666666', 'reset_password', false
-FROM users WHERE email = 'reset-active-token@example.com';
+VALUES ('50000000-0000-4000-8000-00000000000f', '66666666-6666-4666-8666-666666666666', 'reset_password', false);
 
 -- =============================================
 -- User with 3 expired reset tokens for:
@@ -7648,8 +6216,9 @@ FROM users WHERE email = 'reset-active-token@example.com';
 -- created_at set to 10 hours ago (beyond 1h PASSWORD_RESET_TOKEN_DURATION_IN_HOURS)
 -- Password plaintext: Test1234!
 -- =============================================
-INSERT INTO users (email, password, status, subdomain)
+INSERT INTO users (id, email, password, status, subdomain)
 VALUES (
+  '50000000-0000-4000-8000-000000000010',
   'reset-max-retries@example.com',
   '$2b$10$wL7tkbBZQyt/YiigMxI08egh.xU.pP.D87SLSGjq4NJxXAlyj/p0i',
   'premium',
@@ -7657,24 +6226,22 @@ VALUES (
 );
 
 INSERT INTO user_email_tokens (user_id, token, usage, blacklisted, created_at)
-SELECT id, 'expired-reset-token-1', 'reset_password', false, now() - interval '10 hours'
-FROM users WHERE email = 'reset-max-retries@example.com';
+VALUES ('50000000-0000-4000-8000-000000000010', 'expired-reset-token-1', 'reset_password', false, now() - interval '10 hours');
 
 INSERT INTO user_email_tokens (user_id, token, usage, blacklisted, created_at)
-SELECT id, 'expired-reset-token-2', 'reset_password', false, now() - interval '10 hours'
-FROM users WHERE email = 'reset-max-retries@example.com';
+VALUES ('50000000-0000-4000-8000-000000000010', 'expired-reset-token-2', 'reset_password', false, now() - interval '10 hours');
 
 INSERT INTO user_email_tokens (user_id, token, usage, blacklisted, created_at)
-SELECT id, 'expired-reset-token-3', 'reset_password', false, now() - interval '10 hours'
-FROM users WHERE email = 'reset-max-retries@example.com';
+VALUES ('50000000-0000-4000-8000-000000000010', 'expired-reset-token-3', 'reset_password', false, now() - interval '10 hours');
 
 -- =============================================
 -- Dedicated user (no active reset tokens) for:
 -- send-token-to-reset-password "success" test
 -- Password plaintext: Test1234!
 -- =============================================
-INSERT INTO users (email, password, status, subdomain)
+INSERT INTO users (id, email, password, status, subdomain)
 VALUES (
+  '50000000-0000-4000-8000-000000000011',
   'reset-success@example.com',
   '$2b$10$wL7tkbBZQyt/YiigMxI08egh.xU.pP.D87SLSGjq4NJxXAlyj/p0i',
   'premium',
@@ -7686,9 +6253,8 @@ VALUES (
 -- send-token-to-validate-email "retry allowed for existing unverified user" test
 -- created_at set to 100 hours ago (beyond 72h EMAIL_VALIDATION_TOKEN_DURATION_IN_HOURS)
 -- =============================================
-INSERT INTO users (email, status, subdomain)
-VALUES ('unverified-retry@example.com', 'unverified', 'www');
+INSERT INTO users (id, email, status, subdomain)
+VALUES ('50000000-0000-4000-8000-000000000012', 'unverified-retry@example.com', 'unverified', 'www');
 
 INSERT INTO user_email_tokens (user_id, token, usage, blacklisted, created_at)
-SELECT id, 'expired-retry-token-1', 'validate_email', false, now() - interval '100 hours'
-FROM users WHERE email = 'unverified-retry@example.com';
+VALUES ('50000000-0000-4000-8000-000000000012', 'expired-retry-token-1', 'validate_email', false, now() - interval '100 hours');

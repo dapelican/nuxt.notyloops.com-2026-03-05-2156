@@ -24,10 +24,22 @@ const items = [
 
 <template>
   <!-- FooterElement.vue -->
-  <UFooter>
-    <UNavigationMenu
-      :items="items"
-      variant="link"
+  <div class="mt-16 mb-4">
+    <USeparator
+      icon="i-lucide-ellipsis"
+      class="h-px"
     />
-  </UFooter>
+
+    <section class="flex justify-center align-center gap-6 flex-wrap mt-4">
+      <ULink
+        v-for="item in items"
+        :key="item.label"
+        class="text-sm"
+        :target="item.target"
+        :to="item.to"
+      >
+        {{ item.label }}
+      </ULink>
+    </section>
+  </div>
 </template>

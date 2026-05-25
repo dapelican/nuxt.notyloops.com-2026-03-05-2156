@@ -22,7 +22,7 @@ logs
 !.env.example
 
 # Local database
-test_xxx_pg_volume
+test_notyloops_pg_volume
 
 ## test coverage
 coverage

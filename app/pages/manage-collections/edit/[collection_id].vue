@@ -51,7 +51,7 @@ const collection_form_state = reactive({
   review_strategy: '',
   track_scores: true,
   description: '',
-  price_without_tax: 0,
+  pre_tax_price_in_cents: 0,
   inclusion_type: 'AND',
   exclusion_type: 'OR',
 });
@@ -70,7 +70,7 @@ if (collection_data.value) {
       ? false
       : c.track_scores;
   collection_form_state.description = c.description;
-  collection_form_state.price_without_tax = c.price_without_tax;
+  collection_form_state.pre_tax_price_in_cents = c.pre_tax_price_in_cents;
   collection_form_state.inclusion_type = c.inclusion_type ?? 'AND';
   collection_form_state.exclusion_type = c.exclusion_type ?? 'OR';
 }
@@ -220,7 +220,7 @@ const updateCollection = async () => {
         review_strategy: collection_form_state.review_strategy,
         track_scores: collection_form_state.track_scores,
         description: collection_form_state.description,
-        price_without_tax: collection_form_state.price_without_tax,
+        pre_tax_price_in_cents: collection_form_state.pre_tax_price_in_cents,
       },
     });
 
@@ -415,11 +415,11 @@ const updateCollection = async () => {
 
         <UFormField
           v-if="collection_form_state.type === COLLECTION_TYPE_PUBLIC_PAYWALLLED"
-          :label="$t('t_price_without_tax')"
-          name="price_without_tax"
+          :label="$t('t_pre_tax_price_in_cents')"
+          name="pre_tax_price_in_cents"
         >
           <UInputNumber
-            v-model="collection_form_state.price_without_tax"
+            v-model="collection_form_state.pre_tax_price_in_cents"
             :decrement="{ class: 'cursor-pointer' }"
             :format-options="{
               style: 'currency',

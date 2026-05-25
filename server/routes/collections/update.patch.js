@@ -43,7 +43,7 @@ export default defineEventHandler(async (event) => {
       exclusion_type,
       id,
       inclusion_type,
-      price_without_tax,
+      pre_tax_price_in_cents,
       review_strategy,
       tag_id_list_to_exclude,
       tag_id_list_to_include,
@@ -156,7 +156,7 @@ export default defineEventHandler(async (event) => {
         review_strategy = $8,
         track_scores = $9,
         description = $10,
-        price_without_tax = $11
+        pre_tax_price_in_cents = $11
       WHERE id = $1 AND user_id = $12
       RETURNING *`,
       [
@@ -170,7 +170,7 @@ export default defineEventHandler(async (event) => {
         review_strategy,
         track_scores,
         description,
-        price_without_tax,
+        pre_tax_price_in_cents,
         user.id,
       ]
     );

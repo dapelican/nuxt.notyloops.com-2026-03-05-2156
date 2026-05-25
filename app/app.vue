@@ -1,19 +1,19 @@
+<script setup>
+const i18n_head = useLocaleHead();
+
+useHead(() => ({
+  htmlAttrs: {
+    ...i18n_head.value.htmlAttrs,
+  },
+  link: [...(i18n_head.value.link || [])],
+  meta: [...(i18n_head.value.meta || [])],
+}));
+</script>
+
 <template>
   <UApp>
-    <div class="flex min-h-dvh flex-col">
-      <HeaderElement />
-
-      <UMain class="page">
-        <NuxtPage />
-      </UMain>
-
-      <FooterElement />
-    </div>
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
   </UApp>
 </template>
-
-<style scoped>
-.page {
-  margin-top: 1rem;
-}
-</style>

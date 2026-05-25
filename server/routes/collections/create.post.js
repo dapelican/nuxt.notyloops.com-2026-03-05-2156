@@ -44,7 +44,7 @@ export default defineEventHandler(async (event) => {
       description,
       exclusion_type,
       inclusion_type,
-      price_without_tax,
+      pre_tax_price_in_cents,
       review_strategy,
       tag_id_list_to_exclude,
       tag_id_list_to_include,
@@ -123,7 +123,7 @@ export default defineEventHandler(async (event) => {
       review_strategy,
       track_scores,
       description,
-      price_without_tax
+      pre_tax_price_in_cents
       ) VALUES ($1, $2, $3::jsonb, $4, $5::jsonb, $6, $7, $8, $9, $10, $11) RETURNING *`,
       [
         user.id,
@@ -136,7 +136,7 @@ export default defineEventHandler(async (event) => {
         review_strategy,
         track_scores,
         description,
-        price_without_tax,
+        pre_tax_price_in_cents,
       ]
     );
 

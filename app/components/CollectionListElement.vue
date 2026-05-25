@@ -165,6 +165,12 @@ const user_can_review_notes = computed(() => {
                 {{ $t('t_you_have_reached_the_freemium_limit_for_reviewing_notes') }}
               </p>
             </template>
+
+            <template #footer>
+              <section class="flex justify-end">
+                <BecomePremiumButtonElement />
+              </section>
+            </template>
           </LimitedFeaturePopup>
 
           <span

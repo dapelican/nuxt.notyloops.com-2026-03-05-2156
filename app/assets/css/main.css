@@ -2,6 +2,10 @@
 @import "@nuxt/ui";
 @import "katex/dist/katex.min.css";
 
+/* :root:not(.dark) {
+  --ui-bg: #f7f5f2;
+} */
+
 html {
   font-size: 112.5%; /* 18px */
 }
@@ -94,13 +98,6 @@ html {
   border: none;
   height: 2rem;
 }
-
-/* Hover styles - only apply on devices that support hover */
-/* @media (hover: hover) {
-  a:hover {
-    color: var(--ui-secondary);
-  }
-} */
 
 /* Responsive */
 @media (max-width: 1199px) {

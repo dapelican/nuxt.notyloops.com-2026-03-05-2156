@@ -34,6 +34,7 @@ export default defineNuxtConfig({
           href: '/images/notyloops-0032x0032.png',
         },
       ],
+      // To make the browser have the same color as the brand color
       meta: [
         {
           name: 'theme-color',
@@ -72,6 +73,7 @@ export default defineNuxtConfig({
   },
   compatibilityDate: '2026-03-05',
   nitro: {
+    scanDirs: ['server/services'],
     experimental: {
       tasks: true,
     },

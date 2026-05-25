@@ -39,15 +39,41 @@ const note_list = ref(collection_data.value?.note_list);
 
 const user_has_purchased_collection = ref(false);
 
-const stripe_payment_link = computed(() => {
-  let url = `https://buy.stripe.com/${collection.value?.stripe_payment_link_id}`;
+const handling_checkout_request = ref(false);
 
-  url += `?client_reference_id=${user_data.value.id}`;
-  url += `&prefilled_email=${encodeURIComponent(user_data.value.email)}`;
-  url += `&locale=${locale.value}`;
+const goToStripeCheckout = async () => {
+  if (handling_checkout_request.value) {
+    return;
+  }
 
-  return url;
-});
+  handling_checkout_request.value = true;
+
+  try {
+    const response = await $fetch('/payments/create-stripe-checkout', {
+      body: {
+        collection_id,
+        locale: locale.value,
+      },
+      method: 'POST',
+    });
+
+    if (response.checkout_url) {
+      await navigateTo(
+        response.checkout_url,
+        {
+          external: true,
+          open: {
+            target: '_blank',
+          },
+        }
+      );
+    }
+  } catch (error) {
+    handleFrontendError(error, error?.data?.error_message);
+  } finally {
+    handling_checkout_request.value = false;
+  }
+};
 
 if (collection.value?.type === COLLECTION_TYPE_PUBLIC_PAYWALLLED && logged_in.value) {
   try {
@@ -133,6 +159,12 @@ handling_request.value = false;
               {{ $t('t_you_must_have_a_premium_account_to_buy_this_collection') }}
             </p>
           </template>
+
+          <template #footer>
+            <section class="flex justify-end">
+              <BecomePremiumButtonElement />
+            </section>
+          </template>
         </LimitedFeaturePopup>
 
         <UButton
@@ -143,9 +175,10 @@ handling_request.value = false;
           class="cursor-pointer hover:text-inverted!"
           color="primary"
           variant="solid"
-          :to="stripe_payment_link"
+          :loading="handling_checkout_request"
+          @click="goToStripeCheckout"
         >
-          <span>{{ $t('t_buy_collection') }} - {{ collection?.price_without_tax }} €</span>
+          <span>{{ $t('t_buy_collection') }} - {{ collection?.pre_tax_price_in_cents }} €</span>
         </UButton>
 
         <CopyCollectionPopup

@@ -1,14 +1,14 @@
 # For local development only
 services:
-  test-xxx-pg-service:
+  test-notyloops-pg-service:
     image: postgres:latest
-    container_name: test-xxx-pg-container
+    container_name: test-notyloops-pg-container
     restart: always
     environment:
-      POSTGRES_USER: test_xxx_user
+      POSTGRES_USER: test_notyloops_user
       POSTGRES_PASSWORD: dummypassword123
-      POSTGRES_DB: test_xxx_db
+      POSTGRES_DB: test_notyloops_db
     ports:
       - "2346:5432"
     volumes:
-      - ./test_xxx_pg_volume:/var/lib/postgresql
+      - ./test_notyloops_pg_volume:/var/lib/postgresql

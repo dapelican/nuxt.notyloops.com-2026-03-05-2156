@@ -14,8 +14,7 @@ CREATE TABLE collections (
   review_strategy TEXT NOT NULL DEFAULT 'creation_order',
   super_random_counter INTEGER NOT NULL DEFAULT 0,
   preview_note_id_list JSONB,
-  price_without_tax INTEGER,
-  stripe_payment_link_id TEXT
+  pre_tax_price_in_cents INTEGER
 );
 
 CREATE TRIGGER update_collections_timestamp

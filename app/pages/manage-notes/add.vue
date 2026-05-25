@@ -285,6 +285,12 @@ const createNote = async () => {
               {{ $t('t_this_feature_is_reserved_to_premium_users') }}
             </p>
           </template>
+
+          <template #footer>
+            <section class="flex justify-end">
+              <BecomePremiumButtonElement />
+            </section>
+          </template>
         </LimitedFeaturePopup>
 
         <FileUploaderPopup
@@ -312,6 +318,12 @@ const createNote = async () => {
               {{ $t('t_this_feature_is_reserved_to_premium_users') }}
             </p>
           </template>
+
+          <template #footer>
+            <section class="flex justify-end">
+              <BecomePremiumButtonElement />
+            </section>
+          </template>
         </LimitedFeaturePopup>
 
         <TextToSpeechPopup
@@ -338,6 +350,12 @@ const createNote = async () => {
             <p class="m-0">
               {{ $t('t_this_feature_is_reserved_to_premium_users') }}
             </p>
+          </template>
+
+          <template #footer>
+            <section class="flex justify-end">
+              <BecomePremiumButtonElement />
+            </section>
           </template>
         </LimitedFeaturePopup>
       </div>

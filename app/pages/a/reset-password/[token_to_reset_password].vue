@@ -1,5 +1,5 @@
 <script setup>
-// http://fr.localhost:2345/a/reset-password/9352e75d-89d7-487d-b8f2-bd7dedce7b0e
+// http://fr.localhost:3345/a/reset-password/9352e75d-89d7-487d-b8f2-bd7dedce7b0e
 
 import * as z from 'zod';
 
