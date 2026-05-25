@@ -87,7 +87,7 @@ watch(show_popup, (is_open) => {
     <UButton
       class="cursor-pointer hover:text-inverted!"
       icon="i-lucide-plus"
-      :to="'/manage-notes/add'"
+      @click="show_popup = true"
     >
       <span>{{ $t('t_add_tag') }}</span>
     </UButton>

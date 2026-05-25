@@ -9,10 +9,10 @@ const { locale } = useI18n();
     class="ml-auto mr-auto max-w-xl"
   >
     <h1 class="text-center">
-      Bibliothèque (Local)
+      Bibliothèque
     </h1>
 
-    <ul class="mt-4">
+    <!-- <ul class="mt-4">
       <li>
         <ULink
           class="text-primary"
@@ -49,6 +49,6 @@ const { locale } = useI18n();
           to="/pc/40000000-0000-4000-8000-000000000006"
         >Drapeaux des pays d'Océanie</ULink>
       </li>
-    </ul>
-  </UContainer>>
+    </ul> -->
+  </UContainer>
 </template>

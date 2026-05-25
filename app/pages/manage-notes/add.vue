@@ -371,6 +371,7 @@ const createNote = async () => {
       <hr class="separator-1">
 
       <SelectTagsInputElement
+        v-if="all_user_tag_list.length > 0"
         :tag_list="all_user_tag_list"
         :selected_tag_id_list="selected_tag_id_list"
         @update:selected_tag_id_list="updateSelectedTagIdList"

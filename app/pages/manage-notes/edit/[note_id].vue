@@ -404,12 +404,6 @@ const updateNote = async () => {
         @update:selected_tag_id_list="updateSelectedTagIdList"
       />
 
-      <p v-else>
-        <NuxtLink :to="`/manage-tags/add`">
-          {{ $t('t_add_your_first_tags') }}
-        </NuxtLink>
-      </p>
-
       <hr class="separator-2">
 
       <nav class="flex-ce-ce-gap-2">
