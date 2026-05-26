@@ -140,7 +140,7 @@ const updateSelectedTagIdListToExclude = (new_tag_id_list) => {
 
 const collection_type_list = ref(
   COLLECTION_TYPE_LIST.map((value) => ({
-    label: t(`t_${value}`),
+    label: t(`t_${value}_collection`),
     value,
   }))
 );
@@ -203,6 +203,107 @@ const track_scores_disabled = computed(() => {
 
 const handling_request_2 = ref(false);
 
+const buildCollectionTagsAlertSentence = () => {
+  const joinTagNameList = (tag_name_list, join_type) => {
+    const connector = join_type === 'AND' ? t('t_and') : t('t_or');
+    const filtered_name_list = tag_name_list.filter((name) => name);
+
+    if (filtered_name_list.length <= 1) {
+      return filtered_name_list.at(0) ?? '';
+    }
+
+    if (filtered_name_list.length === 2) {
+      return `${filtered_name_list.at(0)} ${connector} ${filtered_name_list.at(1)}`;
+    }
+
+    const last_two_name_list = filtered_name_list.slice(-2);
+    const first_name_list = filtered_name_list.slice(0, -2);
+    const last_two_tags = `${last_two_name_list.at(0)} ${connector} ${last_two_name_list.at(1)}`;
+
+    return `${first_name_list.join(', ')}, ${last_two_tags}`;
+  };
+
+  const buildNotesWithTagsPhrase = (tag_name_list, join_type) => {
+    const filtered_name_list = tag_name_list.filter((name) => name);
+    const tag_count = filtered_name_list.length;
+
+    if (tag_count === 0) {
+      return '';
+    }
+
+    const notes_with_tags_label = tag_count === 1
+      ? t('t_notes_with_tag')
+      : t('t_notes_with_tags');
+
+    const tag_names_text = tag_count === 1
+      ? filtered_name_list.at(0)
+      : joinTagNameList(filtered_name_list, join_type);
+
+    return `${notes_with_tags_label} ${tag_names_text}`;
+  };
+
+  const capitalizeFirstLetter = (text) => {
+    if (!text) {
+      return text;
+    }
+
+    return text.charAt(0).toUpperCase() + text.slice(1);
+  };
+
+  const joinSentenceParts = (sentence_part_list) => {
+    if (sentence_part_list.length === 0) {
+      return '';
+    }
+
+    const first_part = capitalizeFirstLetter(sentence_part_list.at(0));
+    const remaining_part_list = sentence_part_list.slice(1);
+
+    if (remaining_part_list.length === 0) {
+      return `${first_part}.`;
+    }
+
+    return `${first_part}, ${remaining_part_list.join(', ')}.`;
+  };
+
+  const include_id_count = collection_form_state.tag_id_list_to_include.length;
+  const exclude_id_count = collection_form_state.tag_id_list_to_exclude.length;
+  const sentence_part_list = [];
+
+  if (include_id_count === 0) {
+    sentence_part_list.push(
+      t('t_all_notes_will_be_included').replace(/\.$/, '')
+    );
+  } else {
+    sentence_part_list.push(
+      `${buildNotesWithTagsPhrase(
+        tag_name_list_to_include.value,
+        collection_form_state.inclusion_type
+      )} ${t('t_will_be_included')}`
+    );
+  }
+
+  if (exclude_id_count > 0) {
+    const exclusion_notes_phrase = buildNotesWithTagsPhrase(
+      tag_name_list_to_exclude.value,
+      collection_form_state.exclusion_type
+    );
+
+    if (include_id_count === 0) {
+      sentence_part_list.push(`${t('t_except')} ${exclusion_notes_phrase}`);
+    } else {
+      sentence_part_list.push(
+        `${t('t_but')} ${exclusion_notes_phrase} ${t('t_will_be_excluded')}`
+      );
+    }
+  }
+
+  return joinSentenceParts(sentence_part_list);
+};
+
+const collection_tags_alert_sentence = computed(() => {
+  return buildCollectionTagsAlertSentence();
+});
+
 const updateCollection = async () => {
   handling_request_2.value = true;
 
@@ -236,6 +337,7 @@ const updateCollection = async () => {
 </script>
 
 <template>
+  <!-- app/pages/manage-collections/edit/[collection_id].vue -->
   <UContainer class="centered-max-width-650">
     <LoadingElement v-if="handling_request_1" />
 
@@ -245,7 +347,7 @@ const updateCollection = async () => {
       </h1>
 
       <UForm
-        class="space-y-4"
+        class="space-y-4 flex flex-col gap-4"
         :schema="collection_form_schema"
         :state="collection_form_state"
         @input="collection_form_error = ''"
@@ -267,114 +369,59 @@ const updateCollection = async () => {
           :label="$t('t_tags_to_include')"
           name="tag_id_list_to_include"
         >
-          <SelectTagsInputElement
-            :tag_list="tag_list_for_include"
-            :selected_tag_id_list="collection_form_state.tag_id_list_to_include"
-            @update:selected_tag_id_list="updateSelectedTagIdListToInclude"
-          />
-        </UFormField>
+          <section class="border-l-2 border-secondary pl-4">
+            <SelectTagsInputElement
+              :tag_list="tag_list_for_include"
+              :selected_tag_id_list="collection_form_state.tag_id_list_to_include"
+              @update:selected_tag_id_list="updateSelectedTagIdListToInclude"
+            />
 
-        <UFormField
-          v-if="collection_form_state.tag_id_list_to_include.length > 1"
-          :label="$t('t_inclusion_type')"
-          name="inclusion_type"
-        >
-          <URadioGroup
-            v-model="collection_form_state.inclusion_type"
-            :items="and_or_list"
-            orientation="horizontal"
-          />
-        </UFormField>
-
-        <UAlert
-          color="info"
-          variant="subtle"
-          icon="i-lucide-info"
-        >
-          <template #description>
-            <span v-if="collection_form_state.tag_id_list_to_include.length === 0">
-              {{ $t('t_all_notes_will_be_included') }}
-            </span>
-
-            <span v-if="collection_form_state.tag_id_list_to_include.length === 1">
-              {{ $t('t_notes_with_tag') }}
-              {{ tag_name_list_to_include.at(0) }}
-              {{ $t('t_will_be_included') }}
-            </span>
-
-            <span
-              v-if="collection_form_state.tag_id_list_to_include.length > 1
-                && collection_form_state.inclusion_type === 'AND'"
+            <UFormField
+              v-if="collection_form_state.tag_id_list_to_include.length > 1"
+              :label="$t('t_inclusion_type')"
+              name="inclusion_type"
             >
-              {{ $t('t_notes_with_tag') }}
-              {{ tag_name_list_to_include.join(` ${$t('t_and')} `) }}
-              {{ $t('t_will_be_included') }}
-            </span>
-
-            <span
-              v-if="collection_form_state.tag_id_list_to_include.length > 1
-                && collection_form_state.inclusion_type === 'OR'"
-            >
-              {{ $t('t_notes_with_tag') }}
-              {{ tag_name_list_to_include.join(` ${$t('t_or')} `) }}
-              {{ $t('t_will_be_included') }}
-            </span>
-          </template>
-        </UAlert>
+              <URadioGroup
+                v-model="collection_form_state.inclusion_type"
+                :items="and_or_list"
+                orientation="horizontal"
+              />
+            </UFormField>
+          </section>
+        </UFormField>
 
         <UFormField
           :label="$t('t_tags_to_exclude')"
           name="tag_id_list_to_exclude"
         >
-          <SelectTagsInputElement
-            :tag_list="tag_list_for_exclude"
-            :selected_tag_id_list="collection_form_state.tag_id_list_to_exclude"
-            @update:selected_tag_id_list="updateSelectedTagIdListToExclude"
-          />
-        </UFormField>
+          <section class="border-l-2 border-secondary pl-4">
+            <SelectTagsInputElement
+              :tag_list="tag_list_for_exclude"
+              :selected_tag_id_list="collection_form_state.tag_id_list_to_exclude"
+              @update:selected_tag_id_list="updateSelectedTagIdListToExclude"
+            />
 
-        <UFormField
-          v-if="collection_form_state.tag_id_list_to_exclude.length > 1"
-          :label="$t('t_exclusion_type')"
-          name="exclusion_type"
-        >
-          <URadioGroup
-            v-model="collection_form_state.exclusion_type"
-            :items="and_or_list"
-            orientation="horizontal"
-          />
+            <UFormField
+              v-if="collection_form_state.tag_id_list_to_exclude.length > 1"
+              :label="$t('t_exclusion_type')"
+              name="exclusion_type"
+            >
+              <URadioGroup
+                v-model="collection_form_state.exclusion_type"
+                :items="and_or_list"
+                orientation="horizontal"
+              />
+            </UFormField>
+          </section>
         </UFormField>
 
         <UAlert
-          v-if="collection_form_state.tag_id_list_to_exclude.length > 0"
           color="info"
           variant="subtle"
           icon="i-lucide-info"
         >
           <template #description>
-            <span v-if="collection_form_state.tag_id_list_to_exclude.length === 1">
-              {{ $t('t_notes_with_tag') }}
-              {{ tag_name_list_to_exclude.at(0) }}
-              {{ $t('t_will_be_excluded') }}
-            </span>
-
-            <span
-              v-if="collection_form_state.tag_id_list_to_exclude.length > 1
-                && collection_form_state.exclusion_type === 'AND'"
-            >
-              {{ $t('t_notes_with_tag') }}
-              {{ tag_name_list_to_exclude.join(` ${$t('t_and')} `) }}
-              {{ $t('t_will_be_excluded') }}
-            </span>
-
-            <span
-              v-if="collection_form_state.tag_id_list_to_exclude.length > 1
-                && collection_form_state.exclusion_type === 'OR'"
-            >
-              {{ $t('t_notes_with_tag') }}
-              {{ tag_name_list_to_exclude.join(` ${$t('t_or')} `) }}
-              {{ $t('t_will_be_excluded') }}
-            </span>
+            {{ collection_tags_alert_sentence }}
           </template>
         </UAlert>
 

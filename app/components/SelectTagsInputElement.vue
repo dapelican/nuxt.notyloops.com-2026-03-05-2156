@@ -80,7 +80,7 @@ const remove_tag = (tag) => {
 
       <div
         v-if="selected_tag_list_ref.length > 0"
-        class="flex min-h-8 flex-wrap gap-2"
+        class="flex flex-wrap gap-2"
       >
         <TagElement
           v-for="tag in selected_tag_list_ref"
@@ -108,7 +108,7 @@ const remove_tag = (tag) => {
         v-model="tag_search_query"
         class="w-full"
         icon="i-lucide-search"
-        :placeholder="$t('t_search_tags')"
+        :placeholder="$t('t_search_tag_among_tags_below')"
         :ui="{ trailing: 'pe-1' }"
       >
         <template

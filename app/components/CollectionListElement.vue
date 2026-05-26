@@ -212,9 +212,15 @@ const user_can_review_notes = computed(() => {
             />
 
             <span
-              v-if="index < item.tag_id_list_to_include.length - 1"
+              v-if="item.tag_id_list_to_include.length >= 3 && index < item.tag_id_list_to_include.length - 2"
             >
-              {{ $t(item.inclusion_type) }}
+              ,
+            </span>
+
+            <span
+              v-else-if="item.tag_id_list_to_include.length >= 2 && index === item.tag_id_list_to_include.length - 2"
+            >
+              {{ $t(`t_${item.inclusion_type.toLowerCase()}`) }}
             </span>
           </template>
         </section>
@@ -237,9 +243,15 @@ const user_can_review_notes = computed(() => {
             />
 
             <span
-              v-if="index < item.tag_id_list_to_exclude.length - 1"
+              v-if="item.tag_id_list_to_exclude.length >= 3 && index < item.tag_id_list_to_exclude.length - 2"
             >
-              {{ $t(item.exclusion_type) }}
+              ,
+            </span>
+
+            <span
+              v-else-if="item.tag_id_list_to_exclude.length >= 2 && index === item.tag_id_list_to_exclude.length - 2"
+            >
+              {{ $t(`t_${item.exclusion_type.toLowerCase()}`) }}
             </span>
           </template>
         </section>
