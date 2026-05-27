@@ -408,7 +408,6 @@ const updateNote = async () => {
 
       <nav class="flex-ce-ce-gap-2">
         <UButton
-          class="cursor-pointer"
           color="neutral"
           variant="outline"
           :to="CONNECTED_USER_LANDING_PAGE"
@@ -417,7 +416,6 @@ const updateNote = async () => {
         </UButton>
 
         <UButton
-          class="cursor-pointer"
           color="primary"
           variant="solid"
           :disabled="handling_request"

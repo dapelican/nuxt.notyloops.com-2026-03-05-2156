@@ -79,7 +79,6 @@ useSeoMeta({
 
     <nav class="flex justify-center">
       <!-- <UButton
-        class="cursor-pointer hover:text-inverted!"
         :to="'/a/sign-up-1'"
       >
         <span>{{ $t('t_sign_up_for_free') }}</span>

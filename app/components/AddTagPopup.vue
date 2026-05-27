@@ -85,7 +85,6 @@ watch(show_popup, (is_open) => {
     :title="$t('t_add_tag')"
   >
     <UButton
-      class="cursor-pointer hover:text-inverted!"
       icon="i-lucide-plus"
       @click="show_popup = true"
     >
@@ -124,7 +123,6 @@ watch(show_popup, (is_open) => {
     <template #footer>
       <div class="popup-actions">
         <UButton
-          class="cursor-pointer"
           color="neutral"
           variant="outline"
           @click="handleCancel"
@@ -133,7 +131,6 @@ watch(show_popup, (is_open) => {
         </UButton>
 
         <UButton
-          class="cursor-pointer"
           color="primary"
           variant="solid"
           :disabled="handling_request"

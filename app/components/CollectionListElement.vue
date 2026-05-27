@@ -30,7 +30,7 @@ const emit = defineEmits(['toggle_item_selection']);
 
 const isItemSelected = (item_id) => selected_item_id_set.value.has(item_id);
 
-const tag_label_for_id = (tag_id) => {
+const getTagLabelForTagId = (tag_id) => {
   return all_user_tag_list.value
     .find((tag) => tag.id === tag_id)
     ?.label;
@@ -137,28 +137,29 @@ const user_can_review_notes = computed(() => {
 
       <main class="main">
         <section class="actions">
-          <NuxtLink
+          <UButton
             v-if="user_can_review_notes && item.type === COLLECTION_TYPE_PRIVATE
               && ![REVIEW_STRATEGY_SPACED_REPETITION, REVIEW_STRATEGY_DIARY].includes(item.review_strategy)"
-            class="text-primary"
+            color="secondary"
+            icon="i-lucide-refresh-cw"
             :to="`/review/collection/${item.id}`"
+            variant="outline"
           >
-            {{ $t('t_review') }}
-          </NuxtLink>
+            <span class="desktop-only">{{ $t('t_review') }}</span>
+          </UButton>
 
           <LimitedFeaturePopup
             v-if="!user_can_review_notes && item.type === COLLECTION_TYPE_PRIVATE
               && ![REVIEW_STRATEGY_SPACED_REPETITION, REVIEW_STRATEGY_DIARY].includes(item.review_strategy)"
           >
-            <div class="flex items-center gap-2 cursor-pointer">
-              <UIcon
-                name="i-lucide-lock"
-                class="text-primary size-3"
-              />
-
-              <span class="text-primary">
+            <div>
+              <UButton
+                color="secondary"
+                icon="i-lucide-lock"
+                variant="outline"
+              >
                 {{ $t('t_review') }}
-              </span>
+              </UButton>
             </div>
 
             <template #content>
@@ -174,20 +175,24 @@ const user_can_review_notes = computed(() => {
             </template>
           </LimitedFeaturePopup>
 
-          <span
-            class="text-secondary cursor-pointer"
-            :class="{ 'pointer-events-none opacity-50': is_exporting_collection_id === item.id }"
+          <UButton
+            color="secondary"
+            :disabled="is_exporting_collection_id === item.id"
+            icon="i-lucide-file-down"
+            variant="outline"
             @click="exportCollection(item.id)"
           >
             {{ $t('t_export_collection') }}
-          </span>
+          </UButton>
 
-          <NuxtLink
-            class="text-secondary"
+          <UButton
+            color="secondary"
+            icon="i-lucide-pencil"
             :to="`/manage-${ITEM_TYPE_COLLECTION}s/edit/${item.id}?page_number=${page_number}`"
+            variant="outline"
           >
-            {{ $t('t_edit') }}
-          </NuxtLink>
+            <span class="desktop-only">{{ $t('t_edit') }}</span>
+          </UButton>
 
           <DeleteCollectionPopup
             :collection_id="item.id"
@@ -208,8 +213,8 @@ const user_can_review_notes = computed(() => {
             :key="tag_id"
           >
             <TagElement
-              v-if="tag_label_for_id(tag_id)"
-              :label="tag_label_for_id(tag_id)"
+              v-if="getTagLabelForTagId(tag_id)"
+              :label="getTagLabelForTagId(tag_id)"
             />
 
             <span
@@ -239,8 +244,8 @@ const user_can_review_notes = computed(() => {
             :key="tag_id"
           >
             <TagElement
-              v-if="tag_label_for_id(tag_id)"
-              :label="tag_label_for_id(tag_id)"
+              v-if="getTagLabelForTagId(tag_id)"
+              :label="getTagLabelForTagId(tag_id)"
             />
 
             <span
@@ -284,7 +289,7 @@ const user_can_review_notes = computed(() => {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .chevron-zone {
@@ -310,7 +315,7 @@ const user_can_review_notes = computed(() => {
 .main {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 .tags {

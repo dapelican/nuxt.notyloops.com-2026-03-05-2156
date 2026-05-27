@@ -156,7 +156,6 @@ const submit_feedback = async (feedback) => {
         class="mt-8 flex flex-wrap justify-center gap-4"
       >
         <UButton
-          class="cursor-pointer"
           color="neutral"
           :loading="submitting_feedback"
           icon="i-lucide-thumbs-down"
@@ -167,7 +166,6 @@ const submit_feedback = async (feedback) => {
         </UButton>
 
         <UButton
-          class="cursor-pointer"
           :loading="submitting_feedback"
           icon="i-lucide-thumbs-up"
           @click="submit_feedback('positive')"

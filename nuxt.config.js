@@ -35,12 +35,12 @@ export default defineNuxtConfig({
         },
       ],
       // To make the browser have the same color as the brand color
-      meta: [
-        {
-          name: 'theme-color',
-          content: '#97BF0D',
-        },
-      ],
+      // meta: [
+      //   {
+      //     name: 'theme-color',
+      //     content: '#97BF0D',
+      //   },
+      // ],
     },
   },
   css: ['~/assets/css/main.css'],
@@ -95,12 +95,14 @@ export default defineNuxtConfig({
         code: 'en',
         domain: `www.${process.env.DOMAIN}`,
         file: 'en.json',
+        language: 'en',
         name: 'English',
       },
       {
         code: 'fr',
         domain: `fr.${process.env.DOMAIN}`,
         file: 'fr.json',
+        language: 'fr',
         name: 'Français',
       },
     ],

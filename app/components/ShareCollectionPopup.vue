@@ -61,19 +61,17 @@ const show_popup = ref(false);
     >
       <div class="popup-actions">
         <UButton
-          class="cursor-pointer"
           :label="$t('t_cancel')"
           variant="outline"
           @click="close"
         />
 
         <UButton
-          class="cursor-pointer"
           color="error"
           :disabled="is_deleting"
-          :loading="is_deleting"
           icon="i-lucide-trash-2"
           :label="$t('t_delete')"
+          :loading="is_deleting"
           variant="solid"
           @click="deleteNote"
         />

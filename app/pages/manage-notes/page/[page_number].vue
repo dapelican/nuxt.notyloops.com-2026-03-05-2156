@@ -72,13 +72,10 @@ const show_filter_tags_input = ref(false);
 
 const show_order_options = ref(false);
 
-const show_master_checkbox = ref(false);
-
 const action_bar_refs = {
   show_search_input,
   show_filter_tags_input,
   show_order_options,
-  show_master_checkbox,
 };
 
 const handleActionBarClick = (target_key) => {
@@ -183,7 +180,6 @@ onUnmounted(() => {
           <div class="flex flex-wrap justify-center gap-2">
             <UButton
               v-if="user_can_create_notes"
-              class="cursor-pointer hover:text-inverted!"
               icon="i-lucide-plus"
               :to="'/manage-notes/add'"
             >
@@ -192,7 +188,6 @@ onUnmounted(() => {
 
             <LimitedFeaturePopup v-if="!user_can_create_notes">
               <UButton
-                class="cursor-pointer hover:text-inverted!"
                 icon="i-lucide-lock"
               >
                 <span>{{ $t('t_add_note') }}</span>
@@ -213,7 +208,6 @@ onUnmounted(() => {
 
             <ImportNotesPopup v-if="user_is_premium_or_admin">
               <UButton
-                class="cursor-pointer hover:text-inverted!"
                 icon="i-lucide-file-up"
               >
                 <span>{{ $t('t_import_notes') }}</span>
@@ -222,7 +216,6 @@ onUnmounted(() => {
 
             <LimitedFeaturePopup v-else>
               <UButton
-                class="cursor-pointer hover:text-inverted!"
                 icon="i-lucide-lock"
               >
                 <span>{{ $t('t_import_notes') }}</span>
@@ -249,7 +242,6 @@ onUnmounted(() => {
           <section class="ml-auto mr-auto mb-4 max-w-fit">
             <div class="flex justify-center gap-2 mb-4">
               <UButton
-                class="cursor-pointer"
                 icon="i-lucide-search"
                 :variant="show_search_input ? 'solid' : 'outline'"
                 @click="handleActionBarClick('show_search_input')"
@@ -260,7 +252,6 @@ onUnmounted(() => {
               </UButton>
 
               <UButton
-                class="cursor-pointer"
                 icon="i-lucide-tag"
                 :variant="show_filter_tags_input ? 'solid' : 'outline'"
                 @click="handleActionBarClick('show_filter_tags_input')"
@@ -271,7 +262,6 @@ onUnmounted(() => {
               </UButton>
 
               <UButton
-                class="cursor-pointer"
                 icon="i-lucide-arrow-down-wide-narrow"
                 :variant="show_order_options ? 'solid' : 'outline'"
                 @click="handleActionBarClick('show_order_options')"
@@ -282,27 +272,15 @@ onUnmounted(() => {
               </UButton>
 
               <UButton
-                class="cursor-pointer"
-                icon="i-lucide-square-check"
-                :variant="show_master_checkbox ? 'solid' : 'outline'"
-                @click="handleActionBarClick('show_master_checkbox')"
-              >
-                <span class="desktop-only">
-                  {{ $t('t_select') }}
-                </span>
-              </UButton>
-
-              <section
-                class="reinitialize-button text-sm"
+                icon="i-lucide-brush-cleaning"
+                size="sm"
+                variant="ghost"
                 @click="reinitializeSearch"
               >
-                <UIcon
-                  name="i-lucide-refresh-cw"
-                />
                 <span class="desktop-only">
                   {{ $t('t_reset_filters') }}
                 </span>
-              </section>
+              </UButton>
             </div>
 
             <div class="ml-auto mr-auto max-w-[800px]">
@@ -329,12 +307,14 @@ onUnmounted(() => {
                 </template>
               </UInput>
 
-              <SelectTagsInputElement
-                v-if="show_filter_tags_input"
-                :tag_list="all_user_tag_list"
-                :selected_tag_id_list="search_criteria_tag_id_list"
-                @update:selected_tag_id_list="onTagFilterChange"
-              />
+              <section>
+                <SelectTagsInputElement
+                  v-if="show_filter_tags_input"
+                  :tag_list="all_user_tag_list"
+                  :selected_tag_id_list="search_criteria_tag_id_list"
+                  @update:selected_tag_id_list="onTagFilterChange"
+                />
+              </section>
 
               <URadioGroup
                 v-if="show_order_options"
@@ -351,19 +331,7 @@ onUnmounted(() => {
       <SelectableItemsElement
         v-if="total_user_note_count > 0"
         :item_type="ITEM_TYPE_NOTE"
-        :show_master_checkbox
       />
     </div>
   </section>
 </template>
-
-<style scoped>
-.reinitialize-button {
-  align-items: center;
-  color: var(--color-primary);
-  cursor: pointer;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-</style>

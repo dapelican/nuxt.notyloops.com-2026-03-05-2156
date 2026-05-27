@@ -53,14 +53,14 @@ const deleteNotes = async () => {
     :close="{ class: 'cursor-pointer' }"
     :title="$t('t_delete')"
   >
-    <section>
-      <span class="desktop-only cursor-pointer">{{ $t('t_delete') }}</span>
-
-      <UIcon
-        name="i-lucide-trash-2"
-        class="mobile-only cursor-pointer size-6 text-error"
-      />
-    </section>
+    <UButton
+      class="text-error"
+      color="neutral"
+      icon="i-lucide-trash-2"
+      variant="outline"
+    >
+      <span class="desktop-only">{{ $t('t_delete') }}</span>
+    </UButton>
 
     <template #body>
       <p class="mt-0 mb-0">
@@ -73,7 +73,6 @@ const deleteNotes = async () => {
     >
       <div class="popup-actions">
         <UButton
-          class="cursor-pointer"
           color="neutral"
           :label="$t('t_cancel')"
           variant="outline"
@@ -81,7 +80,6 @@ const deleteNotes = async () => {
         />
 
         <UButton
-          class="cursor-pointer"
           color="error"
           :disabled="is_deleting"
           :loading="is_deleting"

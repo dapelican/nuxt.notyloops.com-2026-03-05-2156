@@ -97,7 +97,7 @@ watch(() => props.audio_url, () => {
         size="xl"
         :icon="is_playing ? 'i-lucide-pause' : 'i-lucide-play'"
         :aria-label="is_playing ? 'Pause' : 'Play'"
-        class="shrink-0 cursor-pointer"
+        class="shrink-0"
         @click="togglePlayPause"
       />
 

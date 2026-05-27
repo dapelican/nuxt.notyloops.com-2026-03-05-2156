@@ -199,7 +199,6 @@ const run_import = async () => {
           {{ file_name }}
         </p>
         <UButton
-          class="cursor-pointer"
           :disabled="is_importing"
           size="sm"
           variant="soft"
@@ -213,7 +212,6 @@ const run_import = async () => {
     <template #footer>
       <div class="popup-actions">
         <UButton
-          class="cursor-pointer"
           color="neutral"
           variant="outline"
           :disabled="is_importing"
@@ -223,7 +221,6 @@ const run_import = async () => {
         </UButton>
 
         <UButton
-          class="cursor-pointer"
           color="primary"
           variant="solid"
           :disabled="!csv_text || is_importing"

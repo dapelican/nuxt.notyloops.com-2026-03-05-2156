@@ -61,7 +61,6 @@ const goCopyMissingNotes = async () => {
     :title="$t('t_copy_collection')"
   >
     <UButton
-      class="cursor-pointer"
       :label="$t('t_copy_collection')"
       variant="solid"
       @click="goCheckCopy"
@@ -89,7 +88,6 @@ const goCopyMissingNotes = async () => {
     >
       <div class="popup-actions">
         <UButton
-          class="cursor-pointer"
           color="neutral"
           :label="$t('t_cancel')"
           variant="outline"
@@ -98,7 +96,6 @@ const goCopyMissingNotes = async () => {
 
         <UButton
           v-if="notes_to_copy > 0"
-          class="cursor-pointer"
           :disabled="handling_request_2"
           :loading="handling_request_2"
           :label="$t('t_copy_missing_notes')"

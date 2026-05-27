@@ -54,8 +54,8 @@ const deleteTags = async () => {
     title="$t('t_delete')"
   >
     <UButton
-      class="cursor-pointer"
-      color="error"
+      class="text-error"
+      color="neutral"
       icon="i-lucide-trash-2"
       variant="outline"
     >
@@ -73,14 +73,12 @@ const deleteTags = async () => {
     >
       <div class="popup-actions">
         <UButton
-          class="cursor-pointer"
           :label="$t('t_cancel')"
           variant="outline"
           @click="close"
         />
 
         <UButton
-          class="cursor-pointer"
           color="error"
           :disabled="is_deleting"
           :loading="is_deleting"

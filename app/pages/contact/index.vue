@@ -131,7 +131,6 @@ const sendContactMessage = async () => {
 
       <nav class="flex-ce-ce-gap-2">
         <UButton
-          class="cursor-pointer"
           :disabled="handling_request"
           :loading="handling_request"
           type="submit"

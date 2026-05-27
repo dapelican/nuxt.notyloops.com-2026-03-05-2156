@@ -51,12 +51,14 @@ const isItemSelected = (item_id) => selected_item_id_set.value.has(item_id);
 
       <main class="main">
         <section class="actions">
-          <NuxtLink
-            class="text-primary"
+          <UButton
+            class="text-secondary"
+            color="secondary"
             :to="`/manage-${ITEM_TYPE_TAG}s/edit/${item.id}?page_number=${page_number}`"
+            variant="outline"
           >
             {{ $t('t_edit') }}
-          </NuxtLink>
+          </UButton>
 
           <DeleteTagPopup
             :tag_id="item.id"
@@ -102,7 +104,7 @@ const isItemSelected = (item_id) => selected_item_id_set.value.has(item_id);
 .main {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 .tags {

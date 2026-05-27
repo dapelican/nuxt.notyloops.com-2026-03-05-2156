@@ -4,10 +4,6 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  show_master_checkbox: {
-    type: Boolean,
-    required: true,
-  },
 });
 
 const {
@@ -161,7 +157,7 @@ const selectAllPages = () => {
   <nav class="nav">
     <UAlert
       v-if="!handling_request && searched_item_count > 0
-        && (show_master_checkbox || has_selection)"
+        && has_selection"
       class="rounded-none"
       color="primary"
       variant="solid"
@@ -238,7 +234,7 @@ const selectAllPages = () => {
             v-if="item_type === ITEM_TYPE_COLLECTION"
             class="actions-on-selected-actions"
           >
-            to complete
+            <DeleteSelectedCollectionsPopup />
           </section>
         </div>
       </template>

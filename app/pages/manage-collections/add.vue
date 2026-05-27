@@ -451,7 +451,6 @@ const createCollection = async () => {
 
       <nav class="flex-ce-ce-gap-2">
         <UButton
-          class="cursor-pointer"
           color="neutral"
           variant="outline"
           to="/manage-collections/page/1"
@@ -460,7 +459,6 @@ const createCollection = async () => {
         </UButton>
 
         <UButton
-          class="cursor-pointer"
           :disabled="handling_request"
           :loading="handling_request"
           type="submit"

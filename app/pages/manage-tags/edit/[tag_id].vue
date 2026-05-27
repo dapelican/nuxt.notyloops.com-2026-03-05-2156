@@ -115,7 +115,6 @@ const updateTag = async () => {
 
         <nav class="flex-ce-ce-gap-2">
           <UButton
-            class="cursor-pointer"
             color="neutral"
             variant="outline"
             :to="`/manage-tags/page/${page_number}`"
@@ -124,7 +123,6 @@ const updateTag = async () => {
           </UButton>
 
           <UButton
-            class="cursor-pointer"
             :disabled="handling_request_2"
             :loading="handling_request_2"
             type="submit"

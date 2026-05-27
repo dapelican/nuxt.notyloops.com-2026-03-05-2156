@@ -35,7 +35,6 @@ const reviewed_card_count = computed(() => {
 
     <nav class="flex justify-center">
       <UButton
-        class="cursor-pointer hover:text-inverted!"
         :to="'/manage-collections/page/1'"
       >
         {{ $t('t_go_back_to_collections') }}

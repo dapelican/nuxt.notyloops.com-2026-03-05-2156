@@ -130,7 +130,6 @@ handling_request.value = false;
             && collection_belongs_to_connected_user"
         >
           <UButton
-            class="cursor-pointer"
             color="primary"
             variant="solid"
           >
@@ -151,7 +150,6 @@ handling_request.value = false;
             && !user_has_purchased_collection"
         >
           <UButton
-            class="cursor-pointer"
             color="primary"
             variant="solid"
           >
@@ -176,7 +174,6 @@ handling_request.value = false;
             && user_is_premium
             && collection?.type === COLLECTION_TYPE_PUBLIC_PAYWALLLED
             && !user_has_purchased_collection"
-          class="cursor-pointer hover:text-inverted!"
           color="primary"
           variant="solid"
           :loading="handling_checkout_request"

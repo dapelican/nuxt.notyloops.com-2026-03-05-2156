@@ -28,7 +28,6 @@ const language_items = computed(() => [
 <template>
   <UDropdownMenu :items="language_items">
     <UButton
-      class="cursor-pointer"
       color="neutral"
       icon="i-lucide-languages"
       variant="ghost"

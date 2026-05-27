@@ -57,16 +57,13 @@ const handleCancel = () => {
     :close="{ class: 'cursor-pointer' }"
     :title="$t('t_remove_tags')"
   >
-    <section>
-      <span class="desktop-only cursor-pointer">{{ $t('t_remove_tags') }}</span>
-
-      <UIcon
-        name="i-lucide-circle-minus"
-        class="mobile-only cursor-pointer size-6"
-        color="info"
-        variant="solid"
-      />
-    </section>
+    <UButton
+      color="neutral"
+      icon="i-lucide-circle-minus"
+      variant="outline"
+    >
+      <span class="desktop-only">{{ $t('t_remove_tags') }}</span>
+    </UButton>
 
     <template #body>
       <SelectTagsInputElement
@@ -79,7 +76,6 @@ const handleCancel = () => {
     <template #footer>
       <div class="popup-actions">
         <UButton
-          class="cursor-pointer"
           color="neutral"
           variant="outline"
           @click="handleCancel"
@@ -88,7 +84,6 @@ const handleCancel = () => {
         </UButton>
 
         <UButton
-          class="cursor-pointer"
           color="primary"
           variant="solid"
           @click="removeTagFromNotes"

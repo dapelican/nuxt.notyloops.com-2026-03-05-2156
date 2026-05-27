@@ -36,12 +36,9 @@ const show_search_input = ref(false);
 
 const show_order_options = ref(false);
 
-const show_master_checkbox = ref(false);
-
 const action_bar_refs = {
   show_search_input,
   show_order_options,
-  show_master_checkbox,
 };
 
 const handleActionBarClick = (target_key) => {
@@ -143,7 +140,6 @@ onUnmounted(() => {
           <hr class="separator-1">
 
           <UButton
-            class="cursor-pointer hover:text-inverted!"
             icon="i-lucide-plus"
             :to="'/manage-tags/add'"
           >
@@ -157,7 +153,6 @@ onUnmounted(() => {
           <section class="ml-auto mr-auto mb-4 max-w-fit">
             <div class="flex justify-center gap-2 mb-4">
               <UButton
-                class="cursor-pointer"
                 icon="i-lucide-search"
                 :variant="show_search_input ? 'solid' : 'outline'"
                 @click="handleActionBarClick('show_search_input')"
@@ -168,7 +163,6 @@ onUnmounted(() => {
               </UButton>
 
               <UButton
-                class="cursor-pointer"
                 icon="i-lucide-arrow-down-wide-narrow"
                 :variant="show_order_options ? 'solid' : 'outline'"
                 @click="handleActionBarClick('show_order_options')"
@@ -179,27 +173,15 @@ onUnmounted(() => {
               </UButton>
 
               <UButton
-                class="cursor-pointer"
-                icon="i-lucide-square-check"
-                :variant="show_master_checkbox ? 'solid' : 'outline'"
-                @click="handleActionBarClick('show_master_checkbox')"
-              >
-                <span class="desktop-only">
-                  {{ $t('t_select') }}
-                </span>
-              </UButton>
-
-              <section
-                class="reinitialize-button text-sm"
+                icon="i-lucide-brush-cleaning"
+                size="sm"
+                variant="ghost"
                 @click="reinitializeSearch"
               >
-                <UIcon
-                  name="i-lucide-refresh-cw"
-                />
                 <span class="desktop-only">
                   {{ $t('t_reset_filters') }}
                 </span>
-              </section>
+              </UButton>
             </div>
 
             <div class="ml-auto mr-auto">
@@ -241,19 +223,7 @@ onUnmounted(() => {
       <SelectableItemsElement
         v-if="total_user_tag_count > 0"
         :item_type="ITEM_TYPE_TAG"
-        :show_master_checkbox
       />
     </div>
   </section>
 </template>
-
-<style scoped>
-.reinitialize-button {
-  align-items: center;
-  color: var(--color-primary);
-  cursor: pointer;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-</style>

@@ -95,7 +95,6 @@ const createTag = async () => {
 
       <nav class="flex-ce-ce-gap-2">
         <UButton
-          class="cursor-pointer"
           color="neutral"
           variant="outline"
           to="/manage-tags/page/1"
@@ -104,7 +103,6 @@ const createTag = async () => {
         </UButton>
 
         <UButton
-          class="cursor-pointer"
           :disabled="handling_request"
           :loading="handling_request"
           type="submit"

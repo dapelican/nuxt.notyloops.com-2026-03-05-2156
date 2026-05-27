@@ -1,8 +1,19 @@
 <script setup>
-const { t } = useI18n();
+import { PREMIUM_ACCESS_PRE_TAX_AMOUNT_IN_CENTS } from '#shared/utils/constants.js';
+
+const { locale, t } = useI18n();
 
 useSeoMeta({
   title: `${t('t_pricing')} | NotyLoops`,
+});
+
+const premium_price = computed(() => {
+  const price = PREMIUM_ACCESS_PRE_TAX_AMOUNT_IN_CENTS / 100;
+
+  if (locale.value === 'fr') {
+    return `${price} € (HT)`;
+  }
+  return `$${price}`;
 });
 </script>
 
@@ -170,7 +181,7 @@ useSeoMeta({
 
           <h3 class="numbers">
             <span>
-              {{ $t('t_premium_price') }}
+              {{ premium_price }}
             </span>
           </h3>
         </div>
@@ -181,14 +192,12 @@ useSeoMeta({
 
     <nav class="flex justify-center">
       <!-- <UButton
-        class="cursor-pointer hover:text-inverted!"
         :to="'/a/sign-up-1'"
       >
         <span>{{ $t('t_sign_up_for_free') }}</span>
       </UButton> -->
 
       <UButton
-        class="cursor-pointer hover:text-inverted!"
         :to="'/a/join-waiting-list'"
       >
         <span>{{ $t('t_join_waiting_list') }}</span>

@@ -138,7 +138,6 @@ const continue_to_next_note_or_end = async () => {
           class="mt-8 flex flex-wrap justify-center gap-4"
         >
           <UButton
-            class="cursor-pointer"
             :loading="navigating_next"
             icon="i-lucide-chevron-right"
             @click="continue_to_next_note_or_end"

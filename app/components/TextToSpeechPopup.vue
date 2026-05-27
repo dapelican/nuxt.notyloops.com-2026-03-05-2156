@@ -197,7 +197,6 @@ const emitFileInfo = () => {
     <template #footer>
       <div class="popup-actions">
         <UButton
-          class="cursor-pointer"
           color="neutral"
           variant="outline"
           @click="closePopupAndResetVariables"
@@ -207,7 +206,6 @@ const emitFileInfo = () => {
 
         <UButton
           v-if="!file_url && !error_message && !is_week_usage_above_limit && !handling_request"
-          class="cursor-pointer"
           :color="is_text_at_character_limit ? 'error' : 'primary'"
           :disabled="!text || !language || is_text_at_character_limit"
           variant="solid"
@@ -218,7 +216,6 @@ const emitFileInfo = () => {
 
         <UButton
           v-if="file_url"
-          class="cursor-pointer"
           color="primary"
           variant="solid"
           @click="emitFileInfo"

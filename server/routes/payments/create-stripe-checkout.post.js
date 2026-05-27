@@ -19,7 +19,6 @@ import {
 
 import {
   COLLECTION_PAYMENT_TYPE,
-  PREMIUM_ACCESS_PRE_TAX_AMOUNT_IN_CENTS,
   PREMIUM_PAYMENT_TYPE,
 } from '../../helpers/constants.js';
 
@@ -33,6 +32,7 @@ import {
 
 import {
   COLLECTION_TYPE_PUBLIC_PAYWALLLED,
+  PREMIUM_ACCESS_PRE_TAX_AMOUNT_IN_CENTS,
 } from '#shared/utils/constants.js';
 
 import {

@@ -101,12 +101,14 @@ const calculateScore = (score, review_count) => {
 
       <main class="main">
         <section class="actions">
-          <NuxtLink
-            class="text-primary"
+          <UButton
+            class="text-secondary"
+            color="secondary"
             :to="`/manage-${ITEM_TYPE_NOTE}s/edit/${item.id}?page_number=${page_number}`"
+            variant="outline"
           >
             {{ $t('t_edit') }}
-          </NuxtLink>
+          </UButton>
 
           <DeleteNotePopup
             :note_id="item.id"
@@ -236,7 +238,7 @@ const calculateScore = (score, review_count) => {
 .main {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 .tag-filter-trigger {

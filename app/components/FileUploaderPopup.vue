@@ -191,7 +191,6 @@ const handleFileInputChange = (event) => {
     <template #footer>
       <div class="popup-actions">
         <UButton
-          class="cursor-pointer"
           color="neutral"
           variant="outline"
           @click="closePopupAndResetVariables"
@@ -200,7 +199,6 @@ const handleFileInputChange = (event) => {
         </UButton>
 
         <UButton
-          class="cursor-pointer"
           color="primary"
           variant="solid"
           @click="emitFileInfo"

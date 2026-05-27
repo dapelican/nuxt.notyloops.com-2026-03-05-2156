@@ -195,7 +195,6 @@ const resetPasswordForm = () => {
         <hr class="separator-1">
 
         <UButton
-          class="cursor-pointer"
           @click="modifying_email = true"
         >
           {{ $t('t_change_email') }}
@@ -230,7 +229,6 @@ const resetPasswordForm = () => {
 
         <nav class="flex-ce-ce-gap-2">
           <UButton
-            class="cursor-pointer"
             :disabled="handling_request_2"
             type="button"
             variant="outline"
@@ -241,7 +239,6 @@ const resetPasswordForm = () => {
           </UButton>
 
           <UButton
-            class="cursor-pointer"
             :disabled="handling_request_2"
             :loading="handling_request_2"
             type="submit"
@@ -260,7 +257,6 @@ const resetPasswordForm = () => {
 
       <section v-if="!modifying_password">
         <UButton
-          class="cursor-pointer"
           @click="modifying_password = true"
         >
           {{ $t('t_change_password') }}
@@ -305,7 +301,6 @@ const resetPasswordForm = () => {
 
         <nav class="flex-ce-ce-gap-2">
           <UButton
-            class="cursor-pointer"
             :disabled="handling_request_2"
             variant="outline"
             @click="resetPasswordForm"
@@ -314,7 +309,6 @@ const resetPasswordForm = () => {
           </UButton>
 
           <UButton
-            class="cursor-pointer"
             :disabled="handling_request_2"
             :loading="handling_request_2"
             type="submit"

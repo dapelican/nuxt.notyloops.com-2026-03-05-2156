@@ -187,7 +187,6 @@ const submit_feedback = async (feedback) => {
           class="mt-8 flex flex-wrap justify-center gap-4"
         >
           <UButton
-            class="cursor-pointer"
             color="neutral"
             :loading="submitting_feedback"
             icon="i-lucide-thumbs-down"
@@ -198,7 +197,6 @@ const submit_feedback = async (feedback) => {
           </UButton>
 
           <UButton
-            class="cursor-pointer"
             :loading="submitting_feedback"
             icon="i-lucide-thumbs-up"
             @click="submit_feedback('positive')"
@@ -212,7 +210,6 @@ const submit_feedback = async (feedback) => {
           class="mt-8 flex flex-wrap justify-center gap-4"
         >
           <UButton
-            class="cursor-pointer"
             :loading="navigating_next"
             icon="i-lucide-chevron-right"
             @click="continue_to_next_note_or_end"
@@ -224,7 +221,6 @@ const submit_feedback = async (feedback) => {
 
       <nav class="mt-8 flex justify-center">
         <UButton
-          class="cursor-pointer"
           color="neutral"
           variant="outline"
           :to="'/review/collection/end'"
