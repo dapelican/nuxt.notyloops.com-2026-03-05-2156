@@ -103,7 +103,11 @@ handling_request.value = false;
       <div v-else>
         <h1>{{ collection?.title }}</h1>
 
-        <p>{{ collection?.description }}</p>
+        <section
+          v-if="collection?.description"
+          class="mt-4"
+          v-html="collection?.description"
+        />
 
         <hr class="separator-1">
 

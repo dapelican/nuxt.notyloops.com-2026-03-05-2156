@@ -137,7 +137,10 @@ const remove_tag = (tag) => {
           @keydown.enter.prevent="select_tag(tag)"
           @keydown.space.prevent="select_tag(tag)"
         >
-          <TagElement :label="tag.label" />
+          <TagElement
+            :label="tag.label"
+            selectable
+          />
         </span>
       </div>
     </section>

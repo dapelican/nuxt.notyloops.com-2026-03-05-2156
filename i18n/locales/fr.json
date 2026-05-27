@@ -198,7 +198,7 @@
   "t_private_collection": "Collection privée",
   "t_public_free_collection": "Collection publique gratuite",
   "t_public_paywalled_collection": "Collection publique payante",
-  "t_public_url": "URL publique",
+  "t_public_url_with_column": "URL publique : ",
   "t_random": "Au hasard",
   "t_remove": "Retirer",
   "t_remove_tags": "Retirer des tags",

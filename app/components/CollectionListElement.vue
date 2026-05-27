@@ -112,6 +112,7 @@ const user_can_review_notes = computed(() => {
     <UCard
       v-for="item in current_page_item_list"
       :key="item.id"
+      class="ring-accented divide-accented"
     >
       <template #header>
         <section class="header">
@@ -265,8 +266,9 @@ const user_can_review_notes = computed(() => {
         </section>
 
         <section v-if="item.type !== COLLECTION_TYPE_PRIVATE">
-          {{ $t('t_public_url') }}
+          {{ $t('t_public_url_with_column') }}
           <NuxtLink
+            class="text-primary"
             :to="`${config.public.domain}/pc/${item.id}`"
           >
             {{ `${config.public.domain}/pc/${item.id}` }}
@@ -281,6 +283,7 @@ const user_can_review_notes = computed(() => {
 .actions {
   align-items: center;
   display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
 }
 

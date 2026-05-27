@@ -35,6 +35,7 @@ const show_details = ref(false);
     <UCard
       v-for="item in current_page_item_list"
       :key="item.id"
+      class="ring-accented divide-accented"
     >
       <template #header>
         <UCheckbox

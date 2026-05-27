@@ -26,6 +26,7 @@ const isItemSelected = (item_id) => selected_item_id_set.value.has(item_id);
     <UCard
       v-for="item in current_page_item_list"
       :key="item.id"
+      class="ring-accented divide-accented"
     >
       <template #header>
         <section class="header">

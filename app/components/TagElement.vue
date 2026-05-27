@@ -12,6 +12,10 @@ defineProps({
     type: Boolean,
     default: false,
   },
+  selectable: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 defineEmits(['remove_tag']);
@@ -32,14 +36,22 @@ defineEmits(['remove_tag']);
     </span>
 
     <template
-      v-if="removable"
+      v-if="removable || selectable"
       #trailing
     >
       <UIcon
+        v-if="removable"
         class="cursor-pointer"
         color="neutral"
         name="i-lucide-x"
         @click.stop="$emit('remove_tag')"
+      />
+
+      <UIcon
+        v-if="selectable"
+        class="cursor-pointer"
+        color="neutral"
+        name="i-lucide-mouse-pointer"
       />
     </template>
   </UBadge>
