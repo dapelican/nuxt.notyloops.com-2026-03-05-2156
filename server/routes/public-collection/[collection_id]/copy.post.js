@@ -1,6 +1,11 @@
 'use strict';
 
 import {
+  COLLECTION_TYPE_PRIVATE,
+  COLLECTION_TYPE_PUBLIC_PAYWALLLED,
+} from '#shared/utils/constants.js';
+
+import {
   HTTP_CODE_200_OK,
   HTTP_CODE_400_BAD_REQUEST,
   HTTP_CODE_401_UNAUTHORIZED,
@@ -11,10 +16,6 @@ import {
   getRouterParam,
   setResponseStatus,
 } from 'h3';
-
-import {
-  COLLECTION_TYPE_PUBLIC_FREE,
-} from '#shared/utils/constants.js';
 
 import {
   executeSQLQuery,
@@ -83,6 +84,25 @@ export default defineEventHandler(async (event) => {
       };
     }
 
+    if (collection.type === COLLECTION_TYPE_PUBLIC_PAYWALLLED) {
+      const {
+        rows: payment_row_list,
+      } = await executeSQLQuery(
+        `SELECT 1 FROM payments
+        WHERE user_id = $1 AND collection_id = $2
+        LIMIT 1`,
+        [user.id, collection_id]
+      );
+
+      if (payment_row_list.length === 0) {
+        setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
+
+        return {
+          error_message: 'error_unauthorized_collection_feature',
+        };
+      }
+    }
+
     const {
       rows: user_note_list,
     } = await executeSQLQuery(
@@ -114,53 +134,52 @@ export default defineEventHandler(async (event) => {
       };
     }
 
-    if (collection.type === COLLECTION_TYPE_PUBLIC_FREE) {
-      let public_collection_copy_id = null;
+    let public_collection_copy_id = null;
 
-      try {
-        const {
-          rows: public_collection_copy_list,
-        } = await executeSQLQuery(
-          `INSERT INTO public_collection_copies (
+    try {
+      const {
+        rows: public_collection_copy_list,
+      } = await executeSQLQuery(
+        `INSERT INTO public_collection_copies (
           collection_id,
           source_user_id,
           destination_user_id,
           status
         ) VALUES ($1, $2, $3, $4) RETURNING id`,
-          [collection_id, user.id, user.id, 'pending']
+        [collection_id, user.id, user.id, 'pending']
+      );
+
+      public_collection_copy_id = public_collection_copy_list.at(0)?.id;
+
+      const tag_label = collection.id;
+      const lowercase_label = collection.id.toLowerCase();
+
+      const {
+        rows: existing_tag_list,
+      } = await executeSQLQuery(
+        'SELECT id FROM tags WHERE user_id = $1 AND lowercase_label = $2',
+        [user.id, lowercase_label]
+      );
+
+      let tag_id;
+
+      if (existing_tag_list.length > 0) {
+        tag_id = existing_tag_list.at(0)?.id;
+      } else {
+        const {
+          rows: tag_list,
+        } = await executeSQLQuery(
+          'INSERT INTO tags (user_id, label, lowercase_label) VALUES ($1, $2, $3) RETURNING id',
+          [user.id, tag_label, lowercase_label]
         );
 
-        public_collection_copy_id = public_collection_copy_list.at(0)?.id;
+        tag_id = tag_list.at(0)?.id;
+      }
 
-        const tag_label = collection.id;
-        const lowercase_label = collection.id.toLowerCase();
-
-        const {
-          rows: existing_tag_list,
-        } = await executeSQLQuery(
-          'SELECT id FROM tags WHERE user_id = $1 AND lowercase_label = $2',
-          [user.id, lowercase_label]
-        );
-
-        let tag_id;
-
-        if (existing_tag_list.length > 0) {
-          tag_id = existing_tag_list.at(0)?.id;
-        } else {
-          const {
-            rows: tag_list,
-          } = await executeSQLQuery(
-            'INSERT INTO tags (user_id, label, lowercase_label) VALUES ($1, $2, $3) RETURNING id',
-            [user.id, tag_label, lowercase_label]
-          );
-
-          tag_id = tag_list.at(0)?.id;
-        }
-
-        const {
-          rows: new_note_list,
-        } = await executeSQLQuery(
-          `WITH new_notes AS (
+      const {
+        rows: new_note_list,
+      } = await executeSQLQuery(
+        `WITH new_notes AS (
             INSERT INTO notes (user_id, title, swappable_sides, source_note_id, source_collection_id)
             SELECT $1, title, swappable_sides, id, $2
             FROM notes
@@ -193,35 +212,34 @@ export default defineEventHandler(async (event) => {
             JOIN new_notes nn ON nd.note_id = nn.source_note_id
           )
           SELECT id FROM new_notes`,
-          [user.id, collection_id, note_to_copy_id_list]
-        );
+        [user.id, collection_id, note_to_copy_id_list]
+      );
 
-        const new_note_id_list = new_note_list.map((note) => note.id);
+      const new_note_id_list = new_note_list.map((note) => note.id);
 
-        await executeSQLQuery(
-          'INSERT INTO note_tags (user_id, note_id, tag_id) SELECT $1, UNNEST($2::uuid[]), $3',
-          [user.id, new_note_id_list, tag_id]
-        );
+      await executeSQLQuery(
+        'INSERT INTO note_tags (user_id, note_id, tag_id) SELECT $1, UNNEST($2::uuid[]), $3',
+        [user.id, new_note_id_list, tag_id]
+      );
 
-        await executeSQLQuery(
-          'UPDATE public_collection_copies SET status = $1 WHERE id = $2',
-          ['success', public_collection_copy_list.at(0)?.id]
-        );
+      await executeSQLQuery(
+        'UPDATE public_collection_copies SET status = $1 WHERE id = $2',
+        ['success', public_collection_copy_list.at(0)?.id]
+      );
 
-        setResponseStatus(event, HTTP_CODE_200_OK);
+      setResponseStatus(event, HTTP_CODE_200_OK);
 
-        return {
-          success: true,
-          message: 'Notes copied successfully',
-        };
-      } catch (error) {
-        await executeSQLQuery(
-          'UPDATE public_collection_copies SET status = $1 WHERE id = $2',
-          ['failure', public_collection_copy_id]
-        );
+      return {
+        success: true,
+        message: 'Notes copied successfully',
+      };
+    } catch (error) {
+      await executeSQLQuery(
+        'UPDATE public_collection_copies SET status = $1 WHERE id = $2',
+        ['failure', public_collection_copy_id]
+      );
 
-        throw error;
-      }
+      throw error;
     }
   } catch (error) {
     /* c8 ignore next */

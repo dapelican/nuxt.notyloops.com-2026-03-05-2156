@@ -4,6 +4,7 @@ import {
   HTTP_CODE_201_CREATED,
   HTTP_CODE_400_BAD_REQUEST,
   HTTP_CODE_401_UNAUTHORIZED,
+  HTTP_CODE_403_FORBIDDEN,
 } from '../../helpers/http-status-codes.js';
 
 import {
@@ -11,6 +12,10 @@ import {
   readBody,
   setResponseStatus,
 } from 'h3';
+
+import {
+  FREEMIUM_NOTE_LIMIT,
+} from '#shared/utils/constants.js';
 
 import {
   executeSQLQuery,
@@ -38,6 +43,23 @@ export default defineEventHandler(async (event) => {
       return {
         error_message: 'error_unauthorized',
       };
+    }
+
+    if (user.status === USER_STATUS_FREE) {
+      const { rows: note_count_rows } = await executeSQLQuery(
+        'SELECT COUNT(*)::int AS count FROM notes WHERE user_id = $1 AND deleted_at IS NULL',
+        [user.id]
+      );
+
+      const total_user_note_count = note_count_rows.at(0).count;
+
+      if (total_user_note_count >= FREEMIUM_NOTE_LIMIT) {
+        setResponseStatus(event, HTTP_CODE_403_FORBIDDEN);
+
+        return {
+          error_message: 'error_unauthorized_note_feature',
+        };
+      }
     }
 
     const {

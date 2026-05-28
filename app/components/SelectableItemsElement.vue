@@ -4,6 +4,10 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  total_user_note_count: {
+    type: Number,
+    default: undefined,
+  },
 });
 
 const {
@@ -136,6 +140,7 @@ const selectAllPages = () => {
     <CollectionListElement
       v-if="props.item_type === ITEM_TYPE_COLLECTION"
       :item_list="current_page_item_list"
+      :total_user_note_count="total_user_note_count"
       @toggle_item_selection="handleCheckboxClick"
     />
 

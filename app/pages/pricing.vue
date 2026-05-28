@@ -11,9 +11,9 @@ const premium_price = computed(() => {
   const price = PREMIUM_ACCESS_PRE_TAX_AMOUNT_IN_CENTS / 100;
 
   if (locale.value === 'fr') {
-    return `${price} € (HT)`;
+    return `${price} €`;
   }
-  return `$${price}`;
+  return `$ ${price}`;
 });
 </script>
 
@@ -39,14 +39,14 @@ const premium_price = computed(() => {
                 name="i-lucide-circle-x"
                 class="size-5 shrink-0 text-error"
               />
-              <span>{{ $t('t_free_plan_1') }}</span>
+              <span>{{ $t('t_free_plan_1', { note_count: FREEMIUM_NOTE_LIMIT }) }}</span>
             </li>
             <li class="flex items-center gap-2">
               <UIcon
                 name="i-lucide-circle-x"
                 class="size-5 shrink-0 text-error"
               />
-              <span>{{ $t('t_free_plan_2') }}</span>
+              <span>{{ $t('t_free_plan_2', { note_count: FREEMIUM_NOTE_LIMIT }) }}</span>
             </li>
             <li class="flex items-center gap-2">
               <UIcon

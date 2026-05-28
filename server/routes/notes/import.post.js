@@ -144,7 +144,7 @@ export default defineEventHandler(async (event) => {
       setResponseStatus(event, HTTP_CODE_403_FORBIDDEN);
 
       return {
-        error_message: 't_error_premium_feature_required',
+        error_message: 'error_unauthorized_note_feature',
       };
     }
 

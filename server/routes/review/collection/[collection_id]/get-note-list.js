@@ -1,17 +1,20 @@
 'use strict';
 
 import {
-  HTTP_CODE_200_OK,
-  HTTP_CODE_400_BAD_REQUEST,
-  HTTP_CODE_401_UNAUTHORIZED,
-} from '../../../../helpers/http-status-codes.js';
-
-import {
+  FREEMIUM_NOTE_LIMIT,
   REVIEW_STRATEGY_DIARY,
   REVIEW_STRATEGY_LIST,
   REVIEW_STRATEGY_SPACED_REPETITION,
   REVIEW_STRATEGY_SUPER_RANDOM,
+  USER_STATUS_FREE,
 } from '#shared/utils/constants.js';
+
+import {
+  HTTP_CODE_200_OK,
+  HTTP_CODE_400_BAD_REQUEST,
+  HTTP_CODE_401_UNAUTHORIZED,
+  HTTP_CODE_403_FORBIDDEN,
+} from '../../../../helpers/http-status-codes.js';
 
 import {
   defineEventHandler,
@@ -132,6 +135,23 @@ export default defineEventHandler(async (event) => {
       return {
         error_message: 'error_no_item_found_for_user',
       };
+    }
+
+    if (user.status === USER_STATUS_FREE) {
+      const { rows: note_count_rows } = await executeSQLQuery(
+        'SELECT COUNT(*)::int AS count FROM notes WHERE user_id = $1 AND deleted_at IS NULL',
+        [user.id]
+      );
+
+      const total_user_note_count = note_count_rows.at(0).count;
+
+      if (total_user_note_count >= FREEMIUM_NOTE_LIMIT) {
+        setResponseStatus(event, HTTP_CODE_403_FORBIDDEN);
+
+        return {
+          error_message: 'error_unauthorized_collection_feature',
+        };
+      }
     }
 
     const note_id_list = await selectNoteIdListOnTagCriteria(user.id, collection);

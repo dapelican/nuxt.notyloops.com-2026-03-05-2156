@@ -1,13 +1,16 @@
 <script setup>
+const props = defineProps({
+  total_user_note_count: {
+    type: Number,
+    required: true,
+  },
+});
+
 const {
   all_user_tag_list,
   current_page_item_list,
   selected_item_id_set,
 } = useSearchAndSelectItemsOrInject(ITEM_TYPE_COLLECTION);
-
-const {
-  total_user_note_count,
-} = useSearchAndSelectItemsOrInject(ITEM_TYPE_NOTE);
 
 const route = useRoute();
 
@@ -95,7 +98,7 @@ const user_is_premium_or_admin = computed(() => {
 });
 
 const user_can_review_notes = computed(() => {
-  return user_is_premium_or_admin.value || total_user_note_count.value < FREEMIUM_NOTE_LIMIT;
+  return user_is_premium_or_admin.value || props.total_user_note_count < FREEMIUM_NOTE_LIMIT;
 });
 </script>
 

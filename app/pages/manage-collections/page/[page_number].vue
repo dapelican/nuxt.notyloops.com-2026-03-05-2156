@@ -20,18 +20,14 @@ if (user_error.value) {
 
 const total_user_note_count = ref(0);
 
-const {
-  data: note_count_data,
-  error: note_count_error,
-} = await useFetch('/notes/count-user-notes', { key: 'notes-manage-count' });
-
-if (note_count_error.value) {
-  handleFrontendError(null, note_count_error.value.data?.error_message);
-}
-
-if (note_count_data.value) {
-  total_user_note_count.value = note_count_data.value.total_user_note_count;
-}
+const load_note_count = async () => {
+  try {
+    const response = await $fetch('/notes/count-user-notes');
+    total_user_note_count.value = response.total_user_note_count;
+  } catch (error) {
+    handleFrontendError(error, error?.data?.error_message);
+  }
+};
 
 const total_user_collection_count = ref(0);
 
@@ -240,14 +236,14 @@ const handleActionBarClick = (target_key) => {
 
 const sort_option_list = [
   {
-    id: 'label:asc',
-    label: t('t_label_a_to_z'),
-    value: 'label:asc',
+    id: 'title:asc',
+    label: t('t_title_a_to_z'),
+    value: 'title:asc',
   },
   {
-    id: 'label:desc',
-    label: t('t_label_z_to_a'),
-    value: 'label:desc',
+    id: 'title:desc',
+    label: t('t_title_z_to_a'),
+    value: 'title:desc',
   },
   {
     id: 'created_at:desc',
@@ -298,6 +294,7 @@ const onClearingInput = () => {
 };
 
 onMounted(() => {
+  load_note_count();
   load_spaced_repetition_due_notes();
   load_diary_due_notes();
   searchItems();
@@ -316,7 +313,7 @@ onUnmounted(() => {
 
     <div v-else>
       <UContainer class="centered-max-width-1200">
-        <header class="center">
+        <header class="center mb-8">
           <h1>{{ $t('t_manage_collections') }}</h1>
 
           <hr class="separator-1">
@@ -334,7 +331,7 @@ onUnmounted(() => {
             v-if="spaced_repetition_due_note_count > 0
               || next_due_date
               || diary_due_note_count > 0"
-            class="space-y-8 mt-8 mb-8"
+            class="space-y-8 mb-8"
           >
             <UAlert
               v-if="spaced_repetition_due_note_count > 0"
@@ -386,11 +383,6 @@ onUnmounted(() => {
                 </div>
               </template>
             </UAlert>
-            <!--
-            <hr
-              v-if="spaced_repetition_due_note_count > 0 && next_due_date"
-              class="separator-2"
-            > -->
 
             <UAlert
               v-if="next_due_date"
@@ -415,11 +407,6 @@ onUnmounted(() => {
                 </section>
               </template>
             </UAlert>
-
-            <!-- <hr
-              v-if="next_due_date && diary_due_note_count > 0"
-              class="separator-2"
-            > -->
 
             <UAlert
               v-if="diary_due_note_count > 0"
@@ -547,6 +534,7 @@ onUnmounted(() => {
       <SelectableItemsElement
         v-if="total_user_collection_count > 0"
         :item_type="ITEM_TYPE_COLLECTION"
+        :total_user_note_count="total_user_note_count"
       />
     </div>
   </section>
