@@ -38,7 +38,7 @@ const tag_form_state = reactive({
 
 const tag_form_schema = z.object({
   label: z
-    .string({ invalid_type_error: t('t_schema_error_empty_string') })
+    .string(t('t_schema_error_empty_string'))
     .min(1, t('t_schema_error_empty_string')),
 });
 

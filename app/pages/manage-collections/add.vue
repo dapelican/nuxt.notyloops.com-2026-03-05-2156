@@ -56,7 +56,7 @@ const collection_form_state = reactive({
 
 const collection_form_schema = z.object({
   title: z
-    .string({ invalid_type_error: t('t_schema_error_empty_string') })
+    .string(t('t_schema_error_empty_string'))
     .min(1, t('t_schema_error_empty_string')),
 });
 

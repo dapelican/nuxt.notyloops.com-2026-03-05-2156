@@ -32,6 +32,7 @@ import {
 
 import {
   COLLECTION_TYPE_PUBLIC_PAYWALLLED,
+  EUR_TO_USD_EXCHANGE_RATE,
   PREMIUM_ACCESS_PRE_TAX_AMOUNT_IN_CENTS,
 } from '#shared/utils/constants.js';
 
@@ -69,7 +70,9 @@ export default defineEventHandler(async (event) => {
       };
     }
 
-    const body_parse_result = request_body_schema.safeParse(await readBody(event));
+    const body = await readBody(event);
+
+    const body_parse_result = request_body_schema.safeParse(body);
 
     if (!body_parse_result.success) {
       setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
@@ -129,7 +132,9 @@ export default defineEventHandler(async (event) => {
       session_metadata = {
         payment_type: PREMIUM_PAYMENT_TYPE,
       };
-      unit_amount_in_cents = PREMIUM_ACCESS_PRE_TAX_AMOUNT_IN_CENTS;
+      unit_amount_in_cents = (locale === 'fr')
+        ? PREMIUM_ACCESS_PRE_TAX_AMOUNT_IN_CENTS
+        : Math.ceil(PREMIUM_ACCESS_PRE_TAX_AMOUNT_IN_CENTS * EUR_TO_USD_EXCHANGE_RATE);
     } else {
       const {
         rows: collection_list,
@@ -190,11 +195,16 @@ export default defineEventHandler(async (event) => {
         collection_id,
         payment_type: COLLECTION_PAYMENT_TYPE,
       };
-      unit_amount_in_cents = collection.pre_tax_price_in_cents;
+      unit_amount_in_cents = (locale === 'fr')
+        ? collection.pre_tax_price_in_cents
+        : Math.ceil(collection.pre_tax_price_in_cents * EUR_TO_USD_EXCHANGE_RATE);
     }
 
     const checkout_result = await createStripeCheckout({
       client_reference_id: authenticated_user.id,
+      currency: (locale === 'fr')
+        ? 'eur'
+        : 'usd',
       customer_email: user.email,
       locale,
       product_name,

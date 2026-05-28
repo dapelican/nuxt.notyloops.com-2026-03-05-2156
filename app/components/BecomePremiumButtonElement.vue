@@ -1,5 +1,10 @@
 <script setup>
-defineProps({
+import {
+  EUR_TO_USD_EXCHANGE_RATE,
+  PREMIUM_ACCESS_PRE_TAX_AMOUNT_IN_CENTS,
+} from '#shared/utils/constants.js';
+
+const props = defineProps({
   extend_premium: {
     type: Boolean,
     default: false,
@@ -42,13 +47,29 @@ const goToStripeCheckout = async () => {
     handling_request.value = false;
   }
 };
+
+const text = computed(() => {
+  const eur_price = PREMIUM_ACCESS_PRE_TAX_AMOUNT_IN_CENTS / 100;
+
+  let price = '';
+
+  if (locale.value === 'fr') {
+    price = `${eur_price} €`;
+  } else {
+    price = `$ ${Math.ceil(eur_price * EUR_TO_USD_EXCHANGE_RATE)}`;
+  }
+
+  return props.extend_premium
+    ? `${$t('t_extend_premium')} (${price})`
+    : `${$t('t_become_premium')} (${price})`;
+});
 </script>
 
 <template>
   <!-- BecomePremiumElement.vue -->
   <UButton
     color="primary"
-    :label="extend_premium ? $t('t_extend_premium') : $t('t_become_premium')"
+    :label="text"
     :loading="handling_request"
     variant="solid"
     @click="goToStripeCheckout"

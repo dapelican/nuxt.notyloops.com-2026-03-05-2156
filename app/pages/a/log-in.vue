@@ -26,7 +26,7 @@ const form_fields = ref([
 
 const form_schema = z.object({
   email: z.email(t('t_schema_error_invalid_email_address')),
-  password: z.string({ invalid_type_error: t('t_schema_error_empty_string') })
+  password: z.string(t('t_schema_error_empty_string'))
     .min(1, t('t_schema_error_empty_string')),
 });
 

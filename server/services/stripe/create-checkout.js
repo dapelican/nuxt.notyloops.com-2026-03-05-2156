@@ -4,6 +4,7 @@ import Stripe from 'stripe';
 
 const createStripeCheckout = async ({
   client_reference_id,
+  currency = 'eur',
   customer_email,
   locale,
   product_name,
@@ -23,7 +24,7 @@ const createStripeCheckout = async ({
     line_items: [
       {
         price_data: {
-          currency: 'eur',
+          currency,
           product_data: {
             name: product_name,
             tax_code: 'txcd_10103000',

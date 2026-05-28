@@ -108,11 +108,11 @@ const password_form_state = reactive({
 
 const password_form_schema = z
   .object({
-    current_password: z.string({ invalid_type_error: t('t_schema_error_empty_string') })
+    current_password: z.string(t('t_schema_error_empty_string'))
       .min(1, t('t_schema_error_empty_string')),
-    new_password_1: z.string({ invalid_type_error: t('t_schema_error_empty_string') })
+    new_password_1: z.string(t('t_schema_error_empty_string'))
       .min(1, t('t_schema_error_empty_string')),
-    new_password_2: z.string({ invalid_type_error: t('t_schema_error_empty_string') })
+    new_password_2: z.string(t('t_schema_error_empty_string'))
       .min(1, t('t_schema_error_empty_string')),
   })
   .refine((data) => data.new_password_1 === data.new_password_2, {
@@ -327,7 +327,7 @@ const resetPasswordForm = () => {
       <section
         v-if="[USER_STATUS_FREE, USER_STATUS_PENDING].includes(user_data.status)"
       >
-        <p>
+        <p class="mb-4">
           {{ $t('t_free_account') }}
         </p>
 

@@ -1,4 +1,8 @@
 <script setup>
+import {
+  EUR_TO_USD_EXCHANGE_RATE,
+} from '#shared/utils/constants.js';
+
 const { collection_id } = useRoute().params;
 
 const { locale } = useI18n();
@@ -92,6 +96,16 @@ if (collection.value?.type === COLLECTION_TYPE_PUBLIC_PAYWALLLED && logged_in.va
 }
 
 handling_request.value = false;
+
+const collection_price = computed(() => {
+  const price = collection.value?.pre_tax_price_in_cents / 100;
+
+  if (locale.value === 'fr') {
+    return `${price} €`;
+  }
+
+  return `$ ${Math.ceil(price * EUR_TO_USD_EXCHANGE_RATE)}`;
+});
 </script>
 
 <template>
@@ -179,7 +193,7 @@ handling_request.value = false;
           :loading="handling_checkout_request"
           @click="goToStripeCheckout"
         >
-          <span>{{ $t('t_buy_collection') }} - {{ collection?.pre_tax_price_in_cents }} €</span>
+          <span>{{ $t('t_buy_collection') }} - {{ collection_price }}</span>
         </UButton>
 
         <CopyCollectionPopup

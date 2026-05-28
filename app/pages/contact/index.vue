@@ -20,10 +20,10 @@ const contact_form_state = reactive({
 const contact_form_schema = z.object({
   email: z.email(t('t_schema_error_invalid_email_address')),
   first_name: z
-    .string({ invalid_type_error: t('t_schema_error_empty_string') })
+    .string(t('t_schema_error_empty_string'))
     .min(1, t('t_schema_error_empty_string')),
   message: z
-    .string({ invalid_type_error: t('t_schema_error_empty_string') })
+    .string(t('t_schema_error_empty_string'))
     .min(1, t('t_schema_error_empty_string')),
 });
 
