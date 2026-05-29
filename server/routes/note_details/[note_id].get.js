@@ -1,8 +1,9 @@
 'use strict';
 
 import {
-  NOTE_TYPE_FLASHCARD,
   FREEMIUM_NOTE_LIMIT,
+  NOTE_FORMAT_FLASHCARD,
+  USER_STATUS_FREE,
 } from '#shared/utils/constants.js';
 
 import {
@@ -103,14 +104,20 @@ export default defineEventHandler(async (event) => {
       [note_id]
     );
 
-    const grouped = buildGroupedNoteDetailList(note.type, note_detail_list);
+    const grouped = buildGroupedNoteDetailList(note.format, note_detail_list);
 
-    if (note.type === NOTE_TYPE_FLASHCARD && note.swappable_sides) {
+    if (note.format === NOTE_FORMAT_FLASHCARD && note.swappable_sides) {
+      const shuffled_group = shuffleArray(grouped)
+        .map((group, index) => ({
+          ...group,
+          content_position: index + 1,
+        }));
+
       setResponseStatus(event, HTTP_CODE_200_OK);
 
       return {
-        note_detail_list: shuffleArray(grouped),
-        note_type: note.type,
+        note_detail_list: shuffled_group,
+        note_format: note.format,
       };
     }
 
@@ -118,7 +125,7 @@ export default defineEventHandler(async (event) => {
 
     return {
       note_detail_list: grouped,
-      note_type: note.type,
+      note_format: note.format,
     };
   } catch (error) {
     /* c8 ignore next */

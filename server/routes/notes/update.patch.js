@@ -43,9 +43,10 @@ export default defineEventHandler(async (event) => {
     const {
       note_details,
       note_id,
+      swappable_sides,
       tag_id_list,
       title,
-      type,
+      format,
     } = await readBody(event);
 
     if (!note_id || !title) {
@@ -73,8 +74,8 @@ export default defineEventHandler(async (event) => {
     }
 
     await executeSQLQuery(
-      'UPDATE notes SET title = $1, type = $2 WHERE id = $3',
-      [title, type, note_id]
+      'UPDATE notes SET title = $1, format = $2, swappable_sides = $3 WHERE id = $4',
+      [title, format, swappable_sides ?? null, note_id]
     );
 
     await executeSQLQuery(

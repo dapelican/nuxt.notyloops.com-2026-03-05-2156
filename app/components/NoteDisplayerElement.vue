@@ -1,8 +1,8 @@
 <script setup>
 import {
-  NOTE_TYPE_FLASHCARD,
-  NOTE_TYPE_FREE,
-  NOTE_TYPE_MC,
+  NOTE_FORMAT_FLASHCARD,
+  NOTE_FORMAT_FREE,
+  NOTE_FORMAT_MC,
 } from '#shared/utils/constants.js';
 
 import {
@@ -18,10 +18,10 @@ const props = defineProps({
     type: Array,
     default: () => [],
   },
-  note_type: {
+  note_format: {
     type: String,
-    default: NOTE_TYPE_FREE,
-    validator: (value) => [NOTE_TYPE_FLASHCARD, NOTE_TYPE_FREE, NOTE_TYPE_MC].includes(value),
+    default: NOTE_FORMAT_FREE,
+    validator: (value) => [NOTE_FORMAT_FLASHCARD, NOTE_FORMAT_FREE, NOTE_FORMAT_MC].includes(value),
   },
   title: {
     type: String,
@@ -114,7 +114,7 @@ const reset_interaction_state = () => {
 
   const next_checkbox = {};
 
-  if (props.note_type === NOTE_TYPE_MC) {
+  if (props.note_format === NOTE_FORMAT_MC) {
     for (const detail of mc_proposition_details.value) {
       next_checkbox[detail.id] = false;
     }
@@ -124,7 +124,7 @@ const reset_interaction_state = () => {
 };
 
 watch(
-  () => [props.note_detail_list, props.note_type],
+  () => [props.note_detail_list, props.note_format],
   () => {
     nextTick(reset_interaction_state);
   },
@@ -200,7 +200,7 @@ const vNoteExternalLinks = {
 <template>
   <!-- app/components/NoteDisplayerElement.vue -->
   <section class="note-displayer">
-    <template v-if="note_type === NOTE_TYPE_FREE">
+    <template v-if="note_format === NOTE_FORMAT_FREE">
       <div
         v-for="(detail, detail_idx) in ordered_detail_list"
         :key="detail.id ?? `free-${detail_idx}`"
@@ -237,7 +237,7 @@ const vNoteExternalLinks = {
       </div>
     </template>
 
-    <template v-else-if="note_type === NOTE_TYPE_FLASHCARD">
+    <template v-else-if="note_format === NOTE_FORMAT_FLASHCARD">
       <div
         v-for="(detail, detail_idx) in flashcard_front_details"
         :key="detail.id ?? `flashcard-front-${detail_idx}`"
@@ -324,7 +324,7 @@ const vNoteExternalLinks = {
       </div>
     </template>
 
-    <template v-else-if="note_type === NOTE_TYPE_MC">
+    <template v-else-if="note_format === NOTE_FORMAT_MC">
       <div
         v-for="(detail, detail_idx) in mc_question_details"
         :key="detail.id ?? `mc-question-${detail_idx}`"

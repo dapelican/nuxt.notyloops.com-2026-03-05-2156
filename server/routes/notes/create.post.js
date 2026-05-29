@@ -64,9 +64,10 @@ export default defineEventHandler(async (event) => {
 
     const {
       note_details,
+      swappable_sides,
       tag_id_list,
       title,
-      type,
+      format,
     } = await readBody(event);
 
     if (!title) {
@@ -75,8 +76,8 @@ export default defineEventHandler(async (event) => {
     }
 
     const { rows: new_note_list } = await executeSQLQuery(
-      'INSERT INTO notes (user_id, title, type) VALUES ($1, $2, $3) RETURNING id',
-      [user.id, title, type]
+      'INSERT INTO notes (user_id, title, format, swappable_sides) VALUES ($1, $2, $3, $4) RETURNING id',
+      [user.id, title, format, swappable_sides ?? null]
     );
 
     const note_id = new_note_list.at(0).id;

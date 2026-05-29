@@ -3,7 +3,7 @@
 import {
   COLLECTION_TYPE_PRIVATE,
   COLLECTION_TYPE_PUBLIC_PAYWALLLED,
-  NOTE_TYPE_FLASHCARD,
+  NOTE_FORMAT_FLASHCARD,
 } from '#shared/utils/constants.js';
 
 import {
@@ -134,14 +134,14 @@ export default defineEventHandler(async (event) => {
       [note_id]
     );
 
-    const grouped = buildGroupedNoteDetailList(note.type, note_detail_list);
+    const grouped = buildGroupedNoteDetailList(note.format, note_detail_list);
 
-    if (note.type === NOTE_TYPE_FLASHCARD && note.swappable_sides) {
+    if (note.format === NOTE_FORMAT_FLASHCARD && note.swappable_sides) {
       setResponseStatus(event, HTTP_CODE_200_OK);
 
       return {
         note_detail_list: shuffleArray(grouped),
-        note_type: note.type,
+        note_format: note.format,
       };
     }
 
@@ -149,7 +149,7 @@ export default defineEventHandler(async (event) => {
 
     return {
       note_detail_list: grouped,
-      note_type: note.type,
+      note_format: note.format,
     };
   } catch (error) {
     /* c8 ignore next */

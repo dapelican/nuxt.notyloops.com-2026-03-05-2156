@@ -44,22 +44,34 @@ const user_is_premium_or_admin = computed(() => {
   return s === USER_STATUS_PREMIUM || s === USER_STATUS_ADMIN;
 });
 
-const note_type_list = [
+const note_format_list = [
   {
     label: t('t_flashcard'),
-    value: NOTE_TYPE_FLASHCARD,
+    value: NOTE_FORMAT_FLASHCARD,
   },
   {
     label: t('t_free'),
-    value: NOTE_TYPE_FREE,
+    value: NOTE_FORMAT_FREE,
   },
   {
     label: t('t_mc'),
-    value: NOTE_TYPE_MC,
+    value: NOTE_FORMAT_MC,
   },
 ];
 
-const note_type = ref(NOTE_TYPE_FLASHCARD);
+const note_format = ref(NOTE_FORMAT_FLASHCARD);
+const swappable_sides = ref(false);
+
+const swappable_sides_list = [
+  {
+    label: t('t_no'),
+    value: false,
+  },
+  {
+    label: t('t_yes'),
+    value: true,
+  },
+];
 
 const checkbox_ui = {
   root: 'cursor-pointer',
@@ -92,7 +104,7 @@ const createEmptyDetail = (file_info = null) => {
 
   return {
     ...base,
-    part_1: index === 0 && note_type.value === NOTE_TYPE_FLASHCARD,
+    part_1: index === 0 && note_format.value === NOTE_FORMAT_FLASHCARD,
     mc_part: index === 0 ? 1 : (note_details.value[index - 1]?.mc_part ?? 1),
     is_correct: false,
   };
@@ -111,7 +123,7 @@ const moveBlock = (index, direction) => {
   const items = note_details.value;
   [items[index], items[target]] = [items[target], items[index]];
 
-  if (note_type.value === NOTE_TYPE_FLASHCARD) {
+  if (note_format.value === NOTE_FORMAT_FLASHCARD) {
     note_details.value[0].part_1 = true;
 
     for (let next_index = 1; next_index < note_details.value.length; next_index += 1) {
@@ -121,7 +133,7 @@ const moveBlock = (index, direction) => {
     }
   }
 
-  if (note_type.value === NOTE_TYPE_MC) {
+  if (note_format.value === NOTE_FORMAT_MC) {
     note_details.value[0].mc_part = 1;
     reconcileMcPartsFrom(1);
   }
@@ -134,7 +146,7 @@ const deleteBlock = (index) => {
     return;
   }
 
-  if (note_type.value === NOTE_TYPE_FLASHCARD) {
+  if (note_format.value === NOTE_FORMAT_FLASHCARD) {
     note_details.value[0].part_1 = true;
 
     for (let next_index = 1; next_index < note_details.value.length; next_index += 1) {
@@ -144,7 +156,7 @@ const deleteBlock = (index) => {
     }
   }
 
-  if (note_type.value === NOTE_TYPE_MC) {
+  if (note_format.value === NOTE_FORMAT_MC) {
     note_details.value[0].mc_part = 1;
     reconcileMcPartsFrom(1);
   }
@@ -211,7 +223,7 @@ const setMcPart = (index, part) => {
 const computed_details = computed(() => {
   const details = note_details.value;
 
-  if (note_type.value === NOTE_TYPE_FREE) {
+  if (note_format.value === NOTE_FORMAT_FREE) {
     return details.map((detail, index) => {
       const position = index + 1;
 
@@ -224,7 +236,7 @@ const computed_details = computed(() => {
     });
   }
 
-  if (note_type.value === NOTE_TYPE_FLASHCARD) {
+  if (note_format.value === NOTE_FORMAT_FLASHCARD) {
     let part_1_count = 0;
     let part_2_count = 0;
 
@@ -279,24 +291,27 @@ const computed_details = computed(() => {
       sub_position: sub_counters[mc_part],
       display_label: `${mc_part}-${sub_counters[mc_part]}`,
       available_mc_parts,
+      mc_parts_before_is_correct: available_mc_parts.filter((part) => part < 2),
+      show_mc_part_2_checkbox: available_mc_parts.includes(2),
+      mc_parts_after_is_correct: available_mc_parts.filter((part) => part > 2),
       mc_part_disabled: index === 0,
       show_is_correct: mc_part === 2,
     };
   });
 });
 
-watch(note_type, () => {
+watch(note_format, () => {
   note_details.value.forEach((detail, index) => {
-    if (note_type.value === NOTE_TYPE_FLASHCARD) {
+    if (note_format.value === NOTE_FORMAT_FLASHCARD) {
       detail.part_1 = index === 0;
     }
 
-    if (note_type.value === NOTE_TYPE_MC) {
+    if (note_format.value === NOTE_FORMAT_MC) {
       detail.mc_part = index === 0 ? 1 : (note_details.value[index - 1]?.mc_part ?? 1);
     }
   });
 
-  if (note_type.value === NOTE_TYPE_MC) {
+  if (note_format.value === NOTE_FORMAT_MC) {
     reconcileMcPartsFrom(1);
   }
 });
@@ -313,16 +328,17 @@ const createNote = async () => {
       method: 'POST',
       body: {
         title: title.value,
-        type: note_type.value,
+        format: note_format.value,
         note_details: computed_details.value.map((d) => ({
           content_position: d.content_position,
           content_sub_position: d.sub_position,
           content_type: d.content_type,
           markdown_content: d.markdown_content,
           file_url: d.file_url,
-          is_correct: note_type.value === NOTE_TYPE_MC ? d.is_correct : false,
+          is_correct: note_format.value === NOTE_FORMAT_MC ? d.is_correct : false,
         })),
         tag_id_list: selected_tag_id_list.value,
+        swappable_sides: note_format.value === NOTE_FORMAT_FLASHCARD ? swappable_sides.value : null,
       },
     });
 
@@ -345,12 +361,12 @@ const createNote = async () => {
 
     <form @submit.prevent="createNote">
       <h2>
-        {{ $t('t_note_type') }} *
+        {{ $t('t_note_format') }} *
       </h2>
 
       <URadioGroup
-        v-model="note_type"
-        :items="note_type_list"
+        v-model="note_format"
+        :items="note_format_list"
         orientation="horizontal"
         required
       />
@@ -418,7 +434,7 @@ const createNote = async () => {
         <div class="checkboxes-with-trash">
           <div>
             <UCheckbox
-              v-if="note_type === NOTE_TYPE_FLASHCARD && detail.show_part_1_checkbox"
+              v-if="note_format === NOTE_FORMAT_FLASHCARD && detail.show_part_1_checkbox"
               :model-value="detail.part_1"
               :disabled="detail.part_1_disabled"
               :label="$t('t_part_1')"
@@ -426,9 +442,9 @@ const createNote = async () => {
               @update:model-value="(checked) => toggleFlashcardPart1(index, checked)"
             />
 
-            <template v-if="note_type === NOTE_TYPE_MC">
+            <template v-if="note_format === NOTE_FORMAT_MC">
               <UCheckbox
-                v-for="part in detail.available_mc_parts"
+                v-for="part in detail.mc_parts_before_is_correct"
                 :key="part"
                 :model-value="detail.mc_part === part"
                 :disabled="detail.mc_part_disabled"
@@ -438,10 +454,29 @@ const createNote = async () => {
               />
 
               <UCheckbox
+                v-if="detail.show_mc_part_2_checkbox"
+                :model-value="detail.mc_part === 2"
+                :disabled="detail.mc_part_disabled"
+                :label="$t('t_part_2')"
+                :ui="detail.mc_part_disabled ? disabled_checkbox_ui : checkbox_ui"
+                @update:model-value="(checked) => checked && setMcPart(index, 2)"
+              />
+
+              <UCheckbox
                 v-if="detail.show_is_correct"
                 v-model="note_details[index].is_correct"
                 :label="$t('t_correct_proposition')"
                 :ui="checkbox_ui"
+              />
+
+              <UCheckbox
+                v-for="part in detail.mc_parts_after_is_correct"
+                :key="part"
+                :model-value="detail.mc_part === part"
+                :disabled="detail.mc_part_disabled"
+                :label="$t(`t_part_${part}`)"
+                :ui="detail.mc_part_disabled ? disabled_checkbox_ui : checkbox_ui"
+                @update:model-value="(checked) => checked && setMcPart(index, part)"
               />
             </template>
           </div>
@@ -582,6 +617,20 @@ const createNote = async () => {
         :selected_tag_id_list="selected_tag_id_list"
         @update:selected_tag_id_list="updateSelectedTagIdList"
       />
+
+      <hr class="separator-1">
+
+      <template v-if="note_format === NOTE_FORMAT_FLASHCARD">
+        <h3>
+          {{ $t('t_swappable_sides') }}
+        </h3>
+
+        <URadioGroup
+          v-model="swappable_sides"
+          :items="swappable_sides_list"
+          orientation="horizontal"
+        />
+      </template>
 
       <hr class="separator-2">
 
