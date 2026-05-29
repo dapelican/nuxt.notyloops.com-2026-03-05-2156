@@ -252,5250 +252,5250 @@ VALUES
 INSERT INTO note_details (
   note_id,
   content_position,
+  content_sub_position,
   content_type,
   markdown_content,
   html_content,
-  file_url,
-  to_be_hidden
+  file_url
 )
 VALUES
 (
       '30000000-0000-4000-8000-000000000001',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/afrique-du-sud.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/afrique-du-sud.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000001',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000001',
-      3,
+      2,
+      1,
       'text',
       'Afrique du Sud',
       '<p>Afrique du Sud</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000002',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/algerie.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/algerie.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000002',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000002',
-      3,
+      2,
+      1,
       'text',
       'Algérie',
       '<p>Algérie</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000003',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/angola.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/angola.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000003',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000003',
-      3,
+      2,
+      1,
       'text',
       'Angola',
       '<p>Angola</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000004',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/benin.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/benin.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000004',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000004',
-      3,
+      2,
+      1,
       'text',
       'Bénin',
       '<p>Bénin</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000005',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/botswana.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/botswana.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000005',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000005',
-      3,
+      2,
+      1,
       'text',
       'Botswana',
       '<p>Botswana</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000006',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/burkina-faso.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/burkina-faso.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000006',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000006',
-      3,
+      2,
+      1,
       'text',
       'Burkina Faso',
       '<p>Burkina Faso</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000007',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/burundi.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/burundi.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000007',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000007',
-      3,
+      2,
+      1,
       'text',
       'Burundi',
       '<p>Burundi</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000008',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/cameroun.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/cameroun.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000008',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000008',
-      3,
+      2,
+      1,
       'text',
       'Cameroun',
       '<p>Cameroun</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000009',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/cap-vert.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/cap-vert.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000009',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000009',
-      3,
+      2,
+      1,
       'text',
       'Cap-Vert',
       '<p>Cap-Vert</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000000a',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/comores.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/comores.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000000a',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000000a',
-      3,
+      2,
+      1,
       'text',
       'Comores',
       '<p>Comores</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000000b',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/cote-d-ivoire.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/cote-d-ivoire.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000000b',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000000b',
-      3,
+      2,
+      1,
       'text',
       'Côte d''Ivoire',
       '<p>Côte d''Ivoire</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000000c',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/djibouti.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/djibouti.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000000c',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000000c',
-      3,
+      2,
+      1,
       'text',
       'Djibouti',
       '<p>Djibouti</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000000d',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/egypte.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/egypte.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000000d',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000000d',
-      3,
+      2,
+      1,
       'text',
       'Égypte',
       '<p>Égypte</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000000e',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/erythree.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/erythree.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000000e',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000000e',
-      3,
+      2,
+      1,
       'text',
       'Érythrée',
       '<p>Érythrée</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000000f',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/eswatini.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/eswatini.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000000f',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000000f',
-      3,
+      2,
+      1,
       'text',
       'Eswatini',
       '<p>Eswatini</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000010',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/ethiopie.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/ethiopie.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000010',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000010',
-      3,
+      2,
+      1,
       'text',
       'Éthiopie',
       '<p>Éthiopie</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000011',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/gabon.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/gabon.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000011',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000011',
-      3,
+      2,
+      1,
       'text',
       'Gabon',
       '<p>Gabon</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000012',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/gambie.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/gambie.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000012',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000012',
-      3,
+      2,
+      1,
       'text',
       'Gambie',
       '<p>Gambie</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000013',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/ghana.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/ghana.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000013',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000013',
-      3,
+      2,
+      1,
       'text',
       'Ghana',
       '<p>Ghana</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000014',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/guinee.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/guinee.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000014',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000014',
-      3,
+      2,
+      1,
       'text',
       'Guinée',
       '<p>Guinée</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000015',
       1,
+      1,
       'image',
       null,
       null,
-      '',
-      false
+      ''
     ),
     (
       '30000000-0000-4000-8000-000000000015',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000015',
-      3,
+      2,
+      1,
       'text',
       'Guinée équatoriale',
       '<p>Guinée équatoriale</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000016',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/guinee-bissau.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/guinee-bissau.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000016',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000016',
-      3,
+      2,
+      1,
       'text',
       'Guinée-Bissau',
       '<p>Guinée-Bissau</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000017',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/kenya.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/kenya.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000017',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000017',
-      3,
+      2,
+      1,
       'text',
       'Kenya',
       '<p>Kenya</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000018',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/lesotho.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/lesotho.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000018',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000018',
-      3,
+      2,
+      1,
       'text',
       'Lesotho',
       '<p>Lesotho</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000019',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/liberia.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/liberia.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000019',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000019',
-      3,
+      2,
+      1,
       'text',
       'Liberia',
       '<p>Liberia</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000001a',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/libye.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/libye.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000001a',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000001a',
-      3,
+      2,
+      1,
       'text',
       'Libye',
       '<p>Libye</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000001b',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/madagascar.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/madagascar.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000001b',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000001b',
-      3,
+      2,
+      1,
       'text',
       'Madagascar',
       '<p>Madagascar</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000001c',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/malawi.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/malawi.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000001c',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000001c',
-      3,
+      2,
+      1,
       'text',
       'Malawi',
       '<p>Malawi</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000001d',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/mali.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/mali.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000001d',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000001d',
-      3,
+      2,
+      1,
       'text',
       'Mali',
       '<p>Mali</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000001e',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/maroc.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/maroc.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000001e',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000001e',
-      3,
+      2,
+      1,
       'text',
       'Maroc',
       '<p>Maroc</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000001f',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/maurice.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/maurice.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000001f',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000001f',
-      3,
+      2,
+      1,
       'text',
       'Maurice',
       '<p>Maurice</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000020',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/mauritanie.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/mauritanie.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000020',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000020',
-      3,
+      2,
+      1,
       'text',
       'Mauritanie',
       '<p>Mauritanie</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000021',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/mozambique.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/mozambique.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000021',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000021',
-      3,
+      2,
+      1,
       'text',
       'Mozambique',
       '<p>Mozambique</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000022',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/namibie.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/namibie.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000022',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000022',
-      3,
+      2,
+      1,
       'text',
       'Namibie',
       '<p>Namibie</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000023',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/niger.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/niger.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000023',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000023',
-      3,
+      2,
+      1,
       'text',
       'Niger',
       '<p>Niger</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000024',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/nigeria.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/nigeria.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000024',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000024',
-      3,
+      2,
+      1,
       'text',
       'Nigeria',
       '<p>Nigeria</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000025',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/ouganda.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/ouganda.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000025',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000025',
-      3,
+      2,
+      1,
       'text',
       'Ouganda',
       '<p>Ouganda</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000026',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/republique-centrafricaine.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/republique-centrafricaine.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000026',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000026',
-      3,
+      2,
+      1,
       'text',
       'République centrafricaine',
       '<p>République centrafricaine</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000027',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/republique-democratique-du-congo.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/republique-democratique-du-congo.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000027',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000027',
-      3,
+      2,
+      1,
       'text',
       'République démocratique du Congo',
       '<p>République démocratique du Congo</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000028',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/republique-du-congo.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/republique-du-congo.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000028',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000028',
-      3,
+      2,
+      1,
       'text',
       'République du Congo',
       '<p>République du Congo</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000029',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/rwanda.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/rwanda.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000029',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000029',
-      3,
+      2,
+      1,
       'text',
       'Rwanda',
       '<p>Rwanda</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000002a',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/sao-tome-et-principe.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/sao-tome-et-principe.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000002a',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000002a',
-      3,
+      2,
+      1,
       'text',
       'Sao Tomé-et-Principe',
       '<p>Sao Tomé-et-Principe</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000002b',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/senegal.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/senegal.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000002b',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000002b',
-      3,
+      2,
+      1,
       'text',
       'Sénégal',
       '<p>Sénégal</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000002c',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/seychelles.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/seychelles.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000002c',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000002c',
-      3,
+      2,
+      1,
       'text',
       'Seychelles',
       '<p>Seychelles</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000002d',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/sierra-leone.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/sierra-leone.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000002d',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000002d',
-      3,
+      2,
+      1,
       'text',
       'Sierra Leone',
       '<p>Sierra Leone</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000002e',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/somalie.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/somalie.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000002e',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000002e',
-      3,
+      2,
+      1,
       'text',
       'Somalie',
       '<p>Somalie</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000002f',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/soudan.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/soudan.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000002f',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000002f',
-      3,
+      2,
+      1,
       'text',
       'Soudan',
       '<p>Soudan</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000030',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/soudan-du-sud.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/soudan-du-sud.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000030',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000030',
-      3,
+      2,
+      1,
       'text',
       'Soudan du Sud',
       '<p>Soudan du Sud</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000031',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/tanzanie.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/tanzanie.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000031',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000031',
-      3,
+      2,
+      1,
       'text',
       'Tanzanie',
       '<p>Tanzanie</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000032',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/tchad.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/tchad.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000032',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000032',
-      3,
+      2,
+      1,
       'text',
       'Tchad',
       '<p>Tchad</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000033',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/togo.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/togo.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000033',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000033',
-      3,
+      2,
+      1,
       'text',
       'Togo',
       '<p>Togo</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000034',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/tunisie.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/tunisie.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000034',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000034',
-      3,
+      2,
+      1,
       'text',
       'Tunisie',
       '<p>Tunisie</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000035',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/zambie.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/zambie.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000035',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000035',
-      3,
+      2,
+      1,
       'text',
       'Zambie',
       '<p>Zambie</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000036',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/zimbabwe.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/zimbabwe.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000036',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000036',
-      3,
+      2,
+      1,
       'text',
       'Zimbabwe',
       '<p>Zimbabwe</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000037',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/antigua-et-barbuda.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/antigua-et-barbuda.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000037',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000037',
-      3,
+      2,
+      1,
       'text',
       'Antigua-et-Barbuda',
       '<p>Antigua-et-Barbuda</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000038',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/bahamas.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/bahamas.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000038',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000038',
-      3,
+      2,
+      1,
       'text',
       'Bahamas',
       '<p>Bahamas</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000039',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/barbade.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/barbade.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000039',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000039',
-      3,
+      2,
+      1,
       'text',
       'Barbade',
       '<p>Barbade</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000003a',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/belize.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/belize.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000003a',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000003a',
-      3,
+      2,
+      1,
       'text',
       'Belize',
       '<p>Belize</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000003b',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/canada.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/canada.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000003b',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000003b',
-      3,
+      2,
+      1,
       'text',
       'Canada',
       '<p>Canada</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000003c',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/costa-rica.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/costa-rica.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000003c',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000003c',
-      3,
+      2,
+      1,
       'text',
       'Costa Rica',
       '<p>Costa Rica</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000003d',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/cuba.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/cuba.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000003d',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000003d',
-      3,
+      2,
+      1,
       'text',
       'Cuba',
       '<p>Cuba</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000003e',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/dominique.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/dominique.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000003e',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000003e',
-      3,
+      2,
+      1,
       'text',
       'Dominique',
       '<p>Dominique</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000003f',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/etats-unis.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/etats-unis.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000003f',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000003f',
-      3,
+      2,
+      1,
       'text',
       'États-Unis',
       '<p>États-Unis</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000040',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/grenade.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/grenade.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000040',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000040',
-      3,
+      2,
+      1,
       'text',
       'Grenade',
       '<p>Grenade</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000041',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/guatemala.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/guatemala.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000041',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000041',
-      3,
+      2,
+      1,
       'text',
       'Guatemala',
       '<p>Guatemala</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000042',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/haiti.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/haiti.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000042',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000042',
-      3,
+      2,
+      1,
       'text',
       'Haïti',
       '<p>Haïti</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000043',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/honduras.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/honduras.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000043',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000043',
-      3,
+      2,
+      1,
       'text',
       'Honduras',
       '<p>Honduras</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000044',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/jamaique.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/jamaique.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000044',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000044',
-      3,
+      2,
+      1,
       'text',
       'Jamaïque',
       '<p>Jamaïque</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000045',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/mexique.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/mexique.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000045',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000045',
-      3,
+      2,
+      1,
       'text',
       'Mexique',
       '<p>Mexique</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000046',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/nicaragua.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/nicaragua.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000046',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000046',
-      3,
+      2,
+      1,
       'text',
       'Nicaragua',
       '<p>Nicaragua</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000047',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/panama.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/panama.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000047',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000047',
-      3,
+      2,
+      1,
       'text',
       'Panama',
       '<p>Panama</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000048',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/republique-dominicaine.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/republique-dominicaine.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000048',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000048',
-      3,
+      2,
+      1,
       'text',
       'République dominicaine',
       '<p>République dominicaine</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000049',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/Saint-kitts-et-nevis.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/Saint-kitts-et-nevis.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000049',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000049',
-      3,
+      2,
+      1,
       'text',
       'Saint-Kitts-et-Nevis, Saint-Christophe-et-Niévès, ou Saint-Christophe-et-Nevis',
       '<p>Saint-Kitts-et-Nevis, Saint-Christophe-et-Niévès, ou Saint-Christophe-et-Nevis</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000004a',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/saint-vincent-et-les-grenadines.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/saint-vincent-et-les-grenadines.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000004a',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000004a',
-      3,
+      2,
+      1,
       'text',
       'Saint-Vincent-et-les-Grenadines',
       '<p>Saint-Vincent-et-les-Grenadines</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000004b',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/sainte-lucie.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/sainte-lucie.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000004b',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000004b',
-      3,
+      2,
+      1,
       'text',
       'Sainte-Lucie',
       '<p>Sainte-Lucie</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000004c',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/salvador.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/salvador.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000004c',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000004c',
-      3,
+      2,
+      1,
       'text',
       'Salvador',
       '<p>Salvador</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000004d',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/trinite-et-tobago.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/trinite-et-tobago.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000004d',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000004d',
-      3,
+      2,
+      1,
       'text',
       'Trinité-et-Tobago',
       '<p>Trinité-et-Tobago</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000004e',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/argentine.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/argentine.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000004e',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000004e',
-      3,
+      2,
+      1,
       'text',
       'Argentine',
       '<p>Argentine</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000004f',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/bolivie.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/bolivie.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000004f',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000004f',
-      3,
+      2,
+      1,
       'text',
       'Bolivie',
       '<p>Bolivie</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000050',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/bresil.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/bresil.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000050',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000050',
-      3,
+      2,
+      1,
       'text',
       'Brésil',
       '<p>Brésil</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000051',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/chili.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/chili.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000051',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000051',
-      3,
+      2,
+      1,
       'text',
       'Chili',
       '<p>Chili</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000052',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/colombie.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/colombie.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000052',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000052',
-      3,
+      2,
+      1,
       'text',
       'Colombie',
       '<p>Colombie</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000053',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/equateur.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/equateur.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000053',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000053',
-      3,
+      2,
+      1,
       'text',
       'Équateur',
       '<p>Équateur</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000054',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/guyana.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/guyana.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000054',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000054',
-      3,
+      2,
+      1,
       'text',
       'Guyana',
       '<p>Guyana</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000055',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/paraguay.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/paraguay.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000055',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000055',
-      3,
+      2,
+      1,
       'text',
       'Paraguay',
       '<p>Paraguay</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000056',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/perou.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/perou.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000056',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000056',
-      3,
+      2,
+      1,
       'text',
       'Pérou',
       '<p>Pérou</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000057',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/suriname.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/suriname.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000057',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000057',
-      3,
+      2,
+      1,
       'text',
       'Suriname',
       '<p>Suriname</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000058',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/uruguay.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/uruguay.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000058',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000058',
-      3,
+      2,
+      1,
       'text',
       'Uruguay',
       '<p>Uruguay</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000059',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/venezuela.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/venezuela.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000059',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000059',
-      3,
+      2,
+      1,
       'text',
       'Venezuela',
       '<p>Venezuela</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000005a',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/afghanistan.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/afghanistan.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000005a',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000005a',
-      3,
+      2,
+      1,
       'text',
       'Afghanistan',
       '<p>Afghanistan</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000005b',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/arabie-saoudite.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/arabie-saoudite.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000005b',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000005b',
-      3,
+      2,
+      1,
       'text',
       'Arabie saoudite',
       '<p>Arabie saoudite</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000005c',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/armenie.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/armenie.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000005c',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000005c',
-      3,
+      2,
+      1,
       'text',
       'Arménie',
       '<p>Arménie</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000005d',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/azerbaidjan.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/azerbaidjan.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000005d',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000005d',
-      3,
+      2,
+      1,
       'text',
       'Azerbaïdjan',
       '<p>Azerbaïdjan</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000005e',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/bahrein.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/bahrein.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000005e',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000005e',
-      3,
+      2,
+      1,
       'text',
       'Bahreïn',
       '<p>Bahreïn</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000005f',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/bangladesh.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/bangladesh.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000005f',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000005f',
-      3,
+      2,
+      1,
       'text',
       'Bangladesh',
       '<p>Bangladesh</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000060',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/bhoutan.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/bhoutan.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000060',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000060',
-      3,
+      2,
+      1,
       'text',
       'Bhoutan',
       '<p>Bhoutan</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000061',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/birmanie.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/birmanie.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000061',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000061',
-      3,
+      2,
+      1,
       'text',
       'Birmanie',
       '<p>Birmanie</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000062',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/brunei.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/brunei.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000062',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000062',
-      3,
+      2,
+      1,
       'text',
       'Brunei',
       '<p>Brunei</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000063',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/cambodge.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/cambodge.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000063',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000063',
-      3,
+      2,
+      1,
       'text',
       'Cambodge',
       '<p>Cambodge</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000064',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/chine.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/chine.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000064',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000064',
-      3,
+      2,
+      1,
       'text',
       'Chine',
       '<p>Chine</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000065',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/coree-du-nord.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/coree-du-nord.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000065',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000065',
-      3,
+      2,
+      1,
       'text',
       'Corée du Nord',
       '<p>Corée du Nord</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000066',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/coree-du-sud.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/coree-du-sud.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000066',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000066',
-      3,
+      2,
+      1,
       'text',
       'Corée du Sud',
       '<p>Corée du Sud</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000067',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/emirats-arabes-unis.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/emirats-arabes-unis.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000067',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000067',
-      3,
+      2,
+      1,
       'text',
       'Émirats arabes unis',
       '<p>Émirats arabes unis</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000068',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/georgie.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/georgie.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000068',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000068',
-      3,
+      2,
+      1,
       'text',
       'Géorgie',
       '<p>Géorgie</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000069',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/inde.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/inde.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000069',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000069',
-      3,
+      2,
+      1,
       'text',
       'Inde',
       '<p>Inde</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000006a',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/indonesie.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/indonesie.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000006a',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000006a',
-      3,
+      2,
+      1,
       'text',
       'Indonésie',
       '<p>Indonésie</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000006b',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/irak.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/irak.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000006b',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000006b',
-      3,
+      2,
+      1,
       'text',
       'Irak',
       '<p>Irak</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000006c',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/iran.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/iran.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000006c',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000006c',
-      3,
+      2,
+      1,
       'text',
       'Iran',
       '<p>Iran</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000006d',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/israel.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/israel.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000006d',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000006d',
-      3,
+      2,
+      1,
       'text',
       'Israël',
       '<p>Israël</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000006e',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/japon.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/japon.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000006e',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000006e',
-      3,
+      2,
+      1,
       'text',
       'Japon',
       '<p>Japon</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000006f',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/jordanie.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/jordanie.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000006f',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000006f',
-      3,
+      2,
+      1,
       'text',
       'Jordanie',
       '<p>Jordanie</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000070',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/kazakhstan.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/kazakhstan.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000070',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000070',
-      3,
+      2,
+      1,
       'text',
       'Kazakhstan',
       '<p>Kazakhstan</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000071',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/kirghizistan.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/kirghizistan.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000071',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000071',
-      3,
+      2,
+      1,
       'text',
       'Kirghizistan',
       '<p>Kirghizistan</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000072',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/koweit.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/koweit.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000072',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000072',
-      3,
+      2,
+      1,
       'text',
       'Koweït',
       '<p>Koweït</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000073',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/laos.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/laos.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000073',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000073',
-      3,
+      2,
+      1,
       'text',
       'Laos',
       '<p>Laos</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000074',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/liban.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/liban.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000074',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000074',
-      3,
+      2,
+      1,
       'text',
       'Liban',
       '<p>Liban</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000075',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/malaisie.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/malaisie.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000075',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000075',
-      3,
+      2,
+      1,
       'text',
       'Malaisie',
       '<p>Malaisie</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000076',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/maldives.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/maldives.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000076',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000076',
-      3,
+      2,
+      1,
       'text',
       'Maldives',
       '<p>Maldives</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000077',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/mongolie.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/mongolie.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000077',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000077',
-      3,
+      2,
+      1,
       'text',
       'Mongolie',
       '<p>Mongolie</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000078',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/nepal.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/nepal.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000078',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000078',
-      3,
+      2,
+      1,
       'text',
       'Népal',
       '<p>Népal</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000079',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/oman.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/oman.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000079',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000079',
-      3,
+      2,
+      1,
       'text',
       'Oman',
       '<p>Oman</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000007a',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/ouzbekistan.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/ouzbekistan.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000007a',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000007a',
-      3,
+      2,
+      1,
       'text',
       'Ouzbékistan',
       '<p>Ouzbékistan</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000007b',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/pakistan.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/pakistan.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000007b',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000007b',
-      3,
+      2,
+      1,
       'text',
       'Pakistan',
       '<p>Pakistan</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000007c',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/philippines.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/philippines.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000007c',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000007c',
-      3,
+      2,
+      1,
       'text',
       'Philippines',
       '<p>Philippines</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000007d',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/qatar.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/qatar.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000007d',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000007d',
-      3,
+      2,
+      1,
       'text',
       'Qatar',
       '<p>Qatar</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000007e',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/singapour.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/singapour.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000007e',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000007e',
-      3,
+      2,
+      1,
       'text',
       'Singapour',
       '<p>Singapour</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000007f',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/sri-lanka.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/sri-lanka.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000007f',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000007f',
-      3,
+      2,
+      1,
       'text',
       'Sri Lanka',
       '<p>Sri Lanka</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000080',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/syrie.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/syrie.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000080',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000080',
-      3,
+      2,
+      1,
       'text',
       'Syrie',
       '<p>Syrie</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000081',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/tadjikistan.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/tadjikistan.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000081',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000081',
-      3,
+      2,
+      1,
       'text',
       'Tadjikistan',
       '<p>Tadjikistan</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000082',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/thailande.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/thailande.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000082',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000082',
-      3,
+      2,
+      1,
       'text',
       'Thaïlande',
       '<p>Thaïlande</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000083',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/timor-oriental.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/timor-oriental.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000083',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000083',
-      3,
+      2,
+      1,
       'text',
       'Timor oriental',
       '<p>Timor oriental</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000084',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/turkmenistan.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/turkmenistan.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000084',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000084',
-      3,
+      2,
+      1,
       'text',
       'Turkménistan',
       '<p>Turkménistan</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000085',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/turquie.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/turquie.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000085',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000085',
-      3,
+      2,
+      1,
       'text',
       'Turquie',
       '<p>Turquie</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000086',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/viet-nam.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/viet-nam.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000086',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000086',
-      3,
+      2,
+      1,
       'text',
       'Viêt Nam, Viet Nam ou Vietnam',
       '<p>Viêt Nam, Viet Nam ou Vietnam</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000087',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/yemen.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/yemen.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000087',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000087',
-      3,
+      2,
+      1,
       'text',
       'Yémen',
       '<p>Yémen</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000088',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/albanie.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/albanie.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000088',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000088',
-      3,
+      2,
+      1,
       'text',
       'Albanie',
       '<p>Albanie</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000089',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/allemagne.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/allemagne.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000089',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000089',
-      3,
+      2,
+      1,
       'text',
       'Allemagne',
       '<p>Allemagne</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000008a',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/andorre.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/andorre.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000008a',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000008a',
-      3,
+      2,
+      1,
       'text',
       'Andorre',
       '<p>Andorre</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000008b',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/autriche.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/autriche.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000008b',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000008b',
-      3,
+      2,
+      1,
       'text',
       'Autriche',
       '<p>Autriche</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000008c',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/belgique.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/belgique.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000008c',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000008c',
-      3,
+      2,
+      1,
       'text',
       'Belgique',
       '<p>Belgique</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000008d',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/bielorussie.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/bielorussie.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000008d',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000008d',
-      3,
+      2,
+      1,
       'text',
       'Biélorussie',
       '<p>Biélorussie</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000008e',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/bosnie-herzegovine.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/bosnie-herzegovine.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000008e',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000008e',
-      3,
+      2,
+      1,
       'text',
       'Bosnie-Herzégovine',
       '<p>Bosnie-Herzégovine</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000008f',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/bulgarie.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/bulgarie.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000008f',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000008f',
-      3,
+      2,
+      1,
       'text',
       'Bulgarie',
       '<p>Bulgarie</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000090',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/chypre.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/chypre.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000090',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000090',
-      3,
+      2,
+      1,
       'text',
       'Chypre',
       '<p>Chypre</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000091',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/croatie.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/croatie.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000091',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000091',
-      3,
+      2,
+      1,
       'text',
       'Croatie',
       '<p>Croatie</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000092',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/danemark.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/danemark.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000092',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000092',
-      3,
+      2,
+      1,
       'text',
       'Danemark',
       '<p>Danemark</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000093',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/espagne.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/espagne.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000093',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000093',
-      3,
+      2,
+      1,
       'text',
       'Espagne',
       '<p>Espagne</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000094',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/estonie.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/estonie.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000094',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000094',
-      3,
+      2,
+      1,
       'text',
       'Estonie',
       '<p>Estonie</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000095',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/finlande.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/finlande.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000095',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000095',
-      3,
+      2,
+      1,
       'text',
       'Finlande',
       '<p>Finlande</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000096',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/france.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/france.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000096',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000096',
-      3,
+      2,
+      1,
       'text',
       'France',
       '<p>France</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000097',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/grece.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/grece.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000097',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000097',
-      3,
+      2,
+      1,
       'text',
       'Grèce',
       '<p>Grèce</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000098',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/hongrie.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/hongrie.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000098',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000098',
-      3,
+      2,
+      1,
       'text',
       'Hongrie',
       '<p>Hongrie</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000099',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/irlande.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/irlande.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000099',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-000000000099',
-      3,
+      2,
+      1,
       'text',
       'Irlande',
       '<p>Irlande</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000009a',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/islande.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/islande.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000009a',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000009a',
-      3,
+      2,
+      1,
       'text',
       'Islande',
       '<p>Islande</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000009b',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/italie.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/italie.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000009b',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000009b',
-      3,
+      2,
+      1,
       'text',
       'Italie',
       '<p>Italie</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000009c',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/lettonie.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/lettonie.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000009c',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000009c',
-      3,
+      2,
+      1,
       'text',
       'Lettonie',
       '<p>Lettonie</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000009d',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/liechtenstein.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/liechtenstein.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000009d',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000009d',
-      3,
+      2,
+      1,
       'text',
       'Liechtenstein',
       '<p>Liechtenstein</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000009e',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/lituanie.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/lituanie.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000009e',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000009e',
-      3,
+      2,
+      1,
       'text',
       'Lituanie',
       '<p>Lituanie</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000009f',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/luxembourg.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/luxembourg.webp'
     ),
     (
       '30000000-0000-4000-8000-00000000009f',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-00000000009f',
-      3,
+      2,
+      1,
       'text',
       'Luxembourg',
       '<p>Luxembourg</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000a0',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/macedoine-du-nord.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/macedoine-du-nord.webp'
     ),
     (
       '30000000-0000-4000-8000-0000000000a0',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000a0',
-      3,
+      2,
+      1,
       'text',
       'Macédoine du Nord',
       '<p>Macédoine du Nord</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000a1',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/malte.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/malte.webp'
     ),
     (
       '30000000-0000-4000-8000-0000000000a1',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000a1',
-      3,
+      2,
+      1,
       'text',
       'Malte',
       '<p>Malte</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000a2',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/moldavie.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/moldavie.webp'
     ),
     (
       '30000000-0000-4000-8000-0000000000a2',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000a2',
-      3,
+      2,
+      1,
       'text',
       'Moldavie',
       '<p>Moldavie</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000a3',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/monaco.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/monaco.webp'
     ),
     (
       '30000000-0000-4000-8000-0000000000a3',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000a3',
-      3,
+      2,
+      1,
       'text',
       'Monaco',
       '<p>Monaco</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000a4',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/montenegro.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/montenegro.webp'
     ),
     (
       '30000000-0000-4000-8000-0000000000a4',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000a4',
-      3,
+      2,
+      1,
       'text',
       'Monténégro',
       '<p>Monténégro</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000a5',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/norvege.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/norvege.webp'
     ),
     (
       '30000000-0000-4000-8000-0000000000a5',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000a5',
-      3,
+      2,
+      1,
       'text',
       'Norvège',
       '<p>Norvège</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000a6',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/pays-bas.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/pays-bas.webp'
     ),
     (
       '30000000-0000-4000-8000-0000000000a6',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000a6',
-      3,
+      2,
+      1,
       'text',
       'Pays-Bas',
       '<p>Pays-Bas</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000a7',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/pologne.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/pologne.webp'
     ),
     (
       '30000000-0000-4000-8000-0000000000a7',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000a7',
-      3,
+      2,
+      1,
       'text',
       'Pologne',
       '<p>Pologne</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000a8',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/portugal.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/portugal.webp'
     ),
     (
       '30000000-0000-4000-8000-0000000000a8',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000a8',
-      3,
+      2,
+      1,
       'text',
       'Portugal',
       '<p>Portugal</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000a9',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/roumanie.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/roumanie.webp'
     ),
     (
       '30000000-0000-4000-8000-0000000000a9',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000a9',
-      3,
+      2,
+      1,
       'text',
       'Roumanie',
       '<p>Roumanie</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000aa',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/royaume-uni.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/royaume-uni.webp'
     ),
     (
       '30000000-0000-4000-8000-0000000000aa',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000aa',
-      3,
+      2,
+      1,
       'text',
       'Royaume-Uni',
       '<p>Royaume-Uni</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000ab',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/russie.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/russie.webp'
     ),
     (
       '30000000-0000-4000-8000-0000000000ab',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000ab',
-      3,
+      2,
+      1,
       'text',
       'Russie',
       '<p>Russie</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000ac',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/saint-marin.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/saint-marin.webp'
     ),
     (
       '30000000-0000-4000-8000-0000000000ac',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000ac',
-      3,
+      2,
+      1,
       'text',
       'Saint-Marin',
       '<p>Saint-Marin</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000ad',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/serbie.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/serbie.webp'
     ),
     (
       '30000000-0000-4000-8000-0000000000ad',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000ad',
-      3,
+      2,
+      1,
       'text',
       'Serbie',
       '<p>Serbie</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000ae',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/slovaquie.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/slovaquie.webp'
     ),
     (
       '30000000-0000-4000-8000-0000000000ae',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000ae',
-      3,
+      2,
+      1,
       'text',
       'Slovaquie',
       '<p>Slovaquie</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000af',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/slovenie.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/slovenie.webp'
     ),
     (
       '30000000-0000-4000-8000-0000000000af',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000af',
-      3,
+      2,
+      1,
       'text',
       'Slovénie',
       '<p>Slovénie</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000b0',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/suede.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/suede.webp'
     ),
     (
       '30000000-0000-4000-8000-0000000000b0',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000b0',
-      3,
+      2,
+      1,
       'text',
       'Suède',
       '<p>Suède</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000b1',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/suisse.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/suisse.webp'
     ),
     (
       '30000000-0000-4000-8000-0000000000b1',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000b1',
-      3,
+      2,
+      1,
       'text',
       'Suisse',
       '<p>Suisse</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000b2',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/tchequie-republique-tcheque.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/tchequie-republique-tcheque.webp'
     ),
     (
       '30000000-0000-4000-8000-0000000000b2',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000b2',
-      3,
+      2,
+      1,
       'text',
       'Tchéquie (République tchèque)',
       '<p>Tchéquie (République tchèque)</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000b3',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/ukraine.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/ukraine.webp'
     ),
     (
       '30000000-0000-4000-8000-0000000000b3',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000b3',
-      3,
+      2,
+      1,
       'text',
       'Ukraine',
       '<p>Ukraine</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000b4',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/vatican.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/vatican.webp'
     ),
     (
       '30000000-0000-4000-8000-0000000000b4',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000b4',
-      3,
+      2,
+      1,
       'text',
       'Vatican',
       '<p>Vatican</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000b5',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/australie.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/australie.webp'
     ),
     (
       '30000000-0000-4000-8000-0000000000b5',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000b5',
-      3,
+      2,
+      1,
       'text',
       'Australie',
       '<p>Australie</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000b6',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/etats-federes-de-micronesie.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/etats-federes-de-micronesie.webp'
     ),
     (
       '30000000-0000-4000-8000-0000000000b6',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000b6',
-      3,
+      2,
+      1,
       'text',
       'Etats fédérés de Micronésie (Océanie)',
       '<p>Etats fédérés de Micronésie (Océanie)</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000b7',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/fidji.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/fidji.webp'
     ),
     (
       '30000000-0000-4000-8000-0000000000b7',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000b7',
-      3,
+      2,
+      1,
       'text',
       'Fidji (Océanie)',
       '<p>Fidji (Océanie)</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000b8',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/iles-marshall.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/iles-marshall.webp'
     ),
     (
       '30000000-0000-4000-8000-0000000000b8',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000b8',
-      3,
+      2,
+      1,
       'text',
       'Iles Marshall (Océanie)',
       '<p>Iles Marshall (Océanie)</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000b9',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/iles-salomon.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/iles-salomon.webp'
     ),
     (
       '30000000-0000-4000-8000-0000000000b9',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000b9',
-      3,
+      2,
+      1,
       'text',
       'Iles Salomon (Océanie)',
       '<p>Iles Salomon (Océanie)</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000ba',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/kitibati.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/kitibati.webp'
     ),
     (
       '30000000-0000-4000-8000-0000000000ba',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000ba',
-      3,
+      2,
+      1,
       'text',
       'Kitibati (Océanie)',
       '<p>Kitibati (Océanie)</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000bb',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/nauru.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/nauru.webp'
     ),
     (
       '30000000-0000-4000-8000-0000000000bb',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000bb',
-      3,
+      2,
+      1,
       'text',
       'Nauru (Océanie)',
       '<p>Nauru (Océanie)</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000bc',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/nouvelle-zelande.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/nouvelle-zelande.webp'
     ),
     (
       '30000000-0000-4000-8000-0000000000bc',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000bc',
-      3,
+      2,
+      1,
       'text',
       'Nouvelle-Zélande (Océanie)',
       '<p>Nouvelle-Zélande (Océanie)</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000bd',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/palaos.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/palaos.webp'
     ),
     (
       '30000000-0000-4000-8000-0000000000bd',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000bd',
-      3,
+      2,
+      1,
       'text',
       'Palaos (Océanie)',
       '<p>Palaos (Océanie)</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000be',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/papouasie-nouvelle-guinee.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/papouasie-nouvelle-guinee.webp'
     ),
     (
       '30000000-0000-4000-8000-0000000000be',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000be',
-      3,
+      2,
+      1,
       'text',
       'Papouasie-Nouvelle-Guinée (Océanie)',
       '<p>Papouasie-Nouvelle-Guinée (Océanie)</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000bf',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/samoa.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/samoa.webp'
     ),
     (
       '30000000-0000-4000-8000-0000000000bf',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000bf',
-      3,
+      2,
+      1,
       'text',
       'Samoa (Océanie)',
       '<p>Samoa (Océanie)</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000c0',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/tonga.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/tonga.webp'
     ),
     (
       '30000000-0000-4000-8000-0000000000c0',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000c0',
-      3,
+      2,
+      1,
       'text',
       'Tonga (Océanie)',
       '<p>Tonga (Océanie)</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000c1',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/tuvalu.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/tuvalu.webp'
     ),
     (
       '30000000-0000-4000-8000-0000000000c1',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000c1',
-      3,
+      2,
+      1,
       'text',
       'Tuvalu (Océanie)',
       '<p>Tuvalu (Océanie)</p>',
-      null,
-      true
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000c2',
       1,
+      1,
       'image',
       null,
       null,
-      'https://f003.backblazeb2.com/file/notyloops/vanuatu.webp',
-      false
+      'https://f003.backblazeb2.com/file/notyloops/vanuatu.webp'
     ),
     (
       '30000000-0000-4000-8000-0000000000c2',
+      1,
       2,
       'text',
       'A quel pays appartient le drapeau ci-dessus ?',
       '<p>A quel pays appartient le drapeau ci-dessus ?</p>',
-      null,
-      false
+      null
     ),
     (
       '30000000-0000-4000-8000-0000000000c2',
-      3,
+      2,
+      1,
       'text',
       'Vanuatu (Océanie)',
       '<p>Vanuatu (Océanie)</p>',
-      null,
-      true
+      null
     );
 
 INSERT INTO note_tags (user_id, note_id, tag_id)

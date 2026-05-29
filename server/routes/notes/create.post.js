@@ -66,6 +66,7 @@ export default defineEventHandler(async (event) => {
       note_details,
       tag_id_list,
       title,
+      type,
     } = await readBody(event);
 
     if (!title) {
@@ -74,8 +75,8 @@ export default defineEventHandler(async (event) => {
     }
 
     const { rows: new_note_list } = await executeSQLQuery(
-      'INSERT INTO notes (user_id, title) VALUES ($1, $2) RETURNING id',
-      [user.id, title]
+      'INSERT INTO notes (user_id, title, type) VALUES ($1, $2, $3) RETURNING id',
+      [user.id, title, type]
     );
 
     const note_id = new_note_list.at(0).id;
@@ -90,10 +91,9 @@ export default defineEventHandler(async (event) => {
           markdown_content,
           html_content,
           file_url,
-          to_be_hidden,
           is_correct
         )
-          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`,
+          VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
         [
           note_id,
           detail.content_position,
@@ -104,7 +104,6 @@ export default defineEventHandler(async (event) => {
             ? sanitizeHtml(detail.markdown_content?.trim())
             : null,
           detail.file_url,
-          detail.to_be_hidden,
           detail.is_correct,
         ]
       );

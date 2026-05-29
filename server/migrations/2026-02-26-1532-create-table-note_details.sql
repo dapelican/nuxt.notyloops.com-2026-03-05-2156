@@ -5,12 +5,11 @@ CREATE TABLE note_details (
   deleted_at TIMESTAMPTZ,
   note_id UUID NOT NULL REFERENCES notes(id) ON DELETE CASCADE,
   content_position INT NOT NULL,
-  content_sub_position INT NOT NULL DEFAULT 0,
+  content_sub_position INT NOT NULL,
   content_type TEXT NOT NULL,
   markdown_content TEXT,
   html_content TEXT,
   file_url TEXT,
-  to_be_hidden BOOLEAN,
   is_correct BOOLEAN
 );
 

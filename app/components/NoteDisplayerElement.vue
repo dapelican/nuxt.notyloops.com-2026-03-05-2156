@@ -1,5 +1,11 @@
 <script setup>
 import {
+  NOTE_TYPE_FLASHCARD,
+  NOTE_TYPE_FREE,
+  NOTE_TYPE_MC,
+} from '#shared/utils/constants.js';
+
+import {
   renderNoteMarkdownToHtml,
 } from '#shared/render-note-markdown.js';
 
@@ -12,127 +18,142 @@ const props = defineProps({
     type: Array,
     default: () => [],
   },
+  note_type: {
+    type: String,
+    default: NOTE_TYPE_FREE,
+    validator: (value) => [NOTE_TYPE_FLASHCARD, NOTE_TYPE_FREE, NOTE_TYPE_MC].includes(value),
+  },
   title: {
     type: String,
     default: '',
   },
 });
 
-const mc_block_submitted = ref({});
-const mc_block_selection_correct = ref({});
-
+const mc_submitted = ref(false);
+const mc_selection_correct = ref(false);
 const checkbox_selected = ref({});
-const detail_revealed = ref({});
+const flashcard_back_revealed = ref(false);
 
-const grouped_blocks = computed(() => {
+const position_groups = computed(() => {
   const list = props.note_detail_list;
+
+  if (!Array.isArray(list) || list.length === 0) {
+    return new Map();
+  }
+
+  const groups = new Map();
+
+  for (const item of list) {
+    if (Array.isArray(item)) {
+      const content_position = item.at(0)?.content_position;
+
+      if (content_position != null) {
+        groups.set(content_position, item);
+      }
+
+      continue;
+    }
+
+    const content_position = item.content_position;
+
+    if (content_position == null) {
+      continue;
+    }
+
+    if (!groups.has(content_position)) {
+      groups.set(content_position, []);
+    }
+
+    groups.get(content_position).push(item);
+  }
+
+  return groups;
+});
+
+const details_at_position = (content_position) => {
+  const group = position_groups.value.get(content_position);
+
+  if (!group) {
+    return [];
+  }
+
+  return Array.isArray(group) ? group : [group];
+};
+
+const ordered_detail_list = computed(() => {
+  const list = props.note_detail_list;
+
   if (!Array.isArray(list) || list.length === 0) {
     return [];
   }
 
-  const is_nested_api_shape = list.some((item) => Array.isArray(item));
+  const ordered = [];
 
-  if (is_nested_api_shape) {
-    return list;
-  }
-
-  const blocks = [];
-  let idx = 0;
-
-  while (idx < list.length) {
-    const content_position = list[idx].content_position;
-    const group = [];
-
-    while (
-      idx < list.length
-      && list[idx].content_position === content_position
-    ) {
-      group.push(list[idx]);
-      idx += 1;
+  for (const item of list) {
+    if (Array.isArray(item)) {
+      ordered.push(...item);
+      continue;
     }
 
-    blocks.push(group.length > 1 ? group : group.at(0));
+    ordered.push(item);
   }
 
-  return blocks;
+  return ordered;
 });
 
-const detail_is_concealed = (detail) =>
-  detail.is_hidden === true || detail.to_be_hidden === true;
+const flashcard_front_details = computed(() => details_at_position(1));
+const flashcard_back_details = computed(() => details_at_position(2));
+const mc_question_details = computed(() => details_at_position(1));
+const mc_proposition_details = computed(() => details_at_position(2));
+const mc_explanation_details = computed(() => details_at_position(3));
 
 const reset_interaction_state = () => {
-  mc_block_submitted.value = {};
-  mc_block_selection_correct.value = {};
+  mc_submitted.value = false;
+  mc_selection_correct.value = false;
+  flashcard_back_revealed.value = false;
 
   const next_checkbox = {};
-  const next_revealed = {};
 
-  for (const block of grouped_blocks.value) {
-    const items = Array.isArray(block) ? block : [block];
-    const is_mc = Array.isArray(block) && block.length > 1;
-
-    for (const detail of items) {
-      if (is_mc) {
-        next_checkbox[detail.id] = false;
-      } else if (detail_is_concealed(detail)) {
-        next_revealed[detail.id] = false;
-      }
+  if (props.note_type === NOTE_TYPE_MC) {
+    for (const detail of mc_proposition_details.value) {
+      next_checkbox[detail.id] = false;
     }
   }
 
   checkbox_selected.value = next_checkbox;
-  detail_revealed.value = next_revealed;
 };
 
 watch(
-  () => props.note_detail_list,
+  () => [props.note_detail_list, props.note_type],
   () => {
     nextTick(reset_interaction_state);
   },
   { deep: true, immediate: true }
 );
 
-const toggle_detail_reveal = (detail_id) => {
-  const current = detail_revealed.value[detail_id];
-  detail_revealed.value = {
-    ...detail_revealed.value,
-    [detail_id]: !current,
-  };
+const toggle_flashcard_back = () => {
+  flashcard_back_revealed.value = !flashcard_back_revealed.value;
 };
 
 const row_matches_answer = (detail) => {
   const checked = Boolean(checkbox_selected.value[detail.id]);
   const should_check = Boolean(detail.is_correct);
+
   return checked === should_check;
 };
 
-const evaluate_submission_for_block = (block_idx) => {
-  const block = grouped_blocks.value[block_idx];
-
-  if (!Array.isArray(block)) {
-    return;
-  }
-
+const evaluate_mc_submission = () => {
   let all_match = true;
 
-  for (const detail of block) {
+  for (const detail of mc_proposition_details.value) {
     if (!row_matches_answer(detail)) {
       all_match = false;
     }
   }
 
-  mc_block_submitted.value = {
-    ...mc_block_submitted.value,
-    [block_idx]: true,
-  };
-  mc_block_selection_correct.value = {
-    ...mc_block_selection_correct.value,
-    [block_idx]: all_match,
-  };
+  mc_submitted.value = true;
+  mc_selection_correct.value = all_match;
 };
-
-const content_visible = (detail) =>
-  !detail_is_concealed(detail) || detail_revealed.value[detail.id];
 
 const text_detail_visible = (detail) =>
   detail.content_type === 'text'
@@ -179,153 +200,380 @@ const vNoteExternalLinks = {
 <template>
   <!-- app/components/NoteDisplayerElement.vue -->
   <section class="note-displayer">
-    <div
-      v-for="(block, block_idx) in grouped_blocks"
-      :key="`block-${block_idx}`"
-      class="mb-6"
-    >
-      <template v-if="Array.isArray(block)">
-        <div
-          v-for="(detail, sub_idx) in block"
-          :key="detail.id ?? `${block_idx}-${sub_idx}`"
-          class="flex gap-3 items-start mb-4"
-        >
-          <div
-            v-if="!mc_block_submitted[block_idx]"
-            class="shrink-0 pt-1"
-          >
-            <UCheckbox
-              v-model="checkbox_selected[detail.id]"
-              :ui="{
-                root: 'cursor-pointer',
-                container: 'cursor-pointer',
-                base: 'cursor-pointer',
-              }"
+    <template v-if="note_type === NOTE_TYPE_FREE">
+      <div
+        v-for="(detail, detail_idx) in ordered_detail_list"
+        :key="detail.id ?? `free-${detail_idx}`"
+        class="mb-6"
+      >
+        <ClientOnly>
+          <template #default>
+            <div
+              v-if="text_detail_visible(detail)"
+              v-note-external-links
+              class="note-displayer-html wrap-break-word"
+              v-html="viewer_html(detail)"
             />
-          </div>
-          <div
-            v-else
-            class="shrink-0 pt-1 w-6 flex justify-center"
-            aria-hidden="true"
-          >
-            <UIcon
-              v-if="detail.is_correct === true"
-              name="i-lucide-square-check-big"
-              class="size-5 text-success shrink-0"
-            />
-            <UIcon
-              v-else
-              name="i-lucide-square-x"
-              class="size-5 text-error shrink-0"
-            />
-          </div>
-
-          <div class="min-w-0 flex-1">
-            <ClientOnly>
-              <template #default>
-                <div
-                  v-if="text_detail_visible(detail)"
-                  v-note-external-links
-                  class="note-displayer-html wrap-break-word"
-                  v-html="viewer_html(detail)"
-                />
-              </template>
-              <template #fallback>
-                <div
-                  v-if="text_detail_visible(detail)"
-                  v-note-external-links
-                  class="note-displayer-html wrap-break-word"
-                  v-html="detail.html_content || ''"
-                />
-              </template>
-            </ClientOnly>
-
-            <AudioPlayerElement
-              v-if="detail.content_type === 'audio' && detail.file_url?.trim()"
-              :audio_url="detail.file_url"
-            />
-
-            <ImageDisplayerElement
-              v-if="detail.content_type === 'image' && detail.file_url?.trim()"
-              :image_url="detail.file_url"
-            />
-          </div>
-        </div>
-
-        <div
-          v-if="!mc_block_submitted[block_idx]"
-          class="flex justify-center my-8"
-        >
-          <UButton
-            class="cursor-pointer"
-            color="primary"
-            @click="evaluate_submission_for_block(block_idx)"
-          >
-            {{ $t('t_validate') }}
-          </UButton>
-        </div>
-
-        <p
-          v-if="mc_block_submitted[block_idx]"
-          class="my-6"
-        >
-          <template v-if="mc_block_selection_correct[block_idx]">
-            {{ $t('t_selection_of_checkboxes_is_correct') }}
           </template>
-          <template v-else>
-            {{ $t('t_selection_of_checkboxes_is_incorrect') }}
+          <template #fallback>
+            <div
+              v-if="text_detail_visible(detail)"
+              v-note-external-links
+              class="note-displayer-html wrap-break-word"
+              v-html="detail.html_content || ''"
+            />
           </template>
-        </p>
-      </template>
+        </ClientOnly>
 
-      <template v-else>
-        <div :key="block.id ?? `single-${block_idx}`">
+        <AudioPlayerElement
+          v-if="detail.content_type === 'audio' && detail.file_url?.trim()"
+          :audio_url="detail.file_url"
+        />
+
+        <ImageDisplayerElement
+          v-if="detail.content_type === 'image' && detail.file_url?.trim()"
+          :image_url="detail.file_url"
+        />
+      </div>
+    </template>
+
+    <template v-else-if="note_type === NOTE_TYPE_FLASHCARD">
+      <div
+        v-for="(detail, detail_idx) in flashcard_front_details"
+        :key="detail.id ?? `flashcard-front-${detail_idx}`"
+        class="mb-6"
+      >
+        <ClientOnly>
+          <template #default>
+            <div
+              v-if="text_detail_visible(detail)"
+              v-note-external-links
+              class="note-displayer-html wrap-break-word"
+              v-html="viewer_html(detail)"
+            />
+          </template>
+          <template #fallback>
+            <div
+              v-if="text_detail_visible(detail)"
+              v-note-external-links
+              class="note-displayer-html wrap-break-word"
+              v-html="detail.html_content || ''"
+            />
+          </template>
+        </ClientOnly>
+
+        <AudioPlayerElement
+          v-if="detail.content_type === 'audio' && detail.file_url?.trim()"
+          :audio_url="detail.file_url"
+        />
+
+        <ImageDisplayerElement
+          v-if="detail.content_type === 'image' && detail.file_url?.trim()"
+          :image_url="detail.file_url"
+        />
+      </div>
+
+      <div
+        v-if="flashcard_back_details.length > 0"
+        class="flex justify-center my-8"
+      >
+        <UButton
+          class="cursor-pointer"
+          color="primary"
+          @click="toggle_flashcard_back"
+        >
+          {{ flashcard_back_revealed ? $t('t_hide') : $t('t_show') }}
+        </UButton>
+      </div>
+
+      <div v-show="flashcard_back_revealed">
+        <div
+          v-for="(detail, detail_idx) in flashcard_back_details"
+          :key="detail.id ?? `flashcard-back-${detail_idx}`"
+          class="mb-6"
+        >
+          <ClientOnly>
+            <template #default>
+              <div
+                v-if="text_detail_visible(detail)"
+                v-note-external-links
+                class="note-displayer-html wrap-break-word"
+                v-html="viewer_html(detail)"
+              />
+            </template>
+            <template #fallback>
+              <div
+                v-if="text_detail_visible(detail)"
+                v-note-external-links
+                class="note-displayer-html wrap-break-word"
+                v-html="detail.html_content || ''"
+              />
+            </template>
+          </ClientOnly>
+
+          <AudioPlayerElement
+            v-if="detail.content_type === 'audio' && detail.file_url?.trim()"
+            :audio_url="detail.file_url"
+          />
+
+          <ImageDisplayerElement
+            v-if="detail.content_type === 'image' && detail.file_url?.trim()"
+            :image_url="detail.file_url"
+          />
+        </div>
+      </div>
+    </template>
+
+    <template v-else-if="note_type === NOTE_TYPE_MC">
+      <div
+        v-for="(detail, detail_idx) in mc_question_details"
+        :key="detail.id ?? `mc-question-${detail_idx}`"
+        class="mb-6"
+      >
+        <ClientOnly>
+          <template #default>
+            <div
+              v-if="text_detail_visible(detail)"
+              v-note-external-links
+              class="note-displayer-html wrap-break-word"
+              v-html="viewer_html(detail)"
+            />
+          </template>
+          <template #fallback>
+            <div
+              v-if="text_detail_visible(detail)"
+              v-note-external-links
+              class="note-displayer-html wrap-break-word"
+              v-html="detail.html_content || ''"
+            />
+          </template>
+        </ClientOnly>
+
+        <AudioPlayerElement
+          v-if="detail.content_type === 'audio' && detail.file_url?.trim()"
+          :audio_url="detail.file_url"
+        />
+
+        <ImageDisplayerElement
+          v-if="detail.content_type === 'image' && detail.file_url?.trim()"
+          :image_url="detail.file_url"
+        />
+      </div>
+
+      <template v-if="mc_proposition_details.length > 0">
+        <template v-if="!mc_submitted">
           <div
-            v-if="detail_is_concealed(block)"
-            class="flex justify-center my-8"
+            v-for="(detail, detail_idx) in mc_proposition_details"
+            :key="detail.id ?? `mc-proposition-${detail_idx}`"
+            class="flex gap-3 items-start mb-4"
           >
+            <div class="shrink-0 pt-1">
+              <UCheckbox
+                v-model="checkbox_selected[detail.id]"
+                :ui="{
+                  root: 'cursor-pointer',
+                  container: 'cursor-pointer',
+                  base: 'cursor-pointer',
+                }"
+              />
+            </div>
+
+            <div class="min-w-0 flex-1">
+              <ClientOnly>
+                <template #default>
+                  <div
+                    v-if="text_detail_visible(detail)"
+                    v-note-external-links
+                    class="note-displayer-html wrap-break-word"
+                    v-html="viewer_html(detail)"
+                  />
+                </template>
+                <template #fallback>
+                  <div
+                    v-if="text_detail_visible(detail)"
+                    v-note-external-links
+                    class="note-displayer-html wrap-break-word"
+                    v-html="detail.html_content || ''"
+                  />
+                </template>
+              </ClientOnly>
+
+              <AudioPlayerElement
+                v-if="detail.content_type === 'audio' && detail.file_url?.trim()"
+                :audio_url="detail.file_url"
+              />
+
+              <ImageDisplayerElement
+                v-if="detail.content_type === 'image' && detail.file_url?.trim()"
+                :image_url="detail.file_url"
+              />
+            </div>
+          </div>
+
+          <div class="flex justify-center my-8">
             <UButton
               class="cursor-pointer"
               color="primary"
-              @click="toggle_detail_reveal(block.id)"
+              @click="evaluate_mc_submission"
             >
-              {{ detail_revealed[block.id] ? $t('t_hide') : $t('t_show') }}
+              {{ $t('t_validate') }}
             </UButton>
           </div>
+        </template>
 
-          <div v-show="content_visible(block)">
-            <ClientOnly>
-              <template #default>
-                <div
-                  v-if="text_detail_visible(block)"
-                  v-note-external-links
-                  class="note-displayer-html wrap-break-word"
-                  v-html="viewer_html(block)"
-                />
-              </template>
-              <template #fallback>
-                <div
-                  v-if="text_detail_visible(block)"
-                  v-note-external-links
-                  class="note-displayer-html wrap-break-word"
-                  v-html="block.html_content || ''"
-                />
-              </template>
-            </ClientOnly>
+        <template v-else>
+          <div
+            v-for="(detail, detail_idx) in mc_proposition_details"
+            :key="detail.id ?? `mc-proposition-user-${detail_idx}`"
+            class="flex gap-3 items-start mb-4"
+          >
+            <div class="shrink-0 pt-1">
+              <UCheckbox
+                :model-value="Boolean(checkbox_selected[detail.id])"
+                disabled
+                :ui="{
+                  root: 'cursor-default',
+                  container: 'cursor-default',
+                  base: 'cursor-default',
+                }"
+              />
+            </div>
 
-            <AudioPlayerElement
-              v-if="block.content_type === 'audio' && block.file_url?.trim()"
-              :audio_url="block.file_url"
-            />
+            <div class="min-w-0 flex-1">
+              <ClientOnly>
+                <template #default>
+                  <div
+                    v-if="text_detail_visible(detail)"
+                    v-note-external-links
+                    class="note-displayer-html wrap-break-word"
+                    v-html="viewer_html(detail)"
+                  />
+                </template>
+                <template #fallback>
+                  <div
+                    v-if="text_detail_visible(detail)"
+                    v-note-external-links
+                    class="note-displayer-html wrap-break-word"
+                    v-html="detail.html_content || ''"
+                  />
+                </template>
+              </ClientOnly>
 
-            <ImageDisplayerElement
-              v-if="block.content_type === 'image' && block.file_url?.trim()"
-              :image_url="block.file_url"
-            />
+              <AudioPlayerElement
+                v-if="detail.content_type === 'audio' && detail.file_url?.trim()"
+                :audio_url="detail.file_url"
+              />
+
+              <ImageDisplayerElement
+                v-if="detail.content_type === 'image' && detail.file_url?.trim()"
+                :image_url="detail.file_url"
+              />
+            </div>
           </div>
-        </div>
+
+          <div class="mt-8">
+            <div
+              v-for="(detail, detail_idx) in mc_proposition_details"
+              :key="detail.id ?? `mc-proposition-answer-${detail_idx}`"
+              class="flex gap-3 items-start mb-4"
+            >
+              <div
+                class="shrink-0 pt-1 w-6 flex justify-center"
+                aria-hidden="true"
+              >
+                <UIcon
+                  v-if="detail.is_correct === true"
+                  name="i-lucide-square-check-big"
+                  class="size-5 text-success shrink-0"
+                />
+                <UIcon
+                  v-else
+                  name="i-lucide-square-x"
+                  class="size-5 text-error shrink-0"
+                />
+              </div>
+
+              <div class="min-w-0 flex-1">
+                <ClientOnly>
+                  <template #default>
+                    <div
+                      v-if="text_detail_visible(detail)"
+                      v-note-external-links
+                      class="note-displayer-html wrap-break-word"
+                      v-html="viewer_html(detail)"
+                    />
+                  </template>
+                  <template #fallback>
+                    <div
+                      v-if="text_detail_visible(detail)"
+                      v-note-external-links
+                      class="note-displayer-html wrap-break-word"
+                      v-html="detail.html_content || ''"
+                    />
+                  </template>
+                </ClientOnly>
+
+                <AudioPlayerElement
+                  v-if="detail.content_type === 'audio' && detail.file_url?.trim()"
+                  :audio_url="detail.file_url"
+                />
+
+                <ImageDisplayerElement
+                  v-if="detail.content_type === 'image' && detail.file_url?.trim()"
+                  :image_url="detail.file_url"
+                />
+              </div>
+            </div>
+          </div>
+
+          <p class="my-6">
+            <template v-if="mc_selection_correct">
+              {{ $t('t_selection_of_checkboxes_is_correct') }}
+            </template>
+            <template v-else>
+              {{ $t('t_selection_of_checkboxes_is_incorrect') }}
+            </template>
+          </p>
+        </template>
       </template>
-    </div>
+
+      <div v-if="mc_submitted">
+        <div
+          v-for="(detail, detail_idx) in mc_explanation_details"
+          :key="detail.id ?? `mc-explanation-${detail_idx}`"
+          class="mb-6"
+        >
+          <ClientOnly>
+            <template #default>
+              <div
+                v-if="text_detail_visible(detail)"
+                v-note-external-links
+                class="note-displayer-html wrap-break-word"
+                v-html="viewer_html(detail)"
+              />
+            </template>
+            <template #fallback>
+              <div
+                v-if="text_detail_visible(detail)"
+                v-note-external-links
+                class="note-displayer-html wrap-break-word"
+                v-html="detail.html_content || ''"
+              />
+            </template>
+          </ClientOnly>
+
+          <AudioPlayerElement
+            v-if="detail.content_type === 'audio' && detail.file_url?.trim()"
+            :audio_url="detail.file_url"
+          />
+
+          <ImageDisplayerElement
+            v-if="detail.content_type === 'image' && detail.file_url?.trim()"
+            :image_url="detail.file_url"
+          />
+        </div>
+      </div>
+    </template>
   </section>
 </template>
 

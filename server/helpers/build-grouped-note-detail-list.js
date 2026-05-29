@@ -1,31 +1,44 @@
 'use strict';
 
 import {
+  NOTE_TYPE_MC,
+} from '#shared/utils/constants.js';
+
+import {
   shuffleArray,
 } from './shuffle-array.js';
 
-export const buildGroupedNoteDetailList = (rows) => {
-  const final_note_detail_list = [];
-  let idx = 0;
+export const buildGroupedNoteDetailList = (note_type, note_details) => {
+  const groups = [];
+  let current_group = [];
 
-  while (idx < rows.length) {
-    const current_content_position = rows[idx].content_position;
-    const same_position_group = [];
-
-    while (
-      idx < rows.length
-      && rows[idx].content_position === current_content_position
+  for (const detail of note_details) {
+    if (
+      current_group.length > 0
+      && detail.content_position !== current_group.at(0).content_position
     ) {
-      same_position_group.push(rows[idx]);
-      idx += 1;
+      groups.push(current_group);
+      current_group = [];
     }
 
-    if (same_position_group.length > 1) {
-      final_note_detail_list.push(shuffleArray(same_position_group));
-    } else {
-      final_note_detail_list.push(same_position_group.at(0));
-    }
+    current_group.push(detail);
   }
 
-  return final_note_detail_list;
+  if (current_group.length > 0) {
+    groups.push(current_group);
+  }
+
+  return groups.map((group) => {
+    if (group.length === 1) {
+      return group.at(0);
+    }
+
+    const content_position = group.at(0).content_position;
+
+    if (note_type === NOTE_TYPE_MC && content_position === 2) {
+      return shuffleArray(group);
+    }
+
+    return group;
+  });
 };

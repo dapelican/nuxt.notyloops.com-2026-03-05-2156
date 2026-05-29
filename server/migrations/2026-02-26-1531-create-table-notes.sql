@@ -4,6 +4,7 @@ CREATE TABLE notes (
   updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
   deleted_at TIMESTAMPTZ,
   user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  type TEXT NOT NULL DEFAULT 'flashcard', -- NOTE_TYPE_FLASHCARD, NOTE_TYPE_FREE, NOTE_TYPE_MC
   title TEXT,
   swappable_sides BOOLEAN,
   first_review_date TIMESTAMPTZ,

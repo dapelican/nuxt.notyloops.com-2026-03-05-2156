@@ -95,6 +95,10 @@ Mes concurrents sont les applications web de flashcards et également, mais dans
 - https://www.youtube.com/@loistalagrand
 - https://www.youtube.com/@laurenspeakslanguages/
 
+## Publicité sur Google Ads
+
+## Publicité sur Reddit
+
 ## Création et promotion de collections publiques
 - Créer des collections publiques gratuites relatives à une thématique.
 - Faire une vidéo YouTube pour promouvoir la thématique, en montrant les révisions des collections publiques par un compte premium.
@@ -106,6 +110,7 @@ Mes concurrents sont les applications web de flashcards et également, mais dans
 -- Test TAGE MAGE (globalement dans mes compétences).
 -- Certificats CompTIA  (inconnu pur moi).
 -- Exercices JavaScript (dans mes compétences).
+-- Quiz à partir de livres techniques
 
 ## Comparaison avec les concurrents
 - Créer des vidéos YouTube comparant NotyLoops à un concurrent. S'inspirer de vidéos de tutoriels existant déjà.

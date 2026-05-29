@@ -1,6 +1,11 @@
 'use strict';
 
 import {
+  NOTE_TYPE_FLASHCARD,
+  FREEMIUM_NOTE_LIMIT,
+} from '#shared/utils/constants.js';
+
+import {
   HTTP_CODE_200_OK,
   HTTP_CODE_400_BAD_REQUEST,
   HTTP_CODE_401_UNAUTHORIZED,
@@ -12,10 +17,6 @@ import {
   getRouterParam,
   setResponseStatus,
 } from 'h3';
-
-import {
-  FREEMIUM_NOTE_LIMIT,
-} from '#shared/utils/constants.js';
 
 import {
   buildGroupedNoteDetailList,
@@ -96,17 +97,20 @@ export default defineEventHandler(async (event) => {
     const {
       rows: note_detail_list,
     } = await executeSQLQuery(
-      'SELECT * FROM note_details WHERE note_id = $1 ORDER BY content_position ASC, content_sub_position ASC',
+      `SELECT * FROM note_details
+      WHERE note_id = $1
+      ORDER BY content_position ASC, content_sub_position ASC`,
       [note_id]
     );
 
-    const grouped = buildGroupedNoteDetailList(note_detail_list);
+    const grouped = buildGroupedNoteDetailList(note.type, note_detail_list);
 
-    if (note_detail_list.length === 2 && note.swappable_sides) {
+    if (note.type === NOTE_TYPE_FLASHCARD && note.swappable_sides) {
       setResponseStatus(event, HTTP_CODE_200_OK);
 
       return {
         note_detail_list: shuffleArray(grouped),
+        note_type: note.type,
       };
     }
 
@@ -114,6 +118,7 @@ export default defineEventHandler(async (event) => {
 
     return {
       note_detail_list: grouped,
+      note_type: note.type,
     };
   } catch (error) {
     /* c8 ignore next */

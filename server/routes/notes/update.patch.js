@@ -45,6 +45,7 @@ export default defineEventHandler(async (event) => {
       note_id,
       tag_id_list,
       title,
+      type,
     } = await readBody(event);
 
     if (!note_id || !title) {
@@ -72,8 +73,8 @@ export default defineEventHandler(async (event) => {
     }
 
     await executeSQLQuery(
-      'UPDATE notes SET title = $1 WHERE id = $2',
-      [title, note_id]
+      'UPDATE notes SET title = $1, type = $2 WHERE id = $3',
+      [title, type, note_id]
     );
 
     await executeSQLQuery(
@@ -91,10 +92,9 @@ export default defineEventHandler(async (event) => {
           markdown_content,
           html_content,
           file_url,
-          to_be_hidden,
           is_correct
         )
-          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`,
+          VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
         [
           note_id,
           detail.content_position,
@@ -105,7 +105,6 @@ export default defineEventHandler(async (event) => {
             ? sanitizeHtml(detail.markdown_content?.trim())
             : null,
           detail.file_url,
-          detail.to_be_hidden,
           detail.is_correct,
         ]
       );
