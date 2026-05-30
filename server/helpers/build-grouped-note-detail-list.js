@@ -1,7 +1,7 @@
 'use strict';
 
 import {
-  NOTE_FORMAT_MC,
+  NOTE_FORMAT_MULTIPLE_CHOICE,
 } from '#shared/utils/constants.js';
 
 import {
@@ -35,7 +35,7 @@ export const buildGroupedNoteDetailList = (note_type, note_details) => {
 
     const content_position = group.at(0).content_position;
 
-    if (note_type === NOTE_FORMAT_MC && content_position === 2) {
+    if (note_type === NOTE_FORMAT_MULTIPLE_CHOICE && content_position === 2) {
       return shuffleArray(group);
     }
 

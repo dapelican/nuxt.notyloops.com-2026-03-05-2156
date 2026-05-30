@@ -2,7 +2,7 @@
 import {
   NOTE_FORMAT_FLASHCARD,
   NOTE_FORMAT_FREE,
-  NOTE_FORMAT_MC,
+  NOTE_FORMAT_MULTIPLE_CHOICE,
 } from '#shared/utils/constants.js';
 
 import {
@@ -21,7 +21,7 @@ const props = defineProps({
   note_format: {
     type: String,
     default: NOTE_FORMAT_FREE,
-    validator: (value) => [NOTE_FORMAT_FLASHCARD, NOTE_FORMAT_FREE, NOTE_FORMAT_MC].includes(value),
+    validator: (value) => [NOTE_FORMAT_FLASHCARD, NOTE_FORMAT_FREE, NOTE_FORMAT_MULTIPLE_CHOICE].includes(value),
   },
   title: {
     type: String,
@@ -114,7 +114,7 @@ const reset_interaction_state = () => {
 
   const next_checkbox = {};
 
-  if (props.note_format === NOTE_FORMAT_MC) {
+  if (props.note_format === NOTE_FORMAT_MULTIPLE_CHOICE) {
     for (const detail of mc_proposition_details.value) {
       next_checkbox[detail.id] = false;
     }
@@ -324,7 +324,7 @@ const vNoteExternalLinks = {
       </div>
     </template>
 
-    <template v-else-if="note_format === NOTE_FORMAT_MC">
+    <template v-else-if="note_format === NOTE_FORMAT_MULTIPLE_CHOICE">
       <div
         v-for="(detail, detail_idx) in mc_question_details"
         :key="detail.id ?? `mc-question-${detail_idx}`"

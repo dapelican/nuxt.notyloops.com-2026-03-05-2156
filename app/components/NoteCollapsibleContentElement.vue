@@ -29,7 +29,7 @@ const props = defineProps({
 const content_open = ref(false);
 const note_detail_list = ref(undefined);
 const note_detail_loading = ref(false);
-const note_type = ref(NOTE_FORMAT_FREE);
+const note_format = ref(NOTE_FORMAT_FREE);
 
 const { loggedIn: logged_in } = useUserSession();
 
@@ -83,7 +83,7 @@ const load_note_detail_list = async () => {
     }
 
     note_detail_list.value = data.note_detail_list ?? [];
-    note_type.value = data.note_type ?? NOTE_FORMAT_FREE;
+    note_format.value = data.note_format ?? NOTE_FORMAT_FREE;
   } catch (error) {
     handleFrontendError(error, error?.data?.error_message);
   } finally {
@@ -141,7 +141,7 @@ const on_content_open_change = async (is_open) => {
         v-else
         :hide_title="false"
         :note_detail_list="note_detail_list ?? []"
-        :note_type="note_type"
+        :note_format="note_format"
         :title="title"
       />
     </template>

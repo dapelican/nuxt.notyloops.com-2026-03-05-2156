@@ -55,7 +55,10 @@ const note_detail_list = computed(() => note_details_payload.value?.note_detail_
 
 const note_title = computed(() => note_row_payload.value?.title ?? '');
 
-const note_type = computed(() => note_row_payload.value?.type ?? NOTE_FORMAT_FREE);
+const note_format = computed(() =>
+  note_details_payload.value?.note_format
+  ?? note_row_payload.value?.format
+  ?? NOTE_FORMAT_FREE);
 
 const pending = computed(() => note_details_pending.value || note_row_pending.value);
 
@@ -132,7 +135,7 @@ const continue_to_next_note_or_end = async () => {
       <NoteDisplayerElement
         :hide_title="false"
         :note_detail_list="note_detail_list"
-        :note_type="note_type"
+        :note_format="note_format"
         :title="note_title"
       />
 

@@ -15,6 +15,10 @@ import {
 } from 'h3';
 
 import {
+  NOTE_FORMAT_FLASHCARD,
+} from '#shared/utils/constants.js';
+
+import {
   executeSQLQuery,
 } from '../../database/query.js';
 
@@ -41,15 +45,31 @@ import {
 const CSV_COLUMNS = [
   'id',
   'title',
+  'note_format',
   'swappable_sides',
   'content_position',
   'content_sub_position',
   'content_type',
   'markdown_content',
   'file_url',
-  'to_be_hidden',
   'is_correct',
 ];
+
+const format_boolean_for_csv = (value) => {
+  if (value === true) {
+    return 'true';
+  }
+
+  return '';
+};
+
+const format_cell_for_csv = (value) => {
+  if (value === null || value === undefined) {
+    return '';
+  }
+
+  return String(value);
+};
 
 export default defineEventHandler(async (event) => {
   try {
@@ -103,13 +123,13 @@ export default defineEventHandler(async (event) => {
         `SELECT
           n.id AS note_id,
           n.title,
+          n.format,
           n.swappable_sides,
           nd.content_position,
           nd.content_sub_position,
           nd.content_type,
           nd.markdown_content,
           nd.file_url,
-          nd.to_be_hidden,
           nd.is_correct
         FROM note_details nd
         INNER JOIN notes n ON n.id = nd.note_id
@@ -133,18 +153,22 @@ export default defineEventHandler(async (event) => {
       }
     }
 
-    const csv_rows = detail_rows.map((row) => ({
-      id: note_id_to_numeric_id.get(row.note_id),
-      title: row.title ?? '',
-      swappable_sides: row.swappable_sides,
-      content_position: row.content_position,
-      content_sub_position: row.content_sub_position,
-      content_type: row.content_type,
-      markdown_content: row.markdown_content,
-      file_url: row.file_url,
-      to_be_hidden: row.to_be_hidden,
-      is_correct: row.is_correct,
-    }));
+    const csv_rows = detail_rows.map((row) => {
+      return {
+        id: note_id_to_numeric_id.get(row.note_id),
+        title: row.title ?? '',
+        note_format: row.format,
+        swappable_sides: row.format === NOTE_FORMAT_FLASHCARD
+          ? format_boolean_for_csv(row.swappable_sides)
+          : '',
+        content_position: row.content_position,
+        content_sub_position: row.content_sub_position,
+        content_type: row.content_type,
+        markdown_content: format_cell_for_csv(row.markdown_content),
+        file_url: format_cell_for_csv(row.file_url),
+        is_correct: format_boolean_for_csv(row.is_correct),
+      };
+    });
 
     const csv_text = stringify(csv_rows, {
       columns: CSV_COLUMNS,

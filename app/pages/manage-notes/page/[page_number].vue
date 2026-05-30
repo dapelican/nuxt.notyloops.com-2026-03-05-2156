@@ -16,6 +16,7 @@ const {
   sort_option,
   search_criteria_term,
   searchItems,
+  total_user_note_count,
 } = provideSearchAndSelectItems(ITEM_TYPE_NOTE);
 
 const {
@@ -26,8 +27,6 @@ const {
 if (user_error.value) {
   handleFrontendError(null, user_error.value.data?.error_message);
 }
-
-const total_user_note_count = ref(0);
 
 const {
   data: count_data,

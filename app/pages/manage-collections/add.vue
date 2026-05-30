@@ -11,6 +11,7 @@ useSeoMeta({
 
 const {
   all_user_tag_list,
+  total_user_collection_count,
 } = useSearchAndSelectItems(ITEM_TYPE_TAG);
 
 const {
@@ -274,6 +275,10 @@ const createCollection = async () => {
       method: 'POST',
       body: collection_form_state,
     });
+
+    const count_response = await $fetch('/collections/count-user-collections');
+
+    total_user_collection_count.value = count_response.total_user_collection_count;
 
     return navigateTo('/manage-collections/page/1');
   } catch (error) {

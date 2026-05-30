@@ -36,13 +36,18 @@ const createTag = async () => {
 
     const {
       all_user_tag_list,
+      total_user_tag_count,
     } = useSearchAndSelectItems(ITEM_TYPE_NOTE);
 
-    const tag_list = await $fetch('/tags/get-user-tags');
+    const tag_data = await $fetch('/tags/get-user-tags');
 
-    if (tag_list.value) {
-      all_user_tag_list.value = tag_list.value;
+    if (tag_data?.all_user_tag_list) {
+      all_user_tag_list.value = tag_data.all_user_tag_list;
     }
+
+    const count_response = await $fetch('/tags/count-user-tags');
+
+    total_user_tag_count.value = count_response.total_user_tag_count;
 
     return navigateTo('/manage-tags/page/1');
   } catch (error) {

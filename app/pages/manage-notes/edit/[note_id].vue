@@ -52,7 +52,7 @@ const note_format_list = [
   },
   {
     label: t('t_mc'),
-    value: NOTE_FORMAT_MC,
+    value: NOTE_FORMAT_MULTIPLE_CHOICE,
   },
 ];
 
@@ -100,7 +100,7 @@ const mapDetailFromApi = (detail, index, format) => {
     };
   }
 
-  if (format === NOTE_FORMAT_MC) {
+  if (format === NOTE_FORMAT_MULTIPLE_CHOICE) {
     return {
       ...base,
       part_1: false,
@@ -188,7 +188,7 @@ const moveBlock = (index, direction) => {
     }
   }
 
-  if (note_format.value === NOTE_FORMAT_MC) {
+  if (note_format.value === NOTE_FORMAT_MULTIPLE_CHOICE) {
     note_details.value[0].mc_part = 1;
     reconcileMcPartsFrom(1);
   }
@@ -211,7 +211,7 @@ const deleteBlock = (index) => {
     }
   }
 
-  if (note_format.value === NOTE_FORMAT_MC) {
+  if (note_format.value === NOTE_FORMAT_MULTIPLE_CHOICE) {
     note_details.value[0].mc_part = 1;
     reconcileMcPartsFrom(1);
   }
@@ -361,12 +361,12 @@ watch(note_format, () => {
       detail.part_1 = index === 0;
     }
 
-    if (note_format.value === NOTE_FORMAT_MC) {
+    if (note_format.value === NOTE_FORMAT_MULTIPLE_CHOICE) {
       detail.mc_part = index === 0 ? 1 : (note_details.value[index - 1]?.mc_part ?? 1);
     }
   });
 
-  if (note_format.value === NOTE_FORMAT_MC) {
+  if (note_format.value === NOTE_FORMAT_MULTIPLE_CHOICE) {
     reconcileMcPartsFrom(1);
   }
 });
@@ -390,7 +390,7 @@ const updateNote = async () => {
           content_type: d.content_type,
           markdown_content: d.markdown_content,
           file_url: d.file_url,
-          is_correct: note_format.value === NOTE_FORMAT_MC ? d.is_correct : false,
+          is_correct: note_format.value === NOTE_FORMAT_MULTIPLE_CHOICE ? d.is_correct : false,
         })),
         note_id,
         tag_id_list: selected_tag_id_list.value,
@@ -498,7 +498,7 @@ const updateNote = async () => {
               @update:model-value="(checked) => toggleFlashcardPart1(index, checked)"
             />
 
-            <template v-if="note_format === NOTE_FORMAT_MC">
+            <template v-if="note_format === NOTE_FORMAT_MULTIPLE_CHOICE">
               <UCheckbox
                 v-for="part in detail.mc_parts_before_is_correct"
                 :key="part"

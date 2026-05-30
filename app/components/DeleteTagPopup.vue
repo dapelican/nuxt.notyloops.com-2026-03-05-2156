@@ -14,6 +14,7 @@ const {
   all_user_tag_list,
   page_number,
   searchItems,
+  total_user_tag_count,
 } = useSearchAndSelectItemsOrInject(ITEM_TYPE_TAG);
 
 const show_popup = ref(false);
@@ -30,9 +31,13 @@ const deleteTag = async () => {
       },
     });
 
-    const response = await $fetch('/tags/count-user-tags');
+    const tag_data = await $fetch('/tags/get-user-tags');
 
-    all_user_tag_list.value = response.all_user_tag_list;
+    all_user_tag_list.value = tag_data.all_user_tag_list;
+
+    const count_response = await $fetch('/tags/count-user-tags');
+
+    total_user_tag_count.value = count_response.total_user_tag_count;
 
     await searchItems();
 

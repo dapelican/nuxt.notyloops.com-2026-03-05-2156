@@ -8,6 +8,9 @@ import {
 } from '../../helpers/http-status-codes.js';
 
 import {
+  NOTE_FORMAT_FLASHCARD,
+  NOTE_FORMAT_FREE,
+  NOTE_FORMAT_MULTIPLE_CHOICE,
   USER_STATUS_ADMIN,
   USER_STATUS_PREMIUM,
 } from '#shared/utils/constants.js';
@@ -43,6 +46,12 @@ import {
 } from '../../helpers/verify-session-and-return-user.js';
 
 const CONTENT_TYPE_LIST = ['text', 'image', 'audio'];
+
+const NOTE_FORMAT_CSV_LIST = [
+  NOTE_FORMAT_FLASHCARD,
+  NOTE_FORMAT_FREE,
+  NOTE_FORMAT_MULTIPLE_CHOICE,
+];
 
 const normalize_cell = (value) => {
   if (value === null || value === undefined) {
@@ -82,6 +91,86 @@ const parse_int_or_null = (value) => {
   return Number.isNaN(n) ? null : n;
 };
 
+const parse_note_format_from_csv = (value) => {
+  const normalized = normalize_cell(value).trim().toLowerCase();
+
+  if (!NOTE_FORMAT_CSV_LIST.includes(normalized)) {
+    return null;
+  }
+
+  return normalized;
+};
+
+const validate_position_sequence = (row_list, max_content_position) => {
+  const sub_counter = {};
+
+  for (let index = 1; index <= max_content_position; index += 1) {
+    sub_counter[index] = 0;
+  }
+
+  let prev_content_position = null;
+
+  for (let index = 0; index < row_list.length; index += 1) {
+    const content_position = parse_int_or_null(row_list[index].content_position);
+    const content_sub_position = parse_int_or_null(row_list[index].content_sub_position);
+
+    if (
+      content_position === null
+      || content_sub_position === null
+      || content_position < 1
+      || content_position > max_content_position
+      || content_sub_position < 1
+    ) {
+      return false;
+    }
+
+    if (index === 0) {
+      if (content_position !== 1 || content_sub_position !== 1) {
+        return false;
+      }
+    } else if (content_position < prev_content_position) {
+      return false;
+    } else {
+      const allowed_content_position_list = prev_content_position < max_content_position
+        ? [prev_content_position, prev_content_position + 1]
+        : [prev_content_position];
+
+      if (!allowed_content_position_list.includes(content_position)) {
+        return false;
+      }
+    }
+
+    sub_counter[content_position] += 1;
+
+    if (content_sub_position !== sub_counter[content_position]) {
+      return false;
+    }
+
+    prev_content_position = content_position;
+  }
+
+  return true;
+};
+
+const validate_free_form_positions = (row_list) => {
+  for (let index = 0; index < row_list.length; index += 1) {
+    const expected_position = index + 1;
+    const content_position = parse_int_or_null(row_list[index].content_position);
+    const content_sub_position = parse_int_or_null(row_list[index].content_sub_position);
+
+    if (
+      content_position === null
+      || content_sub_position === null
+      || content_position !== expected_position
+      || content_sub_position !== expected_position
+    ) {
+      return false;
+    }
+  }
+
+  return true;
+};
+
 const validate_row_list = (row_list) => {
   row_list.sort((a, b) => {
     const pa = parse_int_or_null(a.content_position) ?? 0;
@@ -104,10 +193,14 @@ const validate_row_list = (row_list) => {
     return false;
   }
 
-  for (const row of row_list) {
-    const content_position = parse_int_or_null(row.content_position);
+  const note_format = parse_note_format_from_csv(first.note_format);
 
-    if (content_position === null) {
+  if (note_format === null) {
+    return false;
+  }
+
+  for (const row of row_list) {
+    if (parse_note_format_from_csv(row.note_format) !== note_format) {
       return false;
     }
 
@@ -122,7 +215,19 @@ const validate_row_list = (row_list) => {
     }
   }
 
-  return true;
+  if (note_format === NOTE_FORMAT_FREE) {
+    return validate_free_form_positions(row_list);
+  }
+
+  if (note_format === NOTE_FORMAT_FLASHCARD) {
+    return validate_position_sequence(row_list, 2);
+  }
+
+  if (note_format === NOTE_FORMAT_MULTIPLE_CHOICE) {
+    return validate_position_sequence(row_list, 3);
+  }
+
+  return false;
 };
 
 export default defineEventHandler(async (event) => {
@@ -260,13 +365,16 @@ export default defineEventHandler(async (event) => {
 
       const first = row_list.at(0);
       const title = normalize_cell(first.title).trim();
-      const swappable_sides = parse_boolean_or_null(first.swappable_sides);
+      const note_format = parse_note_format_from_csv(first.note_format);
+      const swappable_sides = note_format === NOTE_FORMAT_FLASHCARD
+        ? parse_boolean_or_null(first.swappable_sides)
+        : null;
 
       const {
         rows: new_note_list,
       } = await executeSQLQuery(
-        'INSERT INTO notes (user_id, title, swappable_sides) VALUES ($1, $2, $3) RETURNING id',
-        [user.id, title, swappable_sides]
+        'INSERT INTO notes (user_id, title, format, swappable_sides) VALUES ($1, $2, $3, $4) RETURNING id',
+        [user.id, title, note_format, swappable_sides]
       );
 
       const note_id = new_note_list.at(0).id;
@@ -275,7 +383,7 @@ export default defineEventHandler(async (event) => {
 
       for (const row of row_list) {
         const content_position = parse_int_or_null(row.content_position);
-        const content_sub_position = parse_int_or_null(row.content_sub_position) ?? 0;
+        const content_sub_position = parse_int_or_null(row.content_sub_position);
         let content_type = normalize_cell(row.content_type).trim();
 
         if (!content_type) {
@@ -295,9 +403,8 @@ export default defineEventHandler(async (event) => {
             markdown_content,
             html_content,
             file_url,
-            to_be_hidden,
             is_correct
-          ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`,
+          ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
           [
             note_id,
             content_position,
@@ -308,7 +415,6 @@ export default defineEventHandler(async (event) => {
               ? null
               : sanitizeHtml(markdown_content.trim()),
             file_url,
-            parse_boolean_or_null(row.to_be_hidden),
             parse_boolean_or_null(row.is_correct),
           ]
         );

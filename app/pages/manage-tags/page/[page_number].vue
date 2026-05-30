@@ -7,7 +7,15 @@ useSeoMeta({
   title: `${t('t_manage_tags')} | NotyLoops`,
 });
 
-const total_user_tag_count = ref(0);
+const {
+  handling_request,
+  page_number,
+  reinitializeSearch,
+  sort_option,
+  search_criteria_term,
+  searchItems,
+  total_user_tag_count,
+} = provideSearchAndSelectItems(ITEM_TYPE_TAG);
 
 const {
   data: count_data,
@@ -21,15 +29,6 @@ if (count_error.value) {
 if (count_data.value) {
   total_user_tag_count.value = count_data.value.total_user_tag_count;
 }
-
-const {
-  handling_request,
-  page_number,
-  reinitializeSearch,
-  sort_option,
-  search_criteria_term,
-  searchItems,
-} = provideSearchAndSelectItems(ITEM_TYPE_TAG);
 
 // Action bar actions
 const show_search_input = ref(false);

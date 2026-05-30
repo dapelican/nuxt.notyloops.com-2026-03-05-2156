@@ -141,6 +141,8 @@ export const useSearchAndSelectItems = (key) => {
 
   const total_user_collection_count = useState('total_user_collection_count', () => 0);
 
+  const total_user_tag_count = useState('total_user_tag_count', () => 0);
+
   const page_number = computed(() => {
     const n = Number(route.params.page_number);
     if (!Number.isInteger(n) || n < 1) {
@@ -322,6 +324,7 @@ export const useSearchAndSelectItems = (key) => {
     searchItems,
     total_user_collection_count,
     total_user_note_count,
+    total_user_tag_count,
   };
 };
 

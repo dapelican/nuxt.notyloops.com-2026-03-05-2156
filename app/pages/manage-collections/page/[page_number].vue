@@ -18,18 +18,30 @@ if (user_error.value) {
   handleFrontendError(null, user_error.value.data?.error_message);
 }
 
-const total_user_note_count = ref(0);
+const {
+  all_user_tag_list,
+  handling_request,
+  page_number,
+  reinitializeSearch,
+  sort_option,
+  search_criteria_term,
+  searchItems,
+  total_user_collection_count,
+  total_user_note_count,
+} = provideSearchAndSelectItems(ITEM_TYPE_COLLECTION);
 
-const load_note_count = async () => {
-  try {
-    const response = await $fetch('/notes/count-user-notes');
-    total_user_note_count.value = response.total_user_note_count;
-  } catch (error) {
-    handleFrontendError(error, error?.data?.error_message);
-  }
-};
+const {
+  data: note_count_data,
+  error: note_count_error,
+} = await useFetch('/notes/count-user-notes', { key: 'notes-manage-count' });
 
-const total_user_collection_count = ref(0);
+if (note_count_error.value) {
+  handleFrontendError(null, note_count_error.value.data?.error_message);
+}
+
+if (note_count_data.value) {
+  total_user_note_count.value = note_count_data.value.total_user_note_count;
+}
 
 const {
   data: count_data,
@@ -185,16 +197,6 @@ const format_next_due_date_2 = (date_value) => {
 };
 
 const {
-  all_user_tag_list,
-  handling_request,
-  page_number,
-  reinitializeSearch,
-  sort_option,
-  search_criteria_term,
-  searchItems,
-} = provideSearchAndSelectItems(ITEM_TYPE_COLLECTION);
-
-const {
   data: tag_data,
   error: tag_error,
 } = await useFetch('/tags/get-user-tags', { key: 'tags-manage-all' });
@@ -294,7 +296,6 @@ const onClearingInput = () => {
 };
 
 onMounted(() => {
-  load_note_count();
   load_spaced_repetition_due_notes();
   load_diary_due_notes();
   searchItems();
@@ -534,7 +535,6 @@ onUnmounted(() => {
       <SelectableItemsElement
         v-if="total_user_collection_count > 0"
         :item_type="ITEM_TYPE_COLLECTION"
-        :total_user_note_count="total_user_note_count"
       />
     </div>
   </section>
