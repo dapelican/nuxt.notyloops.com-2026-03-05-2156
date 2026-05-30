@@ -12,8 +12,8 @@ const props = defineProps({
 
 const {
   page_number,
+  refreshTotalUserCollectionCount,
   searchItems,
-  total_user_collection_count,
 } = useSearchAndSelectItemsOrInject(ITEM_TYPE_COLLECTION);
 
 const show_popup = ref(false);
@@ -30,9 +30,7 @@ const deleteNote = async () => {
       },
     });
 
-    const response = await $fetch('/collections/count-user-collections');
-
-    total_user_collection_count.value = response.total_user_collection_count;
+    await refreshTotalUserCollectionCount();
 
     await searchItems();
 

@@ -78,7 +78,7 @@ if (collection_data.value) {
 const {
   data: user_data,
   error: user_error,
-} = await useFetch('/a/user', { key: 'notes-manage-user' });
+} = await useCurrentUser(USER_FETCH_KEY_MANAGE_COLLECTIONS_EDIT);
 
 if (user_error.value) {
   handleFrontendError(null, user_error.value.data?.error_message);

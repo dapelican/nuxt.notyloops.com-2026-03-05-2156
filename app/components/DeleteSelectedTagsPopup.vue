@@ -1,11 +1,11 @@
 <script setup>
 const {
-  all_user_tag_list,
   clearSelection,
   page_number,
+  refreshAllUserTagList,
+  refreshTotalUserTagCount,
   selected_item_id_set,
   searchItems,
-  total_user_tag_count,
 } = useSearchAndSelectItemsOrInject(ITEM_TYPE_TAG);
 
 const show_popup = ref(false);
@@ -25,13 +25,10 @@ const deleteTags = async () => {
       },
     });
 
-    const tag_data = await $fetch('/tags/get-user-tags');
-
-    all_user_tag_list.value = tag_data.all_user_tag_list;
-
-    const count_response = await $fetch('/tags/count-user-tags');
-
-    total_user_tag_count.value = count_response.total_user_tag_count;
+    await Promise.all([
+      refreshAllUserTagList(),
+      refreshTotalUserTagCount(),
+    ]);
 
     clearSelection();
     show_popup.value = false;

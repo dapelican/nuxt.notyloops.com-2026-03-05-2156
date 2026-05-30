@@ -9,8 +9,10 @@ const { locale } = useI18n();
     class="ml-auto mr-auto max-w-xl"
   >
     <h1 class="text-center">
-      Bibliothèque
+      {{ $t('t_library') }}
     </h1>
+
+    <!-- local library -->
 
     <ul class="mt-4">
       <li>

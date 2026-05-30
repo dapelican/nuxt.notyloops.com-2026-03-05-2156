@@ -2,9 +2,9 @@
 const {
   clearSelection,
   page_number,
+  refreshTotalUserCollectionCount,
   selected_item_id_set,
   searchItems,
-  total_user_collection_count,
 } = useSearchAndSelectItemsOrInject(ITEM_TYPE_COLLECTION);
 
 const show_popup = ref(false);
@@ -24,9 +24,7 @@ const deleteCollections = async () => {
       },
     });
 
-    const response = await $fetch('/collections/count-user-collections');
-
-    total_user_collection_count.value = response.total_user_collection_count;
+    await refreshTotalUserCollectionCount();
 
     clearSelection();
     show_popup.value = false;

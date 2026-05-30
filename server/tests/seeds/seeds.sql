@@ -39,6 +39,36 @@ VALUES (
   'fr'
 );
 
+INSERT INTO users (id, email, password, status, premium_status_expiration_date, subdomain)
+VALUES (
+  '10000000-0000-4000-8000-000000000005',
+  'da@admin.com',
+  '$2b$10$A/gQANzmiA/uRAh9NxSqxOjVKYmMvEBMbN7xAwYku7wbbzOpPX9QS',
+  'admin',
+    now() + interval '1 year',
+  'fr'
+);
+
+INSERT INTO users (id, email, password, status, premium_status_expiration_date, subdomain)
+VALUES (
+  '10000000-0000-4000-8000-000000000006',
+  'da@free.com',
+  '$2b$10$A/gQANzmiA/uRAh9NxSqxOjVKYmMvEBMbN7xAwYku7wbbzOpPX9QS',
+  'free',
+    now() + interval '1 year',
+  'fr'
+);
+
+INSERT INTO users (id, email, password, status, premium_status_expiration_date, subdomain)
+VALUES (
+  '10000000-0000-4000-8000-000000000007',
+  'da@premium.com',
+  '$2b$10$A/gQANzmiA/uRAh9NxSqxOjVKYmMvEBMbN7xAwYku7wbbzOpPX9QS',
+  'premium',
+    now() + interval '1 year',
+  'fr'
+);
+
 -- =============================================
 -- Country flag notes, tags, details and note_tags (user b@b.com)
 -- =============================================

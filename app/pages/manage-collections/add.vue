@@ -11,7 +11,7 @@ useSeoMeta({
 
 const {
   all_user_tag_list,
-  total_user_collection_count,
+  refreshTotalUserCollectionCount,
 } = useSearchAndSelectItems(ITEM_TYPE_TAG);
 
 const {
@@ -30,7 +30,7 @@ if (tag_data.value) {
 const {
   data: user_data,
   error: user_error,
-} = await useFetch('/a/user', { key: 'notes-manage-user' });
+} = await useCurrentUser(USER_FETCH_KEY_MANAGE_COLLECTIONS_ADD);
 
 if (user_error.value) {
   handleFrontendError(null, user_error.value.data?.error_message);
@@ -276,9 +276,7 @@ const createCollection = async () => {
       body: collection_form_state,
     });
 
-    const count_response = await $fetch('/collections/count-user-collections');
-
-    total_user_collection_count.value = count_response.total_user_collection_count;
+    await refreshTotalUserCollectionCount();
 
     return navigateTo('/manage-collections/page/1');
   } catch (error) {

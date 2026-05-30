@@ -13,7 +13,7 @@ const page_number = computed(() => route.params.page_number);
 const {
   data: user_data,
   error: user_error,
-} = await useFetch('/a/user', { key: 'notes-manage-user' });
+} = await useCurrentUser(USER_FETCH_KEY_COLLECTIONS);
 
 if (user_error.value) {
   handleFrontendError(null, user_error.value.data?.error_message);

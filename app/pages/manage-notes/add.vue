@@ -14,7 +14,7 @@ const title = ref('');
 
 const {
   all_user_tag_list,
-  total_user_note_count,
+  refreshTotalUserNoteCount,
 } = useSearchAndSelectItems(ITEM_TYPE_TAG);
 
 const {
@@ -33,7 +33,7 @@ if (tag_data.value) {
 const {
   data: user_data,
   error: user_error,
-} = await useFetch('/a/user', { key: 'notes-manage-user' });
+} = await useCurrentUser(USER_FETCH_KEY_MANAGE_NOTES_ADD);
 
 if (user_error.value) {
   handleFrontendError(null, user_error.value.data?.error_message);
@@ -60,7 +60,9 @@ const note_format_list = [
   },
 ];
 
-const note_format = ref(NOTE_FORMAT_FLASHCARD);
+const last_note_format_used = localStorage.getItem(LOCAL_STORAGE_KEY_LAST_NOTE_FORMAT_USED);
+
+const note_format = ref(last_note_format_used ?? NOTE_FORMAT_FLASHCARD);
 const swappable_sides = ref(false);
 
 const swappable_sides_list = [
@@ -343,9 +345,9 @@ const createNote = async () => {
       },
     });
 
-    const count_response = await $fetch('/notes/count-user-notes');
+    await refreshTotalUserNoteCount();
 
-    total_user_note_count.value = count_response.total_user_note_count;
+    localStorage.setItem(LOCAL_STORAGE_KEY_LAST_NOTE_FORMAT_USED, note_format.value);
 
     return navigateTo(CONNECTED_USER_LANDING_PAGE);
   } catch (error) {
@@ -366,20 +368,20 @@ const createNote = async () => {
 
     <form @submit.prevent="createNote">
       <h2>
-        {{ $t('t_note_format') }} *
+        {{ $t('t_note_format') }}<span class="text-error">*</span>
       </h2>
 
       <URadioGroup
         v-model="note_format"
         :items="note_format_list"
-        orientation="horizontal"
+        orientation="vertical"
         required
       />
 
       <hr class="separator-2">
 
       <h2>
-        {{ $t('t_title') }} *
+        {{ $t('t_title') }}<span class="text-error">*</span>
       </h2>
 
       <UInput

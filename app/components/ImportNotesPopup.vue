@@ -3,8 +3,8 @@ const { t } = useI18n();
 
 const {
   page_number,
+  refreshTotalUserNoteCount,
   searchItems,
-  total_user_note_count,
 } = useSearchAndSelectItemsOrInject(ITEM_TYPE_NOTE);
 
 const is_dragging = ref(false);
@@ -114,9 +114,7 @@ const run_import = async () => {
       method: 'POST',
     });
 
-    const response = await $fetch('/notes/count-user-notes');
-
-    total_user_note_count.value = response.total_user_note_count;
+    await refreshTotalUserNoteCount();
 
     await searchItems();
 

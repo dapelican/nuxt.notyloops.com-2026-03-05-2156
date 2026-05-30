@@ -20,15 +20,17 @@ const {
 const {
   data: count_data,
   error: count_error,
-} = await useFetch('/tags/count-user-tags', { key: 'tags-manage-count' });
+} = await useFetch('/tags/count-user-tags', { key: TAG_COUNT_FETCH_KEY });
 
 if (count_error.value) {
   handleFrontendError(null, count_error.value.data?.error_message);
 }
 
-if (count_data.value) {
-  total_user_tag_count.value = count_data.value.total_user_tag_count;
-}
+watch(count_data, (data) => {
+  if (data?.total_user_tag_count != null) {
+    total_user_tag_count.value = data.total_user_tag_count;
+  }
+}, { immediate: true });
 
 // Action bar actions
 const show_search_input = ref(false);

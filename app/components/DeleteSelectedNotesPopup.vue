@@ -2,9 +2,9 @@
 const {
   clearSelection,
   page_number,
+  refreshTotalUserNoteCount,
   selected_item_id_set,
   searchItems,
-  total_user_note_count,
 } = useSearchAndSelectItemsOrInject(ITEM_TYPE_NOTE);
 
 const show_popup = ref(false);
@@ -24,9 +24,7 @@ const deleteNotes = async () => {
       },
     });
 
-    const response = await $fetch('/notes/count-user-notes');
-
-    total_user_note_count.value = response.total_user_note_count;
+    await refreshTotalUserNoteCount();
 
     clearSelection();
     show_popup.value = false;

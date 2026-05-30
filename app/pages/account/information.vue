@@ -20,7 +20,7 @@ const handling_request_1 = ref(true);
 const {
   data: user_data,
   error: user_error,
-} = await useFetch('/a/user');
+} = await useCurrentUser(USER_FETCH_KEY_ACCOUNT_INFORMATION);
 
 if (user_error.value) {
   handleFrontendError(null, user_error.value.data?.error_message);

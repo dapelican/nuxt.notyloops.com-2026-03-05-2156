@@ -8,6 +8,11 @@ const MAX_ITEMS_PER_PAGE = 10;
 
 export const MANAGE_LIST_ITEMS_KEY = Symbol('manageListItems');
 
+export const NOTE_COUNT_FETCH_KEY = 'note-count';
+export const TAG_COUNT_FETCH_KEY = 'tag-count';
+export const COLLECTION_COUNT_FETCH_KEY = 'collection-count';
+export const USER_TAG_LIST_FETCH_KEY = 'tag-list';
+
 const LIST_PREFERENCE_AREA_LIST = [
   ITEM_TYPE_NOTE,
   ITEM_TYPE_TAG,
@@ -139,9 +144,43 @@ export const useSearchAndSelectItems = (key) => {
 
   const total_user_note_count = useState('total_user_note_count', () => 0);
 
+  const refreshTotalUserNoteCount = async () => {
+    const response = await $fetch('/notes/count-user-notes');
+
+    total_user_note_count.value = response.total_user_note_count;
+
+    await refreshNuxtData(NOTE_COUNT_FETCH_KEY);
+  };
+
   const total_user_collection_count = useState('total_user_collection_count', () => 0);
 
+  const refreshTotalUserCollectionCount = async () => {
+    const response = await $fetch('/collections/count-user-collections');
+
+    total_user_collection_count.value = response.total_user_collection_count;
+
+    await refreshNuxtData(COLLECTION_COUNT_FETCH_KEY);
+  };
+
   const total_user_tag_count = useState('total_user_tag_count', () => 0);
+
+  const refreshTotalUserTagCount = async () => {
+    const response = await $fetch('/tags/count-user-tags');
+
+    total_user_tag_count.value = response.total_user_tag_count;
+
+    await refreshNuxtData(TAG_COUNT_FETCH_KEY);
+  };
+
+  const refreshAllUserTagList = async () => {
+    const response = await $fetch('/tags/get-user-tags');
+
+    if (response?.all_user_tag_list) {
+      all_user_tag_list.value = response.all_user_tag_list;
+    }
+
+    await refreshNuxtData(USER_TAG_LIST_FETCH_KEY);
+  };
 
   const page_number = computed(() => {
     const n = Number(route.params.page_number);
@@ -313,6 +352,10 @@ export const useSearchAndSelectItems = (key) => {
     handling_request,
     items_per_page,
     page_number,
+    refreshAllUserTagList,
+    refreshTotalUserCollectionCount,
+    refreshTotalUserNoteCount,
+    refreshTotalUserTagCount,
     reinitializeSearch,
     selected_item_id_set,
     sort_option,

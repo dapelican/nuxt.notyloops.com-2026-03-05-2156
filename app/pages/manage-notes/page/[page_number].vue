@@ -22,7 +22,7 @@ const {
 const {
   data: user_data,
   error: user_error,
-} = await useFetch('/a/user', { key: 'notes-manage-user' });
+} = await useCurrentUser(USER_FETCH_KEY_MANAGE_NOTES_PAGE);
 
 if (user_error.value) {
   handleFrontendError(null, user_error.value.data?.error_message);
@@ -31,28 +31,32 @@ if (user_error.value) {
 const {
   data: count_data,
   error: count_error,
-} = await useFetch('/notes/count-user-notes', { key: 'notes-manage-count' });
+} = await useFetch('/notes/count-user-notes', { key: NOTE_COUNT_FETCH_KEY });
 
 if (count_error.value) {
   handleFrontendError(null, count_error.value.data?.error_message);
 }
 
-if (count_data.value) {
-  total_user_note_count.value = count_data.value.total_user_note_count;
-}
+watch(count_data, (data) => {
+  if (data?.total_user_note_count != null) {
+    total_user_note_count.value = data.total_user_note_count;
+  }
+}, { immediate: true });
 
 const {
   data: tag_data,
   error: tag_error,
-} = await useFetch('/tags/get-user-tags', { key: 'tags-manage-all' });
+} = await useFetch('/tags/get-user-tags', { key: USER_TAG_LIST_FETCH_KEY });
 
 if (tag_error.value) {
   handleFrontendError(null, tag_error.value.data?.error_message);
 }
 
-if (tag_data.value) {
-  all_user_tag_list.value = tag_data.value.all_user_tag_list;
-}
+watch(tag_data, (data) => {
+  if (data?.all_user_tag_list) {
+    all_user_tag_list.value = data.all_user_tag_list;
+  }
+}, { immediate: true });
 
 const user_is_premium_or_admin = computed(() => {
   const s = user_data.value?.status;

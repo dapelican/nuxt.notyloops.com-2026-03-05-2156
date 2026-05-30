@@ -128,7 +128,7 @@ if (note_data.value) {
 const {
   data: user_data,
   error: user_error,
-} = await useFetch('/a/user', { key: 'notes-manage-user' });
+} = await useCurrentUser(USER_FETCH_KEY_MANAGE_NOTES_EDIT);
 
 if (user_error.value) {
   handleFrontendError(null, user_error.value.data?.error_message);
@@ -417,20 +417,20 @@ const updateNote = async () => {
 
     <form @submit.prevent="updateNote">
       <h2>
-        {{ $t('t_note_format') }} *
+        {{ $t('t_note_format') }}<span class="text-error">*</span>
       </h2>
 
       <URadioGroup
         v-model="note_format"
         :items="note_format_list"
-        orientation="horizontal"
+        orientation="vertical"
         required
       />
 
       <hr class="separator-2">
 
       <h2>
-        {{ $t('t_title') }} *
+        {{ $t('t_title') }}<span class="text-error">*</span>
       </h2>
 
       <UInput

@@ -4,8 +4,8 @@ import * as z from 'zod';
 const { t } = useI18n();
 
 const {
-  all_user_tag_list,
-  total_user_tag_count,
+  refreshAllUserTagList,
+  refreshTotalUserTagCount,
 } = useSearchAndSelectItemsOrInject(ITEM_TYPE_NOTE);
 
 const show_popup = ref(false);
@@ -49,15 +49,10 @@ const createTag = async () => {
       },
     });
 
-    const tag_data = await $fetch('/tags/get-user-tags');
-
-    if (tag_data?.all_user_tag_list) {
-      all_user_tag_list.value = tag_data.all_user_tag_list;
-    }
-
-    const count_response = await $fetch('/tags/count-user-tags');
-
-    total_user_tag_count.value = count_response.total_user_tag_count;
+    await Promise.all([
+      refreshAllUserTagList(),
+      refreshTotalUserTagCount(),
+    ]);
 
     show_popup.value = false;
     resetForm();

@@ -4,6 +4,7 @@ export const ITEM_TYPE_NOTE = 'note';
 export const ITEM_TYPE_TAG = 'tag';
 export const LOCAL_STORAGE_KEY_DIARY_CURRENT_INDEX = 'local_storage_key_diary_current_index';
 export const LOCAL_STORAGE_KEY_DIARY_NOTE_ID_LIST = 'local_storage_key_diary_note_id_list';
+export const LOCAL_STORAGE_KEY_LAST_NOTE_FORMAT_USED = 'local_storage_key_last_note_format_used';
 export const LOCAL_STORAGE_KEY_REVIEW_COLLECTION_NOTE_ID_LIST = 'local_storage_key_review_collection_note_id_list';
 export const LOCAL_STORAGE_KEY_REVIEW_COLLECTION_CURRENT_INDEX = 'local_storage_key_review_collection_current_index';
 export const LOCAL_STORAGE_KEY_REVIEW_COLLECTION_SCORE = 'local_storage_key_review_collection_score';
