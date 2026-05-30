@@ -17,6 +17,7 @@
     "@iconify-json/lucide": "^1.2.109",
     "@nuxt/ui": "^4.8.0",
     "@nuxtjs/i18n": "^10.4.0",
+    "@nuxtjs/plausible": "^3.0.2",
     "axios": "^1.16.1",
     "bcrypt": "^6.0.0",
     "csv-parse": "^6.2.1",

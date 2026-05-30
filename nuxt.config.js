@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxt/ui',
     '@nuxtjs/i18n',
+    '@nuxtjs/plausible',
     'nuxt-auth-utils',
   ],
   // to prevent weird warnings in the console locally
@@ -107,5 +108,13 @@ export default defineNuxtConfig({
       },
     ],
     strategy: 'no_prefix',
+  },
+  plausible: {
+    autoOutboundTracking: true,
+    fileDownloads: true,
+    // Prevent tracking on localhost
+    ignoredHostnames: ['localhost'],
+    formSubmissions: true,
+    proxy: true,
   },
 });
