@@ -23,12 +23,26 @@ const {
 } = await useCurrentUser(USER_FETCH_KEY_ACCOUNT_INFORMATION);
 
 if (user_error.value) {
-  handleFrontendError(null, user_error.value.data?.error_message);
+  return handleFrontendError(null, user_error.value.data?.error_message);
 }
 
-const current_email = ref(user_data.value?.email);
+if (!user_data.value) {
+  return handleFrontendError(null, 'error_unauthorized');
+}
+
+const user_status = computed(() => user_data.value?.status);
+
+const current_email = ref(user_data.value.email);
 
 handling_request_1.value = false;
+
+const route = useRoute();
+
+onMounted(async () => {
+  if (route.query.checkout === 'success') {
+    await refreshNuxtData(USER_FETCH_KEY_ACCOUNT_INFORMATION);
+  }
+});
 
 const premium_status_expiration_date_fr = computed(() => {
   const raw = user_data.value?.premium_status_expiration_date;
@@ -325,7 +339,7 @@ const resetPasswordForm = () => {
       </h2>
 
       <section
-        v-if="[USER_STATUS_FREE, USER_STATUS_PENDING].includes(user_data.status)"
+        v-if="[USER_STATUS_FREE, USER_STATUS_PENDING].includes(user_status)"
       >
         <p class="mb-4">
           {{ $t('t_free_account') }}
@@ -335,7 +349,7 @@ const resetPasswordForm = () => {
       </section>
 
       <section
-        v-if="user_data.status === USER_STATUS_PREMIUM"
+        v-if="user_status === USER_STATUS_PREMIUM"
       >
         <p>
           {{ $t('t_premium_account_until') }} {{ premium_status_expiration_date_fr }}
@@ -347,7 +361,7 @@ const resetPasswordForm = () => {
         />
       </section>
 
-      <p v-if="user_data.status === USER_STATUS_ADMIN">
+      <p v-if="user_status === USER_STATUS_ADMIN">
         {{ $t('t_admin_account') }}
       </p>
     </section>

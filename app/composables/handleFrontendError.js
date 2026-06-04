@@ -1,16 +1,11 @@
 'use strict';
 
 export const handleFrontendError = (error, message) => {
-  console.log('!!!!!!!!!error', error);
-  console.log('!!!!!!!!!message', message);
-
   switch (message) {
     case 'error_no_user_found':
-      navigateTo('/a/log-in');
-      break;
+      return navigateTo('/a/log-in');
     case 'error_unauthorized':
-      navigateTo('/a/log-in');
-      break;
+      return navigateTo('/a/log-in');
     case 'invalid_url':
       throw createError({ statusCode: 404, fatal: true });
     default:
