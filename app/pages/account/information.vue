@@ -28,7 +28,7 @@ if (user_error.value) {
 
 const user_status = computed(() => user_data.value?.status);
 
-const current_email = ref(user_data.value.email);
+const current_email = computed(() => user_data.value?.email);
 
 handling_request_1.value = false;
 
