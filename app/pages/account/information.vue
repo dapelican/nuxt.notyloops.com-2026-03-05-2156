@@ -23,11 +23,7 @@ const {
 } = await useCurrentUser(USER_FETCH_KEY_ACCOUNT_INFORMATION);
 
 if (user_error.value) {
-  return handleFrontendError(null, user_error.value.data?.error_message);
-}
-
-if (!user_data.value) {
-  return handleFrontendError(null, 'error_unauthorized');
+  handleFrontendError(null, user_error.value.data?.error_message);
 }
 
 const user_status = computed(() => user_data.value?.status);
