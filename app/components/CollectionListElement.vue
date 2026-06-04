@@ -260,7 +260,7 @@ const user_can_review_notes = computed(() => {
         </section>
 
         <section v-if="user_status === USER_STATUS_ADMIN">
-          {{ $t('t_type_with_colon') }} {{ item.type }}
+          {{ $t('t_type_with_colon') }} {{ $t(`t_${item.type}`) }}
         </section>
 
         <section v-if="item.type === COLLECTION_TYPE_PRIVATE">
