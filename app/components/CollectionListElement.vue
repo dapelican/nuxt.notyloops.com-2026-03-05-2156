@@ -43,8 +43,6 @@ const reviewStrategyForTranslationKey = (strategy) => {
   return s.at(0).toLowerCase() + s.slice(1);
 };
 
-const config = useRuntimeConfig();
-
 const is_exporting_collection_id = ref(null);
 
 const exportCollection = async (collection_id) => {
@@ -271,9 +269,9 @@ const user_can_review_notes = computed(() => {
           {{ $t('t_public_url_with_column') }}
           <NuxtLink
             class="text-primary"
-            :to="`${config.public.domain}/pc/${item.id}`"
+            :to="`/pc/${item.id}`"
           >
-            {{ `${config.public.domain}/pc/${item.id}` }}
+            {{ `/pc/${item.id}` }}
           </NuxtLink>
         </section>
       </main>
