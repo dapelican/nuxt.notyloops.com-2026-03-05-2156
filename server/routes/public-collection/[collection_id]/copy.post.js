@@ -221,8 +221,14 @@ export default defineEventHandler(async (event) => {
       );
 
       await executeSQLQuery(
-        'UPDATE public_collection_copies SET status = $1 WHERE id = $2',
-        ['success', public_collection_copy_list.at(0)?.id]
+        `UPDATE public_collection_copies
+        SET status = $1, copied_note_count = $2
+        WHERE id = $3`,
+        [
+          'success',
+          new_note_id_list.length,
+          public_collection_copy_id,
+        ]
       );
 
       setResponseStatus(event, HTTP_CODE_200_OK);
