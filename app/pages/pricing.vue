@@ -83,7 +83,7 @@ const premium_price = computed(() => {
               />
               <span>{{ $t('t_free_plan_7') }}</span>
             </li>
-            <li class="flex items-center gap-2">
+            <!-- <li class="flex items-center gap-2">
               <UIcon
                 name="i-lucide-circle-check"
                 class="size-5 shrink-0 text-primary"
@@ -96,7 +96,7 @@ const premium_price = computed(() => {
                 class="size-5 shrink-0 text-error"
               />
               <span>{{ $t('t_free_plan_9') }}</span>
-            </li>
+            </li> -->
           </ul>
 
           <hr class="separator-1">
@@ -161,7 +161,7 @@ const premium_price = computed(() => {
               />
               <span>{{ $t('t_premium_plan_7') }}</span>
             </li>
-            <li class="flex items-center gap-2">
+            <!-- <li class="flex items-center gap-2">
               <UIcon
                 name="i-lucide-circle-check"
                 class="size-5 shrink-0 text-primary"
@@ -174,7 +174,7 @@ const premium_price = computed(() => {
                 class="size-5 shrink-0 text-primary"
               />
               <span>{{ $t('t_premium_plan_9') }}</span>
-            </li>
+            </li> -->
           </ul>
 
           <hr class="separator-1">

@@ -65,11 +65,11 @@ const private_items = computed(() => [
     label: $t('t_manage_collections'),
     to: '/manage-collections/page/1',
   },
-  {
-    active: route.path.startsWith('/pc'),
-    label: $t('t_library'),
-    to: '/pc',
-  },
+  // {
+  //   active: route.path.startsWith('/pc'),
+  //   label: $t('t_library'),
+  //   to: '/pc',
+  // },
   // {
   //   active: route.path.startsWith('/review'),
   //   label: $t('t_review'),
