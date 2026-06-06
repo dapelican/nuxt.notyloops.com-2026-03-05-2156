@@ -35,12 +35,6 @@ const goCopyMissingNotes = async () => {
 
   try {
     await $fetch(`/public-collection/${collection_id}/copy`, { method: 'POST' });
-  } catch (error) {
-    handleFrontendError(error, error?.data?.error_message);
-  } finally {
-    handling_request_2.value = false;
-
-    show_popup.value = false;
 
     toast.add({
       title: t('t_notes_copied'),
@@ -49,6 +43,18 @@ const goCopyMissingNotes = async () => {
     });
 
     navigateTo('/manage-notes/page/1');
+  } catch (error) {
+    toast.add({
+      title: t('t_error_copying_notes'),
+      description: t('t_error_copying_notes_description'),
+      color: 'error',
+    });
+
+    handleFrontendError(error, error?.data?.error_message);
+  } finally {
+    handling_request_2.value = false;
+
+    show_popup.value = false;
   }
 };
 </script>

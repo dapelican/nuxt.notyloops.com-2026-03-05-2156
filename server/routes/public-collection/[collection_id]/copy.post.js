@@ -180,8 +180,8 @@ export default defineEventHandler(async (event) => {
         rows: new_note_list,
       } = await executeSQLQuery(
         `WITH new_notes AS (
-            INSERT INTO notes (user_id, title, swappable_sides, source_note_id, source_collection_id)
-            SELECT $1, title, swappable_sides, id, $2
+            INSERT INTO notes (user_id, format, title, swappable_sides, source_note_id, source_collection_id)
+            SELECT $1, format, title, swappable_sides, id, $2
             FROM notes
             WHERE id = ANY($3::uuid[])
             RETURNING id, source_note_id
@@ -195,7 +195,6 @@ export default defineEventHandler(async (event) => {
               markdown_content,
               html_content,
               file_url,
-              to_be_hidden,
               is_correct
             )
             SELECT
@@ -206,7 +205,6 @@ export default defineEventHandler(async (event) => {
               nd.markdown_content,
               nd.html_content,
               nd.file_url,
-              nd.to_be_hidden,
               nd.is_correct
             FROM note_details nd
             JOIN new_notes nn ON nd.note_id = nn.source_note_id
