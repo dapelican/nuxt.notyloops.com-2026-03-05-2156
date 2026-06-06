@@ -54,7 +54,7 @@ const finish_checkout_session_completed_processing = async ({
   const user = user_list.at(0);
 
   const new_premium_status_expiration_date = user.premium_status_expiration_date
-    ? DateTime.fromISO(user.premium_status_expiration_date)
+    ? DateTime.fromJSDate(user.premium_status_expiration_date)
         .plus({ years: 1 })
         .toISO()
     : DateTime.utc().plus({ years: 1 }).toISO();
