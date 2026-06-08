@@ -1,1 +1,2 @@
 User-agent: *
+Sitemap: https://fr.notyloops.com/sitemaps.xml

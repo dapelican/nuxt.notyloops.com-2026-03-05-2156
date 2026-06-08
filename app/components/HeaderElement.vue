@@ -13,6 +13,8 @@ const {
   clear,
 } = useUserSession();
 
+const { locale } = useI18n();
+
 const route = useRoute();
 
 const logOut = async () => {
@@ -30,7 +32,7 @@ const public_items = computed(() => [
   {
     active: route.path === '/pricing',
     label: $t('t_pricing'),
-    to: '/pricing',
+    to: locale.value === 'fr' ? '/prix' : '/pricing',
   },
   {
     active: route.path.startsWith('/a/log-in'),
