@@ -14,35 +14,35 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@iconify-json/lucide": "^1.2.111",
-    "@nuxt/ui": "^4.8.1",
+    "@iconify-json/lucide": "^1.2.112",
+    "@nuxt/ui": "^4.8.2",
     "@nuxtjs/i18n": "^10.4.0",
     "@nuxtjs/plausible": "^3.0.2",
-    "axios": "^1.16.1",
+    "axios": "^1.17.0",
     "bcrypt": "^6.0.0",
     "csv-parse": "^6.2.1",
     "csv-stringify": "^6.7.0",
-    "dompurify": "^3.4.7",
+    "dompurify": "^3.4.10",
     "ejs": "^6.0.1",
     "jsdom": "^29.1.1",
     "katex": "^0.17.0",
     "luxon": "^3.7.2",
-    "marked": "^18.0.4",
-    "nuxt": "^4.4.6",
+    "marked": "^18.0.5",
+    "nuxt": "^4.4.8",
     "nuxt-auth-utils": "^0.5.29",
     "pg": "^8.21.0",
-    "stripe": "^22.2.0",
-    "tailwindcss": "^4.3.0",
+    "stripe": "^22.2.1",
     "ts-fsrs": "^5.4.1",
     "uuid": "^14.0.0",
     "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@nuxt/eslint": "^1.15.2",
-    "@vitest/coverage-v8": "^4.1.7",
+    "@nuxt/eslint": "^1.16.0",
+    "@vitest/coverage-v8": "^4.1.8",
     "dotenv": "^17.4.2",
-    "eslint": "^10.4.1",
-    "vitest": "^4.1.7"
+    "eslint": "^10.5.0",
+    "tailwindcss": "^4.3.1",
+    "vitest": "^4.1.8"
   },
   "engines": {
     "node": "24.x"
