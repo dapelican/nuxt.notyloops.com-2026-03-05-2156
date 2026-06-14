@@ -3,7 +3,7 @@ let meta_description = 'Les annales de LVA anglais pour les CPGE BCPST.';
 meta_description += ' Les sujets et rapports des dernières années pour les épreuves Agro-Véto et ENS.';
 
 useHead({
-  title: () => 'Annales CPGE BCPST : LVA anglais | OptiLeague',
+  title: () => 'Annales CPGE BCPST : LVA anglais | NotyLoops',
   meta: [
     {
       name: 'description',

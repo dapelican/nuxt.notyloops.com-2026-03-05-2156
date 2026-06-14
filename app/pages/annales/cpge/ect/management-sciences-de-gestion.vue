@@ -20,7 +20,7 @@ const breadcrumb_items = [
 const breadcrumb_schema = useBreadcrumbSchema(breadcrumb_items);
 
 useHead({
-  title: () => 'Annales CPGE ECT : management et sciences de gestion | OptiLeague',
+  title: () => 'Annales CPGE ECT : management et sciences de gestion | NotyLoops',
   meta: [
     {
       name: 'description',

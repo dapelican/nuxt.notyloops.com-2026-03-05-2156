@@ -20,7 +20,7 @@ const breadcrumb_items = [
 const breadcrumb_schema = useBreadcrumbSchema(breadcrumb_items);
 
 useHead({
-  title: () => 'Annales CPGE ECG : mathématiques approfondies | OptiLeague',
+  title: () => 'Annales CPGE ECG : mathématiques approfondies | NotyLoops',
   meta: [
     {
       name: 'description',

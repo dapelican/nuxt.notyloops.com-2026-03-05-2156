@@ -3,7 +3,7 @@ let meta_description = 'Les annales de français-philosophie pour les CPGE PSI/P
 meta_description += ' Les thèmes, oeuvres, sujets et rapports des dernières années.';
 
 useHead({
-  title: () => 'Annales CPGE PSI/PSI* : français-philosophie | OptiLeague',
+  title: () => 'Annales CPGE PSI/PSI* : français-philosophie | NotyLoops',
   meta: [
     {
       name: 'description',

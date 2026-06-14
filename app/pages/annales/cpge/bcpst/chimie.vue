@@ -3,7 +3,7 @@ let meta_description = 'Les annales de chimie pour les CPGE BCPST. ';
 meta_description += ' Les sujets et rapports des dernières années pour les épreuves Agro-Véto, ENS et G2E.';
 
 useHead({
-  title: () => 'Annales CPGE BCPST : chimie | OptiLeague',
+  title: () => 'Annales CPGE BCPST : chimie | NotyLoops',
   meta: [
     {
       name: 'description',

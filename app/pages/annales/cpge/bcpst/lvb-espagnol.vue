@@ -3,7 +3,7 @@ let meta_description = 'Les annales de LVB espagnol pour les CPGE BCPST.';
 meta_description += ' Les sujets et rapports des dernières années pour les épreuves Agro-Véto.';
 
 useHead({
-  title: () => 'Annales CPGE BCPST : LVB espagnol | OptiLeague',
+  title: () => 'Annales CPGE BCPST : LVB espagnol | NotyLoops',
   meta: [
     {
       name: 'description',

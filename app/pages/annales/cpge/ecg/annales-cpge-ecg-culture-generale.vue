@@ -20,7 +20,7 @@ const breadcrumb_items = [
 const breadcrumb_schema = useBreadcrumbSchema(breadcrumb_items);
 
 useHead({
-  title: () => 'Annales CPGE ECG : culture générale (dissertation) | OptiLeague',
+  title: () => 'Annales CPGE ECG : culture générale (dissertation) | NotyLoops',
   meta: [
     {
       name: 'description',

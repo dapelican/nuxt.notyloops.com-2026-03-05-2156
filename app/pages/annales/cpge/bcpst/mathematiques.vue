@@ -3,7 +3,7 @@ let meta_description = 'Les annales de mathématiques pour les CPGE BCPST.';
 meta_description += ' Les sujets et rapports des dernières années pour les épreuves Agro-Véto, ENS et G2E.';
 
 useHead({
-  title: () => 'Annales CPGE BCPST : mathématiques | OptiLeague',
+  title: () => 'Annales CPGE BCPST : mathématiques | NotyLoops',
   meta: [
     {
       name: 'description',

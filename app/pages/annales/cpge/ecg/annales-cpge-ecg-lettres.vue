@@ -20,7 +20,7 @@ const breadcrumb_items = [
 const breadcrumb_schema = useBreadcrumbSchema(breadcrumb_items);
 
 useHead({
-  title: () => 'Annales CPGE ECG : lettres (résumé et synthèse de textes) | OptiLeague',
+  title: () => 'Annales CPGE ECG : lettres (résumé et synthèse de textes) | NotyLoops',
   meta: [
     {
       name: 'description',

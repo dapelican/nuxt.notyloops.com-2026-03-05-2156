@@ -16,7 +16,7 @@ const breadcrumb_items = [
 const breadcrumb_schema = useBreadcrumbSchema(breadcrumb_items);
 
 useHead({
-  title: () => 'Annales CPGE ECG | OptiLeague',
+  title: () => 'Annales CPGE ECG | NotyLoops',
   meta: [
     {
       name: 'description',

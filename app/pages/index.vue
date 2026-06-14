@@ -5,7 +5,7 @@ const request_url = useRequestURL();
 let meta_description = '';
 
 if (locale.value === 'fr') {
-  meta_description = 'L\'appalication pour créer des notes et les revoir en utilisant la répétition espacée, le hasard ou une autre stratégie.';
+  meta_description = 'L\'application pour créer des notes et les revoir en utilisant la répétition espacée, le hasard ou une autre stratégie.';
 }
 
 usePageSchema({

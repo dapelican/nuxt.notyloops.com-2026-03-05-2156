@@ -23,7 +23,7 @@ const breadcrumb_items = [
 const breadcrumb_schema = useBreadcrumbSchema(breadcrumb_items);
 
 useHead({
-  title: () => 'Annales CPGE ECT | OptiLeague',
+  title: () => 'Annales CPGE ECT | NotyLoops',
   meta: [
     {
       name: 'description',

@@ -20,7 +20,7 @@ const breadcrumb_items = [
 const breadcrumb_schema = useBreadcrumbSchema(breadcrumb_items);
 
 useHead({
-  title: () => 'Annales CPGE ECT : LVB espagnol | OptiLeague',
+  title: () => 'Annales CPGE ECT : LVB espagnol | NotyLoops',
   meta: [
     {
       name: 'description',

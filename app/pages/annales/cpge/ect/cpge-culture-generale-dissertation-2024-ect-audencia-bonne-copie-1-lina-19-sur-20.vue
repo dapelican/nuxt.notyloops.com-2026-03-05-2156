@@ -3,7 +3,7 @@ let meta_description = 'Bonne copie de dissertation de culture générale notée
 meta_description += '';
 
 useHead({
-  title: () => 'Bonne copie de dissertation de culture générale | OptiLeague',
+  title: () => 'Bonne copie de dissertation de culture générale | NotyLoops',
   meta: [
     {
       name: 'description',

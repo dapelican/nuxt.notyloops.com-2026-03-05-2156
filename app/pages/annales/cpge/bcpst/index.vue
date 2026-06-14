@@ -3,7 +3,7 @@ let meta_description = 'Les annales Agro-Véto, ENS et G2E de toutes les matièr
 meta_description += ' Les sujets et rapports des dernières années.';
 
 useHead({
-  title: () => 'Annales CPGE BCPST | OptiLeague',
+  title: () => 'Annales CPGE BCPST | NotyLoops',
   meta: [
     {
       name: 'description',
