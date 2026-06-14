@@ -4,12 +4,16 @@ const empty_page_schema = () => ({
   name: undefined,
   description: undefined,
   graph: [],
+  webpage_type: undefined,
+  main_entity: undefined,
 });
 
 export const usePageSchema = ({
   name,
   description,
   graph = [],
+  webpage_type,
+  main_entity,
 } = {}) => {
   const page_schema = useState('page-schema', empty_page_schema);
 
@@ -17,6 +21,8 @@ export const usePageSchema = ({
     name,
     description,
     graph,
+    webpage_type,
+    main_entity,
   };
 };
 
@@ -37,7 +43,7 @@ export const useSchema = () => {
     const in_language = locale.value === 'fr' ? 'fr-FR' : 'en-US';
 
     const webpage = {
-      '@type': 'WebPage',
+      '@type': page_schema.value.webpage_type || 'WebPage',
       '@id': `${page_url}#webpage`,
       'url': page_url,
       'inLanguage': in_language,
@@ -55,6 +61,10 @@ export const useSchema = () => {
 
     if (page_schema.value.description) {
       webpage.description = page_schema.value.description;
+    }
+
+    if (page_schema.value.main_entity) {
+      webpage.mainEntity = page_schema.value.main_entity;
     }
 
     return JSON.stringify({

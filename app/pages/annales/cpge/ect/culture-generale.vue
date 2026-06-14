@@ -86,14 +86,14 @@ const learning_resource = {
   'url': page_url,
   'inLanguage': 'fr-FR',
   'learningResourceType': 'exam archive',
-  'educationalLevel': 'Preparatory class',
+  'educationalLevel': 'lasses préparatoires aux grandes écoles (CPGE)',
   'audience': {
     '@type': 'EducationalAudience',
     'educationalRole': 'student',
   },
   'about': {
-    '@type': 'Course',
-    'name': 'Culture générale — CPGE ECT',
+    '@type': 'DefinedTerm',
+    'name': 'Culture générale pour les CPGE ECT',
     'description': 'Épreuve de dissertation en culture générale des concours BCE et Ecricome pour les classes préparatoires ECT (voie technologique).',
   },
   'hasPart': {
@@ -104,6 +104,10 @@ const learning_resource = {
 usePageSchema({
   name: page_title,
   description: meta_description,
+  webpage_type: 'CollectionPage',
+  main_entity: {
+    '@id': `${page_url}#year-themes`,
+  },
   graph: [
     breadcrumb_list,
     year_themes_item_list,
