@@ -15,14 +15,14 @@ const items = [
     : []
   ),
   {
+    label: $t('t_uptime_status'),
+    to: 'https://stats.uptimerobot.com/LjacT1cTlQ',
+    target: '_blank',
+  },
+  {
     label: $t('t_contact'),
     to: '/contact',
   },
-  // {
-  //   label: 'Figma Kit',
-  //   to: 'https://go.nuxt.com/figma-ui',
-  //   target: '_blank',
-  // },
   // {
   //   label: 'Playground',
   //   to: 'https://stackblitz.com/edit/nuxt-ui',

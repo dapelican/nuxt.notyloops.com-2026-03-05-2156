@@ -267,6 +267,7 @@
   "t_upload_error": "Le téléversement a échoué.",
   "t_upload_invalid_type": "Ce type de fichier n'est pas autorisé.",
   "t_upload_max_retries": "Nombre maximum de tentatives de téléversement atteint.",
+  "t_uptime_status": "Disponibilité du site",
   "t_validate": "Valider",
   "t_will_be_excluded": "seront exclues",
   "t_will_be_included": "seront incluses",
