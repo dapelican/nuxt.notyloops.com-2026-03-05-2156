@@ -1,2 +1,4 @@
 User-agent: *
+Disallow: /a/
 Sitemap: https://fr.notyloops.com/sitemaps.xml
+

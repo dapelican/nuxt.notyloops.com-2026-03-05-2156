@@ -45,6 +45,13 @@ html {
   --color-brand-950: #190570;
 }
 
+/* Elements by alphabetical order */
+table, th, td {
+  border: 1px solid var(--ui-border-accented);
+  border-collapse: collapse;
+  padding: 5px;
+}
+
 /* Classes by alphabetical order */
 .center {
   text-align: center;

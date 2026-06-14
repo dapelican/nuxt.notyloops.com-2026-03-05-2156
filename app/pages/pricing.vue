@@ -2,18 +2,57 @@
 import { PREMIUM_ACCESS_PRE_TAX_AMOUNT_IN_CENTS } from '#shared/utils/constants.js';
 
 const { locale, t } = useI18n();
+const request_url = useRequestURL();
+
+const meta_description = 'Compare NotyLoops free and premium plans for spaced repetition note-taking.';
+
+const premium_price_amount = PREMIUM_ACCESS_PRE_TAX_AMOUNT_IN_CENTS / 100;
+const price_currency = locale.value === 'fr' ? 'EUR' : 'USD';
+
+usePageSchema({
+  name: t('t_pricing'),
+  description: meta_description,
+  graph: [
+    {
+      '@type': 'WebApplication',
+      '@id': `${request_url.origin}/#webapp`,
+      'offers': [
+        {
+          '@type': 'Offer',
+          'name': t('t_free_plan'),
+          'price': '0',
+          'priceCurrency': price_currency,
+          'url': `${request_url.origin}${request_url.pathname}`,
+          'availability': 'https://schema.org/OnlineOnly',
+        },
+        {
+          '@type': 'Offer',
+          'name': t('t_premium_plan'),
+          'price': String(premium_price_amount),
+          'priceCurrency': price_currency,
+          'url': `${request_url.origin}${request_url.pathname}`,
+          'availability': 'https://schema.org/OnlineOnly',
+          'eligibleDuration': {
+            '@type': 'QuantitativeValue',
+            'value': 1,
+            'unitCode': 'ANN',
+          },
+        },
+      ],
+    },
+  ],
+});
 
 useSeoMeta({
   title: `${t('t_pricing')} | NotyLoops`,
+  description: meta_description,
 });
 
 const premium_price = computed(() => {
-  const price = PREMIUM_ACCESS_PRE_TAX_AMOUNT_IN_CENTS / 100;
-
   if (locale.value === 'fr') {
-    return `${price} €`;
+    return `${premium_price_amount} €`;
   }
-  return `$ ${price}`;
+  return `$ ${premium_price_amount}`;
 });
 </script>
 

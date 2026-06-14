@@ -1,11 +1,29 @@
 <script setup>
 const { locale, t } = useI18n();
+const request_url = useRequestURL();
 
 let meta_description = '';
 
 if (locale.value === 'fr') {
   meta_description = 'L\'appalication pour créer des notes et les revoir en utilisant la répétition espacée, le hasard ou une autre stratégie.';
 }
+
+usePageSchema({
+  name: t('t_the_notes_made_to_be_reviewed'),
+  description: meta_description,
+  graph: [
+    {
+      '@type': 'WebApplication',
+      '@id': `${request_url.origin}/#webapp`,
+      'description': meta_description,
+      'offers': {
+        '@type': 'Offer',
+        'price': '0',
+        'priceCurrency': 'EUR',
+      },
+    },
+  ],
+});
 
 useSeoMeta({
   title: `${t('t_the_notes_made_to_be_reviewed')} | NotyLoops`,

@@ -1,4 +1,6 @@
 <script setup>
+useSchema();
+
 const i18n_head = useLocaleHead();
 
 useHead(() => ({

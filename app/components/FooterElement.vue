@@ -1,5 +1,19 @@
 <script setup>
+const { locale } = useI18n();
+
+const route = useRoute();
+
 const items = [
+  ...(locale.value === 'fr'
+    ? [
+        {
+          active: route.path === '/annales',
+          label: 'Annales',
+          to: '/annales',
+        },
+      ]
+    : []
+  ),
   {
     label: $t('t_contact'),
     to: '/contact',

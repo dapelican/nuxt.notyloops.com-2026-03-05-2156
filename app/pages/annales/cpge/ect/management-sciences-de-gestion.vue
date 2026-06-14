@@ -1,0 +1,837 @@
+<script setup>
+let meta_description = 'Les annales BCE et Ecricome de management et sciences de gestion pour les CPGE ECT (voie technologique).';
+meta_description += ' Les sujets et rapports des dernières années.';
+
+const breadcrumb_items = [
+  {
+    name: 'Ressources',
+    url: 'https://fr.optileague.com/ressources',
+  },
+  {
+    name: 'Annales CPGE ECT',
+    url: 'https://fr.optileague.com/ressources/annales-cpge-ect',
+  },
+  {
+    name: 'Management et sciences de gestion',
+    url: 'https://fr.optileague.com/ressources/annales-cpge-ect-management-sciences-de-gestion',
+  },
+];
+
+const breadcrumb_schema = useBreadcrumbSchema(breadcrumb_items);
+
+useHead({
+  title: () => 'Annales CPGE ECT : management et sciences de gestion | OptiLeague',
+  meta: [
+    {
+      name: 'description',
+      content: () => meta_description,
+    },
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify(breadcrumb_schema),
+    },
+  ],
+});
+</script>
+
+<template>
+  <main class="padding-lr centered-max-width-650">
+    <p>
+      <NuxtLink
+        to="/ressources"
+      >
+        Ressources
+      </NuxtLink>
+      >
+      <NuxtLink
+        to="/ressources/annales-cpge-ect"
+      >
+        Annales CPGE ECT
+      </NuxtLink>
+      > Management et sciences de gestion
+    </p>
+
+    <h1>
+      Annales CPGE ECT :
+      management et sciences de gestion
+    </h1>
+
+    <h2>
+      2025
+    </h2>
+
+    <figure class="ml-0">
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Ecricome
+            </td>
+            <td>
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2025-ect-ecricome-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </NuxtLink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              HEC
+            </td>
+            <td>
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2025-ect-hec-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </NuxtLink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Inseec
+            </td>
+            <td>
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2025-ect-inseec-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </NuxtLink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2>
+      2024
+    </h2>
+
+    <figure class="ml-0">
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Ecricome
+            </td>
+            <td>
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2024-ect-ecricome-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </NuxtLink>
+              |
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2024-ect-ecricome-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </NuxtLink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              HEC
+            </td>
+            <td>
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2024-ect-hec-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </NuxtLink>
+              |
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2024-ect-hec-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </NuxtLink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Inseec
+            </td>
+            <td>
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2024-ect-inseec-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </NuxtLink>
+              |
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2024-ect-inseec-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </NuxtLink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2>
+      2023
+    </h2>
+
+    <figure class="ml-0">
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Ecricome
+            </td>
+            <td>
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2023-ect-ecricome-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </NuxtLink>
+              |
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2023-ect-ecricome-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </NuxtLink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              EM Normandie / Inseec
+            </td>
+            <td>
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2023-ect-em-normandie-inseec-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </NuxtLink>
+              |
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2023-ect-em-normandie-inseec-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </NuxtLink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              HEC
+            </td>
+            <td>
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2023-ect-hec-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </NuxtLink>
+              |
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2023-ect-hec-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </NuxtLink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2>
+      2022
+    </h2>
+
+    <figure class="ml-0">
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Ecricome
+            </td>
+            <td>
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2022-ect-ecricome-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </NuxtLink>
+              |
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2022-ect-ecricome-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </NuxtLink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              EM Normandie / Inseec
+            </td>
+            <td>
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2022-ect-em-normandie-inseec-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </NuxtLink>
+              |
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2022-ect-em-normandie-inseec-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </NuxtLink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              HEC
+            </td>
+            <td>
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2022-ect-hec-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </NuxtLink>
+              |
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2022-ect-hec-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </NuxtLink>
+              |
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2022-ect-hec-bonne-copie-20-sur-20.pdf"
+                target="_blank"
+              >
+                Bonne copie
+              </NuxtLink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2>
+      2021
+    </h2>
+
+    <figure class="ml-0">
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Ecricome
+            </td>
+            <td>
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2021-ect-ecricome-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </NuxtLink>
+              |
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2021-ect-ecricome-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </NuxtLink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              EM Normandie / Inseec
+            </td>
+            <td>
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2021-ect-em-normandie-inseec-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </NuxtLink>
+              |
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2021-ect-em-normandie-inseec-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </NuxtLink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              HEC
+            </td>
+            <td>
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2021-ect-hec-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </NuxtLink>
+              |
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2021-ect-hec-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </NuxtLink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2>
+      2020
+    </h2>
+
+    <figure class="ml-0">
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Ecricome
+            </td>
+            <td>
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2020-ect-ecricome-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </NuxtLink>
+              |
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2020-ect-ecricome-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </NuxtLink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              EM Normandie / Inseec
+            </td>
+            <td>
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2020-ect-em-normandie-inseec-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </NuxtLink>
+              |
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2020-ect-em-normandie-inseec-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </NuxtLink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              HEC
+            </td>
+            <td>
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2020-ect-hec-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </NuxtLink>
+              |
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2020-ect-hec-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </NuxtLink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2>
+      2019
+    </h2>
+
+    <figure class="ml-0">
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Ecricome
+            </td>
+            <td>
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2019-ect-ecricome-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </NuxtLink>
+              |
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2019-ect-ecricome-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </NuxtLink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              EM Strasbourg
+            </td>
+            <td>
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2019-ect-em-strasbourg-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </NuxtLink>
+              |
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2019-ect-em-strasbourg-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </NuxtLink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              HEC
+            </td>
+            <td>
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2019-ect-hec-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </NuxtLink>
+              |
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2019-ect-hec-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </NuxtLink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2>
+      2018
+    </h2>
+
+    <figure class="ml-0">
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Ecricome
+            </td>
+            <td>
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2018-ect-ecricome-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </NuxtLink>
+              |
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2018-ect-ecricome-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </NuxtLink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              HEC
+            </td>
+            <td>
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2018-ect-hec-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </NuxtLink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2>
+      2017
+    </h2>
+
+    <figure class="ml-0">
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Ecricome
+            </td>
+            <td>
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2017-ect-ecricome-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </NuxtLink>
+              |
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2017-ect-ecricome-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </NuxtLink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              HEC
+            </td>
+            <td>
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2017-ect-hec-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </NuxtLink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2>
+      2016
+    </h2>
+
+    <figure class="ml-0">
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Ecricome
+            </td>
+            <td>
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2016-ect-ecricome-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </NuxtLink>
+              |
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2016-ect-ecricome-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </NuxtLink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2>
+      2015
+    </h2>
+
+    <figure class="ml-0">
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Ecricome
+            </td>
+            <td>
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2015-ect-ecricome-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </NuxtLink>
+              |
+              <NuxtLink
+                to="https://annales.notyloops.com/cpge-management-sciences-de-gestion-2015-ect-ecricome-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </NuxtLink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <!-- <hr class="separator-1">
+
+      <p class="mb-0">
+        Sources :
+      </p>
+
+      <ul>
+        <li>
+          <NuxtLink
+            to="https://www.concours-bce.com/annales"
+            target="_blank"
+          >
+            Les annales des épreuves écrites BCE
+          </NuxtLink>
+        </li>
+        <li>
+          <NuxtLink
+            to="https://www.ecricome.org/ecricome-prepa-management-et-gestion/"
+            target="_blank"
+          >
+            Ecricome : l'épreuve de management et gestion
+          </NuxtLink>
+        </li>
+        <li>
+          <NuxtLink
+            to="https://www.hec.edu/fr/epreuves-ecrites/management-et-gestion-de-lentreprise"
+            target="_blank"
+          >
+            Sujets et rapports depuis 2017
+          </NuxtLink>
+        </li>
+      </ul> -->
+  </main>
+</template>
