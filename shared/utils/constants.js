@@ -378,7 +378,7 @@ const NOTE_FORMAT_FLASHCARD = 'flashcard';
 const NOTE_FORMAT_FREE = 'free_form';
 const NOTE_FORMAT_MULTIPLE_CHOICE = 'multiple_choice';
 
-const PREMIUM_ACCESS_PRE_TAX_AMOUNT_IN_CENTS = 500;
+const PREMIUM_ACCESS_PRE_TAX_AMOUNT_IN_CENTS = 6000;
 
 const REVIEW_STRATEGY_SPACED_REPETITION = 'spaced_repetition';
 const REVIEW_STRATEGY_DIARY = 'diary';
