@@ -1,9 +1,54 @@
 <script setup>
+const page_title = 'Bonne copie de dissertation de culture générale';
+
 let meta_description = 'Bonne copie de dissertation de culture générale à l\'épreuve d\'Excelia BS.';
 meta_description += '';
 
+const breadcrumb_items = [
+  {
+    label: 'Annales',
+    to: '/annales',
+    url: 'https://fr.notyloops.com/annales',
+  },
+  {
+    label: 'CPGE',
+    to: '/annales/cpge',
+    url: 'https://fr.notyloops.com/annales/cpge',
+  },
+  {
+    label: 'ECT',
+    to: '/annales/cpge/ect',
+    url: 'https://fr.notyloops.com/annales/cpge/ect',
+  },
+  {
+    label: 'Culture générale',
+    to: '/annales/cpge/ect/culture-generale',
+    url: 'https://fr.notyloops.com/annales/cpge/ect/culture-generale',
+  },
+  {
+    label: 'Excelia BS 2024 - bonne copie ',
+    to: '/annales/cpge/ect/culture-generale',
+    url: 'https://fr.notyloops.com/annales/cpge/ect/culture-generale-dissertation-2024-excelia-bs-bonne-copie',
+  },
+];
+
+const breadcrumb_full = useBreadcrumbSchema(breadcrumb_items);
+const breadcrumb_list = {
+  '@type': breadcrumb_full['@type'],
+  'itemListElement': breadcrumb_full.itemListElement,
+};
+
+usePageSchema({
+  name: page_title,
+  description: meta_description,
+  webpage_type: 'CollectionPage',
+  graph: [
+    breadcrumb_list,
+  ],
+});
+
 useHead({
-  title: () => 'Bonne copie de dissertation de culture générale | NotyLoops',
+  title: () => `${page_title} | NotyLoops`,
   meta: [
     {
       name: 'description',
@@ -14,21 +59,11 @@ useHead({
 </script>
 
 <template>
-  <main class="padding-lr centered-max-width-650">
-    <p>
-      <NuxtLink
-        to="/ressources"
-      >
-        Ressources
-      </NuxtLink>
-      >
-      <NuxtLink
-        to="/ressources/annales-cpge-ect-culture-generale"
-      >
-        Annales culture générale
-      </NuxtLink>
-      > Excelia BS bonne copie 1
-    </p>
+  <UContainer class="max-w-2xl">
+    <UBreadcrumb
+      class="mb-8"
+      :items="breadcrumb_items"
+    />
 
     <!-- <span class="underlined"></span>
       <p class="center">
@@ -36,7 +71,7 @@ useHead({
       </p> -->
 
     <h1>
-      Sujet n°1 : Est-il naturel d'être violent ?
+      Est-il naturel d'être violent ?
     </h1>
 
     <p>
@@ -51,7 +86,7 @@ useHead({
       Cela pourrait en effet expliquer son aspect de fatalité.
     </p>
 
-    <p>
+    <p class="mt-4">
       Au premier abord, on peut penser qu'effectivement la violence est naturelle,
       qu'être violent est un état primaire.
       L'univers lui-même semble être violent : son commencement ayant été marqué selon les modèles théoriques,
@@ -64,7 +99,7 @@ useHead({
       Face à tous ces exemples, il semble évident qu'être violent soit naturel.
     </p>
 
-    <p>
+    <p class="mt-4">
       Néanmoins, avant de confirmer une telle affirmation,
       il serait intéressant de comprendre ce qu'être violent signifie.
       Est violent celui qui exerce une force excessive sur quelqu'un ou quelque chose de manière à en abuser.
@@ -77,14 +112,14 @@ useHead({
       On peut donc remettre en question la dimension naturelle de la violence.
     </p>
 
-    <p>
+    <p class="mt-4">
       Dans une première partie, nous étudierons en quoi la violence est inscrite dans la nature même de l'Homme,
       puis nous nous interrogerons sur lien entre déterminisme et violence,
       avant de voir, dans une dernière partie, la raison pour laquelle être violent est un acquis,
       et non quelque chose de naturel.
     </p>
 
-    <p class="center">
+    <p class="text-center mt-4 mb-4">
       * * *
     </p>
 
@@ -97,7 +132,7 @@ useHead({
       la nature de l'homme a été entachée par le péché originel.
     </p>
 
-    <p>
+    <p class="mt-4">
       Cette idée de violence inscrite dans la nature humaine se retrouve dans
       <span class="underlined">Le citoyen</span> de Hobbes et dans <span class="underlined">La route</span>
       de Cormac Mc Carthy.
@@ -116,14 +151,14 @@ useHead({
       devant échapper au cannibalisme et au viol.
     </p>
 
-    <p>
+    <p class="mt-4">
       Chez Freud, la nature humaine est soumise à des pulsions,
       les unes constructrices, comme les pulsions de vie,
       les autres au contraire destructrices, comme les pulsions de mort.
       C'est par ces dernières que s'exprime la violence, qui tend à l'annihilation.
     </p>
 
-    <p>
+    <p class="mt-4">
       Fort de ces exemples, on peut être amené à envisager que la violence soit inhérente à la nature même de l'Homme,
       et ce dès ses origines.
       Être violent pourrait alors être considéré comme un état naturel.
@@ -131,7 +166,7 @@ useHead({
       puis transmise aux générations suivantes.
     </p>
 
-    <p class="center">
+    <p class="text-center mt-4 mb-4">
       * * *
     </p>
 
@@ -148,7 +183,7 @@ useHead({
       Il y aurait donc une hérédité de la violence, intégrant celle dernière à la nature de certains Hommes.
     </p>
 
-    <p>
+    <p class="mt-4">
       Une forme de déterminisme contextuel existe aussi.
       C'est ce que l'on peut par exemple constater dans
       <span class="underlined">Tropiques de la violence</span> de Natacha Appanah.
@@ -160,7 +195,7 @@ useHead({
       le contexte dans lequel il vit a fini par le déterminer.
     </p>
 
-    <p>
+    <p class="mt-4">
       Au-delà du déterminisme, d'autres éléments peuvent modifier la nature d'un Homme.
       Dans ses <span class="underlined">Confessions</span>,
       Saint Augustin partage l'histoire de son ami Alypius.
@@ -178,11 +213,11 @@ useHead({
       Notre nature pourrait alors évoluer et intégrer des caractères violents, comme acquis.
     </p>
 
-    <p>
+    <p class="mt-4">
       Toutefois, bien que cette violence semble naturelle, l'est-elle réellement ?
     </p>
 
-    <p class="center">
+    <p class="text-center mt-4 mb-4">
       * * *
     </p>
 
@@ -194,20 +229,20 @@ useHead({
       en désaccord avec notre nature profonde.
     </p>
 
-    <p>
+    <p class="mt-4">
       Comme l'affirme Sartre dans <span class="underlined">ses Cahiers pour une morale</span>,
       la violence est quelque chose d'anormal, en dehors de ce qu'il qualifie de « legalité ».
       Il illustre cela par l'exemple de la bouteille : retirer le bouchon est dans l'ordre du choses
       tandis que briser le goulot sort de la norme, de la legalité.
     </p>
 
-    <p>
+    <p class="mt-4">
       Un tel comportement est nihiliste, il tend à la destruction.
       Or le vivant est censé être animé par un esprit de conservation, qui semble naturel.
       La violence semble donc ne pas être naturelle.
     </p>
 
-    <p>
+    <p class="mt-4">
       Dans <span class="underlined">Les caves du Vatican</span>, André Gide met en évidence la notion d'acte gratuit.
       Le protagoniste, Lafcadio, n'est pas un homme de nature violente.
       Néanmoins, afin de mettre à l'épreuve son libre arbitre, il choisit de manière parfaitement délibérée,
@@ -215,7 +250,7 @@ useHead({
       Un tel acte n'était pas du tout déterminé par sa nature profonde : c'est une décision personnelle, artificielle.
     </p>
 
-    <p>
+    <p class="mt-4">
       D'autres éléments peuvent contribuer à rendre violent.
       Par exemple, là où Hobbes considère un homme naturellement violent réfréné par l'État,
       Rousseau au contraire, dans son <span class="underlined">Discours sur l'origine et les fondements de l'inegalité parmi les hommes</span>,
@@ -224,11 +259,11 @@ useHead({
       appelant des réponses démesurées lorsque cet ego est offensé.
     </p>
 
-    <p>
+    <p class="mt-4">
       Ainsi, ce seraient l'exercice du libre arbitre et la vie en société qui permettraient la violence.
     </p>
 
-    <p class="center">
+    <p class="text-center mt-4 mb-4">
       * * *
     </p>
 
@@ -241,17 +276,15 @@ useHead({
       Ainsi on ne serait pas violent mais on pourrait plutôt le devenir.
     </p>
 
-    <hr class="separator-1">
-
-    <p class="mb-0">
-      <NuxtLink
+    <p class="mt-4">
+      <ULink
+        class="text-primary"
         to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2024-ect-excelia-bs-bonne-copie-1.pdf"
         target="_blank"
-        rel="noopener noreferrer"
       >
         Copie originale (anonyme, note inconnue).
-      </NuxtLink>
+      </ULink>
       Remarque : nous avons corrigé les erreurs d'orthographe et de syntaxe par rapport à la copie originale.
     </p>
-  </main>
+  </UContainer>
 </template>

@@ -48,7 +48,7 @@ const items = [
       <ULink
         v-for="item in items"
         :key="item.label"
-        class="text-sm"
+        class="text-sm font-medium"
         :target="item.target"
         :to="item.to"
       >

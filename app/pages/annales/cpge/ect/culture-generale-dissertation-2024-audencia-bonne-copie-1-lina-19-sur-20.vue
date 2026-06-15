@@ -1,9 +1,54 @@
 <script setup>
+const page_title = 'Bonne copie de dissertation de culture générale';
+
 let meta_description = 'Bonne copie de dissertation de culture générale notée 19/20 à l\'épreuve d\'Audencia.';
 meta_description += '';
 
+const breadcrumb_items = [
+  {
+    label: 'Annales',
+    to: '/annales',
+    url: 'https://fr.notyloops.com/annales',
+  },
+  {
+    label: 'CPGE',
+    to: '/annales/cpge',
+    url: 'https://fr.notyloops.com/annales/cpge',
+  },
+  {
+    label: 'ECT',
+    to: '/annales/cpge/ect',
+    url: 'https://fr.notyloops.com/annales/cpge/ect',
+  },
+  {
+    label: 'Culture générale',
+    to: '/annales/cpge/ect/culture-generale',
+    url: 'https://fr.notyloops.com/annales/cpge/ect/culture-generale',
+  },
+  {
+    label: 'Audencia 2024 - bonne copie 1 ',
+    to: '/annales/cpge/ect/culture-generale',
+    url: 'https://fr.notyloops.com/annales/cpge/ect/culture-generale-dissertation-2024-audencia-bonne-copie-1-lina-19-sur-20',
+  },
+];
+
+const breadcrumb_full = useBreadcrumbSchema(breadcrumb_items);
+const breadcrumb_list = {
+  '@type': breadcrumb_full['@type'],
+  'itemListElement': breadcrumb_full.itemListElement,
+};
+
+usePageSchema({
+  name: page_title,
+  description: meta_description,
+  webpage_type: 'CollectionPage',
+  graph: [
+    breadcrumb_list,
+  ],
+});
+
 useHead({
-  title: () => 'Bonne copie de dissertation de culture générale | NotyLoops',
+  title: () => `${page_title} | NotyLoops`,
   meta: [
     {
       name: 'description',
@@ -14,21 +59,11 @@ useHead({
 </script>
 
 <template>
-  <main class="padding-lr centered-max-width-650">
-    <p>
-      <NuxtLink
-        to="/ressources"
-      >
-        Ressources
-      </NuxtLink>
-      >
-      <NuxtLink
-        to="/ressources/annales-cpge-ect-culture-generale"
-      >
-        Annales culture générale
-      </NuxtLink>
-      > Audencia bonne copie 1
-    </p>
+  <UContainer class="max-w-2xl">
+    <UBreadcrumb
+      class="mb-8"
+      :items="breadcrumb_items"
+    />
 
     <!-- <span class="underlined"></span>
       <p class="center">
@@ -59,7 +94,7 @@ useHead({
       Enfin, nous exposerons les moyens à mobiliser pour résister à la violence.
     </p>
 
-    <p class="center">
+    <p class="text-center mt-4 mb-4">
       * * *
     </p>
 
@@ -68,7 +103,7 @@ useHead({
       Il paraît alors peu légitime de lutter contre elle car elle lui est inhérente.
     </p>
 
-    <p>
+    <p class="mt-4">
       D'abord, la violence est nécessaire, on n'a nul besoin de lutter contre elle, car c'est elle qui garantit l'évolution de l'Homme.
       Hegel parlera ainsi d'une violence créatrice, génératrice de l'Histoire et de l'évolution humaine.
       C'est elle qui serait à l'origine des évolutions culturelles et sociétales actuelles.
@@ -78,7 +113,7 @@ useHead({
       que l'avènement de la violence destructrice aurait conduit aujourd'hui à une baisse considérable de la violence.
     </p>
 
-    <p>
+    <p class="mt-4">
       De plus, la résistance à la violence est superfétatoire car elle annule la volonté des Hommes à faire société.
       En effet, Georg Simmel dira que le conflit est nécessaire car il est structurant.
       Ainsi, la lutte contre la violence n'est autre qu'une négation de la vie en société.
@@ -88,7 +123,7 @@ useHead({
       La résistance à la violence et la négation du conflit est donc gage de désorganisation de la société.
     </p>
 
-    <p>
+    <p class="mt-4">
       De surcroît, résister à la violence ne serait pas bénéfique
       car la violence est nécessaire dans l'exercice du pouvoir étant donné qu'elle légitime la position du dominant.
       Dans <span class="underlined">Le prince</span>, de Machiavel, on nous montrera que le dirigeant doit être capable de préserver sa position de domination.
@@ -99,7 +134,7 @@ useHead({
       La résistance à la violence sera alors vectrice de désordre.
     </p>
 
-    <p class="center">
+    <p class="text-center mt-4 mb-4">
       * * *
     </p>
 
@@ -108,7 +143,7 @@ useHead({
       afin d'éviter tout abus susceptible de provoquer une dégénérescence de l'acte violent.
     </p>
 
-    <p>
+    <p class="mt-4">
       La résistance à la violence est nécessaire car c'est elle qui permet de faire face à la logique infernale de vengeance.
       En ce sens, Nietzsche théorisera deux formes de vengeance : la vengeance de protection et celle de réparation.
       En effet, la vengeance de protection est nécessaire car elle permet de se protéger contre d'éventuels prochaines attaques.
@@ -119,7 +154,7 @@ useHead({
       Ici, Titus aurait dû faire preuve de résistance face à l'exercice de la violence afin d'éviter ses abus.
     </p>
 
-    <p>
+    <p class="mt-4">
       De plus, la résistance à la violence est également nécessaire afin d'éviter tout type d'oppression.
       À cet égard, il faut lutter contre la violence pour ne pas laisser place aux régimes totalitaires car :
       « la justice sans la force est impuissante, la force sans la justice est tyrannique ».
@@ -131,7 +166,7 @@ useHead({
       car ils ont été rattrapés par O'Brien qui les a trahit et remis au Parti pour être soumis à la torture.
     </p>
 
-    <p>
+    <p class="mt-4">
       Enfin, la résistance à la violence est nécessaire étant donné qu'elle permet de préserver la dignité de l'Homme.
       À cet égard, l'Homme devra lutter contre ses pulsions violentes afin de ne pas aboutir à une négation de l'autre.
       Il semblerait, que ce processus se fasse de manière naturelle chez l'Homme grâce à son empathie.
@@ -142,7 +177,7 @@ useHead({
       Toutefois, certaines figures de l'œuvre luttent contre ses pulsions et invitent à la préservation de la dignité humaine.
     </p>
 
-    <p class="center">
+    <p class="text-center mt-4 mb-4">
       * * *
     </p>
 
@@ -151,7 +186,7 @@ useHead({
       Il est de ce fait indispensable de montrer comment il est possible de le faire.
     </p>
 
-    <p>
+    <p class="mt-4">
       D'abord, la lutte contre la violence peut se faire par le dialogue.
       Rawls dira que la violence n'existe que dans un rapport social.
       Il faut alors utiliser le dialogue, selon Eric Weil, afin de mettre fin à la violence.
@@ -161,7 +196,7 @@ useHead({
       le pardon perdra sa valeur.
     </p>
 
-    <p>
+    <p class="mt-4">
       De surcroît, il est possible de résister à la violence à travers sa représentation.
       Ainsi, la catharsis chez Aristote permet de créer une distanciation dans l'exercice de l'acte violent.
       La représentation désinciterait alors à l'exercice de la violence car les individus se mettent à la place de la victime.
@@ -174,7 +209,7 @@ useHead({
       l'a désincité à l'exercer au point qu'il n'était plus capable de voir des scènes violentes.
     </p>
 
-    <p>
+    <p class="mt-4">
       Enfin, la résistance à la violence peut se faire à travers la désobéissance civile.
       En effet, Arendt distinguera entre la torture, la révolution violente et la désobéissance civile.
       Elle dira que le moyen le plus efficace pour que le peuple fasse entendre son mécontentement est la désobéissance civile qui,
@@ -183,7 +218,7 @@ useHead({
       recourir abusivement à leur pouvoir en faisant violence aux droits du peuple.
     </p>
 
-    <p class="center">
+    <p class="text-center mt-4 mb-4">
       * * *
     </p>
 
@@ -198,16 +233,15 @@ useHead({
       car elle est inhérente à l'Homme et à son évolution.
     </p>
 
-    <hr class="separator-1">
-
-    <p class="mb-0">
-      <NuxtLink
+    <p class="mt-4">
+      <ULink
+        class="text-primary"
         to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2024-ect-audencia-bonne-copie-1-lina-19-sur-20.pdf"
         target="_blank"
       >
         Copie originale de Lina, notée 19/20.
-      </NuxtLink>
+      </ULink>
       Remarque : nous avons corrigé les erreurs d'orthographe et de syntaxe par rapport à la copie originale.
     </p>
-  </main>
+  </UContainer>
 </template>

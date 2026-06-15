@@ -1,9 +1,54 @@
 <script setup>
+const page_title = 'Bonne copie de dissertation de culture générale';
+
 let meta_description = 'Bonne copie de dissertation de culture générale notée 18/20 à l\'épreuve d\'Audencia.';
 meta_description += '';
 
+const breadcrumb_items = [
+  {
+    label: 'Annales',
+    to: '/annales',
+    url: 'https://fr.notyloops.com/annales',
+  },
+  {
+    label: 'CPGE',
+    to: '/annales/cpge',
+    url: 'https://fr.notyloops.com/annales/cpge',
+  },
+  {
+    label: 'ECT',
+    to: '/annales/cpge/ect',
+    url: 'https://fr.notyloops.com/annales/cpge/ect',
+  },
+  {
+    label: 'Culture générale',
+    to: '/annales/cpge/ect/culture-generale',
+    url: 'https://fr.notyloops.com/annales/cpge/ect/culture-generale',
+  },
+  {
+    label: 'Audencia 2024 - bonne copie 2 ',
+    to: '/annales/cpge/ect/culture-generale',
+    url: 'https://fr.notyloops.com/annales/cpge/ect/culture-generale-dissertation-2024-audencia-bonne-copie-2-ichem-18-sur-20',
+  },
+];
+
+const breadcrumb_full = useBreadcrumbSchema(breadcrumb_items);
+const breadcrumb_list = {
+  '@type': breadcrumb_full['@type'],
+  'itemListElement': breadcrumb_full.itemListElement,
+};
+
+usePageSchema({
+  name: page_title,
+  description: meta_description,
+  webpage_type: 'CollectionPage',
+  graph: [
+    breadcrumb_list,
+  ],
+});
+
 useHead({
-  title: () => 'Bonne copie de dissertation de culture générale | NotyLoops',
+  title: () => `${page_title} | NotyLoops`,
   meta: [
     {
       name: 'description',
@@ -14,21 +59,11 @@ useHead({
 </script>
 
 <template>
-  <main class="padding-lr centered-max-width-650">
-    <p>
-      <NuxtLink
-        to="/ressources"
-      >
-        Ressources
-      </NuxtLink>
-      >
-      <NuxtLink
-        to="/ressources/annales-cpge-ect-culture-generale"
-      >
-        Annales culture générale
-      </NuxtLink>
-      > Audencia bonne copie 2
-    </p>
+  <UContainer class="max-w-2xl">
+    <UBreadcrumb
+      class="mb-8"
+      :items="breadcrumb_items"
+    />
 
     <!-- <span class="underlined"></span>
       <p class="center">
@@ -71,7 +106,7 @@ useHead({
       de régime qui avait tous pour objectif de limiter la violence en lui résistant ?
     </p>
 
-    <p>
+    <p class="mt-4">
       Dans un premier temps, nous verrons qu'à première vue, il semble que le caractère naturel et démesuré
       de la violence ne permet pas à l'homme de pouvoir résister à la violence.
       Puis, nous verrons que la société a cherché à limiter l'escalade de la violence
@@ -81,7 +116,7 @@ useHead({
       comment orienter notre violence pour qu'elle ne nous échappe pas, pour qu'elle soit féconde.
     </p>
 
-    <p class="center">
+    <p class="text-center mt-4 mb-4">
       * * *
     </p>
 
@@ -104,7 +139,7 @@ useHead({
       Résister à la violence, dite naturelle, ne semble pas pertinent.
     </p>
 
-    <p>
+    <p class="mt-4">
       De plus, la violence, dans le sens de ce qui change l'ordre du monde,
       est au XXème siècle une violence artificielle que nous avons du mal à mesurer au vu de sa grandeur.
       Il semble difficile de résister à la violence lorsque l'on peine à l'embrasser.
@@ -125,7 +160,7 @@ useHead({
       En une seconde, l'homme comparable à Dieu peut éradiquer toutes formes de vie sur terre.
     </p>
 
-    <p>
+    <p class="mt-4">
       Enfin, la violence que la société impose à chaque homme a pour conséquence la violence.
       Il est difficile de résister à la violence, à l'exercice de la violence
       lorsque autrui exerce sa violence à mon encontre.
@@ -145,7 +180,7 @@ useHead({
       Ainsi, résister à la violence semble être un défi que peu de personne arrive à surmonter.
     </p>
 
-    <p class="center">
+    <p class="text-center mt-4 mb-4">
       * * *
     </p>
 
@@ -156,7 +191,7 @@ useHead({
       Les institutions sont-elles efficaces ?
     </p>
 
-    <p class="center">
+    <p class="text-center mt-4 mb-4">
       * * *
     </p>
 
@@ -178,7 +213,7 @@ useHead({
       que l'on aurait tendance à exercer.
     </p>
 
-    <p>
+    <p class="mt-4">
       Au sein des relations humaines, il y a toujours eu une escalade de la violence.
       Celle-ci est présente partout et tout le temps.
       L'homme est naturellement violent non pas par volonté mais par crainte d'être violenté par d'autres.
@@ -198,7 +233,7 @@ useHead({
       pour Hobbes, il convient d'instaurer un contrat social.
     </p>
 
-    <p>
+    <p class="mt-4">
       Enfin, au niveau macroscopique, pour résister à la violence,
       il convient de faire en sorte d'instituer un état, une justice et de juger la violence de manière dépassionnée.
       Tout d'abord, Max Weber définit l'État comme étant : « une communauté humaine qui dans les limites d'un territoire donné [...] revendique avec succès pour son propre compte le monopole
@@ -219,7 +254,7 @@ useHead({
       De ce fait, on voit bien que l'État et la Justice ont donné la possibilité de résister à la violence.
     </p>
 
-    <p class="center">
+    <p class="text-center mt-4 mb-4">
       * * *
     </p>
 
@@ -232,7 +267,7 @@ useHead({
       Ainsi, il convient de juger celle-ci et de trouver un autre moyen pour résister à la violence.
     </p>
 
-    <p class="center">
+    <p class="text-center mt-4 mb-4">
       * * *
     </p>
 
@@ -256,7 +291,7 @@ useHead({
       comme vu dans <span class="underlined">Le prince</span> de Machiavel (1532).
     </p>
 
-    <p>
+    <p class="mt-4">
       De plus, il est possible d'orienter sa violence pour que celle-ci soit féconde.
       Résister à la violence, résister à la force, dans le sens de ne pas exercer de force
       peut être l'un des objectifs que l'on se fixe.
@@ -282,7 +317,7 @@ useHead({
       mais pas exactement similaire, est un moyen fort efficace de résister à la violence que je souhaite exercer.
     </p>
 
-    <p>
+    <p class="mt-4">
       En fin de compte, résister à la violence n'est-ce pas le rôle de l'art ?
       N'est-il pas la mission première d'un artiste de rendre spirituelle la violence ?
       Contenir sa violence en faisant violence à la nature et à son esprit est une solution.
@@ -302,7 +337,7 @@ useHead({
       De ce fait, l'orientation artistique semble être une solution pour canaliser, vaincre la violence en nous.
     </p>
 
-    <p class="center">
+    <p class="text-center mt-4 mb-4">
       * * *
     </p>
 
@@ -322,16 +357,15 @@ useHead({
       faut-il s'opposer, résister à la violence légitime, restauratrice notamment de la violence envers un tyran.
     </p>
 
-    <hr class="separator-1">
-
-    <p class="mb-0">
-      <NuxtLink
-        to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2024-ect-audencia-bonne-copie-1-lina-19-sur-20.pdf"
+    <p class="mt-4">
+      <ULink
+        class="text-primary"
+        to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2024-ect-audencia-bonne-copie-2-ichem-18-sur-20.pdf"
         target="_blank"
       >
-        Copie originale de Lina, notée 19/20.
-      </NuxtLink>
+        Copie originale d'Ichem, notée 18/20.
+      </ULink>
       Remarque : nous avons corrigé les erreurs d'orthographe et de syntaxe par rapport à la copie originale.
     </p>
-  </main>
+  </UContainer>
 </template>

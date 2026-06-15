@@ -1,7 +1,7 @@
 <script setup>
-const page_title = 'Annales CPGE ECT : culture générale (dissertation)';
+const page_title = 'Annales CPGE ECG : culture générale (dissertation)';
 
-let meta_description = 'Les annales BCE et Ecricome de culture générale (dissertation) pour les CPGE ECT (voie technologique).';
+let meta_description = 'Les annales BCE et Ecricome de culture générale (dissertation) pour les CPGE ECG (voie technologique).';
 meta_description += ' Les sujets et rapports des dernières années.';
 
 const breadcrumb_items = [
@@ -16,14 +16,14 @@ const breadcrumb_items = [
     url: 'https://fr.notyloops.com/annales/cpge',
   },
   {
-    label: 'ECT',
-    to: '/annales/cpge/ect',
-    url: 'https://fr.notyloops.com/annales/cpge/ect',
+    label: 'ECG',
+    to: '/annales/cpge/ECG',
+    url: 'https://fr.notyloops.com/annales/cpge/ECG',
   },
   {
     label: 'Culture générale',
-    to: '/annales/cpge/ect/culture-generale',
-    url: 'https://fr.notyloops.com/annales/cpge/ect/culture-generale',
+    to: '/annales/cpge/ECG/culture-generale',
+    url: 'https://fr.notyloops.com/annales/cpge/ECG/culture-generale',
   },
 ];
 
@@ -36,7 +36,7 @@ const breadcrumb_list = {
 usePageSchema({
   name: page_title,
   description: meta_description,
-  webpage_type: 'CollectionPage',
+  webpage_type: 'CollECGionPage',
   graph: [
     breadcrumb_list,
   ],
@@ -54,7 +54,7 @@ useHead({
 </script>
 
 <template>
-  <!-- app/pages/annales/cpge/ect/culture-generale.vue -->
+  <!-- app/pages/annales/cpge/ECG/culture-generale.vue -->
   <UContainer class="max-w-2xl">
     <UBreadcrumb
       class="mb-8"
@@ -62,7 +62,7 @@ useHead({
     />
 
     <h1>
-      Annales CPGE ECT :
+      Annales CPGE ECG :
       culture générale (dissertation)
     </h1>
 
@@ -74,45 +74,18 @@ useHead({
       <table>
         <thead>
           <tr>
-            <th>
+            <th scope="col">
               Épreuve
             </th>
-            <th>
+            <th scope="col">
               Sujet
             </th>
-            <th>
+            <th scope="col">
               Documents
             </th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>
-              Audencia
-            </td>
-            <td>
-              Le poids du jugement.
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2026-ect-audencia-sujet.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Sujet
-              </ULink>
-              <!-- <br>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2026-ect-audencia-rapport.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Rapport
-              </ULink> -->
-            </td>
-          </tr>
           <tr>
             <td>
               Ecricome
@@ -142,39 +115,38 @@ useHead({
           </tr>
           <tr>
             <td>
-              Excelia BS
+              Edhec / Essec
             </td>
             <td>
-              <ul>
-                <li>
-                  <b>Sujet n°1</b>
-                  <br>Juger, est-ce un acte de courage ?
-                </li>
-                <li class="mt-1">
-                  <b>Sujet n°2</b>
-                  <br>Commentez la citation suivante :
-                  « J'ai personnellement plus de plaisir à comprendre les hommes qu'à les juger »
-                </li>
-              </ul>
+              Juger en toute liberté.
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2026-ect-excelia-bs-sujet.pdf"
+                to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2026-ecg-edhec-essec-sujet.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Sujet
               </ULink>
-              <!-- <br>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              emlyon / HEC
+            </td>
+            <td>
+              À trop juger.
+            </td>
+            <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2026-ect-excelia-bs-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2026-ecg-emlyon-hec-sujet.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Rapport
-              </ULink> -->
+                Sujet
+              </ULink>
             </td>
           </tr>
         </tbody>
@@ -189,45 +161,18 @@ useHead({
       <table>
         <thead>
           <tr>
-            <th>
+            <th scope="col">
               Épreuve
             </th>
-            <th>
+            <th scope="col">
               Sujet
             </th>
-            <th>
+            <th scope="col">
               Documents
             </th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>
-              Audencia
-            </td>
-            <td>
-              L'image, c'est la vie.
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2025-ect-audencia-sujet.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Sujet
-              </ULink>
-              <br>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2025-ect-audencia-rapport.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
           <tr>
             <td>
               Ecricome
@@ -253,51 +198,41 @@ useHead({
               >
                 Sujet
               </ULink>
-              <br>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2025-ec-ecricome-rapport.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Rapport
-              </ULink>
             </td>
           </tr>
           <tr>
             <td>
-              Excelia BS
+              Edhec / Essec
             </td>
             <td>
-              <ul>
-                <li>
-                  <b>Sujet n°1</b>
-                  <br>Une image peut-elle être une représentation fidèle de la réalité ?
-                </li>
-                <li class="mt-1">
-                  <b>Sujet n°2</b>
-                  <br>Commentez la citation suivante de la photographe Dorothea Lange :
-                  « Une image a le pouvoir de changer des vies. »
-                </li>
-              </ul>
+              Le mystère des images.
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2025-ect-excelia-bs-sujet.pdf"
+                to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2025-ecg-edhec-essec-sujet.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Sujet
               </ULink>
-              <br>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              emlyon / HEC
+            </td>
+            <td>
+              Sauver les images.
+            </td>
+            <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2025-ect-excelia-bs-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2025-ecg-emlyon-hec-sujet.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Rapport
+                Sujet
               </ULink>
             </td>
           </tr>
@@ -327,42 +262,6 @@ useHead({
         <tbody>
           <tr>
             <td>
-              Audencia
-            </td>
-            <td>
-              Résister à la violence
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2024-ect-audencia-sujet.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Sujet
-              </ULink>
-              <br>
-              <ULink
-                class="text-primary"
-                to="/annales/cpge/ect/culture-generale-dissertation-2024-audencia-bonne-copie-1-lina-19-sur-20"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span class="whitespace-nowrap">Bonne copie 1</span>
-              </ULink>
-              <br>
-              <ULink
-                class="text-primary"
-                to="/annales/cpge/ect/culture-generale-dissertation-2024-audencia-bonne-copie-2-ichem-18-sur-20"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span class="whitespace-nowrap">Bonne copie 2</span>
-              </ULink>
-            </td>
-          </tr>
-          <tr>
-            <td>
               Ecricome
             </td>
             <td>
@@ -382,7 +281,6 @@ useHead({
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2024-ec-ecricome-sujet.pdf"
                 target="_blank"
-                rel="noopener noreferrer"
               >
                 Sujet
               </ULink>
@@ -391,7 +289,6 @@ useHead({
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2024-ec-ecricome-rapport.pdf"
                 target="_blank"
-                rel="noopener noreferrer"
               >
                 Rapport
               </ULink>
@@ -399,47 +296,51 @@ useHead({
           </tr>
           <tr>
             <td>
-              Excelia BS
+              Edhec / Essec
             </td>
             <td>
-              <ul>
-                <li>
-                  <b>Sujet n°1</b>
-                  <br>Est-il naturel d'être violent ?
-                </li>
-                <li class="mt-1">
-                  <b>Sujet n°2</b>
-                  <br>Commentez la sitation suivante :
-                  « La violence est une forme de faiblesse. »
-                </li>
-              </ul>
+              La violence peut-elle être mesurée ?
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2024-ect-excelia-bs-sujet.pdf"
+                to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2024-ecg-edhec-essec-sujet.pdf"
                 target="_blank"
-                rel="noopener noreferrer"
               >
                 Sujet
               </ULink>
               <br>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2024-ect-excelia-bs-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2024-ecg-edhec-essec-rapport.pdf"
                 target="_blank"
-                rel="noopener noreferrer"
               >
                 Rapport
               </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              emlyon / HEC
+            </td>
+            <td>
+              Sois sage, Ô ma violence.
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2024-ecg-emlyon-hec-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
               <br>
               <ULink
-                class="text-primary whitespace-nowrap"
-                to="/annales/cpge/ect/culture-generale-dissertation-2024-excelia-bs-bonne-copie"
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2024-ecg-emlyon-hec-rapport.pdf"
                 target="_blank"
-                rel="noopener noreferrer"
               >
-                Bonne copie
+                Rapport
               </ULink>
             </td>
           </tr>
@@ -469,33 +370,6 @@ useHead({
         <tbody>
           <tr>
             <td>
-              Audencia
-            </td>
-            <td>
-              Le monde est-il assez grand ?
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2023-ect-audencia-sujet.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Sujet
-              </ULink>
-              <br>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2023-ect-audencia-rapport.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-          <tr>
-            <td>
               Ecricome
             </td>
             <td>
@@ -515,7 +389,6 @@ useHead({
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2023-ec-ecricome-sujet.pdf"
                 target="_blank"
-                rel="noopener noreferrer"
               >
                 Sujet
               </ULink>
@@ -524,7 +397,6 @@ useHead({
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2023-ec-ecricome-rapport.pdf"
                 target="_blank"
-                rel="noopener noreferrer"
               >
                 Rapport
               </ULink>
@@ -532,36 +404,49 @@ useHead({
           </tr>
           <tr>
             <td>
-              Excelia BS
+              Edhec / Essec
             </td>
             <td>
-              <ul>
-                <li>
-                  <b>Sujet n°1</b>
-                  <br>Avons-nous chacun notre monde ?
-                </li>
-                <li class="mt-1">
-                  <b>Sujet n°2</b>
-                  <br>Commentez la citation suivante :
-                  « Le monde a commencé sans l'homme et s'achèvera sans lui. »
-                </li>
-              </ul>
+              Le nouveau monde.
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2023-ect-excelia-bs-sujet.pdf"
+                to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2023-ecg-edhec-essec-sujet.pdf"
                 target="_blank"
-                rel="noopener noreferrer"
               >
                 Sujet
               </ULink>
               <br>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2023-ect-excelia-bs-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2023-ecg-edhec-essec-rapport.pdf"
                 target="_blank"
-                rel="noopener noreferrer"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              emlyon / HEC
+            </td>
+            <td>
+              L'épreuve du monde.
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2023-ecg-emlyon-hec-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2023-ecg-emlyon-hec-rapport.pdf"
+                target="_blank"
               >
                 Rapport
               </ULink>
@@ -612,7 +497,6 @@ useHead({
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2022-ec-ecricome-sujet.pdf"
                 target="_blank"
-                rel="noopener noreferrer"
               >
                 Sujet
               </ULink>
@@ -621,7 +505,6 @@ useHead({
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2022-ec-ecricome-rapport.pdf"
                 target="_blank"
-                rel="noopener noreferrer"
               >
                 Rapport
               </ULink>
@@ -640,7 +523,6 @@ useHead({
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2022-ec-edhec-essec-sujet.pdf"
                 target="_blank"
-                rel="noopener noreferrer"
               >
                 Sujet
               </ULink>
@@ -649,7 +531,6 @@ useHead({
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2022-ec-edhec-essec-rapport.pdf"
                 target="_blank"
-                rel="noopener noreferrer"
               >
                 Rapport
               </ULink>
@@ -667,7 +548,6 @@ useHead({
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2022-ec-emlyon-hec-sujet.pdf"
                 target="_blank"
-                rel="noopener noreferrer"
               >
                 Sujet
               </ULink>
@@ -676,45 +556,6 @@ useHead({
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2022-ec-emlyon-hec-rapport.pdf"
                 target="_blank"
-                rel="noopener noreferrer"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              Excelia BS
-            </td>
-            <td>
-              <ul>
-                <li>
-                  <b>Sujet n°1</b>
-                  <br>Ne peut-on aimer que ce qui nous échappe ?
-                </li>
-                <li class="mt-1">
-                  <b>Sujet n°2</b>
-                  <br>Commentez la citation suivante :
-                  « Non, vous ne m'aimez pas comme il faut que l'on aime.»
-                  <i>Molière, Le Misanthrope</i>.
-                </li>
-              </ul>
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2022-ect-excelia-bs-sujet.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Sujet
-              </ULink>
-              <br>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2022-ect-excelia-bs-rapport.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
               >
                 Rapport
               </ULink>
@@ -765,7 +606,6 @@ useHead({
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2021-ec-ecricome-sujet.pdf"
                 target="_blank"
-                rel="noopener noreferrer"
               >
                 Sujet
               </ULink>
@@ -774,7 +614,6 @@ useHead({
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2021-ec-ecricome-rapport.pdf"
                 target="_blank"
-                rel="noopener noreferrer"
               >
                 Rapport
               </ULink>
@@ -788,7 +627,7 @@ useHead({
               <b>Sujet de secours</b>
               <br>
               Pensez-vous, comme l'a écrit Montaigne, qu' « il se trouve plus de différence
-              de tel homme à tel homme que de tel animal à tel hommme » ?
+              de tel homme à tel homme que de tel animal à tel homme » ?
               <br><br>
               <b>Sujet initial</b>
               <br>La communication animale est-elle un langage ?
@@ -798,7 +637,6 @@ useHead({
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2021-ec-edhec-essec-sujet.pdf"
                 target="_blank"
-                rel="noopener noreferrer"
               >
                 Sujet
               </ULink>
@@ -807,7 +645,6 @@ useHead({
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2021-ec-edhec-essec-rapport.pdf"
                 target="_blank"
-                rel="noopener noreferrer"
               >
                 Rapport
               </ULink>
@@ -825,7 +662,6 @@ useHead({
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2021-ec-emlyon-hec-sujet.pdf"
                 target="_blank"
-                rel="noopener noreferrer"
               >
                 Sujet
               </ULink>
@@ -834,45 +670,6 @@ useHead({
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2021-ec-emlyon-hec-rapport.pdf"
                 target="_blank"
-                rel="noopener noreferrer"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              Excelia BS
-            </td>
-            <td>
-              <ul>
-                <li>
-                  <b>Sujet n°1</b>
-                  <br>Que devons-nous à l'animal ?
-                </li>
-                <li class="mt-1">
-                  <b>Sujet n°2</b>
-                  <br>« Pourquoi refuser aux animaux un raisonnement rudimentaire ?
-                  Et pourquoi affirmer tout net que « l'instinct leur suffit » ? »
-                  <i>Jack London, L'appel de la forêt, Postface</i>.
-                </li>
-              </ul>
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2021-ect-excelia-bs-sujet.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Sujet
-              </ULink>
-              <br>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2021-ect-excelia-bs-rapport.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
               >
                 Rapport
               </ULink>
@@ -923,7 +720,6 @@ useHead({
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2020-ec-ecricome-sujet.pdf"
                 target="_blank"
-                rel="noopener noreferrer"
               >
                 Sujet
               </ULink>
@@ -932,7 +728,6 @@ useHead({
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2020-ec-ecricome-rapport.pdf"
                 target="_blank"
-                rel="noopener noreferrer"
               >
                 Rapport
               </ULink>
@@ -950,7 +745,6 @@ useHead({
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2020-ec-edhec-essec-sujet.pdf"
                 target="_blank"
-                rel="noopener noreferrer"
               >
                 Sujet
               </ULink>
@@ -959,7 +753,6 @@ useHead({
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2020-ec-edhec-essec-rapport.pdf"
                 target="_blank"
-                rel="noopener noreferrer"
               >
                 Rapport
               </ULink>
@@ -977,7 +770,6 @@ useHead({
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2020-ec-emlyon-hec-sujet.pdf"
                 target="_blank"
-                rel="noopener noreferrer"
               >
                 Sujet
               </ULink>
@@ -986,45 +778,6 @@ useHead({
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2020-ec-emlyon-hec-rapport.pdf"
                 target="_blank"
-                rel="noopener noreferrer"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              La Rochelle BS
-            </td>
-            <td>
-              <ul>
-                <li>
-                  <b>Sujet n°1</b>
-                  <br>Le désir que j'éprouve me fait-il connaître qui je suis ?
-                </li>
-                <li class="mt-1">
-                  <b>Sujet n°2</b>
-                  <br>« Quand on est content, on n'a plus rien à désirer ; et quand on n'a plus rien à désirer,
-                  tout est fini. »
-                  Cervantes, Don Quichotte, 1615, partie I, chapitre L, Traduction Jean Cassou.
-                </li>
-              </ul>
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2020-ect-la-rochelle-bs-sujet.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Sujet
-              </ULink>
-              <br>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2020-ect-la-rochelle-bs-rapport.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
               >
                 Rapport
               </ULink>
@@ -1075,7 +828,6 @@ useHead({
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2019-ec-ecricome-sujet.pdf"
                 target="_blank"
-                rel="noopener noreferrer"
               >
                 Sujet
               </ULink>
@@ -1084,7 +836,6 @@ useHead({
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2019-ec-ecricome-rapport.pdf"
                 target="_blank"
-                rel="noopener noreferrer"
               >
                 Rapport
               </ULink>
@@ -1102,7 +853,6 @@ useHead({
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2019-ec-edhec-essec-sujet.pdf"
                 target="_blank"
-                rel="noopener noreferrer"
               >
                 Sujet
               </ULink>
@@ -1111,7 +861,6 @@ useHead({
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2019-ec-edhec-essec-rapport.pdf"
                 target="_blank"
-                rel="noopener noreferrer"
               >
                 Rapport
               </ULink>
@@ -1129,7 +878,6 @@ useHead({
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2019-ec-emlyon-hec-sujet.pdf"
                 target="_blank"
-                rel="noopener noreferrer"
               >
                 Sujet
               </ULink>
@@ -1138,46 +886,6 @@ useHead({
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2019-ec-emlyon-hec-rapport.pdf"
                 target="_blank"
-                rel="noopener noreferrer"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              La Rochelle BS
-            </td>
-            <td>
-              <ul>
-                <li>
-                  <b>Sujet n°1</b>
-                  <br>Faut-il se libérer de la mémoire ?
-                </li>
-                <li class="mt-1">
-                  <b>Sujet n°2</b>
-                  <br>« On ne conserve dans la vie que la mémoire des sentiments touchants :
-                  tout le reste est moins même que ce qui est passé,
-                  parce que rien ne lui prête plus de couleur dans l'imagination ».
-                  <i>Delacroix, Lettre à J. B. Pierret, 18 septembre 1818</i>.
-                </li>
-              </ul>
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2019-ect-la-rochelle-bs-sujet.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Sujet
-              </ULink>
-              <br>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2019-ect-la-rochelle-bs-rapport.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
               >
                 Rapport
               </ULink>
@@ -1228,7 +936,6 @@ useHead({
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2018-ec-ecricome-sujet.pdf"
                 target="_blank"
-                rel="noopener noreferrer"
               >
                 Sujet
               </ULink>
@@ -1482,7 +1189,7 @@ useHead({
               <ul>
                 <li>
                   <b>Sujet 1 (dans le thème)</b>
-                  <br>Le spectacle de la nature nous révèle-t-il quelque chose de nous-mêmes ?
+                  <br>Le spECGacle de la nature nous révèle-t-il quelque chose de nous-mêmes ?
                 </li>
                 <li class="mt-1">
                   <b>Sujet 2 (hors thème)</b>
@@ -3461,7 +3168,7 @@ useHead({
               Edhec
             </td>
             <td>
-              Devons-nous respecter toutes les croyances ?
+              Devons-nous respECGer toutes les croyances ?
             </td>
             <!-- <td>
                 <ULink

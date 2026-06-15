@@ -56,20 +56,20 @@ useHead({
         >
           Culture générale (dissertation)</ULink>
       </li>
-      <!-- <li>
+      <li>
         <ULink
           class="text-primary"
           to="/annales/cpge/ect/economie-droit"
         >
           Économie et droit</ULink>
-      </li> -->
-      <!-- <li>
+      </li>
+      <li>
         <ULink
           class="text-primary"
           to="/annales/cpge/ect/lettres"
         >
           Lettres (étude et synthèse de textes)</ULink>
-      </li> -->
+      </li>
       <!-- <li>
         LVA :
         <ULink
