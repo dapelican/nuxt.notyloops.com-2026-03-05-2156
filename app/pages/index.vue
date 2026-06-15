@@ -1,4 +1,6 @@
 <script setup>
+import { PREMIUM_ACCESS_PRE_TAX_AMOUNT_IN_CENTS } from '#shared/utils/constants.js';
+
 const { locale, t } = useI18n();
 const request_url = useRequestURL();
 
@@ -8,6 +10,9 @@ if (locale.value === 'fr') {
   meta_description = 'L\'application pour créer des notes et les revoir en utilisant la répétition espacée, le hasard ou une autre stratégie.';
 }
 
+const premium_price_amount = PREMIUM_ACCESS_PRE_TAX_AMOUNT_IN_CENTS / 100;
+const price_currency = locale.value === 'fr' ? 'EUR' : 'USD';
+
 usePageSchema({
   name: t('t_the_notes_made_to_be_reviewed'),
   description: meta_description,
@@ -16,11 +21,29 @@ usePageSchema({
       '@type': 'WebApplication',
       '@id': `${request_url.origin}/#webapp`,
       'description': meta_description,
-      'offers': {
-        '@type': 'Offer',
-        'price': '0',
-        'priceCurrency': 'EUR',
-      },
+      'offers': [
+        {
+          '@type': 'Offer',
+          'name': t('t_free_plan'),
+          'price': '0',
+          'priceCurrency': price_currency,
+          'url': `${request_url.origin}${request_url.pathname}`,
+          'availability': 'https://schema.org/OnlineOnly',
+        },
+        {
+          '@type': 'Offer',
+          'name': t('t_premium_plan'),
+          'price': String(premium_price_amount),
+          'priceCurrency': price_currency,
+          'url': `${request_url.origin}${request_url.pathname}`,
+          'availability': 'https://schema.org/OnlineOnly',
+          'eligibleDuration': {
+            '@type': 'QuantitativeValue',
+            'value': 1,
+            'unitCode': 'ANN',
+          },
+        },
+      ],
     },
   ],
 });
