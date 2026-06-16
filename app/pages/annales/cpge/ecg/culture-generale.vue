@@ -27,19 +27,11 @@ const breadcrumb_items = [
   },
 ];
 
-const breadcrumb_full = useBreadcrumbSchema(breadcrumb_items);
-const breadcrumb_list = {
-  '@type': breadcrumb_full['@type'],
-  'itemListElement': breadcrumb_full.itemListElement,
-};
-
-usePageSchema({
+useSchema({
   name: page_title,
   description: meta_description,
-  webpage_type: 'CollECGionPage',
-  graph: [
-    breadcrumb_list,
-  ],
+  webpage_type: 'CollectionPage',
+  breadcrumb_items,
 });
 
 useHead({

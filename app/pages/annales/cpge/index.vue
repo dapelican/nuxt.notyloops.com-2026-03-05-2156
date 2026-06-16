@@ -15,7 +15,9 @@ const breadcrumb_items = [
   },
 ];
 
-const breadcrumb_schema = useBreadcrumbSchema(breadcrumb_items);
+useSchema({
+  breadcrumb_items,
+});
 
 useHead({
   title: () => 'Annales CPGE | NotyLoops',
@@ -23,12 +25,6 @@ useHead({
     {
       name: 'description',
       content: () => meta_description,
-    },
-  ],
-  script: [
-    {
-      type: 'application/ld+json',
-      children: JSON.stringify(breadcrumb_schema),
     },
   ],
 });

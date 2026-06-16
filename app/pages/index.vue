@@ -13,7 +13,7 @@ if (locale.value === 'fr') {
 const premium_price_amount = PREMIUM_ACCESS_PRE_TAX_AMOUNT_IN_CENTS / 100;
 const price_currency = locale.value === 'fr' ? 'EUR' : 'USD';
 
-usePageSchema({
+useSchema({
   name: t('t_the_notes_made_to_be_reviewed'),
   description: meta_description,
   graph: [

@@ -1,71 +1,59 @@
 const SITE_NAME = 'NotyLoops';
 
-const empty_page_schema = () => ({
-  name: undefined,
-  description: undefined,
-  graph: [],
-  webpage_type: undefined,
-  main_entity: undefined,
-});
-
-export const usePageSchema = ({
-  name,
-  description,
-  graph = [],
-  webpage_type,
-  main_entity,
-} = {}) => {
-  const page_schema = useState('page-schema', empty_page_schema);
-
-  page_schema.value = {
-    name,
-    description,
-    graph,
-    webpage_type,
-    main_entity,
+const createBreadcrumbSchema = (items) => {
+  return {
+    '@type': 'BreadcrumbList',
+    'itemListElement': items.map((item, index) => ({
+      '@type': 'ListItem',
+      'position': index + 1,
+      'name': item.label ?? item.name,
+      'item': item.url,
+    })),
   };
 };
 
-export const useSchema = () => {
+export const useSchema = (page_options) => {
+  const page_schema = useState('schema-page', () => ({}));
+
+  if (page_options) {
+    const { breadcrumb_items, graph = [], ...rest } = page_options;
+    const schema_graph = [...graph];
+
+    if (breadcrumb_items) {
+      schema_graph.push(createBreadcrumbSchema(breadcrumb_items));
+    }
+
+    page_schema.value = {
+      ...rest,
+      graph: schema_graph,
+    };
+    return;
+  }
+
   const { locale } = useI18n();
   const request_url = useRequestURL();
   const route = useRoute();
-  const router = useRouter();
-  const page_schema = useState('page-schema', empty_page_schema);
 
-  router.beforeEach(() => {
-    page_schema.value = empty_page_schema();
+  watch(() => route.fullPath, () => {
+    page_schema.value = {};
   });
 
   const schema_ld_json = computed(() => {
     const site_url = request_url.origin;
     const page_url = `${site_url}${route.path}`;
     const in_language = locale.value === 'fr' ? 'fr-FR' : 'en-US';
+    const { name, description, webpage_type, graph = [] } = page_schema.value;
 
     const webpage = {
-      '@type': page_schema.value.webpage_type || 'WebPage',
+      '@type': webpage_type || 'WebPage',
       '@id': `${page_url}#webpage`,
       'url': page_url,
       'inLanguage': in_language,
-      'isPartOf': {
-        '@id': `${site_url}/#website`,
-      },
-      'about': {
-        '@id': `${site_url}/#webapp`,
-      },
+      'isPartOf': { '@id': `${site_url}/#website` },
+      'about': { '@id': `${site_url}/#webapp` },
+      ...(name && { name }),
+      ...(description && { description }),
     };
-
-    if (page_schema.value.name) {
-      webpage.name = page_schema.value.name;
-    }
-
-    if (page_schema.value.description) {
-      webpage.description = page_schema.value.description;
-    }
-
-    if (page_schema.value.main_entity) {
-      webpage.mainEntity = page_schema.value.main_entity;
-    }
 
     return JSON.stringify({
       '@context': 'https://schema.org',
@@ -86,12 +74,10 @@ export const useSchema = () => {
           'operatingSystem': 'Web',
           'inLanguage': in_language,
           'image': `${site_url}/images/notyloops-0512x0512.png`,
-          'isPartOf': {
-            '@id': `${site_url}/#website`,
-          },
+          'isPartOf': { '@id': `${site_url}/#website` },
         },
         webpage,
-        ...page_schema.value.graph,
+        ...graph,
       ],
     });
   });
