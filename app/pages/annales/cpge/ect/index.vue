@@ -66,7 +66,7 @@ useHead({
         >
           Lettres (étude et synthèse de textes)</ULink>
       </li>
-      <!-- <li>
+      <li>
         LVA :
         <ULink
           class="text-primary"
@@ -81,13 +81,13 @@ useHead({
         >
           anglais
         </ULink>
-        |
+        <!-- |
         <ULink
           to=""
           class="text-primary"
         >
           arabe littéral
-        </ULink>
+        </ULink> -->
         |
         <ULink
           class="text-primary"
@@ -95,7 +95,7 @@ useHead({
         >
           espagnol
         </ULink>
-      </li> -->
+      </li>
       <!-- <li>
         LVB :
         <ULink
