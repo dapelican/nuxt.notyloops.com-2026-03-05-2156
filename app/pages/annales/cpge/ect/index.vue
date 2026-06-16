@@ -106,14 +106,14 @@ useSeoMeta({
         >
           anglais
         </ULink>
-        <!-- |
+        |
         <ULink
           class="text-primary"
           to="/annales/cpge/ect/lvb-espagnol"
         >
           espagnol
         </ULink>
-        |
+        <!-- |
         <ULink
           to=""
           class="text-primary"
