@@ -2,14 +2,9 @@
 let meta_description = 'Les annales de LVB italien pour les CPGE BCPST.';
 meta_description += ' Les sujets et rapports des dernières années pour les épreuves Agro-Véto.';
 
-useHead({
-  title: () => 'Annales CPGE BCPST : LVB italien | NotyLoops',
-  meta: [
-    {
-      name: 'description',
-      content: () => meta_description,
-    },
-  ],
+useSeoMeta({
+  title: 'Annales CPGE BCPST : LVB italien | NotyLoops',
+  description: meta_description,
 });
 </script>
 

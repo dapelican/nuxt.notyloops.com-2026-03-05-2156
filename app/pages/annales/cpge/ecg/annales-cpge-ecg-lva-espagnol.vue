@@ -21,14 +21,9 @@ useSchema({
   breadcrumb_items,
 });
 
-useHead({
-  title: () => 'Annales CPGE ECT : LVA espagnol | NotyLoops',
-  meta: [
-    {
-      name: 'description',
-      content: () => meta_description,
-    },
-  ],
+useSeoMeta({
+  title: 'Annales CPGE ECT : LVA espagnol | NotyLoops',
+  description: meta_description,
 });
 </script>
 

@@ -21,14 +21,9 @@ useSchema({
   breadcrumb_items,
 });
 
-useHead({
-  title: () => 'Annales CPGE ECG : LVB espagnol | NotyLoops',
-  meta: [
-    {
-      name: 'description',
-      content: () => meta_description,
-    },
-  ],
+useSeoMeta({
+  title: 'Annales CPGE ECG : LVB espagnol | NotyLoops',
+  description: meta_description,
 });
 </script>
 

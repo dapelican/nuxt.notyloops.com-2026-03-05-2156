@@ -2,14 +2,9 @@
 let meta_description = 'Les annales Agro-Véto, ENS et G2E de toutes les matières de CPGE BCPST.';
 meta_description += ' Les sujets et rapports des dernières années.';
 
-useHead({
-  title: () => 'Annales CPGE BCPST | NotyLoops',
-  meta: [
-    {
-      name: 'description',
-      content: () => meta_description,
-    },
-  ],
+useSeoMeta({
+  title: 'Annales CPGE BCPST | NotyLoops',
+  description: meta_description,
 });
 </script>
 

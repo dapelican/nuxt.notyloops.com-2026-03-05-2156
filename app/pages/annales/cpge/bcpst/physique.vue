@@ -2,14 +2,9 @@
 let meta_description = 'Les annales de physique pour les CPGE BCPST.';
 meta_description += ' Les sujets et rapports des dernières années pour les épreuves Agro-Véto, ENS et G2E.';
 
-useHead({
-  title: () => 'Annales CPGE BCPST : physique | NotyLoops',
-  meta: [
-    {
-      name: 'description',
-      content: () => meta_description,
-    },
-  ],
+useSeoMeta({
+  title: 'Annales CPGE BCPST : physique | NotyLoops',
+  description: meta_description,
 });
 </script>
 

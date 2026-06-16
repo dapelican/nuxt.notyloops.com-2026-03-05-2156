@@ -1,4 +1,6 @@
 <script setup>
+const page_title = 'Annales CPGE';
+
 let meta_description = 'Les annales des concours pour les classes préparatoires aux grandes écoles (CPGE).';
 meta_description += ' Les sujets et rapports des dernières années par classe.';
 
@@ -19,14 +21,9 @@ useSchema({
   breadcrumb_items,
 });
 
-useHead({
-  title: () => 'Annales CPGE | NotyLoops',
-  meta: [
-    {
-      name: 'description',
-      content: () => meta_description,
-    },
-  ],
+useSeoMeta({
+  title: `${page_title} | NotyLoops`,
+  description: meta_description,
 });
 </script>
 

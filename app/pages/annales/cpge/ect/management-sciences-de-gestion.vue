@@ -21,14 +21,9 @@ useSchema({
   breadcrumb_items,
 });
 
-useHead({
-  title: () => 'Annales CPGE ECT : management et sciences de gestion | NotyLoops',
-  meta: [
-    {
-      name: 'description',
-      content: () => meta_description,
-    },
-  ],
+useSeoMeta({
+  title: 'Annales CPGE ECT : management et sciences de gestion | NotyLoops',
+  description: meta_description,
 });
 </script>
 

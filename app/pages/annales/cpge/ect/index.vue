@@ -24,14 +24,9 @@ useSchema({
   breadcrumb_items,
 });
 
-useHead({
-  title: () => 'Annales CPGE ECT | NotyLoops',
-  meta: [
-    {
-      name: 'description',
-      content: () => meta_description,
-    },
-  ],
+useSeoMeta({
+  title: 'Annales CPGE ECT | NotyLoops',
+  description: meta_description,
 });
 </script>
 
@@ -96,7 +91,7 @@ useHead({
           espagnol
         </ULink>
       </li>
-      <!-- <li>
+      <li>
         LVB :
         <ULink
           class="text-primary"
@@ -111,7 +106,7 @@ useHead({
         >
           anglais
         </ULink>
-        |
+        <!-- |
         <ULink
           class="text-primary"
           to="/annales/cpge/ect/lvb-espagnol"
@@ -124,8 +119,8 @@ useHead({
           class="text-primary"
         >
           italien
-        </ULink>
-      </li> -->
+        </ULink> -->
+      </li>
       <!-- <li>
         <ULink
           class="text-primary"

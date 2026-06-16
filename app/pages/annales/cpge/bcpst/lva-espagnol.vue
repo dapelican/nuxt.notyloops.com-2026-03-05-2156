@@ -2,14 +2,9 @@
 let meta_description = 'Les annales de LVA espagnol pour les CPGE BCPST.';
 meta_description += ' Les sujets et rapports des dernières années pour les épreuves ENS.';
 
-useHead({
-  title: () => 'Annales CPGE BCPST : LVA espagnol | NotyLoops',
-  meta: [
-    {
-      name: 'description',
-      content: () => meta_description,
-    },
-  ],
+useSeoMeta({
+  title: 'Annales CPGE BCPST : LVA espagnol | NotyLoops',
+  description: meta_description,
 });
 </script>
 

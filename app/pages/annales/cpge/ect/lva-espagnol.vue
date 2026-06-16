@@ -34,14 +34,9 @@ useSchema({
   breadcrumb_items,
 });
 
-useHead({
-  title: () => `${page_title} | NotyLoops`,
-  meta: [
-    {
-      name: 'description',
-      content: () => meta_description,
-    },
-  ],
+useSeoMeta({
+  title: `${page_title} | NotyLoops`,
+  description: meta_description,
 });
 </script>
 
@@ -51,6 +46,7 @@ useHead({
       class="mb-8"
       :items="breadcrumb_items"
     />
+
     <h1>
       Annales CPGE ECT :
       LVA espagnol
