@@ -1,55 +1,123 @@
 <script setup>
-let meta_description = 'Les annales BCE et Ecricome de LVA anglais pour les CPGE ECG (voie générale).';
+const page_title = 'Annales CPGE ECG : LVA anglais';
+
+let meta_description = 'Les annales BCE et Ecricome de LVA anglais pour les CPGE ECG (voie technologique).';
 meta_description += ' Les sujets et rapports des dernières années.';
 
 const breadcrumb_items = [
   {
-    name: 'Ressources',
-    url: 'https://fr.optileague.com/ressources',
+    label: 'Annales',
+    to: '/annales',
+    url: 'https://fr.notyloops.com/annales',
   },
   {
-    name: 'Annales CPGE ECG',
-    url: 'https://fr.optileague.com/ressources/annales-cpge-ecg',
+    label: 'CPGE',
+    to: '/annales/cpge',
+    url: 'https://fr.notyloops.com/annales/cpge',
   },
   {
-    name: 'LVA anglais',
-    url: 'https://fr.optileague.com/ressources/annales-cpge-ecg-lva-anglais',
+    label: 'ECG',
+    to: '/annales/cpge/ecg',
+    url: 'https://fr.notyloops.com/annales/cpge/ecg',
+  },
+  {
+    label: 'LVA anglais',
+    to: '/annales/cpge/ecg/lva-anglais',
+    url: 'https://fr.notyloops.com/annales/cpge/ecg/lva-anglais',
   },
 ];
 
 useSchema({
+  name: page_title,
+  description: meta_description,
+  webpage_type: 'CollecgionPage',
   breadcrumb_items,
 });
 
 useSeoMeta({
-  title: 'Annales CPGE ECG : LVA anglais | NotyLoops',
+  title: `${page_title} | NotyLoops`,
   description: meta_description,
 });
 </script>
 
 <template>
-  <main class="padding-lr centered-max-width-650">
-    <p>
-      <NuxtLink
-        to="/ressources"
-      >
-        Ressources
-      </NuxtLink>
-      >
-      <NuxtLink
-        to="/ressources/annales-cpge-ecg"
-      >
-        Annales CPGE ECG
-      </NuxtLink>
-      > LVA anglais
-    </p>
+  <UContainer class="max-w-2xl">
+    <UBreadcrumb
+      class="mb-8"
+      :items="breadcrumb_items"
+    />
 
     <h1>
       Annales CPGE ECG :
       LVA anglais
     </h1>
 
-    <h2>
+    <h2 class="mt-12">
+      2026
+    </h2>
+
+    <figure class="ml-0">
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Ecricome
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-lva-2026-ec-ecricome-sujet-allemand-anglais-espagnol.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-lva-2026-ec-ecricome-rapport-anglais.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Elvi
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-lva-2026-ec-elvi-sujet-allemand-anglais-espagnol.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-lva-2026-ec-elvi-rapport-anglais.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2 class="mt-12">
       2025
     </h2>
 
@@ -71,12 +139,21 @@ useSeoMeta({
               Ecricome
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2025-ec-ecricome-sujet-allemand-anglais-espagnol.pdf"
                 target="_blank"
               >
                 Sujet
-              </NuxtLink>
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-lva-2025-ec-ecricome-rapport-anglais.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
             </td>
           </tr>
           <tr>
@@ -84,19 +161,28 @@ useSeoMeta({
               Elvi
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2025-ec-elvi-sujet-allemand-anglais-espagnol.pdf"
                 target="_blank"
               >
                 Sujet
-              </NuxtLink>
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-lva-2025-ec-elvi-rapport-anglais.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
             </td>
           </tr>
         </tbody>
       </table>
     </figure>
 
-    <h2>
+    <h2 class="mt-12">
       2024
     </h2>
 
@@ -118,19 +204,21 @@ useSeoMeta({
               Ecricome
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2024-ec-ecricome-sujet-allemand-anglais-espagnol.pdf"
                 target="_blank"
               >
                 Sujet
-              </NuxtLink>
+              </ULink>
               |
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2024-ec-ecricome-rapport-anglais.pdf"
                 target="_blank"
               >
                 Rapport
-              </NuxtLink>
+              </ULink>
             </td>
           </tr>
           <tr>
@@ -138,26 +226,28 @@ useSeoMeta({
               Elvi
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2024-ec-elvi-sujet-allemand-anglais-espagnol.pdf"
                 target="_blank"
               >
                 Sujet
-              </NuxtLink>
+              </ULink>
               |
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2024-ec-elvi-rapport-anglais.pdf"
                 target="_blank"
               >
                 Rapport
-              </NuxtLink>
+              </ULink>
             </td>
           </tr>
         </tbody>
       </table>
     </figure>
 
-    <h2>
+    <h2 class="mt-12">
       2023
     </h2>
 
@@ -179,19 +269,21 @@ useSeoMeta({
               Ecricome
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2023-ec-ecricome-sujet-allemand-anglais-espagnol.pdf"
                 target="_blank"
               >
                 Sujet
-              </NuxtLink>
+              </ULink>
               |
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2023-ec-ecricome-rapport-anglais.pdf"
                 target="_blank"
               >
                 Rapport
-              </NuxtLink>
+              </ULink>
             </td>
           </tr>
           <tr>
@@ -199,19 +291,21 @@ useSeoMeta({
               Elvi
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2023-ec-elvi-sujet-allemand-anglais-espagnol.pdf"
                 target="_blank"
               >
                 Sujet
-              </NuxtLink>
+              </ULink>
               |
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2023-ec-elvi-rapport-anglais.pdf"
                 target="_blank"
               >
                 Rapport
-              </NuxtLink>
+              </ULink>
             </td>
           </tr>
           <tr>
@@ -219,26 +313,28 @@ useSeoMeta({
               Iena
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2023-ec-iena-sujet-al-an-ar-es-it-po-ru.pdf"
                 target="_blank"
               >
                 Sujet
-              </NuxtLink>
+              </ULink>
               |
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2023-ec-iena-rapport-anglais.pdf"
                 target="_blank"
               >
                 Rapport
-              </NuxtLink>
+              </ULink>
             </td>
           </tr>
         </tbody>
       </table>
     </figure>
 
-    <h2>
+    <h2 class="mt-12">
       2022
     </h2>
 
@@ -260,19 +356,21 @@ useSeoMeta({
               Ecricome
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2022-ec-ecricome-sujet-allemand-anglais-espagnol.pdf"
                 target="_blank"
               >
                 Sujet
-              </NuxtLink>
+              </ULink>
               |
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2022-ec-ecricome-rapport-anglais.pdf"
                 target="_blank"
               >
                 Rapport
-              </NuxtLink>
+              </ULink>
             </td>
           </tr>
           <tr>
@@ -280,19 +378,21 @@ useSeoMeta({
               Elvi
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2022-ec-elvi-sujet-allemand-anglais-espagnol.pdf"
                 target="_blank"
               >
                 Sujet
-              </NuxtLink>
+              </ULink>
               |
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2022-ec-elvi-rapport-anglais.pdf"
                 target="_blank"
               >
                 Rapport
-              </NuxtLink>
+              </ULink>
             </td>
           </tr>
           <tr>
@@ -300,26 +400,28 @@ useSeoMeta({
               Iena
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2022-ec-iena-sujet-al-an-ar-es-it-po-ru.pdf"
                 target="_blank"
               >
                 Sujet
-              </NuxtLink>
+              </ULink>
               |
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2022-ec-iena-rapport-anglais.pdf"
                 target="_blank"
               >
                 Rapport
-              </NuxtLink>
+              </ULink>
             </td>
           </tr>
         </tbody>
       </table>
     </figure>
 
-    <h2>
+    <h2 class="mt-12">
       2021
     </h2>
 
@@ -341,19 +443,21 @@ useSeoMeta({
               Ecricome
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2021-ec-ecricome-sujet-allemand-anglais-espagnol.pdf"
                 target="_blank"
               >
                 Sujet
-              </NuxtLink>
+              </ULink>
               |
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2021-ec-ecricome-rapport-anglais.pdf"
                 target="_blank"
               >
                 Rapport
-              </NuxtLink>
+              </ULink>
             </td>
           </tr>
           <tr>
@@ -361,19 +465,21 @@ useSeoMeta({
               Elvi
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2021-ec-elvi-sujet-allemand-anglais-espagnol.pdf"
                 target="_blank"
               >
                 Sujet
-              </NuxtLink>
+              </ULink>
               |
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2021-ec-elvi-rapport-anglais.pdf"
                 target="_blank"
               >
                 Rapport
-              </NuxtLink>
+              </ULink>
             </td>
           </tr>
           <tr>
@@ -381,26 +487,28 @@ useSeoMeta({
               Iena
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2021-ec-iena-sujet-al-an-ar-es-it-po-ru.pdf"
                 target="_blank"
               >
                 Sujet
-              </NuxtLink>
+              </ULink>
               |
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2021-ec-iena-rapport-anglais.pdf"
                 target="_blank"
               >
                 Rapport
-              </NuxtLink>
+              </ULink>
             </td>
           </tr>
         </tbody>
       </table>
     </figure>
 
-    <h2>
+    <h2 class="mt-12">
       2020
     </h2>
 
@@ -422,19 +530,21 @@ useSeoMeta({
               Ecricome
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2020-ec-ecricome-sujet-allemand-anglais-espagnol.pdf"
                 target="_blank"
               >
                 Sujet
-              </NuxtLink>
+              </ULink>
               |
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2020-ec-ecricome-rapport-anglais.pdf"
                 target="_blank"
               >
                 Rapport
-              </NuxtLink>
+              </ULink>
             </td>
           </tr>
           <tr>
@@ -442,19 +552,21 @@ useSeoMeta({
               Elvi
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2020-ec-elvi-sujet-allemand-anglais-espagnol.pdf"
                 target="_blank"
               >
                 Sujet
-              </NuxtLink>
+              </ULink>
               |
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2020-ec-elvi-rapport-anglais.pdf"
                 target="_blank"
               >
                 Rapport
-              </NuxtLink>
+              </ULink>
             </td>
           </tr>
           <tr>
@@ -462,26 +574,28 @@ useSeoMeta({
               Iena
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2020-ec-iena-sujet-al-an-ar-es-it-po-ru.pdf"
                 target="_blank"
               >
                 Sujet
-              </NuxtLink>
+              </ULink>
               |
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2020-ec-iena-rapport-anglais.pdf"
                 target="_blank"
               >
                 Rapport
-              </NuxtLink>
+              </ULink>
             </td>
           </tr>
         </tbody>
       </table>
     </figure>
 
-    <h2>
+    <h2 class="mt-12">
       2019
     </h2>
 
@@ -503,19 +617,21 @@ useSeoMeta({
               Ecricome
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2019-ec-ecricome-sujet-allemand-anglais-espagnol.pdf"
                 target="_blank"
               >
                 Sujet
-              </NuxtLink>
+              </ULink>
               |
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2019-ec-ecricome-rapport-anglais.pdf"
                 target="_blank"
               >
                 Rapport
-              </NuxtLink>
+              </ULink>
             </td>
           </tr>
           <tr>
@@ -523,19 +639,21 @@ useSeoMeta({
               Elvi
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2019-ec-elvi-sujet-allemand-anglais-espagnol.pdf"
                 target="_blank"
               >
                 Sujet
-              </NuxtLink>
+              </ULink>
               |
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2019-ec-elvi-rapport-anglais.pdf"
                 target="_blank"
               >
                 Rapport
-              </NuxtLink>
+              </ULink>
             </td>
           </tr>
           <tr>
@@ -543,19 +661,21 @@ useSeoMeta({
               Iena
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2019-ec-iena-sujet-al-an-ar-es-it-po-ru.pdf"
                 target="_blank"
               >
                 Sujet
-              </NuxtLink>
+              </ULink>
               |
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2019-ec-iena-rapport-anglais.pdf"
                 target="_blank"
               >
                 Rapport
-              </NuxtLink>
+              </ULink>
             </td>
           </tr>
         </tbody>
@@ -570,21 +690,23 @@ useSeoMeta({
 
       <ul>
         <li>
-          <NuxtLink
+          <ULink
+            class="text-primary"
             to="https://www.concours-bce.com/annales"
             target="_blank"
           >
             Les annales des épreuves écrites BCE
-          </NuxtLink>
+          </ULink>
         </li>
         <li>
-          <NuxtLink
+          <ULink
+            class="text-primary"
             to="https://www.ecricome.org/ecricome-prepa-langues-vivantes/"
             target="_blank"
           >
             Ecricome : les épreuves de langues vivantes
-          </NuxtLink>
+          </ULink>
         </li>
       </ul> -->
-  </main>
+  </UContainer>
 </template>

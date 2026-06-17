@@ -55,31 +55,31 @@ useSeoMeta({
           Culture générale (dissertation)
         </ULink>
       </li>
-      <!-- <li>
+      <li>
         <ULink
           to="/annales/cpge/ecg/esh"
           class="text-primary"
         >
           Économie, sociologie et histoire du monde contemporain (ESH)
         </ULink>
-      </li> -->
-      <!-- <li>
+      </li>
+      <li>
         <ULink
           to="/annales/cpge/ecg/hgg"
           class="text-primary"
         >
           Histoire, géographie et géopolitique du monde contemporain (HGG)
         </ULink>
-      </li> -->
-      <!-- <li>
+      </li>
+      <li>
         <ULink
           to="/annales/cpge/ecg/lettres"
           class="text-primary"
         >
           Lettres (résumé de texte, étude et synthèse de textes)
         </ULink>
-      </li> -->
-      <!-- <li>
+      </li>
+      <li>
         LVA :
         <ULink
           to="/annales/cpge/ecg/lva-allemand"
@@ -94,13 +94,13 @@ useSeoMeta({
         >
           anglais
         </ULink>
-        |
+        <!-- |
         <ULink
           to=""
           class="text-primary"
         >
           arabe littéral
-        </ULink>
+        </ULink> -->
         |
         <ULink
           to="/annales/cpge/ecg/lva-espagnol"
@@ -108,8 +108,8 @@ useSeoMeta({
         >
           espagnol
         </ULink>
-      </li> -->
-      <!-- <li>
+      </li>
+      <li>
         LVB :
         <ULink
           to="/annales/cpge/ecg/lvb-allemand"
@@ -131,30 +131,30 @@ useSeoMeta({
         >
           espagnol
         </ULink>
-        |
+        <!-- |
         <ULink
           to=""
           class="text-primary"
         >
           italien
-        </ULink>
-      </li> -->
-      <!-- <li>
+        </ULink> -->
+      </li>
+      <li>
         <ULink
           to="/annales/cpge/ecg/mathematiques-appliquees"
           class="text-primary"
         >
           Mathématiques appliquées
         </ULink>
-      </li> -->
-      <!-- <li>
+      </li>
+      <li>
         <ULink
           to="/annales/cpge/ecg/mathematiques-approfondies"
           class="text-primary"
         >
           Mathématiques appronfondies
         </ULink>
-      </li> -->
+      </li>
     </ul>
   </UContainer>
 </template>

@@ -1,55 +1,173 @@
 <script setup>
+const page_title = 'Annales CPGE ECG : ESH';
+
 let meta_description = 'Les annales BCE et Ecricome d\'économie, sociologie et histoire du monde contemporain';
 meta_description += ' (ESH) pour les CPGE ECG (voie générale). Les sujets et rapports des dernières années.';
 
 const breadcrumb_items = [
   {
-    name: 'Ressources',
-    url: 'https://fr.optileague.com/ressources',
+    label: 'Annales',
+    to: '/annales',
+    url: 'https://fr.notyloops.com/annales',
   },
   {
-    name: 'Annales CPGE ECG',
-    url: 'https://fr.optileague.com/ressources/annales-cpge-ecg',
+    label: 'CPGE',
+    to: '/annales/cpge',
+    url: 'https://fr.notyloops.com/annales/cpge',
   },
   {
-    name: 'Économie, sociologie et histoire du monde contemporain (ESH)',
-    url: 'https://fr.optileague.com/ressources/annales-cpge-ecg-esh',
+    label: 'ECG',
+    to: '/annales/cpge/ecg',
+    url: 'https://fr.notyloops.com/annales/cpge/ecg',
+  },
+  {
+    label: 'ESH',
+    to: '/annales/cpge/ecg/esh',
+    url: 'https://fr.notyloops.com/annales/cpge/ecg/esh',
   },
 ];
 
 useSchema({
+  name: page_title,
+  description: meta_description,
+  webpage_type: 'CollectionPage',
   breadcrumb_items,
 });
 
 useSeoMeta({
-  title: 'Annales CPGE ECG : ESH | NotyLoops',
+  title: `${page_title} | NotyLoops`,
   description: meta_description,
 });
 </script>
 
 <template>
-  <main class="padding-lr centered-max-width-750">
-    <p>
-      <NuxtLink
-        to="/ressources"
-      >
-        Ressources
-      </NuxtLink>
-      >
-      <NuxtLink
-        to="/ressources/annales-cpge-ecg"
-      >
-        Annales CPGE ECG
-      </NuxtLink>
-      > Économie, sociologie et histoire du monde contemporain (ESH)
-    </p>
+  <!-- app/pages/annales/cpge/ecg/esh.vue -->
+  <UContainer class="max-w-2xl">
+    <UBreadcrumb
+      class="mb-8"
+      :items="breadcrumb_items"
+    />
 
     <h1>
       Annales CPGE ECG :
       économie, sociologie et histoire du monde contemporain (ESH)
     </h1>
 
-    <h2>
+    <h2 class="mt-12">
+      2026
+    </h2>
+
+    <figure class="ml-0">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">
+              Épreuve
+            </th>
+            <th scope="col">
+              Sujet
+            </th>
+            <th scope="col">
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Ecricome
+            </td>
+            <td>
+              <ul class="unstyled-list mt-0 mb-0">
+                <li>
+                  <b>Sujet 1</b>
+                  <br>Innovation et croissance (depuis le 19e siècle)
+                </li>
+                <li class="mt-1">
+                  <b>Sujet 2</b>
+                  <br>L'expérience historique nous a-t-elle appris ce qu'était une bonne stratégie de développement ?
+                </li>
+              </ul>
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-esh-2026-ecg-ecricome-sujet.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Sujet
+              </ULink>
+              <!-- <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-esh-2026-ecg-ecricome-rapport.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              ESCP / Skema
+            </td>
+            <td>
+              Y a-t-il une limite à l'endettement public ?
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-esh-2026-ecg-escp-skema-sujet.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Sujet
+              </ULink>
+              <!-- <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-esh-2026-ecg-escp-skema-rapport.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Essec / HEC
+            </td>
+            <td>
+              Le court terme est-il l'ennemi du long terme ?
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-esh-2026-ecg-essec-hec-sujet.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Sujet
+              </ULink>
+              <!-- <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-esh-2026-ecg-essec-hec-rapport.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2 class="mt-12">
       2025
     </h2>
 
@@ -86,21 +204,23 @@ useSeoMeta({
               </ul>
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2025-ecg-ecricome-sujet.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Sujet
-              </NuxtLink>
-              <!-- <br>
-                <NuxtLink
-                  to="https://annales.notyloops.com/cpge-esh-2025-ecg-ecricome-rapport.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Rapport
-                </NuxtLink> -->
+              </ULink>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-esh-2025-ecg-ecricome-rapport.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Rapport
+              </ULink>
             </td>
           </tr>
           <tr>
@@ -111,21 +231,23 @@ useSeoMeta({
               Comment la théorie économique appréhende-t-elle l'entreprise ?
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2025-ecg-escp-skema-sujet.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Sujet
-              </NuxtLink>
-              <!-- <br>
-                <NuxtLink
-                  to="https://annales.notyloops.com/cpge-esh-2025-ecg-escp-skema-rapport.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Rapport
-                </NuxtLink> -->
+              </ULink>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-esh-2025-ecg-escp-skema-rapport.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Rapport
+              </ULink>
             </td>
           </tr>
           <tr>
@@ -136,28 +258,30 @@ useSeoMeta({
               Les fractures sociales affectent-elles la réalisation des équilibres économiques ?
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2025-ecg-essec-hec-sujet.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Sujet
-              </NuxtLink>
-              <!-- <br>
-                <NuxtLink
-                  to="https://annales.notyloops.com/cpge-esh-2025-ecg-essec-hec-rapport.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Rapport
-                </NuxtLink> -->
+              </ULink>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-esh-2025-ecg-essec-hec-rapport.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Rapport
+              </ULink>
             </td>
           </tr>
         </tbody>
       </table>
     </figure>
 
-    <h2>
+    <h2 class="mt-12">
       2024
     </h2>
 
@@ -194,21 +318,23 @@ useSeoMeta({
               </ul>
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2024-ecg-ecricome-sujet.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Sujet
-              </NuxtLink>
+              </ULink>
               <br>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2024-ecg-ecricome-rapport.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Rapport
-              </NuxtLink>
+              </ULink>
             </td>
           </tr>
           <tr>
@@ -219,21 +345,23 @@ useSeoMeta({
               L'ouverture au commerce international appartient-elle au passé ?
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2024-ecg-escp-skema-sujet.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Sujet
-              </NuxtLink>
+              </ULink>
               <br>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2024-ecg-escp-skema-rapport.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Rapport
-              </NuxtLink>
+              </ULink>
             </td>
           </tr>
           <tr>
@@ -244,28 +372,30 @@ useSeoMeta({
               Pourquoi et comment évaluer les politiques publiques ?
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2024-ecg-essec-hec-sujet.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Sujet
-              </NuxtLink>
+              </ULink>
               <br>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2024-ecg-essec-hec-rapport.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Rapport
-              </NuxtLink>
+              </ULink>
             </td>
           </tr>
         </tbody>
       </table>
     </figure>
 
-    <h2>
+    <h2 class="mt-12">
       2023
     </h2>
 
@@ -302,21 +432,23 @@ useSeoMeta({
               </ul>
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2023-ecg-ecricome-sujet.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Sujet
-              </NuxtLink>
+              </ULink>
               <br>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2023-ecg-ecricome-rapport.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Rapport
-              </NuxtLink>
+              </ULink>
             </td>
           </tr>
           <tr>
@@ -328,21 +460,23 @@ useSeoMeta({
               Traité sur le fonctionnement de l'Union européenne (TFEU).
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2023-ecg-escp-skema-sujet.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Sujet
-              </NuxtLink>
+              </ULink>
               <br>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2023-ecg-escp-skema-rapport.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Rapport
-              </NuxtLink>
+              </ULink>
             </td>
           </tr>
           <tr>
@@ -353,28 +487,30 @@ useSeoMeta({
               La décroissance peut-elle être compatible avec l'état-providence ?
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2023-ecg-essec-hec-sujet.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Sujet
-              </NuxtLink>
+              </ULink>
               <br>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2023-ecg-essec-hec-rapport.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Rapport
-              </NuxtLink>
+              </ULink>
             </td>
           </tr>
         </tbody>
       </table>
     </figure>
 
-    <h2>
+    <h2 class="mt-12">
       2022
     </h2>
 
@@ -412,21 +548,23 @@ useSeoMeta({
               </ul>
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2022-ece-ecricome-sujet.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Sujet
-              </NuxtLink>
+              </ULink>
               <br>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2022-ece-ecricome-rapport.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Rapport
-              </NuxtLink>
+              </ULink>
             </td>
           </tr>
           <tr>
@@ -437,21 +575,23 @@ useSeoMeta({
               Comment les révolutions technologiques influent-elles sur la croissance économique ?
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2022-ece-escp-skema-sujet.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Sujet
-              </NuxtLink>
+              </ULink>
               <br>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2022-ece-escp-skema-rapport.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Rapport
-              </NuxtLink>
+              </ULink>
             </td>
           </tr>
           <tr>
@@ -462,28 +602,30 @@ useSeoMeta({
               L'ouverture commerciale est-elle toujours facteur de prospérité économique et sociale ?
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2022-ece-hec-essec-sujet.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Sujet
-              </NuxtLink>
+              </ULink>
               <br>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2022-ece-hec-essec-rapport.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Rapport
-              </NuxtLink>
+              </ULink>
             </td>
           </tr>
         </tbody>
       </table>
     </figure>
 
-    <h2>
+    <h2 class="mt-12">
       2021
     </h2>
 
@@ -520,21 +662,23 @@ useSeoMeta({
               </ul>
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2021-ece-ecricome-sujet.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Sujet
-              </NuxtLink>
+              </ULink>
               <br>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2021-ece-ecricome-rapport.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Rapport
-              </NuxtLink>
+              </ULink>
             </td>
           </tr>
           <tr>
@@ -545,21 +689,22 @@ useSeoMeta({
               Un monde sans inflation.
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2021-ece-escp-skema-sujet.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Sujet
-              </NuxtLink>
+              </ULink>
               <!-- <br>
-                <NuxtLink
+                <ULink class="text-primary"
                   to="https://annales.notyloops.com/cpge-esh-2021-ece-hec-essec-rapport.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   Rapport
-                </NuxtLink> -->
+                </ULink> -->
             </td>
           </tr>
           <tr>
@@ -570,21 +715,23 @@ useSeoMeta({
               La désindustrialisation : une fatalité ? La réindustrialisation : une utopie ?
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2021-ece-essec-sujet.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Sujet
-              </NuxtLink>
+              </ULink>
               <br>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2021-ece-essec-rapport.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Rapport
-              </NuxtLink>
+              </ULink>
             </td>
           </tr>
           <tr>
@@ -595,28 +742,30 @@ useSeoMeta({
               Toute destruction est-elle créatrice ?
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2021-ece-hec-sujet.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Sujet
-              </NuxtLink>
+              </ULink>
               <br>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2021-ece-hec-rapport.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Rapport
-              </NuxtLink>
+              </ULink>
             </td>
           </tr>
         </tbody>
       </table>
     </figure>
 
-    <h2>
+    <h2 class="mt-12">
       2020
     </h2>
 
@@ -653,21 +802,23 @@ useSeoMeta({
               </ul>
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2020-ece-ecricome-sujet.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Sujet
-              </NuxtLink>
+              </ULink>
               <br>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2020-ece-ecricome-rapport.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Rapport
-              </NuxtLink>
+              </ULink>
             </td>
           </tr>
           <tr>
@@ -678,21 +829,22 @@ useSeoMeta({
               Faut-il craindre le retour de la concentration industrielle ?
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2020-ece-escp-skema-sujet.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Sujet
-              </NuxtLink>
+              </ULink>
               <!-- <br>
-                <NuxtLink
+                <ULink class="text-primary"
                   to="https://annales.notyloops.com/cpge-esh-2020-ece-escp-skema-rapport.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   Rapport
-                </NuxtLink> -->
+                </ULink> -->
             </td>
           </tr>
           <tr>
@@ -703,21 +855,23 @@ useSeoMeta({
               Le modèle social français est-il à bout de souffle ?
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2020-ece-essec-sujet.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Sujet
-              </NuxtLink>
+              </ULink>
               <br>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2020-ece-essec-rapport.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Rapport
-              </NuxtLink>
+              </ULink>
             </td>
           </tr>
           <tr>
@@ -728,28 +882,30 @@ useSeoMeta({
               Le capitalisme est-il soutenable ?
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2020-ece-hec-sujet.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Sujet
-              </NuxtLink>
+              </ULink>
               <br>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2020-ece-hec-rapport.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Rapport
-              </NuxtLink>
+              </ULink>
             </td>
           </tr>
         </tbody>
       </table>
     </figure>
 
-    <h2>
+    <h2 class="mt-12">
       2019
     </h2>
 
@@ -786,21 +942,23 @@ useSeoMeta({
               </ul>
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2019-ece-ecricome-sujet.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Sujet
-              </NuxtLink>
+              </ULink>
               <br>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2019-ece-ecricome-rapport.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Rapport
-              </NuxtLink>
+              </ULink>
             </td>
           </tr>
           <tr>
@@ -811,21 +969,23 @@ useSeoMeta({
               Dans quelle mesure la contrainte environnementale peut-elle modifier les conditions de la croissance ?
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2019-ece-escp-skema-sujet.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Sujet
-              </NuxtLink>
+              </ULink>
               <br>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2019-ece-escp-skema-rapport.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Rapport
-              </NuxtLink>
+              </ULink>
             </td>
           </tr>
           <tr>
@@ -836,21 +996,23 @@ useSeoMeta({
               Les prélèvements obligatoires nuisent-ils à la croissance et à la compétitivité ?
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2019-ece-essec-sujet.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Sujet
-              </NuxtLink>
+              </ULink>
               <br>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2019-ece-essec-rapport.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Rapport
-              </NuxtLink>
+              </ULink>
             </td>
           </tr>
           <tr>
@@ -861,21 +1023,23 @@ useSeoMeta({
               Performances économiques et justice sociale.
             </td>
             <td>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2019-ece-hec-sujet.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Sujet
-              </NuxtLink>
+              </ULink>
               <br>
-              <NuxtLink
+              <ULink
+                class="text-primary"
                 to="https://annales.notyloops.com/cpge-esh-2019-ece-hec-rapport.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Rapport
-              </NuxtLink>
+              </ULink>
             </td>
           </tr>
         </tbody>
@@ -890,29 +1054,29 @@ useSeoMeta({
 
       <ul>
         <li>
-          <NuxtLink
+          <ULink class="text-primary"
             to="https://www.concours-bce.com/annales"
             target="_blank"
           >
             Les annales des épreuves écrites BCE
-          </NuxtLink>
+          </ULink>
         </li>
         <li>
-          <NuxtLink
+          <ULink class="text-primary"
             to="https://www.ecricome.org/ecricome-prepa-esh/"
             target="_blank"
           >
             Ecricome : l'épreuve de culture générale
-          </NuxtLink>
+          </ULink>
         </li>
         <li>
-          <NuxtLink
+          <ULink class="text-primary"
             to="https://www.annales-prepa.fr/esh/ecrits/par-annee/"
             target="_blank"
           >
             Annales-Prépa
-          </NuxtLink>
+          </ULink>
         </li>
       </ul> -->
-  </main>
+  </UContainer>
 </template>

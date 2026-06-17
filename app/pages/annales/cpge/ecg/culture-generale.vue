@@ -17,13 +17,13 @@ const breadcrumb_items = [
   },
   {
     label: 'ECG',
-    to: '/annales/cpge/ECG',
+    to: '/annales/cpge/ecg',
     url: 'https://fr.notyloops.com/annales/cpge/ECG',
   },
   {
     label: 'Culture générale',
-    to: '/annales/cpge/ECG/culture-generale',
-    url: 'https://fr.notyloops.com/annales/cpge/ECG/culture-generale',
+    to: '/annales/cpge/ecg/culture-generale',
+    url: 'https://fr.notyloops.com/annales/cpge/ecg/culture-generale',
   },
 ];
 
