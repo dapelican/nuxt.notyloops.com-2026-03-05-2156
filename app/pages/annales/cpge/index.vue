@@ -28,6 +28,7 @@ useSeoMeta({
 </script>
 
 <template>
+  <!-- app/pages/annales/cpge/index.vue -->
   <UContainer class="max-w-xl">
     <UBreadcrumb
       class="mb-8"
@@ -38,16 +39,18 @@ useSeoMeta({
       Annales CPGE
     </h1>
 
-    <h2>
-      Économique et commercial (EC)
-    </h2>
-
     <ul class="list-disc list-inside ">
       <li>
         <ULink
           class="text-primary"
+          to="/annales/cpge/ecg"
+        >EC - ECG</ULink>
+      </li>
+      <li>
+        <ULink
+          class="text-primary"
           to="/annales/cpge/ect"
-        >ECT</ULink>
+        >EC - ECT</ULink>
       </li>
     </ul>
   </UContainer>

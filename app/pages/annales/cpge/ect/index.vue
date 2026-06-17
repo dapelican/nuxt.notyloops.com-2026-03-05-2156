@@ -1,4 +1,6 @@
 <script setup>
+const page_title = 'Annales CPGE ECT';
+
 let meta_description = 'Les annales BCE et Ecricome de toutes les matières de CPGE ECT (voie technologique).';
 meta_description += ' Les sujets et rapports des dernières années.';
 
@@ -21,11 +23,13 @@ const breadcrumb_items = [
 ];
 
 useSchema({
+  name: page_title,
+  description: meta_description,
   breadcrumb_items,
 });
 
 useSeoMeta({
-  title: 'Annales CPGE ECT | NotyLoops',
+  title: `${page_title} | NotyLoops`,
   description: meta_description,
 });
 </script>
@@ -33,9 +37,12 @@ useSeoMeta({
 <template>
   <!-- app/pages/annales/cpge/ect/index.vue -->
   <UContainer class="max-w-xl">
-    <UBreadcrumb :items="breadcrumb_items" />
+    <UBreadcrumb
+      class="mb-8"
+      :items="breadcrumb_items"
+    />
 
-    <h1 class="mt-8">
+    <h1>
       Annales CPGE ECT
     </h1>
 
@@ -121,21 +128,21 @@ useSeoMeta({
           italien
         </ULink> -->
       </li>
-      <!-- <li>
+      <li>
         <ULink
           class="text-primary"
           to="/annales/cpge/ect/management-sciences-de-gestion"
         >
           Management et sciences de gestion
         </ULink>
-      </li> -->
-      <!-- <li>
+      </li>
+      <li>
         <ULink
           class="text-primary"
           to="/annales/cpge/ect/mathematiques"
         >
           Mathématiques</ULink>
-      </li> -->
+      </li>
     </ul>
   </UContainer>
 </template>

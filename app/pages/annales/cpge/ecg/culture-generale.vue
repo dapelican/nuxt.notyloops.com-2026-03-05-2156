@@ -185,6 +185,15 @@ useSeoMeta({
               >
                 Sujet
               </ULink>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2025-ec-ecricome-rapport.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Rapport
+              </ULink>
             </td>
           </tr>
           <tr>
@@ -203,6 +212,14 @@ useSeoMeta({
               >
                 Sujet
               </ULink>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2025-ecg-edhec-essec-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
             </td>
           </tr>
           <tr>
@@ -220,6 +237,14 @@ useSeoMeta({
                 rel="noopener noreferrer"
               >
                 Sujet
+              </ULink>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-culture-generale-dissertation-2025-ecg-emlyon-hec-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
               </ULink>
             </td>
           </tr>
