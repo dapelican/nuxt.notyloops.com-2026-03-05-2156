@@ -1,7 +1,7 @@
 {
   "type": "module",
   "scripts": {
-    "build": "nuxt build",
+    "build": "NODE_OPTIONS=--max-old-space-size=4096 nuxt build",
     "precover": "node server/tests/seeds/initializeData.js",
     "cover": "vitest run --coverage",
     "db-migrate": "node server/database/migrate.js run",
