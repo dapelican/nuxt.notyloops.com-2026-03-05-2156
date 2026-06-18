@@ -52,6 +52,12 @@ useSeoMeta({
           to="/annales/cpge/ect"
         >EC - ECT</ULink>
       </li>
+      <!-- <li>
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/bcpst"
+        >S - BCPST</ULink>
+      </li> -->
     </ul>
   </UContainer>
 </template>
