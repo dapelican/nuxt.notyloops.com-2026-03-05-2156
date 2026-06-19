@@ -40,24 +40,24 @@ useSeoMeta({
     </h1>
 
     <ul class="list-disc list-inside ">
+      <!-- <li>
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/bcpst"
+        >BCPST</ULink>
+      </li> -->
       <li>
         <ULink
           class="text-primary"
           to="/annales/cpge/ecg"
-        >EC - ECG</ULink>
+        >ECG</ULink>
       </li>
       <li>
         <ULink
           class="text-primary"
           to="/annales/cpge/ect"
-        >EC - ECT</ULink>
+        >ECT</ULink>
       </li>
-      <!-- <li>
-        <ULink
-          class="text-primary"
-          to="/annales/cpge/bcpst"
-        >S - BCPST</ULink>
-      </li> -->
     </ul>
   </UContainer>
 </template>

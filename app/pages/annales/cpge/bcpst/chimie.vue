@@ -40,6 +40,7 @@ useSeoMeta({
 </script>
 
 <template>
+  <!-- app/pages/annales/cpge/bcpst/chimie.vue -->
   <UContainer class="max-w-xl">
     <UBreadcrumb
       class="mb-8"
@@ -54,7 +55,7 @@ useSeoMeta({
       2026
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -95,14 +96,15 @@ useSeoMeta({
               ENS / ENPC / Mines / Ecole centrale
             </td>
             <td>
-              <ULink
+              Pas encore disponible
+              <!-- <ULink
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-chimie-2026-bcpst-ens-enpc-mines-ec-sujet.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Sujet
-              </ULink>
+              </ULink> -->
               <!-- |
               <ULink
                 class="text-primary"
@@ -144,7 +146,7 @@ useSeoMeta({
       2025
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -234,7 +236,7 @@ useSeoMeta({
       2024
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -336,7 +338,7 @@ useSeoMeta({
       2023
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -429,7 +431,7 @@ useSeoMeta({
       2022
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -522,7 +524,7 @@ useSeoMeta({
       2021
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -615,7 +617,7 @@ useSeoMeta({
       2020
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -743,7 +745,22 @@ useSeoMeta({
             Sujets à partir de 2003
           </ULink>
         </li>
-
+        <li>
+          <ULink class="text-primary"
+            to="https://www.education.gouv.fr/bo/2026/Hebdo21/ESRS2611873A"
+            target="_blank"
+          >
+            Programme de français et de philosophie pour l'année scolaire 2026-2027 (bulletin officiel)
+          </ULink>
+        </li>
+        <li>
+          <ULink class="text-primary"
+            to="https://www.education.gouv.fr/bo/2025/Hebdo23/MENS2514209A"
+            target="_blank"
+          >
+            Programme de français et de philosophie pour l'année scolaire 2025-2026 (bulletin officiel)
+          </ULink>
+        </li>
         <li>
           <ULink class="text-primary"
             to="https://www.education.gouv.fr/bo/2024/Hebdo29/ESRS2418417A"

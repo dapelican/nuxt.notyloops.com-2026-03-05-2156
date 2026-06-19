@@ -29,7 +29,7 @@
       2025 - Individu et communauté
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -114,7 +114,7 @@
       2024 - Faire croire
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -227,7 +227,7 @@
       2023 - Le travail
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -346,7 +346,7 @@
       2022 - L'enfance
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>

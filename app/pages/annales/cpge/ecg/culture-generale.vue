@@ -54,10 +54,14 @@ useSeoMeta({
     </h1>
 
     <h2 class="mt-12">
+      2027 - L'humanité
+    </h2>
+
+    <h2 class="mt-12">
       2026 - Juger
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -144,7 +148,7 @@ useSeoMeta({
       2025 - L'image
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -256,7 +260,7 @@ useSeoMeta({
       2024 - La violence
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -364,7 +368,7 @@ useSeoMeta({
       2023 - Le monde
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -472,7 +476,7 @@ useSeoMeta({
       2022 - Aimer
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -581,7 +585,7 @@ useSeoMeta({
       2021 - L'animal
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -695,7 +699,7 @@ useSeoMeta({
       2020 - Le désir
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -803,7 +807,7 @@ useSeoMeta({
       2019 - La mémoire
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -911,7 +915,7 @@ useSeoMeta({
       2018 - Le corps
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -1044,7 +1048,7 @@ useSeoMeta({
       2017 - La parole
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -1177,7 +1181,7 @@ useSeoMeta({
       2016 - La nature
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -1310,7 +1314,7 @@ useSeoMeta({
       2015 - La vérité
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -1443,7 +1447,7 @@ useSeoMeta({
       2014 - L'espace
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -1612,7 +1616,7 @@ useSeoMeta({
       2013 - Le plaisir
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -1780,7 +1784,7 @@ useSeoMeta({
       2012 - La société
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -1948,7 +1952,7 @@ useSeoMeta({
       2011 - L'imagination
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -2116,7 +2120,7 @@ useSeoMeta({
       2010 - La vie
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -2284,7 +2288,7 @@ useSeoMeta({
       2009 - La beauté
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -2453,7 +2457,7 @@ useSeoMeta({
       2008 - L'action
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -2621,7 +2625,7 @@ useSeoMeta({
       2007 - La science
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -2789,7 +2793,7 @@ useSeoMeta({
       2006 - La justice
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -2957,7 +2961,7 @@ useSeoMeta({
       2005 - La passion
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -3125,7 +3129,7 @@ useSeoMeta({
       2004 - La croyance
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -3294,7 +3298,7 @@ useSeoMeta({
       2003 - L'échange
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -3462,7 +3466,7 @@ useSeoMeta({
       2002 - La représentation
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -3630,7 +3634,7 @@ useSeoMeta({
       2001 - Le mal
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -3798,7 +3802,7 @@ useSeoMeta({
       2000 - Autrui
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -3967,6 +3971,9 @@ useSeoMeta({
     </h2>
 
     <ul class="unstyled-list">
+      <li>
+        2027 - L'humanité
+      </li>
       <li>
         2026 - Juger
       </li>

@@ -48,90 +48,90 @@ useSeoMeta({
 
     <ul class="list-disc list-inside">
       <li>
-        <NuxtLink
+        <ULink
           to="/annales/cpge/bcpst/chimie"
           class="text-primary"
         >
           Chimie
-        </NuxtLink>
+        </ULink>
       </li>
-      <!-- <li>
-        <NuxtLink
+      <li>
+        <ULink
           to="/annales/cpge/bcpst/francais-philosophie"
           class="text-primary"
         >
-          Français-philosphie
-        </NuxtLink>
-      </li> -->
-      <!-- <li>
+          Français-philosophie
+        </ULink>
+      </li>
+      <li>
         LVA :
-        <NuxtLink
+        <ULink
           to="/annales/cpge/bcpst/lva-allemand"
           class="text-primary"
         >
           allemand
-        </NuxtLink>
+        </ULink>
         |
-        <NuxtLink
+        <ULink
           to="/annales/cpge/bcpst/lva-anglais"
           class="text-primary"
         >
           anglais
-        </NuxtLink>
+        </ULink>
         |
-        <NuxtLink
+        <ULink
           to="/annales/cpge/bcpst/lva-espagnol"
           class="text-primary"
         >
           espagnol
-        </NuxtLink>
-      </li> -->
-      <!-- <li>
+        </ULink>
+      </li>
+      <li>
         LVB :
-        <NuxtLink
+        <ULink
           to="/annales/cpge/bcpst/lvb-allemand"
           class="text-primary"
         >
           allemand
-        </NuxtLink>
+        </ULink>
         |
-        <NuxtLink
+        <ULink
           to="/annales/cpge/bcpst/lvb-espagnol"
           class="text-primary"
         >
           espagnol
-        </NuxtLink>
+        </ULink>
         |
-        <NuxtLink
+        <ULink
           to="/annales/cpge/bcpst/lvb-italien"
           class="text-primary"
         >
           italien
-        </NuxtLink>
-      </li> -->
+        </ULink>
+      </li>
       <!-- <li>
-        <NuxtLink
+        <ULink
           to="/annales/cpge/bcpst/mathematiques"
           class="text-primary"
         >
           Mathématiques
-        </NuxtLink>
+        </ULink>
       </li> -->
       <!-- <li>
-        <NuxtLink
+        <ULink
           to="/annales/cpge/bcpst/physique"
           class="text-primary"
         >
           Physique
-        </NuxtLink>
+        </ULink>
       </li> -->
       <!-- <li>
-        <NuxtLink
+        <ULink
           to="/annales/cpge/bcpst/svt"
           class="text-primary"
         >
           SVT (sciences de la vie et de la terre)
-        </NuxtLink>
+        </ULink>
       </li> -->
     </ul>
   </UContainer>

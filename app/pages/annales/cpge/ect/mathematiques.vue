@@ -56,7 +56,7 @@ useSeoMeta({
       2026
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -149,7 +149,7 @@ useSeoMeta({
       2025
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -242,7 +242,7 @@ useSeoMeta({
       2024
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -335,7 +335,7 @@ useSeoMeta({
       2023 (nouveau programme)
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -428,7 +428,7 @@ useSeoMeta({
       2022
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -521,7 +521,7 @@ useSeoMeta({
       2021
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -614,7 +614,7 @@ useSeoMeta({
       2020
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -707,7 +707,7 @@ useSeoMeta({
       2019
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -800,7 +800,7 @@ useSeoMeta({
       2018
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -893,7 +893,7 @@ useSeoMeta({
       2017
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -977,7 +977,7 @@ useSeoMeta({
       2016
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -1070,7 +1070,7 @@ useSeoMeta({
       2015
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -1139,7 +1139,7 @@ useSeoMeta({
       2014
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -1205,7 +1205,7 @@ useSeoMeta({
       2013 (nouveau programme)
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -1271,7 +1271,7 @@ useSeoMeta({
       2012
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -1337,7 +1337,7 @@ useSeoMeta({
       2011
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -1403,7 +1403,7 @@ useSeoMeta({
       2010
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -1469,7 +1469,7 @@ useSeoMeta({
       2009
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -1535,7 +1535,7 @@ useSeoMeta({
       2008
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -1610,7 +1610,7 @@ useSeoMeta({
       2007
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -1685,7 +1685,7 @@ useSeoMeta({
       2006
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>

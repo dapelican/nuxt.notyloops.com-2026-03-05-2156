@@ -57,7 +57,7 @@ useSeoMeta({
       2026
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -171,7 +171,7 @@ useSeoMeta({
       2025
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -285,7 +285,7 @@ useSeoMeta({
       2024
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -399,7 +399,7 @@ useSeoMeta({
       2023
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -514,7 +514,7 @@ useSeoMeta({
       2022
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -629,7 +629,7 @@ useSeoMeta({
       2021
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -769,7 +769,7 @@ useSeoMeta({
       2020
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>
@@ -909,7 +909,7 @@ useSeoMeta({
       2019
     </h2>
 
-    <figure class="ml-0">
+    <figure>
       <table>
         <thead>
           <tr>

@@ -1,5 +1,5 @@
 <script setup>
-const meta_description = 'Les sujets, rapports et bonnes copies des examens et concours francophones.';
+const meta_description = 'Les sujets, rapports et parfois corrigés et bonnes copiesdes examens et concours francophones.';
 
 useSeoMeta({
   title: 'Annales | NotyLoops',
@@ -15,11 +15,29 @@ useSeoMeta({
     </h1>
 
     <ul class="list-disc list-inside mt-8">
-      <li>
+      <!-- <li>
         <ULink
           class="text-primary"
           to="/annales/cpge"
         >Classes préparatoires aux grandes écoles (CPGE)</ULink>
+      </li> -->
+      <li>
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/bcpst"
+        >CPGE BCPST</ULink>
+      </li>
+      <li>
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/ecg"
+        >CPGE ECG</ULink>
+      </li>
+      <li>
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/ect"
+        >CPGE ECT</ULink>
       </li>
     </ul>
   </UContainer>
