@@ -40,12 +40,12 @@ useSeoMeta({
     </h1>
 
     <ul class="list-disc list-inside ">
-      <!-- <li>
+      <li>
         <ULink
           class="text-primary"
           to="/annales/cpge/bcpst"
         >BCPST</ULink>
-      </li> -->
+      </li>
       <li>
         <ULink
           class="text-primary"

@@ -109,30 +109,30 @@ useSeoMeta({
           italien
         </ULink>
       </li>
-      <!-- <li>
+      <li>
         <ULink
           to="/annales/cpge/bcpst/mathematiques"
           class="text-primary"
         >
           Mathématiques
         </ULink>
-      </li> -->
-      <!-- <li>
+      </li>
+      <li>
         <ULink
           to="/annales/cpge/bcpst/physique"
           class="text-primary"
         >
           Physique
         </ULink>
-      </li> -->
-      <!-- <li>
+      </li>
+      <li>
         <ULink
           to="/annales/cpge/bcpst/svt"
           class="text-primary"
         >
-          SVT (sciences de la vie et de la terre)
+          SVT (Sciences de la Vie et de la Terre)
         </ULink>
-      </li> -->
+      </li>
     </ul>
   </UContainer>
 </template>
