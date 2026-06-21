@@ -52,10 +52,6 @@ useSeoMeta({
     </h1>
 
     <h2 class="mt-12">
-      Thèmes
-    </h2>
-
-    <h2 class="mt-12">
       2027 - Les arcanes de la création
     </h2>
 
