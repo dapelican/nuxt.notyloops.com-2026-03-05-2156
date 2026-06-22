@@ -30,7 +30,7 @@ const breadcrumb_items = [
 useSchema({
   name: page_title,
   description: meta_description,
-  webpage_type: 'CollecgionPage',
+  webpage_type: 'CollectionPage',
   breadcrumb_items,
 });
 

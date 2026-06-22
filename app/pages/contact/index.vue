@@ -3,8 +3,11 @@ import * as z from 'zod';
 
 const { t } = useI18n();
 
+const meta_description = 'Contactez-nous pour toute question ou suggestion.';
+
 useSeoMeta({
   title: `${t('t_contact')} | NotyLoops`,
+  description: meta_description,
 });
 
 const handling_request = ref(false);

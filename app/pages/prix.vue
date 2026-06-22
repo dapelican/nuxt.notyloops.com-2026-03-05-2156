@@ -3,8 +3,11 @@ import { PREMIUM_ACCESS_PRE_TAX_AMOUNT_IN_CENTS } from '#shared/utils/constants.
 
 const { locale, t } = useI18n();
 
+const meta_description = 'Les 2 offres pour utiliser NotyLoops : ofrre gratuite limitée ou offre payante illimitée.';
+
 useSeoMeta({
   title: `${t('t_pricing')} | NotyLoops`,
+  description: meta_description,
 });
 
 const premium_price = computed(() => {

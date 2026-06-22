@@ -633,7 +633,7 @@ useSeoMeta({
                   |
                   <ULink
                     class="text-primary"
-                    to="https://annales.notyloops.com/cpge-svt-2024-bcpst-agro-veto-sujet-svt-annexe.pdf"
+                    to="https://annales.notyloops.com/cpge-svt-2023-bcpst-agro-veto-sujet-svt-annexe.pdf"
                     target="_blank"
                   >
                     Annexe
