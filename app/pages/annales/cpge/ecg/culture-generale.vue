@@ -3184,7 +3184,7 @@ useSeoMeta({
               Edhec
             </td>
             <td>
-              Devons-nous respECGer toutes les croyances ?
+              Devons-nous respecter toutes les croyances ?
             </td>
             <!-- <td>
                 <ULink
