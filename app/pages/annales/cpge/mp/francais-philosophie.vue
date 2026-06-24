@@ -1865,6 +1865,133 @@ useSeoMeta({
       2013 - La parole
     </h2>
 
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              CCMP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2013-ccmp-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2013-ccmp-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              CCP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2013-ccp-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2013-ccp-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              CCS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2013-ccs-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2013-ccs-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              e3a
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2013-e3a-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2013-e3a-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              X / ESPCI / ENS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2013-x-espci-ens-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2013-x-espci-ens-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
     <h3 class="mt-4">
       Œuvres
     </h3>
@@ -1885,6 +2012,133 @@ useSeoMeta({
     <h2 class="mt-12">
       2012 - La justice
     </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              CCMP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2012-ccmp-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2012-ccmp-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              CCP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2012-ccp-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2012-ccp-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              CCS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2012-ccs-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2012-ccs-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              e3a
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2012-e3a-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2012-e3a-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              X / ESPCI / ENS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2012-x-espci-ens-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2012-x-espci-ens-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
 
     <h3 class="mt-4">
       Œuvres
@@ -1948,6 +2202,133 @@ useSeoMeta({
       2011 - Le mal
     </h2>
 
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              CCMP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2011-ccmp-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2011-ccmp-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              CCP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2011-ccp-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2011-ccp-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              CCS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2011-ccs-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2011-ccs-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              e3a
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2011-e3a-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2011-e3a-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              X / ESPCI / ENS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2011-x-espci-ens-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2011-x-espci-ens-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
     <h3 class="mt-4">
       Œuvres
     </h3>
@@ -1971,6 +2352,155 @@ useSeoMeta({
       2010 - L'argent
     </h2>
 
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              CCMP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2010-ccmp-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2010-ccmp-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              CCP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2010-ccp-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2010-ccp-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              CCS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2010-ccs-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2010-ccs-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              e3a
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2010-e3a-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2010-e3a-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              ENS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2010-ens-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2010-ens-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              X / ESPCI
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2010-x-espci-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2010-x-espci-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
     <h3 class="mt-4">
       Œuvres
     </h3>
@@ -1992,6 +2522,156 @@ useSeoMeta({
     <h2 class="mt-12">
       2009 - Énigmes du moi
     </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              CCMP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2009-ccmp-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2009-ccmp-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              CCP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2009-ccp-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2009-ccp-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              CCS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2009-ccs-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2009-ccs-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              e3a
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2009-e3a-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2009-e3a-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              ENS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2009-ens-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2009-ens-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              X / ESPCI
+            </td>
+            <td>
+              Non disponible
+              <!-- <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2009-x-espci-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink> -->
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2009-x-espci-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
 
     <h3 class="mt-4">
       Œuvres
