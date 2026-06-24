@@ -2695,6 +2695,156 @@ useSeoMeta({
       2008 - Penser l'histoire
     </h2>
 
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              CCMP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2008-ccmp-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2008-ccmp-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              CCP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2008-ccp-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2008-ccp-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              CCS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2008-ccs-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2008-ccs-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              e3a
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2008-e3a-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2008-e3a-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              ENS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2008-ens-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2008-ens-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              X / ESPCI
+            </td>
+            <td>
+              Non disponible
+              <!-- <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2008-x-espci-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink> -->
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2008-x-espci-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
     <h3 class="mt-4">
       Œuvres
     </h3>
