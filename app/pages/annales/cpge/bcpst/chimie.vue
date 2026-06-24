@@ -1,5 +1,5 @@
 <script setup>
-const page_title = 'Annales CPGE BCPST : chimie';
+const page_title = 'Annales prépa BCPST : chimie';
 
 let meta_description = 'Les annales de chimie pour les CPGE BCPST. ';
 meta_description += ' Les sujets et rapports des dernières années pour les épreuves Agro-Véto, ENS et G2E.';

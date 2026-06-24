@@ -1,5 +1,5 @@
 <script setup>
-const page_title = 'Annales CPGE A/L classique';
+const page_title = 'Annales prépa A/L classique';
 
 let meta_description = 'Les annales de toutes les matières de CPGE ECT A/L classique.';
 meta_description += ' Les sujets et rapports des dernières années.';

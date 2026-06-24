@@ -1,5 +1,5 @@
 <script setup>
-const page_title = 'Annales CPGE ECG : lettres (résumé de texte, étude et synthèse de textes)';
+const page_title = 'Annales prépa ECG : lettres (résumé de texte, étude et synthèse de textes)';
 
 let meta_description = 'Les annales BCE de lettres (résumé de texte, étude et synthèse de textes)';
 meta_description += '  pour les CPGE ECG (voie générale). Les sujets et rapports des dernières années.';

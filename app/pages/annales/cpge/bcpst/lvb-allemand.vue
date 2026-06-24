@@ -1,5 +1,5 @@
 <script setup>
-const page_title = 'Annales CPGE BCPST : LVB allemand';
+const page_title = 'Annales prépa BCPST : LVB allemand';
 
 let meta_description = 'Les annales de LVB allemand pour les CPGE BCPST.';
 meta_description += ' Les sujets et rapports des dernières années pour les épreuves Agro-Véto (langues vivantes étrangères facultatives).';

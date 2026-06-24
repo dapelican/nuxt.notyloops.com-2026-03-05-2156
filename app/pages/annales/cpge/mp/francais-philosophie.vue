@@ -1,5 +1,5 @@
 <script setup>
-const page_title = 'Annales CPGE MP : français-philosophie';
+const page_title = 'Annales prépa MP : français-philosophie';
 
 let meta_description = 'Les annales de français-philosophie pour les CPGE MP.';
 meta_description += ' Les sujets et rapports des dernières années pour les épreuves Agro-Véto, ENS et G2E.';

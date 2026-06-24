@@ -1,5 +1,5 @@
 <script setup>
-const page_title = 'Annales CPGE BCPST';
+const page_title = 'Annales prépa BCPST';
 
 let meta_description = 'Les annales Agro-Véto, ENS et G2E de toutes les matières de CPGE BCPST.';
 meta_description += ' Les sujets et rapports des dernières années.';

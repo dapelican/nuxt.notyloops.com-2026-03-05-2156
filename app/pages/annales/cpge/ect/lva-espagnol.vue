@@ -1,5 +1,5 @@
 <script setup>
-const page_title = 'Annales CPGE ECT : LVA espagnol';
+const page_title = 'Annales prépa ECT : LVA espagnol';
 
 let meta_description = 'Les annales BCE et Ecricome de LVA espagnol pour les CPGE ECT (voie technologique).';
 meta_description += ' Les sujets et rapports des dernières années.';

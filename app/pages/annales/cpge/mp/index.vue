@@ -1,5 +1,5 @@
 <script setup>
-const page_title = 'Annales CPGE MP';
+const page_title = 'Annales prépa MP';
 
 let meta_description = 'Les annales BCE et Ecricome de toutes les matières de CPGE MP (voie générale).';
 meta_description += ' Les sujets et rapports des dernières années.';

@@ -1,5 +1,5 @@
 <script setup>
-const page_title = 'Annales CPGE ECG : ESH';
+const page_title = 'Annales prépa ECG : ESH';
 
 let meta_description = 'Les annales BCE et Ecricome d\'économie, sociologie et histoire du monde contemporain';
 meta_description += ' (ESH) pour les CPGE ECG (voie générale). Les sujets et rapports des dernières années.';

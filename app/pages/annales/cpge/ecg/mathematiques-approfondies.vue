@@ -1,5 +1,5 @@
 <script setup>
-const page_title = 'Annales CPGE ECG : mathématiques approfondies';
+const page_title = 'Annales prépa ECG : mathématiques approfondies';
 
 let meta_description = 'Les annales BCE et Ecricome de mathématiques approfondies pour les CPGE ECG (voie générale).';
 meta_description += ' Les sujets et rapports des dernières années.';

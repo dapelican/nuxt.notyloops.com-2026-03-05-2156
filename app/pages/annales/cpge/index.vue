@@ -1,5 +1,5 @@
 <script setup>
-const page_title = 'Annales CPGE';
+const page_title = 'Annales prépa';
 
 let meta_description = 'Les annales des concours pour les classes préparatoires aux grandes écoles (CPGE).';
 meta_description += ' Les sujets et rapports des dernières années par classe.';

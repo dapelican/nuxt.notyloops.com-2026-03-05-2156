@@ -1,5 +1,5 @@
 <script setup>
-const page_title = 'Annales CPGE ECT : lettres (étude et synthèse de textes)';
+const page_title = 'Annales prépa ECT : lettres (étude et synthèse de textes)';
 
 let meta_description = 'Les annales BCE de lettres (étude et synthèse de textes) pour les CPGE ECT (voie technologique).';
 meta_description += ' Les sujets et rapports des dernières années.';

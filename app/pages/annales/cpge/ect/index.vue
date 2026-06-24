@@ -1,5 +1,5 @@
 <script setup>
-const page_title = 'Annales CPGE ECT';
+const page_title = 'Annales prépa ECT';
 
 let meta_description = 'Les annales BCE et Ecricome de toutes les matières de CPGE ECT (voie technologique).';
 meta_description += ' Les sujets et rapports des dernières années.';
