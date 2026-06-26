@@ -562,7 +562,7 @@
           to="https://fr.wikipedia.org/wiki/Fran%C3%A7ais-philosophie#%C3%89tude_des_%C5%93uvres"
           target="_blank"
         >
-          Thèmes et oeuvres de français-philosophie depuis 1969
+          Thèmes et oeuvres de Français - Philosophie depuis 1969
         </NuxtLink>
       </li>
       <!-- <li>

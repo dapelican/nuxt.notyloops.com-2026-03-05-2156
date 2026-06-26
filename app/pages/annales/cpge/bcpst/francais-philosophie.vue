@@ -1,7 +1,7 @@
 <script setup>
-const page_title = 'Annales prépa BCPST : français-philosophie';
+const page_title = 'Annales prépa BCPST : Français - Philosophie';
 
-let meta_description = 'Les annales de français-philosophie pour les CPGE BCPST.';
+let meta_description = 'Les annales de Français - Philosophie pour les CPGE BCPST.';
 meta_description += ' Les sujets et rapports des dernières années pour les épreuves Agro-Véto, ENS et G2E.';
 
 const breadcrumb_items = [
@@ -21,7 +21,7 @@ const breadcrumb_items = [
     url: 'https://fr.notyloops.com/annales/cpge/bcpst',
   },
   {
-    label: 'Français-philosophie',
+    label: 'Français - Philosophie',
     to: '/annales/cpge/bcpst/francais-philosophie',
     url: 'https://fr.notyloops.com/annales/cpge/bcpst/francais-philosophie',
   },
@@ -48,7 +48,7 @@ useSeoMeta({
     />
 
     <h1>
-      Annales CPGE BCPST : français-philosophie
+      Annales CPGE BCPST : Français - Philosophie
     </h1>
 
     <h2 class="mt-12">
@@ -2014,7 +2014,7 @@ useSeoMeta({
           to="https://fr.wikipedia.org/wiki/Fran%C3%A7ais-philosophie#%C3%89tude_des_%C5%93uvres"
           target="_blank"
         >
-          Thèmes et oeuvres de français-philosophie depuis 1969
+          Thèmes et oeuvres de Français - Philosophie depuis 1969
         </ULink>
       </li>
       <li>

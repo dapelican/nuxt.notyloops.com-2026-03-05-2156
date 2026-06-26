@@ -1,9 +1,9 @@
 <script setup>
-let meta_description = 'Les annales de français-philosophie pour les CPGE MPI/MPI*.';
+let meta_description = 'Les annales de Français - Philosophie pour les CPGE MPI/MPI*.';
 meta_description += ' Les thèmes, oeuvres, sujets et rapports des dernières années.';
 
 useSeoMeta({
-  title: 'Annales CPGE MPI/MPI* : français-philosophie | NotyLoops',
+  title: 'Annales CPGE MPI/MPI* : Français - Philosophie | NotyLoops',
   description: meta_description,
 });
 </script>
@@ -16,11 +16,11 @@ useSeoMeta({
       >
         Ressources CPGE MPI/MPI*
       </NuxtLink>
-      > Annales français-philosophie
+      > Annales Français - Philosophie
     </p>
 
     <h1>
-      Annales CPGE MPI/MPI* : français-philosophie
+      Annales CPGE MPI/MPI* : Français - Philosophie
     </h1>
 
     <FrStaticAnnalesCpgeFrancaisPhilosophie />

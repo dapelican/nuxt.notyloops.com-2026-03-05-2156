@@ -1,9 +1,9 @@
 <script setup>
-let meta_description = 'Les annales de français-philosophie pour les CPGE PC/PC*.';
+let meta_description = 'Les annales de Français - Philosophie pour les CPGE PC/PC*.';
 meta_description += ' Les thèmes, oeuvres, sujets et rapports des dernières années.';
 
 useSeoMeta({
-  title: 'Annales CPGE PC/PC* : français-philosophie | NotyLoops',
+  title: 'Annales CPGE PC/PC* : Français - Philosophie | NotyLoops',
   description: meta_description,
 });
 </script>
@@ -16,11 +16,11 @@ useSeoMeta({
       >
         Ressources CPGE PC/PC*
       </NuxtLink>
-      > Annales français-philosophie
+      > Annales Français - Philosophie
     </p>
 
     <h1>
-      Annales CPGE PC/PC* : français-philosophie
+      Annales CPGE PC/PC* : Français - Philosophie
     </h1>
 
     <FrStaticAnnalesCpgeFrancaisPhilosophie />

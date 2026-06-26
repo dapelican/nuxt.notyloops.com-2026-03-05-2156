@@ -1,7 +1,7 @@
 <script setup>
-const page_title = 'Annales prépa BCPST';
+const page_title = 'Annales prépa MP';
 
-let meta_description = 'Les annales Agro-Véto, ENS et G2E de toutes les matières de CPGE BCPST.';
+let meta_description = 'Les annales BCE et Ecricome de toutes les matières de CPGE MP (voie générale).';
 meta_description += ' Les sujets et rapports des dernières années.';
 
 const breadcrumb_items = [
@@ -16,9 +16,9 @@ const breadcrumb_items = [
     url: 'https://fr.notyloops.com/annales/cpge',
   },
   {
-    label: 'BCPST',
-    to: '/annales/cpge/bcpst',
-    url: 'https://fr.notyloops.com/annales/cpge/bcpst',
+    label: 'MP option informatique',
+    to: '/annales/cpge/mp-option-informatique',
+    url: 'https://fr.notyloops.com/annales/cpge/mp-option-informatique',
   },
 ];
 
@@ -35,7 +35,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <!-- app/pages/annales/cpge/bcpst/index.vue -->
+  <!-- app/pages/annales/cpge/mp-option-informatique/index.vue -->
   <UContainer class="max-w-xl">
     <UBreadcrumb
       class="mb-8"
@@ -43,75 +43,82 @@ useSeoMeta({
     />
 
     <h1>
-      Annales CPGE BCPST
+      Annales CPGE MP option informatique
     </h1>
 
     <ul class="list-disc list-inside">
       <li>
         <ULink
-          to="/annales/cpge/bcpst/chimie"
-          class="text-primary"
-        >
-          Chimie
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          to="/annales/cpge/bcpst/francais-philosophie"
+          to="/annales/cpge/mp-option-informatique/francais-philosophie"
           class="text-primary"
         >
           Français - Philosophie
         </ULink>
       </li>
       <li>
+        <ULink
+          to="/annales/cpge/mp-option-informatique/informatique"
+          class="text-primary"
+        >
+          Informatique
+        </ULink>
+      </li>
+      <li>
         LVA :
         <ULink
-          to="/annales/cpge/bcpst/lva-allemand"
           class="text-primary"
+          to="/annales/cpge/mp-option-informatique/lva-allemand"
         >
           allemand
         </ULink>
         |
         <ULink
-          to="/annales/cpge/bcpst/lva-anglais"
           class="text-primary"
+          to="/annales/cpge/mp-option-informatique/lva-anglais"
         >
           anglais
         </ULink>
         |
         <ULink
-          to="/annales/cpge/bcpst/lva-espagnol"
           class="text-primary"
+          to="/annales/cpge/mp-option-informatique/lva-arabe"
+        >
+          arabe
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/mp-option-informatique/lva-espagnol"
         >
           espagnol
         </ULink>
       </li>
-      <li>
+      <!-- <li>
         LVB :
         <ULink
-          to="/annales/cpge/bcpst/lvb-allemand"
           class="text-primary"
+          to="/annales/cpge/mp-option-informatique/lvb-allemand"
         >
           allemand
         </ULink>
         |
         <ULink
-          to="/annales/cpge/bcpst/lvb-espagnol"
           class="text-primary"
+          to="/annales/cpge/mp-option-informatique/lvb-anglais"
         >
-          espagnol
+          anglais
         </ULink>
         |
         <ULink
-          to="/annales/cpge/bcpst/lvb-italien"
           class="text-primary"
+          to="/annales/cpge/mp-option-informatique/lvb-espagnol"
         >
-          italien
+          espagnol
         </ULink>
-      </li>
+      </li> -->
       <li>
         <ULink
-          to="/annales/cpge/bcpst/mathematiques"
+          to="/annales/cpge/mp-option-informatique/mathematiques"
           class="text-primary"
         >
           Mathématiques
@@ -119,18 +126,10 @@ useSeoMeta({
       </li>
       <li>
         <ULink
-          to="/annales/cpge/bcpst/physique"
+          to="/annales/cpge/mp-option-informatique/physique-chimie"
           class="text-primary"
         >
-          Physique
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          to="/annales/cpge/bcpst/svt"
-          class="text-primary"
-        >
-          SVT (Sciences de la Vie et de la Terre)
+          Physique - Chimie
         </ULink>
       </li>
     </ul>

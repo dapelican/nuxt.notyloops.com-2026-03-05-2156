@@ -58,6 +58,12 @@ useSeoMeta({
           to="/annales/cpge/ect"
         >ECT</ULink>
       </li>
+      <!-- <li>
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/mp-option-informatique"
+        >MP option informatique</ULink>
+      </li> -->
     </ul>
   </UContainer>
 </template>
