@@ -1,7 +1,7 @@
 <script setup>
-const page_title = 'Annales prépa MP option informatique : mathématiques';
+const page_title = 'Annales prépa MP option SI : mathématiques';
 
-let meta_description = 'Les annales de mathématiques pour les CPGE MP option informatique.';
+let meta_description = 'Les annales de mathématiques pour les CPGE MP option SI.';
 meta_description += ' Les sujets et rapports des dernières années.';
 
 const breadcrumb_items = [
@@ -16,14 +16,14 @@ const breadcrumb_items = [
     url: 'https://fr.notyloops.com/annales/cpge',
   },
   {
-    label: 'MP option informatique',
-    to: '/annales/cpge/mp-option-informatique',
-    url: 'https://fr.notyloops.com/annales/cpge/mp-option-informatique',
+    label: 'MP option SI',
+    to: '/annales/cpge/mp-option-si',
+    url: 'https://fr.notyloops.com/annales/cpge/mp-option-si',
   },
   {
     label: 'mathématiques',
-    to: '/annales/cpge/mp-option-informatique/mathematiques',
-    url: 'https://fr.notyloops.com/annales/cpge/mp-option-informatique/mathematiques',
+    to: '/annales/cpge/mp-option-si/mathematiques',
+    url: 'https://fr.notyloops.com/annales/cpge/mp-option-si/mathematiques',
   },
 ];
 
@@ -48,7 +48,7 @@ useSeoMeta({
     />
 
     <h1>
-      Annales CPGE MP option informatique : mathématiques
+      Annales CPGE MP option SI : mathématiques
     </h1>
 
     <h2 class="mt-12">

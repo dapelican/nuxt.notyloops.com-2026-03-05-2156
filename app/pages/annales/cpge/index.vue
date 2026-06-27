@@ -58,12 +58,36 @@ useSeoMeta({
           to="/annales/cpge/ect"
         >ECT</ULink>
       </li>
-      <!-- <li>
+      <li>
         <ULink
           class="text-primary"
           to="/annales/cpge/mp-option-informatique"
         >MP option informatique</ULink>
-      </li> -->
+      </li>
+      <li>
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/mp-option-si"
+        >MP option SI</ULink>
+      </li>
+      <li>
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/mpi"
+        >MPI</ULink>
+      </li>
+      <li>
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/pc"
+        >PC</ULink>
+      </li>
+      <li>
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/psi"
+        >PSI</ULink>
+      </li>
     </ul>
   </UContainer>
 </template>

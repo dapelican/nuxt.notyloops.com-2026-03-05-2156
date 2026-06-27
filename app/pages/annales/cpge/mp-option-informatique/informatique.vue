@@ -157,15 +157,15 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-informatique-2026-x-espci-ens-sujet-a.pdf"
+                to="https://annales.notyloops.com/cpge-informatique-2026-mp-mpi-x-espci-ens-sujet-a.pdf"
                 target="_blank"
               >
-                Sujet
+                Sujet (A)
               </ULink>
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-informatique-2026-x-espci-ens-rapport-a.pdf"
+                to="https://annales.notyloops.com/cpge-informatique-2026-mp-mpi-x-espci-ens-rapport-a.pdf"
                 target="_blank"
               >
                 Rapport
@@ -285,7 +285,7 @@ useSeoMeta({
                 to="https://annales.notyloops.com/cpge-informatique-2025-mp-mpi-x-ens-sujet-a.pdf"
                 target="_blank"
               >
-                Sujet
+                Sujet (A)
               </ULink>
               |
               <ULink
@@ -410,7 +410,7 @@ useSeoMeta({
                 to="https://annales.notyloops.com/cpge-informatique-2024-mp-mpi-x-ens-sujet-a.pdf"
                 target="_blank"
               >
-                Sujet
+                Sujet (A)
               </ULink>
               |
               <ULink
@@ -535,7 +535,7 @@ useSeoMeta({
                 to="https://annales.notyloops.com/cpge-informatique-2023-mp-mpi-x-ens-sujet-a.pdf"
                 target="_blank"
               >
-                Sujet
+                Sujet (A)
               </ULink>
               |
               <ULink
@@ -660,7 +660,7 @@ useSeoMeta({
                 to="https://annales.notyloops.com/cpge-informatique-2022-mp-mpi-x-ens-sujet-a.pdf"
                 target="_blank"
               >
-                Sujet
+                Sujet (A)
               </ULink>
               |
               <ULink

@@ -1,7 +1,7 @@
 <script setup>
-const page_title = 'Annales prépa MP option informatique : mathématiques';
+const page_title = 'Annales prépa PSI : physique - chimie';
 
-let meta_description = 'Les annales de mathématiques pour les CPGE MP option informatique.';
+let meta_description = 'Les annales de physique - chimie pour les CPGE PSI.';
 meta_description += ' Les sujets et rapports des dernières années.';
 
 const breadcrumb_items = [
@@ -16,14 +16,14 @@ const breadcrumb_items = [
     url: 'https://fr.notyloops.com/annales/cpge',
   },
   {
-    label: 'MP option informatique',
-    to: '/annales/cpge/mp-option-informatique',
-    url: 'https://fr.notyloops.com/annales/cpge/mp-option-informatique',
+    label: 'PSI',
+    to: '/annales/cpge/psi',
+    url: 'https://fr.notyloops.com/annales/cpge/psi',
   },
   {
-    label: 'mathématiques',
-    to: '/annales/cpge/mp-option-informatique/mathematiques',
-    url: 'https://fr.notyloops.com/annales/cpge/mp-option-informatique/mathematiques',
+    label: 'Physique - Chimie',
+    to: '/annales/cpge/psi/physique-chimie',
+    url: 'https://fr.notyloops.com/annales/cpge/psi/physique-chimie',
   },
 ];
 
@@ -48,73 +48,8 @@ useSeoMeta({
     />
 
     <h1>
-      Annales CPGE MP option informatique : mathématiques
+      Annales CPGE PSI : physique - chimie
     </h1>
-
-    <h2 class="mt-12">
-      2026
-    </h2>
-
-    <figure>
-      <table>
-        <thead>
-          <tr>
-            <th>
-              Épreuve
-            </th>
-            <th>
-              Documents
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              X / ESPCI
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2026-mp-mpi-x-espci-sujet-b.pdf"
-                target="_blank"
-              >
-                Sujet (B)
-              </ULink>
-              <!-- |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2026-mp-mpi-x-espci-rapport-b.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink> -->
-            </td>
-          </tr>
-          <tr>
-            <td>
-              X / ESPCI / ENS
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2026-mp-mpi-x-espci-ens-sujet-a.pdf"
-                target="_blank"
-              >
-                Sujet (A)
-              </ULink>
-              <!-- |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2026-mp-mpi-x-espci-ens-rapport-a.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink> -->
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </figure>
 
     <h2 class="mt-12">
       2025
@@ -135,42 +70,42 @@ useSeoMeta({
         <tbody>
           <tr>
             <td>
-              X
+              ENS Ulm
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2025-mp-mpi-x-sujet-b.pdf"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2025-psi-ens-x-sujet-physique-u.pdf"
                 target="_blank"
               >
-                Sujet (B)
+                Sujet physique U
               </ULink>
-              |
+              <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2025-mp-mpi-x-rapport-b.pdf"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2025-psi-ens-x-rapport-physique-u.pdf"
                 target="_blank"
               >
                 Rapport
-              </ULink>
+              </ULink> -->
             </td>
           </tr>
           <tr>
             <td>
-              X / ENS
+              ENS / X
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2025-mp-mpi-x-ens-sujet-a.pdf"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2025-psi-ens-x-sujet-physique-xsr.pdf"
                 target="_blank"
               >
-                Sujet (A)
+                Sujet physique XSR
               </ULink>
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2025-mp-mpi-x-ens-rapport-a.pdf"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2025-psi-ens-x-rapport-physique-xsr.pdf"
                 target="_blank"
               >
                 Rapport
@@ -198,44 +133,44 @@ useSeoMeta({
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <!-- <tr>
             <td>
-              X
+              ENS Ulm
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2024-mp-mpi-x-sujet-b.pdf"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2024-psi-ens-x-sujet-physique-u.pdf"
                 target="_blank"
               >
-                Sujet (B)
+                Sujet physique U
               </ULink>
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2024-mp-mpi-x-rapport-b.pdf"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2024-psi-ens-x-rapport-physique-u.pdf"
                 target="_blank"
               >
                 Rapport
               </ULink>
             </td>
-          </tr>
+          </tr> -->
           <tr>
             <td>
-              X / ENS
+              ENS / X
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2024-mp-mpi-x-ens-sujet-a.pdf"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2024-psi-ens-x-sujet-physique-xsr.pdf"
                 target="_blank"
               >
-                Sujet (A)
+                Sujet physique XSR
               </ULink>
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2024-mp-mpi-x-ens-rapport-a.pdf"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2024-psi-ens-x-rapport-physique-xsr.pdf"
                 target="_blank"
               >
                 Rapport
@@ -265,42 +200,42 @@ useSeoMeta({
         <tbody>
           <tr>
             <td>
-              X
+              ENS Ulm
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2023-mp-mpi-x-sujet-b.pdf"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2023-psi-ens-x-sujet-physique-u.pdf"
                 target="_blank"
               >
-                Sujet (B)
+                Sujet physique U
               </ULink>
-              |
+              <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2023-mp-mpi-x-rapport-b.pdf"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2023-psi-ens-x-rapport-physique-u.pdf"
                 target="_blank"
               >
                 Rapport
-              </ULink>
+              </ULink> -->
             </td>
           </tr>
           <tr>
             <td>
-              X / ENS
+              ENS / X
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2023-mp-mpi-x-ens-sujet-a.pdf"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2023-psi-ens-x-sujet-physique-xsr.pdf"
                 target="_blank"
               >
-                Sujet (A)
+                Sujet physique XSR
               </ULink>
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2023-mp-mpi-x-ens-rapport-a.pdf"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2023-psi-ens-x-rapport-physique-xsr.pdf"
                 target="_blank"
               >
                 Rapport
@@ -330,42 +265,42 @@ useSeoMeta({
         <tbody>
           <tr>
             <td>
-              X
+              ENS Ulm
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2022-mp-mpi-x-sujet-b.pdf"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2022-psi-ens-x-sujet-physique-u.pdf"
                 target="_blank"
               >
-                Sujet (B)
+                Sujet physique U
               </ULink>
-              |
+              <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2022-mp-mpi-x-rapport-b.pdf"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2022-psi-ens-x-rapport-physique-u.pdf"
                 target="_blank"
               >
                 Rapport
-              </ULink>
+              </ULink> -->
             </td>
           </tr>
           <tr>
             <td>
-              X / ENS
+              ENS / X
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2022-mp-mpi-x-ens-sujet-a.pdf"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2022-psi-ens-x-sujet-physique-xsr.pdf"
                 target="_blank"
               >
-                Sujet (A)
+                Sujet physique XSR
               </ULink>
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2022-mp-mpi-x-ens-rapport-a.pdf"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2022-psi-ens-x-rapport-physique-xsr.pdf"
                 target="_blank"
               >
                 Rapport

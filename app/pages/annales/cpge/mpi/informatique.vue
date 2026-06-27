@@ -1,7 +1,7 @@
 <script setup>
-const page_title = 'Annales prépa MP option informatique : mathématiques';
+const page_title = 'Annales prépa MPI : informatique';
 
-let meta_description = 'Les annales de mathématiques pour les CPGE MP option informatique.';
+let meta_description = 'Les annales d\'informatique pour les CPGE MPI.';
 meta_description += ' Les sujets et rapports des dernières années.';
 
 const breadcrumb_items = [
@@ -16,14 +16,14 @@ const breadcrumb_items = [
     url: 'https://fr.notyloops.com/annales/cpge',
   },
   {
-    label: 'MP option informatique',
-    to: '/annales/cpge/mp-option-informatique',
-    url: 'https://fr.notyloops.com/annales/cpge/mp-option-informatique',
+    label: 'MPI',
+    to: '/annales/cpge/mpi',
+    url: 'https://fr.notyloops.com/annales/cpge/mpi',
   },
   {
-    label: 'mathématiques',
-    to: '/annales/cpge/mp-option-informatique/mathematiques',
-    url: 'https://fr.notyloops.com/annales/cpge/mp-option-informatique/mathematiques',
+    label: 'Informatique',
+    to: '/annales/cpge/mpi/informatique',
+    url: 'https://fr.notyloops.com/annales/cpge/mpi/informatique',
   },
 ];
 
@@ -48,7 +48,7 @@ useSeoMeta({
     />
 
     <h1>
-      Annales CPGE MP option informatique : mathématiques
+      Annales CPGE MPI : informatique
     </h1>
 
     <h2 class="mt-12">
@@ -70,20 +70,20 @@ useSeoMeta({
         <tbody>
           <tr>
             <td>
-              X / ESPCI
+              ENS
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2026-mp-mpi-x-espci-sujet-b.pdf"
+                to="https://annales.notyloops.com/cpge-informatique-2026-mp-mpi-x-espci-ens-sujet-a.pdf"
                 target="_blank"
               >
-                Sujet (B)
+                Sujet (A)
               </ULink>
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2026-mp-mpi-x-espci-rapport-b.pdf"
+                to="https://annales.notyloops.com/cpge-informatique-2026-mp-mpi-x-espci-ens-rapport-a.pdf"
                 target="_blank"
               >
                 Rapport
@@ -92,20 +92,20 @@ useSeoMeta({
           </tr>
           <tr>
             <td>
-              X / ESPCI / ENS
+              X / ENS
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2026-mp-mpi-x-espci-ens-sujet-a.pdf"
+                to="https://annales.notyloops.com/cpge-informatique-2026-mpi-x-ens-sujet-c.pdf"
                 target="_blank"
               >
-                Sujet (A)
+                Sujet (C)
               </ULink>
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2026-mp-mpi-x-espci-ens-rapport-a.pdf"
+                to="https://annales.notyloops.com/cpge-informatique-2026-mpi-x-ens-rapport-c.pdf"
                 target="_blank"
               >
                 Rapport
@@ -135,20 +135,20 @@ useSeoMeta({
         <tbody>
           <tr>
             <td>
-              X
+              ENS
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2025-mp-mpi-x-sujet-b.pdf"
+                to="https://annales.notyloops.com/cpge-informatique-2025-mp-mpi-x-ens-sujet-a.pdf"
                 target="_blank"
               >
-                Sujet (B)
+                Sujet (A)
               </ULink>
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2025-mp-mpi-x-rapport-b.pdf"
+                to="https://annales.notyloops.com/cpge-informatique-2025-mp-mpi-x-ens-rapport-a.pdf"
                 target="_blank"
               >
                 Rapport
@@ -162,15 +162,15 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2025-mp-mpi-x-ens-sujet-a.pdf"
+                to="https://annales.notyloops.com/cpge-informatique-2025-mpi-x-ens-sujet-c.pdf"
                 target="_blank"
               >
-                Sujet (A)
+                Sujet (C)
               </ULink>
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2025-mp-mpi-x-ens-rapport-a.pdf"
+                to="https://annales.notyloops.com/cpge-informatique-2025-mpi-x-ens-rapport-c.pdf"
                 target="_blank"
               >
                 Rapport
@@ -200,20 +200,20 @@ useSeoMeta({
         <tbody>
           <tr>
             <td>
-              X
+              ENS
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2024-mp-mpi-x-sujet-b.pdf"
+                to="https://annales.notyloops.com/cpge-informatique-2024-mp-mpi-x-ens-sujet-a.pdf"
                 target="_blank"
               >
-                Sujet (B)
+                Sujet (A)
               </ULink>
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2024-mp-mpi-x-rapport-b.pdf"
+                to="https://annales.notyloops.com/cpge-informatique-2024-mp-mpi-x-ens-rapport-a.pdf"
                 target="_blank"
               >
                 Rapport
@@ -227,15 +227,15 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2024-mp-mpi-x-ens-sujet-a.pdf"
+                to="https://annales.notyloops.com/cpge-informatique-2024-mpi-x-ens-sujet-c.pdf"
                 target="_blank"
               >
-                Sujet (A)
+                Sujet (C)
               </ULink>
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2024-mp-mpi-x-ens-rapport-a.pdf"
+                to="https://annales.notyloops.com/cpge-informatique-2024-mpi-x-ens-rapport-c.pdf"
                 target="_blank"
               >
                 Rapport
@@ -265,20 +265,20 @@ useSeoMeta({
         <tbody>
           <tr>
             <td>
-              X
+              ENS
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2023-mp-mpi-x-sujet-b.pdf"
+                to="https://annales.notyloops.com/cpge-informatique-2023-mp-mpi-x-ens-sujet-a.pdf"
                 target="_blank"
               >
-                Sujet (B)
+                Sujet (A)
               </ULink>
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2023-mp-mpi-x-rapport-b.pdf"
+                to="https://annales.notyloops.com/cpge-informatique-2023-mp-mpi-x-ens-rapport-a.pdf"
                 target="_blank"
               >
                 Rapport
@@ -292,80 +292,15 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2023-mp-mpi-x-ens-sujet-a.pdf"
+                to="https://annales.notyloops.com/cpge-informatique-2023-mpi-x-ens-sujet-c.pdf"
                 target="_blank"
               >
-                Sujet (A)
+                Sujet (C)
               </ULink>
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2023-mp-mpi-x-ens-rapport-a.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </figure>
-
-    <h2 class="mt-12">
-      2022
-    </h2>
-
-    <figure>
-      <table>
-        <thead>
-          <tr>
-            <th>
-              Épreuve
-            </th>
-            <th>
-              Documents
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              X
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2022-mp-mpi-x-sujet-b.pdf"
-                target="_blank"
-              >
-                Sujet (B)
-              </ULink>
-              |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2022-mp-mpi-x-rapport-b.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              X / ENS
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2022-mp-mpi-x-ens-sujet-a.pdf"
-                target="_blank"
-              >
-                Sujet (A)
-              </ULink>
-              |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2022-mp-mpi-x-ens-rapport-a.pdf"
+                to="https://annales.notyloops.com/cpge-informatique-2023-mpi-x-ens-rapport-c.pdf"
                 target="_blank"
               >
                 Rapport
