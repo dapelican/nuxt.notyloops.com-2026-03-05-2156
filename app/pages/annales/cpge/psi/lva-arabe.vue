@@ -75,7 +75,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2026-mp-pc-pc-psi-x-espci-ens-sujet-arabe.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2026-mp-mpi-pc-psi-x-espci-ens-sujet-arabe.pdf"
                 target="_blank"
               >
                 Sujet
@@ -83,7 +83,7 @@ useSeoMeta({
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2026-mp-pc-pc-psi-x-espci-ens-rapport-arabe.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2026-mp-mpi-pc-psi-x-espci-ens-rapport-arabe.pdf"
                 target="_blank"
               >
                 Rapport
@@ -118,7 +118,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2025-mp-pc-pc-psi-x-espci-ens-sujet-arabe.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2025-mp-mpi-pc-psi-x-espci-ens-sujet-arabe.pdf"
                 target="_blank"
               >
                 Sujet
@@ -126,7 +126,7 @@ useSeoMeta({
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2025-mp-pc-pc-psi-x-espci-ens-rapport-arabe.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2025-mp-mpi-pc-psi-x-espci-ens-rapport-arabe.pdf"
                 target="_blank"
               >
                 Rapport
@@ -161,7 +161,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2024-mp-pc-pc-psi-x-espci-ens-sujet-arabe.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2024-mp-mpi-pc-psi-x-espci-ens-sujet-arabe.pdf"
                 target="_blank"
               >
                 Sujet
@@ -169,7 +169,7 @@ useSeoMeta({
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2024-mp-pc-pc-psi-x-espci-ens-rapport-arabe.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2024-mp-mpi-pc-psi-x-espci-ens-rapport-arabe.pdf"
                 target="_blank"
               >
                 Rapport
@@ -204,7 +204,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2023-mp-pc-pc-psi-x-espci-ens-sujet-arabe.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2023-mp-mpi-pc-psi-x-espci-ens-sujet-arabe.pdf"
                 target="_blank"
               >
                 Sujet
@@ -212,7 +212,7 @@ useSeoMeta({
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2023-mp-pc-pc-psi-x-espci-ens-rapport-arabe.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2023-mp-mpi-pc-psi-x-espci-ens-rapport-arabe.pdf"
                 target="_blank"
               >
                 Rapport
