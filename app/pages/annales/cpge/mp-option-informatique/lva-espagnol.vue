@@ -40,7 +40,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <!-- app/pages/annales/cpge/mp/francais-philosophie.vue -->
+  <!-- app/pages/annales/cpge/mp-option-informatique/lva-espagnol.vue -->
   <UContainer class="max-w-xl">
     <UBreadcrumb
       class="mb-8"
@@ -256,6 +256,135 @@ useSeoMeta({
               <ULink
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2022-mp-pc-psi-x-espci-ens-rapport-espagnol.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2 class="mt-12">
+      2021
+    </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              X / ESPCI / ENS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-lva-2021-mp-pc-psi-x-espci-ens-sujet-espagnol.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-lva-2021-mp-pc-psi-x-espci-ens-rapport-espagnol.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2 class="mt-12">
+      2020
+    </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              X / ESPCI / ENS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-lva-2020-mp-pc-psi-x-espci-ens-sujet-espagnol.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-lva-2020-mp-pc-psi-x-espci-ens-rapport-espagnol.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2 class="mt-12">
+      2019
+    </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              X / ESPCI / ENS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-lva-2019-mp-pc-psi-x-espci-ens-sujet-espagnol.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-lva-2019-mp-pc-psi-x-espci-ens-rapport-espagnol.pdf"
                 target="_blank"
               >
                 Rapport

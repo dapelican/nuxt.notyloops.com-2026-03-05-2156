@@ -40,7 +40,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <!-- app/pages/annales/cpge/mp/francais-philosophie.vue -->
+  <!-- app/pages/annales/cpge/mp-option-informatique/physique-chimie.vue -->
   <UContainer class="max-w-xl">
     <UBreadcrumb
       class="mb-8"
