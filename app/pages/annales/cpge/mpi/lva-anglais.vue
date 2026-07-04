@@ -60,7 +60,7 @@ useSeoMeta({
         <thead>
           <tr>
             <th>
-              Épreuve
+              Banque d'épreuve
             </th>
             <th>
               Documents
@@ -103,7 +103,7 @@ useSeoMeta({
         <thead>
           <tr>
             <th>
-              Épreuve
+              Banque d'épreuve
             </th>
             <th>
               Documents
@@ -146,7 +146,7 @@ useSeoMeta({
         <thead>
           <tr>
             <th>
-              Épreuve
+              Banque d'épreuve
             </th>
             <th>
               Documents
@@ -189,7 +189,7 @@ useSeoMeta({
         <thead>
           <tr>
             <th>
-              Épreuve
+              Banque d'épreuve
             </th>
             <th>
               Documents
@@ -213,49 +213,6 @@ useSeoMeta({
               <ULink
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2023-mp-mpi-pc-psi-x-espci-ens-rapport-anglais.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </figure>
-
-    <h2 class="mt-12">
-      2022
-    </h2>
-
-    <figure>
-      <table>
-        <thead>
-          <tr>
-            <th>
-              Épreuve
-            </th>
-            <th>
-              Documents
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              X / ESPCI / ENS
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2022-mp-pc-psi-x-espci-ens-sujet-anglais.pdf"
-                target="_blank"
-              >
-                Sujet
-              </ULink>
-              |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2022-mp-pc-psi-x-espci-ens-rapport-anglais.pdf"
                 target="_blank"
               >
                 Rapport

@@ -60,7 +60,7 @@ useSeoMeta({
         <thead>
           <tr>
             <th>
-              Épreuve
+              Banque d'épreuve
             </th>
             <th>
               Documents
@@ -125,7 +125,7 @@ useSeoMeta({
         <thead>
           <tr>
             <th>
-              Épreuve
+              Banque d'épreuve
             </th>
             <th>
               Documents
@@ -190,7 +190,7 @@ useSeoMeta({
         <thead>
           <tr>
             <th>
-              Épreuve
+              Banque d'épreuve
             </th>
             <th>
               Documents
@@ -255,7 +255,7 @@ useSeoMeta({
         <thead>
           <tr>
             <th>
-              Épreuve
+              Banque d'épreuve
             </th>
             <th>
               Documents
@@ -320,7 +320,7 @@ useSeoMeta({
         <thead>
           <tr>
             <th>
-              Épreuve
+              Banque d'épreuve
             </th>
             <th>
               Documents
@@ -335,7 +335,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2022-mp-mpi-x-sujet-b.pdf"
+                to="https://annales.notyloops.com/cpge-mathematiques-2022-mp-x-sujet-b.pdf"
                 target="_blank"
               >
                 Sujet (B)
@@ -343,7 +343,7 @@ useSeoMeta({
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2022-mp-mpi-x-rapport-b.pdf"
+                to="https://annales.notyloops.com/cpge-mathematiques-2022-mp-x-rapport-b.pdf"
                 target="_blank"
               >
                 Rapport
@@ -357,7 +357,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2022-mp-mpi-x-ens-sujet-a.pdf"
+                to="https://annales.notyloops.com/cpge-mathematiques-2022-mp-x-ens-sujet-a.pdf"
                 target="_blank"
               >
                 Sujet (A)
@@ -365,11 +365,1316 @@ useSeoMeta({
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2022-mp-mpi-x-ens-rapport-a.pdf"
+                to="https://annales.notyloops.com/cpge-mathematiques-2022-mp-x-ens-rapport-a.pdf"
                 target="_blank"
               >
                 Rapport
               </ULink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2 class="mt-12">
+      2021
+    </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              X
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2021-mp-x-sujet-b.pdf"
+                target="_blank"
+              >
+                Sujet (B)
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2021-mp-x-rapport-b.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              X / ENS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2021-mp-x-ens-sujet-a.pdf"
+                target="_blank"
+              >
+                Sujet (A)
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2021-mp-x-ens-rapport-a.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2 class="mt-12">
+      2020
+    </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              X
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2020-mp-x-sujet-b.pdf"
+                target="_blank"
+              >
+                Sujet (B)
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2020-mp-x-rapport-b.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              X / ENS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2020-mp-x-ens-sujet-a.pdf"
+                target="_blank"
+              >
+                Sujet (A)
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2020-mp-x-ens-rapport-a.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2 class="mt-12">
+      2019
+    </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              X
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2019-mp-x-sujet-b.pdf"
+                target="_blank"
+              >
+                Sujet (B)
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2019-mp-x-rapport-b.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              X / ENS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2019-mp-x-ens-sujet-a.pdf"
+                target="_blank"
+              >
+                Sujet (A)
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2019-mp-x-ens-rapport-a.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2 class="mt-12">
+      2018
+    </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              X
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2018-mp-x-sujet-b.pdf"
+                target="_blank"
+              >
+                Sujet (B)
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2018-mp-x-rapport-b.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              X / ENS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2018-mp-x-ens-sujet-a.pdf"
+                target="_blank"
+              >
+                Sujet (A)
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2018-mp-x-ens-rapport-a.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2 class="mt-12">
+      2017
+    </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              X
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2017-mp-x-sujet-b.pdf"
+                target="_blank"
+              >
+                Sujet (B)
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2017-mp-x-rapport-b.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              X / ENS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2017-mp-x-ens-sujet-a.pdf"
+                target="_blank"
+              >
+                Sujet (A)
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2017-mp-x-ens-rapport-a.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2 class="mt-12">
+      2016
+    </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              X
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2016-mp-x-sujet-b.pdf"
+                target="_blank"
+              >
+                Sujet (B)
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2016-mp-x-rapport-b.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              X / ENS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2016-mp-x-ens-sujet-a.pdf"
+                target="_blank"
+              >
+                Sujet (A)
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2016-mp-x-ens-rapport-a.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2 class="mt-12">
+      2015
+    </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              X
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2015-mp-x-sujet-b.pdf"
+                target="_blank"
+              >
+                Sujet (B)
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2015-mp-x-rapport-b.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              X / ENS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2015-mp-x-ens-sujet-a.pdf"
+                target="_blank"
+              >
+                Sujet (A)
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2015-mp-x-ens-rapport-a.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2 class="mt-12">
+      2014
+    </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              X
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2014-mp-x-sujet-b.pdf"
+                target="_blank"
+              >
+                Sujet (B)
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2014-mp-x-rapport-b.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              X / ENS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2014-mp-x-ens-sujet-a.pdf"
+                target="_blank"
+              >
+                Sujet (A)
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2014-mp-x-ens-rapport-a.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2 class="mt-12">
+      2013
+    </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              X
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2013-mp-x-sujet-b.pdf"
+                target="_blank"
+              >
+                Sujet (B)
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2013-mp-x-rapport-b.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              X / ENS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2013-mp-x-ens-sujet-a.pdf"
+                target="_blank"
+              >
+                Sujet (A)
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2013-mp-x-ens-rapport-a.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2 class="mt-12">
+      2012
+    </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              X
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2012-mp-x-sujet-b.pdf"
+                target="_blank"
+              >
+                Sujet (B)
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2012-mp-x-rapport-b.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              X / ENS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2012-mp-x-ens-sujet-a.pdf"
+                target="_blank"
+              >
+                Sujet (A)
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2012-mp-x-ens-rapport-a.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2 class="mt-12">
+      2011
+    </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              X
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2011-mp-x-sujet-b.pdf"
+                target="_blank"
+              >
+                Sujet (B)
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2011-mp-x-rapport-b.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              X / ENS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2011-mp-x-ens-sujet-a.pdf"
+                target="_blank"
+              >
+                Sujet (A)
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2011-mp-x-ens-rapport-a.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2 class="mt-12">
+      2010
+    </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              X
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2010-mp-x-sujet-1.pdf"
+                target="_blank"
+              >
+                Sujet 1
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2010-mp-x-rapport-1.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2010-mp-x-sujet-2.pdf"
+                target="_blank"
+              >
+                Sujet 2
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2010-mp-x-rapport-2.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2 class="mt-12">
+      2009
+    </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              X
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2009-mp-x-sujet-1.pdf"
+                target="_blank"
+              >
+                Sujet 1
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2009-mp-x-rapport-1.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2009-mp-x-sujet-2.pdf"
+                target="_blank"
+              >
+                Sujet 2
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2009-mp-x-rapport-2.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2 class="mt-12">
+      2008
+    </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              X
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2008-mp-x-sujet-1.pdf"
+                target="_blank"
+              >
+                Sujet 1
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2008-mp-x-rapport-1.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2008-mp-x-sujet-2.pdf"
+                target="_blank"
+              >
+                Sujet 2
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2008-mp-x-rapport-2.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2 class="mt-12">
+      2007
+    </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              X
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2007-mp-x-sujet-1.pdf"
+                target="_blank"
+              >
+                Sujet 1
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2007-mp-x-rapport-1.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2007-mp-x-sujet-2.pdf"
+                target="_blank"
+              >
+                Sujet 2
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2007-mp-x-rapport-2.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2 class="mt-12">
+      2006
+    </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              X
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2006-mp-x-sujet-1.pdf"
+                target="_blank"
+              >
+                Sujet 1
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2006-mp-x-rapport-1.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2006-mp-x-sujet-2.pdf"
+                target="_blank"
+              >
+                Sujet 2
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2006-mp-x-rapport-2.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2 class="mt-12">
+      2005
+    </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              X
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2005-mp-x-sujet-1.pdf"
+                target="_blank"
+              >
+                Sujet 1
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2005-mp-x-rapport-1.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2005-mp-x-sujet-2.pdf"
+                target="_blank"
+              >
+                Sujet 2
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2005-mp-x-rapport-2.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2 class="mt-12">
+      2004
+    </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              X
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2004-mp-x-sujet-1.pdf"
+                target="_blank"
+              >
+                Sujet 1
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2004-mp-x-rapport-1.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2004-mp-x-sujet-2.pdf"
+                target="_blank"
+              >
+                Sujet 2
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2004-mp-x-rapport-2.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2 class="mt-12">
+      2003
+    </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              X
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2003-mp-x-sujet-1.pdf"
+                target="_blank"
+              >
+                Sujet 1
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2003-mp-x-rapport-1.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2003-mp-x-sujet-2.pdf"
+                target="_blank"
+              >
+                Sujet 2
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2003-mp-x-rapport-2.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2 class="mt-12">
+      2002
+    </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              X
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2002-mp-x-sujet-1.pdf"
+                target="_blank"
+              >
+                Sujet 1
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2002-mp-x-rapport-1.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2002-mp-x-sujet-2.pdf"
+                target="_blank"
+              >
+                Sujet 2
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2002-mp-x-rapport-2.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2 class="mt-12">
+      2001
+    </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              X
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2001-mp-x-sujet-1.pdf"
+                target="_blank"
+              >
+                Sujet 1
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2001-mp-x-rapport-1.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2001-mp-x-sujet-2.pdf"
+                target="_blank"
+              >
+                Sujet 2
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2001-mp-x-rapport-2.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
             </td>
           </tr>
         </tbody>

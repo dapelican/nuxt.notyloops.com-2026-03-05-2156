@@ -1,5 +1,5 @@
 <script setup>
-const meta_description = 'Les sujets, rapports et parfois corrigés et bonnes copiesdes examens et concours francophones.';
+const meta_description = 'Les sujets, rapports et parfois corrigés et bonnes copies des examens et concours francophones.';
 
 useSeoMeta({
   title: 'Annales | NotyLoops',

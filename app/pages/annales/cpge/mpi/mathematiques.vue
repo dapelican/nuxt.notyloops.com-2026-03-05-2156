@@ -60,7 +60,7 @@ useSeoMeta({
         <thead>
           <tr>
             <th>
-              Épreuve
+              Banque d'épreuve
             </th>
             <th>
               Documents
@@ -125,7 +125,7 @@ useSeoMeta({
         <thead>
           <tr>
             <th>
-              Épreuve
+              Banque d'épreuve
             </th>
             <th>
               Documents
@@ -190,7 +190,7 @@ useSeoMeta({
         <thead>
           <tr>
             <th>
-              Épreuve
+              Banque d'épreuve
             </th>
             <th>
               Documents
@@ -255,7 +255,7 @@ useSeoMeta({
         <thead>
           <tr>
             <th>
-              Épreuve
+              Banque d'épreuve
             </th>
             <th>
               Documents
@@ -301,71 +301,6 @@ useSeoMeta({
               <ULink
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-mathematiques-2023-mp-mpi-x-ens-rapport-a.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </figure>
-
-    <h2 class="mt-12">
-      2022
-    </h2>
-
-    <figure>
-      <table>
-        <thead>
-          <tr>
-            <th>
-              Épreuve
-            </th>
-            <th>
-              Documents
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              X
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2022-mp-mpi-x-sujet-b.pdf"
-                target="_blank"
-              >
-                Sujet (B)
-              </ULink>
-              |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2022-mp-mpi-x-rapport-b.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              X / ENS
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2022-mp-mpi-x-ens-sujet-a.pdf"
-                target="_blank"
-              >
-                Sujet (A)
-              </ULink>
-              |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2022-mp-mpi-x-ens-rapport-a.pdf"
                 target="_blank"
               >
                 Rapport

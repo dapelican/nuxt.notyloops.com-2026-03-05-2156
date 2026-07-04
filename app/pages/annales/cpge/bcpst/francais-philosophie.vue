@@ -86,7 +86,7 @@ useSeoMeta({
         <thead>
           <tr>
             <th>
-              Épreuve
+              Banque d'épreuve
             </th>
             <th>
               Documents
@@ -122,14 +122,14 @@ useSeoMeta({
               ENS / ENPC / Mines / EC
             </td>
             <td>
-              Pas encore disponible              <!-- <ULink
+              <ULink
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-francais-philosophie-2026-bcpst-ens-enpc-mines-ec-sujet.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Sujet
-              </ULink> -->
+              </ULink>
               <!-- |
               <ULink
                 class="text-primary"
@@ -197,7 +197,7 @@ useSeoMeta({
         <thead>
           <tr>
             <th>
-              Épreuve
+              Banque d'épreuve
             </th>
             <th>
               Documents
@@ -305,7 +305,7 @@ useSeoMeta({
         <thead>
           <tr>
             <th>
-              Épreuve
+              Banque d'épreuve
             </th>
             <th>
               Documents
@@ -405,7 +405,7 @@ useSeoMeta({
         <thead>
           <tr>
             <th>
-              Épreuve
+              Banque d'épreuve
             </th>
             <th>
               Documents
@@ -513,7 +513,7 @@ useSeoMeta({
         <thead>
           <tr>
             <th>
-              Épreuve
+              Banque d'épreuve
             </th>
             <th>
               Documents
@@ -618,7 +618,7 @@ useSeoMeta({
         <thead>
           <tr>
             <th>
-              Épreuve
+              Banque d'épreuve
             </th>
             <th>
               Documents
@@ -724,7 +724,7 @@ useSeoMeta({
         <thead>
           <tr>
             <th>
-              Épreuve
+              Banque d'épreuve
             </th>
             <th>
               Documents
@@ -823,12 +823,12 @@ useSeoMeta({
       2019 - L'amour
     </h2>
 
-    <!-- <figure>
+    <figure>
       <table>
         <thead>
           <tr>
             <th>
-              Épreuve
+              Banque d'épreuve
             </th>
             <th>
               Documents
@@ -904,7 +904,7 @@ useSeoMeta({
           </tr>
         </tbody>
       </table>
-    </figure> -->
+    </figure>
 
     <h3 class="mt-4">
       Œuvres
@@ -1590,326 +1590,6 @@ useSeoMeta({
         <span class="underline">La guerre de Troie n'aura pas lieu</span>, de Jean Giraudoux.
       </li>
     </ol>
-
-    <!-- <h2 class="mt-12">
-      2018 - ____
-    </h2>
-
-    <h3 class="mt-4">
-      Œuvres
-    </h3>
-
-    <ol class="list-decimal list-inside space-y-4">
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-    </ol> -->
-
-    <!-- <h2 class="mt-12">
-      2018 - ____
-    </h2>
-
-    <h3 class="mt-4">
-      Œuvres
-    </h3>
-
-    <ol class="list-decimal list-inside space-y-4">
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-    </ol> -->
-
-    <!-- <h2 class="mt-12">
-      2018 - ____
-    </h2>
-
-    <h3 class="mt-4">
-      Œuvres
-    </h3>
-
-    <ol class="list-decimal list-inside space-y-4">
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-    </ol> -->
-
-    <!-- <h2 class="mt-12">
-      2018 - ____
-    </h2>
-
-    <h3 class="mt-4">
-      Œuvres
-    </h3>
-
-    <ol class="list-decimal list-inside space-y-4">
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-    </ol> -->
-
-    <!-- <h2 class="mt-12">
-      2018 - ____
-    </h2>
-
-    <h3 class="mt-4">
-      Œuvres
-    </h3>
-
-    <ol class="list-decimal list-inside space-y-4">
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-    </ol> -->
-
-    <!-- <h2 class="mt-12">
-      2018 - ____
-    </h2>
-
-    <h3 class="mt-4">
-      Œuvres
-    </h3>
-
-    <ol class="list-decimal list-inside space-y-4">
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-    </ol> -->
-
-    <!-- <h2 class="mt-12">
-      2018 - ____
-    </h2>
-
-    <h3 class="mt-4">
-      Œuvres
-    </h3>
-
-    <ol class="list-decimal list-inside space-y-4">
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-    </ol> -->
-
-    <!-- <h2 class="mt-12">
-      2018 - ____
-    </h2>
-
-    <h3 class="mt-4">
-      Œuvres
-    </h3>
-
-    <ol class="list-decimal list-inside space-y-4">
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-    </ol> -->
-
-    <!-- <h2 class="mt-12">
-      2018 - ____
-    </h2>
-
-    <h3 class="mt-4">
-      Œuvres
-    </h3>
-
-    <ol class="list-decimal list-inside space-y-4">
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-    </ol> -->
-
-    <!-- <h2 class="mt-12">
-      2018 - ____
-    </h2>
-
-    <h3 class="mt-4">
-      Œuvres
-    </h3>
-
-    <ol class="list-decimal list-inside space-y-4">
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-    </ol> -->
-
-    <!-- <h2 class="mt-12">
-      2018 - ____
-    </h2>
-
-    <h3 class="mt-4">
-      Œuvres
-    </h3>
-
-    <ol class="list-decimal list-inside space-y-4">
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-    </ol> -->
-
-    <!-- <h2 class="mt-12">
-      2018 - ____
-    </h2>
-
-    <h3 class="mt-4">
-      Œuvres
-    </h3>
-
-    <ol class="list-decimal list-inside space-y-4">
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-    </ol> -->
-
-    <!-- <h2 class="mt-12">
-      2018 - ____
-    </h2>
-
-    <h3 class="mt-4">
-      Œuvres
-    </h3>
-
-    <ol class="list-decimal list-inside space-y-4">
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-    </ol> -->
-
-    <!-- <h2 class="mt-12">
-      2018 - ____
-    </h2>
-
-    <h3 class="mt-4">
-      Œuvres
-    </h3>
-
-    <ol class="list-decimal list-inside space-y-4">
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-    </ol> -->
-
-    <!-- <h2 class="mt-12">
-      2018 - ____
-    </h2>
-
-    <h3 class="mt-4">
-      Œuvres
-    </h3>
-
-    <ol class="list-decimal list-inside space-y-4">
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-    </ol> -->
-
-    <!-- <h2 class="mt-12">
-      2018 - ____
-    </h2>
-
-    <h3 class="mt-4">
-      Œuvres
-    </h3>
-
-    <ol class="list-decimal list-inside space-y-4">
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-      <li>
-        <span class="underline">_____t</span>, de _____.
-      </li>
-    </ol> -->
 
     <!-- <hr class="separator-1">
 

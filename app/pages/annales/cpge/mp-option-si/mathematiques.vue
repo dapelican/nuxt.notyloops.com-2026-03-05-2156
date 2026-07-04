@@ -60,7 +60,7 @@ useSeoMeta({
         <thead>
           <tr>
             <th>
-              Épreuve
+              Banque d'épreuve
             </th>
             <th>
               Documents
@@ -125,7 +125,7 @@ useSeoMeta({
         <thead>
           <tr>
             <th>
-              Épreuve
+              Banque d'épreuve
             </th>
             <th>
               Documents
@@ -190,7 +190,7 @@ useSeoMeta({
         <thead>
           <tr>
             <th>
-              Épreuve
+              Banque d'épreuve
             </th>
             <th>
               Documents
@@ -255,7 +255,7 @@ useSeoMeta({
         <thead>
           <tr>
             <th>
-              Épreuve
+              Banque d'épreuve
             </th>
             <th>
               Documents
@@ -320,7 +320,7 @@ useSeoMeta({
         <thead>
           <tr>
             <th>
-              Épreuve
+              Banque d'épreuve
             </th>
             <th>
               Documents
@@ -335,7 +335,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2022-mp-mpi-x-sujet-b.pdf"
+                to="https://annales.notyloops.com/cpge-mathematiques-2022-mp-x-sujet-b.pdf"
                 target="_blank"
               >
                 Sujet (B)
@@ -343,7 +343,7 @@ useSeoMeta({
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2022-mp-mpi-x-rapport-b.pdf"
+                to="https://annales.notyloops.com/cpge-mathematiques-2022-mp-x-rapport-b.pdf"
                 target="_blank"
               >
                 Rapport
@@ -357,7 +357,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2022-mp-mpi-x-ens-sujet-a.pdf"
+                to="https://annales.notyloops.com/cpge-mathematiques-2022-mp-x-ens-sujet-a.pdf"
                 target="_blank"
               >
                 Sujet (A)
@@ -365,7 +365,7 @@ useSeoMeta({
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-mathematiques-2022-mp-mpi-x-ens-rapport-a.pdf"
+                to="https://annales.notyloops.com/cpge-mathematiques-2022-mp-x-ens-rapport-a.pdf"
                 target="_blank"
               >
                 Rapport

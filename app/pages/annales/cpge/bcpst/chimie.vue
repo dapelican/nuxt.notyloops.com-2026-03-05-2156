@@ -60,7 +60,7 @@ useSeoMeta({
         <thead>
           <tr>
             <th>
-              Épreuve
+              Banque d'épreuve
             </th>
             <th>
               Documents
@@ -96,15 +96,14 @@ useSeoMeta({
               ENS / ENPC / Mines / Ecole centrale
             </td>
             <td>
-              Pas encore disponible
-              <!-- <ULink
+              <ULink
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-chimie-2026-bcpst-ens-enpc-mines-ec-sujet.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Sujet
-              </ULink> -->
+              </ULink>
               <!-- |
               <ULink
                 class="text-primary"
@@ -151,7 +150,7 @@ useSeoMeta({
         <thead>
           <tr>
             <th>
-              Épreuve
+              Banque d'épreuve
             </th>
             <th>
               Documents
@@ -241,7 +240,7 @@ useSeoMeta({
         <thead>
           <tr>
             <th>
-              Épreuve
+              Banque d'épreuve
             </th>
             <th>
               Documents
@@ -343,7 +342,7 @@ useSeoMeta({
         <thead>
           <tr>
             <th>
-              Épreuve
+              Banque d'épreuve
             </th>
             <th>
               Documents
@@ -436,7 +435,7 @@ useSeoMeta({
         <thead>
           <tr>
             <th>
-              Épreuve
+              Banque d'épreuve
             </th>
             <th>
               Documents
@@ -529,7 +528,7 @@ useSeoMeta({
         <thead>
           <tr>
             <th>
-              Épreuve
+              Banque d'épreuve
             </th>
             <th>
               Documents
@@ -622,7 +621,7 @@ useSeoMeta({
         <thead>
           <tr>
             <th>
-              Épreuve
+              Banque d'épreuve
             </th>
             <th>
               Documents
@@ -705,119 +704,5 @@ useSeoMeta({
         </tbody>
       </table>
     </figure>
-
-    <!-- <hr class="separator-1">
-
-      <p>
-        Sources :
-      </p>
-
-      <ul>
-        <li>
-          <ULink class="text-primary"
-            to="https://www.concours-agro-veto.fr/archives-sujets-rapports/sujets-rapports-concours-cpge-bcpst/epreuves-ecrites-concours-cpge-bcpst#Chimie"
-            target="_blank"
-          >
-            Agro-Véto : les sujets
-          </ULink>
-        </li>
-        <li>
-          <ULink class="text-primary"
-            to="https://www.ens.psl.eu/une-formation-d-exception/admission-concours/concours-voie-cpge/concours-voie-cpge-sciences-0"
-            target="_blank"
-          >
-            ENS : sujets et rapports à partir de 2007
-          </ULink>
-        </li>
-        <li>
-          <ULink class="text-primary"
-            to="https://concoursg2e.univ-lorraine.fr/concours-precedents/"
-            target="_blank"
-          >
-            G2E : les sujets et rapports
-          </ULink>
-        </li>
-        <li>
-          <ULink class="text-primary"
-            to="https://banques-ecoles.fr/cms/filiere-bcpst/"
-            target="_blank"
-          >
-            Sujets à partir de 2003
-          </ULink>
-        </li>
-        <li>
-          <ULink class="text-primary"
-            to="https://www.education.gouv.fr/bo/2026/Hebdo21/ESRS2611873A"
-            target="_blank"
-          >
-            Programme de français et de philosophie pour l'année scolaire 2026-2027 (bulletin officiel)
-          </ULink>
-        </li>
-        <li>
-          <ULink class="text-primary"
-            to="https://www.education.gouv.fr/bo/2025/Hebdo23/MENS2514209A"
-            target="_blank"
-          >
-            Programme de français et de philosophie pour l'année scolaire 2025-2026 (bulletin officiel)
-          </ULink>
-        </li>
-        <li>
-          <ULink class="text-primary"
-            to="https://www.education.gouv.fr/bo/2024/Hebdo29/ESRS2418417A"
-            target="_blank"
-          >
-            Programme de français et de philosophie pour l'année scolaire 2024-2025 (bulletin officiel)
-          </ULink>
-        </li>
-        <li>
-          <ULink class="text-primary"
-            to="https://www.education.gouv.fr/bo/2023/Hebdo28/ESRS2317934A"
-            target="_blank"
-          >
-            Programme de français et de philosophie pour l'année scolaire 2023-2024 (bulletin officiel)
-          </ULink>
-        </li>
-        <li>
-          <ULink class="text-primary"
-            to="https://www.education.gouv.fr/bo/22/Hebdo20/ESRS2213517A.htm"
-            target="_blank"
-          >
-            Programme de français et de philosophie pour l'année scolaire 2022-2023 (bulletin officiel)
-          </ULink>
-        </li>
-        <li>
-          <ULink class="text-primary"
-            to="https://www.enseignementsup-recherche.gouv.fr/fr/bo/21/Hebdo28/ESRS2119554A.htm"
-            target="_blank"
-          >
-            Programme de français et de philosophie pour l'année scolaire 2021-2022 (bulletin officiel)
-          </ULink>
-        </li>
-
-        <li>
-          <ULink class="text-primary"
-            to="https://fr.wikipedia.org/wiki/Fran%C3%A7ais-philosophie#%C3%89tude_des_%C5%93uvres"
-            target="_blank"
-          >
-            Thèmes et oeuvres de Français - Philosophie depuis 1969
-          </ULink>
-        </li>
-        <li>
-          <ULink class="text-primary"
-            to="https://oldccp.scei-concours.fr/sccp.php?page=cpge/sujet/sujet_accueil_cpge.html"
-            target="_blank"
-          >
-            e3a-Polytech : sujets à partir de 2018
-          </ULink>
-        </li>
-        <li>
-          <ULink class="text-primary"
-            to="https://astucesweb.fr/cpge/annales/"
-            target="_blank"
-          >
-            Annales concours CPGE
-          </ULink>
-        </li>
-      </ul> -->
   </UContainer>
 </template>
