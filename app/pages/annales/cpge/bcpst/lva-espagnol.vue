@@ -73,15 +73,14 @@ useSeoMeta({
               ENS / ENPC / Mines / Ecole centrale
             </td>
             <td>
-              Pas encore disponible
-              <!-- <ULink
+              <ULink
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2026-bcpst-ens-enpc-mines-ec-sujet-espagnol.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Sujet
-              </ULink> -->
+              </ULink>
               <!-- |
               <ULink
                 class="text-primary"

@@ -95,14 +95,13 @@ useSeoMeta({
               ENS / ENPC / Mines / Ecole centrale
             </td>
             <td>
-              Pas encore disponible
-              <!-- <ULink
+              <ULink
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2026-bcpst-ens-enpc-mines-ec-sujet-anglais.pdf"
                 target="_blank"
               >
                 Sujet
-              </ULink> -->
+              </ULink>
               <!-- |
               <ULink
                 class="text-primary"
@@ -497,6 +496,71 @@ useSeoMeta({
               <ULink
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2020-bcpst-ens-enpc-rapport-anglais.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2 class="mt-12">
+      2019
+    </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Agro-Véto
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-lva-2019-bcpst-agro-veto-sujet-anglais.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-lva-2019-bcpst-agro-veto-rapport-anglais.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              ENS / ENPC
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-lva-2019-bcpst-ens-enpc-sujet-anglais.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-lva-2019-bcpst-ens-enpc-rapport-anglais.pdf"
                 target="_blank"
               >
                 Rapport

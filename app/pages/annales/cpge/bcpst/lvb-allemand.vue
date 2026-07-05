@@ -351,6 +351,49 @@ useSeoMeta({
       </table>
     </figure>
 
+    <h2 class="mt-12">
+      2019
+    </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Agro-Véto
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-lvb-2019-bcpst-agro-veto-sujet-allemand.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-lvb-2019-bcpst-agro-veto-rapport-allemand.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
     <!-- <hr class="separator-1">
 
       <p>
