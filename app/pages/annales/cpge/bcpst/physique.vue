@@ -95,14 +95,13 @@ useSeoMeta({
               ENS / ENPC / Mines / Ecole centrale
             </td>
             <td>
-              Pas encore disponible
-              <!-- <ULink
+              <ULink
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-physique-2026-bcpst-ens-enpc-mines-ec-sujet.pdf"
                 target="_blank"
               >
                 Sujet
-              </ULink> -->
+              </ULink>
               <!-- |
               <ULink
                 class="text-primary"

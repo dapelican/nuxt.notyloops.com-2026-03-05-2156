@@ -125,50 +125,50 @@ useSeoMeta({
           </tr>
           <tr>
             <td>
+              ENS / ENPC
+            </td>
+            <td>
+              <span>Sciences de la terre</span>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-svt-2026-bcpst-ens-enpc-sujet-st.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+                  <ULink
+                    class="text-primary"
+                    to="https://annales.notyloops.com/cpge-svt-2026-bcpst-ens-enpc-mines-ec-rapport-st.pdf"
+                    target="_blank"
+                  >
+                    Rapport
+                  </ULink> -->
+            </td>
+          </tr>
+          <tr>
+            <td>
               ENS / ENPC / Mines / Ecole centrale
             </td>
             <td>
-              Pas encore disponible
-              <!-- <ul class="space-y-4">
-                <li>
-                  <span>Biologie</span>
-                  <br>
+              <span>Biologie</span>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-svt-2026-bcpst-ens-enpc-mines-ec-sujet-biologie.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
                   <ULink
                     class="text-primary"
-                    to="https://annales.notyloops.com/cpge-svt-2026-bcpst-ens-snpc-mines-ec-sujet-biologie.pdf"
-                    target="_blank"
-                  >
-                    Sujet
-                  </ULink>
-                  |
-                  <ULink
-                    class="text-primary"
-                    to="https://annales.notyloops.com/cpge-svt-2026-bcpst-ens-snpc-mines-ec-rapport-biologie.pdf"
+                    to="https://annales.notyloops.com/cpge-svt-2026-bcpst-ens-enpc-mines-ec-rapport-biologie.pdf"
                     target="_blank"
                   >
                     Rapport
-                  </ULink>
-                </li>
-                <li class="mt-1">
-                  <span>Sciences de la terre</span>
-                  <br>
-                  <ULink
-                    class="text-primary"
-                    to="https://annales.notyloops.com/cpge-svt-2026-bcpst-ens-snpc-mines-ec-sujet-st.pdf"
-                    target="_blank"
-                  >
-                    Sujet
-                  </ULink>
-                  |
-                  <ULink
-                    class="text-primary"
-                    to="https://annales.notyloops.com/cpge-svt-2026-bcpst-ens-snpc-mines-ec-rapport-st.pdf"
-                    target="_blank"
-                  >
-                    Rapport
-                  </ULink>
-                </li>
-              </ul> -->
+                  </ULink> -->
             </td>
           </tr>
           <tr>
@@ -313,7 +313,7 @@ useSeoMeta({
                   <br>
                   <ULink
                     class="text-primary"
-                    to="https://annales.notyloops.com/cpge-svt-2025-bcpst-ens-snpc-mines-ec-sujet-biologie.pdf"
+                    to="https://annales.notyloops.com/cpge-svt-2025-bcpst-ens-enpc-mines-ec-sujet-biologie.pdf"
                     target="_blank"
                   >
                     Sujet
@@ -321,7 +321,7 @@ useSeoMeta({
                   |
                   <ULink
                     class="text-primary"
-                    to="https://annales.notyloops.com/cpge-svt-2025-bcpst-ens-snpc-mines-ec-rapport-biologie.pdf"
+                    to="https://annales.notyloops.com/cpge-svt-2025-bcpst-ens-enpc-mines-ec-rapport-biologie.pdf"
                     target="_blank"
                   >
                     Rapport
@@ -332,7 +332,7 @@ useSeoMeta({
                   <br>
                   <ULink
                     class="text-primary"
-                    to="https://annales.notyloops.com/cpge-svt-2025-bcpst-ens-snpc-mines-ec-sujet-st.pdf"
+                    to="https://annales.notyloops.com/cpge-svt-2025-bcpst-ens-enpc-mines-ec-sujet-st.pdf"
                     target="_blank"
                   >
                     Sujet
@@ -340,7 +340,7 @@ useSeoMeta({
                   |
                   <ULink
                     class="text-primary"
-                    to="https://annales.notyloops.com/cpge-svt-2025-bcpst-ens-snpc-mines-ec-rapport-st.pdf"
+                    to="https://annales.notyloops.com/cpge-svt-2025-bcpst-ens-enpc-mines-ec-rapport-st.pdf"
                     target="_blank"
                   >
                     Rapport
@@ -491,7 +491,7 @@ useSeoMeta({
                   <br>
                   <ULink
                     class="text-primary"
-                    to="https://annales.notyloops.com/cpge-svt-2024-bcpst-ens-snpc-mines-sujet-biologie.pdf"
+                    to="https://annales.notyloops.com/cpge-svt-2024-bcpst-ens-enpc-mines-sujet-biologie.pdf"
                     target="_blank"
                   >
                     Sujet
@@ -499,7 +499,7 @@ useSeoMeta({
                   |
                   <ULink
                     class="text-primary"
-                    to="https://annales.notyloops.com/cpge-svt-2024-bcpst-ens-snpc-mines-rapport-biologie.pdf"
+                    to="https://annales.notyloops.com/cpge-svt-2024-bcpst-ens-enpc-mines-rapport-biologie.pdf"
                     target="_blank"
                   >
                     Rapport
@@ -510,7 +510,7 @@ useSeoMeta({
                   <br>
                   <ULink
                     class="text-primary"
-                    to="https://annales.notyloops.com/cpge-svt-2024-bcpst-ens-snpc-mines-sujet-st.pdf"
+                    to="https://annales.notyloops.com/cpge-svt-2024-bcpst-ens-enpc-mines-sujet-st.pdf"
                     target="_blank"
                   >
                     Sujet
@@ -518,7 +518,7 @@ useSeoMeta({
                   |
                   <ULink
                     class="text-primary"
-                    to="https://annales.notyloops.com/cpge-svt-2024-bcpst-ens-snpc-mines-rapport-st.pdf"
+                    to="https://annales.notyloops.com/cpge-svt-2024-bcpst-ens-enpc-mines-rapport-st.pdf"
                     target="_blank"
                   >
                     Rapport
@@ -661,7 +661,7 @@ useSeoMeta({
                   <br>
                   <ULink
                     class="text-primary"
-                    to="https://annales.notyloops.com/cpge-svt-2023-bcpst-ens-snpc-mines-sujet-biologie.pdf"
+                    to="https://annales.notyloops.com/cpge-svt-2023-bcpst-ens-enpc-mines-sujet-biologie.pdf"
                     target="_blank"
                   >
                     Sujet
@@ -669,7 +669,7 @@ useSeoMeta({
                   |
                   <ULink
                     class="text-primary"
-                    to="https://annales.notyloops.com/cpge-svt-2023-bcpst-ens-snpc-mines-rapport-biologie.pdf"
+                    to="https://annales.notyloops.com/cpge-svt-2023-bcpst-ens-enpc-mines-rapport-biologie.pdf"
                     target="_blank"
                   >
                     Rapport
@@ -680,7 +680,7 @@ useSeoMeta({
                   <br>
                   <ULink
                     class="text-primary"
-                    to="https://annales.notyloops.com/cpge-svt-2023-bcpst-ens-snpc-mines-sujet-st.pdf"
+                    to="https://annales.notyloops.com/cpge-svt-2023-bcpst-ens-enpc-mines-sujet-st.pdf"
                     target="_blank"
                   >
                     Sujet
@@ -688,7 +688,7 @@ useSeoMeta({
                   |
                   <ULink
                     class="text-primary"
-                    to="https://annales.notyloops.com/cpge-svt-2023-bcpst-ens-snpc-mines-rapport-st.pdf"
+                    to="https://annales.notyloops.com/cpge-svt-2023-bcpst-ens-enpc-mines-rapport-st.pdf"
                     target="_blank"
                   >
                     Rapport
@@ -853,7 +853,7 @@ useSeoMeta({
                   <br>
                   <ULink
                     class="text-primary"
-                    to="https://annales.notyloops.com/cpge-svt-2022-bcpst-ens-snpc-sujet-biologie.pdf"
+                    to="https://annales.notyloops.com/cpge-svt-2022-bcpst-ens-enpc-sujet-biologie.pdf"
                     target="_blank"
                   >
                     Sujet
@@ -861,7 +861,7 @@ useSeoMeta({
                   |
                   <ULink
                     class="text-primary"
-                    to="https://annales.notyloops.com/cpge-svt-2022-bcpst-ens-snpc-rapport-biologie.pdf"
+                    to="https://annales.notyloops.com/cpge-svt-2022-bcpst-ens-enpc-rapport-biologie.pdf"
                     target="_blank"
                   >
                     Rapport
@@ -872,7 +872,7 @@ useSeoMeta({
                   <br>
                   <ULink
                     class="text-primary"
-                    to="https://annales.notyloops.com/cpge-svt-2022-bcpst-ens-snpc-sujet-st.pdf"
+                    to="https://annales.notyloops.com/cpge-svt-2022-bcpst-ens-enpc-sujet-st.pdf"
                     target="_blank"
                   >
                     Sujet
@@ -880,7 +880,7 @@ useSeoMeta({
                   |
                   <ULink
                     class="text-primary"
-                    to="https://annales.notyloops.com/cpge-svt-2022-bcpst-ens-snpc-rapport-st.pdf"
+                    to="https://annales.notyloops.com/cpge-svt-2022-bcpst-ens-enpc-rapport-st.pdf"
                     target="_blank"
                   >
                     Rapport
@@ -1045,7 +1045,7 @@ useSeoMeta({
                   <br>
                   <ULink
                     class="text-primary"
-                    to="https://annales.notyloops.com/cpge-svt-2021-bcpst-ens-snpc-sujet-biologie.pdf"
+                    to="https://annales.notyloops.com/cpge-svt-2021-bcpst-ens-enpc-sujet-biologie.pdf"
                     target="_blank"
                   >
                     Sujet
@@ -1053,7 +1053,7 @@ useSeoMeta({
                   |
                   <ULink
                     class="text-primary"
-                    to="https://annales.notyloops.com/cpge-svt-2021-bcpst-ens-snpc-rapport-biologie.pdf"
+                    to="https://annales.notyloops.com/cpge-svt-2021-bcpst-ens-enpc-rapport-biologie.pdf"
                     target="_blank"
                   >
                     Rapport
@@ -1064,7 +1064,7 @@ useSeoMeta({
                   <br>
                   <ULink
                     class="text-primary"
-                    to="https://annales.notyloops.com/cpge-svt-2021-bcpst-ens-snpc-sujet-st.pdf"
+                    to="https://annales.notyloops.com/cpge-svt-2021-bcpst-ens-enpc-sujet-st.pdf"
                     target="_blank"
                   >
                     Sujet
@@ -1072,7 +1072,7 @@ useSeoMeta({
                   |
                   <ULink
                     class="text-primary"
-                    to="https://annales.notyloops.com/cpge-svt-2021-bcpst-ens-snpc-rapport-st.pdf"
+                    to="https://annales.notyloops.com/cpge-svt-2021-bcpst-ens-enpc-rapport-st.pdf"
                     target="_blank"
                   >
                     Rapport
@@ -1245,7 +1245,7 @@ useSeoMeta({
                   <br>
                   <ULink
                     class="text-primary"
-                    to="https://annales.notyloops.com/cpge-svt-2020-bcpst-ens-snpc-sujet-biologie.pdf"
+                    to="https://annales.notyloops.com/cpge-svt-2020-bcpst-ens-enpc-sujet-biologie.pdf"
                     target="_blank"
                   >
                     Sujet
@@ -1253,7 +1253,7 @@ useSeoMeta({
                   |
                   <ULink
                     class="text-primary"
-                    to="https://annales.notyloops.com/cpge-svt-2020-bcpst-ens-snpc-rapport-biologie.pdf"
+                    to="https://annales.notyloops.com/cpge-svt-2020-bcpst-ens-enpc-rapport-biologie.pdf"
                     target="_blank"
                   >
                     Rapport
@@ -1264,7 +1264,7 @@ useSeoMeta({
                   <br>
                   <ULink
                     class="text-primary"
-                    to="https://annales.notyloops.com/cpge-svt-2020-bcpst-ens-snpc-sujet-st.pdf"
+                    to="https://annales.notyloops.com/cpge-svt-2020-bcpst-ens-enpc-sujet-st.pdf"
                     target="_blank"
                   >
                     Sujet
@@ -1272,7 +1272,7 @@ useSeoMeta({
                   |
                   <ULink
                     class="text-primary"
-                    to="https://annales.notyloops.com/cpge-svt-2020-bcpst-ens-snpc-rapport-st.pdf"
+                    to="https://annales.notyloops.com/cpge-svt-2020-bcpst-ens-enpc-rapport-st.pdf"
                     target="_blank"
                   >
                     Rapport
