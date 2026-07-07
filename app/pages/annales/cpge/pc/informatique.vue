@@ -161,7 +161,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-informatique-2024-mp-pc-psi-x-espci-ens-sujet-b.pdf"
+                to="https://annales.notyloops.com/cpge-informatique-2024-mp-mpi-pc-psi-x-espci-ens-sujet-b.pdf"
                 target="_blank"
               >
                 Sujet (B - XELSR)
@@ -169,7 +169,7 @@ useSeoMeta({
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-informatique-2024-mp-pc-psi-x-espci-ens-rapport-b.pdf"
+                to="https://annales.notyloops.com/cpge-informatique-2024-mp-mpi-pc-psi-x-espci-ens-rapport-b.pdf"
                 target="_blank"
               >
                 Rapport

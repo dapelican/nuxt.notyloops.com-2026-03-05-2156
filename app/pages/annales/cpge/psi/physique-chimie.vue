@@ -205,7 +205,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-physique-chimie-2023-psi-ens-x-sujet-physique-u.pdf"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2023-psi-ens-sujet-physique-u.pdf"
                 target="_blank"
               >
                 Sujet physique U
@@ -213,7 +213,7 @@ useSeoMeta({
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-physique-chimie-2023-psi-ens-x-rapport-physique-u.pdf"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2023-psi-ens-rapport-physique-u.pdf"
                 target="_blank"
               >
                 Rapport
@@ -270,7 +270,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-physique-chimie-2022-psi-ens-x-sujet-physique-u.pdf"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2022-psi-ens-sujet-physique-u.pdf"
                 target="_blank"
               >
                 Sujet physique U
@@ -278,7 +278,7 @@ useSeoMeta({
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-physique-chimie-2022-psi-ens-x-rapport-physique-u.pdf"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2022-psi-ens-rapport-physique-u.pdf"
                 target="_blank"
               >
                 Rapport

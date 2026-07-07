@@ -76,7 +76,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2026-ec-ecricome-sujet-allemand-anglais-espagnol.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2026-ec-ecricome-sujet-allemand.pdf"
                 target="_blank"
               >
                 Sujet
@@ -98,7 +98,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2026-ec-elvi-sujet-allemand-anglais-espagnol.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2026-ec-elvi-sujet-allemand.pdf"
                 target="_blank"
               >
                 Sujet
@@ -141,7 +141,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2025-ec-ecricome-sujet-allemand-anglais-espagnol.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2025-ec-ecricome-sujet-allemand.pdf"
                 target="_blank"
               >
                 Sujet
@@ -163,7 +163,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2025-ec-elvi-sujet-allemand-anglais-espagnol.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2025-ec-elvi-sujet-allemand.pdf"
                 target="_blank"
               >
                 Sujet
@@ -206,7 +206,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2024-ec-ecricome-sujet-allemand-anglais-espagnol.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2024-ec-ecricome-sujet-allemand.pdf"
                 target="_blank"
               >
                 Sujet
@@ -228,7 +228,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2024-ec-elvi-sujet-allemand-anglais-espagnol.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2024-ec-elvi-sujet-allemand.pdf"
                 target="_blank"
               >
                 Sujet
@@ -271,7 +271,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2023-ec-ecricome-sujet-allemand-anglais-espagnol.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2023-ec-ecricome-sujet-allemand.pdf"
                 target="_blank"
               >
                 Sujet
@@ -293,7 +293,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2023-ec-elvi-sujet-allemand-anglais-espagnol.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2023-ec-elvi-sujet-allemand.pdf"
                 target="_blank"
               >
                 Sujet
@@ -315,7 +315,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2023-ec-iena-sujet-al-an-ar-es-it-po-ru.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2023-ec-iena-sujet-allemand.pdf"
                 target="_blank"
               >
                 Sujet
@@ -358,7 +358,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2022-ec-ecricome-sujet-allemand-anglais-espagnol.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2022-ec-ecricome-sujet-allemand.pdf"
                 target="_blank"
               >
                 Sujet
@@ -380,7 +380,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2022-ec-elvi-sujet-allemand-anglais-espagnol.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2022-ec-elvi-sujet-allemand.pdf"
                 target="_blank"
               >
                 Sujet
@@ -402,7 +402,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2022-ec-iena-sujet-al-an-ar-es-it-po-ru.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2022-ec-iena-sujet-allemand.pdf"
                 target="_blank"
               >
                 Sujet
@@ -445,7 +445,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2021-ec-ecricome-sujet-allemand-anglais-espagnol.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2021-ec-ecricome-sujet-allemand.pdf"
                 target="_blank"
               >
                 Sujet
@@ -467,7 +467,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2021-ec-elvi-sujet-allemand-anglais-espagnol.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2021-ec-elvi-sujet-allemand.pdf"
                 target="_blank"
               >
                 Sujet
@@ -489,7 +489,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2021-ec-iena-sujet-al-an-ar-es-it-po-ru.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2021-ec-iena-sujet-allemand.pdf"
                 target="_blank"
               >
                 Sujet
@@ -532,7 +532,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2020-ec-ecricome-sujet-allemand-anglais-espagnol.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2020-ec-ecricome-sujet-allemand.pdf"
                 target="_blank"
               >
                 Sujet
@@ -554,7 +554,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2020-ec-elvi-sujet-allemand-anglais-espagnol.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2020-ec-elvi-sujet-allemand.pdf"
                 target="_blank"
               >
                 Sujet
@@ -576,7 +576,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2020-ec-iena-sujet-al-an-ar-es-it-po-ru.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2020-ec-iena-sujet-allemand.pdf"
                 target="_blank"
               >
                 Sujet
@@ -619,7 +619,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2019-ec-ecricome-sujet-allemand-anglais-espagnol.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2019-ec-ecricome-sujet-allemand.pdf"
                 target="_blank"
               >
                 Sujet
@@ -641,7 +641,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2019-ec-elvi-sujet-allemand-anglais-espagnol.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2019-ec-elvi-sujet-allemand.pdf"
                 target="_blank"
               >
                 Sujet
@@ -663,7 +663,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2019-ec-iena-sujet-al-an-ar-es-it-po-ru.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2019-ec-iena-sujet-allemand.pdf"
                 target="_blank"
               >
                 Sujet
