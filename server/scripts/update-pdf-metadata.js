@@ -9,7 +9,7 @@ import { readFile, readdir, stat, writeFile } from 'node:fs/promises';
 import { DateTime } from 'luxon';
 import { PDFDocument } from 'pdf-lib';
 
-const FOLDER_PATH = '/home/dalamkan/Dropbox/Projets/notyloops/annales/cpge-scientifiques/pending';
+const FOLDER_PATH = '/home/dalamkan/Dropbox/Projets/notyloops/annales/pending';
 
 async function updatePdfMetadata(file_path, title) {
   const pdf_bytes = await readFile(file_path);
