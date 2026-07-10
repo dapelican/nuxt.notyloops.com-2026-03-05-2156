@@ -1,7 +1,7 @@
 <script setup>
 const page_title = 'Annales prépa ECG : LVA anglais';
 
-let meta_description = 'Les annales BCE et Ecricome de LVA anglais pour les CPGE ECG (voie technologique).';
+let meta_description = 'Les annales BCE et Ecricome de LVA anglais pour les CPGE ECG (voie générale).';
 meta_description += ' Les sujets et rapports des dernières années.';
 
 const breadcrumb_items = [

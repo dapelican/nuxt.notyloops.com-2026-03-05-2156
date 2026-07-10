@@ -1,7 +1,7 @@
 <script setup>
 const page_title = 'Annales prépa ECG : LVB espagnol';
 
-let meta_description = 'Les annales BCE et Ecricome de LVB espagnol pour les CPGE ECG (voie technologique).';
+let meta_description = 'Les annales BCE et Ecricome de LVB espagnol pour les CPGE ECG (voie générale).';
 meta_description += ' Les sujets et rapports des dernières années.';
 
 const breadcrumb_items = [
@@ -76,7 +76,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lvb-2026-ec-ecricome-sujet-allemand-anglais-espagnol.pdf"
+                to="https://annales.notyloops.com/cpge-lvb-2026-ec-ecricome-sujet-espagnol.pdf"
                 target="_blank"
               >
                 Sujet
@@ -98,7 +98,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lvb-2026-ec-elvi-sujet-allemand-anglais-espagnol.pdf"
+                to="https://annales.notyloops.com/cpge-lvb-2026-ec-elvi-sujet-espagnol.pdf"
                 target="_blank"
               >
                 Sujet
@@ -141,7 +141,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lvb-2025-ec-ecricome-sujet-allemand-anglais-espagnol.pdf"
+                to="https://annales.notyloops.com/cpge-lvb-2025-ec-ecricome-sujet-espagnol.pdf"
                 target="_blank"
               >
                 Sujet
@@ -163,7 +163,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lvb-2025-ec-elvi-sujet-allemand-anglais-espagnol.pdf"
+                to="https://annales.notyloops.com/cpge-lvb-2025-ec-elvi-sujet-espagnol.pdf"
                 target="_blank"
               >
                 Sujet
@@ -206,7 +206,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lvb-2024-ec-ecricome-sujet-allemand-anglais-espagnol.pdf"
+                to="https://annales.notyloops.com/cpge-lvb-2024-ec-ecricome-sujet-espagnol.pdf"
                 target="_blank"
               >
                 Sujet
@@ -228,7 +228,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lvb-2024-ec-elvi-sujet-allemand-anglais-espagnol.pdf"
+                to="https://annales.notyloops.com/cpge-lvb-2024-ec-elvi-sujet-espagnol.pdf"
                 target="_blank"
               >
                 Sujet
@@ -271,7 +271,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lvb-2023-ec-ecricome-sujet-allemand-anglais-espagnol.pdf"
+                to="https://annales.notyloops.com/cpge-lvb-2023-ec-ecricome-sujet-espagnol.pdf"
                 target="_blank"
               >
                 Sujet
@@ -293,7 +293,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lvb-2023-ec-elvi-sujet-allemand-anglais-espagnol.pdf"
+                to="https://annales.notyloops.com/cpge-lvb-2023-ec-elvi-sujet-espagnol.pdf"
                 target="_blank"
               >
                 Sujet
@@ -313,6 +313,8 @@ useSeoMeta({
               Iena
             </td>
             <td>
+              Sujet non disponible
+              |
               <ULink
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-lvb-2023-ec-iena-rapport-espagnol.pdf"
@@ -350,7 +352,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lvb-2022-ec-ecricome-sujet-allemand-anglais-espagnol.pdf"
+                to="https://annales.notyloops.com/cpge-lvb-2022-ec-ecricome-sujet-espagnol.pdf"
                 target="_blank"
               >
                 Sujet
@@ -372,7 +374,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lvb-2022-ec-elvi-sujet-allemand-anglais-espagnol.pdf"
+                to="https://annales.notyloops.com/cpge-lvb-2022-ec-elvi-sujet-espagnol.pdf"
                 target="_blank"
               >
                 Sujet
@@ -394,7 +396,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lvb-2022-ec-iena-sujet-al-an-ar-es-it-po-ru-la-gran.pdf"
+                to="https://annales.notyloops.com/cpge-lvb-2022-ec-iena-sujet-espagnol.pdf"
                 target="_blank"
               >
                 Sujet
@@ -437,7 +439,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lvb-2021-ec-ecricome-sujet-allemand-anglais-espagnol.pdf"
+                to="https://annales.notyloops.com/cpge-lvb-2021-ec-ecricome-sujet-espagnol.pdf"
                 target="_blank"
               >
                 Sujet
@@ -459,7 +461,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lvb-2021-ec-elvi-sujet-allemand-anglais-espagnol.pdf"
+                to="https://annales.notyloops.com/cpge-lvb-2021-ec-elvi-sujet-espagnol.pdf"
                 target="_blank"
               >
                 Sujet
@@ -481,7 +483,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lvb-2021-ec-iena-sujet-al-an-ar-es-it-po-ru-la-gran.pdf"
+                to="https://annales.notyloops.com/cpge-lvb-2021-ec-iena-sujet-espagnol.pdf"
                 target="_blank"
               >
                 Sujet
@@ -524,7 +526,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lvb-2020-ec-ecricome-sujet-allemand-anglais-espagnol.pdf"
+                to="https://annales.notyloops.com/cpge-lvb-2020-ec-ecricome-sujet-espagnol.pdf"
                 target="_blank"
               >
                 Sujet
@@ -546,7 +548,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lvb-2020-ec-elvi-sujet-allemand-anglais-espagnol.pdf"
+                to="https://annales.notyloops.com/cpge-lvb-2020-ec-elvi-sujet-espagnol.pdf"
                 target="_blank"
               >
                 Sujet
@@ -568,7 +570,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lvb-2020-ec-iena-sujet-al-an-ar-es-it-po-ru-la-gran.pdf"
+                to="https://annales.notyloops.com/cpge-lvb-2020-ec-iena-sujet-espagnol.pdf"
                 target="_blank"
               >
                 Sujet
@@ -611,7 +613,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lvb-2019-ec-ecricome-sujet-allemand-anglais-espagnol.pdf"
+                to="https://annales.notyloops.com/cpge-lvb-2019-ec-ecricome-sujet-espagnol.pdf"
                 target="_blank"
               >
                 Sujet
@@ -633,7 +635,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lvb-2019-ec-elvi-sujet-allemand-anglais-espagnol.pdf"
+                to="https://annales.notyloops.com/cpge-lvb-2019-ec-elvi-sujet-espagnol.pdf"
                 target="_blank"
               >
                 Sujet
@@ -655,7 +657,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lvb-2019-ec-iena-sujet-al-an-ar-es-it-po-ru-la-gran.pdf"
+                to="https://annales.notyloops.com/cpge-lvb-2019-ec-iena-sujet-espagnol.pdf"
                 target="_blank"
               >
                 Sujet
