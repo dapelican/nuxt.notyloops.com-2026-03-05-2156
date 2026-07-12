@@ -70,6 +70,72 @@ useSeoMeta({
         <tbody>
           <tr>
             <td>
+              CCINP / e3a-Polytech
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-lva-2026-ccinp-e3a-polytech-sujet-allemand.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-lva-2026-e3a-polytech-rapport-allemand.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              CCMP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-lva-2026-ccmp-sujet-allemand.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-lva-2026-ccmp-rapport-allemand.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              CCS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-lva-2026-ccs-sujet-allemand.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-lva-2026-ccs-rpport-allemand.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+          <tr>
+            <td>
               X / ESPCI / ENS
             </td>
             <td>

@@ -745,7 +745,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-physique-chimie-2018-pc-x-espci-ens-sujet-physique-b.pdf"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2018-pc-x-ens-espci-sujet-physique-b.pdf"
                 target="_blank"
               >
                 Sujet physique B
@@ -753,7 +753,7 @@ useSeoMeta({
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-physique-chimie-2018-pc-x-espci-ens-rapport-physique-b.pdf"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2018-pc-x-ens-espci-rapport-physique-b.pdf"
                 target="_blank"
               >
                 Rapport
@@ -761,7 +761,7 @@ useSeoMeta({
               <br>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-physique-chimie-2018-pc-x-espci-ens-sujet-chimie-a.pdf"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2018-pc-x-ens-espci-sujet-chimie-a.pdf"
                 target="_blank"
               >
                 Sujet chimie A
@@ -769,7 +769,88 @@ useSeoMeta({
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-physique-chimie-2018-pc-x-espci-ens-rapport-chimie-a.pdf"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2018-pc-x-ens-espci-rapport-chimie-a.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2 class="mt-12">
+      2017
+    </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              X / ESPCI
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2017-pc-x-espci-sujet-physique-a.pdf"
+                target="_blank"
+              >
+                Sujet physique A
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2017-pc-x-espci-rapport-physique-a.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              X / ESPCI / ENS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2017-pc-x-ens-espci-sujet-physique-b.pdf"
+                target="_blank"
+              >
+                Sujet physique B
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2017-pc-x-ens-espci-rapport-physique-b.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2017-pc-x-ens-espci-sujet-chimie-a.pdf"
+                target="_blank"
+              >
+                Sujet chimie A
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2017-pc-x-ens-espci-rapport-chimie-a.pdf"
                 target="_blank"
               >
                 Rapport
