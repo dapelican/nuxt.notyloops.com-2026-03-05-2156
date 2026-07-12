@@ -13,10 +13,12 @@ const {
   loggedIn: logged_in,
 } = useUserSession();
 
-const {
-  data: user_data,
-  error: user_error,
-} = await useCurrentUser(USER_FETCH_KEY_PUBLIC_COLLECTION);
+const user_fetch = logged_in.value
+  ? await useCurrentUser(USER_FETCH_KEY_PUBLIC_COLLECTION)
+  : null;
+
+const user_data = user_fetch?.data ?? ref(null);
+const user_error = user_fetch?.error ?? ref(null);
 
 if (user_error.value) {
   handleFrontendError(null, user_error.value.data?.error_message);
