@@ -13,7 +13,7 @@ const {
   page_number,
   searched_item_id_set,
   selected_item_id_set,
-  search_criteria_term,
+  // search_criteria_term,
 } = useSearchAndSelectItemsOrInject(props.item_type);
 
 const searched_item_count = computed(() => {
@@ -110,7 +110,7 @@ const selectAllPages = () => {
 <template>
   <!-- SelectableItemsElement.vue -->
   <UContainer class="centered-max-width-650">
-    <div
+    <!-- <div
       v-if="!handling_request && searched_item_count === 0 && search_criteria_term"
       class="empty-state"
     >
@@ -119,7 +119,7 @@ const selectAllPages = () => {
         class="empty-icon"
       />
       <p>{{ $t(`t_no_${item_type}s_match_your_search`) }}</p>
-    </div>
+    </div> -->
 
     <NoteListElement
       v-if="props.item_type === ITEM_TYPE_NOTE"
