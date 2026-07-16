@@ -171,170 +171,168 @@ onUnmounted(() => {
 <template>
   <!-- app/pages/manage-notes/page/[page_number].vue -->
   <section>
-    <LoadingElement v-if="handling_request" />
+    <UContainer class="centered-max-width-1200">
+      <header class="center">
+        <h1>{{ $t('t_manage_notes') }}</h1>
 
-    <div v-else>
-      <UContainer class="centered-max-width-1200">
-        <header class="center">
-          <h1>{{ $t('t_manage_notes') }}</h1>
+        <hr class="separator-1">
 
-          <hr class="separator-1">
+        <div class="flex flex-wrap justify-center gap-2">
+          <UButton
+            v-if="user_can_create_notes"
+            icon="i-lucide-plus"
+            :to="'/manage-notes/add'"
+          >
+            <span>{{ $t('t_add_note') }}</span>
+          </UButton>
 
-          <div class="flex flex-wrap justify-center gap-2">
+          <LimitedFeaturePopup v-if="!user_can_create_notes">
             <UButton
-              v-if="user_can_create_notes"
-              icon="i-lucide-plus"
-              :to="'/manage-notes/add'"
+              icon="i-lucide-lock"
             >
               <span>{{ $t('t_add_note') }}</span>
             </UButton>
 
-            <LimitedFeaturePopup v-if="!user_can_create_notes">
-              <UButton
-                icon="i-lucide-lock"
-              >
-                <span>{{ $t('t_add_note') }}</span>
-              </UButton>
+            <template #content>
+              <p class="m-0">
+                {{ $t('t_you_have_reached_the_freemium_limit_for_creating_notes') }}
+              </p>
+            </template>
 
-              <template #content>
-                <p class="m-0">
-                  {{ $t('t_you_have_reached_the_freemium_limit_for_creating_notes') }}
-                </p>
-              </template>
-
-              <template #footer>
-                <section class="flex justify-end">
-                  <BecomePremiumButtonElement />
-                </section>
-              </template>
-            </LimitedFeaturePopup>
-
-            <ImportNotesPopup v-if="user_is_premium_or_admin">
-              <UButton
-                icon="i-lucide-file-up"
-              >
-                <span>{{ $t('t_import_notes') }}</span>
-              </UButton>
-            </ImportNotesPopup>
-
-            <LimitedFeaturePopup v-else>
-              <UButton
-                icon="i-lucide-lock"
-              >
-                <span>{{ $t('t_import_notes') }}</span>
-              </UButton>
-
-              <template #content>
-                <p class="m-0">
-                  {{ $t('t_this_feature_is_reserved_to_premium_users') }}
-                </p>
-              </template>
-
-              <template #footer>
-                <section class="flex justify-end">
-                  <BecomePremiumButtonElement />
-                </section>
-              </template>
-            </LimitedFeaturePopup>
-          </div>
-        </header>
-
-        <hr class="separator-2">
-
-        <template v-if="total_user_note_count > 0">
-          <section class="ml-auto mr-auto mb-4 max-w-fit">
-            <div class="flex justify-center gap-2 mb-4">
-              <UButton
-                icon="i-lucide-search"
-                :variant="show_search_input ? 'solid' : 'outline'"
-                @click="handleActionBarClick('show_search_input')"
-              >
-                <span class="desktop-only">
-                  {{ $t('t_search') }}
-                </span>
-              </UButton>
-
-              <UButton
-                icon="i-lucide-tag"
-                :variant="show_filter_tags_input ? 'solid' : 'outline'"
-                @click="handleActionBarClick('show_filter_tags_input')"
-              >
-                <span class="desktop-only">
-                  {{ $t('t_filter_by_tags') }}
-                </span>
-              </UButton>
-
-              <UButton
-                icon="i-lucide-arrow-down-wide-narrow"
-                :variant="show_order_options ? 'solid' : 'outline'"
-                @click="handleActionBarClick('show_order_options')"
-              >
-                <span class="desktop-only">
-                  {{ $t('t_reorder') }}
-                </span>
-              </UButton>
-
-              <UButton
-                icon="i-lucide-brush-cleaning"
-                size="sm"
-                variant="ghost"
-                @click="reinitializeSearch"
-              >
-                <span class="desktop-only">
-                  {{ $t('t_reset_filters') }}
-                </span>
-              </UButton>
-            </div>
-
-            <div class="ml-auto mr-auto max-w-[800px]">
-              <UInput
-                v-if="show_search_input"
-                v-model="search_criteria_term"
-                class="w-full"
-                icon="i-lucide-search"
-                :placeholder="$t('t_search_notes')"
-                @input="onSearchInput"
-              >
-                <template
-                  v-if="search_criteria_term?.length > 0"
-                  #trailing
-                >
-                  <UButton
-                    color="neutral"
-                    variant="link"
-                    size="sm"
-                    icon="i-lucide-circle-x"
-                    :aria-label="$t('t_clear_input')"
-                    @click="onClearingInput"
-                  />
-                </template>
-              </UInput>
-
-              <section>
-                <SelectTagsInputElement
-                  v-if="show_filter_tags_input"
-                  :tag_list="all_user_tag_list"
-                  :selected_tag_id_list="search_criteria_tag_id_list"
-                  @update:selected_tag_id_list="onTagFilterChange"
-                />
+            <template #footer>
+              <section class="flex justify-end">
+                <BecomePremiumButtonElement />
               </section>
+            </template>
+          </LimitedFeaturePopup>
 
-              <URadioGroup
-                v-if="show_order_options"
-                v-model="sort_option"
-                :items="sort_option_list"
-                value-key="id"
-                @change="onSortChange"
+          <ImportNotesPopup v-if="user_is_premium_or_admin">
+            <UButton
+              icon="i-lucide-file-up"
+            >
+              <span>{{ $t('t_import_notes') }}</span>
+            </UButton>
+          </ImportNotesPopup>
+
+          <LimitedFeaturePopup v-else>
+            <UButton
+              icon="i-lucide-lock"
+            >
+              <span>{{ $t('t_import_notes') }}</span>
+            </UButton>
+
+            <template #content>
+              <p class="m-0">
+                {{ $t('t_this_feature_is_reserved_to_premium_users') }}
+              </p>
+            </template>
+
+            <template #footer>
+              <section class="flex justify-end">
+                <BecomePremiumButtonElement />
+              </section>
+            </template>
+          </LimitedFeaturePopup>
+        </div>
+      </header>
+
+      <hr class="separator-2">
+
+      <template v-if="total_user_note_count > 0">
+        <section class="ml-auto mr-auto mb-4 max-w-fit">
+          <div class="flex justify-center gap-2 mb-4">
+            <UButton
+              icon="i-lucide-search"
+              :variant="search_criteria_term?.length > 0 ? 'solid' : 'outline'"
+              @click="handleActionBarClick('show_search_input')"
+            >
+              <span class="desktop-only">
+                {{ $t('t_search') }}
+              </span>
+            </UButton>
+
+            <UButton
+              icon="i-lucide-tag"
+              :variant="search_criteria_tag_id_list?.length > 0 ? 'solid' : 'outline'"
+              @click="handleActionBarClick('show_filter_tags_input')"
+            >
+              <span class="desktop-only">
+                {{ $t('t_filter_by_tags') }}
+              </span>
+            </UButton>
+
+            <UButton
+              icon="i-lucide-arrow-down-wide-narrow"
+              variant="outline"
+              @click="handleActionBarClick('show_order_options')"
+            >
+              <span class="desktop-only">
+                {{ $t('t_reorder') }}
+              </span>
+            </UButton>
+
+            <UButton
+              icon="i-lucide-brush-cleaning"
+              size="sm"
+              variant="ghost"
+              @click="reinitializeSearch"
+            >
+              <span class="desktop-only">
+                {{ $t('t_reset_filters') }}
+              </span>
+            </UButton>
+          </div>
+
+          <div class="ml-auto mr-auto max-w-[800px]">
+            <UInput
+              v-if="show_search_input"
+              v-model="search_criteria_term"
+              class="w-full"
+              icon="i-lucide-search"
+              :placeholder="$t('t_search_notes')"
+              @input="onSearchInput"
+            >
+              <template
+                v-if="search_criteria_term?.length > 0"
+                #trailing
+              >
+                <UButton
+                  color="neutral"
+                  variant="link"
+                  size="sm"
+                  icon="i-lucide-circle-x"
+                  :aria-label="$t('t_clear_input')"
+                  @click="onClearingInput"
+                />
+              </template>
+            </UInput>
+
+            <section>
+              <SelectTagsInputElement
+                v-if="show_filter_tags_input"
+                :tag_list="all_user_tag_list"
+                :selected_tag_id_list="search_criteria_tag_id_list"
+                @update:selected_tag_id_list="onTagFilterChange"
               />
-            </div>
-          </section>
-        </template>
-      </UContainer>
+            </section>
 
-      <SelectableItemsElement
-        v-if="total_user_note_count > 0"
-        :item_type="ITEM_TYPE_NOTE"
-      />
-    </div>
+            <URadioGroup
+              v-if="show_order_options"
+              v-model="sort_option"
+              :items="sort_option_list"
+              value-key="id"
+              @change="onSortChange"
+            />
+          </div>
+        </section>
+      </template>
+    </UContainer>
+
+    <LoadingElement v-if="handling_request" />
+
+    <SelectableItemsElement
+      v-else-if="total_user_note_count > 0"
+      :item_type="ITEM_TYPE_NOTE"
+    />
   </section>
 </template>

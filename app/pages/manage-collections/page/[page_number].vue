@@ -316,232 +316,230 @@ onUnmounted(() => {
 <template>
   <!-- app/pages/manage-collections/page/[page_number].vue -->
   <section>
+    <UContainer class="centered-max-width-1200">
+      <header class="center mb-8">
+        <h1>{{ $t('t_manage_collections') }}</h1>
+
+        <hr class="separator-1">
+
+        <UButton
+          icon="i-lucide-plus"
+          :to="'/manage-collections/add'"
+        >
+          <span>{{ $t('t_add_collection') }}</span>
+        </UButton>
+      </header>
+
+      <template v-if="total_user_collection_count > 0">
+        <section
+          v-if="spaced_repetition_due_note_count > 0
+            || next_due_date
+            || diary_due_note_count > 0"
+          class="space-y-8 mb-8"
+        >
+          <UAlert
+            v-if="spaced_repetition_due_note_count > 0"
+            class="mx-auto w-fit"
+            color="neutral"
+            variant="subtle"
+          >
+            <template #description>
+              <section class="flex flex-col items-center justify-center">
+                <h2>
+                  {{ $t('t_spaced_repetition') }}
+                </h2>
+
+                <p>
+                  {{ $t('t_note_count_due_for_review_with_colon') }} {{ spaced_repetition_due_note_count }}
+                </p>
+              </section>
+            </template>
+
+            <template #actions>
+              <div class="flex w-full justify-center">
+                <UButton
+                  v-if="user_can_review_notes"
+                  icon="i-lucide-refresh-cw"
+                  :to="`/review/spaced-repetition/note/${spaced_repetition_note_id_list.at(0)}`"
+                >
+                  {{ $t('t_review') }}
+                </UButton>
+
+                <LimitedFeaturePopup v-if="!user_can_review_notes">
+                  <UButton
+                    icon="i-lucide-lock"
+                  >
+                    {{ $t('t_review') }}
+                  </UButton>
+
+                  <template #content>
+                    <p class="m-0">
+                      {{ $t('t_you_have_reached_the_freemium_limit_for_reviewing_notes') }}
+                    </p>
+                  </template>
+
+                  <template #footer>
+                    <section class="flex justify-end">
+                      <BecomePremiumButtonElement />
+                    </section>
+                  </template>
+                </LimitedFeaturePopup>
+              </div>
+            </template>
+          </UAlert>
+
+          <UAlert
+            v-if="next_due_date"
+            class="mx-auto w-fit"
+            color="neutral"
+            variant="subtle"
+          >
+            <template #description>
+              <section class="flex flex-col items-center justify-center">
+                <h2>
+                  {{ $t('t_spaced_repetition') }}
+                </h2>
+
+                <p>
+                  {{ $t('t_no_notes_due_for_review_for_today') }}
+                </p>
+
+                <p>
+                  {{ $t('t_next_review date') }} {{ format_next_due_date_1(next_due_date) }}
+                  ({{ format_next_due_date_2(next_due_date) }})
+                </p>
+              </section>
+            </template>
+          </UAlert>
+
+          <UAlert
+            v-if="diary_due_note_count > 0"
+            class="mx-auto w-fit"
+            color="neutral"
+            variant="subtle"
+          >
+            <template #description>
+              <section class="flex flex-col items-center justify-center">
+                <h2>
+                  {{ $t('t_diaries') }}
+                </h2>
+
+                <p>
+                  {{ $t('t_note_count_due_for_review_with_colon') }} {{ diary_due_note_count }}
+                </p>
+              </section>
+            </template>
+
+            <template #actions>
+              <div class="flex w-full justify-center">
+                <UButton
+                  v-if="user_can_review_notes"
+                  icon="i-lucide-refresh-cw"
+                  :to="`/review/diaries/note/${diary_note_id_list.at(0)}`"
+                >
+                  {{ $t('t_review') }}
+                </UButton>
+
+                <LimitedFeaturePopup v-if="!user_can_review_notes">
+                  <UButton
+                    icon="i-lucide-lock"
+                  >
+                    {{ $t('t_review') }}
+                  </UButton>
+
+                  <template #content>
+                    <p class="m-0">
+                      {{ $t('t_you_have_reached_the_freemium_limit_for_reviewing_notes') }}
+                    </p>
+                  </template>
+
+                  <template #footer>
+                    <section class="flex justify-end">
+                      <BecomePremiumButtonElement />
+                    </section>
+                  </template>
+                </LimitedFeaturePopup>
+              </div>
+            </template>
+          </UAlert>
+        </section>
+
+        <section class="ml-auto mr-auto max-w-fit">
+          <div class="flex justify-center gap-2 mb-4">
+            <UButton
+              class="cursor-pointer"
+              icon="i-lucide-search"
+              :variant="search_criteria_term?.length > 0 ? 'solid' : 'outline'"
+              @click="handleActionBarClick('show_search_input')"
+            >
+              <span class="desktop-only">
+                {{ $t('t_search') }}
+              </span>
+            </UButton>
+
+            <UButton
+              icon="i-lucide-arrow-down-wide-narrow"
+              :variant="show_order_options ? 'solid' : 'outline'"
+              @click="handleActionBarClick('show_order_options')"
+            >
+              <span class="desktop-only">
+                {{ $t('t_reorder') }}
+              </span>
+            </UButton>
+
+            <UButton
+              icon="i-lucide-brush-cleaning"
+              size="sm"
+              variant="ghost"
+              @click="reinitializeSearch"
+            >
+              <span class="desktop-only">
+                {{ $t('t_reset_filters') }}
+              </span>
+            </UButton>
+          </div>
+
+          <div class="ml-auto mr-auto">
+            <UInput
+              v-if="show_search_input"
+              v-model="search_criteria_term"
+              class="w-full"
+              icon="i-lucide-search"
+              :placeholder="$t('t_search_collections')"
+              @input="onSearchInput"
+            >
+              <template
+                v-if="search_criteria_term?.length > 0"
+                #trailing
+              >
+                <UButton
+                  color="neutral"
+                  variant="link"
+                  size="sm"
+                  icon="i-lucide-circle-x"
+                  :aria-label="$t('t_clear_input')"
+                  @click="onClearingInput"
+                />
+              </template>
+            </UInput>
+
+            <URadioGroup
+              v-if="show_order_options"
+              v-model="sort_option"
+              :items="sort_option_list"
+              value-key="id"
+              @change="onSortChange"
+            />
+          </div>
+        </section>
+      </template>
+    </UContainer>
+
     <LoadingElement v-if="handling_request" />
 
-    <div v-else>
-      <UContainer class="centered-max-width-1200">
-        <header class="center mb-8">
-          <h1>{{ $t('t_manage_collections') }}</h1>
-
-          <hr class="separator-1">
-
-          <UButton
-            icon="i-lucide-plus"
-            :to="'/manage-collections/add'"
-          >
-            <span>{{ $t('t_add_collection') }}</span>
-          </UButton>
-        </header>
-
-        <template v-if="total_user_collection_count > 0">
-          <section
-            v-if="spaced_repetition_due_note_count > 0
-              || next_due_date
-              || diary_due_note_count > 0"
-            class="space-y-8 mb-8"
-          >
-            <UAlert
-              v-if="spaced_repetition_due_note_count > 0"
-              class="mx-auto w-fit"
-              color="neutral"
-              variant="subtle"
-            >
-              <template #description>
-                <section class="flex flex-col items-center justify-center">
-                  <h2>
-                    {{ $t('t_spaced_repetition') }}
-                  </h2>
-
-                  <p>
-                    {{ $t('t_note_count_due_for_review_with_colon') }} {{ spaced_repetition_due_note_count }}
-                  </p>
-                </section>
-              </template>
-
-              <template #actions>
-                <div class="flex w-full justify-center">
-                  <UButton
-                    v-if="user_can_review_notes"
-                    icon="i-lucide-refresh-cw"
-                    :to="`/review/spaced-repetition/note/${spaced_repetition_note_id_list.at(0)}`"
-                  >
-                    {{ $t('t_review') }}
-                  </UButton>
-
-                  <LimitedFeaturePopup v-if="!user_can_review_notes">
-                    <UButton
-                      icon="i-lucide-lock"
-                    >
-                      {{ $t('t_review') }}
-                    </UButton>
-
-                    <template #content>
-                      <p class="m-0">
-                        {{ $t('t_you_have_reached_the_freemium_limit_for_reviewing_notes') }}
-                      </p>
-                    </template>
-
-                    <template #footer>
-                      <section class="flex justify-end">
-                        <BecomePremiumButtonElement />
-                      </section>
-                    </template>
-                  </LimitedFeaturePopup>
-                </div>
-              </template>
-            </UAlert>
-
-            <UAlert
-              v-if="next_due_date"
-              class="mx-auto w-fit"
-              color="neutral"
-              variant="subtle"
-            >
-              <template #description>
-                <section class="flex flex-col items-center justify-center">
-                  <h2>
-                    {{ $t('t_spaced_repetition') }}
-                  </h2>
-
-                  <p>
-                    {{ $t('t_no_notes_due_for_review_for_today') }}
-                  </p>
-
-                  <p>
-                    {{ $t('t_next_review date') }} {{ format_next_due_date_1(next_due_date) }}
-                    ({{ format_next_due_date_2(next_due_date) }})
-                  </p>
-                </section>
-              </template>
-            </UAlert>
-
-            <UAlert
-              v-if="diary_due_note_count > 0"
-              class="mx-auto w-fit"
-              color="neutral"
-              variant="subtle"
-            >
-              <template #description>
-                <section class="flex flex-col items-center justify-center">
-                  <h2>
-                    {{ $t('t_diaries') }}
-                  </h2>
-
-                  <p>
-                    {{ $t('t_note_count_due_for_review_with_colon') }} {{ diary_due_note_count }}
-                  </p>
-                </section>
-              </template>
-
-              <template #actions>
-                <div class="flex w-full justify-center">
-                  <UButton
-                    v-if="user_can_review_notes"
-                    icon="i-lucide-refresh-cw"
-                    :to="`/review/diaries/note/${diary_note_id_list.at(0)}`"
-                  >
-                    {{ $t('t_review') }}
-                  </UButton>
-
-                  <LimitedFeaturePopup v-if="!user_can_review_notes">
-                    <UButton
-                      icon="i-lucide-lock"
-                    >
-                      {{ $t('t_review') }}
-                    </UButton>
-
-                    <template #content>
-                      <p class="m-0">
-                        {{ $t('t_you_have_reached_the_freemium_limit_for_reviewing_notes') }}
-                      </p>
-                    </template>
-
-                    <template #footer>
-                      <section class="flex justify-end">
-                        <BecomePremiumButtonElement />
-                      </section>
-                    </template>
-                  </LimitedFeaturePopup>
-                </div>
-              </template>
-            </UAlert>
-          </section>
-
-          <section class="ml-auto mr-auto max-w-fit">
-            <div class="flex justify-center gap-2 mb-4">
-              <UButton
-                class="cursor-pointer"
-                icon="i-lucide-search"
-                :variant="show_search_input ? 'solid' : 'outline'"
-                @click="handleActionBarClick('show_search_input')"
-              >
-                <span class="desktop-only">
-                  {{ $t('t_search') }}
-                </span>
-              </UButton>
-
-              <UButton
-                icon="i-lucide-arrow-down-wide-narrow"
-                :variant="show_order_options ? 'solid' : 'outline'"
-                @click="handleActionBarClick('show_order_options')"
-              >
-                <span class="desktop-only">
-                  {{ $t('t_reorder') }}
-                </span>
-              </UButton>
-
-              <UButton
-                icon="i-lucide-brush-cleaning"
-                size="sm"
-                variant="ghost"
-                @click="reinitializeSearch"
-              >
-                <span class="desktop-only">
-                  {{ $t('t_reset_filters') }}
-                </span>
-              </UButton>
-            </div>
-
-            <div class="ml-auto mr-auto">
-              <UInput
-                v-if="show_search_input"
-                v-model="search_criteria_term"
-                class="w-full"
-                icon="i-lucide-search"
-                :placeholder="$t('t_search_collections')"
-                @input="onSearchInput"
-              >
-                <template
-                  v-if="search_criteria_term?.length > 0"
-                  #trailing
-                >
-                  <UButton
-                    color="neutral"
-                    variant="link"
-                    size="sm"
-                    icon="i-lucide-circle-x"
-                    :aria-label="$t('t_clear_input')"
-                    @click="onClearingInput"
-                  />
-                </template>
-              </UInput>
-
-              <URadioGroup
-                v-if="show_order_options"
-                v-model="sort_option"
-                :items="sort_option_list"
-                value-key="id"
-                @change="onSortChange"
-              />
-            </div>
-          </section>
-        </template>
-      </UContainer>
-
-      <SelectableItemsElement
-        v-if="total_user_collection_count > 0"
-        :item_type="ITEM_TYPE_COLLECTION"
-      />
-    </div>
+    <SelectableItemsElement
+      v-else-if="total_user_collection_count > 0"
+      :item_type="ITEM_TYPE_COLLECTION"
+    />
   </section>
 </template>
