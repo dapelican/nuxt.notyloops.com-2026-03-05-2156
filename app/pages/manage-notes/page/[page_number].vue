@@ -239,7 +239,7 @@ onUnmounted(() => {
       <hr class="separator-2">
 
       <template v-if="total_user_note_count > 0">
-        <section class="ml-auto mr-auto mb-4 max-w-fit">
+        <section class="ml-auto mr-auto mb-4 w-full max-w-2xl">
           <div class="flex justify-center gap-2 mb-4">
             <UButton
               icon="i-lucide-search"
@@ -283,7 +283,7 @@ onUnmounted(() => {
             </UButton>
           </div>
 
-          <div class="ml-auto mr-auto max-w-[800px]">
+          <div class="ml-auto mr-auto max-w-2xl">
             <UInput
               v-if="show_search_input"
               v-model="search_criteria_term"
@@ -307,22 +307,43 @@ onUnmounted(() => {
               </template>
             </UInput>
 
-            <section>
+            <section
+              v-if="show_filter_tags_input"
+              class="
+                border-2
+                border-dashed
+                border-default
+                rounded
+                px-4
+                py-2
+              "
+            >
               <SelectTagsInputElement
-                v-if="show_filter_tags_input"
                 :tag_list="all_user_tag_list"
                 :selected_tag_id_list="search_criteria_tag_id_list"
                 @update:selected_tag_id_list="onTagFilterChange"
               />
             </section>
 
-            <URadioGroup
+            <section
               v-if="show_order_options"
-              v-model="sort_option"
-              :items="sort_option_list"
-              value-key="id"
-              @change="onSortChange"
-            />
+              class="
+                border-2
+                border-dashed
+                border-default
+                rounded
+                px-4
+                py-2
+              "
+            >
+              <URadioGroup
+
+                v-model="sort_option"
+                :items="sort_option_list"
+                value-key="id"
+                @change="onSortChange"
+              />
+            </section>
           </div>
         </section>
       </template>

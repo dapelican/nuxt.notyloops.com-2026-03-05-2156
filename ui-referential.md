@@ -11,6 +11,9 @@
 - https://ui.nuxt.com/docs/getting-started/theme/design-system
 - https://ui.nuxt.com/docs/getting-started/theme/css-variables
 
+## tailwind max-width
+- https://tailwindcss.com/docs/max-width
+
 ## tailwind sizes
 
 Tailwind’s “sizes” usually come from the spacing scale (used for width, height, padding, margin, gap, and the size-* utilities). Here are the default values and their rem equivalents.
