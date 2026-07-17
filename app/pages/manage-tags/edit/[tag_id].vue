@@ -30,7 +30,7 @@ const label = ref(tag_data.value?.label);
 
 handling_request_1.value = false;
 
-const page_number = route.query.page_number;
+const page_number = route.query.page_number ?? '1';
 
 const tag_form_state = reactive({
   label,

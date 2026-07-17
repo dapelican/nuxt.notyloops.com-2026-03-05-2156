@@ -12,6 +12,7 @@ const route = useRoute();
 const handling_request = ref(true);
 const note_details = ref([]);
 const note_id = route.params.note_id;
+const page_number = route.query.page_number ?? '1';
 const selected_tag_id_list = ref([]);
 const title = ref('');
 
@@ -398,7 +399,7 @@ const updateNote = async () => {
       },
     });
 
-    return navigateTo(CONNECTED_USER_LANDING_PAGE);
+    return navigateTo(`/manage-notes/page/${page_number}`);
   } catch (error) {
     const error_message = error?.data?.error_message;
     handleFrontendError(error, error_message);
