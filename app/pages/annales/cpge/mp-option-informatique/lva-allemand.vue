@@ -83,7 +83,7 @@ useSeoMeta({
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2026-e3a-polytech-rapport-allemand.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2026-ccinp-e3a-polytech-rapport-allemand.pdf"
                 target="_blank"
               >
                 Rapport
@@ -192,7 +192,7 @@ useSeoMeta({
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2025-e3a-polytech-rapport-allemand.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2025-ccinp-e3a-polytech-rapport-allemand.pdf"
                 target="_blank"
               >
                 Rapport
