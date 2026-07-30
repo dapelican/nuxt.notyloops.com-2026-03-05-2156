@@ -668,19 +668,30 @@ const updateNote = async () => {
 
       <hr class="separator-1">
 
-      <SelectTagsInputElement
-        v-if="all_user_tag_list.length > 0"
-        :tag_list="all_user_tag_list"
-        :selected_tag_id_list="selected_tag_id_list"
-        @update:selected_tag_id_list="updateSelectedTagIdList"
-      />
+      <section
+        class="
+          border-2
+          border-dashed
+          border-default
+          rounded
+          px-4
+          py-2
+        "
+      >
+        <SelectTagsInputElement
+          v-if="all_user_tag_list.length > 0"
+          :tag_list="all_user_tag_list"
+          :selected_tag_id_list="selected_tag_id_list"
+          @update:selected_tag_id_list="updateSelectedTagIdList"
+        />
+      </section>
 
-      <hr class="separator-1">
+      <hr class="separator-2">
 
       <template v-if="note_format === NOTE_FORMAT_FLASHCARD">
-        <h3>
+        <h2>
           {{ $t('t_swappable_sides') }}
-        </h3>
+        </h2>
 
         <URadioGroup
           v-model="swappable_sides"
@@ -695,7 +706,7 @@ const updateNote = async () => {
         <UButton
           color="neutral"
           variant="outline"
-          :to="CONNECTED_USER_LANDING_PAGE"
+          :to="`/manage-notes/page/${page_number}`"
         >
           {{ $t('t_cancel') }}
         </UButton>
