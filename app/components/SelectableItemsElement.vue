@@ -109,7 +109,7 @@ const selectAllPages = () => {
 
 <template>
   <!-- SelectableItemsElement.vue -->
-  <UContainer class="centered-max-width-650">
+  <UContainer class="centered-max-width-650 mt-8">
     <!-- <div
       v-if="!handling_request && searched_item_count === 0 && search_criteria_term"
       class="empty-state"
@@ -120,6 +120,18 @@ const selectAllPages = () => {
       />
       <p>{{ $t(`t_no_${item_type}s_match_your_search`) }}</p>
     </div> -->
+
+    <div
+      v-if="total_pages > 1"
+      class="flex justify-center mb-8"
+    >
+      <UPagination
+        v-model:page="page_number"
+        :items-per-page="items_per_page"
+        :to="(p) => `/manage-${item_type}s/page/${p}`"
+        :total="searched_item_count"
+      />
+    </div>
 
     <NoteListElement
       v-if="props.item_type === ITEM_TYPE_NOTE"
@@ -139,11 +151,9 @@ const selectAllPages = () => {
       @toggle_item_selection="handleCheckboxClick"
     />
 
-    <hr class="separator-2">
-
     <div
       v-if="total_pages > 1"
-      class="flex justify-center"
+      class="flex justify-center mt-8"
     >
       <UPagination
         v-model:page="page_number"
