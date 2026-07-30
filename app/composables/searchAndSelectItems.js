@@ -38,6 +38,28 @@ const applyPreferencePayloadToArea = (raw, refs) => {
     );
     refs.search_criteria_tag_id_set.value = new Set(tag_id_list);
   }
+
+  if (Array.isArray(raw.search_criteria_tag_id_list_to_include)) {
+    const include_list = raw.search_criteria_tag_id_list_to_include.filter(
+      (id) => typeof id === 'string' && id.length > 0
+    );
+    refs.search_criteria_tag_id_set_to_include.value = new Set(include_list);
+  }
+
+  if (Array.isArray(raw.search_criteria_tag_id_list_to_exclude)) {
+    const exclude_list = raw.search_criteria_tag_id_list_to_exclude.filter(
+      (id) => typeof id === 'string' && id.length > 0
+    );
+    refs.search_criteria_tag_id_set_to_exclude.value = new Set(exclude_list);
+  }
+
+  if (raw.inclusion_type === 'OR' || raw.inclusion_type === 'AND') {
+    refs.search_criteria_inclusion_type.value = raw.inclusion_type;
+  }
+
+  if (raw.exclusion_type === 'OR' || raw.exclusion_type === 'AND') {
+    refs.search_criteria_exclusion_type.value = raw.exclusion_type;
+  }
 };
 
 const registerListPreferencesFetchOnce = () => {
@@ -56,6 +78,10 @@ const registerListPreferencesFetchOnce = () => {
         sort_option: useState(`sort_option_${area}`, () => 'created_at:desc'),
         search_criteria_term: useState(`search_criteria_term_${area}`, () => ''),
         search_criteria_tag_id_set: useState(`search_criteria_tag_id_set_${area}`, () => new Set()),
+        search_criteria_tag_id_set_to_include: useState(`search_criteria_tag_id_set_to_include_${area}`, () => new Set()),
+        search_criteria_tag_id_set_to_exclude: useState(`search_criteria_tag_id_set_to_exclude_${area}`, () => new Set()),
+        search_criteria_inclusion_type: useState(`search_criteria_inclusion_type_${area}`, () => 'AND'),
+        search_criteria_exclusion_type: useState(`search_criteria_exclusion_type_${area}`, () => 'OR'),
       },
     ])
   );
@@ -116,6 +142,10 @@ export const useSearchAndSelectItems = (key) => {
     useState(`sort_option_${area}`, () => 'created_at:desc');
     useState(`search_criteria_term_${area}`, () => '');
     useState(`search_criteria_tag_id_set_${area}`, () => new Set());
+    useState(`search_criteria_tag_id_set_to_include_${area}`, () => new Set());
+    useState(`search_criteria_tag_id_set_to_exclude_${area}`, () => new Set());
+    useState(`search_criteria_inclusion_type_${area}`, () => 'AND');
+    useState(`search_criteria_exclusion_type_${area}`, () => 'OR');
   }
 
   registerListPreferencesFetchOnce();
@@ -203,6 +233,14 @@ export const useSearchAndSelectItems = (key) => {
 
   const search_criteria_tag_id_set = useState(`search_criteria_tag_id_set_${key}`, () => new Set());
 
+  const search_criteria_tag_id_set_to_include = useState(`search_criteria_tag_id_set_to_include_${key}`, () => new Set());
+  const search_criteria_tag_id_set_to_exclude = useState(`search_criteria_tag_id_set_to_exclude_${key}`, () => new Set());
+  const search_criteria_inclusion_type = useState(`search_criteria_inclusion_type_${key}`, () => 'AND');
+  const search_criteria_exclusion_type = useState(`search_criteria_exclusion_type_${key}`, () => 'OR');
+
+  const search_criteria_tag_id_list_to_include = computed(() => Array.from(search_criteria_tag_id_set_to_include.value));
+  const search_criteria_tag_id_list_to_exclude = computed(() => Array.from(search_criteria_tag_id_set_to_exclude.value));
+
   const search_criteria_term = useState(`search_criteria_term_${key}`, () => '');
 
   const handling_request = useState(`handling_request_${key}`, () => false);
@@ -235,27 +273,48 @@ export const useSearchAndSelectItems = (key) => {
     persist_debounce_timeout_id.value = setTimeout(() => {
       persist_debounce_timeout_id.value = null;
 
+      const payload = key === ITEM_TYPE_NOTE
+        ? {
+            search_criteria_tag_id_list_to_include: Array.from(search_criteria_tag_id_set_to_include.value),
+            search_criteria_tag_id_list_to_exclude: Array.from(search_criteria_tag_id_set_to_exclude.value),
+            inclusion_type: search_criteria_inclusion_type.value,
+            exclusion_type: search_criteria_exclusion_type.value,
+            search_criteria_term: search_criteria_term.value,
+            sort_option: sort_option.value,
+          }
+        : {
+            search_criteria_tag_id_list: Array.from(search_criteria_tag_id_set.value),
+            search_criteria_term: search_criteria_term.value,
+            sort_option: sort_option.value,
+          };
+
       void $fetch('/user-preferences', {
         method: 'PATCH',
         body: {
           area: key,
-          payload: {
-            search_criteria_tag_id_list: Array.from(search_criteria_tag_id_set.value),
-            search_criteria_term: search_criteria_term.value,
-            sort_option: sort_option.value,
-          },
+          payload,
         },
       });
     }, 400);
   };
 
-  watch(
-    [sort_option, search_criteria_term, search_criteria_tag_id_set],
-    () => {
-      schedulePersistListPreferences();
-    },
-    { deep: true }
-  );
+  if (key === ITEM_TYPE_NOTE) {
+    watch(
+      [sort_option, search_criteria_term, search_criteria_tag_id_set_to_include, search_criteria_tag_id_set_to_exclude, search_criteria_inclusion_type, search_criteria_exclusion_type],
+      () => {
+        schedulePersistListPreferences();
+      },
+      { deep: true }
+    );
+  } else {
+    watch(
+      [sort_option, search_criteria_term, search_criteria_tag_id_set],
+      () => {
+        schedulePersistListPreferences();
+      },
+      { deep: true }
+    );
+  }
 
   let fetch_counter = 0;
 
@@ -266,16 +325,30 @@ export const useSearchAndSelectItems = (key) => {
     handling_request.value = true;
 
     try {
+      const body = key === ITEM_TYPE_NOTE
+        ? {
+            limit: items_per_page.value,
+            offset: offset.value,
+            search_term: search_criteria_term.value || '',
+            sort_by: search_criteria_sort_by.value,
+            sort_order: search_criteria_sort_order.value,
+            tag_id_list_to_include: Array.from(search_criteria_tag_id_set_to_include.value),
+            tag_id_list_to_exclude: Array.from(search_criteria_tag_id_set_to_exclude.value),
+            inclusion_type: search_criteria_inclusion_type.value,
+            exclusion_type: search_criteria_exclusion_type.value,
+          }
+        : {
+            limit: items_per_page.value,
+            offset: offset.value,
+            search_term: search_criteria_term.value || '',
+            sort_by: search_criteria_sort_by.value,
+            sort_order: search_criteria_sort_order.value,
+            tag_id_list: Array.from(search_criteria_tag_id_set.value),
+          };
+
       const data = await $fetch(`/${key}s/search`, {
         method: 'POST',
-        body: {
-          limit: items_per_page.value,
-          offset: offset.value,
-          search_term: search_criteria_term.value || '',
-          sort_by: search_criteria_sort_by.value,
-          sort_order: search_criteria_sort_order.value,
-          tag_id_list: Array.from(search_criteria_tag_id_set.value),
-        },
+        body,
       });
 
       if (current_fetch !== fetch_counter) {
@@ -324,7 +397,10 @@ export const useSearchAndSelectItems = (key) => {
     }
 
     if (key === ITEM_TYPE_NOTE) {
-      search_criteria_tag_id_set.value = new Set([]);
+      search_criteria_tag_id_set_to_include.value = new Set();
+      search_criteria_tag_id_set_to_exclude.value = new Set();
+      search_criteria_inclusion_type.value = 'AND';
+      search_criteria_exclusion_type.value = 'OR';
 
       sort_option.value = 'title:asc';
 
@@ -362,6 +438,12 @@ export const useSearchAndSelectItems = (key) => {
     search_criteria_sort_by,
     search_criteria_sort_order,
     search_criteria_tag_id_set,
+    search_criteria_tag_id_set_to_include,
+    search_criteria_tag_id_set_to_exclude,
+    search_criteria_tag_id_list_to_include,
+    search_criteria_tag_id_list_to_exclude,
+    search_criteria_inclusion_type,
+    search_criteria_exclusion_type,
     search_criteria_term,
     searched_item_id_set,
     searchItems,

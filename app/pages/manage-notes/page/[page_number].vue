@@ -12,7 +12,12 @@ const {
   handling_request,
   page_number,
   reinitializeSearch,
-  search_criteria_tag_id_set,
+  search_criteria_tag_id_set_to_include,
+  search_criteria_tag_id_set_to_exclude,
+  search_criteria_tag_id_list_to_include,
+  search_criteria_tag_id_list_to_exclude,
+  search_criteria_inclusion_type,
+  search_criteria_exclusion_type,
   sort_option,
   search_criteria_term,
   searchItems,
@@ -121,6 +126,40 @@ const sort_option_list = [
   },
 ];
 
+const and_or_list = [
+  {
+    label: t('t_and'),
+    value: 'AND',
+  },
+  {
+    label: t('t_or'),
+    value: 'OR',
+  },
+];
+
+const tag_list_for_include = computed(() => {
+  const exclude_set = new Set(search_criteria_tag_id_list_to_exclude.value);
+  return all_user_tag_list.value.filter((tag) => !exclude_set.has(tag.id));
+});
+
+const tag_list_for_exclude = computed(() => {
+  const include_set = new Set(search_criteria_tag_id_list_to_include.value);
+  return all_user_tag_list.value.filter((tag) => !include_set.has(tag.id));
+});
+
+const has_tag_filters = computed(() => {
+  return search_criteria_tag_id_list_to_include.value.length > 0
+    || search_criteria_tag_id_list_to_exclude.value.length > 0;
+});
+
+const navigateOrSearch = () => {
+  if (page_number.value !== 1) {
+    navigateTo('/manage-notes/page/1');
+  } else {
+    searchItems();
+  }
+};
+
 const onSortChange = () => {
   if (page_number.value !== 1) {
     navigateTo('/manage-notes/page/1');
@@ -147,15 +186,22 @@ const onClearingInput = () => {
   searchItems();
 };
 
-const search_criteria_tag_id_list = computed(() => Array.from(search_criteria_tag_id_set.value));
+const updateSelectedTagIdListToInclude = (new_tag_id_list) => {
+  search_criteria_tag_id_set_to_include.value = new Set(Array.isArray(new_tag_id_list) ? new_tag_id_list : []);
+  navigateOrSearch();
+};
 
-const onTagFilterChange = (new_selected_tag_id_list) => {
-  search_criteria_tag_id_set.value = new Set(new_selected_tag_id_list);
-  if (page_number.value !== 1) {
-    navigateTo('/manage-notes/page/1');
-  } else {
-    searchItems();
-  }
+const updateSelectedTagIdListToExclude = (new_tag_id_list) => {
+  search_criteria_tag_id_set_to_exclude.value = new Set(Array.isArray(new_tag_id_list) ? new_tag_id_list : []);
+  navigateOrSearch();
+};
+
+const onInclusionTypeChange = () => {
+  navigateOrSearch();
+};
+
+const onExclusionTypeChange = () => {
+  navigateOrSearch();
 };
 
 onMounted(() => {
@@ -253,7 +299,7 @@ onUnmounted(() => {
 
             <UButton
               icon="i-lucide-tag"
-              :variant="search_criteria_tag_id_list?.length > 0 ? 'solid' : 'outline'"
+              :variant="has_tag_filters ? 'solid' : 'outline'"
               @click="handleActionBarClick('show_filter_tags_input')"
             >
               <span class="desktop-only">
@@ -316,12 +362,71 @@ onUnmounted(() => {
                 rounded
                 px-4
                 py-2
+                space-y-4
               "
             >
-              <SelectTagsInputElement
-                :tag_list="all_user_tag_list"
-                :selected_tag_id_list="search_criteria_tag_id_list"
-                @update:selected_tag_id_list="onTagFilterChange"
+              <div>
+                <p class="text-sm font-medium mb-1">
+                  {{ $t('t_tags_to_include') }}
+                </p>
+                <section class="border-l-2 border-secondary pl-4">
+                  <SelectTagsInputElement
+                    :tag_list="tag_list_for_include"
+                    :selected_tag_id_list="search_criteria_tag_id_list_to_include"
+                    @update:selected_tag_id_list="updateSelectedTagIdListToInclude"
+                  />
+
+                  <div
+                    v-if="search_criteria_tag_id_list_to_include.length > 1"
+                    class="mt-2"
+                  >
+                    <p class="text-sm font-medium mb-1">
+                      {{ $t('t_inclusion_type') }}
+                    </p>
+                    <URadioGroup
+                      v-model="search_criteria_inclusion_type"
+                      :items="and_or_list"
+                      orientation="horizontal"
+                      @change="onInclusionTypeChange"
+                    />
+                  </div>
+                </section>
+              </div>
+
+              <div>
+                <p class="text-sm font-medium mb-1">
+                  {{ $t('t_tags_to_exclude') }}
+                </p>
+                <section class="border-l-2 border-secondary pl-4">
+                  <SelectTagsInputElement
+                    :tag_list="tag_list_for_exclude"
+                    :selected_tag_id_list="search_criteria_tag_id_list_to_exclude"
+                    @update:selected_tag_id_list="updateSelectedTagIdListToExclude"
+                  />
+
+                  <div
+                    v-if="search_criteria_tag_id_list_to_exclude.length > 1"
+                    class="mt-2"
+                  >
+                    <p class="text-sm font-medium mb-1">
+                      {{ $t('t_exclusion_type') }}
+                    </p>
+                    <URadioGroup
+                      v-model="search_criteria_exclusion_type"
+                      :items="and_or_list"
+                      orientation="horizontal"
+                      @change="onExclusionTypeChange"
+                    />
+                  </div>
+                </section>
+              </div>
+
+              <TagsFilterAlertElement
+                :tag_id_list_to_include="search_criteria_tag_id_list_to_include"
+                :tag_id_list_to_exclude="search_criteria_tag_id_list_to_exclude"
+                :all_user_tag_list="all_user_tag_list"
+                :inclusion_type="search_criteria_inclusion_type"
+                :exclusion_type="search_criteria_exclusion_type"
               />
             </section>
 

@@ -108,24 +108,6 @@ const tag_list_for_exclude = computed(() => {
   return all_user_tag_list.value.filter((tag) => !include_set.has(tag.id));
 });
 
-const tag_name_list_to_include = computed(() => {
-  return collection_form_state.tag_id_list_to_include
-    .map((tag_id) => {
-      return all_user_tag_list.value
-        .find((tag) => tag.id === tag_id)
-        ?.label;
-    });
-});
-
-const tag_name_list_to_exclude = computed(() => {
-  return collection_form_state.tag_id_list_to_exclude
-    .map((tag_id) => {
-      return all_user_tag_list.value
-        .find((tag) => tag.id === tag_id)
-        ?.label;
-    });
-});
-
 const updateSelectedTagIdListToInclude = (new_tag_id_list) => {
   collection_form_state.tag_id_list_to_include = Array.isArray(new_tag_id_list)
     ? [...new_tag_id_list]
@@ -202,107 +184,6 @@ const track_scores_disabled = computed(() => {
 });
 
 const handling_request_2 = ref(false);
-
-const buildCollectionTagsAlertSentence = () => {
-  const joinTagNameList = (tag_name_list, join_type) => {
-    const connector = join_type === 'AND' ? t('t_and') : t('t_or');
-    const filtered_name_list = tag_name_list.filter((name) => name);
-
-    if (filtered_name_list.length <= 1) {
-      return filtered_name_list.at(0) ?? '';
-    }
-
-    if (filtered_name_list.length === 2) {
-      return `${filtered_name_list.at(0)} ${connector} ${filtered_name_list.at(1)}`;
-    }
-
-    const last_two_name_list = filtered_name_list.slice(-2);
-    const first_name_list = filtered_name_list.slice(0, -2);
-    const last_two_tags = `${last_two_name_list.at(0)} ${connector} ${last_two_name_list.at(1)}`;
-
-    return `${first_name_list.join(', ')}, ${last_two_tags}`;
-  };
-
-  const buildNotesWithTagsPhrase = (tag_name_list, join_type) => {
-    const filtered_name_list = tag_name_list.filter((name) => name);
-    const tag_count = filtered_name_list.length;
-
-    if (tag_count === 0) {
-      return '';
-    }
-
-    const notes_with_tags_label = tag_count === 1
-      ? t('t_notes_with_tag')
-      : t('t_notes_with_tags');
-
-    const tag_names_text = tag_count === 1
-      ? filtered_name_list.at(0)
-      : joinTagNameList(filtered_name_list, join_type);
-
-    return `${notes_with_tags_label} ${tag_names_text}`;
-  };
-
-  const capitalizeFirstLetter = (text) => {
-    if (!text) {
-      return text;
-    }
-
-    return text.charAt(0).toUpperCase() + text.slice(1);
-  };
-
-  const joinSentenceParts = (sentence_part_list) => {
-    if (sentence_part_list.length === 0) {
-      return '';
-    }
-
-    const first_part = capitalizeFirstLetter(sentence_part_list.at(0));
-    const remaining_part_list = sentence_part_list.slice(1);
-
-    if (remaining_part_list.length === 0) {
-      return `${first_part}.`;
-    }
-
-    return `${first_part}, ${remaining_part_list.join(', ')}.`;
-  };
-
-  const include_id_count = collection_form_state.tag_id_list_to_include.length;
-  const exclude_id_count = collection_form_state.tag_id_list_to_exclude.length;
-  const sentence_part_list = [];
-
-  if (include_id_count === 0) {
-    sentence_part_list.push(
-      t('t_all_notes_will_be_included').replace(/\.$/, '')
-    );
-  } else {
-    sentence_part_list.push(
-      `${buildNotesWithTagsPhrase(
-        tag_name_list_to_include.value,
-        collection_form_state.inclusion_type
-      )} ${t('t_will_be_included')}`
-    );
-  }
-
-  if (exclude_id_count > 0) {
-    const exclusion_notes_phrase = buildNotesWithTagsPhrase(
-      tag_name_list_to_exclude.value,
-      collection_form_state.exclusion_type
-    );
-
-    if (include_id_count === 0) {
-      sentence_part_list.push(`${t('t_except')} ${exclusion_notes_phrase}`);
-    } else {
-      sentence_part_list.push(
-        `${t('t_but')} ${exclusion_notes_phrase} ${t('t_will_be_excluded')}`
-      );
-    }
-  }
-
-  return joinSentenceParts(sentence_part_list);
-};
-
-const collection_tags_alert_sentence = computed(() => {
-  return buildCollectionTagsAlertSentence();
-});
 
 const updateCollection = async () => {
   handling_request_2.value = true;
@@ -415,15 +296,13 @@ const updateCollection = async () => {
           </section>
         </UFormField>
 
-        <UAlert
-          color="info"
-          variant="subtle"
-          icon="i-lucide-info"
-        >
-          <template #description>
-            {{ collection_tags_alert_sentence }}
-          </template>
-        </UAlert>
+        <TagsFilterAlertElement
+          :tag_id_list_to_include="collection_form_state.tag_id_list_to_include"
+          :tag_id_list_to_exclude="collection_form_state.tag_id_list_to_exclude"
+          :all_user_tag_list="all_user_tag_list"
+          :inclusion_type="collection_form_state.inclusion_type"
+          :exclusion_type="collection_form_state.exclusion_type"
+        />
 
         <UFormField
           v-if="user_status === USER_STATUS_ADMIN"

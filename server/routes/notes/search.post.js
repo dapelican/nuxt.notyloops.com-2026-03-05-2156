@@ -21,6 +21,10 @@ import {
 } from '../../helpers/handle-backend-error.js';
 
 import {
+  selectNoteIdListOnTagCriteria,
+} from '../../helpers/select-note-id-list-on-tag-criteria.js';
+
+import {
   verifySessionAndReturnUser,
 } from '../../helpers/verify-session-and-return-user.js';
 
@@ -47,7 +51,10 @@ export default defineEventHandler(async (event) => {
       search_term,
       sort_by,
       sort_order,
-      tag_id_list,
+      tag_id_list_to_include,
+      tag_id_list_to_exclude,
+      inclusion_type,
+      exclusion_type,
     } = await readBody(event);
 
     if (
@@ -72,6 +79,12 @@ export default defineEventHandler(async (event) => {
       };
     }
 
+    const safe_inclusion_type = inclusion_type === 'OR' ? 'OR' : 'AND';
+    const safe_exclusion_type = exclusion_type === 'OR' ? 'OR' : 'AND';
+
+    const include_list = Array.isArray(tag_id_list_to_include) ? tag_id_list_to_include : [];
+    const exclude_list = Array.isArray(tag_id_list_to_exclude) ? tag_id_list_to_exclude : [];
+
     const where_clause_list = ['n.user_id = $1 and n.deleted_at IS NULL'];
     const parameter_list = [user.id];
 
@@ -81,10 +94,17 @@ export default defineEventHandler(async (event) => {
       parameter_list.push(`%${search_term}%`);
     }
 
-    if (Array.isArray(tag_id_list) && tag_id_list.length > 0) {
+    if (include_list.length > 0 || exclude_list.length > 0) {
+      const tag_filtered_note_id_list = await selectNoteIdListOnTagCriteria(user.id, {
+        tag_id_list_to_include: include_list,
+        tag_id_list_to_exclude: exclude_list,
+        inclusion_type: safe_inclusion_type,
+        exclusion_type: safe_exclusion_type,
+      });
+
       const tag_idx = parameter_list.length + 1;
-      where_clause_list.push(`n.id IN (SELECT note_id FROM note_tags WHERE tag_id = ANY($${tag_idx}::uuid[]))`);
-      parameter_list.push(tag_id_list);
+      where_clause_list.push(`n.id = ANY($${tag_idx}::uuid[])`);
+      parameter_list.push(tag_filtered_note_id_list);
     }
 
     const where_clause = `WHERE ${where_clause_list.join(' AND ')}`;

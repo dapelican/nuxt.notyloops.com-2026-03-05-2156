@@ -30,6 +30,33 @@ import {
 
 const is_non_empty_string = (value) => typeof value === 'string' && value.length > 0;
 
+const buildNoteStoredPayloadFromBody = (body_payload) => {
+  if (body_payload === null || typeof body_payload !== 'object' || Array.isArray(body_payload)) {
+    return null;
+  }
+
+  if (
+    typeof body_payload.sort_option !== 'string'
+    || typeof body_payload.search_criteria_term !== 'string'
+    || !Array.isArray(body_payload.search_criteria_tag_id_list_to_include)
+    || !Array.isArray(body_payload.search_criteria_tag_id_list_to_exclude)
+  ) {
+    return null;
+  }
+
+  const inclusion_type = body_payload.inclusion_type === 'OR' ? 'OR' : 'AND';
+  const exclusion_type = body_payload.exclusion_type === 'OR' ? 'OR' : 'AND';
+
+  return {
+    search_criteria_tag_id_list_to_include: body_payload.search_criteria_tag_id_list_to_include.filter(is_non_empty_string),
+    search_criteria_tag_id_list_to_exclude: body_payload.search_criteria_tag_id_list_to_exclude.filter(is_non_empty_string),
+    inclusion_type,
+    exclusion_type,
+    search_criteria_term: body_payload.search_criteria_term,
+    sort_option: body_payload.sort_option,
+  };
+};
+
 const buildStoredPayloadFromBody = (body_payload) => {
   if (body_payload === null || typeof body_payload !== 'object' || Array.isArray(body_payload)) {
     return null;
@@ -52,6 +79,17 @@ const buildStoredPayloadFromBody = (body_payload) => {
 };
 
 const responsePayloadForArea = (area, stored_payload) => {
+  if (area === 'note') {
+    return {
+      sort_option: stored_payload.sort_option,
+      search_criteria_term: stored_payload.search_criteria_term,
+      search_criteria_tag_id_list_to_include: stored_payload.search_criteria_tag_id_list_to_include,
+      search_criteria_tag_id_list_to_exclude: stored_payload.search_criteria_tag_id_list_to_exclude,
+      inclusion_type: stored_payload.inclusion_type,
+      exclusion_type: stored_payload.exclusion_type,
+    };
+  }
+
   if (area === 'tag') {
     return {
       sort_option: stored_payload.sort_option,
@@ -71,17 +109,43 @@ const upsertNotePreferences = async (user_id, stored_payload) => {
   const { rowCount } = await executeSQLQuery(
     `UPDATE user_preferences SET
       note_search_criteria_term = $2,
-      note_search_criteria_tag_id_list = $3::text[],
-      note_sort_option = $4
+      note_search_criteria_tag_id_list_to_include = $3::text[],
+      note_search_criteria_tag_id_list_to_exclude = $4::text[],
+      note_inclusion_type = $5,
+      note_exclusion_type = $6,
+      note_sort_option = $7
     WHERE user_id = $1`,
-    [user_id, stored_payload.search_criteria_term, stored_payload.search_criteria_tag_id_list, stored_payload.sort_option]
+    [
+      user_id,
+      stored_payload.search_criteria_term,
+      stored_payload.search_criteria_tag_id_list_to_include,
+      stored_payload.search_criteria_tag_id_list_to_exclude,
+      stored_payload.inclusion_type,
+      stored_payload.exclusion_type,
+      stored_payload.sort_option,
+    ]
   );
 
   if (rowCount === 0) {
     await executeSQLQuery(
-      `INSERT INTO user_preferences (user_id, note_search_criteria_term, note_search_criteria_tag_id_list, note_sort_option)
-      VALUES ($1, $2, $3::text[], $4)`,
-      [user_id, stored_payload.search_criteria_term, stored_payload.search_criteria_tag_id_list, stored_payload.sort_option]
+      `INSERT INTO user_preferences (
+        user_id,
+        note_search_criteria_term,
+        note_search_criteria_tag_id_list_to_include,
+        note_search_criteria_tag_id_list_to_exclude,
+        note_inclusion_type,
+        note_exclusion_type,
+        note_sort_option
+      ) VALUES ($1, $2, $3::text[], $4::text[], $5, $6, $7)`,
+      [
+        user_id,
+        stored_payload.search_criteria_term,
+        stored_payload.search_criteria_tag_id_list_to_include,
+        stored_payload.search_criteria_tag_id_list_to_exclude,
+        stored_payload.inclusion_type,
+        stored_payload.exclusion_type,
+        stored_payload.sort_option,
+      ]
     );
   }
 };
@@ -148,7 +212,13 @@ export default defineEventHandler(async (event) => {
       };
     }
 
-    const stored_payload = buildStoredPayloadFromBody(body_payload);
+    let stored_payload;
+
+    if (area === 'note') {
+      stored_payload = buildNoteStoredPayloadFromBody(body_payload);
+    } else {
+      stored_payload = buildStoredPayloadFromBody(body_payload);
+    }
 
     if (stored_payload === null) {
       setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);

@@ -28,7 +28,10 @@ const buildDefaultPreferenceByArea = () => ({
   note: {
     sort_option: DEFAULT_SORT_OPTION,
     search_criteria_term: '',
-    search_criteria_tag_id_list: [],
+    search_criteria_tag_id_list_to_include: [],
+    search_criteria_tag_id_list_to_exclude: [],
+    inclusion_type: 'AND',
+    exclusion_type: 'OR',
   },
   tag: {
     sort_option: DEFAULT_SORT_OPTION,
@@ -57,7 +60,10 @@ export default defineEventHandler(async (event) => {
     const { rows: row_list } = await executeSQLQuery(
       `SELECT
         note_search_criteria_term,
-        note_search_criteria_tag_id_list,
+        note_search_criteria_tag_id_list_to_include,
+        note_search_criteria_tag_id_list_to_exclude,
+        note_inclusion_type,
+        note_exclusion_type,
         note_sort_option,
         tag_search_criteria_term,
         tag_sort_option,
@@ -80,8 +86,11 @@ export default defineEventHandler(async (event) => {
       };
     }
 
-    const note_tag_list = Array.isArray(row.note_search_criteria_tag_id_list)
-      ? row.note_search_criteria_tag_id_list
+    const note_include_list = Array.isArray(row.note_search_criteria_tag_id_list_to_include)
+      ? row.note_search_criteria_tag_id_list_to_include
+      : [];
+    const note_exclude_list = Array.isArray(row.note_search_criteria_tag_id_list_to_exclude)
+      ? row.note_search_criteria_tag_id_list_to_exclude
       : [];
     const collection_tag_list = Array.isArray(row.collection_search_criteria_tag_id_list)
       ? row.collection_search_criteria_tag_id_list
@@ -91,7 +100,10 @@ export default defineEventHandler(async (event) => {
       note: {
         sort_option: row.note_sort_option ?? DEFAULT_SORT_OPTION,
         search_criteria_term: row.note_search_criteria_term ?? '',
-        search_criteria_tag_id_list: note_tag_list,
+        search_criteria_tag_id_list_to_include: note_include_list,
+        search_criteria_tag_id_list_to_exclude: note_exclude_list,
+        inclusion_type: row.note_inclusion_type ?? 'AND',
+        exclusion_type: row.note_exclusion_type ?? 'OR',
       },
       tag: {
         sort_option: row.tag_sort_option ?? DEFAULT_SORT_OPTION,
