@@ -181,7 +181,7 @@ onUnmounted(() => {
           <UButton
             v-if="user_can_create_notes"
             icon="i-lucide-plus"
-            :to="'/manage-notes/add'"
+            :to="`/manage-notes/add?page_number=${page_number}`"
           >
             <span>{{ $t('t_add_note') }}</span>
           </UButton>

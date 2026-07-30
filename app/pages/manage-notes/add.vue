@@ -7,7 +7,10 @@ useSeoMeta({
   title: `${t('t_add_note')} | NotyLoops`,
 });
 
+const route = useRoute();
+
 const handling_request = ref(false);
+const page_number = route.query.page_number ?? '1';
 const note_details = ref([]);
 const selected_tag_id_list = ref([]);
 const title = ref('');
@@ -349,7 +352,7 @@ const createNote = async () => {
 
     localStorage.setItem(LOCAL_STORAGE_KEY_LAST_NOTE_FORMAT_USED, note_format.value);
 
-    return navigateTo(CONNECTED_USER_LANDING_PAGE);
+    return navigateTo(`/manage-notes/page/${page_number}`);
   } catch (error) {
     const error_message = error?.data?.error_message;
     handleFrontendError(error, error_message);
@@ -656,7 +659,7 @@ const createNote = async () => {
         <UButton
           color="neutral"
           variant="outline"
-          :to="CONNECTED_USER_LANDING_PAGE"
+          :to="`/manage-notes/page/${page_number}`"
         >
           {{ $t('t_cancel') }}
         </UButton>
