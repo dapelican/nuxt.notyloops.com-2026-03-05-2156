@@ -836,7 +836,7 @@ VALUES
       'image',
       null,
       null,
-      ''
+      'https://f003.backblazeb2.com/file/notyloops/guinee-equatoriale.webp'
     ),
     (
       '30000000-0000-4000-8000-000000000015',

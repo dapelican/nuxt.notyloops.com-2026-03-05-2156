@@ -67,22 +67,8 @@ export default defineEventHandler(async (event) => {
        FROM collections
        WHERE user_id = $1
          AND (
-           (
-             tag_id_list_to_include IS NOT NULL
-             AND EXISTS (
-               SELECT 1
-               FROM jsonb_array_elements_text(tag_id_list_to_include) AS elem
-               WHERE elem::uuid = ANY($2::uuid[])
-             )
-           )
-           OR (
-             tag_id_list_to_exclude IS NOT NULL
-             AND EXISTS (
-               SELECT 1
-               FROM jsonb_array_elements_text(tag_id_list_to_exclude) AS elem
-               WHERE elem::uuid = ANY($2::uuid[])
-             )
-           )
+           tag_id_list_to_include ?| $2::text[]
+           OR tag_id_list_to_exclude ?| $2::text[]
          )`,
       [user.id, final_tag_id_list]
     );
