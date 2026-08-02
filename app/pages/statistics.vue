@@ -9,7 +9,7 @@ useSeoMeta({
   title: `${t('t_statistics')} | NotyLoops`,
 });
 
-const period_in_days = ref(30);
+const period_in_days = ref(7);
 const time_zone = ref('UTC');
 
 onMounted(() => {
@@ -155,8 +155,6 @@ const note_item_list = computed(() => {
   }));
 });
 
-const getNoteEditPath = (item) => `/manage-notes/edit/${item.id}`;
-
 const empty_state_action_list = computed(() => [
   {
     label: t('t_go_back_to_collections'),
@@ -257,10 +255,9 @@ const all_time_summary = computed(() => {
       <hr class="separator-2">
 
       <StatisticBreakdownListElement
-        :empty_label="$t('t_notes_to_work_on_empty')"
-        :get_item_to="getNoteEditPath"
+        :empty_label="$t('t_notes_least_mastered_empty')"
         :item_list="note_item_list"
-        :title="$t('t_notes_to_work_on')"
+        :title="$t('t_notes_least_mastered')"
       />
 
       <p

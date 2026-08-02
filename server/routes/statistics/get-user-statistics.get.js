@@ -216,6 +216,7 @@ export default defineEventHandler(async (event) => {
         WHERE note_reviews.user_id = $1 AND note_reviews.created_at >= $2
         GROUP BY notes.id, notes.title
         HAVING COUNT(*) >= 3
+          AND AVG(note_reviews.score) < 1
         ORDER BY AVG(note_reviews.score) ASC, COUNT(*) DESC
         LIMIT 10`,
         [user.id, period_start_iso]

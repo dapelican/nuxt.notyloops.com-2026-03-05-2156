@@ -1,4 +1,6 @@
 <script setup>
+import { DateTime } from 'luxon';
+
 const props = defineProps({
   activity_series: {
     type: Array,
@@ -10,13 +12,15 @@ const props = defineProps({
   },
 });
 
+const { locale, t } = useI18n();
+
 const max_review_count = computed(() => {
   const count_list = props.activity_series.map((item) => item.review_count);
 
   return Math.max(0, ...count_list);
 });
 
-const getBarHeightPercent = (review_count) => {
+const getBarWidthPercent = (review_count) => {
   if (!max_review_count.value || !review_count) {
     return 0;
   }
@@ -24,7 +28,7 @@ const getBarHeightPercent = (review_count) => {
   return Math.max(4, Math.round((review_count / max_review_count.value) * 100));
 };
 
-const getPositiveHeightPercent = (item) => {
+const getPositiveWidthPercent = (item) => {
   if (!item.review_count) {
     return 0;
   }
@@ -32,26 +36,38 @@ const getPositiveHeightPercent = (item) => {
   return Math.round((item.positive_count / item.review_count) * 100);
 };
 
-const shouldShowLabel = (index) => {
-  if (props.activity_series.length <= 7) {
-    return true;
-  }
-
-  return index % 5 === 0 || index === props.activity_series.length - 1;
-};
-
-const formatBucketLabel = (bucket_start) => {
+const formatBucketDate = (bucket_start) => {
   if (!bucket_start) {
     return '';
   }
 
-  return String(bucket_start).slice(5);
+  const dt = DateTime.fromISO(String(bucket_start)).setLocale(locale.value || 'en');
+
+  if (!dt.isValid) {
+    return String(bucket_start);
+  }
+
+  return dt.toLocaleString(DateTime.DATE_FULL);
+};
+
+const formatBucketLabel = (bucket_start) => {
+  const formatted_date = formatBucketDate(bucket_start);
+
+  if (!formatted_date) {
+    return '';
+  }
+
+  if (props.granularity === 'week') {
+    return t('t_week_of_x_date', { date: formatted_date });
+  }
+
+  return formatted_date;
 };
 
 const getTooltipText = (item) => {
   const negative_count = item.review_count - item.positive_count;
 
-  return `${item.bucket_start}: ${item.review_count} (+${item.positive_count} / -${negative_count})`;
+  return `${formatBucketLabel(item.bucket_start)}: ${item.review_count} (+${item.positive_count} / -${negative_count})`;
 };
 </script>
 
@@ -62,40 +78,37 @@ const getTooltipText = (item) => {
       {{ $t('t_activity') }}
     </h2>
 
-    <div class="flex h-32 items-end gap-px sm:h-44 sm:gap-1">
+    <div class="flex flex-col gap-2">
       <UTooltip
         v-for="item in activity_series"
         :key="item.bucket_start"
         :text="getTooltipText(item)"
       >
-        <div class="flex h-full min-w-0 flex-1 flex-col justify-end">
-          <div
-            class="flex w-full flex-col justify-end overflow-hidden rounded-t bg-elevated"
-            :style="{ height: `${getBarHeightPercent(item.review_count)}%` }"
+        <div class="flex min-w-0 items-center gap-2">
+          <span
+            class="shrink-0 truncate text-xs text-muted"
+            :class="granularity === 'week' ? 'w-52' : 'w-36'"
           >
+            {{ formatBucketLabel(item.bucket_start) }}
+          </span>
+
+          <div class="h-4 min-w-0 flex-1 overflow-hidden rounded-r bg-elevated">
             <div
-              class="w-full bg-error"
-              :style="{ height: `${100 - getPositiveHeightPercent(item)}%` }"
-            />
-            <div
-              class="w-full bg-success"
-              :style="{ height: `${getPositiveHeightPercent(item)}%` }"
-            />
+              class="flex h-full overflow-hidden rounded-r"
+              :style="{ width: `${getBarWidthPercent(item.review_count)}%` }"
+            >
+              <div
+                class="h-full bg-success"
+                :style="{ width: `${getPositiveWidthPercent(item)}%` }"
+              />
+              <div
+                class="h-full bg-error"
+                :style="{ width: `${100 - getPositiveWidthPercent(item)}%` }"
+              />
+            </div>
           </div>
         </div>
       </UTooltip>
-    </div>
-
-    <div class="mt-2 hidden gap-px sm:flex sm:gap-1">
-      <div
-        v-for="(item, index) in activity_series"
-        :key="`label-${item.bucket_start}`"
-        class="min-w-0 flex-1 text-center text-xs text-muted"
-      >
-        <span v-if="shouldShowLabel(index)">
-          {{ formatBucketLabel(item.bucket_start) }}
-        </span>
-      </div>
     </div>
 
     <div class="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-muted">

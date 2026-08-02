@@ -12,10 +12,6 @@ defineProps({
     type: String,
     default: '',
   },
-  get_item_to: {
-    type: Function,
-    default: null,
-  },
 });
 
 const getItemLabel = (item) => item.label || '';
@@ -53,18 +49,7 @@ const formatSuccessRate = (success_rate) => {
         class="flex flex-wrap items-center justify-between gap-2"
       >
         <div class="min-w-0 flex-1">
-          <NuxtLink
-            v-if="get_item_to"
-            class="truncate font-medium hover:underline"
-            :to="get_item_to(item)"
-          >
-            {{ getItemLabel(item) }}
-          </NuxtLink>
-
-          <p
-            v-else
-            class="truncate font-medium"
-          >
+          <p class="truncate font-medium">
             {{ getItemLabel(item) }}
           </p>
 
