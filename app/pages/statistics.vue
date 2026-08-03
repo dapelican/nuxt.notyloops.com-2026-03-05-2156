@@ -62,6 +62,18 @@ const formatSuccessRateValue = (success_rate) => {
   return t('t_x_percentage', { percentage: success_rate });
 };
 
+const formatSuccessRateDeltaValue = (delta) => {
+  if (delta === null || delta === undefined) {
+    return '-';
+  }
+
+  if (delta > 0) {
+    return `+${t('t_x_percentage', { percentage: delta })}`;
+  }
+
+  return t('t_x_percentage', { percentage: delta });
+};
+
 const success_rate_delta = computed(() => {
   const current_rate = statistics_data.value?.current_period?.success_rate;
   const previous_rate = statistics_data.value?.previous_period?.success_rate;
@@ -89,24 +101,52 @@ const reviews_per_active_day = computed(() => {
   return Math.round(average * 10) / 10;
 });
 
-const reviews_card_hint = computed(() => {
-  if (reviews_per_active_day.value === null) {
-    return '';
-  }
+const metric_row_list = computed(() => {
+  const current_period = statistics_data.value?.current_period;
+  const streak = statistics_data.value?.streak;
 
-  return t('t_reviews_per_active_day_with_colon', {
-    count: reviews_per_active_day.value,
-  });
-});
-
-const streak_hint = computed(() => {
-  const longest = statistics_data.value?.streak?.longest_day_count;
-
-  if (!longest) {
-    return '';
-  }
-
-  return t('t_longest_streak_with_colon', { count: longest });
+  return [
+    {
+      id: 'mastery_rate',
+      label: t('t_mastery_rate'),
+      value: formatSuccessRateValue(current_period?.success_rate),
+    },
+    {
+      id: 'mastery_rate_evolution',
+      label: t('t_mastery_rate_evolution'),
+      value: formatSuccessRateDeltaValue(success_rate_delta.value),
+    },
+    {
+      id: 'current_streak',
+      label: t('t_consecutive_review_days'),
+      value: streak?.current_day_count ?? 0,
+    },
+    {
+      id: 'longest_streak',
+      label: t('t_longest_consecutive_review_days'),
+      value: streak?.longest_day_count ?? 0,
+    },
+    {
+      id: 'review_count',
+      label: t('t_scored_reviews'),
+      value: current_period?.review_count ?? 0,
+    },
+    {
+      id: 'reviews_per_active_day',
+      label: t('t_average_reviews_per_active_day'),
+      value: reviews_per_active_day.value ?? '-',
+    },
+    {
+      id: 'distinct_note_count',
+      label: t('t_distinct_notes_reviewed'),
+      value: current_period?.distinct_note_count ?? 0,
+    },
+    {
+      id: 'active_day_count',
+      label: t('t_active_days'),
+      value: current_period?.active_day_count ?? 0,
+    },
+  ];
 });
 
 const getStrategyLabel = (review_strategy) => {
@@ -203,33 +243,30 @@ const all_time_summary = computed(() => {
     />
 
     <template v-else-if="statistics_data">
-      <section class="grid grid-cols-2 gap-3 lg:grid-cols-4 lg:gap-4">
-        <StatisticCardElement
-          :hint="reviews_card_hint"
-          :label="$t('t_reviews_with_a_score')"
-          :value="statistics_data.current_period.review_count"
-        />
-
-        <StatisticCardElement
-          :hint="$t('t_active_days_with_colon', { count: statistics_data.current_period.active_day_count })"
-          :label="$t('t_distinct_notes_reviewed')"
-          :value="statistics_data.current_period.distinct_note_count"
-        />
-
-        <StatisticCardElement
-          :delta="success_rate_delta"
-          :label="$t('t_success_rate')"
-          :value="formatSuccessRateValue(statistics_data.current_period.success_rate)"
-        />
-
-        <StatisticCardElement
-          :hint="streak_hint"
-          icon="i-lucide-flame"
-          icon_class="text-orange-500"
-          :label="$t('t_current_streak')"
-          :value="statistics_data.streak.current_day_count"
-        />
-      </section>
+      <UCard class="ring-accented">
+        <div class="overflow-x-auto">
+          <table class="metrics-table w-full">
+            <tbody>
+              <tr
+                v-for="row in metric_row_list"
+                :key="row.id"
+              >
+                <th
+                  class="w-1 py-2 pr-4 text-left font-normal whitespace-nowrap"
+                  scope="row"
+                >
+                  {{ row.label }}
+                </th>
+                <td class="text-left font-semibold whitespace-nowrap">
+                  <span class="pl-4">
+                    {{ row.value }}
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </UCard>
 
       <hr class="separator-2">
 
@@ -269,3 +306,11 @@ const all_time_summary = computed(() => {
     </template>
   </UContainer>
 </template>
+
+<style scoped>
+.metrics-table,
+.metrics-table th,
+.metrics-table td {
+  border: none !important;
+}
+</style>
