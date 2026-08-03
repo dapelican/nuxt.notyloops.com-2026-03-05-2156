@@ -169,7 +169,7 @@ export default defineEventHandler(async (event) => {
           AND date_trunc($4, note_reviews.created_at AT TIME ZONE $3)
             = bucket_series.bucket_start
         GROUP BY bucket_series.bucket_start
-        ORDER BY bucket_series.bucket_start`,
+        ORDER BY bucket_series.bucket_start DESC`,
         [user.id, period_in_days, time_zone, granularity]
       ),
       executeSQLQuery(
