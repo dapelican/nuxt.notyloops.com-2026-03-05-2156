@@ -118,7 +118,7 @@ const metric_row_list = computed(() => {
     },
     {
       id: 'current_streak',
-      label: t('t_consecutive_review_days'),
+      label: t('t_consecutive_review_days_until_today'),
       value: streak?.current_day_count ?? 0,
     },
     {
@@ -243,30 +243,14 @@ const all_time_summary = computed(() => {
     />
 
     <template v-else-if="statistics_data">
-      <UCard class="ring-accented">
-        <div class="overflow-x-auto">
-          <table class="metrics-table w-full">
-            <tbody>
-              <tr
-                v-for="row in metric_row_list"
-                :key="row.id"
-              >
-                <th
-                  class="w-1 py-2 pr-4 text-left font-normal whitespace-nowrap"
-                  scope="row"
-                >
-                  {{ row.label }}
-                </th>
-                <td class="text-left font-semibold whitespace-nowrap">
-                  <span class="pl-4">
-                    {{ row.value }}
-                  </span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </UCard>
+      <section class="grid gap-4 lg:grid-cols-2">
+        <StatisticCardElement
+          v-for="row in metric_row_list"
+          :key="row.id"
+          :label="row.label"
+          :value="row.value"
+        />
+      </section>
 
       <hr class="separator-2">
 
@@ -306,11 +290,3 @@ const all_time_summary = computed(() => {
     </template>
   </UContainer>
 </template>
-
-<style scoped>
-.metrics-table,
-.metrics-table th,
-.metrics-table td {
-  border: none !important;
-}
-</style>
