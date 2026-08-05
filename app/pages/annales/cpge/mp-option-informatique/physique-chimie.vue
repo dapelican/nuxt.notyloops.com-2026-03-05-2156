@@ -75,15 +75,31 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-physique-chimie-2026-mp-ccinp-sujet.pdf"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2026-mp-ccinp-sujet-physique.pdf"
                 target="_blank"
               >
-                Sujet
+                Sujet physique
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2026-mp-ccinp-rapport-physique.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2026-mp-ccinp-sujet-physique-chimie.pdf"
+                target="_blank"
+              >
+                Sujet physique - chimie
               </ULink>
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-physique-chimie-2026-mp-ccinp-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2026-mp-ccinp-rapport-physique-chimie.pdf"
                 target="_blank"
               >
                 Rapport
@@ -262,15 +278,31 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-physique-chimie-2025-mp-ccinp-sujet.pdf"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2025-mp-ccinp-sujet-physique.pdf"
                 target="_blank"
               >
-                Sujet
+                Sujet physique
               </ULink>
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-physique-chimie-2025-mp-ccinp-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2025-mp-ccinp-rapport-physique.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2025-mp-ccinp-sujet-physique-chimie.pdf"
+                target="_blank"
+              >
+                Sujet physique - chimie
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2025-mp-ccinp-rapport-physique-chimie.pdf"
                 target="_blank"
               >
                 Rapport
@@ -442,6 +474,44 @@ useSeoMeta({
           </tr>
         </thead>
         <tbody>
+          <tr>
+            <td>
+              CCINP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2024-mp-ccinp-sujet-physique.pdf"
+                target="_blank"
+              >
+                Sujet physique
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2024-mp-ccinp-rapport-physique.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2024-mp-ccinp-sujet-physique-chimie.pdf"
+                target="_blank"
+              >
+                Sujet physique - chimie
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2024-mp-ccinp-rapport-physique-chimie.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
           <tr>
             <td>
               X / ENS

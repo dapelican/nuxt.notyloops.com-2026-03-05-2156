@@ -558,6 +558,44 @@ useSeoMeta({
         <tbody>
           <tr>
             <td>
+              CCINP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2024-mp-ccinp-sujet-1.pdf"
+                target="_blank"
+              >
+                Sujet 1
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2024-mp-ccinp-rapport-1.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2024-mp-ccinp-sujet-2.pdf"
+                target="_blank"
+              >
+                Sujet 2
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2024-mp-ccinp-rapport-2.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
               X
             </td>
             <td>

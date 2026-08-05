@@ -288,6 +288,28 @@ useSeoMeta({
         <tbody>
           <tr>
             <td>
+              CCINP / e3a-Polytech
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-lva-2024-ccinp-e3a-polytech-sujet-allemand.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-lva-2024-ccinp-e3a-polytech-rapport-allemand.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
               X / ESPCI / ENS
             </td>
             <td>
