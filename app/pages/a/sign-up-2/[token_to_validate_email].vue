@@ -50,14 +50,12 @@ const form_fields = ref([
     name: 'password_1',
     type: 'password',
     label: $t('t_password'),
-    placeholder: $t('t_enter_your_password'),
     required: true,
   },
   {
     name: 'password_2',
     type: 'password',
     label: $t('t_confirm_your_password'),
-    placeholder: $t('t_enter_your_password'),
     required: true,
   },
 ]);

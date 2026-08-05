@@ -26,7 +26,7 @@ import {
 
 import {
   sendEmail,
-} from '../../services/plunk/send-email.js';
+} from '../../services/smtp2go/send-email.js';
 
 const FIRST_NAME_MAX_LENGTH = 100;
 const MESSAGE_MAX_LENGTH = 5000;

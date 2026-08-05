@@ -29,7 +29,7 @@ import {
 
 import {
   sendEmail,
-} from '../../services/plunk/send-email.js';
+} from '../../services/smtp2go/send-email.js';
 
 import {
   verifySessionAndReturnUser,

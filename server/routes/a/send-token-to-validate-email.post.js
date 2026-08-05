@@ -44,7 +44,7 @@ import {
 
 import {
   sendEmail,
-} from '../../services/plunk/send-email.js';
+} from '../../services/smtp2go/send-email.js';
 
 import {
   v7 as uuidv7,
@@ -64,22 +64,19 @@ const getEmailTokenDurationHoursAgo = () => DateTime
 const sendTokenToValidateEmail = async (user, subdomain) => {
   const uuid = uuidv7();
 
-  try {
-    const uuid = uuidv7();
+  await executeSQLQuery(
+    `INSERT INTO user_email_tokens (user_id, token, usage)
+    VALUES ($1, $2, $3)`,
+    [user.id, uuid, USER_TOKEN_VALIDATE_EMAIL]
+  );
 
-    await Promise.all([
-      executeSQLQuery(
-        `INSERT INTO user_email_tokens (user_id, token, usage)
-        VALUES ($1, $2, $3)`,
-        [user.id, uuid, USER_TOKEN_VALIDATE_EMAIL]
-      ),
-      sendEmail({
-        subdomain,
-        template_name: 'validate-email',
-        template_params: { EMAIL_VALIDATION_TOKEN_DURATION_IN_HOURS, uuid },
-        to: user.email,
-      }),
-    ]);
+  try {
+    await sendEmail({
+      subdomain,
+      template_name: 'validate-email',
+      template_params: { EMAIL_VALIDATION_TOKEN_DURATION_IN_HOURS, uuid },
+      to: user.email,
+    });
   } catch (error) {
     await executeSQLQuery(
       'DELETE FROM user_email_tokens WHERE token = $1',
@@ -199,7 +196,15 @@ export default defineEventHandler(async (event) => {
 
     const new_user = new_user_list.at(0);
 
-    await sendTokenToValidateEmail(new_user, subdomain);
+    await sendTokenToValidateEmail(new_user, subdomain)
+      // eslint-disable-next-line no-unused-vars
+      .catch((___) => {
+        setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+
+        return {
+          error_message: 'error_email_token_not_sent',
+        };
+      });
 
     setResponseStatus(event, HTTP_CODE_201_CREATED);
 

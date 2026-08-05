@@ -57,6 +57,9 @@ const sendValidateEmailToken = async (form) => {
       case 'error_corrupt_email':
         form_error.value = t('t_error_corrupt_email');
         break;
+      case 'error_email_token_not_sent':
+        form_error.value = t('t_error_email_token_not_sent');
+        break;
       default:
         handleFrontendError(error, error_message);
         break;
