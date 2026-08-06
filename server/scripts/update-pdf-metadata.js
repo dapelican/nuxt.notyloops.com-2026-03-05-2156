@@ -5,8 +5,7 @@
 // The path of the folder is declared at the top of the file in a constant
 
 import { join, parse } from 'node:path';
-import { readFile, readdir, stat, writeFile } from 'node:fs/promises';
-import { DateTime } from 'luxon';
+import { readFile, readdir, writeFile } from 'node:fs/promises';
 import { PDFDocument } from 'pdf-lib';
 
 const FOLDER_PATH = '/home/dalamkan/Dropbox/Projets/notyloops/annales/pending';
@@ -33,16 +32,9 @@ async function updateFolderPdfMetadata() {
   const pdf_entries = entries.filter(
     (entry) => entry.isFile() && parse(entry.name).ext.toLowerCase() === '.pdf'
   );
-  const today = DateTime.now().startOf('day');
 
   for (const entry of pdf_entries) {
     const file_path = join(FOLDER_PATH, entry.name);
-    const file_stat = await stat(file_path);
-    const modified_date = DateTime.fromJSDate(file_stat.mtime).startOf('day');
-
-    if (!modified_date.hasSame(today, 'day')) {
-      continue;
-    }
 
     const title = parse(entry.name).name.replaceAll('-', ' ');
 
