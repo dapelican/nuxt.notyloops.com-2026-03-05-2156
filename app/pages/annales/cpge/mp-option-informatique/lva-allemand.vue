@@ -127,7 +127,7 @@ useSeoMeta({
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2026-ccs-rapport-allemand.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2026-ccs-rapport-allemand-mp.pdf"
                 target="_blank"
               >
                 Rapport
@@ -236,7 +236,7 @@ useSeoMeta({
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2025-ccs-rapport-mp-allemand.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2025-ccs-rapport-allemand-mp.pdf"
                 target="_blank"
               >
                 Rapport

@@ -1,7 +1,7 @@
 <script setup>
-const page_title = 'Annales prépa MP option SI : LVA italien';
+const page_title = 'Annales prépa MPI : LVA portugais';
 
-let meta_description = 'Les annales de LVA italien pour les CPGE MP option SI.';
+let meta_description = 'Les annales de LVA portugais pour les CPGE MPI.';
 meta_description += ' Les sujets et rapports des dernières années.';
 
 const breadcrumb_items = [
@@ -16,14 +16,14 @@ const breadcrumb_items = [
     url: 'https://fr.notyloops.com/annales/cpge',
   },
   {
-    label: 'MP option SI',
-    to: '/annales/cpge/mp-option-si',
-    url: 'https://fr.notyloops.com/annales/cpge/mp-option-si',
+    label: 'MPI',
+    to: '/annales/cpge/mpi',
+    url: 'https://fr.notyloops.com/annales/cpge/mpi',
   },
   {
-    label: 'LVA italien',
-    to: '/annales/cpge/mp-option-si/lva-italien',
-    url: 'https://fr.notyloops.com/annales/cpge/mp-option-si/lva-italien',
+    label: 'LVA portugais',
+    to: '/annales/cpge/mpi/lva-portugais',
+    url: 'https://fr.notyloops.com/annales/cpge/mpi/lva-portugais',
   },
 ];
 
@@ -40,7 +40,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <!-- app/pages/annales/cpge/mp-option-si/lva-italien.vue -->
+  <!-- app/pages/annales/cpge/mpi/lva-portugais.vue -->
   <UContainer class="max-w-xl">
     <UBreadcrumb
       class="mb-8"
@@ -48,7 +48,7 @@ useSeoMeta({
     />
 
     <h1>
-      Annales CPGE MP option SI : LVA italien
+      Annales CPGE MPI : LVA portugais
     </h1>
 
     <h2 class="mt-12">
@@ -75,7 +75,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2026-ccinp-e3a-polytech-sujet-italien.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2026-ccinp-e3a-polytech-sujet-portugais.pdf"
                 target="_blank"
               >
                 Sujet
@@ -83,29 +83,7 @@ useSeoMeta({
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2026-ccinp-e3a-polytech-rapport-italien.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink> -->
-            </td>
-          </tr>
-          <tr>
-            <td>
-              CCMP
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2026-ccmp-sujet-italien.pdf"
-                target="_blank"
-              >
-                Sujet
-              </ULink>
-              <!-- |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2026-ccmp-rapport-italien.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2026-ccinp-e3a-polytech-rapport-portugais.pdf"
                 target="_blank"
               >
                 Rapport
@@ -119,7 +97,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2026-ccs-sujet-italien.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2026-ccs-sujet-portugais.pdf"
                 target="_blank"
               >
                 Sujet
@@ -127,7 +105,7 @@ useSeoMeta({
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2026-ccs-rapport-italien-mp.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2026-ccs-rapport-portugais-mpi.pdf"
                 target="_blank"
               >
                 Rapport
@@ -162,7 +140,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2025-ccinp-e3a-polytech-sujet-italien.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2025-ccinp-e3a-polytech-sujet-portugais.pdf"
                 target="_blank"
               >
                 Sujet
@@ -170,29 +148,7 @@ useSeoMeta({
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2025-ccinp-e3a-polytech-rapport-italien.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              CCMP
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2025-ccmp-sujet-italien.pdf"
-                target="_blank"
-              >
-                Sujet
-              </ULink>
-              |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2025-ccmp-rapport-italien.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2025-ccinp-e3a-polytech-rapport-portugais.pdf"
                 target="_blank"
               >
                 Rapport
@@ -206,7 +162,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2025-ccs-sujet-italien.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2025-ccs-sujet-portugais.pdf"
                 target="_blank"
               >
                 Sujet
@@ -214,7 +170,7 @@ useSeoMeta({
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2025-ccs-rapport-italien-mp.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2025-ccs-rapport-portugais-mpi.pdf"
                 target="_blank"
               >
                 Rapport

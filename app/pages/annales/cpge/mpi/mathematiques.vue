@@ -70,6 +70,165 @@ useSeoMeta({
         <tbody>
           <tr>
             <td>
+              CCINP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2026-mpi-ccinp-sujet-1.pdf"
+                target="_blank"
+              >
+                Sujet 1
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2026-mpi-ccinp-rapport-1.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2026-mpi-ccinp-sujet-2.pdf"
+                target="_blank"
+              >
+                Sujet 2
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2026-mpi-ccinp-rapport-2.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              CCMP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2026-mpi-ccmp-sujet-1.pdf"
+                target="_blank"
+              >
+                Sujet 1
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2026-mpi-ccmp-rapport-1.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2026-mpi-ccmp-sujet-2.pdf"
+                target="_blank"
+              >
+                Sujet 2
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2026-mpi-ccmp-rapport-2.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              CCS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2026-mp-mpi-ccs-sujet-1.pdf"
+                target="_blank"
+              >
+                Sujet 1
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2026-mp-mpi-ccs-rapport-1.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2026-mp-mpi-ccs-sujet-2.pdf"
+                target="_blank"
+              >
+                Sujet 2
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2026-mp-mpi-ccs-rapport-2.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              e3a-Polytech
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2026-mpi-e3a-polytech-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2026-mpi-e3a-polytech-rapport.pdf"
+                target="_blank"
+              >
+                Rapport et corrigé
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              ENS
+            </td>
+            <td>
+              Sujet (C) (Pas encore disponible)
+              <!-- <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2026-mp-mpi-ens-sujet-c.pdf"
+                target="_blank"
+              >
+                Sujet D
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2026-mp-mpi-ens-rapport-c.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+          <tr>
+            <td>
               X / ESPCI
             </td>
             <td>
@@ -133,6 +292,164 @@ useSeoMeta({
           </tr>
         </thead>
         <tbody>
+          <tr>
+            <td>
+              CCINP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2025-mpi-ccinp-sujet-1.pdf"
+                target="_blank"
+              >
+                Sujet 1
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2025-mpi-ccinp-rapport-1.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2025-mpi-ccinp-sujet-2.pdf"
+                target="_blank"
+              >
+                Sujet 2
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2025-mpi-ccinp-rapport-2.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              CCMP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2025-mpi-ccmp-sujet-1.pdf"
+                target="_blank"
+              >
+                Sujet 1
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2025-mpi-ccmp-rapport-1.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2025-mpi-ccmp-sujet-2.pdf"
+                target="_blank"
+              >
+                Sujet 2
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2025-mpi-ccmp-rapport-2.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              CCS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2025-mp-mpi-ccs-sujet-1.pdf"
+                target="_blank"
+              >
+                Sujet 1
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2025-mp-mpi-ccs-rapport-1.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2025-mp-mpi-ccs-sujet-2.pdf"
+                target="_blank"
+              >
+                Sujet 2
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2025-mp-mpi-ccs-rapport-2.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              e3a-Polytech
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2025-mpi-e3a-polytech-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2025-mpi-e3a-polytech-rapport.pdf"
+                target="_blank"
+              >
+                Rapport et corrigé
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              ENS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2025-mp-mpi-ens-sujet-c.pdf"
+                target="_blank"
+              >
+                Sujet (C)
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2025-mp-mpi-ens-rapport-c.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
           <tr>
             <td>
               X

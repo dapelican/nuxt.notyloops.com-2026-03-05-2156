@@ -127,7 +127,7 @@ useSeoMeta({
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2026-ccs-rapport-mp-italien.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2026-ccs-rapport-italien-mp.pdf"
                 target="_blank"
               >
                 Rapport
@@ -214,7 +214,7 @@ useSeoMeta({
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2025-ccs-rapport-mp-italien.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2025-ccs-rapport-italien-mp.pdf"
                 target="_blank"
               >
                 Rapport

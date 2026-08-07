@@ -92,6 +92,27 @@ useSeoMeta({
         >
           espagnol
         </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/mpi/lva-italien"
+        >
+          italien
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/mpi/lva-portugais"
+        >
+          portugais
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/mpi/lva-russe"
+        >
+          russe
+        </ULink>
       </li>
       <!-- <li>
         LVB :
