@@ -153,7 +153,7 @@ useSeoMeta({
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-2026-ccs-mp-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2026-ccs-rapport-mpi.pdf"
                 target="_blank"
               >
                 Rapport
@@ -283,7 +283,7 @@ useSeoMeta({
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2025-ccs-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2025-ccs-rapport-mpi.pdf"
                 target="_blank"
               >
                 Rapport

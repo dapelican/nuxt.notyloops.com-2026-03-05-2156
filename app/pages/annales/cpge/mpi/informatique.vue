@@ -70,6 +70,104 @@ useSeoMeta({
         <tbody>
           <tr>
             <td>
+              CCINP / ea3-Polytech
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-informatique-2026-mpi-ccinp-e3a-polytech-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-informatique-2026-mpi-ccinp-e3a-polytech-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              CCMP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-informatique-2026-mp-pc-psi-ccmp-sujet.pdf"
+                target="_blank"
+              >
+                Sujet commun
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-informatique-2026-mp-pc-psi-ccmp-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-informatique-2026-mpi-ccmp-sujet-1.pdf"
+                target="_blank"
+              >
+                Sujet 1
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-informatique-2026-mpi-ccmp-rapport-1.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-informatique-2026-mpi-ccmp-sujet-2.pdf"
+                target="_blank"
+              >
+                Sujet 2
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-informatique-2026-mpi-ccmp-rapport-2.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              CCS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-informatique-2026-mpi-ccs-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-informatique-2026-mpi-ccs-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+          <tr>
+            <td>
               ENS
             </td>
             <td>
@@ -133,6 +231,104 @@ useSeoMeta({
           </tr>
         </thead>
         <tbody>
+          <tr>
+            <td>
+              CCINP / ea3-Polytech
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-informatique-2025-mpi-ccinp-e3a-polytech-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-informatique-2025-mpi-ccinp-e3a-polytech-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              CCMP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-informatique-2025-mp-pc-psi-ccmp-sujet.pdf"
+                target="_blank"
+              >
+                Sujet commun
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-informatique-2025-mp-pc-psi-ccmp-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-informatique-2025-mpi-ccmp-sujet-1.pdf"
+                target="_blank"
+              >
+                Sujet 1
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-informatique-2025-mpi-ccmp-rapport-1.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-informatique-2025-mpi-ccmp-sujet-2.pdf"
+                target="_blank"
+              >
+                Sujet 2
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-informatique-2025-mpi-ccmp-rapport-2.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              CCS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-informatique-2025-mpi-ccs-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-informatique-2025-mpi-ccs-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
           <tr>
             <td>
               ENS
