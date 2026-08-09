@@ -146,9 +146,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
 
       <UButton
         class="cursor-pointer hover:text-inverted!"
-        :to="'/a/join-waiting-list'"
+        :to="'/a/join-beta'"
       >
-        <span>{{ $t('t_join_waiting_list') }}</span>
+        <span>{{ $t('t_join_beta') }}</span>
       </UButton>
     </nav>
 

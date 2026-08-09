@@ -40,9 +40,9 @@ const public_items = computed(() => [
     to: '/a/log-in',
   },
   {
-    active: route.path.startsWith('/a/join-waiting-list'),
-    label: $t('t_join_waiting_list'),
-    to: '/a/join-waiting-list',
+    active: route.path.startsWith('/a/join-beta'),
+    label: $t('t_join_beta'),
+    to: '/a/join-beta',
   },
   // {
   //   active: route.path.startsWith('/a/sign-up-1'),
