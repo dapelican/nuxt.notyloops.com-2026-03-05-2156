@@ -2,9 +2,13 @@
 const {
   all_user_tag_list,
   current_page_item_list,
+  refreshTotalUserCollectionCount,
+  searchItems,
   selected_item_id_set,
   total_user_note_count,
 } = useSearchAndSelectItemsOrInject(ITEM_TYPE_COLLECTION);
+
+const { locale } = useI18n();
 
 const route = useRoute();
 
@@ -44,6 +48,7 @@ const reviewStrategyForTranslationKey = (strategy) => {
 };
 
 const is_exporting_collection_id = ref(null);
+const is_duplicating_collection_id = ref(null);
 
 const exportCollection = async (collection_id) => {
   is_exporting_collection_id.value = collection_id;
@@ -80,6 +85,27 @@ const exportCollection = async (collection_id) => {
     handleFrontendError(error, message);
   } finally {
     is_exporting_collection_id.value = null;
+  }
+};
+
+const duplicateCollection = async (collection_id) => {
+  is_duplicating_collection_id.value = collection_id;
+
+  try {
+    await $fetch('/collections/duplicate', {
+      body: {
+        collection_id,
+        language: locale.value,
+      },
+      method: 'POST',
+    });
+
+    await refreshTotalUserCollectionCount();
+    await searchItems();
+  } catch (error) {
+    handleFrontendError(error, error?.data?.error_message);
+  } finally {
+    is_duplicating_collection_id.value = null;
   }
 };
 
@@ -187,6 +213,17 @@ const user_can_review_notes = computed(() => {
             variant="outline"
           >
             <span class="desktop-only">{{ $t('t_edit') }}</span>
+          </UButton>
+
+          <UButton
+            color="secondary"
+            :disabled="is_duplicating_collection_id === item.id"
+            icon="i-lucide-copy"
+            :loading="is_duplicating_collection_id === item.id"
+            variant="outline"
+            @click="duplicateCollection(item.id)"
+          >
+            <span class="desktop-only">{{ $t('t_duplicate') }}</span>
           </UButton>
 
           <DeleteCollectionPopup

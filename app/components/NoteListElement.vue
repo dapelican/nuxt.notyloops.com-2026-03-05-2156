@@ -17,10 +17,13 @@ const props = defineProps({
 const {
   current_page_item_list,
   page_number,
+  refreshTotalUserNoteCount,
   search_criteria_tag_id_set,
   searchItems,
   selected_item_id_set,
 } = useSearchAndSelectItemsOrInject(ITEM_TYPE_NOTE);
+
+const { locale } = useI18n();
 
 const addTagToFilter = (tag_id) => {
   if (search_criteria_tag_id_set.value.has(tag_id)) {
@@ -50,6 +53,29 @@ const set_statistics_open = (note_id, is_open) => {
     ...statistics_open_by_note_id.value,
     [note_id]: is_open,
   };
+};
+
+const is_duplicating_note_id = ref(null);
+
+const duplicateNote = async (note_id) => {
+  is_duplicating_note_id.value = note_id;
+
+  try {
+    await $fetch('/notes/duplicate', {
+      body: {
+        language: locale.value,
+        note_id,
+      },
+      method: 'POST',
+    });
+
+    await refreshTotalUserNoteCount();
+    await searchItems();
+  } catch (error) {
+    handleFrontendError(error, error?.data?.error_message);
+  } finally {
+    is_duplicating_note_id.value = null;
+  }
 };
 
 const calculateScore = (score, review_count) => {
@@ -108,6 +134,17 @@ const calculateScore = (score, review_count) => {
             variant="outline"
           >
             {{ $t('t_edit') }}
+          </UButton>
+
+          <UButton
+            color="secondary"
+            :disabled="is_duplicating_note_id === item.id"
+            icon="i-lucide-copy"
+            :loading="is_duplicating_note_id === item.id"
+            variant="outline"
+            @click="duplicateNote(item.id)"
+          >
+            <span class="desktop-only">{{ $t('t_duplicate') }}</span>
           </UButton>
 
           <DeleteNotePopup
