@@ -111,6 +111,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
         >
           espagnol
         </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/pc/lva-italien"
+        >
+          italien
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/pc/lva-portugais"
+        >
+          portugais
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/pc/lva-russe"
+        >
+          russe
+        </ULink>
       </li>
       <!-- <li>
         LVB :
