@@ -285,7 +285,7 @@ useGoogleTag();
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2025-ccs-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2025-ccs-rapport-psi.pdf"
                 target="_blank"
               >
                 Rapport
@@ -664,7 +664,7 @@ useGoogleTag();
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2022-ccs-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2022-ccs-rapport-psi.pdf"
                 target="_blank"
               >
                 Rapport
@@ -791,7 +791,7 @@ useGoogleTag();
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2021-ccs-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2021-ccs-rapport-psi.pdf"
                 target="_blank"
               >
                 Rapport
@@ -919,7 +919,7 @@ useGoogleTag();
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2020-ccs-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2020-ccs-rapport-psi.pdf"
                 target="_blank"
               >
                 Rapport
@@ -1045,7 +1045,7 @@ useGoogleTag();
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2019-ccs-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2019-ccs-rapport-psi.pdf"
                 target="_blank"
               >
                 Rapport
@@ -1194,7 +1194,7 @@ useGoogleTag();
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2018-ccs-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2018-ccs-rapport-psi.pdf"
                 target="_blank"
               >
                 Rapport
@@ -1344,7 +1344,7 @@ useGoogleTag();
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2017-ccs-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2017-ccs-rapport-psi.pdf"
                 target="_blank"
               >
                 Rapport
@@ -1492,7 +1492,7 @@ useGoogleTag();
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2016-ccs-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2016-ccs-rapport-psi.pdf"
                 target="_blank"
               >
                 Rapport
@@ -1640,7 +1640,7 @@ useGoogleTag();
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2015-ccs-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2015-ccs-rapport-psi.pdf"
                 target="_blank"
               >
                 Rapport
@@ -1790,7 +1790,7 @@ useGoogleTag();
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2014-ccs-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2014-ccs-rapport-psi.pdf"
                 target="_blank"
               >
                 Rapport
@@ -1939,7 +1939,7 @@ useGoogleTag();
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2013-ccs-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2013-ccs-rapport-psi.pdf"
                 target="_blank"
               >
                 Rapport
@@ -2087,7 +2087,7 @@ useGoogleTag();
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2012-ccs-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2012-ccs-rapport-psi.pdf"
                 target="_blank"
               >
                 Rapport
@@ -2276,7 +2276,7 @@ useGoogleTag();
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2011-ccs-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2011-ccs-rapport-psi.pdf"
                 target="_blank"
               >
                 Rapport
@@ -2426,7 +2426,7 @@ useGoogleTag();
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2010-ccs-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2010-ccs-rapport-psi.pdf"
                 target="_blank"
               >
                 Rapport
@@ -2597,7 +2597,7 @@ useGoogleTag();
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2009-ccs-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2009-ccs-rapport-psi.pdf"
                 target="_blank"
               >
                 Rapport
