@@ -72,6 +72,126 @@ useGoogleTag();
         <tbody>
           <tr>
             <td>
+              CCINP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2026-psi-ccinp-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2026-psi-ccinp-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              CCMP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2026-psi-ccmp-sujet-1.pdf"
+                target="_blank"
+              >
+                Sujet 1
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2026-psi-ccmp-rapport-1.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2026-psi-ccmp-sujet-2.pdf"
+                target="_blank"
+              >
+                Sujet 2
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2026-psi-ccmp-rapport-2.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              CCS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2026-psi-ccs-sujet-1.pdf"
+                target="_blank"
+              >
+                Sujet 1
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2026-psi-ccs-rapport-1.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2026-psi-ccs-sujet-2.pdf"
+                target="_blank"
+              >
+                Sujet 2
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2026-psi-ccs-rapport-2.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              e3a-Polytech
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2026-psi-e3a-polytech-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2026-psi-e3a-polytech-rapport.pdf"
+                target="_blank"
+              >
+                Rapport et corrigé
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
               ENS / X
             </td>
             <td>
@@ -114,6 +234,126 @@ useGoogleTag();
           </tr>
         </thead>
         <tbody>
+          <tr>
+            <td>
+              CCINP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2025-psi-ccinp-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2025-psi-ccinp-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              CCMP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2025-psi-ccmp-sujet-1.pdf"
+                target="_blank"
+              >
+                Sujet 1
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2025-psi-ccmp-rapport-1.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2025-psi-ccmp-sujet-2.pdf"
+                target="_blank"
+              >
+                Sujet 2
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2025-psi-ccmp-rapport-2.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              CCS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2025-psi-ccs-sujet-1.pdf"
+                target="_blank"
+              >
+                Sujet 1
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2025-psi-ccs-rapport-1.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2025-psi-ccs-sujet-2.pdf"
+                target="_blank"
+              >
+                Sujet 2
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2025-psi-ccs-rapport-2.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              e3a-Polytech
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2025-psi-e3a-polytech-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-mathematiques-2025-psi-e3a-polytech-rapport.pdf"
+                target="_blank"
+              >
+                Rapport et corrigé
+              </ULink>
+            </td>
+          </tr>
           <tr>
             <td>
               ENS / X

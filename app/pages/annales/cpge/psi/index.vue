@@ -94,6 +94,27 @@ useGoogleTag();
         >
           espagnol
         </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/psi/lva-italien"
+        >
+          italien
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/psi/lva-portugais"
+        >
+          portugais
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/psi/lva-russe"
+        >
+          russe
+        </ULink>
       </li>
       <!-- <li>
         LVB :
@@ -147,7 +168,7 @@ useGoogleTag();
           to="/annales/cpge/psi/si"
           class="text-primary"
         >
-          SI (Sciences de l'ingénieur)
+          SI
         </ULink>
       </li>
     </ul>

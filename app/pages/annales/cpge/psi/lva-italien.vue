@@ -1,7 +1,7 @@
 <script setup>
-const page_title = 'Annales prépa PSI : modélisation';
+const page_title = 'Annales prépa PSI : LVA italien';
 
-let meta_description = 'Les annales de modélisation pour les CPGE PSI.';
+let meta_description = 'Les annales de LVA italien pour les CPGE PSI.';
 meta_description += ' Les sujets et rapports des dernières années.';
 
 const breadcrumb_items = [
@@ -21,9 +21,9 @@ const breadcrumb_items = [
     url: 'https://fr.notyloops.com/annales/cpge/psi',
   },
   {
-    label: 'Modélisation',
-    to: '/annales/cpge/psi/modelisation',
-    url: 'https://fr.notyloops.com/annales/cpge/psi/modelisation',
+    label: 'LVA italien',
+    to: '/annales/cpge/psi/lva-italien',
+    url: 'https://fr.notyloops.com/annales/cpge/psi/lva-italien',
   },
 ];
 
@@ -42,7 +42,7 @@ useGoogleTag();
 </script>
 
 <template>
-  <!-- app/pages/annales/cpge/psi/modelisation.vue -->
+  <!-- app/pages/annales/cpge/psi/lva-italien.vue -->
   <UContainer class="max-w-xl">
     <UBreadcrumb
       class="mb-8"
@@ -50,7 +50,7 @@ useGoogleTag();
     />
 
     <h1>
-      Annales CPGE PSI : modélisation
+      Annales CPGE PSI : LVA italien
     </h1>
 
     <h2 class="mt-12">
@@ -72,12 +72,12 @@ useGoogleTag();
         <tbody>
           <tr>
             <td>
-              CCINP
+              CCINP / e3a-Polytech
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-modelisation-2026-psi-ccinp-sujet.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2026-ccinp-e3a-polytech-sujet-italien.pdf"
                 target="_blank"
               >
                 Sujet
@@ -85,7 +85,51 @@ useGoogleTag();
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-modelisation-2026-psi-ccinp-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2026-ccinp-e3a-polytech-rapport-italien.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              CCMP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-lva-2026-ccmp-sujet-italien.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-lva-2026-ccmp-rapport-italien.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              CCS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-lva-2026-ccs-sujet-italien.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-lva-2026-ccs-rapport-italien-psi.pdf"
                 target="_blank"
               >
                 Rapport
@@ -115,12 +159,12 @@ useGoogleTag();
         <tbody>
           <tr>
             <td>
-              CCINP
+              CCINP / e3a-Polytech
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-modelisation-2025-psi-ccinp-sujet.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2025-ccinp-e3a-polytech-sujet-italien.pdf"
                 target="_blank"
               >
                 Sujet
@@ -128,7 +172,7 @@ useGoogleTag();
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-modelisation-2025-psi-ccinp-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2025-ccinp-e3a-polytech-rapport-italien.pdf"
                 target="_blank"
               >
                 Rapport
@@ -137,12 +181,12 @@ useGoogleTag();
           </tr>
           <tr>
             <td>
-              ENS / X
+              CCMP
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-modelisation-2025-psi-ens-x-sujet.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2025-ccmp-sujet-italien.pdf"
                 target="_blank"
               >
                 Sujet
@@ -150,42 +194,21 @@ useGoogleTag();
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-modelisation-2025-psi-ens-x-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2025-ccmp-rapport-italien.pdf"
                 target="_blank"
               >
                 Rapport
               </ULink>
             </td>
           </tr>
-        </tbody>
-      </table>
-    </figure>
-
-    <h2 class="mt-12">
-      2024
-    </h2>
-
-    <figure>
-      <table>
-        <thead>
-          <tr>
-            <th>
-              Banque d'épreuve
-            </th>
-            <th>
-              Documents
-            </th>
-          </tr>
-        </thead>
-        <tbody>
           <tr>
             <td>
-              ENS / X
+              CCS
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-modelisation-2024-psi-ens-x-sujet.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2025-ccs-sujet-italien.pdf"
                 target="_blank"
               >
                 Sujet
@@ -193,93 +216,7 @@ useGoogleTag();
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-modelisation-2024-psi-ens-x-rapport.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </figure>
-
-    <h2 class="mt-12">
-      2023
-    </h2>
-
-    <figure>
-      <table>
-        <thead>
-          <tr>
-            <th>
-              Banque d'épreuve
-            </th>
-            <th>
-              Documents
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              ENS / X
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-modelisation-2023-psi-ens-x-sujet.pdf"
-                target="_blank"
-              >
-                Sujet
-              </ULink>
-              |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-modelisation-2023-psi-ens-x-rapport.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </figure>
-
-    <h2 class="mt-12">
-      2022
-    </h2>
-
-    <figure>
-      <table>
-        <thead>
-          <tr>
-            <th>
-              Banque d'épreuve
-            </th>
-            <th>
-              Documents
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              ENS / X
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-modelisation-2022-psi-ens-x-sujet.pdf"
-                target="_blank"
-              >
-                Sujet
-              </ULink>
-              |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-modelisation-2022-psi-ens-x-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2025-ccs-rapport-italien-psi.pdf"
                 target="_blank"
               >
                 Rapport
