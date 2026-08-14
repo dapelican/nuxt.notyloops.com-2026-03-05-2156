@@ -54,7 +54,7 @@ const sendJoinWaitingListEmail = async (form) => {
   }
 };
 
-useGoogleTag();
+// useGoogleTag();
 </script>
 
 <template>

@@ -53,7 +53,7 @@ useSeoMeta({
   description: meta_description,
 });
 
-useGoogleTag();
+// useGoogleTag();
 </script>
 
 <template>

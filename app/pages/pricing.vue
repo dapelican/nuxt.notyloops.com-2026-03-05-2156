@@ -55,7 +55,7 @@ const premium_price = computed(() => {
   return `$ ${premium_price_amount}`;
 });
 
-useGoogleTag();
+// useGoogleTag();
 </script>
 
 <template>

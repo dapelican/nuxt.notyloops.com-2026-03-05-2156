@@ -26,7 +26,7 @@ useSeoMeta({
   description: meta_description,
 });
 
-useGoogleTag();
+// useGoogleTag();
 </script>
 
 <template>
@@ -89,6 +89,12 @@ useGoogleTag();
           class="text-primary"
           to="/annales/cpge/psi"
         >PSI</ULink>
+      </li>
+      <li>
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/tsi"
+        >TSI</ULink>
       </li>
     </ul>
   </UContainer>

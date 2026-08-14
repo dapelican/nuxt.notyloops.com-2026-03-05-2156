@@ -112,7 +112,7 @@ const signUp = async (form) => {
   }
 };
 
-useGoogleTag();
+// useGoogleTag();
 </script>
 
 <template>

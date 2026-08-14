@@ -13,7 +13,7 @@ const contact_email = computed(() =>
   logged_in.value ? 'support@notyloops.com' : 'contact@notyloops.com'
 );
 
-useGoogleTag();
+// useGoogleTag();
 </script>
 
 <template>

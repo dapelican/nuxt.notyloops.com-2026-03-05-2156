@@ -1,7 +1,7 @@
 <script setup>
-const page_title = 'Annales prépa PC : LVA portugais';
+const page_title = 'Annales prépa TSI : informatique';
 
-let meta_description = 'Les annales de LVA portugais pour les CPGE PC.';
+let meta_description = 'Les annales d\'informatique pour les CPGE TSI.';
 meta_description += ' Les sujets et rapports des dernières années.';
 
 const breadcrumb_items = [
@@ -16,14 +16,14 @@ const breadcrumb_items = [
     url: 'https://fr.notyloops.com/annales/cpge',
   },
   {
-    label: 'PC',
-    to: '/annales/cpge/pc',
-    url: 'https://fr.notyloops.com/annales/cpge/pc',
+    label: 'TSI',
+    to: '/annales/cpge/tsi',
+    url: 'https://fr.notyloops.com/annales/cpge/tsi',
   },
   {
-    label: 'LVA portugais',
-    to: '/annales/cpge/pc/lva-portugais',
-    url: 'https://fr.notyloops.com/annales/cpge/pc/lva-portugais',
+    label: 'Informatique',
+    to: '/annales/cpge/tsi/informatique',
+    url: 'https://fr.notyloops.com/annales/cpge/tsi/informatique',
   },
 ];
 
@@ -42,7 +42,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <!-- app/pages/annales/cpge/pc/lva-portugais.vue -->
+  <!-- app/pages/annales/cpge/tsi/informatique.vue -->
   <UContainer class="max-w-xl">
     <UBreadcrumb
       class="mb-8"
@@ -50,7 +50,7 @@ useSeoMeta({
     />
 
     <h1>
-      Annales CPGE PC : LVA portugais
+      Annales CPGE TSI : informatique
     </h1>
 
     <h2 class="mt-12">
@@ -72,42 +72,28 @@ useSeoMeta({
         <tbody>
           <tr>
             <td>
-              CCINP / e3a-Polytech
+              CCINP
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2026-ccinp-e3a-polytech-sujet-portugais.pdf"
+                to="https://annales.notyloops.com/cpge-informatique-2026-tsi-ccinp-sujet.pdf"
                 target="_blank"
               >
                 Sujet
               </ULink>
-              <!-- |
+              |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2026-ccinp-e3a-polytech-rapport-portugais.pdf"
+                to="https://annales.notyloops.com/cpge-informatique-2026-tsi-ccinp-document-reponse.pdf"
                 target="_blank"
               >
-                Rapport
-              </ULink> -->
-            </td>
-          </tr>
-          <tr>
-            <td>
-              CCS
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2026-ccs-sujet-portugais.pdf"
-                target="_blank"
-              >
-                Sujet
+                Document réponse
               </ULink>
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2026-ccs-rapport-portugais-pc.pdf"
+                to="https://annales.notyloops.com/cpge-informatique-2026-tsi-ccinp-rapport.pdf"
                 target="_blank"
               >
                 Rapport
@@ -137,12 +123,12 @@ useSeoMeta({
         <tbody>
           <tr>
             <td>
-              CCINP / e3a-Polytech
+              CCINP
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2025-ccinp-e3a-polytech-sujet-portugais.pdf"
+                to="https://annales.notyloops.com/cpge-informatique-2025-tsi-ccinp-sujet.pdf"
                 target="_blank"
               >
                 Sujet
@@ -150,29 +136,15 @@ useSeoMeta({
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2025-ccinp-e3a-polytech-rapport-portugais.pdf"
+                to="https://annales.notyloops.com/cpge-informatique-2025-tsi-ccinp-document-reponse.pdf"
                 target="_blank"
               >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              CCS
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2025-ccs-sujet-portugais.pdf"
-                target="_blank"
-              >
-                Sujet
+                Document réponse
               </ULink>
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2025-ccs-rapport-portugais-pc.pdf"
+                to="https://annales.notyloops.com/cpge-informatique-2025-tsi-ccinp-rapport.pdf"
                 target="_blank"
               >
                 Rapport

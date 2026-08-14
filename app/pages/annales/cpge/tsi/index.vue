@@ -1,7 +1,7 @@
 <script setup>
-const page_title = 'Annales prépa ECG';
+const page_title = 'Annales prépa TSI';
 
-let meta_description = 'Les annales BCE et Ecricome de toutes les matières de CPGE ECG (voie générale).';
+let meta_description = 'Les annales de toutes les matières de CPGE TSI.';
 meta_description += ' Les sujets et rapports des dernières années.';
 
 const breadcrumb_items = [
@@ -16,9 +16,9 @@ const breadcrumb_items = [
     url: 'https://fr.notyloops.com/annales/cpge',
   },
   {
-    label: 'ECG',
-    to: '/annales/cpge/ecg',
-    url: 'https://fr.notyloops.com/annales/cpge/ecg',
+    label: 'TSI',
+    to: '/annales/cpge/tsi',
+    url: 'https://fr.notyloops.com/annales/cpge/tsi',
   },
 ];
 
@@ -37,7 +37,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <!-- app/pages/annales/cpge/ecg/index.vue -->
+  <!-- app/pages/annales/cpge/tsi/index.vue -->
   <UContainer class="max-w-xl">
     <UBreadcrumb
       class="mb-8"
@@ -45,118 +45,132 @@ useSeoMeta({
     />
 
     <h1>
-      Annales CPGE ECG
+      Annales CPGE TSI
     </h1>
 
     <ul class="list-disc list-inside">
       <li>
         <ULink
+          to="/annales/cpge/tsi/francais-philosophie"
           class="text-primary"
-          to="/annales/cpge/ecg/culture-generale"
         >
-          Culture générale (dissertation)
+          Français - Philosophie
         </ULink>
       </li>
       <li>
         <ULink
-          to="/annales/cpge/ecg/esh"
+          to="/annales/cpge/tsi/informatique"
           class="text-primary"
         >
-          Économie, sociologie et histoire du monde contemporain (ESH)
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          to="/annales/cpge/ecg/hgg"
-          class="text-primary"
-        >
-          Histoire, géographie et géopolitique du monde contemporain (HGG)
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          to="/annales/cpge/ecg/lettres"
-          class="text-primary"
-        >
-          Lettres (résumé de texte, étude et synthèse de textes)
+          Informatique
         </ULink>
       </li>
       <li>
         LVA :
         <ULink
-          to="/annales/cpge/ecg/lva-allemand"
           class="text-primary"
+          to="/annales/cpge/tsi/lva-allemand"
         >
           allemand
         </ULink>
         |
         <ULink
-          to="/annales/cpge/ecg/lva-anglais"
           class="text-primary"
+          to="/annales/cpge/tsi/lva-anglais"
         >
           anglais
         </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/tsi/lva-arabe"
+        >
+          arabe
+        </ULink>
         <!-- |
         <ULink
-          to=""
           class="text-primary"
+          to="/annales/cpge/tsi/lva-espagnol"
         >
-          arabe littéral
+          espagnol
         </ULink> -->
-        |
-        <ULink
-          to="/annales/cpge/ecg/lva-espagnol"
-          class="text-primary"
-        >
-          espagnol
-        </ULink>
-      </li>
-      <li>
-        LVB :
-        <ULink
-          to="/annales/cpge/ecg/lvb-allemand"
-          class="text-primary"
-        >
-          allemand
-        </ULink>
-        |
-        <ULink
-          to="/annales/cpge/ecg/lvb-anglais"
-          class="text-primary"
-        >
-          anglais
-        </ULink>
-        |
-        <ULink
-          to="/annales/cpge/ecg/lvb-espagnol"
-          class="text-primary"
-        >
-          espagnol
-        </ULink>
         <!-- |
         <ULink
-          to=""
           class="text-primary"
+          to="/annales/cpge/tsi/lva-italien"
         >
           italien
         </ULink> -->
-      </li>
-      <li>
+        <!-- |
         <ULink
-          to="/annales/cpge/ecg/mathematiques-appliquees"
+          class="text-primary"
+          to="/annales/cpge/tsi/lva-portugais"
+        >
+          portugais
+        </ULink> -->
+        <!-- |
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/tsi/lva-russe"
+        >
+          russe
+        </ULink> -->
+      </li>
+      <!-- <li>
+        LVB :
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/tsi/lvb-allemand"
+        >
+          allemand
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/tsi/lvb-anglais"
+        >
+          anglais
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/tsi/lvb-espagnol"
+        >
+          espagnol
+        </ULink>
+      </li> -->
+      <!-- <li>
+        <ULink
+          to="/annales/cpge/tsi/mathematiques"
           class="text-primary"
         >
-          Mathématiques appliquées
+          Mathématiques
         </ULink>
-      </li>
-      <li>
+      </li> -->
+      <!-- <li>
         <ULink
-          to="/annales/cpge/ecg/mathematiques-approfondies"
+          to="/annales/cpge/tsi/modelisation"
           class="text-primary"
         >
-          Mathématiques appronfondies
+          Modélisation
         </ULink>
-      </li>
+      </li> -->
+      <!-- <li>
+        <ULink
+          to="/annales/cpge/tsi/physique-chimie"
+          class="text-primary"
+        >
+          Physique - Chimie
+        </ULink>
+      </li> -->
+      <!-- <li>
+        <ULink
+          to="/annales/cpge/tsi/si"
+          class="text-primary"
+        >
+          SI
+        </ULink>
+      </li> -->
     </ul>
   </UContainer>
 </template>

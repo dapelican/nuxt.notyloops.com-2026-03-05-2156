@@ -69,7 +69,7 @@ const sendValidateEmailToken = async (form) => {
   }
 };
 
-useGoogleTag();
+// useGoogleTag();
 </script>
 
 <template>

@@ -1,8 +1,8 @@
 <script setup>
-const page_title = 'Annales prépa BCPST : Français - Philosophie';
+const page_title = 'Annales prépa TSI : français - philosophie';
 
-let meta_description = 'Les annales de Français - Philosophie pour les CPGE BCPST.';
-meta_description += ' Les sujets et rapports des dernières années pour les épreuves Agro-Véto, ENS et G2E.';
+let meta_description = 'Les annales de français - philosophie pour les CPGE TSI.';
+meta_description += ' Les sujets et rapports des dernières années.';
 
 const breadcrumb_items = [
   {
@@ -16,14 +16,14 @@ const breadcrumb_items = [
     url: 'https://fr.notyloops.com/annales/cpge',
   },
   {
-    label: 'BCPST',
-    to: '/annales/cpge/bcpst',
-    url: 'https://fr.notyloops.com/annales/cpge/bcpst',
+    label: 'TSI',
+    to: '/annales/cpge/tsi',
+    url: 'https://fr.notyloops.com/annales/cpge/tsi',
   },
   {
     label: 'Français - Philosophie',
-    to: '/annales/cpge/bcpst/francais-philosophie',
-    url: 'https://fr.notyloops.com/annales/cpge/bcpst/francais-philosophie',
+    to: '/annales/cpge/tsi/francais-philosophie',
+    url: 'https://fr.notyloops.com/annales/cpge/tsi/francais-philosophie',
   },
 ];
 
@@ -42,7 +42,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <!-- app/pages/annales/cpge/bcpst/francais-philosophie.vue -->
+  <!-- app/pages/annales/cpge/tsi/francais-philosophie.vue -->
   <UContainer class="max-w-xl">
     <UBreadcrumb
       class="mb-8"
@@ -50,7 +50,7 @@ useSeoMeta({
     />
 
     <h1>
-      Annales CPGE BCPST : Français - Philosophie
+      Annales CPGE TSI : français - philosophie
     </h1>
 
     <h2 class="mt-12">
@@ -98,21 +98,20 @@ useSeoMeta({
         <tbody>
           <tr>
             <td>
-              Agro-Véto
+              CCINP / e3a-Polytech
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2026-bcpst-agro-veto-sujet.pdf"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2026-ccinp-sujet.pdf"
                 target="_blank"
-                rel="noopener noreferrer"
               >
                 Sujet
               </ULink>
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2026-bcpst-agro-veto-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2026-ccinp-rapport.pdf"
                 target="_blank"
               >
                 Rapport
@@ -121,44 +120,20 @@ useSeoMeta({
           </tr>
           <tr>
             <td>
-              ENS / ENPC / Mines / EC
+              CCS
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2026-bcpst-ens-enpc-mines-ec-sujet.pdf"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2026-tsi-ccs-sujet.pdf"
                 target="_blank"
-                rel="noopener noreferrer"
               >
                 Sujet
               </ULink>
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2026-bcpst-ens-enpc-mines-rapport.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink> -->
-            </td>
-          </tr>
-          <tr>
-            <td>
-              G2E
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2026-bcpst-g2e-sujet.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Sujet
-              </ULink>
-              <!-- |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2026-bcpst-g2e-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2026-tsi-ccs-rapport.pdf"
                 target="_blank"
               >
                 Rapport
@@ -209,21 +184,20 @@ useSeoMeta({
         <tbody>
           <tr>
             <td>
-              Agro-Véto
+              CCINP / e3a-Polytech
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2025-bcpst-agro-veto-sujet.pdf"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2025-ccinp-sujet.pdf"
                 target="_blank"
-                rel="noopener noreferrer"
               >
                 Sujet
               </ULink>
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2025-bcpst-agro-veto-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2025-ccinp-rapport.pdf"
                 target="_blank"
               >
                 Rapport
@@ -232,44 +206,20 @@ useSeoMeta({
           </tr>
           <tr>
             <td>
-              ENS / ENPC / Mines / EC
+              CCS
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2025-bcpst-ens-enpc-mines-ec-sujet.pdf"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2025-tsi-ccs-sujet.pdf"
                 target="_blank"
-                rel="noopener noreferrer"
               >
                 Sujet
               </ULink>
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2025-bcpst-ens-enpc-mines-rapport.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              G2E
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2025-bcpst-g2e-sujet.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Sujet
-              </ULink>
-              |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2025-bcpst-g2e-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2025-tsi-ccs-rapport.pdf"
                 target="_blank"
               >
                 Rapport
@@ -317,12 +267,12 @@ useSeoMeta({
         <tbody>
           <tr>
             <td>
-              Agro-Véto
+              CCINP / e3a-Polytech
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2024-bcpst-agro-veto-sujet.pdf"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2024-ccinp-sujet.pdf"
                 target="_blank"
               >
                 Sujet
@@ -330,7 +280,7 @@ useSeoMeta({
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2024-bcpst-agro-veto-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2024-ccinp-rapport.pdf"
                 target="_blank"
               >
                 Rapport
@@ -339,12 +289,12 @@ useSeoMeta({
           </tr>
           <tr>
             <td>
-              ENS / ENPC / Mines
+              CCS
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2024-bcpst-ens-enpc-mines-sujet.pdf"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2024-tsi-ccs-sujet.pdf"
                 target="_blank"
               >
                 Sujet
@@ -352,29 +302,7 @@ useSeoMeta({
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2024-bcpst-ens-enpc-mines-rapport.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              G2E
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2024-bcpst-g2e-sujet.pdf"
-                target="_blank"
-              >
-                Sujet
-              </ULink>
-              |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2024-bcpst-g2e-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2024-tsi-ccs-rapport.pdf"
                 target="_blank"
               >
                 Rapport
@@ -417,12 +345,12 @@ useSeoMeta({
         <tbody>
           <tr>
             <td>
-              Agro-Véto
+              CCINP / e3a-Polytech
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2023-bcpst-agro-veto-sujet.pdf"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2023-ccinp-sujet.pdf"
                 target="_blank"
               >
                 Sujet
@@ -430,51 +358,7 @@ useSeoMeta({
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2023-bcpst-agro-veto-rapport.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              ENS / ENPC / Mines
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2023-bcpst-ens-enpc-mines-sujet.pdf"
-                target="_blank"
-              >
-                Sujet
-              </ULink>
-              |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2023-bcpst-ens-enpc-mines-rapport.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              G2E
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2023-bcpst-g2e-sujet.pdf"
-                target="_blank"
-              >
-                Sujet
-              </ULink>
-              |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2023-bcpst-g2e-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2023-ccinp-rapport.pdf"
                 target="_blank"
               >
                 Rapport
@@ -525,12 +409,12 @@ useSeoMeta({
         <tbody>
           <tr>
             <td>
-              Agro-Véto
+              CCINP / e3a-Polytech
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2022-bcpst-agro-veto-sujet.pdf"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2022-ccinp-sujet.pdf"
                 target="_blank"
               >
                 Sujet
@@ -538,51 +422,7 @@ useSeoMeta({
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2022-bcpst-agro-veto-rapport.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              ENS / ENPC
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2022-bcpst-ens-enpc-sujet.pdf"
-                target="_blank"
-              >
-                Sujet
-              </ULink>
-              |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2022-bcpst-ens-enpc-rapport.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              G2E
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2022-bcpst-g2e-sujet.pdf"
-                target="_blank"
-              >
-                Sujet
-              </ULink>
-              |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2022-bcpst-g2e-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2022-ccinp-rapport.pdf"
                 target="_blank"
               >
                 Rapport
@@ -630,12 +470,12 @@ useSeoMeta({
         <tbody>
           <tr>
             <td>
-              Agro-Véto
+              CCINP / e3a-Polytech
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2021-bcpst-agro-veto-sujet.pdf"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2021-ccinp-sujet.pdf"
                 target="_blank"
               >
                 Sujet
@@ -643,51 +483,7 @@ useSeoMeta({
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2021-bcpst-agro-veto-rapport.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              ENS / ENPC
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2021-bcpst-ens-enpc-sujet.pdf"
-                target="_blank"
-              >
-                Sujet
-              </ULink>
-              |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2021-bcpst-ens-enpc-rapport.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              G2E
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2021-bcpst-g2e-sujet.pdf"
-                target="_blank"
-              >
-                Sujet
-              </ULink>
-              |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2021-bcpst-g2e-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2021-ccinp-rapport.pdf"
                 target="_blank"
               >
                 Rapport
@@ -736,12 +532,12 @@ useSeoMeta({
         <tbody>
           <tr>
             <td>
-              Agro-Véto
+              CCINP / e3a-Polytech
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2020-bcpst-agro-veto-sujet.pdf"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2020-ccinp-sujet.pdf"
                 target="_blank"
               >
                 Sujet
@@ -749,51 +545,7 @@ useSeoMeta({
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2020-bcpst-agro-veto-rapport.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              ENS / ENPC
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2020-bcpst-ens-enpc-sujet.pdf"
-                target="_blank"
-              >
-                Sujet
-              </ULink>
-              |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2020-bcpst-ens-enpc-rapport.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              G2E
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2020-bcpst-g2e-sujet.pdf"
-                target="_blank"
-              >
-                Sujet
-              </ULink>
-              |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2020-bcpst-g2e-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2020-ccinp-rapport.pdf"
                 target="_blank"
               >
                 Rapport
@@ -840,12 +592,12 @@ useSeoMeta({
         <tbody>
           <tr>
             <td>
-              Agro-Véto
+              CCINP
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2019-bcpst-agro-veto-sujet.pdf"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2019-ccinp-sujet.pdf"
                 target="_blank"
               >
                 Sujet
@@ -853,51 +605,7 @@ useSeoMeta({
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2019-bcpst-agro-veto-rapport.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              ENS / ENPC
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2019-bcpst-ens-enpc-sujet.pdf"
-                target="_blank"
-              >
-                Sujet
-              </ULink>
-              |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2019-bcpst-ens-enpc-rapport.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              G2E
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2019-bcpst-g2e-sujet.pdf"
-                target="_blank"
-              >
-                Sujet
-              </ULink>
-              |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-francais-philosophie-2019-bcpst-g2e-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2019-ccinp-rapport.pdf"
                 target="_blank"
               >
                 Rapport
@@ -930,6 +638,45 @@ useSeoMeta({
       2018 - L'aventure
     </h2>
 
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              CCP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2018-ccp-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2018-ccp-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
     <h3 class="mt-4">
       Œuvres
     </h3>
@@ -953,6 +700,45 @@ useSeoMeta({
       2017 - Servitude et soumission
     </h2>
 
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              CCP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2017-ccp-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2017-ccp-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
     <h3 class="mt-4">
       Œuvres
     </h3>
@@ -974,6 +760,45 @@ useSeoMeta({
       2016 - Le monde des passions
     </h2>
 
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              CCP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2016-ccp-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2016-ccp-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
     <h3 class="mt-4">
       Œuvres
     </h3>
@@ -994,6 +819,45 @@ useSeoMeta({
     <h2 class="mt-12">
       2015 - La guerre
     </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              CCP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2015-ccp-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2015-ccp-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
 
     <h3 class="mt-4">
       Œuvres
@@ -1018,6 +882,45 @@ useSeoMeta({
       2014 - Le temps vécu
     </h2>
 
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              CCP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2014-ccp-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2014-ccp-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
     <h3 class="mt-4">
       Œuvres
     </h3>
@@ -1040,6 +943,45 @@ useSeoMeta({
       2013 - La parole
     </h2>
 
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              CCP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2013-ccp-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2013-ccp-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
     <h3 class="mt-4">
       Œuvres
     </h3>
@@ -1060,6 +1002,45 @@ useSeoMeta({
     <h2 class="mt-12">
       2012 - La justice
     </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              CCP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2012-ccp-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2012-ccp-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
 
     <h3 class="mt-4">
       Œuvres
@@ -1123,6 +1104,45 @@ useSeoMeta({
       2011 - Le mal
     </h2>
 
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              CCP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2011-ccp-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2011-ccp-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
     <h3 class="mt-4">
       Œuvres
     </h3>
@@ -1146,6 +1166,45 @@ useSeoMeta({
       2010 - L'argent
     </h2>
 
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              CCP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2010-ccp-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2010-ccp-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
     <h3 class="mt-4">
       Œuvres
     </h3>
@@ -1167,6 +1226,45 @@ useSeoMeta({
     <h2 class="mt-12">
       2009 - Énigmes du moi
     </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              CCP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2009-ccp-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2009-ccp-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
 
     <h3 class="mt-4">
       Œuvres
@@ -1190,6 +1288,45 @@ useSeoMeta({
       2008 - Penser l'histoire
     </h2>
 
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              CCP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2008-ccp-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2008-ccp-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
     <h3 class="mt-4">
       Œuvres
     </h3>
@@ -1211,6 +1348,45 @@ useSeoMeta({
     <h2 class="mt-12">
       2007 - Puissances de l'imagination
     </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              CCP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2007-ccp-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2007-ccp-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
 
     <h3 class="mt-4">
       Œuvres
@@ -1235,6 +1411,45 @@ useSeoMeta({
       2006 - La recherche du bonheur
     </h2>
 
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              CCP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2006-ccp-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2006-ccp-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
     <h3 class="mt-4">
       Œuvres
     </h3>
@@ -1256,6 +1471,46 @@ useSeoMeta({
     <h2 class="mt-12">
       2005 - L'animal et l'homme
     </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              CCP
+            </td>
+            <td>
+              Non disponible
+              <!-- <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2005-ccp-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink> -->
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2005-ccp-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
 
     <h3 class="mt-4">
       Œuvres
@@ -1281,6 +1536,46 @@ useSeoMeta({
       2004 - Mesure et démesure
     </h2>
 
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              CCP
+            </td>
+            <td>
+              Sujet non disponible
+              <!-- <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2004-ccp-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink> -->
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2004-ccp-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
     <h3 class="mt-4">
       Œuvres
     </h3>
@@ -1303,6 +1598,45 @@ useSeoMeta({
       2003 - La paix
     </h2>
 
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              CCP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2003-ccp-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2003-ccp-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
     <h3 class="mt-4">
       Œuvres
     </h3>
@@ -1324,6 +1658,46 @@ useSeoMeta({
       2002 - L'amitié
     </h2>
 
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              CCP
+            </td>
+            <td>
+              Non disponible
+              <!-- <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2002-ccp-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink> -->
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2002-ccp-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
     <h3 class="mt-4">
       Œuvres
     </h3>
@@ -1343,6 +1717,46 @@ useSeoMeta({
     <h2 class="mt-12">
       2001 - L'héroïsme
     </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              CCP
+            </td>
+            <td>
+              Non disponible
+              <!-- <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2001-ccp-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink> -->
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2001-ccp-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
 
     <h3 class="mt-4">
       Œuvres
@@ -1366,6 +1780,46 @@ useSeoMeta({
     <h2 class="mt-12">
       2000 - Savoir et ignorer
     </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              CCP
+            </td>
+            <td>
+              Non disponible
+              <!-- <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2000-ccp-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink> -->
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-francais-philosophie-2000-ccp-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
 
     <h3 class="mt-4">
       Œuvres
@@ -1601,16 +2055,7 @@ useSeoMeta({
 
     <ul>
       <li>
-        <ULink
-          class="text-primary"
-          to="https://www.concours-agro-veto.fr/archives-sujets-rapports/sujets-rapports-concours-cpge-bcpst/epreuves-ecrites-concours-cpge-bcpst#Humanit%C3%A9s"
-          target="_blank"
-        >
-          Agro-Véto : les sujets
-        </ULink>
-      </li>
-      <li>
-        <ULink
+        <ULink class="text-primary"
           class="text-primary"
           to="https://www.ens.psl.eu/une-formation-d-exception/admission-concours/concours-voie-cpge/concours-voie-cpge-sciences-0"
           target="_blank"
@@ -1619,25 +2064,61 @@ useSeoMeta({
         </ULink>
       </li>
       <li>
-        <ULink
+        <ULink class="text-primary"
           class="text-primary"
-          to="https://concoursg2e.univ-lorraine.fr/concours-precedents/"
+          to="https://www.polytechnique.edu/admission-cycle-ingenieur/sujets-et-rapports"
           target="_blank"
         >
-          G2E : les sujets et rapports
+          Ecole polytechnique : sujets et rapports à partir de 2021
         </ULink>
       </li>
       <li>
-        <ULink
+        <ULink class="text-primary"
           class="text-primary"
-          to="https://banques-ecoles.fr/cms/filiere-bcpst/"
+          to="https://www.concours-centrale-supelec.fr/sujets-rapports"
           target="_blank"
         >
-          Sujets à partir de 2003
+          Concours Centrale-Supélec : sujets et rapports à partir de 2017
         </ULink>
       </li>
       <li>
-        <ULink
+        <ULink class="text-primary"
+          class="text-primary"
+          to="https://concoursminesponts.fr/annales/"
+          target="_blank"
+        >
+          Concours Mines-Ponts : sujets et rapports à partir de 2014
+        </ULink>
+      </li>
+      <li>
+        <ULink class="text-primary"
+          class="text-primary"
+          to="https://www.concours-commun-inp.fr/fr/epreuves/annales/annales-epreuves-communes.html"
+          target="_blank"
+        >
+          CCINP : sujets et rapports des épreuves communes
+        </ULink>
+      </li>
+      <li>
+        <ULink class="text-primary"
+          class="text-primary"
+          to="https://oldccp.scei-concours.fr/sccp.php?page=cpge/sujet/sujet_accueil_cpge.html"
+          target="_blank"
+        >
+          CCINP : sujets de 2003 à 2017
+        </ULink>
+      </li>
+      <li>
+        <ULink class="text-primary"
+          class="text-primary"
+          to="https://www.education.gouv.fr/bo/2025/Hebdo23/MENS2514209A"
+          target="_blank"
+        >
+          Programme de français et de philosophie pour l'année scolaire 2025-2026 (bulletin officiel)
+        </ULink>
+      </li>
+      <li>
+        <ULink class="text-primary"
           class="text-primary"
           to="https://www.education.gouv.fr/bo/2024/Hebdo29/ESRS2418417A"
           target="_blank"
@@ -1646,7 +2127,7 @@ useSeoMeta({
         </ULink>
       </li>
       <li>
-        <ULink
+        <ULink class="text-primary"
           class="text-primary"
           to="https://www.education.gouv.fr/bo/2023/Hebdo28/ESRS2317934A"
           target="_blank"
@@ -1655,7 +2136,7 @@ useSeoMeta({
         </ULink>
       </li>
       <li>
-        <ULink
+        <ULink class="text-primary"
           class="text-primary"
           to="https://www.education.gouv.fr/bo/22/Hebdo20/ESRS2213517A.htm"
           target="_blank"
@@ -1664,7 +2145,7 @@ useSeoMeta({
         </ULink>
       </li>
       <li>
-        <ULink
+        <ULink class="text-primary"
           class="text-primary"
           to="https://www.enseignementsup-recherche.gouv.fr/fr/bo/21/Hebdo28/ESRS2119554A.htm"
           target="_blank"
@@ -1672,26 +2153,9 @@ useSeoMeta({
           Programme de français et de philosophie pour l'année scolaire 2021-2022 (bulletin officiel)
         </ULink>
       </li>
+
       <li>
-        <ULink
-          class="text-primary"
-          to="https://www.education.gouv.fr/bo/20/Hebdo32/ESRS2014851A.htm"
-          target="_blank"
-        >
-          Programme de français et de philosophie pour l'année scolaire 2020-2021 (bulletin officiel)
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          class="text-primary"
-          to="https://www.education.gouv.fr/bo/19/Hebdo27/ESRS1900148A.htm"
-          target="_blank"
-        >
-          Programme de français et de philosophie pour l'année scolaire 2019-2020 (bulletin officiel)
-        </ULink>
-      </li>
-      <li>
-        <ULink
+        <ULink class="text-primary"
           class="text-primary"
           to="https://fr.wikipedia.org/wiki/Fran%C3%A7ais-philosophie#%C3%89tude_des_%C5%93uvres"
           target="_blank"
@@ -1700,219 +2164,21 @@ useSeoMeta({
         </ULink>
       </li>
       <li>
-        <ULink
+        <ULink class="text-primary"
           class="text-primary"
-          to="https://www.enseignementsup-recherche.gouv.fr/fr/bo/18/Hebdo24/ESRS1800091A.htm"
+          to="https://oldccp.scei-concours.fr/sccp.php?page=cpge/sujet/sujet_accueil_cpge.html"
           target="_blank"
         >
-          Programme de français et de philosophie pour l'année scolaire 2018-2019 (bulletin officiel)
+          e3a-Polytech : sujets à partir de 2018
         </ULink>
       </li>
       <li>
-        <ULink
+        <ULink class="text-primary"
           class="text-primary"
-          to="https://www.education.gouv.fr/bo/17/Hebdo26/ESRS1700064A.htm"
+          to="https://astucesweb.fr/cpge/annales/"
           target="_blank"
         >
-          Programme de français et de philosophie pour l'année scolaire 2017-2018 (bulletin officiel)
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          class="text-primary"
-          to="https://www.education.gouv.fr/bo/16/Hebdo26/MENS1600411A.htm"
-          target="_blank"
-        >
-          Programme de français et de philosophie pour l'année scolaire 2016-2017 (bulletin officiel)
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          class="text-primary"
-          to="https://www.education.gouv.fr/bo/15/Hebdo23/MENS1501166A.htm"
-          target="_blank"
-        >
-          Programme de français et de philosophie pour l'année scolaire 2015-2016 (bulletin officiel)
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          class="text-primary"
-          to="https://www.education.gouv.fr/bo/14/Hebdo24/MENS1401052A.htm"
-          target="_blank"
-        >
-          Programme de français et de philosophie pour l'année scolaire 2014-2015 (bulletin officiel)
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          class="text-primary"
-          to="https://www.education.gouv.fr/bo/13/Hebdo26/ESRS1300172A.htm"
-          target="_blank"
-        >
-          Programme de français et de philosophie pour l'année scolaire 2013-2014 (bulletin officiel)
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          class="text-primary"
-          to="https://www.education.gouv.fr/bo/12/Hebdo26/ESRS1200215A.htm"
-          target="_blank"
-        >
-          Programme de français et de philosophie pour l'année scolaire 2012-2013 (bulletin officiel)
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          class="text-primary"
-          to="https://www.education.gouv.fr/bo/2011/24/esrs1100188a.htm"
-          target="_blank"
-        >
-          Programme de français et de philosophie pour l'année scolaire 2011-2012 (bulletin officiel)
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          class="text-primary"
-          to="https://www.education.gouv.fr/bo/2010/17/esrs1000116a.htm"
-          target="_blank"
-        >
-          Programme de français et de philosophie pour l'année scolaire 2010-2011 (bulletin officiel)
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          class="text-primary"
-          to="https://www.enseignementsup-recherche.gouv.fr/fr/bo/2009/27/esrs0900270a.html"
-          target="_blank"
-        >
-          Programme de français et de philosophie pour l'année scolaire 2009-2010 (bulletin officiel)
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          class="text-primary"
-          to="https://www.legifrance.gouv.fr/loda/id/JORFTEXT000019116992/"
-          target="_blank"
-        >
-          Programme de français et de philosophie pour l'année scolaire 2008-2009 (bulletin officiel)
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          class="text-primary"
-          to="https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000000650646"
-          target="_blank"
-        >
-          Programme de français et de philosophie pour l'année scolaire 2007-2008 (bulletin officiel)
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          class="text-primary"
-          to="https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000000818342"
-          target="_blank"
-        >
-          Programme de français et de philosophie pour l'année scolaire 2006-2007 (bulletin officiel)
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          class="text-primary"
-          to="https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000000451389"
-          target="_blank"
-        >
-          Programme de français et de philosophie pour l'année scolaire 2005-2006 (bulletin officiel)
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          class="text-primary"
-          to="https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000000252109"
-          target="_blank"
-        >
-          Programme de français et de philosophie pour l'année scolaire 2004-2005 (bulletin officiel)
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          class="text-primary"
-          to="https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000000602572"
-          target="_blank"
-        >
-          Programme de français et de philosophie pour l'année scolaire 2003-2004 (bulletin officiel)
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          class="text-primary"
-          to="https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000000228933"
-          target="_blank"
-        >
-          Programme de français et de philosophie pour l'année scolaire 2002-2003 (bulletin officiel)
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          class="text-primary"
-          to="https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000000207891"
-          target="_blank"
-        >
-          Programme de français et de philosophie pour l'année scolaire 2001-2002 (bulletin officiel)
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          class="text-primary"
-          to="https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000000400745"
-          target="_blank"
-        >
-          Programme de français et de philosophie pour l'année scolaire 2000-2001 (bulletin officiel)
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          class="text-primary"
-          to="https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000000393558"
-          target="_blank"
-        >
-          Programme de français et de philosophie pour l'année scolaire 1999-2000 (bulletin officiel)
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          class="text-primary"
-          to="https://www.education.gouv.fr/bo/1998/31/sup.htm"
-          target="_blank"
-        >
-          Programme de français et de philosophie pour l'année scolaire 1998-1999 (bulletin officiel)
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          class="text-primary"
-          to="https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000000182033"
-          target="_blank"
-        >
-          Programme de français et de philosophie pour l'année scolaire 1997-1998 (bulletin officiel)
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          class="text-primary"
-          to="https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000000367529"
-          target="_blank"
-        >
-          Programme de français et de philosophie pour l'année scolaire 1996-1997 (bulletin officiel)
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          class="text-primary"
-          to="https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000000721816"
-          target="_blank"
-        >
-          Programme de français et de philosophie pour l'année scolaire 1995-1996 (bulletin officiel)
+          Annales concours CPGE
         </ULink>
       </li>
     </ul> -->
