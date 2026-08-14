@@ -122,9 +122,13 @@ export default defineEventHandler(async (event) => {
       ]
     );
 
+    const new_collection = new_collection_list.at(0);
+
     setResponseStatus(event, HTTP_CODE_201_CREATED);
 
-    return new_collection_list.at(0);
+    return {
+      id: new_collection.id,
+    };
   } catch (error) {
     /* c8 ignore next */
     return handleBackendError(error, event);

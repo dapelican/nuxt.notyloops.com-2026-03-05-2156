@@ -159,7 +159,9 @@ export default defineEventHandler(async (event) => {
 
     setResponseStatus(event, HTTP_CODE_201_CREATED);
 
-    return new_note;
+    return {
+      id: new_note.id,
+    };
   } catch (error) {
     /* c8 ignore next */
     return handleBackendError(error, event);

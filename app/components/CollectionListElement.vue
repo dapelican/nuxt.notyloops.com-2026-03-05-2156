@@ -92,7 +92,7 @@ const duplicateCollection = async (collection_id) => {
   is_duplicating_collection_id.value = collection_id;
 
   try {
-    await $fetch('/collections/duplicate', {
+    const new_collection = await $fetch('/collections/duplicate', {
       body: {
         collection_id,
         language: locale.value,
@@ -100,8 +100,10 @@ const duplicateCollection = async (collection_id) => {
       method: 'POST',
     });
 
-    await refreshTotalUserCollectionCount();
-    await searchItems();
+    refreshTotalUserCollectionCount();
+    searchItems();
+
+    navigateTo(`/manage-${ITEM_TYPE_COLLECTION}s/edit/${new_collection.id}?page_number=${page_number.value}`);
   } catch (error) {
     handleFrontendError(error, error?.data?.error_message);
   } finally {

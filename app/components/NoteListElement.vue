@@ -61,7 +61,7 @@ const duplicateNote = async (note_id) => {
   is_duplicating_note_id.value = note_id;
 
   try {
-    await $fetch('/notes/duplicate', {
+    const new_note = await $fetch('/notes/duplicate', {
       body: {
         language: locale.value,
         note_id,
@@ -69,8 +69,10 @@ const duplicateNote = async (note_id) => {
       method: 'POST',
     });
 
-    await refreshTotalUserNoteCount();
-    await searchItems();
+    refreshTotalUserNoteCount();
+    searchItems();
+
+    navigateTo(`/manage-${ITEM_TYPE_NOTE}s/edit/${new_note.id}?page_number=${page_number.value}`);
   } catch (error) {
     handleFrontendError(error, error?.data?.error_message);
   } finally {
