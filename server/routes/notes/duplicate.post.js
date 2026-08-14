@@ -34,12 +34,12 @@ import {
   z,
 } from 'zod';
 
-const COPY_LABEL_BY_LANGUAGE = {
-  en: 'copy',
-  fr: 'copie',
+const DUPLICATED_LABEL_BY_LANGUAGE = {
+  en: 'duplicated',
+  fr: 'dupliqué',
 };
 
-const AUTHORIZED_LANGUAGE_LIST = Object.keys(COPY_LABEL_BY_LANGUAGE);
+const AUTHORIZED_LANGUAGE_LIST = Object.keys(DUPLICATED_LABEL_BY_LANGUAGE);
 
 export default defineEventHandler(async (event) => {
   try {
@@ -110,8 +110,8 @@ export default defineEventHandler(async (event) => {
       };
     }
 
-    const copy_label = COPY_LABEL_BY_LANGUAGE[language];
-    const new_title = `(${copy_label}) ${note.title}`;
+    const duplicated_label = DUPLICATED_LABEL_BY_LANGUAGE[language];
+    const new_title = `${note.title} (${duplicated_label})`;
 
     const {
       rows: new_note_list,
