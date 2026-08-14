@@ -96,6 +96,12 @@ export default defineEventHandler(async (event) => {
       );
     }
 
+    // Delete the tag_id_list from the tags table
+    await executeSQLQuery(
+      'DELETE FROM tags WHERE id = ANY($1::uuid[])',
+      [final_tag_id_list]
+    );
+
     setResponseStatus(event, HTTP_CODE_204_NO_CONTENT);
 
     return {
