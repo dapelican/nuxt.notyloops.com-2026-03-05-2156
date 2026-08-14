@@ -22,8 +22,6 @@ const breadcrumb_items = [
   },
   {
     label: 'LVA anglais',
-    to: '/annales/cpge/bcpst/lva-anglais',
-    url: 'https://fr.notyloops.com/annales/cpge/bcpst/lva-anglais',
   },
 ];
 

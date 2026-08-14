@@ -22,8 +22,6 @@ const breadcrumb_items = [
   },
   {
     label: 'Chimie',
-    to: '/annales/cpge/bcpst/chimie',
-    url: 'https://fr.notyloops.com/annales/cpge/bcpst/chimie',
   },
 ];
 

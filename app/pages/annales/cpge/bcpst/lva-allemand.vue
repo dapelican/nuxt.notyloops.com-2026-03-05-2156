@@ -22,8 +22,6 @@ const breadcrumb_items = [
   },
   {
     label: 'LVA allemand',
-    to: '/annales/cpge/bcpst/lva-allemand',
-    url: 'https://fr.notyloops.com/annales/cpge/bcpst/lva-allemand',
   },
 ];
 

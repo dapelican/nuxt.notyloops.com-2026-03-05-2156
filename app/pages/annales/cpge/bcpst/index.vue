@@ -17,8 +17,6 @@ const breadcrumb_items = [
   },
   {
     label: 'BCPST',
-    to: '/annales/cpge/bcpst',
-    url: 'https://fr.notyloops.com/annales/cpge/bcpst',
   },
 ];
 

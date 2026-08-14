@@ -22,8 +22,6 @@ const breadcrumb_items = [
   },
   {
     label: 'LVA espagnol',
-    to: '/annales/cpge/bcpst/lva-espagnol',
-    url: 'https://fr.notyloops.com/annales/cpge/bcpst/lva-espagnol',
   },
 ];
 

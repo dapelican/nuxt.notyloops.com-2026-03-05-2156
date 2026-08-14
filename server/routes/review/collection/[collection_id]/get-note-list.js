@@ -2,9 +2,6 @@
 
 import {
   FREEMIUM_NOTE_LIMIT,
-  REVIEW_STRATEGY_DIARY,
-  REVIEW_STRATEGY_LIST,
-  REVIEW_STRATEGY_SPACED_REPETITION,
   REVIEW_STRATEGY_SUPER_RANDOM,
   USER_STATUS_FREE,
 } from '#shared/utils/constants.js';
@@ -159,12 +156,11 @@ export default defineEventHandler(async (event) => {
     let note_id_list_to_review = [];
 
     if (collection.review_strategy === REVIEW_STRATEGY_SUPER_RANDOM) {
-      const strategy_list = REVIEW_STRATEGY_LIST
-        .filter((strategy) => ![
-          REVIEW_STRATEGY_SPACED_REPETITION,
-          REVIEW_STRATEGY_DIARY,
-          REVIEW_STRATEGY_SUPER_RANDOM,
-        ].includes(strategy));
+      const strategy_list = [
+        REVIEW_STRATEGY_RANDOM,
+        REVIEW_STRATEGY_BY_SCORE_LOWEST_TO_HIGHEST,
+        REVIEW_STRATEGY_BY_LAST_REVIEW_DATE_OLDEST_TO_NEWEST,
+      ];
 
       const prev_super_random_counter = Number(collection.super_random_counter) || 0;
       const new_super_random_counter = prev_super_random_counter + 1;
