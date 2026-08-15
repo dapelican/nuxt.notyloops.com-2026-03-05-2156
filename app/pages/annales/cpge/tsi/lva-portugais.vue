@@ -1,7 +1,7 @@
 <script setup>
-const page_title = 'Annales prépa PSI : LVA portugais';
+const page_title = 'Annales prépa TSI : LVA portugais';
 
-let meta_description = 'Les annales de LVA portugais pour les CPGE PSI.';
+let meta_description = 'Les annales de LVA portugais pour les CPGE TSI.';
 meta_description += ' Les sujets et rapports des dernières années.';
 
 const breadcrumb_items = [
@@ -16,14 +16,12 @@ const breadcrumb_items = [
     url: 'https://fr.notyloops.com/annales/cpge',
   },
   {
-    label: 'PSI',
-    to: '/annales/cpge/psi',
-    url: 'https://fr.notyloops.com/annales/cpge/psi',
+    label: 'TSI',
+    to: '/annales/cpge/tsi',
+    url: 'https://fr.notyloops.com/annales/cpge/tsi',
   },
   {
     label: 'LVA portugais',
-    to: '/annales/cpge/psi/lva-portugais',
-    url: 'https://fr.notyloops.com/annales/cpge/psi/lva-portugais',
   },
 ];
 
@@ -42,7 +40,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <!-- app/pages/annales/cpge/psi/lva-portugais.vue -->
+  <!-- app/pages/annales/cpge/tsi/lva-portugais.vue -->
   <UContainer class="max-w-xl">
     <UBreadcrumb
       class="mb-8"
@@ -50,7 +48,7 @@ useSeoMeta({
     />
 
     <h1>
-      Annales CPGE PSI : LVA portugais
+      Annales CPGE TSI : LVA portugais
     </h1>
 
     <h2 class="mt-12">
@@ -72,7 +70,7 @@ useSeoMeta({
         <tbody>
           <tr>
             <td>
-              CCINP / e3a-Polytech
+              CCINP
             </td>
             <td>
               <ULink
@@ -107,7 +105,7 @@ useSeoMeta({
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2026-ccs-rapport-portugais-psi.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2026-ccs-rapport-portugais-tsi.pdf"
                 target="_blank"
               >
                 Rapport
@@ -137,7 +135,7 @@ useSeoMeta({
         <tbody>
           <tr>
             <td>
-              CCINP / e3a-Polytech
+              CCINP
             </td>
             <td>
               <ULink
@@ -172,7 +170,7 @@ useSeoMeta({
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2025-ccs-rapport-portugais-psi.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2025-ccs-rapport-portugais-tsi.pdf"
                 target="_blank"
               >
                 Rapport

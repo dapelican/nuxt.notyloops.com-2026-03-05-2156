@@ -1,7 +1,7 @@
 <script setup>
-const page_title = 'Annales prépa PSI : LVA espagnol';
+const page_title = 'Annales prépa TSI : LVA espagnol';
 
-let meta_description = 'Les annales de LVA espagnol pour les CPGE PSI.';
+let meta_description = 'Les annales de LVA espagnol pour les CPGE TSI.';
 meta_description += ' Les sujets et rapports des dernières années.';
 
 const breadcrumb_items = [
@@ -16,14 +16,12 @@ const breadcrumb_items = [
     url: 'https://fr.notyloops.com/annales/cpge',
   },
   {
-    label: 'PSI',
-    to: '/annales/cpge/psi',
-    url: 'https://fr.notyloops.com/annales/cpge/psi',
+    label: 'TSI',
+    to: '/annales/cpge/tsi',
+    url: 'https://fr.notyloops.com/annales/cpge/tsi',
   },
   {
     label: 'LVA espagnol',
-    to: '/annales/cpge/psi/lva-espagnol',
-    url: 'https://fr.notyloops.com/annales/cpge/psi/lva-espagnol',
   },
 ];
 
@@ -42,7 +40,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <!-- app/pages/annales/cpge/psi/lva-espagnol.vue -->
+  <!-- app/pages/annales/cpge/tsi/lva-espagnol.vue -->
   <UContainer class="max-w-xl">
     <UBreadcrumb
       class="mb-8"
@@ -50,7 +48,7 @@ useSeoMeta({
     />
 
     <h1>
-      Annales CPGE PSI : LVA espagnol
+      Annales CPGE TSI : LVA espagnol
     </h1>
 
     <h2 class="mt-12">
@@ -72,7 +70,7 @@ useSeoMeta({
         <tbody>
           <tr>
             <td>
-              CCINP / e3a-Polytech
+              CCINP
             </td>
             <td>
               <ULink
@@ -94,28 +92,6 @@ useSeoMeta({
           </tr>
           <tr>
             <td>
-              CCMP
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2026-ccmp-sujet-espagnol.pdf"
-                target="_blank"
-              >
-                Sujet
-              </ULink>
-              <!-- |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2026-ccmp-rapport-espagnol.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink> -->
-            </td>
-          </tr>
-          <tr>
-            <td>
               CCS
             </td>
             <td>
@@ -129,29 +105,7 @@ useSeoMeta({
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2026-ccs-rapport-espagnol-psi.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink> -->
-            </td>
-          </tr>
-          <tr>
-            <td>
-              X / ESPCI / ENS
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2026-mp-mpi-pc-psi-x-espci-ens-sujet-espagnol.pdf"
-                target="_blank"
-              >
-                Sujet
-              </ULink>
-              <!-- |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2026-mp-mpi-pc-psi-x-espci-ens-rapport-espagnol.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2026-ccs-rapport-espagnol.pdf"
                 target="_blank"
               >
                 Rapport
@@ -181,7 +135,7 @@ useSeoMeta({
         <tbody>
           <tr>
             <td>
-              CCINP / e3a-Polytech
+              CCINP
             </td>
             <td>
               <ULink
@@ -203,28 +157,6 @@ useSeoMeta({
           </tr>
           <tr>
             <td>
-              CCMP
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2025-ccmp-sujet-espagnol.pdf"
-                target="_blank"
-              >
-                Sujet
-              </ULink>
-              |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2025-ccmp-rapport-espagnol.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-          <tr>
-            <td>
               CCS
             </td>
             <td>
@@ -238,158 +170,7 @@ useSeoMeta({
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2025-ccs-rapport-espagnol-psi.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              X / ESPCI / ENS
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2025-mp-mpi-pc-psi-x-espci-ens-sujet-espagnol.pdf"
-                target="_blank"
-              >
-                Sujet
-              </ULink>
-              |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2025-mp-mpi-pc-psi-x-espci-ens-rapport-espagnol.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </figure>
-
-    <h2 class="mt-12">
-      2024
-    </h2>
-
-    <figure>
-      <table>
-        <thead>
-          <tr>
-            <th>
-              Banque d'épreuve
-            </th>
-            <th>
-              Documents
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              X / ESPCI / ENS
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2024-mp-mpi-pc-psi-x-espci-ens-sujet-espagnol.pdf"
-                target="_blank"
-              >
-                Sujet
-              </ULink>
-              |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2024-mp-mpi-pc-psi-x-espci-ens-rapport-espagnol.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </figure>
-
-    <h2 class="mt-12">
-      2023
-    </h2>
-
-    <figure>
-      <table>
-        <thead>
-          <tr>
-            <th>
-              Banque d'épreuve
-            </th>
-            <th>
-              Documents
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              X / ESPCI / ENS
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2023-mp-mpi-pc-psi-x-espci-ens-sujet-espagnol.pdf"
-                target="_blank"
-              >
-                Sujet
-              </ULink>
-              |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2023-mp-mpi-pc-psi-x-espci-ens-rapport-espagnol.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </figure>
-
-    <h2 class="mt-12">
-      2022
-    </h2>
-
-    <figure>
-      <table>
-        <thead>
-          <tr>
-            <th>
-              Banque d'épreuve
-            </th>
-            <th>
-              Documents
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              X / ESPCI / ENS
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2022-mp-pc-psi-x-espci-ens-sujet-espagnol.pdf"
-                target="_blank"
-              >
-                Sujet
-              </ULink>
-              |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2022-mp-pc-psi-x-espci-ens-rapport-espagnol.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2025-ccs-rapport-espagnol-tsi.pdf"
                 target="_blank"
               >
                 Rapport

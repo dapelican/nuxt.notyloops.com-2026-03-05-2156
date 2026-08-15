@@ -22,8 +22,6 @@ const breadcrumb_items = [
   },
   {
     label: 'LVA anglais',
-    to: '/annales/cpge/tsi/lva-anglais',
-    url: 'https://fr.notyloops.com/annales/cpge/tsi/lva-anglais',
   },
 ];
 
@@ -151,6 +149,28 @@ useSeoMeta({
               <ULink
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2025-ccinp-e3a-polytech-rapport-anglais.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              CCS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-lva-2025-tsi-ccs-sujet-anglais.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-lva-2025-tsi-ccs-rapport-anglais.pdf"
                 target="_blank"
               >
                 Rapport

@@ -99,7 +99,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2026-tsi-ccs-sujet-arabe.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2026-ccs-sujet-arabe.pdf"
                 target="_blank"
               >
                 Sujet
@@ -107,7 +107,7 @@ useSeoMeta({
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2026-tsi-ccs-rapport-arabe.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2026-ccs-rapport-arabe.pdf"
                 target="_blank"
               >
                 Rapport
@@ -151,6 +151,28 @@ useSeoMeta({
               <ULink
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2025-ccinp-e3a-polytech-rapport-arabe.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              CCS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-lva-2025-ccs-sujet-arabe.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-lva-2025-ccs-rapport-arabe-tsi.pdf"
                 target="_blank"
               >
                 Rapport

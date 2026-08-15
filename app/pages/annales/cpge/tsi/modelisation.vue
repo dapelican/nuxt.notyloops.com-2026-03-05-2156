@@ -1,7 +1,7 @@
 <script setup>
-const page_title = 'Annales prépa PSI : modélisation';
+const page_title = 'Annales prépa TSI : modélisation';
 
-let meta_description = 'Les annales de modélisation pour les CPGE PSI.';
+let meta_description = 'Les annales de modélisation pour les CPGE TSI.';
 meta_description += ' Les sujets et rapports des dernières années.';
 
 const breadcrumb_items = [
@@ -16,14 +16,12 @@ const breadcrumb_items = [
     url: 'https://fr.notyloops.com/annales/cpge',
   },
   {
-    label: 'PSI',
-    to: '/annales/cpge/psi',
-    url: 'https://fr.notyloops.com/annales/cpge/psi',
+    label: 'TSI',
+    to: '/annales/cpge/tsi',
+    url: 'https://fr.notyloops.com/annales/cpge/tsi',
   },
   {
     label: 'Modélisation',
-    to: '/annales/cpge/psi/modelisation',
-    url: 'https://fr.notyloops.com/annales/cpge/psi/modelisation',
   },
 ];
 
@@ -42,7 +40,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <!-- app/pages/annales/cpge/psi/modelisation.vue -->
+  <!-- app/pages/annales/cpge/tsi/modelisation.vue -->
   <UContainer class="max-w-xl">
     <UBreadcrumb
       class="mb-8"
@@ -50,7 +48,7 @@ useSeoMeta({
     />
 
     <h1>
-      Annales CPGE PSI : modélisation
+      Annales CPGE TSI : modélisation
     </h1>
 
     <h2 class="mt-12">
@@ -77,7 +75,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-modelisation-2026-psi-ccinp-sujet.pdf"
+                to="https://annales.notyloops.com/cpge-modelisation-2026-tsi-ccinp-sujet.pdf"
                 target="_blank"
               >
                 Sujet
@@ -85,7 +83,7 @@ useSeoMeta({
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-modelisation-2026-psi-ccinp-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-modelisation-2026-tsi-ccinp-rapport.pdf"
                 target="_blank"
               >
                 Rapport
@@ -120,7 +118,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-modelisation-2025-psi-ccinp-sujet.pdf"
+                to="https://annales.notyloops.com/cpge-modelisation-2025-tsi-ccinp-sujet.pdf"
                 target="_blank"
               >
                 Sujet
@@ -128,158 +126,7 @@ useSeoMeta({
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-modelisation-2025-psi-ccinp-rapport.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              ENS / X
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-modelisation-2025-psi-ens-x-sujet.pdf"
-                target="_blank"
-              >
-                Sujet
-              </ULink>
-              |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-modelisation-2025-psi-ens-x-rapport.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </figure>
-
-    <h2 class="mt-12">
-      2024
-    </h2>
-
-    <figure>
-      <table>
-        <thead>
-          <tr>
-            <th>
-              Banque d'épreuve
-            </th>
-            <th>
-              Documents
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              ENS / X
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-modelisation-2024-psi-ens-x-sujet.pdf"
-                target="_blank"
-              >
-                Sujet
-              </ULink>
-              |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-modelisation-2024-psi-ens-x-rapport.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </figure>
-
-    <h2 class="mt-12">
-      2023
-    </h2>
-
-    <figure>
-      <table>
-        <thead>
-          <tr>
-            <th>
-              Banque d'épreuve
-            </th>
-            <th>
-              Documents
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              ENS / X
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-modelisation-2023-psi-ens-x-sujet.pdf"
-                target="_blank"
-              >
-                Sujet
-              </ULink>
-              |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-modelisation-2023-psi-ens-x-rapport.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </figure>
-
-    <h2 class="mt-12">
-      2022
-    </h2>
-
-    <figure>
-      <table>
-        <thead>
-          <tr>
-            <th>
-              Banque d'épreuve
-            </th>
-            <th>
-              Documents
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              ENS / X
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-modelisation-2022-psi-ens-x-sujet.pdf"
-                target="_blank"
-              >
-                Sujet
-              </ULink>
-              |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-modelisation-2022-psi-ens-x-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-modelisation-2025-tsi-ccinp-rapport.pdf"
                 target="_blank"
               >
                 Rapport

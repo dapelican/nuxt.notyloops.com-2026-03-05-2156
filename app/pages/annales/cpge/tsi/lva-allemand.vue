@@ -22,8 +22,6 @@ const breadcrumb_items = [
   },
   {
     label: 'LVA allemand',
-    to: '/annales/cpge/tsi/lva-allemand',
-    url: 'https://fr.notyloops.com/annales/cpge/tsi/lva-allemand',
   },
 ];
 
@@ -99,7 +97,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2026-tsi-ccs-sujet-allemand.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2026-ccs-sujet-allemand.pdf"
                 target="_blank"
               >
                 Sujet
@@ -107,7 +105,7 @@ useSeoMeta({
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2026-tsi-ccs-rapport-allemand.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2026-ccs-rapport-allemand-tsi.pdf"
                 target="_blank"
               >
                 Rapport
@@ -137,7 +135,7 @@ useSeoMeta({
         <tbody>
           <tr>
             <td>
-              CCINP / e3a-Polytech
+              CCINP
             </td>
             <td>
               <ULink
@@ -151,6 +149,28 @@ useSeoMeta({
               <ULink
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2025-ccinp-e3a-polytech-rapport-allemand.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              CCS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-lva-2025-ccs-sujet-allemand.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-lva-2025-ccs-rapport-allemand-tsi.pdf"
                 target="_blank"
               >
                 Rapport

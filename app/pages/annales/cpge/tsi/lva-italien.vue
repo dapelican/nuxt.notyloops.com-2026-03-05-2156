@@ -1,7 +1,7 @@
 <script setup>
-const page_title = 'Annales prépa PSI : LVA italien';
+const page_title = 'Annales prépa TSI : LVA italien';
 
-let meta_description = 'Les annales de LVA italien pour les CPGE PSI.';
+let meta_description = 'Les annales de LVA italien pour les CPGE TSI.';
 meta_description += ' Les sujets et rapports des dernières années.';
 
 const breadcrumb_items = [
@@ -16,14 +16,12 @@ const breadcrumb_items = [
     url: 'https://fr.notyloops.com/annales/cpge',
   },
   {
-    label: 'PSI',
-    to: '/annales/cpge/psi',
-    url: 'https://fr.notyloops.com/annales/cpge/psi',
+    label: 'TSI',
+    to: '/annales/cpge/tsi',
+    url: 'https://fr.notyloops.com/annales/cpge/tsi',
   },
   {
     label: 'LVA italien',
-    to: '/annales/cpge/psi/lva-italien',
-    url: 'https://fr.notyloops.com/annales/cpge/psi/lva-italien',
   },
 ];
 
@@ -42,7 +40,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <!-- app/pages/annales/cpge/psi/lva-italien.vue -->
+  <!-- app/pages/annales/cpge/tsi/lva-italien.vue -->
   <UContainer class="max-w-xl">
     <UBreadcrumb
       class="mb-8"
@@ -50,7 +48,7 @@ useSeoMeta({
     />
 
     <h1>
-      Annales CPGE PSI : LVA italien
+      Annales CPGE TSI : LVA italien
     </h1>
 
     <h2 class="mt-12">
@@ -72,7 +70,7 @@ useSeoMeta({
         <tbody>
           <tr>
             <td>
-              CCINP / e3a-Polytech
+              CCINP
             </td>
             <td>
               <ULink
@@ -94,34 +92,12 @@ useSeoMeta({
           </tr>
           <tr>
             <td>
-              CCMP
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2026-ccmp-sujet-italien.pdf"
-                target="_blank"
-              >
-                Sujet
-              </ULink>
-              <!-- |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2026-ccmp-rapport-italien.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink> -->
-            </td>
-          </tr>
-          <tr>
-            <td>
               CCS
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2026-ccs-sujet-italien.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2026-tsi-ccs-sujet-italien.pdf"
                 target="_blank"
               >
                 Sujet
@@ -129,7 +105,7 @@ useSeoMeta({
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2026-ccs-rapport-italien-psi.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2026-tsi-ccs-rapport-italien.pdf"
                 target="_blank"
               >
                 Rapport
@@ -159,7 +135,7 @@ useSeoMeta({
         <tbody>
           <tr>
             <td>
-              CCINP / e3a-Polytech
+              CCINP
             </td>
             <td>
               <ULink
@@ -181,28 +157,6 @@ useSeoMeta({
           </tr>
           <tr>
             <td>
-              CCMP
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2025-ccmp-sujet-italien.pdf"
-                target="_blank"
-              >
-                Sujet
-              </ULink>
-              |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2025-ccmp-rapport-italien.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-          <tr>
-            <td>
               CCS
             </td>
             <td>
@@ -216,7 +170,7 @@ useSeoMeta({
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2025-ccs-rapport-italien-psi.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2025-ccs-rapport-italien-tsi.pdf"
                 target="_blank"
               >
                 Rapport

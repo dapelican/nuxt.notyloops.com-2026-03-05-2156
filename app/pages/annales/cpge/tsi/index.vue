@@ -87,34 +87,34 @@ useSeoMeta({
         >
           arabe
         </ULink>
-        <!-- |
+        |
         <ULink
           class="text-primary"
           to="/annales/cpge/tsi/lva-espagnol"
         >
           espagnol
-        </ULink> -->
-        <!-- |
+        </ULink>
+        |
         <ULink
           class="text-primary"
           to="/annales/cpge/tsi/lva-italien"
         >
           italien
-        </ULink> -->
-        <!-- |
+        </ULink>
+        |
         <ULink
           class="text-primary"
           to="/annales/cpge/tsi/lva-portugais"
         >
           portugais
-        </ULink> -->
-        <!-- |
+        </ULink>
+        |
         <ULink
           class="text-primary"
           to="/annales/cpge/tsi/lva-russe"
         >
           russe
-        </ULink> -->
+        </ULink>
       </li>
       <!-- <li>
         LVB :
@@ -139,38 +139,38 @@ useSeoMeta({
           espagnol
         </ULink>
       </li> -->
-      <!-- <li>
+      <li>
         <ULink
           to="/annales/cpge/tsi/mathematiques"
           class="text-primary"
         >
           Mathématiques
         </ULink>
-      </li> -->
-      <!-- <li>
+      </li>
+      <li>
         <ULink
           to="/annales/cpge/tsi/modelisation"
           class="text-primary"
         >
           Modélisation
         </ULink>
-      </li> -->
-      <!-- <li>
+      </li>
+      <li>
         <ULink
           to="/annales/cpge/tsi/physique-chimie"
           class="text-primary"
         >
           Physique - Chimie
         </ULink>
-      </li> -->
-      <!-- <li>
+      </li>
+      <li>
         <ULink
           to="/annales/cpge/tsi/si"
           class="text-primary"
         >
           SI
         </ULink>
-      </li> -->
+      </li>
     </ul>
   </UContainer>
 </template>

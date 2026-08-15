@@ -22,8 +22,6 @@ const breadcrumb_items = [
   },
   {
     label: 'Français - Philosophie',
-    to: '/annales/cpge/tsi/francais-philosophie',
-    url: 'https://fr.notyloops.com/annales/cpge/tsi/francais-philosophie',
   },
 ];
 

@@ -22,8 +22,6 @@ const breadcrumb_items = [
   },
   {
     label: 'Informatique',
-    to: '/annales/cpge/tsi/informatique',
-    url: 'https://fr.notyloops.com/annales/cpge/tsi/informatique',
   },
 ];
 

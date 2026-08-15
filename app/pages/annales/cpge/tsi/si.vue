@@ -1,7 +1,7 @@
 <script setup>
-const page_title = 'Annales prépa PSI : SI';
+const page_title = 'Annales prépa TSI : SI';
 
-let meta_description = 'Les annales de SI pour les CPGE PSI.';
+let meta_description = 'Les annales de SI pour les CPGE TSI.';
 meta_description += ' Les sujets et rapports des dernières années.';
 
 const breadcrumb_items = [
@@ -16,14 +16,12 @@ const breadcrumb_items = [
     url: 'https://fr.notyloops.com/annales/cpge',
   },
   {
-    label: 'PSI',
-    to: '/annales/cpge/psi',
-    url: 'https://fr.notyloops.com/annales/cpge/psi',
+    label: 'TSI',
+    to: '/annales/cpge/tsi',
+    url: 'https://fr.notyloops.com/annales/cpge/tsi',
   },
   {
     label: 'SI',
-    to: '/annales/cpge/psi/si',
-    url: 'https://fr.notyloops.com/annales/cpge/psi/si',
   },
 ];
 
@@ -42,7 +40,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <!-- app/pages/annales/cpge/psi/si.vue -->
+  <!-- app/pages/annales/cpge/tsi/si.vue -->
   <UContainer class="max-w-xl">
     <UBreadcrumb
       class="mb-8"
@@ -50,7 +48,7 @@ useSeoMeta({
     />
 
     <h1>
-      Annales CPGE PSI : SI
+      Annales CPGE TSI : SI
     </h1>
 
     <h2 class="mt-12">
@@ -72,12 +70,12 @@ useSeoMeta({
         <tbody>
           <tr>
             <td>
-              CCINP / e3a-Polytech
+              CCINP
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-si-2026-psi-ccinp-e3a-polytech-sujet.pdf"
+                to="https://annales.notyloops.com/cpge-si-2026-tsi-ccinp-sujet.pdf"
                 target="_blank"
               >
                 Sujet
@@ -85,7 +83,7 @@ useSeoMeta({
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-si-2026-psi-ccinp-e3a-polytech-document-reponse.pdf"
+                to="https://annales.notyloops.com/cpge-si-2026-tsi-ccinp-document-reponse.pdf"
                 target="_blank"
               >
                 Document réponse
@@ -93,37 +91,7 @@ useSeoMeta({
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-si-2026-psi-ccinp-e3a-polytech-rapport.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink> -->
-            </td>
-          </tr>
-          <tr>
-            <td>
-              CCMP
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-si-2026-psi-ccmp-sujet.pdf"
-                target="_blank"
-              >
-                Sujet
-              </ULink>
-              |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-si-2026-psi-ccmp-document-reponse.pdf"
-                target="_blank"
-              >
-                Document réponse
-              </ULink>
-              <!-- |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-si-2026-psi-ccmp-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-si-2026-tsi-ccinp-rapport.pdf"
                 target="_blank"
               >
                 Rapport
@@ -137,7 +105,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-si-2026-psi-ccs-sujet.pdf"
+                to="https://annales.notyloops.com/cpge-si-2026-tsi-ccs-sujet.pdf"
                 target="_blank"
               >
                 Sujet
@@ -145,30 +113,7 @@ useSeoMeta({
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-si-2026-psi-ccs-rapport.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink> -->
-            </td>
-          </tr>
-          <tr>
-            <td>
-              ENS / X
-            </td>
-            <td>
-              Sujet pas encore disponible
-              <!-- <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-si-2026-psi-ens-x-sujet.pdf"
-                target="_blank"
-              >
-                Sujet
-              </ULink> -->
-              <!-- |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-si-2026-psi-ens-x-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-si-2026-tsi-ccs-rapport.pdf"
                 target="_blank"
               >
                 Rapport
@@ -198,12 +143,12 @@ useSeoMeta({
         <tbody>
           <tr>
             <td>
-              CCINP / e3a-Polytech
+              CCINP
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-si-2025-psi-ccinp-e3a-polytech-sujet.pdf"
+                to="https://annales.notyloops.com/cpge-si-2025-tsi-ccinp-sujet.pdf"
                 target="_blank"
               >
                 Sujet
@@ -211,7 +156,7 @@ useSeoMeta({
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-si-2025-psi-ccinp-e3a-polytech-document-reponse.pdf"
+                to="https://annales.notyloops.com/cpge-si-2025-tsi-ccinp-document-reponse.pdf"
                 target="_blank"
               >
                 Document réponse
@@ -219,37 +164,7 @@ useSeoMeta({
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-si-2025-psi-ccinp-e3a-polytech-rapport.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              CCMP
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-si-2025-psi-ccmp-sujet.pdf"
-                target="_blank"
-              >
-                Sujet
-              </ULink>
-              |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-si-2025-psi-ccmp-document-reponse.pdf"
-                target="_blank"
-              >
-                Document réponse
-              </ULink>
-              |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-si-2025-psi-ccmp-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-si-2025-tsi-ccinp-rapport.pdf"
                 target="_blank"
               >
                 Rapport
@@ -263,7 +178,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-si-2025-psi-ccs-sujet.pdf"
+                to="https://annales.notyloops.com/cpge-si-2025-tsi-ccs-sujet.pdf"
                 target="_blank"
               >
                 Sujet
@@ -271,158 +186,7 @@ useSeoMeta({
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-si-2025-psi-ccs-rapport.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              ENS / X
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-si-2025-psi-ens-x-sujet.pdf"
-                target="_blank"
-              >
-                Sujet
-              </ULink>
-              |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-si-2025-psi-ens-x-rapport.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </figure>
-
-    <h2 class="mt-12">
-      2024
-    </h2>
-
-    <figure>
-      <table>
-        <thead>
-          <tr>
-            <th>
-              Banque d'épreuve
-            </th>
-            <th>
-              Documents
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              ENS / X
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-si-2024-psi-ens-x-sujet.pdf"
-                target="_blank"
-              >
-                Sujet
-              </ULink>
-              |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-si-2024-psi-ens-x-rapport.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </figure>
-
-    <h2 class="mt-12">
-      2023
-    </h2>
-
-    <figure>
-      <table>
-        <thead>
-          <tr>
-            <th>
-              Banque d'épreuve
-            </th>
-            <th>
-              Documents
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              ENS / X
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-si-2023-psi-ens-x-sujet.pdf"
-                target="_blank"
-              >
-                Sujet
-              </ULink>
-              |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-si-2023-psi-ens-x-rapport.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </figure>
-
-    <h2 class="mt-12">
-      2022
-    </h2>
-
-    <figure>
-      <table>
-        <thead>
-          <tr>
-            <th>
-              Banque d'épreuve
-            </th>
-            <th>
-              Documents
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              ENS / X
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-si-2022-psi-ens-x-sujet.pdf"
-                target="_blank"
-              >
-                Sujet
-              </ULink>
-              |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-si-2022-psi-ens-x-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-si-2025-tsi-ccs-rapport.pdf"
                 target="_blank"
               >
                 Rapport
