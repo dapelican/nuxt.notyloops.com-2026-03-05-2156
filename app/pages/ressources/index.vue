@@ -1,8 +1,8 @@
 <script setup>
-const meta_description = 'Obtenir de l\'aide pour utiliser NotyLoops. Informations détaillées sur comment créer des notes, des tags, des collections.';
+const meta_description = 'Ressources.';
 
 useSeoMeta({
-  title: 'Centre d\'aide | NotyLoops',
+  title: 'Ressources | NotyLoops',
   description: meta_description,
 });
 
@@ -10,58 +10,81 @@ useSeoMeta({
 </script>
 
 <template>
-  <!-- app/pages/aide/index.vue -->
+  <!-- app/pages/ressources/index.vue -->
   <UContainer class="max-w-xl">
     <h1 class="center">
-      Centre d'aide
+      Ressources
     </h1>
 
     <h2>
-      Les notes
+      Méthodologie pour apprendre, réviser, mémoriser
     </h2>
 
     <ul class="list-disc list-inside">
       <li>
         <ULink
           class="text-primary"
-          to="/aide/markdown"
+          to="/ressources/flashcards"
+        >Pourquoi utiliser absolument les flashcards ?</ULink>
+      </li>
+    </ul>
+
+    <h2 class="mt-8">
+      Utiliser NotyLoops
+    </h2>
+
+    <h3>
+      Les notes
+    </h3>
+
+    <ul class="list-disc list-inside">
+      <li>
+        <ULink
+          class="text-primary"
+          to="/ressources/markdown"
         >Utiliser du markdown dans les notes</ULink>
       </li>
       <li>
         <ULink
           class="text-primary"
-          to="/aide/langage-informatique"
+          to="/ressources/langage-informatique"
         >Comment ajouter du langage informatique ?</ULink>
       </li>
       <li>
         <ULink
           class="text-primary"
-          to="/aide/formules-mathematiques"
+          to="/ressources/formules-mathematiques"
         >Comment ajouter des formules mathématiques ?</ULink>
       </li>
       <li>
         <ULink
           class="text-primary"
-          to="/aide/formules-mathematiques"
+          to="/ressources/formules-mathematiques"
         >Comment créer des notes pour l'apprentissage de langue étrangère ?</ULink>
+      </li>
+      <li>
+        <ULink
+          class="text-primary"
+          to="/ressources/synthese-vocale"
+        >Les langues disponibles pour la synthèse vocale</ULink>
       </li>
     </ul>
 
-    <h2 class="mt-4">
+    <h3 class="mt-8">
       Les collections
-    </h2>
+    </h3>
 
     <ul class="list-disc list-inside">
       <li>
         <ULink
           class="text-primary"
-          to="/aide/selection-des-notes"
+          to="/ressources/selection-des-notes"
         >Comment sélectionner les notes à réviser ?</ULink>
       </li>
       <li>
         <ULink
           class="text-primary"
-          to="/aide/strategies-de-revision"
+          to="/ressources/strategies-de-revision"
         >Les stratégies de révision</ULink>
       </li>
     </ul>

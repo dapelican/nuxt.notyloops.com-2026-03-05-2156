@@ -1,16 +1,16 @@
 <script setup>
-const page_title = 'Utiliser du markdown dans les notes';
+const page_title = 'Utiliser du markdown dans les notes NotyLoops';
 
-const meta_description = 'Utiliser du markdown dans les notes.';
+const meta_description = 'Utiliser du markdown dans les notes NotyLoops.';
 
 const breadcrumb_items = [
   {
-    label: 'Centre d\'aide',
-    to: '/aide',
-    url: 'https://fr.notyloops.com/aide',
+    label: 'Ressources',
+    to: '/ressources',
+    url: 'https://fr.notyloops.com/ressources',
   },
   {
-    label: 'Utiliser du markdown dans les notes',
+    label: 'Utiliser du markdown dans les notes NotyLoops',
   },
 ];
 
@@ -29,7 +29,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <!-- app/pages/aide/markdown.vue -->
+  <!-- app/pages/ressources/markdown.vue -->
   <UContainer class="max-w-xl">
     <UBreadcrumb
       class="mb-8"
@@ -37,7 +37,7 @@ useSeoMeta({
     />
 
     <h1>
-      Utiliser du markdown dans les notes
+      Utiliser du markdown dans les notes NotyLoops
     </h1>
   </UContainer>
 </template>

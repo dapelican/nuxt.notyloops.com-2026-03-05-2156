@@ -5,12 +5,12 @@ const meta_description = 'Les stratégies de révision sur NotyLoops.';
 
 const breadcrumb_items = [
   {
-    label: 'Centre d\'aide',
-    to: '/aide',
-    url: 'https://fr.notyloops.com/aide',
+    label: 'Ressources',
+    to: '/ressources',
+    url: 'https://fr.notyloops.com/ressources',
   },
   {
-    label: 'Les stratégies de révision',
+    label: 'Les stratégies de révision sur NotyLoops',
   },
 ];
 
@@ -29,7 +29,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <!-- app/pages/aide/strategies-de-revision.vue -->
+  <!-- app/pages/ressources/strategies-de-revision.vue -->
   <UContainer class="max-w-xl">
     <UBreadcrumb
       class="mb-8"

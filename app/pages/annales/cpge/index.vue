@@ -41,13 +41,36 @@ useSeoMeta({
       Annales CPGE
     </h1>
 
+    <h2>
+      Prépas littéraires
+    </h2>
+
     <ul class="list-disc list-inside ">
       <li>
         <ULink
           class="text-primary"
-          to="/annales/cpge/bcpst"
-        >BCPST</ULink>
+          to="/annales/cpge/khagne-al-classique"
+        >Khâgne A/L classique</ULink>
       </li>
+      <li>
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/khagne-al-lsh"
+        >Khâgne A/L LSH</ULink>
+      </li>
+      <li>
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/khagne-bl"
+        >Khâgne B/L</ULink>
+      </li>
+    </ul>
+
+    <h2 class="mt-8">
+      Prépas économiques et commerciales
+    </h2>
+
+    <ul class="list-disc list-inside ">
       <li>
         <ULink
           class="text-primary"
@@ -59,6 +82,19 @@ useSeoMeta({
           class="text-primary"
           to="/annales/cpge/ect"
         >ECT</ULink>
+      </li>
+    </ul>
+
+    <h2 class="mt-8">
+      Prépas scientifiques
+    </h2>
+
+    <ul class="list-disc list-inside ">
+      <li>
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/bcpst"
+        >BCPST</ULink>
       </li>
       <li>
         <ULink

@@ -1,7 +1,7 @@
 <script setup>
 const page_title = 'Annales khâgne A/L classique';
 
-let meta_description = 'Les annales de toutes les matières de khâgne A/L classique.';
+let meta_description = 'Les annales de toutes les matières de prépas littéraires classiques.';
 meta_description += ' Les sujets et rapports des dernières années.';
 
 const breadcrumb_items = [
@@ -16,9 +16,7 @@ const breadcrumb_items = [
     url: 'https://fr.notyloops.com/annales/cpge',
   },
   {
-    label: 'Khâgne',
-    to: '/annales/cpge/khagne',
-    url: 'https://fr.notyloops.com/annales/cpge/khagne',
+    label: 'khâgne A/L classique',
   },
 ];
 
@@ -32,10 +30,12 @@ useSeoMeta({
   title: `${page_title} | NotyLoops`,
   description: meta_description,
 });
+
+// useGoogleTag();
 </script>
 
 <template>
-  <!-- app/pages/annales/cpge/khagne/a-l-classique.vue -->
+  <!-- app/pages/annales/cpge/khagne-al-classique/index.vue -->
   <UContainer class="max-w-xl">
     <UBreadcrumb
       class="mb-8"
@@ -49,196 +49,201 @@ useSeoMeta({
     <ul class="list-disc list-inside">
       <li>
         <ULink
+          to="/annales/cpge/khagne-al-classique/francais"
           class="text-primary"
-          to="/annales/cpge/khagne/____"
         >
-          Français</ULink>
-      </li>
-      <li>
-        <ULink
-          class="text-primary"
-          to="/annales/cpge/khagne/____"
-        >
-          Histoire</ULink>
-      </li>
-      <li>
-        Langue et culture ancienne :
-        <ULink
-          class="text-primary"
-          to="/annales/cpge/khagne/____"
-        >
-          grec
+          Français
         </ULink>
-        |
+      </li>
+      <!-- <li>
         <ULink
+          to="/annales/cpge/khagne-al-classique/histoire"
           class="text-primary"
-          to="/annales/cpge/khagne/____"
+        >
+          Histoire
+        </ULink>
+      </li> -->
+      <!-- <li>
+        Langue ancienne :
+        <ULink
+          to="/annales/cpge/khagne-al-classique/langue-ancienne-latin"
+          class="text-primary"
         >
           latin
         </ULink>
-      </li>
-      <li>
+        ou
+        <ULink
+          to="/annales/cpge/khagne-al-classique/langue-ancienne-grec"
+          class="text-primary"
+        >
+          grec
+        </ULink>
+      </li> -->
+      <!-- <li>
         Langue vivante étrangère :
         <ULink
+          to="/annales/cpge/khagne-al-classique/lve-allemand"
           class="text-primary"
-          to="/annales/cpge/khagne/____"
         >
           allemand
         </ULink>
         |
         <ULink
+          to="/annales/cpge/khagne-al-classique/lve-anglais"
           class="text-primary"
-          to="/annales/cpge/khagne/____"
         >
           anglais
         </ULink>
         |
         <ULink
+          to="/annales/cpge/khagne-al-classique/lve-arabe"
           class="text-primary"
-          to="/annales/cpge/khagne/____"
         >
           arabe
         </ULink>
         |
         <ULink
+          to="/annales/cpge/khagne-al-classique/lve-chinois"
           class="text-primary"
-          to="/annales/cpge/khagne/____"
         >
           chinois
         </ULink>
         |
         <ULink
+          to="/annales/cpge/khagne-al-classique/lve-espagnol"
           class="text-primary"
-          to="/annales/cpge/khagne/____"
         >
           espagnol
         </ULink>
         |
         <ULink
+          to="/annales/cpge/khagne-al-classique/lve-italien"
           class="text-primary"
-          to="/annales/cpge/khagne/____"
-        >
-          grec moderne
-        </ULink>
-        |
-        <ULink
-          class="text-primary"
-          to="/annales/cpge/khagne/____"
-        >
-          hébreu
-        </ULink>
-        |
-        <ULink
-          class="text-primary"
-          to="/annales/cpge/khagne/____"
         >
           italien
         </ULink>
         |
         <ULink
+          to="/annales/cpge/khagne-al-classique/lve-japonais"
           class="text-primary"
-          to="/annales/cpge/khagne/____"
         >
           japonais
         </ULink>
         |
         <ULink
+          to="/annales/cpge/khagne-al-classique/lve-polonais"
           class="text-primary"
-          to="/annales/cpge/khagne/____"
         >
           polonais
         </ULink>
         |
         <ULink
+          to="/annales/cpge/khagne-al-classique/lve-portugais"
           class="text-primary"
-          to="/annales/cpge/khagne/____"
         >
           portugais
         </ULink>
         |
         <ULink
+          to="/annales/cpge/khagne-al-classique/lve-russe"
           class="text-primary"
-          to="/annales/cpge/khagne/____"
         >
           russe
         </ULink>
-      </li>
-      <li>
-        Option :
+      </li> -->
+      <!-- <li>
+        Langue vivante B (BCE) :
         <ULink
+          to="/annales/cpge/khagne-al-classique/lvb-allemand"
           class="text-primary"
-          to="/annales/cpge/khagne/____"
-        >
-          Option 1
-        </ULink>
-        |
-        <ULink
-          class="text-primary"
-          to="/annales/cpge/khagne/____"
-        >
-          Option 2
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          class="text-primary"
-          to="/annales/cpge/khagne/____"
-        >
-          Philosophie</ULink>
-      </li>
-      <li>
-        <ULink
-          class="text-primary"
-          to="/annales/cpge/ect/lettres"
-        >
-          Lettres (étude et synthèse de textes)</ULink>
-      </li>
-
-      <li>
-        LVB :
-        <ULink
-          class="text-primary"
-          to="/annales/cpge/ect/lvb-allemand"
         >
           allemand
         </ULink>
         |
         <ULink
+          to="/annales/cpge/khagne-al-classique/lvb-anglais"
           class="text-primary"
-          to="/annales/cpge/ect/lvb-anglais"
         >
           anglais
         </ULink>
         |
         <ULink
+          to="/annales/cpge/khagne-al-classique/lvb-arabe"
           class="text-primary"
-          to="/annales/cpge/ect/lvb-espagnol"
+        >
+          arabe
+        </ULink>
+        |
+        <ULink
+          to="/annales/cpge/khagne-al-classique/lvb-chinois"
+          class="text-primary"
+        >
+          chinois
+        </ULink>
+        |
+        <ULink
+          to="/annales/cpge/khagne-al-classique/lvb-espagnol"
+          class="text-primary"
         >
           espagnol
         </ULink>
-        <!-- |
+        |
         <ULink
-          to=""
+          to="/annales/cpge/khagne-al-classique/lvb-italien"
           class="text-primary"
         >
           italien
-        </ULink> -->
-      </li>
-      <li>
-        <ULink
-          class="text-primary"
-          to="/annales/cpge/ect/management-sciences-de-gestion"
-        >
-          Management et sciences de gestion
         </ULink>
-      </li>
-      <li>
+        |
         <ULink
+          to="/annales/cpge/khagne-al-classique/lvb-japonais"
           class="text-primary"
-          to="/annales/cpge/ect/mathematiques"
         >
-          Mathématiques</ULink>
-      </li>
+          japonais
+        </ULink>
+        |
+        <ULink
+          to="/annales/cpge/khagne-al-classique/lvb-polonais"
+          class="text-primary"
+        >
+          polonais
+        </ULink>
+        |
+        <ULink
+          to="/annales/cpge/khagne-al-classique/lvb-portugais"
+          class="text-primary"
+        >
+          portugais
+        </ULink>
+        |
+        <ULink
+          to="/annales/cpge/khagne-al-classique/lvb-russe"
+          class="text-primary"
+        >
+          russe
+        </ULink>
+      </li> -->
+      <!-- <li>
+        <ULink
+          to="/annales/cpge/khagne-al-classique/philosophie"
+          class="text-primary"
+        >
+          Philosophie
+        </ULink>
+      </li> -->
+      <!-- <li>
+        Option :
+        <ul class="list-disc list-inside ml-4">
+          <li>
+            <ULink
+              to="/annales/cpge/khagne-al-lsh/histoire-contemporaine"
+              class="text-primary"
+            >
+              ___
+            </ULink>
+          </li>
+        </ul>
+      </li> -->
     </ul>
   </UContainer>
 </template>
