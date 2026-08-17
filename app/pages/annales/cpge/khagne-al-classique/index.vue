@@ -1,7 +1,7 @@
 <script setup>
 const page_title = 'Annales khâgne A/L classique';
 
-let meta_description = 'Les annales de toutes les matières de prépas littéraires classiques.';
+let meta_description = 'Les annales de toutes les matières de prépas littéraires A/L classiques.';
 meta_description += ' Les sujets et rapports des dernières années.';
 
 const breadcrumb_items = [
@@ -55,15 +55,15 @@ useSeoMeta({
           Français
         </ULink>
       </li>
-      <!-- <li>
+      <li>
         <ULink
           to="/annales/cpge/khagne-al-classique/histoire"
           class="text-primary"
         >
           Histoire
         </ULink>
-      </li> -->
-      <!-- <li>
+      </li>
+      <li>
         Langue ancienne :
         <ULink
           to="/annales/cpge/khagne-al-classique/langue-ancienne-latin"
@@ -78,8 +78,8 @@ useSeoMeta({
         >
           grec
         </ULink>
-      </li> -->
-      <!-- <li>
+      </li>
+      <li>
         Langue vivante étrangère :
         <ULink
           to="/annales/cpge/khagne-al-classique/lve-allemand"
@@ -94,63 +94,63 @@ useSeoMeta({
         >
           anglais
         </ULink>
-        |
+        <!-- |
         <ULink
           to="/annales/cpge/khagne-al-classique/lve-arabe"
           class="text-primary"
         >
           arabe
-        </ULink>
-        |
+        </ULink> -->
+        <!-- |
         <ULink
           to="/annales/cpge/khagne-al-classique/lve-chinois"
           class="text-primary"
         >
           chinois
-        </ULink>
-        |
+        </ULink> -->
+        <!-- |
         <ULink
           to="/annales/cpge/khagne-al-classique/lve-espagnol"
           class="text-primary"
         >
           espagnol
-        </ULink>
-        |
+        </ULink> -->
+        <!-- |
         <ULink
           to="/annales/cpge/khagne-al-classique/lve-italien"
           class="text-primary"
         >
           italien
-        </ULink>
-        |
+        </ULink> -->
+        <!-- |
         <ULink
           to="/annales/cpge/khagne-al-classique/lve-japonais"
           class="text-primary"
         >
           japonais
-        </ULink>
-        |
+        </ULink> -->
+        <!-- |
         <ULink
           to="/annales/cpge/khagne-al-classique/lve-polonais"
           class="text-primary"
         >
           polonais
-        </ULink>
-        |
+        </ULink> -->
+        <!-- |
         <ULink
           to="/annales/cpge/khagne-al-classique/lve-portugais"
           class="text-primary"
         >
           portugais
-        </ULink>
-        |
+        </ULink> -->
+        <!-- |
         <ULink
           to="/annales/cpge/khagne-al-classique/lve-russe"
           class="text-primary"
         >
           russe
-        </ULink>
-      </li> -->
+        </ULink> -->
+      </li>
       <!-- <li>
         Langue vivante B (BCE) :
         <ULink

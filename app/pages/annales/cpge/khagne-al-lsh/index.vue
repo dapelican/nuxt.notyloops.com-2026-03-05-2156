@@ -55,23 +55,23 @@ useSeoMeta({
           Français
         </ULink>
       </li>
-      <!-- <li>
+      <li>
         <ULink
           to="/annales/cpge/khagne-al-lsh/geographie"
           class="text-primary"
         >
           Géographie
         </ULink>
-      </li> -->
-      <!-- <li>
+      </li>
+      <li>
         <ULink
           to="/annales/cpge/khagne-al-lsh/histoire"
           class="text-primary"
         >
           Histoire
         </ULink>
-      </li> -->
-      <!-- <li>
+      </li>
+      <li>
         Langue vivante étrangère :
         <ULink
           to="/annales/cpge/khagne-al-lsh/lve-allemand"
@@ -86,63 +86,63 @@ useSeoMeta({
         >
           anglais
         </ULink>
-        |
+        <!-- |
         <ULink
           to="/annales/cpge/khagne-al-lsh/lve-arabe"
           class="text-primary"
         >
           arabe
-        </ULink>
-        |
+        </ULink> -->
+        <!-- |
         <ULink
           to="/annales/cpge/khagne-al-lsh/lve-chinois"
           class="text-primary"
         >
           chinois
-        </ULink>
-        |
+        </ULink> -->
+        <!-- |
         <ULink
           to="/annales/cpge/khagne-al-lsh/lve-espagnol"
           class="text-primary"
         >
           espagnol
-        </ULink>
-        |
+        </ULink> -->
+        <!-- |
         <ULink
           to="/annales/cpge/khagne-al-lsh/lve-italien"
           class="text-primary"
         >
           italien
-        </ULink>
-        |
+        </ULink> -->
+        <!-- |
         <ULink
           to="/annales/cpge/khagne-al-lsh/lve-japonais"
           class="text-primary"
         >
           japonais
-        </ULink>
-        |
+        </ULink> -->
+        <!-- |
         <ULink
           to="/annales/cpge/khagne-al-lsh/lve-polonais"
           class="text-primary"
         >
           polonais
-        </ULink>
-        |
+        </ULink> -->
+        <!-- |
         <ULink
           to="/annales/cpge/khagne-al-lsh/lve-portugais"
           class="text-primary"
         >
           portugais
-        </ULink>
-        |
+        </ULink> -->
+        <!-- |
         <ULink
           to="/annales/cpge/khagne-al-lsh/lve-russe"
           class="text-primary"
         >
           russe
-        </ULink>
-      </li> -->
+        </ULink> -->
+      </li>
       <!-- <li>
         Langue vivante B (BCE) :
         <ULink

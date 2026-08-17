@@ -1,7 +1,7 @@
 <script setup>
-const page_title = 'Annales khâgne A/L LSH : histoire';
+const page_title = 'Annales khâgne A/L classique : histoire';
 
-let meta_description = 'Les annales de histoire pour les CPGE littéraires LSH.';
+let meta_description = 'Les annales de histoire pour les CPGE littéraires A/L classiques.';
 meta_description += ' Les sujets et rapports des dernières années.';
 
 const breadcrumb_items = [
@@ -16,9 +16,9 @@ const breadcrumb_items = [
     url: 'https://fr.notyloops.com/annales/cpge',
   },
   {
-    label: 'khâgne A/L LSH',
-    to: '/annales/cpge/khagne-al-lsh',
-    url: 'https://fr.notyloops.com/annales/cpge/khagne-al-lsh',
+    label: 'khâgne A/L classique',
+    to: '/annales/cpge/khagne-al-classique',
+    url: 'https://fr.notyloops.com/annales/cpge/khagne-al-classique',
   },
   {
     label: 'Histoire',
@@ -40,7 +40,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <!-- app/pages/annales/cpge/khagne-al-lsh/histoire.vue -->
+  <!-- app/pages/annales/cpge/khagne-al-classique/histoire.vue -->
   <UContainer class="max-w-xl">
     <UBreadcrumb
       class="mb-8"
@@ -48,7 +48,7 @@ useSeoMeta({
     />
 
     <h1>
-      Annales khâgne A/L LSH : histoire
+      Annales khâgne A/L classique : histoire
     </h1>
 
     <h2 class="mt-12">

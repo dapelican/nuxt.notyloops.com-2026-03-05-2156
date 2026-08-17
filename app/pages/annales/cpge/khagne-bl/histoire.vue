@@ -1,7 +1,7 @@
 <script setup>
-const page_title = 'Annales khâgne A/L LSH : histoire';
+const page_title = 'Annales khâgne B/L : histoire';
 
-let meta_description = 'Les annales de histoire pour les CPGE littéraires LSH.';
+let meta_description = 'Les annales de histoire pour les CPGE littéraires A/L classiques.';
 meta_description += ' Les sujets et rapports des dernières années.';
 
 const breadcrumb_items = [
@@ -16,9 +16,9 @@ const breadcrumb_items = [
     url: 'https://fr.notyloops.com/annales/cpge',
   },
   {
-    label: 'khâgne A/L LSH',
-    to: '/annales/cpge/khagne-al-lsh',
-    url: 'https://fr.notyloops.com/annales/cpge/khagne-al-lsh',
+    label: 'khâgne B/L',
+    to: '/annales/cpge/khagne-bl',
+    url: 'https://fr.notyloops.com/annales/cpge/khagne-bl',
   },
   {
     label: 'Histoire',
@@ -40,7 +40,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <!-- app/pages/annales/cpge/khagne-al-lsh/histoire.vue -->
+  <!-- app/pages/annales/cpge/khagne-bl/histoire.vue -->
   <UContainer class="max-w-xl">
     <UBreadcrumb
       class="mb-8"
@@ -48,20 +48,8 @@ useSeoMeta({
     />
 
     <h1>
-      Annales khâgne A/L LSH : histoire
+      Annales khâgne B/L : histoire
     </h1>
-
-    <h2 class="mt-12">
-      2027
-    </h2>
-
-    <h3 class="mt-4">
-      Programme
-    </h3>
-
-    <p>
-      Voter en France de 1848 à 2002.
-    </p>
 
     <h2 class="mt-12">
       2026
@@ -88,13 +76,13 @@ useSeoMeta({
               BCE
             </td>
             <td>
-              En quoi la Seconde Guerre mondiale a-t-elle fait évoluer la situation
-              économique et politique du Moyen-Orient ?
+              Quel rôle a joué la IVe République dans la modernisation de la
+              France ?
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/khagne-histoire-2026-al-bce-sujet.pdf"
+                to="https://annales.notyloops.com/khagne-histoire-2026-bl-bce-sujet.pdf"
                 target="_blank"
               >
                 Sujet
@@ -102,7 +90,7 @@ useSeoMeta({
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/khagne-histoire-2026-al-bce-rapport.pdf"
+                to="https://annales.notyloops.com/khagne-histoire-2026-bl-bce-rapport.pdf"
                 target="_blank"
               >
                 Rapport
@@ -114,20 +102,20 @@ useSeoMeta({
               BEL
             </td>
             <td>
-              Construire l'État, transformer les sociétés au Moyen-Orient 1920-2011.
+              Les Français et les guerres (1870-1995).
             </td>
             <td>
-              <ULink
+              <!-- <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/khagne-histoire-2026-al-bel-sujet.pdf"
+                to="https://annales.notyloops.com/khagne-histoire-2026-bl-bel-sujet.pdf"
                 target="_blank"
               >
                 Sujet
-              </ULink>
+              </ULink> -->
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/khagne-histoire-2026-al-bel-rapport.pdf"
+                to="https://annales.notyloops.com/khagne-histoire-2026-bl-bel-rapport.pdf"
                 target="_blank"
               >
                 Rapport
@@ -137,13 +125,5 @@ useSeoMeta({
         </tbody>
       </table>
     </figure>
-
-    <h3 class="mt-4">
-      Programme
-    </h3>
-
-    <p>
-      La construction des États au Moyen-Orient (1920-2011).
-    </p>
   </UContainer>
 </template>

@@ -1,7 +1,7 @@
 <script setup>
 const page_title = 'Annales khâgne A/L LSH : LVE allemand';
 
-let meta_description = 'Les annales de LVE allemand pour les CPGE littéraires LSH.';
+let meta_description = 'Les annales de LVE allemand pour les CPGE littéraires A/L LSH.';
 meta_description += ' Les sujets et rapports des dernières années.';
 
 const breadcrumb_items = [
@@ -70,12 +70,12 @@ useSeoMeta({
         <tbody>
           <tr>
             <td>
-              BEL
+              BCE
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/khagne-lve-allemand-2026-bel-sujet.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2026-ec-elvi-sujet-allemand.pdf"
                 target="_blank"
               >
                 Sujet
@@ -83,7 +83,29 @@ useSeoMeta({
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/khagne-lve-allemand-2026-bel-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2026-ec-elvi-rapport-allemand.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              BEL
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-lve-2026-al-bel-sujet-allemand.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-lve-2026-al-bel-rapport-allemand.pdf"
                 target="_blank"
               >
                 Rapport

@@ -1,7 +1,7 @@
 <script setup>
-const page_title = 'Annales khâgne A/L classique : histoire contemporaine';
+const page_title = 'Annales khâgne A/L classique : LVE anglais';
 
-let meta_description = 'Les annales de histoire contemporaine pour les CPGE littéraires classiques.';
+let meta_description = 'Les annales de LVE anglais pour les CPGE littéraires A/L classiques.';
 meta_description += ' Les sujets et rapports des dernières années.';
 
 const breadcrumb_items = [
@@ -21,7 +21,7 @@ const breadcrumb_items = [
     url: 'https://fr.notyloops.com/annales/cpge/khagne-al-classique',
   },
   {
-    label: 'Histoire contemporaine',
+    label: 'LVE anglais',
   },
 ];
 
@@ -40,7 +40,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <!-- app/pages/annales/cpge/khagne-al-classique/histoire contemporaine.vue -->
+  <!-- app/pages/annales/cpge/khagne-al-classique/lve-anglais.vue -->
   <UContainer class="max-w-xl">
     <UBreadcrumb
       class="mb-8"
@@ -48,20 +48,8 @@ useSeoMeta({
     />
 
     <h1>
-      Annales khâgne A/L classique : histoire contemporaine
+      Annales khâgne A/L classique : LVE anglais
     </h1>
-
-    <h2 class="mt-12">
-      2027
-    </h2>
-
-    <h3 class="mt-4">
-      Programme
-    </h3>
-
-    <p>
-      Voter en France de 1848 à 2002.
-    </p>
 
     <h2 class="mt-12">
       2026
@@ -75,9 +63,6 @@ useSeoMeta({
               Banque d'épreuve
             </th>
             <th>
-              Sujet
-            </th>
-            <th>
               Documents
             </th>
           </tr>
@@ -88,12 +73,9 @@ useSeoMeta({
               BCE
             </td>
             <td>
-              La résistance du réel.
-            </td>
-            <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/khagne-al-classique-dissertation-2026-bce-sujet.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2026-ec-elvi-sujet-anglais.pdf"
                 target="_blank"
               >
                 Sujet
@@ -101,7 +83,7 @@ useSeoMeta({
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/khagne-al-classique-dissertation-2026-bce-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2026-ec-elvi-rapport-anglais.pdf"
                 target="_blank"
               >
                 Rapport
@@ -110,15 +92,12 @@ useSeoMeta({
           </tr>
           <tr>
             <td>
-              ENS
-            </td>
-            <td>
-              L'autorité de la science.
+              BEL
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/khagne-al-classique-histoire contemporaine-2026-ens-sujet.pdf"
+                to="https://annales.notyloops.com/khagne-lve-2026-al-bel-sujet-anglais.pdf"
                 target="_blank"
               >
                 Sujet
@@ -126,7 +105,7 @@ useSeoMeta({
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/khagne-al-classique-histoire contemporaine-2026-ens-rapport.pdf"
+                to="https://annales.notyloops.com/khagne-lve-2026-al-bel-rapport-anglais.pdf"
                 target="_blank"
               >
                 Rapport
@@ -136,13 +115,5 @@ useSeoMeta({
         </tbody>
       </table>
     </figure>
-
-    <h3 class="mt-4">
-      Programme
-    </h3>
-
-    <p>
-      La construction des États au Moyen-Orient (1920-2011).
-    </p>
   </UContainer>
 </template>

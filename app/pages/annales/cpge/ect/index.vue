@@ -85,19 +85,40 @@ useSeoMeta({
         >
           anglais
         </ULink>
-        <!-- |
+        |
         <ULink
-          to=""
           class="text-primary"
+          to="/annales/cpge/ect/lva-arabe"
         >
-          arabe littéral
-        </ULink> -->
+          arabe
+        </ULink>
         |
         <ULink
           class="text-primary"
           to="/annales/cpge/ect/lva-espagnol"
         >
           espagnol
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/ect/lva-italien"
+        >
+          italien
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/ect/lva-portugais"
+        >
+          portugais
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/ect/lva-russe"
+        >
+          russe
         </ULink>
       </li>
       <li>
@@ -118,17 +139,66 @@ useSeoMeta({
         |
         <ULink
           class="text-primary"
+          to="/annales/cpge/ect/lvb-arabe"
+        >
+          arabe
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/ect/lvb-chinois"
+        >
+          chinois
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
           to="/annales/cpge/ect/lvb-espagnol"
         >
           espagnol
         </ULink>
-        <!-- |
+        |
         <ULink
-          to=""
           class="text-primary"
+          to="/annales/cpge/ect/lvb-hebreu"
+        >
+          hébreu
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/ect/lvb-italien"
         >
           italien
-        </ULink> -->
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/ect/lvb-japonais"
+        >
+          japonais
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/ect/lvb-polonais"
+        >
+          polonais
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/ect/lvb-portugais"
+        >
+          portugais
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/ect/lvb-russe"
+        >
+          russe
+        </ULink>
       </li>
       <li>
         <ULink

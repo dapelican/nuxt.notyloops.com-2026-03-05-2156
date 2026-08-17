@@ -1,7 +1,7 @@
 <script setup>
 const page_title = 'Annales khâgne A/L classique : langue ancienne grec';
 
-let meta_description = 'Les annales de langue ancienne grec pour les CPGE littéraires classiques.';
+let meta_description = 'Les annales de langue ancienne grec pour les CPGE littéraires A/Lclassiques.';
 meta_description += ' Les sujets et rapports des dernières années.';
 
 const breadcrumb_items = [
@@ -40,7 +40,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <!-- app/pages/annales/cpge/khagne-al-classique/francais.vue -->
+  <!-- app/pages/annales/cpge/khagne-al-classique/langue-ancienne-grec.vue -->
   <UContainer class="max-w-xl">
     <UBreadcrumb
       class="mb-8"
@@ -75,7 +75,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/khagne-al-classique-langue-ancienne-grec-2026-bel-sujet-version.pdf"
+                to="https://annales.notyloops.com/khagne-langue-ancienne-2026-al-classique-bel-sujet-version-grec.pdf"
                 target="_blank"
               >
                 Version
@@ -83,7 +83,7 @@ useSeoMeta({
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/khagne-al-classique-langue-ancienne-grec-2026-bel-rapport-version.pdf"
+                to="https://annales.notyloops.com/khagne-langue-ancienne-2026-al-classique-bel-sujet-rapport-grec.pdf"
                 target="_blank"
               >
                 Rapport
@@ -91,7 +91,7 @@ useSeoMeta({
               <br>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/khagne-al-classique-langue-ancienne-grec-2026-bel-sujet-textes-antiques.pdf"
+                to="https://annales.notyloops.com/khagne-langue-ancienne-2026-al-classique-bel-sujet-textes-antiques-grec.pdf"
                 target="_blank"
               >
                 Textes antiques
@@ -99,7 +99,7 @@ useSeoMeta({
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/khagne-al-classique-langue-ancienne-grec-2026-bel-rapport-textes-antiques.pdf"
+                to="https://annales.notyloops.com/khagne-langue-ancienne-2026-al-classique-bel-rapport-textes-antiques-grec.pdf"
                 target="_blank"
               >
                 Rapport

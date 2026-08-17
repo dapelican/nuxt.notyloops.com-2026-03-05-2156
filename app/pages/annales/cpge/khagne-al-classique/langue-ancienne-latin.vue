@@ -1,7 +1,7 @@
 <script setup>
 const page_title = 'Annales khâgne A/L classique : langue ancienne latin';
 
-let meta_description = 'Les annales de langue ancienne latin pour les CPGE littéraires classiques.';
+let meta_description = 'Les annales de langue ancienne latin pour les CPGE littéraires A/L classiques.';
 meta_description += ' Les sujets et rapports des dernières années.';
 
 const breadcrumb_items = [
@@ -75,7 +75,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/khagne-al-classique-langue-ancienne-latin-2026-bel-sujet-version.pdf"
+                to="https://annales.notyloops.com/khagne-langue-ancienne-2026-al-classique-bel-sujet-version-latin.pdf"
                 target="_blank"
               >
                 Version
@@ -83,7 +83,7 @@ useSeoMeta({
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/khagne-al-classique-langue-ancienne-latin-2026-bel-rapport-version.pdf"
+                to="https://annales.notyloops.com/khagne-langue-ancienne-2026-al-classique-bel-rapport-version-latin.pdf"
                 target="_blank"
               >
                 Rapport
@@ -91,7 +91,7 @@ useSeoMeta({
               <br>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/khagne-al-classique-langue-ancienne-latin-2026-bel-sujet-textes-antiques.pdf"
+                to="https://annales.notyloops.com/khagne-langue-ancienne-2026-al-classique-bel-sujet-textes-antiques-latin.pdf"
                 target="_blank"
               >
                 Textes antiques
@@ -99,7 +99,7 @@ useSeoMeta({
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/khagne-al-classique-langue-ancienne-latin-2026-bel-rapport-textes-antiques.pdf"
+                to="https://annales.notyloops.com/khagne-langue-ancienne-2026-al-classique-bel-rapport-textes-antiques-latin.pdf"
                 target="_blank"
               >
                 Rapport

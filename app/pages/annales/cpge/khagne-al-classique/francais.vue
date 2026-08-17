@@ -1,7 +1,7 @@
 <script setup>
 const page_title = 'Annales khâgne A/L classique : français';
 
-let meta_description = 'Les annales de français pour les CPGE littéraires classiques.';
+let meta_description = 'Les annales de français pour les CPGE littéraires A/L classiques.';
 meta_description += ' Les sujets et rapports des dernières années.';
 
 const breadcrumb_items = [

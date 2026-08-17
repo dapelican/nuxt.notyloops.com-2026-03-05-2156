@@ -1,7 +1,7 @@
 <script setup>
-const page_title = 'Annales khâgne A/L LSH : histoire';
+const page_title = 'Annales khâgne A/L classique : LVE allemand';
 
-let meta_description = 'Les annales de histoire pour les CPGE littéraires LSH.';
+let meta_description = 'Les annales de LVE allemand pour les CPGE littéraires A/L classiques.';
 meta_description += ' Les sujets et rapports des dernières années.';
 
 const breadcrumb_items = [
@@ -16,12 +16,12 @@ const breadcrumb_items = [
     url: 'https://fr.notyloops.com/annales/cpge',
   },
   {
-    label: 'khâgne A/L LSH',
-    to: '/annales/cpge/khagne-al-lsh',
-    url: 'https://fr.notyloops.com/annales/cpge/khagne-al-lsh',
+    label: 'khâgne A/L classique',
+    to: '/annales/cpge/khagne-al-classique',
+    url: 'https://fr.notyloops.com/annales/cpge/khagne-al-classique',
   },
   {
-    label: 'Histoire',
+    label: 'LVE allemand',
   },
 ];
 
@@ -40,7 +40,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <!-- app/pages/annales/cpge/khagne-al-lsh/histoire.vue -->
+  <!-- app/pages/annales/cpge/khagne-al-classique/lve-allemand.vue -->
   <UContainer class="max-w-xl">
     <UBreadcrumb
       class="mb-8"
@@ -48,20 +48,8 @@ useSeoMeta({
     />
 
     <h1>
-      Annales khâgne A/L LSH : histoire
+      Annales khâgne A/L classique : LVE allemand
     </h1>
-
-    <h2 class="mt-12">
-      2027
-    </h2>
-
-    <h3 class="mt-4">
-      Programme
-    </h3>
-
-    <p>
-      Voter en France de 1848 à 2002.
-    </p>
 
     <h2 class="mt-12">
       2026
@@ -75,9 +63,6 @@ useSeoMeta({
               Banque d'épreuve
             </th>
             <th>
-              Sujet
-            </th>
-            <th>
               Documents
             </th>
           </tr>
@@ -88,13 +73,9 @@ useSeoMeta({
               BCE
             </td>
             <td>
-              En quoi la Seconde Guerre mondiale a-t-elle fait évoluer la situation
-              économique et politique du Moyen-Orient ?
-            </td>
-            <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/khagne-histoire-2026-al-bce-sujet.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2026-ec-elvi-sujet-allemand.pdf"
                 target="_blank"
               >
                 Sujet
@@ -102,7 +83,7 @@ useSeoMeta({
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/khagne-histoire-2026-al-bce-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2026-ec-elvi-rapport-allemand.pdf"
                 target="_blank"
               >
                 Rapport
@@ -114,12 +95,9 @@ useSeoMeta({
               BEL
             </td>
             <td>
-              Construire l'État, transformer les sociétés au Moyen-Orient 1920-2011.
-            </td>
-            <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/khagne-histoire-2026-al-bel-sujet.pdf"
+                to="https://annales.notyloops.com/khagne-lve-2026-al-bel-sujet-allemand.pdf"
                 target="_blank"
               >
                 Sujet
@@ -127,7 +105,7 @@ useSeoMeta({
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/khagne-histoire-2026-al-bel-rapport.pdf"
+                to="https://annales.notyloops.com/khagne-lve-2026-al-bel-rapport-allemand.pdf"
                 target="_blank"
               >
                 Rapport
@@ -137,13 +115,5 @@ useSeoMeta({
         </tbody>
       </table>
     </figure>
-
-    <h3 class="mt-4">
-      Programme
-    </h3>
-
-    <p>
-      La construction des États au Moyen-Orient (1920-2011).
-    </p>
   </UContainer>
 </template>

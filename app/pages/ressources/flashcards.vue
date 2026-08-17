@@ -46,7 +46,7 @@ useSeoMeta({
     </h2>
 
     <p class="mb-0">
-      Une flashcard désigne un entraînement comportant 2 parties :
+      Une flashcard désigne un entraînement composé de 2 parties :
     </p>
 
     <ul class="list-disc list-inside">
@@ -59,7 +59,7 @@ useSeoMeta({
     </ul>
 
     <p class="mt-4">
-      Les flashcards sont très répandus dans le monde anglo-saxon.
+      Les flashcards sont très répandues dans le monde anglo-saxon.
       Elles le sont beaucoup moins dans le monde francophone.
       Le terme de "flashcard" est souvent traduit par "carte-mémoire" ou "fiche de révision".
       Pourtant, ces termes ne reflètent pas totalement ce que sont les flashcards, à savoir des
@@ -127,12 +127,18 @@ useSeoMeta({
 
     <p class="mt-4">
       En d'autres termes, la répétition espacée permet de minimiser le nombre de révisions "inutiles".
-      Il s'agit d"une répétition optimisée, en contraste ave une répétition régulière.
+      Il s'agit d"une répétition optimisée, en contraste ave une répétition mécanique régulière.
     </p>
 
     <p class="mt-4">
       L'inconvénient de la répétition espacée est qu'elle conduit à avoir un nombre différent de flashcards à revoir chaque jour.
       Certains jours peuvent n'avoir aucun test alors que d'autres peuvent en avoir plusieurs dizaines.
+    </p>
+
+    <p class="mt-4">
+      Note : si vous utilisez NotyLoops avec la répétition espacée,
+      nous vous indiquons systématiquement la date de prochaine révision,
+      contrairement à tous les autres outils du marché.
     </p>
 
     <h2 class="mt-8">
@@ -177,22 +183,22 @@ useSeoMeta({
 
     <ul class="list-disc list-inside">
       <li>
-        lettres;
+        lettres ;
       </li>
       <li>
-        droit;
+        droit ;
       </li>
       <li>
-        sciences humaines et sociales;
+        sciences humaines et sociales ;
       </li>
       <li>
-        sciences politiques;
+        sciences politiques ;
       </li>
       <li>
-        administration d'État, territoriale et hospitalière;
+        administration d'État, territoriale et hospitalière ;
       </li>
       <li>
-        langues;
+        langues ;
       </li>
       <li>
         informatique.
@@ -205,10 +211,10 @@ useSeoMeta({
 
     <ol class="list-decimal list-inside">
       <li>
-        Utiliser uniquement des tests de révision physiques;
+        Utiliser uniquement des flashcards physiques;
       </li>
       <li>
-        Utiliser des tests de révision digitaux en ayant recours à des images
+        Utiliser des flashcards digitales en ayant recours à des images
         pour représenter les notations scientifiques et les schémas.
         Le plus simple et le moins chronophage, dans ce cas, est de photographier des notes manuscrites.
       </li>
@@ -220,7 +226,7 @@ useSeoMeta({
 
     <p>
       Les flashcards physiques sont très faciles à concevoir.
-      Ils prennent généralement la forme de fiche en papier ou cartonnées idéalement au format A5
+      Elles prennent généralement la forme de fiche en papier ou cartonnées idéalement au format A5
       (une feuille A4 pliée en 2) ou A6 (une feuille A4 pliée en 4).
     </p>
 
@@ -267,9 +273,9 @@ useSeoMeta({
     </p>
 
     <p class="mt-4">
-      Les fiches physiques permettent de créer tout type de test, mais elles présentent un inconvénient majeur :
+      Les fiches physiques permettent de créer tout type de flashcard, mais elles présentent un inconvénient majeur :
       il est difficile de simuler des révisions au hasard et de suivre l'assimilation de chaque fiche.
-      Inconvénient qui n'existe pas pour les tests de révision digitaux.
+      Inconvénient qui n'existe pas pour les flashcards digitales.
     </p>
 
     <h2 class="mt-8">
@@ -284,96 +290,7 @@ useSeoMeta({
       En tous cas, nous l'avons créé dans ce but.
     </p>
 
-    <h3 class="mt-4">
-      Outils disponibles en français
-    </h3>
-
-    <ul class="list-disc list-inside">
-      <li>
-        <ULink
-          to="/"
-          class="text-primary"
-        >
-          NotyLoops
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          to="https://www.studysmarter.fr/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-primary"
-        >
-          StudySmarter
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          to="https://quizlet.com/fr"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-primary"
-        >
-          Quizlet
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          to="https://www.partielo.fr/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-primary"
-        >
-          Partielo
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          to="https://genially.com/fr/creer/flashcards/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-primary"
-        >
-          Genially
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          to="https://quizgecko.com/locale/fr"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-primary"
-        >
-          Quizgecko
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          to="https://www.wooflash.com/fr/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-primary"
-        >
-          Wooflash
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          to="https://noji.io/fr/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-primary"
-        >
-          Noji (anciennement Anki Pro)
-        </ULink>
-      </li>
-    </ul>
-
-    <h3 class="mt-4">
-      Outils en anglais
-    </h3>
-
-    <ul class="list-disc list-inside">
+    <ul class="list-disc list-inside mt-4">
       <li>
         <ULink
           to="https://apps.ankiweb.net/"
@@ -386,42 +303,10 @@ useSeoMeta({
       </li>
       <li>
         <ULink
-          to="https://www.brainscape.com/"
-          target="_blank"
-          rel="noopener noreferrer"
+          to="/"
           class="text-primary"
         >
-          Brainscape
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          to="https://www.cram.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-primary"
-        >
-          Cram
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          to="https://www.remnote.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-primary"
-        >
-          RemNote
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          to="https://memozora.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-primary"
-        >
-          Memozora
+          NotyLoops
         </ULink>
       </li>
       <li>
@@ -436,59 +321,44 @@ useSeoMeta({
       </li>
       <li>
         <ULink
-          to="https://anki-decks.com/"
+          to="https://quizlet.com/fr"
           target="_blank"
           rel="noopener noreferrer"
           class="text-primary"
         >
-          AnkiDecks
+          Quizlet
         </ULink>
       </li>
       <li>
         <ULink
-          to="https://www.ankiapp.com/"
+          to="https://noji.io/fr/"
           target="_blank"
           rel="noopener noreferrer"
           class="text-primary"
         >
-          AnkiApp
+          Noji (anciennement Anki Pro)
         </ULink>
       </li>
       <li>
         <ULink
-          to="https://www.noteknight.com/"
+          to="https://www.algoapp.ai/"
           target="_blank"
           rel="noopener noreferrer"
           class="text-primary"
         >
-          NoteKnight
+          AlgoApp
         </ULink>
       </li>
-      <!-- <li>
-          <ULink to="https://flashiqapp.com/" target="_blank" rel="noopener noreferrer">
-            FlashIQ
-          </ULink>
-        </li> -->
-      <!-- <li>
-          <ULink to="https://www.flashka.ai/" target="_blank" rel="noopener noreferrer">
-            Flashka
-          </ULink>
-        </li> -->
-      <!-- <li>
-          <ULink to="https://www.voovostudy.com/" target="_blank" rel="noopener noreferrer">
-            Voovo
-          </ULink>
-        </li> -->
-      <!-- <li>
-          <ULink to="https://studypod.app/" target="_blank" rel="noopener noreferrer">
-            StudyPod
-          </ULink>
-        </li> -->
-      <!-- <li>
-          <ULink to="https://www.classmaster.io/" target="_blank" rel="noopener noreferrer">
-            Classmaster.io
-          </ULink>
-        </li> -->
+      <li>
+        <ULink
+          to="https://smarterhumans.ai/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-primary"
+        >
+          SmarterHumans.ai
+        </ULink>
+      </li>
     </ul>
 
     <h2 class="mt-8">
@@ -496,16 +366,14 @@ useSeoMeta({
     </h2>
 
     <p>
-      La qualité de vos tests de révision détermine en grande partie leur efficacité pour l'apprentissage.
+      La qualité de vos flashcards détermine en grande partie leur efficacité pour l'apprentissage.
       Voici quelques principes à suivre :
     </p>
 
     <ul class="list-disc list-inside">
       <li>
         <strong>Principe de l'atomicité</strong> ou <strong>principe de granularité</strong> :
-        un test de révision = une information. Évitez de surcharger vos tests avec trop d'informations.
-        De même, essayez de regrouper les fiches par thème très spécifique.
-        Privilégiez la granularité au niveau des "classeurs" ou "paquets" de fiches.
+        une flashcard = une information. Évitez de surcharger vos flashcards avec trop d'informations.
       </li>
       <li>
         <strong>Formulation précise</strong> : posez des questions claires qui appellent des réponses précises.

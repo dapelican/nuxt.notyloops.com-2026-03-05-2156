@@ -85,6 +85,31 @@ useSeoMeta({
         <tbody>
           <tr>
             <td>
+              BCE
+            </td>
+            <td>
+              Mondes indiens et changements globaux.
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-geographie-2026-al-lsh-bce-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-geographie-2026-al-lsh-bce-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+          <tr>
+            <td>
               BEL
             </td>
             <td>
@@ -93,7 +118,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/khagne-al-lsh-geographie-2026-bel-sujet.pdf"
+                to="https://annales.notyloops.com/khagne-geographie-2026-al-lsh-bel-sujet.pdf"
                 target="_blank"
               >
                 Sujet
@@ -101,7 +126,7 @@ useSeoMeta({
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/khagne-al-lsh-geographie-2026-bel-rapport.pdf"
+                to="https://annales.notyloops.com/khagne-geographie-2026-al-lsh-bel-rapport.pdf"
                 target="_blank"
               >
                 Rapport

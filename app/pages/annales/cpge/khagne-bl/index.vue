@@ -55,14 +55,14 @@ useSeoMeta({
           Français
         </ULink>
       </li>
-      <!-- <li>
+      <li>
         <ULink
           to="/annales/cpge/khagne-bl/histoire"
           class="text-primary"
         >
           Histoire
         </ULink>
-      </li> -->
+      </li>
       <!-- <li>
         <ULink
           to="/annales/cpge/khagne-bl/mathematiques"
