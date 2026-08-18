@@ -194,20 +194,20 @@ useSeoMeta({
         >
           grec ancien
         </ULink>
-        <!-- |
+        |
         <ULink
           to="/annales/cpge/khagne-al-classique/lb-italien"
           class="text-primary"
         >
           italien
-        </ULink> -->
-        <!-- |
+        </ULink>
+        |
         <ULink
           to="/annales/cpge/khagne-al-classique/lb-japonais"
           class="text-primary"
         >
           japonais
-        </ULink> -->
+        </ULink>
         |
         <ULink
           to="/annales/cpge/khagne-al-classique/lb-latin"
@@ -215,36 +215,36 @@ useSeoMeta({
         >
           latin
         </ULink>
-        <!-- |
+        |
         <ULink
           to="/annales/cpge/khagne-al-classique/lb-polonais"
           class="text-primary"
         >
           polonais
-        </ULink> -->
-        <!-- |
+        </ULink>
+        |
         <ULink
           to="/annales/cpge/khagne-al-classique/lb-portugais"
           class="text-primary"
         >
           portugais
-        </ULink> -->
-        <!-- |
+        </ULink>
+        |
         <ULink
           to="/annales/cpge/khagne-al-classique/lb-russe"
           class="text-primary"
         >
           russe
-        </ULink> -->
+        </ULink>
       </li>
-      <!-- <li>
+      <li>
         <ULink
           to="/annales/cpge/khagne-al-classique/philosophie"
           class="text-primary"
         >
           Philosophie
         </ULink>
-      </li> -->
+      </li>
       <!-- <li>
         Option :
         <ul class="list-disc list-inside ml-4">

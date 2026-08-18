@@ -191,7 +191,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-physique-chimie-2026-pc-ccs-sujet-phyqique-1.pdf"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2026-pc-ccs-sujet-physique-1.pdf"
                 target="_blank"
               >
                 Sujet physique 1
@@ -199,7 +199,7 @@ useSeoMeta({
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-physique-chimie-2026-pc-ccs-rapport-phyqique-1.pdf"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2026-pc-ccs-rapport-physique-1.pdf"
                 target="_blank"
               >
                 Rapport
@@ -207,7 +207,7 @@ useSeoMeta({
               <br>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-physique-chimie-2026-pc-ccs-sujet-phyqique-2.pdf"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2026-pc-ccs-sujet-physique-2.pdf"
                 target="_blank"
               >
                 Sujet physique 2
@@ -215,7 +215,7 @@ useSeoMeta({
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-physique-chimie-2026-pc-ccs-rapport-phyqique-2.pdf"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2026-pc-ccs-rapport-physique-2.pdf"
                 target="_blank"
               >
                 Rapport
@@ -510,7 +510,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-physique-chimie-2025-pc-ccs-sujet-phyqique-1.pdf"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2025-pc-ccs-sujet-physique-1.pdf"
                 target="_blank"
               >
                 Sujet physique 1
@@ -518,7 +518,7 @@ useSeoMeta({
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-physique-chimie-2025-pc-ccs-rapport-phyqique-1.pdf"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2025-pc-ccs-rapport-physique-1.pdf"
                 target="_blank"
               >
                 Rapport
@@ -526,7 +526,7 @@ useSeoMeta({
               <br>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-physique-chimie-2025-pc-ccs-sujet-phyqique-2.pdf"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2025-pc-ccs-sujet-physique-2.pdf"
                 target="_blank"
               >
                 Sujet physique 2
@@ -534,7 +534,7 @@ useSeoMeta({
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-physique-chimie-2025-pc-ccs-rapport-phyqique-2.pdf"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2025-pc-ccs-rapport-physique-2.pdf"
                 target="_blank"
               >
                 Rapport

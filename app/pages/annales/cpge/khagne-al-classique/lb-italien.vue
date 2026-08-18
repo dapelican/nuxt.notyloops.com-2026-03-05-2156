@@ -1,7 +1,7 @@
 <script setup>
-const page_title = 'Annales khâgne A/L classique : philosophie';
+const page_title = 'Annales khâgne A/L classique : langue B italien';
 
-let meta_description = 'Les annales de philosophie pour les CPGE littéraires A/L classique.';
+let meta_description = 'Les annales de langue B italien pour les CPGE littéraires A/L classique.';
 meta_description += ' Les sujets et rapports des dernières années.';
 
 const breadcrumb_items = [
@@ -21,9 +21,7 @@ const breadcrumb_items = [
     url: 'https://fr.notyloops.com/annales/cpge/khagne-al-classique',
   },
   {
-    label: 'Philosophie',
-    to: '/annales/cpge/khagne-al-classique/philosophie',
-    url: 'https://fr.notyloops.com/annales/cpge/khagne-al-classique/philosophie',
+    label: 'Langue B italien',
   },
 ];
 
@@ -42,7 +40,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <!-- app/pages/annales/cpge/khagne-al-classique/philosophie.vue -->
+  <!-- app/pages/annales/cpge/khagne-al-classique/lb-italien.vue -->
   <UContainer class="max-w-xl">
     <UBreadcrumb
       class="mb-8"
@@ -50,15 +48,11 @@ useSeoMeta({
     />
 
     <h1>
-      Annales khâgne A/L classique : philosophie
+      Annales khâgne A/L classique : langue B italien
     </h1>
 
     <h2 class="mt-12">
-      2027 - La politique, le droit
-    </h2>
-
-    <h2 class="mt-12">
-      2026 - La science
+      2026
     </h2>
 
     <figure>
@@ -67,9 +61,6 @@ useSeoMeta({
           <tr>
             <th>
               Banque d'épreuve
-            </th>
-            <th>
-              Sujet
             </th>
             <th>
               Documents
@@ -82,12 +73,9 @@ useSeoMeta({
               BCE
             </td>
             <td>
-              La résistance du réel.
-            </td>
-            <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/khagne-dissertation-2026-al-bce-sujet.pdf"
+                to="https://annales.notyloops.com/cpge-lvb-2026-ec-elvi-sujet-italien.pdf"
                 target="_blank"
               >
                 Sujet
@@ -95,32 +83,7 @@ useSeoMeta({
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/khagne-dissertation-2026-al-bce-rapport-philosophique.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink> -->
-            </td>
-          </tr>
-          <tr>
-            <td>
-              ENS
-            </td>
-            <td>
-              L'autorité de la science.
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/khagne-philosophie-2026-al-bel-sujet.pdf"
-                target="_blank"
-              >
-                Sujet
-              </ULink>
-              <!-- |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/khagne-philosophie-2026-al-bel-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-lvb-2026-ec-elvi-rapport-italien.pdf"
                 target="_blank"
               >
                 Rapport

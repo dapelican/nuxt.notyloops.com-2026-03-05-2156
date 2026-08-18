@@ -63,14 +63,14 @@ useSeoMeta({
           Histoire
         </ULink>
       </li>
-      <!-- <li>
+      <li>
         <ULink
           to="/annales/cpge/khagne-bl/mathematiques"
           class="text-primary"
         >
           Mathématiques
         </ULink>
-      </li> -->
+      </li>
       <!-- <li>
         <ULink
           to="/annales/cpge/khagne-bl/philosophie"
@@ -95,7 +95,7 @@ useSeoMeta({
               to="/annales/cpge/khagne-bl/option-geographie"
               class="text-primary"
             >
-              Géogrpahie
+              Géographie
             </ULink>
           </li>
           <li>

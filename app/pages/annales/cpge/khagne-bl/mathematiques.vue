@@ -1,7 +1,7 @@
 <script setup>
-const page_title = 'Annales prépa TSI : LVA italien';
+const page_title = 'Annales khâgne B/L : mathématiques';
 
-let meta_description = 'Les annales de LVA italien pour les CPGE TSI.';
+let meta_description = 'Les annales de mathématiques pour les CPGE littéraires B/L.';
 meta_description += ' Les sujets et rapports des dernières années.';
 
 const breadcrumb_items = [
@@ -16,12 +16,12 @@ const breadcrumb_items = [
     url: 'https://fr.notyloops.com/annales/cpge',
   },
   {
-    label: 'TSI',
-    to: '/annales/cpge/tsi',
-    url: 'https://fr.notyloops.com/annales/cpge/tsi',
+    label: 'khâgne B/L',
+    to: '/annales/cpge/khagne-bl',
+    url: 'https://fr.notyloops.com/annales/cpge/khagne-bl',
   },
   {
-    label: 'LVA italien',
+    label: 'Français',
   },
 ];
 
@@ -40,7 +40,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <!-- app/pages/annales/cpge/tsi/lva-italien.vue -->
+  <!-- app/pages/annales/cpge/khagne-bl/mathematiques.vue -->
   <UContainer class="max-w-xl">
     <UBreadcrumb
       class="mb-8"
@@ -48,7 +48,7 @@ useSeoMeta({
     />
 
     <h1>
-      Annales CPGE TSI : LVA italien
+      Annales khâgne B/L : mathématiques
     </h1>
 
     <h2 class="mt-12">
@@ -70,12 +70,12 @@ useSeoMeta({
         <tbody>
           <tr>
             <td>
-              CCINP
+              BCE
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2026-ccinp-e3a-polytech-sujet-italien.pdf"
+                to="https://annales.notyloops.com/khagne-mathematiques-2026-bl-bce-sujet.pdf"
                 target="_blank"
               >
                 Sujet
@@ -83,7 +83,7 @@ useSeoMeta({
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2026-ccinp-e3a-polytech-rapport-italien.pdf"
+                to="https://annales.notyloops.com/khagne-mathematiques-2026-bl-bce-rapport.pdf"
                 target="_blank"
               >
                 Rapport
@@ -92,12 +92,12 @@ useSeoMeta({
           </tr>
           <tr>
             <td>
-              CCS
+              BEL
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2026-ccs-sujet-italien.pdf"
+                to="https://annales.notyloops.com/khagne-mathematiques-2026-bl-ens-sujet.pdf"
                 target="_blank"
               >
                 Sujet
@@ -105,7 +105,7 @@ useSeoMeta({
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2026-ccs-rapport-italien-tsi.pdf"
+                to="https://annales.notyloops.com/khagne-mathematiques-2026-bl-ens-rapport.pdf"
                 target="_blank"
               >
                 Rapport
@@ -135,12 +135,12 @@ useSeoMeta({
         <tbody>
           <tr>
             <td>
-              CCINP
+              BCE
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2025-ccinp-e3a-polytech-sujet-italien.pdf"
+                to="https://annales.notyloops.com/khagne-mathematiques-2025-bl-bce-sujet.pdf"
                 target="_blank"
               >
                 Sujet
@@ -148,7 +148,7 @@ useSeoMeta({
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2025-ccinp-e3a-polytech-rapport-italien.pdf"
+                to="https://annales.notyloops.com/khagne-mathematiques-2025-bl-bce-rapport.pdf"
                 target="_blank"
               >
                 Rapport
@@ -157,12 +157,12 @@ useSeoMeta({
           </tr>
           <tr>
             <td>
-              CCS
+              BEL
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2025-ccs-sujet-italien.pdf"
+                to="https://annales.notyloops.com/khagne-mathematiques-2025-bl-ens-sujet.pdf"
                 target="_blank"
               >
                 Sujet
@@ -170,7 +170,7 @@ useSeoMeta({
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2025-ccs-rapport-italien-tsi.pdf"
+                to="https://annales.notyloops.com/khagne-mathematiques-2025-bl-ens-rapport.pdf"
                 target="_blank"
               >
                 Rapport

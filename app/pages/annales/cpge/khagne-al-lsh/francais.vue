@@ -136,7 +136,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/khagne-dissertation-2026-bce-sujet.pdf"
+                to="https://annales.notyloops.com/khagne-dissertation-2026-al-bce-sujet.pdf"
                 target="_blank"
               >
                 Dissertation littéraire
@@ -144,7 +144,7 @@ useSeoMeta({
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/khagne-dissertation-2026-bce-rapport.pdf"
+                to="https://annales.notyloops.com/khagne-dissertation-2026-al-bce-rapport-litteraire.pdf"
                 target="_blank"
               >
                 Rapport
@@ -174,7 +174,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/khagne-francais-2026-bel-sujet.pdf"
+                to="https://annales.notyloops.com/khagne-francais-2026-al-bel-sujet.pdf"
                 target="_blank"
               >
                 Sujet
@@ -182,7 +182,7 @@ useSeoMeta({
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/khagne-francais-2026-bel-rapport.pdf"
+                to="https://annales.notyloops.com/khagne-francais-2026-al-bel-rapport.pdf"
                 target="_blank"
               >
                 Rapport
