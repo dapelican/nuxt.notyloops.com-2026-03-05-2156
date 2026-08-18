@@ -1,7 +1,7 @@
 <script setup>
 const page_title = 'Annales khâgne A/L classique : LVE allemand';
 
-let meta_description = 'Les annales de LVE allemand pour les CPGE littéraires A/L classiques.';
+let meta_description = 'Les annales de LVE allemand pour les CPGE littéraires A/L classique.';
 meta_description += ' Les sujets et rapports des dernières années.';
 
 const breadcrumb_items = [

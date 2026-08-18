@@ -1,7 +1,7 @@
 <script setup>
-const page_title = 'Annales khâgne A/L classique : langue ancienne latin';
+const page_title = 'Annales khâgne A/L classique : LVE japonais';
 
-let meta_description = 'Les annales de langue ancienne latin pour les CPGE littéraires A/L classique.';
+let meta_description = 'Les annales de LVE japonais pour les CPGE littéraires A/L classique.';
 meta_description += ' Les sujets et rapports des dernières années.';
 
 const breadcrumb_items = [
@@ -21,7 +21,7 @@ const breadcrumb_items = [
     url: 'https://fr.notyloops.com/annales/cpge/khagne-al-classique',
   },
   {
-    label: 'Langue ancienne : latin',
+    label: 'LVE japonais',
   },
 ];
 
@@ -40,7 +40,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <!-- app/pages/annales/cpge/khagne-al-classique/langue-ancienne-latin.vue -->
+  <!-- app/pages/annales/cpge/khagne-al-classique/lve-japonais.vue -->
   <UContainer class="max-w-xl">
     <UBreadcrumb
       class="mb-8"
@@ -48,7 +48,7 @@ useSeoMeta({
     />
 
     <h1>
-      Annales khâgne A/L classique : langue ancienne latin
+      Annales khâgne A/L classique : LVE japonais
     </h1>
 
     <h2 class="mt-12">
@@ -75,31 +75,15 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/khagne-langue-ancienne-2026-al-classique-bel-sujet-version-latin.pdf"
+                to="https://annales.notyloops.com/khagne-lve-2026-al-bel-sujet-japonais.pdf"
                 target="_blank"
               >
-                Version
+                Sujet
               </ULink>
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/khagne-langue-ancienne-2026-al-classique-bel-rapport-version-latin.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink> -->
-              <br>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/khagne-langue-ancienne-2026-al-classique-bel-sujet-textes-antiques-latin.pdf"
-                target="_blank"
-              >
-                Textes antiques
-              </ULink>
-              <!-- |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/khagne-langue-ancienne-2026-al-classique-bel-rapport-textes-antiques-latin.pdf"
+                to="https://annales.notyloops.com/khagne-lve-2026-al-bel-rapport-japonais.pdf"
                 target="_blank"
               >
                 Rapport
