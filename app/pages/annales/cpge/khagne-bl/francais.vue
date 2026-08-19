@@ -92,7 +92,7 @@ useSeoMeta({
           </tr>
           <tr>
             <td>
-              BEL
+              ENS
             </td>
             <td>
               Sujet pas encore disponible
@@ -158,7 +158,7 @@ useSeoMeta({
           </tr>
           <tr>
             <td>
-              BEL
+              ENS
             </td>
             <td>
               <ULink

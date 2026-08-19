@@ -23,6 +23,12 @@ useSeoMeta({
           to="/annales/cpge"
         >Classes préparatoires aux grandes écoles (CPGE)</ULink>
       </li>
+      <li>
+        <ULink
+          class="text-primary"
+          to="/annales/tescia"
+        >Tescia</ULink>
+      </li>
     </ul>
   </UContainer>
 </template>

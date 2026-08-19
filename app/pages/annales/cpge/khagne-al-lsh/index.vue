@@ -245,13 +245,13 @@ useSeoMeta({
         >
           allemand
         </ULink>
-        <!-- |
+        |
         <ULink
           to="/annales/cpge/khagne-al-lsh/specialite-arts"
           class="text-primary"
         >
           arts
-        </ULink> -->
+        </ULink>
         |
         <ULink
           to="/annales/cpge/khagne-al-lsh/specialite-anglais"
@@ -272,6 +272,13 @@ useSeoMeta({
           class="text-primary"
         >
           chinois
+        </ULink>
+        |
+        <ULink
+          to="/annales/cpge/khagne-al-lsh/specialite-cinema"
+          class="text-primary"
+        >
+          cinéma
         </ULink>
         |
         <ULink
@@ -331,6 +338,13 @@ useSeoMeta({
         </ULink>
         |
         <ULink
+          to="/annales/cpge/khagne-al-lsh/specialite-musique"
+          class="text-primary"
+        >
+          musique
+        </ULink>
+        |
+        <ULink
           to="/annales/cpge/khagne-al-lsh/specialite-philosophie"
           class="text-primary"
         >
@@ -349,6 +363,13 @@ useSeoMeta({
           class="text-primary"
         >
           russe
+        </ULink>
+        |
+        <ULink
+          to="/annales/cpge/khagne-al-lsh/specialite-theatre"
+          class="text-primary"
+        >
+          théâtre
         </ULink>
       </li>
     </ul>

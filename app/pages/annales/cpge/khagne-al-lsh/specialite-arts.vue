@@ -1,7 +1,7 @@
 <script setup>
-const page_title = 'Annales khâgne B/L : mathématiques';
+const page_title = 'Annales khâgne A/L classique : spécialité arts';
 
-let meta_description = 'Les annales de mathématiques pour les CPGE littéraires B/L.';
+let meta_description = 'Les annales de l\'spécialité arts pour les CPGE littéraires A/L classique.';
 meta_description += ' Les sujets et rapports des dernières années.';
 
 const breadcrumb_items = [
@@ -16,12 +16,12 @@ const breadcrumb_items = [
     url: 'https://fr.notyloops.com/annales/cpge',
   },
   {
-    label: 'khâgne B/L',
-    to: '/annales/cpge/khagne-bl',
-    url: 'https://fr.notyloops.com/annales/cpge/khagne-bl',
+    label: 'khâgne A/L classique',
+    to: '/annales/cpge/khagne-al-classique',
+    url: 'https://fr.notyloops.com/annales/cpge/khagne-al-classique',
   },
   {
-    label: 'Français',
+    label: 'Spécialité arts',
   },
 ];
 
@@ -40,7 +40,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <!-- app/pages/annales/cpge/khagne-bl/mathematiques.vue -->
+  <!-- app/pages/annales/cpge/khagne-al-classique/specialite-arts.vue -->
   <UContainer class="max-w-xl">
     <UBreadcrumb
       class="mb-8"
@@ -48,7 +48,7 @@ useSeoMeta({
     />
 
     <h1>
-      Annales khâgne B/L : mathématiques
+      Annales khâgne A/L classique : spécialité arts
     </h1>
 
     <h2 class="mt-12">
@@ -63,6 +63,9 @@ useSeoMeta({
               Banque d'épreuve
             </th>
             <th>
+              Sujet
+            </th>
+            <th>
               Documents
             </th>
           </tr>
@@ -70,42 +73,23 @@ useSeoMeta({
         <tbody>
           <tr>
             <td>
-              BCE
+              BEL
+            </td>
+            <td>
+              L'artiste est-il indissociable de son atelier ?
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/khagne-mathematiques-2026-bl-bce-sujet.pdf"
+                to="https://annales.notyloops.com/khagne-artistique-2026-al-bel-sujet-arts.pdf"
                 target="_blank"
               >
                 Sujet
               </ULink>
-              <!-- |
+              <!-- <br>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/khagne-mathematiques-2026-bl-bce-rapport.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink> -->
-            </td>
-          </tr>
-          <tr>
-            <td>
-              ENS
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/khagne-mathematiques-2026-bl-ens-sujet.pdf"
-                target="_blank"
-              >
-                Sujet
-              </ULink>
-              <!-- |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/khagne-mathematiques-2026-bl-ens-rapport.pdf"
+                to="https://annales.notyloops.com/khagne-artistique-2026-al-bel-rapport-arts.pdf"
                 target="_blank"
               >
                 Rapport
@@ -128,6 +112,9 @@ useSeoMeta({
               Banque d'épreuve
             </th>
             <th>
+              Sujet
+            </th>
+            <th>
               Documents
             </th>
           </tr>
@@ -135,42 +122,23 @@ useSeoMeta({
         <tbody>
           <tr>
             <td>
-              BCE
+              BEL
+            </td>
+            <td>
+              L'histoire en images : écrire l'Histoire ?
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/khagne-mathematiques-2025-bl-bce-sujet.pdf"
+                to="https://annales.notyloops.com/khagne-artistique-2025-al-bel-sujet-arts.pdf"
                 target="_blank"
               >
                 Sujet
               </ULink>
-              |
+              <br>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/khagne-mathematiques-2025-bl-bce-rapport.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              ENS
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/khagne-mathematiques-2025-bl-ens-sujet.pdf"
-                target="_blank"
-              >
-                Sujet
-              </ULink>
-              |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/khagne-mathematiques-2025-bl-ens-rapport.pdf"
+                to="https://annales.notyloops.com/khagne-artistique-2025-al-bel-rapport-arts.pdf"
                 target="_blank"
               >
                 Rapport
