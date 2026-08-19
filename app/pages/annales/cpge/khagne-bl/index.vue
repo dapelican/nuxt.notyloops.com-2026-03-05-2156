@@ -71,22 +71,22 @@ useSeoMeta({
           Mathématiques
         </ULink>
       </li>
-      <!-- <li>
+      <li>
         <ULink
           to="/annales/cpge/khagne-bl/philosophie"
           class="text-primary"
         >
           Philosophie
         </ULink>
-      </li> -->
-      <!-- <li>
+      </li>
+      <li>
         <ULink
           to="/annales/cpge/khagne-bl/sciences-sociales"
           class="text-primary"
         >
           Sciences sociales
         </ULink>
-      </li> -->
+      </li>
       <!-- <li>
         Option :
         <ul class="list-disc list-inside ml-4">
