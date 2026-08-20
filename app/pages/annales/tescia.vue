@@ -38,347 +38,679 @@ useSeoMeta({
     />
 
     <h1>
-      Annales TeSciA (Test Scientifique Avancé)
+      Annales TeSciA
     </h1>
 
-    <figure>
-      <table>
-        <thead>
-          <tr>
-            <th>
-              Année
-            </th>
-            <th>
-              Documents
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              2026
-            </td>
-            <td>
-              Sujets pas encore disponibles.
-              <!-- <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/tescia-2025-epreuve-1-sujet.pdf"
-                target="_blank"
-              >
-                Sujet 1
-              </ULink>
-              <br>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/tescia-2025-epreuve-2a-sujet.pdf"
-                target="_blank"
-              >
-                Sujet 2a
-              </ULink>
-              <br>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/tescia-2025-epreuve-2b-sujet.pdf"
-                target="_blank"
-              >
-                Sujet 2b
-              </ULink> -->
-            </td>
-          </tr>
-          <tr>
-            <td>
-              2025
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/tescia-2025-epreuve-1-sujet.pdf"
-                target="_blank"
-              >
-                Sujet 1
-              </ULink>
-              <br>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/tescia-2025-epreuve-2a-sujet.pdf"
-                target="_blank"
-              >
-                Sujet 2a
-              </ULink>
-              <br>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/tescia-2025-epreuve-2b-sujet.pdf"
-                target="_blank"
-              >
-                Sujet 2b
-              </ULink>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              2024
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/tescia-2024-epreuve-1-sujet.pdf"
-                target="_blank"
-              >
-                Sujet 1
-              </ULink>
-              <br>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/tescia-2024-epreuve-2a-sujet.pdf"
-                target="_blank"
-              >
-                Sujet 2a
-              </ULink>
-              <br>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/tescia-2024-epreuve-2b-sujet.pdf"
-                target="_blank"
-              >
-                Sujet 2b
-              </ULink>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              2023
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/tescia-2023-epreuve-1-sujet.pdf"
-                target="_blank"
-              >
-                Sujet 1
-              </ULink>
-              |
-              Corrigé :
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/tescia-2023-epreuve-1-corrige-1.pdf"
-                target="_blank"
-              >
-                1 sur 3
-              </ULink>
-              ,
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/tescia-2023-epreuve-1-corrige-2.pdf"
-                target="_blank"
-              >
-                2 sur 3
-              </ULink>
-              ,
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/tescia-2023-epreuve-1-corrige-3.pdf"
-                target="_blank"
-              >
-                3 sur 3
-              </ULink>
-              <br>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/tescia-2023-epreuve-2a-sujet.pdf"
-                target="_blank"
-              >
-                Sujet 2a
-              </ULink>
-              <br>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/tescia-2023-epreuve-2b-sujet.pdf"
-                target="_blank"
-              >
-                Sujet 2b
-              </ULink>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              2022
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/tescia-2022-epreuve-1-sujet.pdf"
-                target="_blank"
-              >
-                Sujet 1
-              </ULink>
-              |
-              Corrigé :
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/tescia-2022-epreuve-1-corrige-1.pdf"
-                target="_blank"
-              >
-                1 sur 3
-              </ULink>
-              ,
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/tescia-2022-epreuve-1-corrige-2.pdf"
-                target="_blank"
-              >
-                2 sur 3
-              </ULink>
-              ,
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/tescia-2022-epreuve-1-corrige-3.pdf"
-                target="_blank"
-              >
-                3 sur 3
-              </ULink>
-              <br>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/tescia-2022-epreuve-2a-sujet.pdf"
-                target="_blank"
-              >
-                Sujet 2a
-              </ULink>
-              <br>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/tescia-2022-epreuve-2b-sujet.pdf"
-                target="_blank"
-              >
-                Sujet 2b
-              </ULink>
-              |
-              Corrigé :
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/tescia-2022-epreuve-2b-corrige-1.pdf"
-                target="_blank"
-              >
-                1 sur 2
-              </ULink>
-              ,
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/tescia-2022-epreuve-2b-corrige-2.pdf"
-                target="_blank"
-              >
-                2 sur 2
-              </ULink>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              0000
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/tescia-0000-epreuve-1-sujet.pdf"
-                target="_blank"
-              >
-                Sujet 1
-              </ULink>
-              |
-              Corrigé :
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/tescia-0000-epreuve-1-corrige-1.pdf"
-                target="_blank"
-              >
-                1 sur 3
-              </ULink>
-              ,
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/tescia-0000-epreuve-1-corrige-2.pdf"
-                target="_blank"
-              >
-                2 sur 3
-              </ULink>
-              ,
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/tescia-0000-epreuve-1-corrige-3.pdf"
-                target="_blank"
-              >
-                3 sur 3
-              </ULink>
-              <br>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/tescia-0000-epreuve-2a-sujet.pdf"
-                target="_blank"
-              >
-                Sujet 2a
-              </ULink>
-              |
-              Corrigé :
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/tescia-0000-epreuve-2a-corrige-1.pdf"
-                target="_blank"
-              >
-                1 sur 3
-              </ULink>
-              ,
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/tescia-0000-epreuve-2a-corrige-2.pdf"
-                target="_blank"
-              >
-                2 sur 3
-              </ULink>
-              ,
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/tescia-0000-epreuve-2a-corrige-3.pdf"
-                target="_blank"
-              >
-                3 sur 3
-              </ULink>
-              <br>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/tescia-0000-epreuve-2b-sujet.pdf"
-                target="_blank"
-              >
-                Sujet 2b
-              </ULink>
-              |
-              Corrigé :
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/tescia-0000-epreuve-2b-corrige-1.pdf"
-                target="_blank"
-              >
-                1 sur 3
-              </ULink>
-              ,
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/tescia-0000-epreuve-2b-corrige-2.pdf"
-                target="_blank"
-              >
-                2 sur 3
-              </ULink>
-              ,
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/tescia-0000-epreuve-2b-corrige-3.pdf"
-                target="_blank"
-              >
-                3 sur 3
-              </ULink>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </figure>
+    <h2>
+      2026
+    </h2>
+
+    <ul class="list-disc list-inside">
+      <li>
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2026-epreuve-1-sujet.pdf"
+          target="_blank"
+        >
+          Sujet 1
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2026-epreuve-1-corrige-qcm.pdf"
+          target="_blank"
+        >
+          Corrigé QCM
+        </ULink>
+        <!-- |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2026-epreuve-1-corrige-ronds.pdf"
+          target="_blank"
+        >
+          Corrigé ronds
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2026-epreuve-1-corrige-triangles.pdf"
+          target="_blank"
+        >
+          Corrigé triangles
+        </ULink> -->
+      </li>
+      <li>
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2026-epreuve-2a-sujet.pdf"
+          target="_blank"
+        >
+          Sujet 2a
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2026-epreuve-2a-corrige-qcm.pdf"
+          target="_blank"
+        >
+          Corrigé QCM
+        </ULink>
+        <!-- |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2026-epreuve-2a-corrige-ronds.pdf"
+          target="_blank"
+        >
+          Corrigé ronds
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2026-epreuve-2a-corrige-triangles.pdf"
+          target="_blank"
+        >
+          Corrigé triangles
+        </ULink> -->
+      </li>
+      <li>
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2026-epreuve-2b-sujet.pdf"
+          target="_blank"
+        >
+          Sujet 2b
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2026-epreuve-2b-corrige-qcm.pdf"
+          target="_blank"
+        >
+          Corrigé QCM
+        </ULink>
+        <!-- |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2026-epreuve-2b-corrige-ronds.pdf"
+          target="_blank"
+        >
+          Corrigé ronds
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2026-epreuve-2b-corrige-triangles.pdf"
+          target="_blank"
+        >
+          Corrigé triangles
+        </ULink> -->
+      </li>
+    </ul>
+
+    <h2 class="mt-8">
+      2025
+    </h2>
+
+    <ul class="list-disc list-inside">
+      <li>
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2025-epreuve-1-sujet.pdf"
+          target="_blank"
+        >
+          Sujet 1
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2025-epreuve-1-corrige-qcm.pdf"
+          target="_blank"
+        >
+          Corrigé QCM
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2025-epreuve-1-corrige-ronds.pdf"
+          target="_blank"
+        >
+          Corrigé ronds
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2025-epreuve-1-corrige-triangles.pdf"
+          target="_blank"
+        >
+          Corrigé triangles
+        </ULink>
+      </li>
+      <li>
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2025-epreuve-2a-sujet.pdf"
+          target="_blank"
+        >
+          Sujet 2a
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2025-epreuve-2a-corrige-qcm.pdf"
+          target="_blank"
+        >
+          Corrigé QCM
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2025-epreuve-2a-corrige-ronds.pdf"
+          target="_blank"
+        >
+          Corrigé ronds
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2025-epreuve-2a-corrige-triangles.pdf"
+          target="_blank"
+        >
+          Corrigé triangles
+        </ULink>
+      </li>
+      <li>
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2025-epreuve-2b-sujet.pdf"
+          target="_blank"
+        >
+          Sujet 2b
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2025-epreuve-2b-corrige-qcm.pdf"
+          target="_blank"
+        >
+          Corrigé QCM
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2025-epreuve-2b-corrige-ronds.pdf"
+          target="_blank"
+        >
+          Corrigé ronds
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2025-epreuve-2b-corrige-triangles.pdf"
+          target="_blank"
+        >
+          Corrigé triangles
+        </ULink>
+      </li>
+      <li>
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2025-rapport.pdf"
+          target="_blank"
+        >
+          Rapport
+        </ULink>
+      </li>
+    </ul>
+
+    <h2 class="mt-8">
+      2024
+    </h2>
+
+    <ul class="list-disc list-inside">
+      <li>
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2024-epreuve-1-sujet.pdf"
+          target="_blank"
+        >
+          Sujet 1
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2024-epreuve-1-corrige-qcm.pdf"
+          target="_blank"
+        >
+          Corrigé QCM
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2024-epreuve-1-corrige-ronds.pdf"
+          target="_blank"
+        >
+          Corrigé ronds
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2024-epreuve-1-corrige-triangles.pdf"
+          target="_blank"
+        >
+          Corrigé triangles
+        </ULink>
+      </li>
+      <li>
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2024-epreuve-2a-sujet.pdf"
+          target="_blank"
+        >
+          Sujet 2a
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2024-epreuve-2a-corrige-qcm.pdf"
+          target="_blank"
+        >
+          Corrigé QCM
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2024-epreuve-2a-corrige-ronds.pdf"
+          target="_blank"
+        >
+          Corrigé ronds
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2024-epreuve-2a-corrige-triangles.pdf"
+          target="_blank"
+        >
+          Corrigé triangles
+        </ULink>
+      </li>
+      <li>
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2024-epreuve-2b-sujet.pdf"
+          target="_blank"
+        >
+          Sujet 2b
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2024-epreuve-2b-corrige-qcm.pdf"
+          target="_blank"
+        >
+          Corrigé QCM
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2024-epreuve-2b-corrige-ronds.pdf"
+          target="_blank"
+        >
+          Corrigé ronds
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2024-epreuve-2b-corrige-triangles.pdf"
+          target="_blank"
+        >
+          Corrigé triangles
+        </ULink>
+      </li>
+      <li>
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2024-rapport.pdf"
+          target="_blank"
+        >
+          Rapport
+        </ULink>
+      </li>
+    </ul>
+
+    <h2 class="mt-8">
+      2023
+    </h2>
+
+    <ul class="list-disc list-inside">
+      <li>
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2023-epreuve-1-sujet.pdf"
+          target="_blank"
+        >
+          Sujet 1
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2023-epreuve-1-corrige-qcm.pdf"
+          target="_blank"
+        >
+          Corrigé QCM
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2023-epreuve-1-corrige-ronds.pdf"
+          target="_blank"
+        >
+          Corrigé ronds
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2023-epreuve-1-corrige-triangles.pdf"
+          target="_blank"
+        >
+          Corrigé triangles
+        </ULink>
+      </li>
+      <li>
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2023-epreuve-2a-sujet.pdf"
+          target="_blank"
+        >
+          Sujet 2a
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2023-epreuve-2a-corrige-qcm.pdf"
+          target="_blank"
+        >
+          Corrigé QCM
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2023-epreuve-2a-corrige-ronds.pdf"
+          target="_blank"
+        >
+          Corrigé ronds
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2023-epreuve-2a-corrige-triangles.pdf"
+          target="_blank"
+        >
+          Corrigé triangles
+        </ULink>
+      </li>
+      <li>
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2023-epreuve-2b-sujet.pdf"
+          target="_blank"
+        >
+          Sujet 2b
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2023-epreuve-2b-corrige-qcm.pdf"
+          target="_blank"
+        >
+          Corrigé QCM
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2023-epreuve-2b-corrige-ronds.pdf"
+          target="_blank"
+        >
+          Corrigé ronds
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2023-epreuve-2b-corrige-triangles.pdf"
+          target="_blank"
+        >
+          Corrigé triangles
+        </ULink>
+      </li>
+      <li>
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2023-rapport.pdf"
+          target="_blank"
+        >
+          Rapport
+        </ULink>
+      </li>
+    </ul>
+
+    <h2 class="mt-8">
+      2022
+    </h2>
+
+    <ul class="list-disc list-inside">
+      <li>
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2022-epreuve-1-sujet.pdf"
+          target="_blank"
+        >
+          Sujet 1
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2022-epreuve-1-corrige-qcm.pdf"
+          target="_blank"
+        >
+          Corrigé QCM
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2022-epreuve-1-corrige-ronds.pdf"
+          target="_blank"
+        >
+          Corrigé ronds
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2022-epreuve-1-corrige-triangles.pdf"
+          target="_blank"
+        >
+          Corrigé triangles
+        </ULink>
+      </li>
+      <li>
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2022-epreuve-2a-sujet.pdf"
+          target="_blank"
+        >
+          Sujet 2a
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2022-epreuve-2a-corrige-qcm.pdf"
+          target="_blank"
+        >
+          Corrigé QCM
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2022-epreuve-2a-corrige-ronds.pdf"
+          target="_blank"
+        >
+          Corrigé ronds
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2022-epreuve-2a-corrige-triangles.pdf"
+          target="_blank"
+        >
+          Corrigé triangles
+        </ULink>
+      </li>
+      <li>
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2022-epreuve-2b-sujet.pdf"
+          target="_blank"
+        >
+          Sujet 2b
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2022-epreuve-2b-corrige-qcm.pdf"
+          target="_blank"
+        >
+          Corrigé QCM
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2022-epreuve-2b-corrige-ronds.pdf"
+          target="_blank"
+        >
+          Corrigé ronds
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2022-epreuve-2b-corrige-triangles.pdf"
+          target="_blank"
+        >
+          Corrigé triangles
+        </ULink>
+      </li>
+      <li>
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-2022-rapport.pdf"
+          target="_blank"
+        >
+          Rapport
+        </ULink>
+      </li>
+    </ul>
+
+    <h2 class="mt-8">
+      0000
+    </h2>
+
+    <ul class="list-disc list-inside">
+      <li>
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-0000-epreuve-1-sujet.pdf"
+          target="_blank"
+        >
+          Sujet 1
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-0000-epreuve-1-corrige-qcm.pdf"
+          target="_blank"
+        >
+          Corrigé QCM
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-0000-epreuve-1-corrige-ronds.pdf"
+          target="_blank"
+        >
+          Corrigé ronds
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-0000-epreuve-1-corrige-triangles.pdf"
+          target="_blank"
+        >
+          Corrigé triangles
+        </ULink>
+      </li>
+      <li>
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-0000-epreuve-2a-sujet.pdf"
+          target="_blank"
+        >
+          Sujet 2a
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-0000-epreuve-2a-corrige-qcm.pdf"
+          target="_blank"
+        >
+          Corrigé QCM
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-0000-epreuve-2a-corrige-ronds.pdf"
+          target="_blank"
+        >
+          Corrigé ronds
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-0000-epreuve-2a-corrige-triangles.pdf"
+          target="_blank"
+        >
+          Corrigé triangles
+        </ULink>
+      </li>
+      <li>
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-0000-epreuve-2b-sujet.pdf"
+          target="_blank"
+        >
+          Sujet 2b
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-0000-epreuve-2b-corrige-qcm.pdf"
+          target="_blank"
+        >
+          Corrigé QCM
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-0000-epreuve-2b-corrige-ronds.pdf"
+          target="_blank"
+        >
+          Corrigé ronds
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/tescia-0000-epreuve-2b-corrige-triangles.pdf"
+          target="_blank"
+        >
+          Corrigé triangles
+        </ULink>
+      </li>
+    </ul>
   </UContainer>
 </template>

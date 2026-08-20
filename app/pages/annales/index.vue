@@ -27,7 +27,7 @@ useSeoMeta({
         <ULink
           class="text-primary"
           to="/annales/tescia"
-        >Tescia</ULink>
+        >TeSciA</ULink>
       </li>
     </ul>
   </UContainer>
