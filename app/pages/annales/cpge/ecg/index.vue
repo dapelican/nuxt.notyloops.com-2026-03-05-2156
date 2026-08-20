@@ -119,7 +119,7 @@ useSeoMeta({
         </ULink>
         |
         <ULink
-          to="/annales/cpge/ecg/lva-italien"
+          to="/annales/cpge/ecg/lva-portugais"
           class="text-primary"
         >
           portugais

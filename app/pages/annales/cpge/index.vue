@@ -129,6 +129,12 @@ useSeoMeta({
       <li>
         <ULink
           class="text-primary"
+          to="/annales/cpge/pt"
+        >PT</ULink>
+      </li>
+      <li>
+        <ULink
+          class="text-primary"
           to="/annales/cpge/tsi"
         >TSI</ULink>
       </li>
