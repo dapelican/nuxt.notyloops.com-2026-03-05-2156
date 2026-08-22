@@ -16,7 +16,7 @@ const breadcrumb_items = [
     url: 'https://fr.notyloops.com/annales/cpge',
   },
   {
-    label: 'khâgne A/L classique',
+    label: 'Khâgne A/L classique',
     to: '/annales/cpge/khagne-al-classique',
     url: 'https://fr.notyloops.com/annales/cpge/khagne-al-classique',
   },
@@ -110,6 +110,71 @@ useSeoMeta({
               >
                 Rapport
               </ULink> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2 class="mt-12">
+      2025
+    </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              BCE
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-lva-2025-ec-elvi-sujet-espagnol.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-lva-2025-ec-elvi-rapport-espagnol.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              BEL
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-lve-2025-al-bel-sujet-espagnol.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-lve-2025-al-bel-rapport-espagnol.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
             </td>
           </tr>
         </tbody>

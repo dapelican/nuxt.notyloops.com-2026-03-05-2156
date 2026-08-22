@@ -16,7 +16,7 @@ const breadcrumb_items = [
     url: 'https://fr.notyloops.com/annales/cpge',
   },
   {
-    label: 'khâgne A/L classique',
+    label: 'Khâgne A/L classique',
     to: '/annales/cpge/khagne-al-classique',
     url: 'https://fr.notyloops.com/annales/cpge/khagne-al-classique',
   },
@@ -99,7 +99,7 @@ useSeoMeta({
               >
                 Sujet
               </ULink>
-              <!-- |
+              <!-- <br>
               <ULink
                 class="text-primary"
                 to="https://annales.notyloops.com/khagne-histoire-2026-al-bce-rapport.pdf"
@@ -124,7 +124,7 @@ useSeoMeta({
               >
                 Sujet
               </ULink>
-              <!-- |
+              <!-- <br>
               <ULink
                 class="text-primary"
                 to="https://annales.notyloops.com/khagne-histoire-2026-al-bel-rapport.pdf"
@@ -144,6 +144,88 @@ useSeoMeta({
 
     <p>
       La construction des États au Moyen-Orient (1920-2011).
+    </p>
+
+    <h2 class="mt-12">
+      2025
+    </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Sujet
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              BCE
+            </td>
+            <td>
+              Quel a été l'apport des migrants étrangers dans le développement de l'économie française ?
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-histoire-2025-al-bce-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-histoire-2025-al-bce-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              BEL
+            </td>
+            <td>
+              Les étrangers dans la vie politique.
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-histoire-2025-al-bel-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-histoire-2025-al-bel-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h3 class="mt-4">
+      Programme
+    </h3>
+
+    <p>
+      Exilés, réfugiés, étrangers en France (1848-1986).
     </p>
   </UContainer>
 </template>

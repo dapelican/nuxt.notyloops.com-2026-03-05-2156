@@ -16,7 +16,7 @@ const breadcrumb_items = [
     url: 'https://fr.notyloops.com/annales/cpge',
   },
   {
-    label: 'khâgne A/L classique',
+    label: 'Khâgne A/L classique',
     to: '/annales/cpge/khagne-al-classique',
     url: 'https://fr.notyloops.com/annales/cpge/khagne-al-classique',
   },

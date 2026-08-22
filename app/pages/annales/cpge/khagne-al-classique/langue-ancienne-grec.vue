@@ -1,7 +1,7 @@
 <script setup>
 const page_title = 'Annales khâgne A/L classique : langue ancienne grec';
 
-let meta_description = 'Les annales de langue ancienne grec pour les CPGE littéraires A/Lclassiques.';
+let meta_description = 'Les annales de langue ancienne grec pour les CPGE littéraires A/L classique.';
 meta_description += ' Les sujets et rapports des dernières années.';
 
 const breadcrumb_items = [
@@ -16,12 +16,12 @@ const breadcrumb_items = [
     url: 'https://fr.notyloops.com/annales/cpge',
   },
   {
-    label: 'khâgne A/L classique',
+    label: 'Khâgne A/L classique',
     to: '/annales/cpge/khagne-al-classique',
     url: 'https://fr.notyloops.com/annales/cpge/khagne-al-classique',
   },
   {
-    label: 'Langue ancienne : latin',
+    label: 'Langue ancienne : grec',
   },
 ];
 
@@ -104,6 +104,65 @@ useSeoMeta({
               >
                 Rapport
               </ULink> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2 class="mt-12">
+      2025
+    </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              BEL
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-langue-ancienne-2025-al-classique-bel-sujet-version-grec.pdf"
+                target="_blank"
+              >
+                Version
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-langue-ancienne-2025-al-classique-bel-sujet-rapport-grec.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-langue-ancienne-2025-al-classique-bel-sujet-textes-antiques-grec.pdf"
+                target="_blank"
+              >
+                Textes antiques
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-langue-ancienne-2025-al-classique-bel-rapport-textes-antiques-grec.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
             </td>
           </tr>
         </tbody>

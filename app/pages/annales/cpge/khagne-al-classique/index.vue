@@ -1,7 +1,7 @@
 <script setup>
 const page_title = 'Annales khâgne A/L classique';
 
-let meta_description = 'Les annales de toutes les matières de prépas littéraires A/L classiques.';
+let meta_description = 'Les annales de toutes les matières de prépas littéraires A/L classique.';
 meta_description += ' Les sujets et rapports des dernières années.';
 
 const breadcrumb_items = [
@@ -16,7 +16,7 @@ const breadcrumb_items = [
     url: 'https://fr.notyloops.com/annales/cpge',
   },
   {
-    label: 'khâgne A/L classique',
+    label: 'Khâgne A/L classique',
   },
 ];
 
@@ -152,17 +152,17 @@ useSeoMeta({
       <li>
         Langue ancienne :
         <ULink
-          to="/annales/cpge/khagne-al-classique/langue-ancienne-latin"
-          class="text-primary"
-        >
-          latin
-        </ULink>
-        ou
-        <ULink
           to="/annales/cpge/khagne-al-classique/langue-ancienne-grec"
           class="text-primary"
         >
           grec
+        </ULink>
+        ou
+        <ULink
+          to="/annales/cpge/khagne-al-classique/langue-ancienne-latin"
+          class="text-primary"
+        >
+          latin
         </ULink>
       </li>
       <li>

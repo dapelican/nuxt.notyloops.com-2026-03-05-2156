@@ -1,7 +1,7 @@
 <script setup>
-const page_title = 'Annales khâgne A/L LSH : spécialité anglais';
+const page_title = 'Annales khâgne A/L LSH : langue B portugais';
 
-let meta_description = 'Les annales de la spécialité anglais pour les CPGE littéraires A/L LSH.';
+let meta_description = 'Les annales de langue B portugais pour les CPGE littéraires A/L LSH.';
 meta_description += ' Les sujets et rapports des dernières années.';
 
 const breadcrumb_items = [
@@ -21,7 +21,7 @@ const breadcrumb_items = [
     url: 'https://fr.notyloops.com/annales/cpge/khagne-al-lsh',
   },
   {
-    label: 'Spécialité anglais',
+    label: 'Langue B portugais',
   },
 ];
 
@@ -40,7 +40,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <!-- app/pages/annales/cpge/khagne-al-lsh/specialite-anglais.vue -->
+  <!-- app/pages/annales/cpge/khagne-al-lsh/lb-portugais.vue -->
   <UContainer class="max-w-xl">
     <UBreadcrumb
       class="mb-8"
@@ -48,7 +48,7 @@ useSeoMeta({
     />
 
     <h1>
-      Annales khâgne A/L LSH : spécialité anglais
+      Annales khâgne A/L LSH : langue B portugais
     </h1>
 
     <h2 class="mt-12">
@@ -70,12 +70,12 @@ useSeoMeta({
         <tbody>
           <tr>
             <td>
-              BEL
+              BCE
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/khagne-specialite-2026-al-lsh-bel-sujet-anglais.pdf"
+                to="https://annales.notyloops.com/cpge-lvb-2026-ec-elvi-sujet-portugais.pdf"
                 target="_blank"
               >
                 Sujet
@@ -83,7 +83,7 @@ useSeoMeta({
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/khagne-specialite-2026-al-lsh-bel-rapport-anglais.pdf"
+                to="https://annales.notyloops.com/cpge-lvb-2026-ec-elvi-rapport-portugais.pdf"
                 target="_blank"
               >
                 Rapport
@@ -113,12 +113,12 @@ useSeoMeta({
         <tbody>
           <tr>
             <td>
-              BEL
+              BCE
             </td>
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/khagne-specialite-2025-al-lsh-bel-sujet-anglais.pdf"
+                to="https://annales.notyloops.com/cpge-lvb-2025-ec-elvi-sujet-portugais.pdf"
                 target="_blank"
               >
                 Sujet
@@ -126,7 +126,7 @@ useSeoMeta({
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/khagne-specialite-2025-al-lsh-bel-rapport-anglais.pdf"
+                to="https://annales.notyloops.com/cpge-lvb-2025-ec-elvi-rapport-portugais.pdf"
                 target="_blank"
               >
                 Rapport

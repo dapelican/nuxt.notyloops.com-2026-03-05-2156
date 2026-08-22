@@ -16,7 +16,7 @@ const breadcrumb_items = [
     url: 'https://fr.notyloops.com/annales/cpge',
   },
   {
-    label: 'khâgne A/L LSH',
+    label: 'Khâgne A/L LSH',
     to: '/annales/cpge/khagne-al-lsh',
     url: 'https://fr.notyloops.com/annales/cpge/khagne-al-lsh',
   },
@@ -94,6 +94,55 @@ useSeoMeta({
               >
                 Rapport
               </ULink> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h2 class="mt-12">
+      2025
+    </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Sujet
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              BEL
+            </td>
+            <td>
+              Dire la vérité.
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-specialite-2025-al-lsh-bel-sujet-philosophie.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-specialite-2025-al-lsh-bel-rapport-philosophie.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
             </td>
           </tr>
         </tbody>

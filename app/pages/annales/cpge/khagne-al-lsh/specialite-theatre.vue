@@ -1,7 +1,7 @@
 <script setup>
-const page_title = 'Annales khâgne A/L classique : spécialité théâtre';
+const page_title = 'Annales khâgne A/L LSH : spécialité théâtre';
 
-let meta_description = 'Les annales de l\'spécialité théâtre pour les CPGE littéraires A/L classique.';
+let meta_description = 'Les annales de l\'spécialité théâtre pour les CPGE littéraires A/L LSH.';
 meta_description += ' Les sujets et rapports des dernières années.';
 
 const breadcrumb_items = [
@@ -16,9 +16,9 @@ const breadcrumb_items = [
     url: 'https://fr.notyloops.com/annales/cpge',
   },
   {
-    label: 'khâgne A/L classique',
-    to: '/annales/cpge/khagne-al-classique',
-    url: 'https://fr.notyloops.com/annales/cpge/khagne-al-classique',
+    label: 'Khâgne A/L LSH',
+    to: '/annales/cpge/khagne-al-lsh',
+    url: 'https://fr.notyloops.com/annales/cpge/khagne-al-lsh',
   },
   {
     label: 'Spécialité théâtre',
@@ -40,7 +40,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <!-- app/pages/annales/cpge/khagne-al-classique/specialite-theatre.vue -->
+  <!-- app/pages/annales/cpge/khagne-al-lsh/specialite-theatre.vue -->
   <UContainer class="max-w-xl">
     <UBreadcrumb
       class="mb-8"
@@ -48,7 +48,7 @@ useSeoMeta({
     />
 
     <h1>
-      Annales khâgne A/L classique : spécialité théâtre
+      Annales khâgne A/L LSH : spécialité théâtre
     </h1>
 
     <h2 class="mt-12">

@@ -16,7 +16,7 @@ const breadcrumb_items = [
     url: 'https://fr.notyloops.com/annales/cpge',
   },
   {
-    label: 'khâgne A/L LSH',
+    label: 'Khâgne A/L LSH',
   },
 ];
 
@@ -74,84 +74,84 @@ useSeoMeta({
       <li>
         Langue B (BCE) :
         <ULink
-          to="/annales/cpge/khagne-al-classique/lb-allemand"
+          to="/annales/cpge/khagne-al-lsh/lb-allemand"
           class="text-primary"
         >
           allemand
         </ULink>
         |
         <ULink
-          to="/annales/cpge/khagne-al-classique/lb-anglais"
+          to="/annales/cpge/khagne-al-lsh/lb-anglais"
           class="text-primary"
         >
           anglais
         </ULink>
         |
         <ULink
-          to="/annales/cpge/khagne-al-classique/lb-arabe"
+          to="/annales/cpge/khagne-al-lsh/lb-arabe"
           class="text-primary"
         >
           arabe
         </ULink>
         |
         <ULink
-          to="/annales/cpge/khagne-al-classique/lb-chinois"
+          to="/annales/cpge/khagne-al-lsh/lb-chinois"
           class="text-primary"
         >
           chinois
         </ULink>
         |
         <ULink
-          to="/annales/cpge/khagne-al-classique/lb-espagnol"
+          to="/annales/cpge/khagne-al-lsh/lb-espagnol"
           class="text-primary"
         >
           espagnol
         </ULink>
         |
         <ULink
-          to="/annales/cpge/khagne-al-classique/lb-grec-ancien"
+          to="/annales/cpge/khagne-al-lsh/lb-grec-ancien"
           class="text-primary"
         >
           grec ancien
         </ULink>
         |
         <ULink
-          to="/annales/cpge/khagne-al-classique/lb-italien"
+          to="/annales/cpge/khagne-al-lsh/lb-italien"
           class="text-primary"
         >
           italien
         </ULink>
         |
         <ULink
-          to="/annales/cpge/khagne-al-classique/lb-japonais"
+          to="/annales/cpge/khagne-al-lsh/lb-japonais"
           class="text-primary"
         >
           japonais
         </ULink>
         |
         <ULink
-          to="/annales/cpge/khagne-al-classique/lb-latin"
+          to="/annales/cpge/khagne-al-lsh/lb-latin"
           class="text-primary"
         >
           latin
         </ULink>
         |
         <ULink
-          to="/annales/cpge/khagne-al-classique/lb-polonais"
+          to="/annales/cpge/khagne-al-lsh/lb-polonais"
           class="text-primary"
         >
           polonais
         </ULink>
         |
         <ULink
-          to="/annales/cpge/khagne-al-classique/lb-portugais"
+          to="/annales/cpge/khagne-al-lsh/lb-portugais"
           class="text-primary"
         >
           portugais
         </ULink>
         |
         <ULink
-          to="/annales/cpge/khagne-al-classique/lb-russe"
+          to="/annales/cpge/khagne-al-lsh/lb-russe"
           class="text-primary"
         >
           russe
@@ -247,13 +247,6 @@ useSeoMeta({
         </ULink>
         |
         <ULink
-          to="/annales/cpge/khagne-al-lsh/specialite-arts"
-          class="text-primary"
-        >
-          arts
-        </ULink>
-        |
-        <ULink
           to="/annales/cpge/khagne-al-lsh/specialite-anglais"
           class="text-primary"
         >
@@ -265,6 +258,13 @@ useSeoMeta({
           class="text-primary"
         >
           arabe
+        </ULink>
+        |
+        <ULink
+          to="/annales/cpge/khagne-al-lsh/specialite-arts"
+          class="text-primary"
+        >
+          arts
         </ULink>
         |
         <ULink
