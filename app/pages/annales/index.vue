@@ -16,7 +16,24 @@ useSeoMeta({
       Annales
     </h1>
 
-    <ul class="list-disc list-inside mt-8">
+    <h2>
+      Belgique
+    </h2>
+
+    <ul class="list-disc list-inside">
+      <li>
+        <ULink
+          class="text-primary"
+          to="/annales/medecine-dentisterie-wallonie-bruxelles"
+        >Concours d'entrée en médecine et dentisterie de Wallonie-Bruxelles</ULink>
+      </li>
+    </ul>
+
+    <h2 class="mt-12">
+      France
+    </h2>
+
+    <ul class="list-disc list-inside">
       <li>
         <ULink
           class="text-primary"
