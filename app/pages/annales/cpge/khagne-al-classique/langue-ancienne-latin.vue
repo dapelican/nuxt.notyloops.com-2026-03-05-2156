@@ -169,5 +169,64 @@ useSeoMeta({
         </tbody>
       </table>
     </figure>
+
+    <h2 class="mt-12">
+      2024
+    </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              BEL
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-langue-ancienne-2024-al-classique-bel-sujet-version-latin.pdf"
+                target="_blank"
+              >
+                Version
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-langue-ancienne-2024-al-classique-bel-rapport-version-latin.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-langue-ancienne-2024-al-classique-bel-sujet-textes-antiques-latin.pdf"
+                target="_blank"
+              >
+                Textes antiques
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-langue-ancienne-2024-al-classique-bel-rapport-textes-antiques-latin.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
   </UContainer>
 </template>

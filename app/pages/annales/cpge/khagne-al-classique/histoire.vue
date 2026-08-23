@@ -227,5 +227,88 @@ useSeoMeta({
     <p>
       Exilés, réfugiés, étrangers en France (1848-1986).
     </p>
+
+    <h2 class="mt-12">
+      2024
+    </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Sujet
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              BCE
+            </td>
+            <td>
+              Le protectionnisme a-t-il été vaincu par la mondialisation ?
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-histoire-2024-al-bce-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-histoire-2024-al-bce-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              BEL
+            </td>
+            <td>
+              Les circulations du travail dans le processus de mondialisation
+              (des années 1880 au milieu des années 1930).
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-histoire-2024-al-bel-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-histoire-2024-al-bel-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h3 class="mt-4">
+      Programme
+    </h3>
+
+    <p>
+      Les mondialisations des années 1880 au milieu des années 1930.
+    </p>
   </UContainer>
 </template>
