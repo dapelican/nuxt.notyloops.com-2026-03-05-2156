@@ -72,6 +72,89 @@ useSeoMeta({
         </ULink>
       </li>
       <li>
+        <ULink
+          to="/annales/cpge/khagne-al-lsh/philosophie"
+          class="text-primary"
+        >
+          Philosophie
+        </ULink>
+      </li>
+    </ul>
+
+    <ul class="list-disc list-inside mt-4">
+      <li>
+        Langue vivante étrangère :
+        <ULink
+          to="/annales/cpge/khagne-al-lsh/lve-allemand"
+          class="text-primary"
+        >
+          allemand
+        </ULink>
+        |
+        <ULink
+          to="/annales/cpge/khagne-al-lsh/lve-anglais"
+          class="text-primary"
+        >
+          anglais
+        </ULink>
+        |
+        <ULink
+          to="/annales/cpge/khagne-al-lsh/lve-arabe"
+          class="text-primary"
+        >
+          arabe
+        </ULink>
+        |
+        <ULink
+          to="/annales/cpge/khagne-al-lsh/lve-chinois"
+          class="text-primary"
+        >
+          chinois
+        </ULink>
+        |
+        <ULink
+          to="/annales/cpge/khagne-al-lsh/lve-espagnol"
+          class="text-primary"
+        >
+          espagnol
+        </ULink>
+        |
+        <ULink
+          to="/annales/cpge/khagne-al-lsh/lve-italien"
+          class="text-primary"
+        >
+          italien
+        </ULink>
+        |
+        <ULink
+          to="/annales/cpge/khagne-al-lsh/lve-japonais"
+          class="text-primary"
+        >
+          japonais
+        </ULink>
+        |
+        <ULink
+          to="/annales/cpge/khagne-al-lsh/lve-polonais"
+          class="text-primary"
+        >
+          polonais
+        </ULink>
+        |
+        <ULink
+          to="/annales/cpge/khagne-al-lsh/lve-portugais"
+          class="text-primary"
+        >
+          portugais
+        </ULink>
+        |
+        <ULink
+          to="/annales/cpge/khagne-al-lsh/lve-russe"
+          class="text-primary"
+        >
+          russe
+        </ULink>
+      </li>
+      <li>
         Langue B (BCE) :
         <ULink
           to="/annales/cpge/khagne-al-lsh/lb-allemand"
@@ -157,86 +240,9 @@ useSeoMeta({
           russe
         </ULink>
       </li>
-      <li>
-        Langue vivante étrangère :
-        <ULink
-          to="/annales/cpge/khagne-al-lsh/lve-allemand"
-          class="text-primary"
-        >
-          allemand
-        </ULink>
-        |
-        <ULink
-          to="/annales/cpge/khagne-al-lsh/lve-anglais"
-          class="text-primary"
-        >
-          anglais
-        </ULink>
-        |
-        <ULink
-          to="/annales/cpge/khagne-al-lsh/lve-arabe"
-          class="text-primary"
-        >
-          arabe
-        </ULink>
-        |
-        <ULink
-          to="/annales/cpge/khagne-al-lsh/lve-chinois"
-          class="text-primary"
-        >
-          chinois
-        </ULink>
-        |
-        <ULink
-          to="/annales/cpge/khagne-al-lsh/lve-espagnol"
-          class="text-primary"
-        >
-          espagnol
-        </ULink>
-        |
-        <ULink
-          to="/annales/cpge/khagne-al-lsh/lve-italien"
-          class="text-primary"
-        >
-          italien
-        </ULink>
-        |
-        <ULink
-          to="/annales/cpge/khagne-al-lsh/lve-japonais"
-          class="text-primary"
-        >
-          japonais
-        </ULink>
-        |
-        <ULink
-          to="/annales/cpge/khagne-al-lsh/lve-polonais"
-          class="text-primary"
-        >
-          polonais
-        </ULink>
-        |
-        <ULink
-          to="/annales/cpge/khagne-al-lsh/lve-portugais"
-          class="text-primary"
-        >
-          portugais
-        </ULink>
-        |
-        <ULink
-          to="/annales/cpge/khagne-al-lsh/lve-russe"
-          class="text-primary"
-        >
-          russe
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          to="/annales/cpge/khagne-al-lsh/philosophie"
-          class="text-primary"
-        >
-          Philosophie
-        </ULink>
-      </li>
+    </ul>
+
+    <ul class="list-disc list-inside mt-4">
       <li>
         Spécialité :
         <ULink

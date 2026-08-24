@@ -64,6 +64,70 @@ useSeoMeta({
         </ULink>
       </li>
       <li>
+        <ULink
+          to="/annales/cpge/khagne-bl/mathematiques"
+          class="text-primary"
+        >
+          Mathématiques
+        </ULink>
+      </li>
+      <li>
+        <ULink
+          to="/annales/cpge/khagne-bl/philosophie"
+          class="text-primary"
+        >
+          Philosophie
+        </ULink>
+      </li>
+      <li>
+        <ULink
+          to="/annales/cpge/khagne-bl/sciences-sociales"
+          class="text-primary"
+        >
+          Sciences sociales
+        </ULink>
+      </li>
+    </ul>
+
+    <ul class="list-disc list-inside mt-4">
+      <li>
+        Langue vivante étrangère :
+        <ULink
+          to="/annales/cpge/khagne-bl/lve-allemand"
+          class="text-primary"
+        >
+          allemand
+        </ULink>
+        |
+        <ULink
+          to="/annales/cpge/khagne-bl/lve-anglais"
+          class="text-primary"
+        >
+          anglais
+        </ULink>
+        |
+        <ULink
+          to="/annales/cpge/khagne-bl/lve-espagnol"
+          class="text-primary"
+        >
+          espagnol
+        </ULink>
+        |
+        <ULink
+          to="/annales/cpge/khagne-bl/lve-italien"
+          class="text-primary"
+        >
+          italien
+        </ULink>
+        |
+        <ULink
+          to="/annales/cpge/khagne-bl/lve-russe"
+          class="text-primary"
+        >
+          russe
+        </ULink>
+      </li>
+      <li>
         Langue B (BCE) :
         <ULink
           to="/annales/cpge/khagne-bl/lb-allemand"
@@ -149,51 +213,9 @@ useSeoMeta({
           russe
         </ULink>
       </li>
-      <li>
-        Langue vivante étrangère :
-        <ULink
-          to="/annales/cpge/khagne-bl/lve-allemand"
-          class="text-primary"
-        >
-          allemand
-        </ULink>
-        |
-        <ULink
-          to="/annales/cpge/khagne-bl/lve-anglais"
-          class="text-primary"
-        >
-          anglais
-        </ULink>
-        |
-        <ULink
-          to="/annales/cpge/khagne-bl/lve-espagnol"
-          class="text-primary"
-        >
-          espagnol
-        </ULink>
-        |
-        <ULink
-          to="/annales/cpge/khagne-bl/lve-italien"
-          class="text-primary"
-        >
-          italien
-        </ULink>
-        |
-        <ULink
-          to="/annales/cpge/khagne-bl/lve-russe"
-          class="text-primary"
-        >
-          russe
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          to="/annales/cpge/khagne-bl/mathematiques"
-          class="text-primary"
-        >
-          Mathématiques
-        </ULink>
-      </li>
+    </ul>
+
+    <ul class="list-disc list-inside mt-4">
       <li>
         Option :
         <ULink
@@ -271,22 +293,6 @@ useSeoMeta({
           class="text-primary"
         >
           russe
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          to="/annales/cpge/khagne-bl/philosophie"
-          class="text-primary"
-        >
-          Philosophie
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          to="/annales/cpge/khagne-bl/sciences-sociales"
-          class="text-primary"
-        >
-          Sciences sociales
         </ULink>
       </li>
     </ul>

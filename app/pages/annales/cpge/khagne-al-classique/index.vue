@@ -64,91 +64,16 @@ useSeoMeta({
         </ULink>
       </li>
       <li>
-        Langue B (BCE) :
         <ULink
-          to="/annales/cpge/khagne-al-classique/lb-allemand"
+          to="/annales/cpge/khagne-al-classique/philosophie"
           class="text-primary"
         >
-          allemand
-        </ULink>
-        |
-        <ULink
-          to="/annales/cpge/khagne-al-classique/lb-anglais"
-          class="text-primary"
-        >
-          anglais
-        </ULink>
-        |
-        <ULink
-          to="/annales/cpge/khagne-al-classique/lb-arabe"
-          class="text-primary"
-        >
-          arabe
-        </ULink>
-        |
-        <ULink
-          to="/annales/cpge/khagne-al-classique/lb-chinois"
-          class="text-primary"
-        >
-          chinois
-        </ULink>
-        |
-        <ULink
-          to="/annales/cpge/khagne-al-classique/lb-espagnol"
-          class="text-primary"
-        >
-          espagnol
-        </ULink>
-        |
-        <ULink
-          to="/annales/cpge/khagne-al-classique/lb-grec-ancien"
-          class="text-primary"
-        >
-          grec ancien
-        </ULink>
-        |
-        <ULink
-          to="/annales/cpge/khagne-al-classique/lb-italien"
-          class="text-primary"
-        >
-          italien
-        </ULink>
-        |
-        <ULink
-          to="/annales/cpge/khagne-al-classique/lb-japonais"
-          class="text-primary"
-        >
-          japonais
-        </ULink>
-        |
-        <ULink
-          to="/annales/cpge/khagne-al-classique/lb-latin"
-          class="text-primary"
-        >
-          latin
-        </ULink>
-        |
-        <ULink
-          to="/annales/cpge/khagne-al-classique/lb-polonais"
-          class="text-primary"
-        >
-          polonais
-        </ULink>
-        |
-        <ULink
-          to="/annales/cpge/khagne-al-classique/lb-portugais"
-          class="text-primary"
-        >
-          portugais
-        </ULink>
-        |
-        <ULink
-          to="/annales/cpge/khagne-al-classique/lb-russe"
-          class="text-primary"
-        >
-          russe
+          Philosophie
         </ULink>
       </li>
+    </ul>
+
+    <ul class="list-disc list-inside mt-4">
       <li>
         Langue ancienne :
         <ULink
@@ -237,6 +162,95 @@ useSeoMeta({
           russe
         </ULink>
       </li>
+      <li>
+        Langue B (BCE) :
+        <ULink
+          to="/annales/cpge/khagne-al-classique/lb-allemand"
+          class="text-primary"
+        >
+          allemand
+        </ULink>
+        |
+        <ULink
+          to="/annales/cpge/khagne-al-classique/lb-anglais"
+          class="text-primary"
+        >
+          anglais
+        </ULink>
+        |
+        <ULink
+          to="/annales/cpge/khagne-al-classique/lb-arabe"
+          class="text-primary"
+        >
+          arabe
+        </ULink>
+        |
+        <ULink
+          to="/annales/cpge/khagne-al-classique/lb-chinois"
+          class="text-primary"
+        >
+          chinois
+        </ULink>
+        |
+        <ULink
+          to="/annales/cpge/khagne-al-classique/lb-espagnol"
+          class="text-primary"
+        >
+          espagnol
+        </ULink>
+        |
+        <ULink
+          to="/annales/cpge/khagne-al-classique/lb-grec-ancien"
+          class="text-primary"
+        >
+          grec ancien
+        </ULink>
+        |
+        <ULink
+          to="/annales/cpge/khagne-al-classique/lb-italien"
+          class="text-primary"
+        >
+          italien
+        </ULink>
+        |
+        <ULink
+          to="/annales/cpge/khagne-al-classique/lb-japonais"
+          class="text-primary"
+        >
+          japonais
+        </ULink>
+        |
+        <ULink
+          to="/annales/cpge/khagne-al-classique/lb-latin"
+          class="text-primary"
+        >
+          latin
+        </ULink>
+        |
+        <ULink
+          to="/annales/cpge/khagne-al-classique/lb-polonais"
+          class="text-primary"
+        >
+          polonais
+        </ULink>
+        |
+        <ULink
+          to="/annales/cpge/khagne-al-classique/lb-portugais"
+          class="text-primary"
+        >
+          portugais
+        </ULink>
+        |
+        <ULink
+          to="/annales/cpge/khagne-al-classique/lb-russe"
+          class="text-primary"
+        >
+          russe
+        </ULink>
+      </li>
+    </ul>
+
+    <ul class="list-disc list-inside mt-4">
       <li>
         Option :
         <ULink
@@ -342,14 +356,6 @@ useSeoMeta({
           class="text-primary"
         >
           théâtre
-        </ULink>
-      </li>
-      <li>
-        <ULink
-          to="/annales/cpge/khagne-al-classique/philosophie"
-          class="text-primary"
-        >
-          Philosophie
         </ULink>
       </li>
     </ul>

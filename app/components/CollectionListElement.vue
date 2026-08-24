@@ -205,7 +205,7 @@ const user_can_review_notes = computed(() => {
             variant="outline"
             @click="exportCollection(item.id)"
           >
-            {{ $t('t_export_collection') }}
+            <span class="desktop-only">{{ $t('t_export_collection') }}</span>
           </UButton>
 
           <UButton
