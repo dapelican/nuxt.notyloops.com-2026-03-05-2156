@@ -179,6 +179,16 @@ const submit_feedback = async (feedback) => {
           {{ $t('t_feedback_positive') }}
         </UButton>
       </section>
+
+      <nav class="mt-8 flex justify-center">
+        <UButton
+          color="neutral"
+          variant="outline"
+          :to="'/review/spaced-repetition/end'"
+        >
+          {{ $t('t_end_review_session') }}
+        </UButton>
+      </nav>
     </template>
   </UContainer>
 </template>

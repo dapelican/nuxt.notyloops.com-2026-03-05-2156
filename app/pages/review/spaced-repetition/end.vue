@@ -43,7 +43,7 @@ const percentage = computed(() => {
     </p>
 
     <ClientOnly>
-      <p v-if="track_scores_enabled">
+      <p>
         {{ $t('t_percentage_of_mastered_notes_with_colon') }}
         {{ $t('t_x_percentage', { percentage }) }}
         ({{ score }} / {{ reviewed_card_count }})
