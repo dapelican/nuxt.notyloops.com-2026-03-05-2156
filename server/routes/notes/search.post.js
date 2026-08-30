@@ -30,7 +30,7 @@ import {
 
 import { z } from 'zod';
 
-const ALLOWED_SORT_COLUMNS = ['title', 'created_at', 'updated_at'];
+const ALLOWED_SORT_COLUMNS = ['title', 'created_at', 'updated_at', 'score'];
 const ALLOWED_SORT_ORDERS = ['asc', 'desc'];
 
 export default defineEventHandler(async (event) => {

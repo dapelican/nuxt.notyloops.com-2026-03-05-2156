@@ -124,6 +124,16 @@ const sort_option_list = [
     label: t('t_updated_at_from_oldest_to_newest'),
     value: 'updated_at:asc',
   },
+  {
+    id: 'score:asc',
+    label: t('t_score_from_lowest_to_highest'),
+    value: 'score:asc',
+  },
+  {
+    id: 'score:desc',
+    label: t('t_score_from_highest_to_lowest'),
+    value: 'score:desc',
+  },
 ];
 
 const and_or_list = [
@@ -442,7 +452,6 @@ onUnmounted(() => {
               "
             >
               <URadioGroup
-
                 v-model="sort_option"
                 :items="sort_option_list"
                 value-key="id"

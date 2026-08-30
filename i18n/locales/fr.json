@@ -244,6 +244,8 @@
   "t_schema_error_empty_string": "Ce champ ne peut pas être vide.",
   "t_schema_error_invalid_email_address": "L'adresse e-mail est invalide",
   "t_schema_error_passwords_do_not_match": "Les mots de passe ne correspondent pas.",
+  "t_score_from_highest_to_lowest": "Par score, du plus élevé au plus faible",
+  "t_score_from_lowest_to_highest": "Par score, du plus faible au plus élevé",
   "t_score_with_colon": "Score : ",
   "t_search": "Rechercher",
   "t_search_collections": "Rechercher des collections",
