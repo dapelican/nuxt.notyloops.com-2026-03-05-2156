@@ -159,7 +159,7 @@ const submit_feedback = async (feedback) => {
 
       <section
         v-if="show_spaced_repetition_actions"
-        class="mt-8 flex flex-wrap justify-center gap-4"
+        class="mt-16 mb-16 flex flex-wrap justify-center gap-x-12 gap-y-8"
       >
         <UButton
           color="neutral"
