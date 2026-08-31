@@ -401,12 +401,15 @@ onUnmounted(() => {
                 </h2>
 
                 <p>
-                  {{ $t('t_no_notes_due_for_review_for_today') }}
+                  {{ $t('t_no_notes_due_for_review_for_today') }}.
                 </p>
 
                 <p>
-                  {{ $t('t_next_review date') }} {{ format_next_due_date_1(next_due_date) }}
-                  ({{ format_next_due_date_2(next_due_date) }})
+                  {{ $t('t_next_review date_with_colon') }} {{ format_next_due_date_1(next_due_date) }}
+                </p>
+
+                <p>
+                  ({{ format_next_due_date_2(next_due_date) }}).
                 </p>
               </section>
             </template>
