@@ -254,6 +254,20 @@ useSeoMeta({
       <li>
         Option :
         <ULink
+          to="/annales/cpge/khagne-al-classique/option-allemand"
+          class="text-primary"
+        >
+          allemand
+        </ULink>
+        |
+        <ULink
+          to="/annales/cpge/khagne-al-classique/option-anglais"
+          class="text-primary"
+        >
+          anglais
+        </ULink>
+        |
+        <ULink
           to="/annales/cpge/khagne-al-classique/option-arts"
           class="text-primary"
         >
@@ -261,10 +275,24 @@ useSeoMeta({
         </ULink>
         |
         <ULink
+          to="/annales/cpge/khagne-al-classique/option-chinois"
+          class="text-primary"
+        >
+          chinois
+        </ULink>
+        |
+        <ULink
           to="/annales/cpge/khagne-al-classique/option-cinema"
           class="text-primary"
         >
           cinéma
+        </ULink>
+        |
+        <ULink
+          to="/annales/cpge/khagne-al-classique/option-espagnol"
+          class="text-primary"
+        >
+          espagnol
         </ULink>
         |
         <ULink
@@ -289,45 +317,17 @@ useSeoMeta({
         </ULink>
         |
         <ULink
-          to="/annales/cpge/khagne-al-classique/option-latin"
-          class="text-primary"
-        >
-          latin
-        </ULink>
-        |
-        <ULink
-          to="/annales/cpge/khagne-al-classique/option-allemand"
-          class="text-primary"
-        >
-          allemand
-        </ULink>
-        |
-        <ULink
-          to="/annales/cpge/khagne-al-classique/option-anglais"
-          class="text-primary"
-        >
-          anglais
-        </ULink>
-        |
-        <ULink
-          to="/annales/cpge/khagne-al-classique/option-chinois"
-          class="text-primary"
-        >
-          chinois
-        </ULink>
-        |
-        <ULink
-          to="/annales/cpge/khagne-al-classique/option-espagnol"
-          class="text-primary"
-        >
-          espagnol
-        </ULink>
-        |
-        <ULink
           to="/annales/cpge/khagne-al-classique/option-italien"
           class="text-primary"
         >
           italien
+        </ULink>
+        |
+        <ULink
+          to="/annales/cpge/khagne-al-classique/option-latin"
+          class="text-primary"
+        >
+          latin
         </ULink>
         |
         <ULink
