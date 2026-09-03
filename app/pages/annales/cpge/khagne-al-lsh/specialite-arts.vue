@@ -148,5 +148,54 @@ useSeoMeta({
         </tbody>
       </table>
     </figure>
+
+    <h2 class="mt-12">
+      2024
+    </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Sujet
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              BEL
+            </td>
+            <td>
+              Récits de vie dans les arts de l'Antiquité à nos jours
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-artistique-2024-al-bel-sujet-arts.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-artistique-2024-al-bel-rapport-arts.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
   </UContainer>
 </template>

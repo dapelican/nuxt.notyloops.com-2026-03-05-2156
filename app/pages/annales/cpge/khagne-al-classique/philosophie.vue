@@ -206,7 +206,7 @@ useSeoMeta({
     </figure>
 
     <h2 class="mt-12">
-      2024
+      2024 - La métaphysique
     </h2>
 
     <figure>
@@ -280,7 +280,7 @@ useSeoMeta({
     </figure>
 
     <h2 class="mt-12">
-      2023
+      2023 - Les sciences humaines : homme, langage, société
     </h2>
 
     <figure>
@@ -354,7 +354,7 @@ useSeoMeta({
     </figure>
 
     <h2 class="mt-12">
-      2022
+      2022 - L'art, la technique
     </h2>
 
     <figure>

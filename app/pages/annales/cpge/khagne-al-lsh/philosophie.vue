@@ -1470,5 +1470,79 @@ useSeoMeta({
         </tbody>
       </table>
     </figure>
+
+    <h2 class="mt-12">
+      2024 - La métaphysique
+    </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Sujet
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              BCE
+            </td>
+            <td>
+              Être, c'est agir.
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-dissertation-2024-al-bce-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-dissertation-2024-al-bce-rapport-philosophique.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              BEL
+            </td>
+            <td>
+              Qu'est-ce que la réalité ?
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-philosophie-2024-al-bel-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-philosophie-2024-al-bel-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
   </UContainer>
 </template>

@@ -226,5 +226,87 @@ useSeoMeta({
     <p>
       L'eau, étude géographique.
     </p>
+
+    <h2 class="mt-12">
+      2024
+    </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Sujet
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              BCE
+            </td>
+            <td>
+              Territoires et sociétés de l'Union Européenne : une puissance incomplète ?
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-geographie-2024-al-lsh-bce-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-geographie-2024-al-lsh-bce-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              BEL
+            </td>
+            <td>
+              Les frontières et espaces frontaliers de L'Union européenne.
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-geographie-2024-al-lsh-bel-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-geographie-2024-al-lsh-bel-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <h3 class="mt-4">
+      Programme
+    </h3>
+
+    <p>
+      L'Union européenne : puissance, territoires et sociétés.
+    </p>
   </UContainer>
 </template>

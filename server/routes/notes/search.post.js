@@ -137,7 +137,11 @@ export default defineEventHandler(async (event) => {
     ${where_clause}
     GROUP BY n.id`;
 
-    sql_query += ` ORDER BY n.${sort_by} ${sort_order}`;
+    const order_by_expression = sort_by === 'score'
+      ? 'CASE WHEN n.review_count = 0 THEN 0 ELSE n.score::float / n.review_count END'
+      : `n.${sort_by}`;
+
+    sql_query += ` ORDER BY ${order_by_expression} ${sort_order}`;
 
     parameter_list.push(limit);
     sql_query += ` LIMIT $${parameter_list.length}`;

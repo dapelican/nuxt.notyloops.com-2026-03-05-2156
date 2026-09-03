@@ -378,5 +378,142 @@ useSeoMeta({
         </li>
       </ul>
     </section>
+
+    <h2 class="mt-12">
+      2024
+    </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              BCE
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-dissertation-2024-al-bce-sujet.pdf"
+                target="_blank"
+              >
+                Dissertation littéraire
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-dissertation-2024-al-bce-rapport-litteraire.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-etude-et-synthese-de-textes-2024-ec-escp-hec-sujet.pdf"
+                target="_blank"
+              >
+                Etude et synthèse de textes
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-etude-et-synthese-de-textes-2024-ec-escp-hec-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              BEL
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-francais-2024-al-bel-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              <!-- |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-francais-2024-al-bel-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
+
+    <section>
+      <h3 class="mt-8">
+        Programme
+      </h3>
+
+      <h4 class="mt-4">
+        Axe 1 : genres et mouvements
+      </h4>
+
+      <ul class="list-disc list-inside">
+        <li>
+          Domaine 2 : le théâtre.
+        </li>
+      </ul>
+
+      <h4 class="mt-4">
+        Axe 2 : questions
+      </h4>
+
+      <ul class="list-disc list-inside">
+        <li>
+          Domaine 4 : la représentation littéraire.
+        </li>
+        <li>
+          Domaine 5 : littérature et morale.
+        </li>
+      </ul>
+
+      <h4 class="mt-4">
+        Oeuvres
+      </h4>
+
+      <ul class="list-disc list-inside">
+        <li>
+          Corneille, <span class="italic">Le Cid</span>,
+          éd. B. Donné, GF Flammarion, 2009.
+        </li>
+        <li>
+          Marivaux, <span class="italic">La Double Inconstance</span>,
+          éd C. Martin, GF Flammarion, 1999.
+        </li>
+        <li>
+          Marivaux, <span class="italic">La Dispute</span>,
+          éd. S. Dervaux-Bourdon, Folioplus classiques, 2009.
+        </li>
+        <li>
+          Théophile Gautier, <span class="italic">Le Capitaine Fracasse</span>,
+          éd. J-L. Steinmetz, Le Livre de Poche classiques, 1985.
+        </li>
+        <li>
+          Colette, <span class="italic">La Vagabonde</span>,
+          Le Livre de Poche, 1990.
+        </li>
+      </ul>
+    </section>
   </UContainer>
 </template>
