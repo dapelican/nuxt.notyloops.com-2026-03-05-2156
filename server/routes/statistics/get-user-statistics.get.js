@@ -130,9 +130,6 @@ export default defineEventHandler(async (event) => {
       period_result,
       activity_result,
       streak_result,
-      collection_result,
-      strategy_result,
-      note_result,
       all_time_result,
     ] = await Promise.all([
       executeSQLQuery(
@@ -181,48 +178,6 @@ export default defineEventHandler(async (event) => {
       ),
       executeSQLQuery(
         `SELECT
-          note_reviews.collection_id,
-          collections.title,
-          COUNT(*)::int AS review_count,
-          COALESCE(SUM(note_reviews.score), 0)::int AS positive_count
-        FROM note_reviews
-        LEFT JOIN collections ON collections.id = note_reviews.collection_id
-        WHERE note_reviews.user_id = $1 AND note_reviews.created_at >= $2
-        GROUP BY note_reviews.collection_id, collections.title
-        ORDER BY review_count DESC`,
-        [user.id, period_start_iso]
-      ),
-      executeSQLQuery(
-        `SELECT
-          review_strategy,
-          COUNT(*)::int AS review_count,
-          COALESCE(SUM(score), 0)::int AS positive_count
-        FROM note_reviews
-        WHERE user_id = $1 AND created_at >= $2
-        GROUP BY review_strategy
-        ORDER BY review_count DESC`,
-        [user.id, period_start_iso]
-      ),
-      executeSQLQuery(
-        `SELECT
-          notes.id AS note_id,
-          notes.title,
-          COUNT(*)::int AS review_count,
-          COALESCE(SUM(note_reviews.score), 0)::int AS positive_count
-        FROM note_reviews
-        JOIN notes
-          ON notes.id = note_reviews.note_id
-          AND notes.deleted_at IS NULL
-        WHERE note_reviews.user_id = $1 AND note_reviews.created_at >= $2
-        GROUP BY notes.id, notes.title
-        HAVING COUNT(*) >= 3
-          AND AVG(note_reviews.score) < 1
-        ORDER BY AVG(note_reviews.score) ASC, COUNT(*) DESC
-        LIMIT 10`,
-        [user.id, period_start_iso]
-      ),
-      executeSQLQuery(
-        `SELECT
           COUNT(*)::int AS review_count,
           COUNT(DISTINCT note_id)::int AS distinct_note_count,
           MIN(created_at) AS first_review_date
@@ -267,23 +222,6 @@ export default defineEventHandler(async (event) => {
         positive_count: row.positive_count,
       })),
       streak,
-      collection_breakdown: collection_result.rows.map((row) => ({
-        collection_id: row.collection_id,
-        title: row.title,
-        review_count: row.review_count,
-        success_rate: calculateSuccessRate(row.positive_count, row.review_count),
-      })),
-      strategy_breakdown: strategy_result.rows.map((row) => ({
-        review_strategy: row.review_strategy,
-        review_count: row.review_count,
-        success_rate: calculateSuccessRate(row.positive_count, row.review_count),
-      })),
-      note_to_work_on_list: note_result.rows.map((row) => ({
-        note_id: row.note_id,
-        title: row.title,
-        review_count: row.review_count,
-        success_rate: calculateSuccessRate(row.positive_count, row.review_count),
-      })),
       all_time: {
         review_count: all_time_row.review_count,
         distinct_note_count: all_time_row.distinct_note_count,

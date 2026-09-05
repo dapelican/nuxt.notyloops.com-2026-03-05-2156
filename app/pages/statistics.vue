@@ -149,52 +149,6 @@ const metric_row_list = computed(() => {
   ];
 });
 
-const getStrategyLabel = (review_strategy) => {
-  const key = `t_${review_strategy}`;
-  const translated = t(key);
-
-  if (translated === key) {
-    return review_strategy;
-  }
-
-  return translated;
-};
-
-const collection_item_list = computed(() => {
-  const breakdown = statistics_data.value?.collection_breakdown ?? [];
-
-  return breakdown.map((item) => ({
-    id: item.collection_id ?? 'spaced_repetition',
-    label: item.collection_id
-      ? (item.title || t('t_note_without_title'))
-      : t('t_spaced_repetition'),
-    review_count: item.review_count,
-    success_rate: item.success_rate,
-  }));
-});
-
-const strategy_item_list = computed(() => {
-  const breakdown = statistics_data.value?.strategy_breakdown ?? [];
-
-  return breakdown.map((item) => ({
-    id: item.review_strategy,
-    label: getStrategyLabel(item.review_strategy),
-    review_count: item.review_count,
-    success_rate: item.success_rate,
-  }));
-});
-
-const note_item_list = computed(() => {
-  const list = statistics_data.value?.note_to_work_on_list ?? [];
-
-  return list.map((item) => ({
-    id: item.note_id,
-    label: item.title || t('t_note_without_title'),
-    review_count: item.review_count,
-    success_rate: item.success_rate,
-  }));
-});
-
 const empty_state_action_list = computed(() => [
   {
     label: t('t_go_back_to_collections'),
@@ -257,28 +211,6 @@ const all_time_summary = computed(() => {
       <ReviewActivityChartElement
         :activity_series="statistics_data.activity_series"
         :granularity="statistics_data.granularity"
-      />
-
-      <hr class="separator-2">
-
-      <section class="grid gap-4 lg:grid-cols-2">
-        <StatisticBreakdownListElement
-          :item_list="collection_item_list"
-          :title="$t('t_by_collection')"
-        />
-
-        <StatisticBreakdownListElement
-          :item_list="strategy_item_list"
-          :title="$t('t_by_review_strategy')"
-        />
-      </section>
-
-      <hr class="separator-2">
-
-      <StatisticBreakdownListElement
-        :empty_label="$t('t_notes_least_mastered_empty')"
-        :item_list="note_item_list"
-        :title="$t('t_notes_least_mastered')"
       />
 
       <p
