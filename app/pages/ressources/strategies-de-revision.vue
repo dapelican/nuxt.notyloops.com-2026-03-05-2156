@@ -48,16 +48,21 @@ useSeoMeta({
       <li>
         <b>Répétition espacée</b>.
         Vos notes vous sont présentées plus ou moins souvent en fonction du score de maîtrise que vous leur attribuez.
-        Il y a 2 scores possibles : vous maîtrisez la note ou vous ne la maîtrisez pas.
+        Il y a 2 options possibles pour l'attribution du score : vous maîtrisez la note ou vous ne la maîtrisez pas.
         Pour la répétition espacée, nous utilisons l'algorithme FSRS (Free Spaced Repetition Scheduler)
         pour déterminer le moment optimal de révision de chaque note.
       </li>
       <li>
         <b>Éphéméride (1 note par jour)</b>.
+        Cette stratégie présente une note différente par jour pendant un an (365 jours).
+        S'il y a moins de 365 notes, alors une note au hasard est présentée pour les jours restants.
+        Par exemple, si vous avez 100 notes éligibles à la stratégie éphéméride,
+        alors les 100 premiers jours de l'année, vous verrez une note différente,
+        puis les jours suivants, vous verrez une des 100 premières notes au hasard.
       </li>
       <li>
         <b>Au hasard</b>.
-        A chaque révision, vos notes vous sont présentées au hasard.
+        A chaque révision, vos notes vous sont présentées dans un ordre au hasard.
       </li>
       <li>
         <b>Par score du plus faible au plus élevé</b>.
@@ -78,7 +83,7 @@ useSeoMeta({
         basé sur le titre des notes.
       </li>
       <li>
-        <b>A3</b>, alternativement une des stratégie de révision suivante :
+        <b>A3</b>, alternativement une des 3 stratégies de révision suivante :
         <ol class="list-decimal list-inside ml-6">
           <li>
             <b>Au hasard</b>.

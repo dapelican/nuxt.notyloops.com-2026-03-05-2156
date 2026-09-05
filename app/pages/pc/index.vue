@@ -18,6 +18,12 @@ const { locale } = useI18n();
       <li>
         <ULink
           class="text-primary"
+          to="/pc/01a070cc-3c7a-7bba-a424-070b4413aab4"
+        >Français</ULink>
+      </li>
+      <li>
+        <ULink
+          class="text-primary"
           to="/pc/019e9c1d-a281-720b-857f-608257e5060b"
         >Drapeaux des pays d'Afrique</ULink>
       </li>

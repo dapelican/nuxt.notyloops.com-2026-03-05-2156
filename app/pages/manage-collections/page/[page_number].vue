@@ -405,7 +405,7 @@ onUnmounted(() => {
                 </p>
 
                 <p>
-                  {{ $t('t_next_review date_with_colon') }} {{ format_next_due_date_1(next_due_date) }}
+                  {{ $t('t_next_review_date_with_colon') }} {{ format_next_due_date_1(next_due_date) }}
                 </p>
 
                 <p>

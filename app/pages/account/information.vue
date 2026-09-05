@@ -183,16 +183,17 @@ const resetPasswordForm = () => {
 
 <template>
   <!-- app/pages/account/information.vue -->
-  <UContainer class="centered-max-width-400 mt-10">
-    <h1 class="mb-2">
+  <UContainer class="ml-auto mr-auto max-w-xl mt-10">
+    <h1 class="mb-8">
       {{ $t('t_my_information') }}
     </h1>
 
-    <hr class="separator-1">
-
     <LoadingElement v-if="handling_request_1" />
 
-    <section v-else>
+    <section
+      v-else
+      class="max-w-sm"
+    >
       <h2>
         {{ $t('t_email') }}
       </h2>

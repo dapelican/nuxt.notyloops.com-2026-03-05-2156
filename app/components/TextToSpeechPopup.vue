@@ -7,12 +7,14 @@ const handling_request = ref(false);
 
 const language = ref(null);
 
+const { locale } = useI18n();
+
 const week_character_count = ref(null);
 
 const language_list = GOOGLE_TEXT_TO_SPEECH_LANGUAGE_LIST
   .map((language) => ({
     id: language.code,
-    label: language.name.fr,
+    label: language.name[locale.value],
   }))
   .toSorted((a, b) => a.label.localeCompare(b.label));
 

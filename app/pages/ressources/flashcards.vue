@@ -73,7 +73,7 @@ useSeoMeta({
 
     <p class="mt-4">
       De la même façon qu'un athlète de haut niveau se prépare à la compétition avec des exercices physiques,
-      un étudiant ou un professionnel s'entraîne avec des flashcards.
+      un étudiant ou un professionnel entraîne son intellect avec des flashcards.
     </p>
 
     <h2 class="mt-8">
@@ -95,15 +95,16 @@ useSeoMeta({
       Notez bien que j'ai dit "surpasse" et non pas "remplace",
       car la mémorisation commence toujours par une méthode passive.
       Mais elle doit se poursuivre par des méthodes actives :
-      répondre à une question sans regarder la réponse, réciter du texte sans regarder la source.
+      répondre à une question sans regarder la réponse, réciter du texte sans regarder la source,
+      faire un exercice sans regarder la solution.
       La méthode active sollicite notre attention et nécessite une recherche dans notre mémoire.
     </p>
 
     <p class="mt-4">
-      Les flashcards sont en ce sens une méthode active,
-      car elles nous obligent à devoir répondre à des questions ou à résoudre des exercices sans aucune aide.
-      Elles se rapprochent fidèlement des conditions d'une épreuve d'examen ou de concours,
-      ce qui en fait un excellent outil pour mémoriser sur le long terme et créer des automatismes.
+      Les flashcards se rapprochent fidèlement des conditions
+      d'une épreuve d'examen ou de concours,
+      ce qui en fait un excellent outil pour <strong>mémoriser sur le long terme</strong>
+      et <strong>créer des automatismes</strong>.
     </p>
 
     <h2 class="mt-8">
@@ -119,26 +120,34 @@ useSeoMeta({
     </p>
 
     <p class="mt-4">
-      Concrètement, les flashcards que l'on "réussit" bien apparaissent moins fréquemment dans nos révisions,
-      tandis que celles que l'on a du mal à mémoriser reviennent plus souvent.
+      Concrètement, les flashcards que l'on maîtrise apparaissent moins fréquemment dans nos révisions,
+      tandis que celles que l'on a du mal à maîtriser reviennent plus souvent.
       Cette méthode optimise notre temps d'étude en se concentrant sur ce qui n'est pas encore acquis,
       tout en consolidant les connaissances déjà apprises.
     </p>
 
     <p class="mt-4">
       En d'autres termes, la répétition espacée permet de minimiser le nombre de révisions "inutiles".
-      Il s'agit d"une répétition optimisée, en contraste ave une répétition mécanique régulière.
+      Il s'agit d'une <strong>répétition optimisée</strong>, en contraste ave une répétition mécanique régulière,
+      qui nous présenterait aussi fréquemment toutes les flashcards,
+      indépendamment de la maîtrise que l'on a de celles-ci.
     </p>
 
     <p class="mt-4">
-      L'inconvénient de la répétition espacée est qu'elle conduit à avoir un nombre différent de flashcards à revoir chaque jour.
-      Certains jours peuvent n'avoir aucun test alors que d'autres peuvent en avoir plusieurs dizaines.
+      L'inconvénient de la répétition espacée est qu'elle conduit
+      à avoir un nombre différent de flashcards à revoir chaque jour.
+      Il se peut que certains jous, vous n'ayiez aucune flashcard à revoir,
+      et d'autres jours, vous en ayiez plusieurs dizaines.
+      Cela contraint à vérifier chaque jour dans l'outil que vous utilisez
+      si vous avez des flaschards à revoir ou pas.
     </p>
 
     <p class="mt-4">
       Note : si vous utilisez NotyLoops avec la répétition espacée,
       nous vous indiquons systématiquement la date de prochaine révision,
       contrairement à tous les autres outils du marché.
+      Ça vous évite de devoir vérifier chaque jour
+      si vous avez des flashcards à revoir ou pas.
     </p>
 
     <h2 class="mt-8">
@@ -169,7 +178,9 @@ useSeoMeta({
     <p>
       De manière générale, si vous pouvez utiliser un support digital,
       faites-le car les révisions peuvent être suivies et automatisées facilement.
-      De plus, les flashcards peuvent être présentés de manière aléatoire beaucoup plus facilement que les flashcards physiques.
+      De plus, les flashcards peuvent être présentés de manière aléatoire
+      beaucoup plus facilement que les flashcards physiques.
+      Et vous pouvez bien entendu utiliser la répétition espacée.
     </p>
 
     <p class="mt-4">
@@ -226,7 +237,8 @@ useSeoMeta({
 
     <p>
       Les flashcards physiques sont très faciles à concevoir.
-      Elles prennent généralement la forme de fiche en papier ou cartonnées idéalement au format A5
+      Elles prennent généralement la forme de fiches en papier
+      ou cartonnées idéalement au format A5
       (une feuille A4 pliée en 2) ou A6 (une feuille A4 pliée en 4).
     </p>
 
@@ -273,8 +285,9 @@ useSeoMeta({
     </p>
 
     <p class="mt-4">
-      Les fiches physiques permettent de créer tout type de flashcard, mais elles présentent un inconvénient majeur :
-      il est difficile de simuler des révisions au hasard et de suivre l'assimilation de chaque fiche.
+      Les fiches physiques permettent de créer tout type de flashcard,
+      mais elles présentent un inconvénient majeur :
+      il est difficile de simuler des révisions au hasard et de suivre la maîtrisede chaque fiche.
       Inconvénient qui n'existe pas pour les flashcards digitales.
     </p>
 

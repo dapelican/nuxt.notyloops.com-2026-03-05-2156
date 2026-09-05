@@ -112,12 +112,12 @@ const yes_no_list = ref([
 
 const and_or_list = ref([
   {
-    label: t('t_and'),
-    value: 'AND',
-  },
-  {
     label: t('t_or'),
     value: 'OR',
+  },
+  {
+    label: t('t_and'),
+    value: 'AND',
   },
 ]);
 

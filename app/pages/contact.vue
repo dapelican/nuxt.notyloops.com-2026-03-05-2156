@@ -17,12 +17,16 @@ const contact_email = computed(() =>
 </script>
 
 <template>
-  <UContainer class="centered-max-width-650">
-    <h1 class="center">
+  <UContainer class="max-w-md">
+    <h1 class="center mb-8">
       {{ $t('t_contact_us') }}
     </h1>
 
-    <p class="center">
+    <p>
+      {{ $t('t_contact_us_description') }}
+    </p>
+
+    <p class="mt-4">
       <a :href="`mailto:${contact_email}`">
         {{ contact_email }}
       </a>

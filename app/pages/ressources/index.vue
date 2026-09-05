@@ -17,7 +17,7 @@ useSeoMeta({
     </h1>
 
     <h2>
-      Méthodologie pour apprendre, réviser, mémoriser
+      Méthodologie
     </h2>
 
     <ul class="list-disc list-inside">
@@ -27,65 +27,73 @@ useSeoMeta({
           to="/ressources/flashcards"
         >Pourquoi utiliser absolument les flashcards ?</ULink>
       </li>
+      <li>
+        <ULink
+          class="text-primary"
+          to="/ressources/apprendre-a-apprendre"
+        >Apprendre à apprendre</ULink>
+      </li>
     </ul>
 
     <h2 class="mt-8">
-      Utiliser NotyLoops
+      NotyLoops
     </h2>
 
-    <h3>
-      Les notes
-    </h3>
-
     <ul class="list-disc list-inside">
       <li>
         <ULink
           class="text-primary"
-          to="/ressources/markdown"
-        >Utiliser du markdown dans les notes</ULink>
-      </li>
-      <li>
-        <ULink
-          class="text-primary"
-          to="/ressources/langage-informatique"
-        >Comment ajouter du langage informatique ?</ULink>
-      </li>
-      <li>
-        <ULink
-          class="text-primary"
-          to="/ressources/formules-mathematiques"
-        >Comment ajouter des formules mathématiques ?</ULink>
-      </li>
-      <li>
-        <ULink
-          class="text-primary"
-          to="/ressources/formules-mathematiques"
-        >Comment créer des notes pour l'apprentissage de langue étrangère ?</ULink>
-      </li>
-      <li>
-        <ULink
-          class="text-primary"
-          to="/ressources/synthese-vocale"
-        >Les langues disponibles pour la synthèse vocale</ULink>
-      </li>
-    </ul>
-
-    <h3 class="mt-8">
-      Les collections
-    </h3>
-
-    <ul class="list-disc list-inside">
-      <li>
-        <ULink
-          class="text-primary"
-          to="/ressources/selection-des-notes"
-        >Comment sélectionner les notes à réviser ?</ULink>
+          to="/ressources/langues-synthese-vocale"
+        >Les langues pour la synthèse vocale sur NotyLoops</ULink>
       </li>
       <li>
         <ULink
           class="text-primary"
           to="/ressources/strategies-de-revision"
-        >Les stratégies de révision</ULink>
+        >Les stratégies de révision sur NotyLoops</ULink>
+      </li>
+      <li>
+        Comment créer des flashcards sur NotyLoops? (vidéo)
+        <!-- <ULink
+          class="text-primary"
+          to="/ressources/markdown"
+        >Comment créer des flashcards ? (vidéo)</ULink> -->
+      </li>
+      <li>
+        Utiliser du markdown dans les notes
+        <!-- <ULink
+          class="text-primary"
+          to="/ressources/markdown"
+        >Utiliser du markdown dans les notes</ULink> -->
+      </li>
+      <li>
+        Comment ajouter du langage informatique ?
+        <!-- <ULink
+          class="text-primary"
+          to="/ressources/langage-informatique"
+        >Comment ajouter du langage informatique ?</ULink> -->
+      </li>
+      <li>
+        Comment ajouter des formules mathématiques ?
+        <!-- <ULink
+          class="text-primary"
+          to="/ressources/formules-mathematiques"
+        >Comment ajouter des formules mathématiques ?</ULink> -->
+      </li>
+      <li>
+        Comment créer des flashcards de vocabulaire en langue étrangère ? (vidéo)
+        <!-- <ULink
+          class="text-primary"
+          to="/ressources/formules-mathematiques"
+        >Comment créer des notes pour l'apprentissage de langue étrangère ?</ULink> -->
+      </li>
+
+      <li>
+        Comment sélectionner les notes à réviser ?
+        <!-- <ULink
+          class="text-primary"
+          to="/ressources/selection-des-notes"
+        >Comment sélectionner les notes à réviser ?</ULink> -->
       </li>
     </ul>
   </UContainer>
