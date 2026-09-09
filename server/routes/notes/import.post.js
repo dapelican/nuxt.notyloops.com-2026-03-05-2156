@@ -32,6 +32,10 @@ import {
 } from '../../helpers/handle-backend-error.js';
 
 import {
+  isApplicationBucketFileUrl,
+} from '../../helpers/is-application-bucket-file-url.js';
+
+import {
   parse,
 } from 'csv-parse/sync';
 
@@ -211,6 +215,13 @@ const validate_row_list = (row_list) => {
     }
 
     if (!CONTENT_TYPE_LIST.includes(content_type)) {
+      return false;
+    }
+
+    const file_url_raw = normalize_cell(row.file_url);
+    const file_url = file_url_raw.trim() === '' ? null : file_url_raw;
+
+    if (!isApplicationBucketFileUrl(file_url)) {
       return false;
     }
   }

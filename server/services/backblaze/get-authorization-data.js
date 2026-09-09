@@ -47,10 +47,15 @@ const getAuthorizationData = async () => {
     return authorization_data;
   } catch (error) {
     console.error('B2 authorization error:', error.response?.data || error.message);
-    throw new Error('Failed to authorize with B2');
+    throw new Error('Failed to authorize with B2', {
+      cause: error,
+    });
   }
 };
 
+const getCachedDownloadUrl = () => authorization_data.download_url || null;
+
 export {
   getAuthorizationData,
+  getCachedDownloadUrl,
 };

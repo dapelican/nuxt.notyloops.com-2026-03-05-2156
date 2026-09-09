@@ -219,7 +219,7 @@ const collection_price = computed(() => {
             :collection_type="collection?.type ?? 'public_free'"
             :note_id="note.id"
             :preview_note_id_list="collection?.preview_note_id_list"
-            :show_lock="true"
+            :show_lock="!collection_belongs_to_connected_user && !user_has_purchased_collection"
             :title="note.title"
           />
         </section>

@@ -1,10 +1,21 @@
 'use strict';
 
 import {
+  EMAIL_VALIDATION_TOKEN_DURATION_IN_HOURS,
+  USER_TOKEN_CONNECT,
+  USER_TOKEN_VALIDATE_EMAIL,
+} from '../../helpers/constants.js';
+
+import {
   HTTP_CODE_201_CREATED,
   HTTP_CODE_400_BAD_REQUEST,
   HTTP_CODE_403_FORBIDDEN,
 } from '../../helpers/http-status-codes.js';
+
+import {
+  USER_STATUS_FREE,
+  USER_STATUS_UNVERIFIED,
+} from '#shared/utils/constants.js';
 
 import {
   defineEventHandler,
@@ -15,21 +26,18 @@ import {
 import {
   validateEmail,
   validateNonEmptyInputFieldList,
+  validateUUID,
 } from '../../helpers/validators.js';
-
-import {
-  USER_STATUS_FREE,
-} from '#shared/utils/constants.js';
-
-import {
-  USER_TOKEN_CONNECT,
-} from '../../helpers/constants.js';
 
 import bcrypt from 'bcrypt';
 
 import {
   executeSQLQuery,
 } from '../../database/query.js';
+
+import {
+  getActiveEmailTokenUserId,
+} from '../../helpers/get-active-email-token-user-id.js';
 
 import {
   handleBackendError,
@@ -49,9 +57,6 @@ export default defineEventHandler(async (event) => {
       email,
       password_1,
       password_2,
-    } = await readBody(event);
-
-    const {
       token,
     } = await readBody(event);
 
@@ -81,6 +86,14 @@ export default defineEventHandler(async (event) => {
       };
     }
 
+    if (!token || !validateUUID(token)) {
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+
+      return {
+        error_message: 'error_invalid_email_token',
+      };
+    }
+
     const {
       rows: user_list,
     } = await executeSQLQuery(
@@ -96,6 +109,22 @@ export default defineEventHandler(async (event) => {
       };
     }
 
+    const user = user_list.at(0);
+
+    const token_user_id = await getActiveEmailTokenUserId({
+      max_age_hours: EMAIL_VALIDATION_TOKEN_DURATION_IN_HOURS,
+      token,
+      usage: USER_TOKEN_VALIDATE_EMAIL,
+    });
+
+    if (!token_user_id || token_user_id !== user.id) {
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+
+      return {
+        error_message: 'error_invalid_email_token',
+      };
+    }
+
     const salt = await bcrypt.genSalt(SALT_ROUND);
     const bcrypt_password = await bcrypt.hash(password_1, salt);
 
@@ -105,15 +134,27 @@ export default defineEventHandler(async (event) => {
       `UPDATE users
       SET password = $1,
       status = $2
-      WHERE email = $3 RETURNING *`,
+      WHERE id = $3
+      AND status = $4
+      AND password IS NULL
+      RETURNING *`,
       [
         bcrypt_password,
         USER_STATUS_FREE,
-        email,
+        user.id,
+        USER_STATUS_UNVERIFIED,
       ]
     );
 
     const updated_user = updated_user_list.at(0);
+
+    if (!updated_user) {
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+
+      return {
+        error_message: 'error_invalid_email_token',
+      };
+    }
 
     const session_token = uuidv7();
     const session_max_age_days = Number(useRuntimeConfig().SESSION_MAX_AGE_DAYS);
@@ -133,8 +174,8 @@ export default defineEventHandler(async (event) => {
     await executeSQLQuery(
       `UPDATE user_email_tokens
       SET blacklisted = true
-      WHERE token = $1`,
-      [token]
+      WHERE token = $1 AND usage = $2`,
+      [token, USER_TOKEN_VALIDATE_EMAIL]
     );
 
     await executeSQLQuery(

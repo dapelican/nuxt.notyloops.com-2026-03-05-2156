@@ -90,6 +90,7 @@ const signUp = async (form) => {
         email: email.value,
         password_1: form.data.password_1,
         password_2: form.data.password_2,
+        token: route.params.token_to_validate_email,
       },
     });
 
@@ -102,6 +103,9 @@ const signUp = async (form) => {
     switch (error_message) {
       case 'error_invalid_password':
         form_error.value = t('t_error_invalid_password');
+        break;
+      case 'error_invalid_email_token':
+        form_error.value = t('t_error_invalid_email_token');
         break;
       default:
         handleFrontendError(error, error_message);

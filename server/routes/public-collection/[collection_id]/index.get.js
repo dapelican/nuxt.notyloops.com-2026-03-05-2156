@@ -21,6 +21,10 @@ import {
 } from '../../../helpers/handle-backend-error.js';
 
 import {
+  sanitizeStoredHtml,
+} from '../../../helpers/sanitize-html.js';
+
+import {
   selectNoteIdListOnTagCriteria,
 } from '../../../helpers/select-note-id-list-on-tag-criteria.js';
 
@@ -84,7 +88,10 @@ export default defineEventHandler(async (event) => {
     setResponseStatus(event, HTTP_CODE_200_OK);
 
     return {
-      collection,
+      collection: {
+        ...collection,
+        description: sanitizeStoredHtml(collection.description),
+      },
       collection_belongs_to_connected_user: user?.id && (collection?.user_id === user?.id),
       note_list,
     };

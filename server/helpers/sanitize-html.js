@@ -18,6 +18,17 @@ const sanitizeHtml = (input) => dompurify.sanitize(marked(input), {
   ADD_ATTR: ['target'],
 });
 
+const sanitizeStoredHtml = (input) => {
+  if (input == null) {
+    return null;
+  }
+
+  return dompurify.sanitize(String(input), {
+    ADD_ATTR: ['target'],
+  });
+};
+
 export {
   sanitizeHtml,
+  sanitizeStoredHtml,
 };

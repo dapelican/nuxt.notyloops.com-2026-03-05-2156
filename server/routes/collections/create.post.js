@@ -21,6 +21,10 @@ import {
 } from '../../helpers/handle-backend-error.js';
 
 import {
+  sanitizeStoredHtml,
+} from '../../helpers/sanitize-html.js';
+
+import {
   verifySessionAndReturnUser,
 } from '../../helpers/verify-session-and-return-user.js';
 
@@ -135,7 +139,7 @@ export default defineEventHandler(async (event) => {
         type,
         review_strategy,
         track_scores,
-        description,
+        sanitizeStoredHtml(description),
         pre_tax_price_in_cents,
       ]
     );

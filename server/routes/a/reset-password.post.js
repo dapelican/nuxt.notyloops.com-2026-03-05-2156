@@ -6,6 +6,11 @@ import {
 } from '../../helpers/http-status-codes.js';
 
 import {
+  PASSWORD_RESET_TOKEN_DURATION_IN_HOURS,
+  USER_TOKEN_RESET_PASSWORD,
+} from '../../helpers/constants.js';
+
+import {
   defineEventHandler,
   readBody,
   setResponseStatus,
@@ -22,6 +27,10 @@ import bcrypt from 'bcrypt';
 import {
   executeSQLQuery,
 } from '../../database/query.js';
+
+import {
+  getActiveEmailTokenUserId,
+} from '../../helpers/get-active-email-token-user-id.js';
 
 import {
   handleBackendError,
@@ -43,16 +52,14 @@ const sendEmailToNotifyPasswordReset = async (user) => {
 
 export default defineEventHandler(async (event) => {
   try {
-    const {
+    let {
       email,
+      password_1,
+      password_2,
       token,
     } = await readBody(event);
 
-    let {
-      password_1,
-      password_2,
-    } = await readBody(event);
-
+    email = email?.toLowerCase()?.trim();
     password_1 = password_1?.trim();
     password_2 = password_2?.trim();
 
@@ -86,31 +93,53 @@ export default defineEventHandler(async (event) => {
       };
     }
 
+    const token_user_id = await getActiveEmailTokenUserId({
+      max_age_hours: PASSWORD_RESET_TOKEN_DURATION_IN_HOURS,
+      token,
+      usage: USER_TOKEN_RESET_PASSWORD,
+    });
+
+    if (!token_user_id) {
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+
+      return {
+        error_message: 'error_invalid_email_token',
+      };
+    }
+
+    const {
+      rows: user_list,
+    } = await executeSQLQuery(
+      'SELECT * FROM users WHERE id = $1',
+      [token_user_id]
+    );
+
+    const user = user_list.at(0);
+
+    if (!user || user.email.toLowerCase() !== email) {
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+
+      return {
+        error_message: 'error_invalid_email_token',
+      };
+    }
+
     const salt = await bcrypt.genSalt(SALT_ROUND);
     const bcrypt_password = await bcrypt.hash(password_1, salt);
 
     await executeSQLQuery(
       `UPDATE users
       SET password = $1
-      WHERE email = $2`,
-      [bcrypt_password, email]
+      WHERE id = $2`,
+      [bcrypt_password, user.id]
     );
 
     await executeSQLQuery(
       `UPDATE user_email_tokens
       SET blacklisted = true
-      WHERE token = $1`,
-      [token]
+      WHERE token = $1 AND usage = $2`,
+      [token, USER_TOKEN_RESET_PASSWORD]
     );
-
-    const {
-      rows: user_list,
-    } = await executeSQLQuery(
-      'SELECT * FROM users WHERE email = $1',
-      [email]
-    );
-
-    const user = user_list.at(0);
 
     await executeSQLQuery(
       `UPDATE user_session_tokens SET blacklisted = true WHERE user_id = $1`,

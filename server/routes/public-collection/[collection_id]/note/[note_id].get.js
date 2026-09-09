@@ -39,6 +39,10 @@ import {
 } from '../../../../helpers/shuffle-array.js';
 
 import {
+  verifySessionAndReturnUser,
+} from '../../../../helpers/verify-session-and-return-user.js';
+
+import {
   z,
 } from 'zod';
 
@@ -88,14 +92,37 @@ export default defineEventHandler(async (event) => {
       };
     }
 
-    if (
-      collection.type === COLLECTION_TYPE_PUBLIC_PAYWALLLED
-      && collection.preview_note_id_list !== null
-      && !collection.preview_note_id_list.includes(note_id)
-    ) {
-      return {
-        error_message: 'error_unauthorized',
-      };
+    if (collection.type === COLLECTION_TYPE_PUBLIC_PAYWALLLED) {
+      const preview_note_id_list = Array.isArray(collection.preview_note_id_list)
+        ? collection.preview_note_id_list
+        : [];
+
+      if (!preview_note_id_list.includes(note_id)) {
+        const user = await verifySessionAndReturnUser(event);
+        const is_owner = user?.id === collection.user_id;
+        let has_purchased = false;
+
+        if (user?.id && !is_owner) {
+          const {
+            rows: payment_row_list,
+          } = await executeSQLQuery(
+            `SELECT 1 FROM payments
+            WHERE user_id = $1 AND collection_id = $2
+            LIMIT 1`,
+            [user.id, collection_id]
+          );
+
+          has_purchased = payment_row_list.length > 0;
+        }
+
+        if (!is_owner && !has_purchased) {
+          setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
+
+          return {
+            error_message: 'error_unauthorized',
+          };
+        }
+      }
     }
 
     const note_id_list = await selectNoteIdListOnTagCriteria(collection.user_id, collection);

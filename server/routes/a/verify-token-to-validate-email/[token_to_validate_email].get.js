@@ -17,12 +17,12 @@ import {
 } from 'h3';
 
 import {
-  DateTime,
-} from 'luxon';
-
-import {
   executeSQLQuery,
 } from '../../../database/query.js';
+
+import {
+  getActiveEmailTokenUserId,
+} from '../../../helpers/get-active-email-token-user-id.js';
 
 import {
   handleBackendError,
@@ -31,13 +31,6 @@ import {
 import {
   validateUUID,
 } from '../../../helpers/validators.js';
-
-const getEmailTokenDurationHoursAgo = () => DateTime
-  .now()
-  .minus({
-    hours: EMAIL_VALIDATION_TOKEN_DURATION_IN_HOURS,
-  })
-  .toISO();
 
 export default defineEventHandler(async (event) => {
   try {
@@ -51,21 +44,13 @@ export default defineEventHandler(async (event) => {
       };
     }
 
-    const {
-      rows: active_user_token_list,
-    } = await executeSQLQuery(
-      `SELECT user_id FROM user_email_tokens
-      WHERE token = $1 AND created_at > $2::timestamptz
-      AND blacklisted = $3 AND usage = $4`,
-      [
-        token,
-        getEmailTokenDurationHoursAgo(),
-        false,
-        USER_TOKEN_VALIDATE_EMAIL,
-      ]
-    );
+    const token_user_id = await getActiveEmailTokenUserId({
+      max_age_hours: EMAIL_VALIDATION_TOKEN_DURATION_IN_HOURS,
+      token,
+      usage: USER_TOKEN_VALIDATE_EMAIL,
+    });
 
-    if (active_user_token_list.length === 0) {
+    if (!token_user_id) {
       setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
@@ -77,7 +62,7 @@ export default defineEventHandler(async (event) => {
       rows: user_list,
     } = await executeSQLQuery(
       'SELECT email FROM users WHERE id = $1',
-      [active_user_token_list.at(0).user_id]
+      [token_user_id]
     );
 
     setResponseStatus(event, HTTP_CODE_200_OK);

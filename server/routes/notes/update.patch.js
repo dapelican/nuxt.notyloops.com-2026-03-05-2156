@@ -21,6 +21,10 @@ import {
 } from '../../helpers/handle-backend-error.js';
 
 import {
+  isApplicationBucketFileUrl,
+} from '../../helpers/is-application-bucket-file-url.js';
+
+import {
   sanitizeHtml,
 } from '../../helpers/sanitize-html.js';
 
@@ -50,6 +54,17 @@ export default defineEventHandler(async (event) => {
     } = await readBody(event);
 
     if (!note_id || !title) {
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+
+      return {
+        error_message: 'error_invalid_input',
+      };
+    }
+
+    if (
+      Array.isArray(note_details)
+      && note_details.some((detail) => !isApplicationBucketFileUrl(detail.file_url))
+    ) {
       setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {

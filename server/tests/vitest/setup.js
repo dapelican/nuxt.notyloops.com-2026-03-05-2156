@@ -4,6 +4,7 @@ import { beforeEach, vi } from 'vitest';
 import { setResponseStatus } from 'h3';
 
 globalThis.useRuntimeConfig = vi.fn(() => ({
+  B2_BUCKET_NAME: 'test-bucket',
   DB_CONNECTION_STRING: process.env.DB_CONNECTION_STRING,
   EMAILABLE_API_KEY: 'test-emailable-key',
   SESSION_MAX_AGE_DAYS: '30',
@@ -21,6 +22,7 @@ globalThis.setResponseStatus = setResponseStatus;
 
 beforeEach(() => {
   vi.mocked(globalThis.useRuntimeConfig).mockReturnValue({
+    B2_BUCKET_NAME: 'test-bucket',
     DB_CONNECTION_STRING: process.env.DB_CONNECTION_STRING,
     EMAILABLE_API_KEY: 'test-emailable-key',
     SESSION_MAX_AGE_DAYS: '30',

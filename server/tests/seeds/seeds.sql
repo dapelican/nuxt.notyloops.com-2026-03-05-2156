@@ -6015,6 +6015,36 @@ VALUES
   NULL
 );
 
+-- Paywalled collection with a non-null preview list for public note GET tests
+INSERT INTO collections (
+  id,
+  user_id,
+  type,
+  title,
+  description,
+  tag_id_list_to_include,
+  inclusion_type,
+  tag_id_list_to_exclude,
+  exclusion_type,
+  review_strategy,
+  preview_note_id_list,
+  pre_tax_price_in_cents
+)
+VALUES (
+  '40000000-0000-4000-8000-000000000007',
+  '10000000-0000-4000-8000-000000000002',
+  'public_paywalled',
+  'Drapeaux d''Asie (apercu)',
+  'Quiz payant avec une note en apercu',
+  jsonb_build_array('20000000-0000-4000-8000-000000000004'::uuid),
+  'AND',
+  '[]'::jsonb,
+  'AND',
+  'random',
+  jsonb_build_array('30000000-0000-4000-8000-00000000005a'::uuid),
+  500
+);
+
 -- =============================================
 -- User for: ping test (GET /monitoring/ping)
 -- =============================================
@@ -6033,6 +6063,15 @@ VALUES (
   '$2b$10$wL7tkbBZQyt/YiigMxI08egh.xU.pP.D87SLSGjq4NJxXAlyj/p0i',
   'premium',
   'www'
+);
+
+-- Active validate_email token so sign-up UPDATE guard is exercised for confirmed users
+INSERT INTO user_email_tokens (user_id, token, usage, blacklisted)
+VALUES (
+  '50000000-0000-4000-8000-000000000002',
+  '12121212-1212-4121-8121-121212121212',
+  'validate_email',
+  false
 );
 
 -- =============================================
@@ -6288,3 +6327,101 @@ VALUES ('50000000-0000-4000-8000-000000000012', 'unverified-retry@example.com', 
 
 INSERT INTO user_email_tokens (user_id, token, usage, blacklisted, created_at)
 VALUES ('50000000-0000-4000-8000-000000000012', 'expired-retry-token-1', 'validate_email', false, now() - interval '100 hours');
+
+-- =============================================
+-- User with expired UUID reset token for:
+-- reset-password "expired token" test
+-- Password plaintext: Test1234!
+-- =============================================
+INSERT INTO users (id, email, password, status, subdomain)
+VALUES (
+  '50000000-0000-4000-8000-000000000013',
+  'reset-expired-token@example.com',
+  '$2b$10$wL7tkbBZQyt/YiigMxI08egh.xU.pP.D87SLSGjq4NJxXAlyj/p0i',
+  'premium',
+  'www'
+);
+
+INSERT INTO user_email_tokens (user_id, token, usage, blacklisted, created_at)
+VALUES (
+  '50000000-0000-4000-8000-000000000013',
+  '88888888-8888-4888-8888-888888888888',
+  'reset_password',
+  false,
+  now() - interval '10 hours'
+);
+
+-- =============================================
+-- User with blacklisted UUID reset token for:
+-- reset-password "blacklisted token" test
+-- Password plaintext: Test1234!
+-- =============================================
+INSERT INTO users (id, email, password, status, subdomain)
+VALUES (
+  '50000000-0000-4000-8000-000000000014',
+  'reset-blacklisted-token@example.com',
+  '$2b$10$wL7tkbBZQyt/YiigMxI08egh.xU.pP.D87SLSGjq4NJxXAlyj/p0i',
+  'premium',
+  'www'
+);
+
+INSERT INTO user_email_tokens (user_id, token, usage, blacklisted)
+VALUES (
+  '50000000-0000-4000-8000-000000000014',
+  '99999999-9999-4999-8999-999999999999',
+  'reset_password',
+  true
+);
+
+-- =============================================
+-- Buyer + session + payment for:
+-- public-collection note GET paywall tests
+-- Password plaintext: Test1234!
+-- =============================================
+INSERT INTO users (id, email, password, status, subdomain)
+VALUES (
+  '50000000-0000-4000-8000-000000000015',
+  'collection-buyer@example.com',
+  '$2b$10$wL7tkbBZQyt/YiigMxI08egh.xU.pP.D87SLSGjq4NJxXAlyj/p0i',
+  'premium',
+  'www'
+);
+
+INSERT INTO user_session_tokens (id, user_id, token, expires_at, blacklisted)
+VALUES (
+  'e0000000-0000-4000-8000-000000000005',
+  '50000000-0000-4000-8000-000000000015',
+  'collection-buyer-session-token',
+  now() + interval '30 days',
+  false
+);
+
+INSERT INTO payments (user_id, collection_id, payment_type, price_in_cents)
+VALUES (
+  '50000000-0000-4000-8000-000000000015',
+  '40000000-0000-4000-8000-000000000004',
+  'collection',
+  500
+);
+
+-- =============================================
+-- Dedicated user + session for: files upload tests
+-- Password plaintext: Test1234!
+-- =============================================
+INSERT INTO users (id, email, password, status, subdomain)
+VALUES (
+  '50000000-0000-4000-8000-000000000016',
+  'fileupload@example.com',
+  '$2b$10$wL7tkbBZQyt/YiigMxI08egh.xU.pP.D87SLSGjq4NJxXAlyj/p0i',
+  'premium',
+  'www'
+);
+
+INSERT INTO user_session_tokens (id, user_id, token, expires_at, blacklisted)
+VALUES (
+  'f0000000-0000-4000-8000-000000000006',
+  '50000000-0000-4000-8000-000000000016',
+  'fileupload-session-token',
+  now() + interval '30 days',
+  false
+);

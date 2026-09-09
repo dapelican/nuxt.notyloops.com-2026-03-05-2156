@@ -1,5 +1,21 @@
 'use strict';
 
+const ALLOWED_AUDIO_UPLOAD_ACCEPT = 'audio/mpeg,audio/mp3';
+
+const ALLOWED_IMAGE_UPLOAD_ACCEPT = 'image/jpeg,image/png,image/webp';
+
+const ALLOWED_UPLOAD_MIME_TYPE_ALIAS = {
+  'audio/mp3': 'audio/mpeg',
+  'image/jpg': 'image/jpeg',
+};
+
+const ALLOWED_UPLOAD_MIME_TYPE_LIST = [
+  'image/jpeg',
+  'image/png',
+  'image/webp',
+  'audio/mpeg',
+];
+
 const COLLECTION_TYPE_PRIVATE = 'private';
 const COLLECTION_TYPE_PUBLIC_FREE = 'public_free';
 const COLLECTION_TYPE_PUBLIC_PAYWALLLED = 'public_paywalled';
@@ -374,6 +390,8 @@ const GOOGLE_TEXT_TO_SPEECH_LANGUAGE_LIST = [
   },
 ];
 
+const MAX_UPLOAD_FILE_BYTES = 10 * 1024 * 1024;
+
 const NOTE_FORMAT_FLASHCARD = 'flashcard';
 const NOTE_FORMAT_FREE = 'free_form';
 const NOTE_FORMAT_MULTIPLE_CHOICE = 'multiple_choice';
@@ -437,4 +455,9 @@ export {
   USER_STATUS_PREMIUM,
   USER_STATUS_ADMIN,
   USER_STATUS_UNVERIFIED,
+  MAX_UPLOAD_FILE_BYTES,
+  ALLOWED_UPLOAD_MIME_TYPE_ALIAS,
+  ALLOWED_UPLOAD_MIME_TYPE_LIST,
+  ALLOWED_IMAGE_UPLOAD_ACCEPT,
+  ALLOWED_AUDIO_UPLOAD_ACCEPT,
 };

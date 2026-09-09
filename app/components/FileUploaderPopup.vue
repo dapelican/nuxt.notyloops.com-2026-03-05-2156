@@ -1,4 +1,14 @@
 <script setup>
+import {
+  ALLOWED_AUDIO_UPLOAD_ACCEPT,
+  ALLOWED_IMAGE_UPLOAD_ACCEPT,
+  MAX_UPLOAD_FILE_BYTES,
+} from '#shared/utils/constants.js';
+
+import {
+  canonicalizeUploadMimeType,
+} from '#shared/utils/canonicalize-upload-mime-type.js';
+
 const props = defineProps({
   file_type: {
     type: String,
@@ -20,7 +30,9 @@ const show_popup = ref(false);
 const upload_error = ref(null);
 
 const accept_types = computed(() => {
-  return props.file_type === 'image' ? 'image/*' : 'audio/*';
+  return props.file_type === 'image'
+    ? ALLOWED_IMAGE_UPLOAD_ACCEPT
+    : ALLOWED_AUDIO_UPLOAD_ACCEPT;
 });
 
 const add_file = computed(() => {
@@ -55,8 +67,15 @@ const emitFileInfo = () => {
 };
 
 const uploadFile = async (file) => {
-  if (!file.type.startsWith(`${props.file_type}/`)) {
+  const canonical_mime = canonicalizeUploadMimeType(file.type);
+
+  if (!canonical_mime || !canonical_mime.startsWith(`${props.file_type}/`)) {
     upload_error.value = t('t_upload_invalid_type');
+    return;
+  }
+
+  if (file.size > MAX_UPLOAD_FILE_BYTES) {
+    upload_error.value = t('t_maximum_size_10_MB');
     return;
   }
 
