@@ -3,7 +3,7 @@
 import {
   ALLOWED_UPLOAD_MIME_TYPE_ALIAS,
   ALLOWED_UPLOAD_MIME_TYPE_LIST,
-} from '#shared/utils/constants.js';
+} from './constants.js';
 
 const canonicalizeUploadMimeType = (mime_type) => {
   if (!mime_type || typeof mime_type !== 'string') {

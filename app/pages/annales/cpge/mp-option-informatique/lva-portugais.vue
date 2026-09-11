@@ -222,7 +222,7 @@ useSeoMeta({
               </ULink>
             </td>
           </tr>
-          <!-- <tr>
+          <tr>
             <td>
               CCS
             </td>
@@ -237,13 +237,13 @@ useSeoMeta({
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lva-2024-ccs-rapport-mp-portugais.pdf"
+                to="https://annales.notyloops.com/cpge-lva-2024-ccs-rapport-portugais.pdf"
                 target="_blank"
               >
                 Rapport
               </ULink>
             </td>
-          </tr> -->
+          </tr>
         </tbody>
       </table>
     </figure>
