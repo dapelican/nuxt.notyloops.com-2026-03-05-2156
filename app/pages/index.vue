@@ -75,8 +75,19 @@ useSeoMeta({
         </span>
       </h2>
 
+      <!-- <p>
+        {{ $t('t_feature_1_description_a') }}
+        (<NuxtLink
+          to="/ressources/langues-synthese-vocale"
+          class="text-primary"
+        >
+          {{ $t('t_feature_1_description_b') }}
+        </NuxtLink>).
+      </p> -->
+
       <p>
-        {{ $t('t_feature_1_description') }}
+        {{ $t('t_feature_1_description_a') }}
+        ({{ $t('t_feature_1_description_b') }}).
       </p>
     </section>
 
@@ -111,8 +122,21 @@ useSeoMeta({
         </span>
       </h2>
 
+      <!-- <p>
+        {{ $t('t_feature_3_description_a') }}
+        <NuxtLink
+          to="/ressources/strategies-de-revision"
+          class="text-primary"
+        >
+          {{ $t('t_feature_3_description_b') }}
+        </NuxtLink>,
+        {{ $t('t_feature_3_description_c') }}
+      </p> -->
+
       <p>
-        {{ $t('t_feature_3_description') }}
+        {{ $t('t_feature_3_description_a') }}
+        {{ $t('t_feature_3_description_b') }}
+        {{ $t('t_feature_3_description_c') }}
       </p>
     </section>
 

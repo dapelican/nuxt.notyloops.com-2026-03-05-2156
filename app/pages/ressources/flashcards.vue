@@ -62,8 +62,8 @@ useSeoMeta({
       Les flashcards sont très répandues dans le monde anglo-saxon.
       Elles le sont beaucoup moins dans le monde francophone.
       Le terme de "flashcard" est souvent traduit par "carte-mémoire" ou "fiche de révision".
-      Pourtant, ces termes ne reflètent pas totalement ce que sont les flashcards, à savoir des
-      tests de révision.
+      Pourtant, ces termes ne reflètent pas totalement ce que sont les flashcards,
+      à savoir des <strong>tests de révision</strong>.
     </p>
 
     <p class="mt-4">

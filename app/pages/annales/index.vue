@@ -29,7 +29,7 @@ useSeoMeta({
       </li>
     </ul>
 
-    <h2 class="mt-12">
+    <h2 class="mt-8">
       France
     </h2>
 

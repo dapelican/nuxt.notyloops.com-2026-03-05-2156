@@ -20,20 +20,20 @@ useSeoMeta({
       Méthodologie
     </h2>
 
-    <ul class="list-disc list-inside">
-      <li>
-        <ULink
-          class="text-primary"
-          to="/ressources/flashcards"
-        >Pourquoi utiliser absolument les flashcards ?</ULink>
-      </li>
+    <ol class="list-decimal list-inside">
       <li>
         <ULink
           class="text-primary"
           to="/ressources/apprendre-a-apprendre"
         >Apprendre à apprendre</ULink>
       </li>
-    </ul>
+      <li>
+        <ULink
+          class="text-primary"
+          to="/ressources/flashcards"
+        >Pourquoi utiliser absolument les flashcards ?</ULink>
+      </li>
+    </ol>
 
     <h2 class="mt-8">
       NotyLoops
