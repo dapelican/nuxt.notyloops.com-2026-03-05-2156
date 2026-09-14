@@ -322,6 +322,88 @@ useSeoMeta({
         <tbody>
           <tr>
             <td>
+              CCINP / e3a-Polytech
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-si-2024-mp-ccinp-e3a-polytech-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-si-2024-mp-ccinp-e3a-polytech-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              CCMP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-si-2024-mp-ccmp-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-si-2024-mp-ccmp-annexes.pdf"
+                target="_blank"
+              >
+                Annexes
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-si-2024-mp-ccmp-document-reponse.pdf"
+                target="_blank"
+              >
+                Document réponse
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-si-2024-mp-ccmp-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              CCS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-si-2024-mp-ccs-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-si-2024-mp-ccs-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
               X / ESPCI
             </td>
             <td>
