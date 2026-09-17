@@ -72,6 +72,7 @@ const sendTokenToValidateEmail = async (user, subdomain) => {
 
   try {
     await sendEmail({
+      bcc: 'support@notyloops.com',
       subdomain,
       template_name: 'validate-email',
       template_params: { EMAIL_VALIDATION_TOKEN_DURATION_IN_HOURS, uuid },
