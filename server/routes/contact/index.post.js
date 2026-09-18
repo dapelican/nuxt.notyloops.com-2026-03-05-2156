@@ -26,7 +26,7 @@ import {
 
 import {
   sendEmail,
-} from '../../services/smtp2go/send-email.js';
+} from '../../services/amazon-ses/send-email.js';
 
 const FIRST_NAME_MAX_LENGTH = 100;
 const MESSAGE_MAX_LENGTH = 5000;

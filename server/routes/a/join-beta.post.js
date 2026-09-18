@@ -26,7 +26,7 @@ import {
 
 import {
   sendEmail,
-} from '../../services/smtp2go/send-email.js';
+} from '../../services/amazon-ses/send-email.js';
 
 export default defineEventHandler(async (event) => {
   try {

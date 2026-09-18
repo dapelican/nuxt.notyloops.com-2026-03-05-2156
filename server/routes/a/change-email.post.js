@@ -28,7 +28,7 @@ import {
 
 import {
   sendEmail,
-} from '../../services/smtp2go/send-email.js';
+} from '../../services/amazon-ses/send-email.js';
 
 import {
   verifySessionAndReturnUser,

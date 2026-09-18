@@ -8,7 +8,6 @@ globalThis.useRuntimeConfig = vi.fn(() => ({
   DB_CONNECTION_STRING: process.env.DB_CONNECTION_STRING,
   EMAILABLE_API_KEY: 'test-emailable-key',
   SESSION_MAX_AGE_DAYS: '30',
-  SMTP2GO_API_KEY: 'test-smtp2go-key',
   STRIPE_ENDPOINT_SECRET: 'test-stripe-endpoint-secret',
   STRIPE_SECRET_API_KEY: 'test-stripe-secret-key',
 }));
@@ -26,7 +25,6 @@ beforeEach(() => {
     DB_CONNECTION_STRING: process.env.DB_CONNECTION_STRING,
     EMAILABLE_API_KEY: 'test-emailable-key',
     SESSION_MAX_AGE_DAYS: '30',
-    SMTP2GO_API_KEY: 'test-smtp2go-key',
     STRIPE_ENDPOINT_SECRET: 'test-stripe-endpoint-secret',
     STRIPE_SECRET_API_KEY: 'test-stripe-secret-key',
   });

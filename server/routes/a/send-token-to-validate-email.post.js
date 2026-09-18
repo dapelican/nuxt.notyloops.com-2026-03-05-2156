@@ -44,7 +44,7 @@ import {
 
 import {
   sendEmail,
-} from '../../services/smtp2go/send-email.js';
+} from '../../services/amazon-ses/send-email.js';
 
 import {
   v7 as uuidv7,
@@ -71,14 +71,23 @@ const sendTokenToValidateEmail = async (user, subdomain) => {
   );
 
   try {
+    console.log('!!!!!!!sendEmail');
+
     await sendEmail({
       bcc: 'support@notyloops.com',
       subdomain,
       template_name: 'validate-email',
       template_params: { EMAIL_VALIDATION_TOKEN_DURATION_IN_HOURS, uuid },
       to: user.email,
-    });
+    })
+      .then((response) => {
+        console.log('!!!!!!!response.data', response.data);
+      })
+      .catch((error) => {
+        console.log('!!!!!!!error', error);
+      });
   } catch (error) {
+    console.log('!!!!!!!error', error);
     await executeSQLQuery(
       'DELETE FROM user_email_tokens WHERE token = $1',
       [uuid]

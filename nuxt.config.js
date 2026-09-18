@@ -46,6 +46,9 @@ export default defineNuxtConfig({
   // available in the app folder (client-side) and the sever folder (server-side).
   // with the funtion useRuntimeConfig()
   runtimeConfig: {
+    AMAZON_SES_ACCESS_KEY_ID: process.env.AMAZON_SES_ACCESS_KEY_ID,
+    AMAZON_SES_REGION: process.env.AMAZON_SES_REGION,
+    AMAZON_SES_SECRET_ACCESS_KEY: process.env.AMAZON_SES_SECRET_ACCESS_KEY,
     B2_APPLICATION_KEY: process.env.B2_APPLICATION_KEY,
     B2_APPLICATION_KEY_ID: process.env.B2_APPLICATION_KEY_ID,
     B2_BUCKET_ID: process.env.B2_BUCKET_ID,
@@ -53,9 +56,8 @@ export default defineNuxtConfig({
     DB_CONNECTION_STRING: process.env.DB_CONNECTION_STRING,
     EMAILABLE_API_KEY: process.env.EMAILABLE_API_KEY,
     GOOGLE_CLOUD_API_KEY: process.env.GOOGLE_CLOUD_API_KEY,
-    PLUNK_SECRET_KEY: process.env.PLUNK_SECRET_KEY,
+    POSTMARK_SERVER_TOKEN: process.env.POSTMARK_SERVER_TOKEN,
     SESSION_MAX_AGE_DAYS: process.env.SESSION_MAX_AGE_DAYS,
-    SMTP2GO_API_KEY: process.env.SMTP2GO_API_KEY,
     STRIPE_ENDPOINT_SECRET: process.env.STRIPE_ENDPOINT_SECRET,
     STRIPE_SECRET_API_KEY: process.env.STRIPE_SECRET_API_KEY,
     public: {
