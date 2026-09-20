@@ -709,6 +709,204 @@ useSeoMeta({
         <tbody>
           <tr>
             <td>
+              CCINP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2024-pc-ccinp-sujet-physique.pdf"
+                target="_blank"
+              >
+                Sujet physique
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2024-pc-ccinp-rapport-physique.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2024-pc-ccinp-sujet-chimie.pdf"
+                target="_blank"
+              >
+                Sujet chimie
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2024-pc-ccinp-rapport-chimie.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              CCINP / e3a-Polytech
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2024-pc-ccinp-e3a-polytech-sujet-modelisation.pdf"
+                target="_blank"
+              >
+                Sujet modélisation
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2024-pc-ccinp-e3a-polytech-rapport-modelisation.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              CCMP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2024-pc-ccmp-sujet-physique-1.pdf"
+                target="_blank"
+              >
+                Sujet physique 1
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2024-pc-ccmp-rapport-physique-1.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2024-pc-ccmp-sujet-physique-2.pdf"
+                target="_blank"
+              >
+                Sujet physique 2
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2024-pc-ccmp-rapport-physique-2.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2024-pc-ccmp-sujet-chimie.pdf"
+                target="_blank"
+              >
+                Sujet chimie
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2024-pc-ccmp-rapport-chimie.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              CCS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2024-pc-ccs-sujet-physique-1.pdf"
+                target="_blank"
+              >
+                Sujet physique 1
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2024-pc-ccs-rapport-physique-1.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2024-pc-ccs-sujet-physique-2.pdf"
+                target="_blank"
+              >
+                Sujet physique 2
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2024-pc-ccs-rapport-physique-2.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2024-pc-ccs-sujet-chimie.pdf"
+                target="_blank"
+              >
+                Sujet chimie
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2024-pc-ccs-rapport-chimie.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              e3a-Polytech
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2024-pc-e3a-polytech-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2024-pc-e3a-polytech-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2024-pc-e3a-polytech-corrige.pdf"
+                target="_blank"
+              >
+                Corrigé
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
               X / ESPCI
             </td>
             <td>
@@ -723,6 +921,44 @@ useSeoMeta({
               <ULink
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-physique-chimie-2024-pc-x-espci-rapport-physique-a.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              ENS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2024-pc-ens-sujet-physique-c.pdf"
+                target="_blank"
+              >
+                Sujet physique C
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2024-pc-ens-rapport-physique-c.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2024-pc-ens-sujet-chimie-b.pdf"
+                target="_blank"
+              >
+                Sujet chimie B
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2024-pc-ens-rapport-chimie-b.pdf"
                 target="_blank"
               >
                 Rapport
