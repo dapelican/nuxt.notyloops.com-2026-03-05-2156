@@ -108,5 +108,63 @@ useSeoMeta({
         </ULink> -->
       </li>
     </ul>
+
+    <h2 class="mt-8">
+      2025
+    </h2>
+
+    <ul class="list-disc list-inside">
+      <li>
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/cpge-mathematiques-2025-pt-sujet-a.pdf"
+          target="_blank"
+        >
+          Sujet A
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/cpge-mathematiques-2025-pt-rapport-a.pdf"
+          target="_blank"
+        >
+          Rapport
+        </ULink>
+      </li>
+      <li>
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/cpge-mathematiques-2025-pt-sujet-b.pdf"
+          target="_blank"
+        >
+          Sujet B
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/cpge-mathematiques-2025-pt-rapport-b.pdf"
+          target="_blank"
+        >
+          Rapport
+        </ULink>
+      </li>
+      <li>
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/cpge-mathematiques-2025-pt-sujet-c.pdf"
+          target="_blank"
+        >
+          Sujet C
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="https://annales.notyloops.com/cpge-mathematiques-2025-pt-rapport-c.pdf"
+          target="_blank"
+        >
+          Rapport
+        </ULink>
+      </li>
+    </ul>
   </UContainer>
 </template>

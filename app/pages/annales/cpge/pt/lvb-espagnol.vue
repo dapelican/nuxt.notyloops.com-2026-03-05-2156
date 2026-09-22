@@ -1,7 +1,7 @@
 <script setup>
-const page_title = 'Annales prépa PT : informatique et modélisation';
+const page_title = 'Annales prépa PT : LVB espagnol';
 
-let meta_description = 'Les annales de informatique et modélisation pour les CPGE PT.';
+let meta_description = 'Les annales de LVB espagnol pour les CPGE PT.';
 meta_description += ' Les sujets et rapports des dernières années.';
 
 const breadcrumb_items = [
@@ -21,7 +21,7 @@ const breadcrumb_items = [
     url: 'https://fr.notyloops.com/annales/cpge/pt',
   },
   {
-    label: 'Informatique et modélisation',
+    label: 'LVB espagnol',
   },
 ];
 
@@ -40,7 +40,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <!-- app/pages/annales/cpge/pt/informatique-modelisation.vue -->
+  <!-- app/pages/annales/cpge/pt/lvb.vue -->
   <UContainer class="max-w-xl">
     <UBreadcrumb
       class="mb-8"
@@ -48,7 +48,7 @@ useSeoMeta({
     />
 
     <h1>
-      Annales CPGE PT : informatique et modélisation
+      Annales CPGE PT : LVB espagnol
     </h1>
 
     <figure class="mt-8">
@@ -71,7 +71,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-informatique-modelisation-2026-pt-sujet.pdf"
+                to="https://annales.notyloops.com/cpge-lvb-2026-pt-sujet.pdf"
                 target="_blank"
               >
                 Sujet
@@ -79,7 +79,7 @@ useSeoMeta({
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-informatique-modelisation-2026-pt-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-lvb-2026-pt-rapport-espagnol.pdf"
                 target="_blank"
               >
                 Rapport
@@ -93,7 +93,7 @@ useSeoMeta({
             <td>
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-informatique-modelisation-2025-pt-sujet.pdf"
+                to="https://annales.notyloops.com/cpge-lvb-2025-pt-sujet.pdf"
                 target="_blank"
               >
                 Sujet
@@ -101,29 +101,7 @@ useSeoMeta({
               |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-informatique-modelisation-2025-pt-rapport.pdf"
-                target="_blank"
-              >
-                Rapport
-              </ULink>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              2024
-            </td>
-            <td>
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-informatique-modelisation-2024-pt-sujet.pdf"
-                target="_blank"
-              >
-                Sujet
-              </ULink>
-              |
-              <ULink
-                class="text-primary"
-                to="https://annales.notyloops.com/cpge-informatique-modelisation-2024-pt-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-lvb-2025-pt-rapport-espagnol.pdf"
                 target="_blank"
               >
                 Rapport

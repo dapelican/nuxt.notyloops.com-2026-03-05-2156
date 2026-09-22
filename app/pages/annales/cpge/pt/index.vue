@@ -103,11 +103,40 @@ useSeoMeta({
         </ULink>
       </li>
       <li>
+        LVB :
         <ULink
           class="text-primary"
-          to="/annales/cpge/pt/lvb"
+          to="/annales/cpge/pt/lvb-allemand"
         >
-          LVB
+          allemand
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/pt/lvb-anglais"
+        >
+          anglais
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/pt/lvb-arabe"
+        >
+          arabe
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/pt/lvb-espagnol"
+        >
+          espagnol
+        </ULink>
+        |
+        <ULink
+          class="text-primary"
+          to="/annales/cpge/pt/lvb-italien"
+        >
+          italien
         </ULink>
       </li>
       <li>

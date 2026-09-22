@@ -1,7 +1,7 @@
 <script setup>
-const page_title = 'Annales prépa PT : LVB';
+const page_title = 'Annales prépa PT : LVB arabe';
 
-let meta_description = 'Les annales de LVB pour les CPGE PT.';
+let meta_description = 'Les annales de LVB arabe pour les CPGE PT.';
 meta_description += ' Les sujets et rapports des dernières années.';
 
 const breadcrumb_items = [
@@ -21,7 +21,7 @@ const breadcrumb_items = [
     url: 'https://fr.notyloops.com/annales/cpge/pt',
   },
   {
-    label: 'LVB',
+    label: 'LVB arabe',
   },
 ];
 
@@ -40,7 +40,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <!-- app/pages/annales/cpge/pt/lvb.vue -->
+  <!-- app/pages/annales/cpge/pt/lvb-arabe.vue -->
   <UContainer class="max-w-xl">
     <UBreadcrumb
       class="mb-8"
@@ -48,7 +48,7 @@ useSeoMeta({
     />
 
     <h1>
-      Annales CPGE PT : LVB
+      Annales CPGE PT : LVB arabe
     </h1>
 
     <figure class="mt-8">
@@ -79,11 +79,33 @@ useSeoMeta({
               <!-- |
               <ULink
                 class="text-primary"
-                to="https://annales.notyloops.com/cpge-lvb-2026-pt-rapport.pdf"
+                to="https://annales.notyloops.com/cpge-lvb-2026-pt-rapport-arabe.pdf"
                 target="_blank"
               >
                 Rapport
               </ULink> -->
+            </td>
+          </tr>
+          <tr>
+            <td>
+              2025
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-lvb-2025-pt-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-lvb-2025-pt-rapport-arabe.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
             </td>
           </tr>
         </tbody>
