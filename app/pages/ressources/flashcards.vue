@@ -287,7 +287,7 @@ useSeoMeta({
     <p class="mt-4">
       Les fiches physiques permettent de créer tout type de flashcard,
       mais elles présentent un inconvénient majeur :
-      il est difficile de simuler des révisions au hasard et de suivre la maîtrisede chaque fiche.
+      il est difficile de simuler des révisions au hasard et de suivre la maîtrise de chaque fiche.
       Inconvénient qui n'existe pas pour les flashcards digitales.
     </p>
 

@@ -52,7 +52,8 @@ useSeoMeta({
           rel="noopener noreferrer"
           class="text-primary"
         >Learning how to learn</ULink>, de Barbara Oakley.
-        Il s'agit d'un cours en ligne gratuit (en anglais) dispensé sur le site Coursera.
+        Il s'agit d'un cours en ligne gratuit (originellement en anglais, mais disponible dans 25 langues)
+        dispensé sur le site Coursera.
         C'est le cours le plus populaire de la plateforme
         et il constitue une bonne introduction à l'apprentissage.
       </li>

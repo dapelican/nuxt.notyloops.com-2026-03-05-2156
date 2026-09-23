@@ -33,6 +33,12 @@ useSeoMeta({
           to="/ressources/flashcards"
         >Pourquoi utiliser absolument les flashcards ?</ULink>
       </li>
+      <li>
+        <ULink
+          class="text-primary"
+          to="/ressources/enrichir-son-vocabulaire"
+        >Comment enrichir son vocabulaire ?</ULink>
+      </li>
     </ol>
 
     <h2 class="mt-8">
