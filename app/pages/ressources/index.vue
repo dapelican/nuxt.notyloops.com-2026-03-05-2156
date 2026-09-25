@@ -21,28 +21,47 @@ useSeoMeta({
     </h2>
 
     <ol class="list-decimal list-inside">
-      <li>
+      <!-- <li>
         <ULink
           class="text-primary"
           to="/ressources/apprendre-a-apprendre"
         >Apprendre à apprendre</ULink>
-      </li>
+      </li> -->
       <li>
         <ULink
           class="text-primary"
           to="/ressources/flashcards"
         >Pourquoi utiliser absolument les flashcards ?</ULink>
       </li>
+    </ol>
+
+    <h2 class="mt-8">
+      Français
+    </h2>
+
+    <ol class="list-decimal list-inside">
       <li>
         <ULink
           class="text-primary"
           to="/ressources/enrichir-son-vocabulaire"
         >Comment enrichir son vocabulaire ?</ULink>
       </li>
+      <li>
+        <ULink
+          class="text-primary"
+          to="/pc/01a070cc-3c7a-7bba-a424-070b4413aab4"
+        >La liste de mots NotyLoops</ULink>
+      </li>
+      <li>
+        <ULink
+          class="text-primary"
+          to="/ressources/champs-lexicaux"
+        >Quelques champs lexicaux</ULink>
+      </li>
     </ol>
 
     <h2 class="mt-8">
-      NotyLoops
+      Utiliser NotyLoops
     </h2>
 
     <ul class="list-disc list-inside">
@@ -58,49 +77,49 @@ useSeoMeta({
           to="/ressources/strategies-de-revision"
         >Les stratégies de révision sur NotyLoops</ULink>
       </li>
-      <li>
+      <!-- <li>
         Comment créer des flashcards sur NotyLoops? (vidéo)
-        <!-- <ULink
+        <ULink
           class="text-primary"
           to="/ressources/markdown"
-        >Comment créer des flashcards ? (vidéo)</ULink> -->
+        >Comment créer des flashcards ? (vidéo)</ULink>
       </li>
       <li>
         Utiliser du markdown dans les notes
-        <!-- <ULink
+        <ULink
           class="text-primary"
           to="/ressources/markdown"
-        >Utiliser du markdown dans les notes</ULink> -->
+        >Utiliser du markdown dans les notes</ULink>
       </li>
       <li>
         Comment ajouter du langage informatique ?
-        <!-- <ULink
+        <ULink
           class="text-primary"
           to="/ressources/langage-informatique"
-        >Comment ajouter du langage informatique ?</ULink> -->
+        >Comment ajouter du langage informatique ?</ULink>
       </li>
       <li>
         Comment ajouter des formules mathématiques ?
-        <!-- <ULink
+        <ULink
           class="text-primary"
           to="/ressources/formules-mathematiques"
-        >Comment ajouter des formules mathématiques ?</ULink> -->
+        >Comment ajouter des formules mathématiques ?</ULink>
       </li>
       <li>
         Comment créer des flashcards de vocabulaire en langue étrangère ? (vidéo)
-        <!-- <ULink
+        <ULink
           class="text-primary"
           to="/ressources/formules-mathematiques"
-        >Comment créer des notes pour l'apprentissage de langue étrangère ?</ULink> -->
+        >Comment créer des notes pour l'apprentissage de langue étrangère ?</ULink>
       </li>
 
       <li>
         Comment sélectionner les notes à réviser ?
-        <!-- <ULink
+        <ULink
           class="text-primary"
           to="/ressources/selection-des-notes"
-        >Comment sélectionner les notes à réviser ?</ULink> -->
-      </li>
+        >Comment sélectionner les notes à réviser ?</ULink>
+      </li> -->
     </ul>
   </UContainer>
 </template>

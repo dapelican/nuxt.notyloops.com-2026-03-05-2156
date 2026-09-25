@@ -270,18 +270,13 @@ useSeoMeta({
         target="_blank"
         rel="noopener noreferrer"
         class="text-primary"
-      >la marque Exacompta</ULink>.
-      Ce sont des fiches blanches à petits carreaux, non perforées et à bouts droits.
-    </p>
-
-    <p class="mt-4">
-      Pour des fiches plus modernes, pouvant être facilement numérisées via smartphone grâce à l'application Scribzee,
-      vous pouvez opter pour <ULink
+      >des fiches à bouts droits</ULink>
+      ou des <ULink
         to="https://www.amazon.fr/Oxford-R%C3%A9vision-Fiches-bristol-carreaux/dp/B081KG4NXS/"
         target="_blank"
         rel="noopener noreferrer"
         class="text-primary"
-      >les fiches A5 petits carreaux de la marque Oxford</ULink>.
+      >fiches à bouts arrondis</ULink> (qui s'abîment moins facilement).
     </p>
 
     <p class="mt-4">

@@ -69,9 +69,13 @@ useSeoMeta({
         en explorant des listes de mots déjà faites.
         Le plus difficile est de trouver de "bonnes listes", c'est-à-dire des listes proposant
         du vocabulaire soutenu ou littéraire, sans être trop spécifique à un domaine ni trop technique.
-        Sur NotyLoops, nous proposons plusieurs listes qui vont dans ce sens.
         C'est une méthode assez "brute", mais c'est la plus rapide
         pour enrichir significativement son vocabulaire.
+        A ce titre, vous pouvez utiliser <ULink
+          class="text-primary"
+          to="/pc/01a070cc-3c7a-7bba-a424-070b4413aab4"
+          target="_blank"
+        >la liste de mots NotyLoops</ULink>, qui est une liste de flashcards déjà prêtes à l'emploi.
       </li>
       <li>
         <span class="underline">2ème technique</span> :
@@ -79,10 +83,15 @@ useSeoMeta({
         De cette façon, on se crée soi-même un champ lexical
         et on apprend de nouveaux mots en liaison avec des mots qui nous sont déjà familiers.
         C'est la technique parfaitement complémentaire à la technique précédente.
+        Vous pouvez vous servir de ces <ULink
+          class="text-primary"
+          to="/ressources/champs-lexicaux"
+        >champs lexicaux</ULink> comme point de départ.
       </li>
       <li>
         <span class="underline">3ème technique</span> :
-        en lisant (beaucoup) de livres. Idéalement des romans de la littérature française et des essais.
+        en lisant (beaucoup). C'est la technique à laquelle on pense en premier car c'est la plus naturelle.
+        Idéalement lire beaucoup de romans de la littérature française et des essais.
         Avantage : on découvre les mots dans leurs contextes, employés dans des phrases originales et authentiques,
         qui peuvent servir d'exemples précis et variés.
         Inconvénient : cette technique a un "rendement" bien plus faible que les 2 techniques précédentes,
@@ -97,37 +106,16 @@ useSeoMeta({
     <ol class="list-inside space-y-4">
       <li>
         <span class="underline">1ère technique</span> :
-        en les notant avec leurs sens et des exemples et en se testant à les retrouver.
-        Pour cela, vous aurez besoin d'un dictionnaire en ligne (plus pratique qu'un dictionnaire papier)
-        et d'une application vous permettant de revoir les mots en utilisant la répétition espacée avec du hasard.
-        Pour les exemples, vous pouvez utiliser les IA génératives (ChatGPT, Claude, etc.),
-        en gardant bien sûr un esprit critique.
-        Pour le dictionnaire en ligne, nous vous conseillons
-        <ULink
-          class="text-primary"
-          to="https://dictionnaire.lerobert.com/"
-          target="_blank"
-        >Le Robert</ULink> et <ULink
-          class="text-primary"
-          to="https://dicode.fr/dictionnaire/"
-          target="_blank"
-        >Dicode</ULink>.
-        Pour l'application de répétition espacée avec hasard, nous vous conseillons
-        <ULink
+        en se testant à les retrouver à partir de leur sens.
+        Pour cela, le plus pratique est d'utiliser la statégie de révision en répétition espacée
+        dans une application de <ULink
           class="text-primary"
           to="/"
           target="_blank"
-        >NotyLoops</ULink>, qui a spécifiquement conçue pour cela.
+        >flashcards</ULink>.
       </li>
       <li>
         <span class="underline">2ème technique</span> :
-        en recréant de mémoire un champ lexical.
-        A partir d'un mot précis, vous notez sur une feuille blanche les mots qui lui sont synonymes, antonymes
-        ou qui ont la même racine.
-        Cet exercice est plus efficace si l'on dispose déjà d'une liste de mots appartenant au même champ lexical.
-      </li>
-      <li>
-        <span class="underline">3ème technique</span> :
         en se forçant à les réutiliser à l'écrit ou à l'oral.
         Technique beaucoup plus difficle à exécuter, car cela présuppose d'avoir
         en mémoire immédiate les mots que l'on souhaite utiliser.

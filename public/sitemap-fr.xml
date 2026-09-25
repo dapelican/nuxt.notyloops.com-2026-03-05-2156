@@ -250,6 +250,7 @@
 <url><loc>https://fr.notyloops.com/annales/cpge/psi/modelisation</loc></url>
 <url><loc>https://fr.notyloops.com/annales/cpge/psi/physique-chimie</loc></url>
 <url><loc>https://fr.notyloops.com/annales/cpge/psi/si</loc></url>
+<url><loc>https://fr.notyloops.com/annales/cpge/pt</loc></url>
 <url><loc>https://fr.notyloops.com/annales/cpge/pt/francais-philosophie</loc></url>
 <url><loc>https://fr.notyloops.com/annales/cpge/pt/informatique-modelisation</loc></url>
 <url><loc>https://fr.notyloops.com/annales/cpge/pt/lva-allemand</loc></url>
@@ -257,7 +258,11 @@
 <url><loc>https://fr.notyloops.com/annales/cpge/pt/lva-arabe</loc></url>
 <url><loc>https://fr.notyloops.com/annales/cpge/pt/lva-espagnol</loc></url>
 <url><loc>https://fr.notyloops.com/annales/cpge/pt/lva-italien</loc></url>
-<url><loc>https://fr.notyloops.com/annales/cpge/pt/lvb</loc></url>
+<url><loc>https://fr.notyloops.com/annales/cpge/pt/lvb-allemand</loc></url>
+<url><loc>https://fr.notyloops.com/annales/cpge/pt/lvb-anglais</loc></url>
+<url><loc>https://fr.notyloops.com/annales/cpge/pt/lvb-arabe</loc></url>
+<url><loc>https://fr.notyloops.com/annales/cpge/pt/lvb-espagnol</loc></url>
+<url><loc>https://fr.notyloops.com/annales/cpge/pt/lvb-italien</loc></url>
 <url><loc>https://fr.notyloops.com/annales/cpge/pt/mathematiques</loc></url>
 <url><loc>https://fr.notyloops.com/annales/cpge/pt/physique-chimie</loc></url>
 <url><loc>https://fr.notyloops.com/annales/cpge/pt/sciences-industrielles</loc></url>
@@ -275,6 +280,6 @@
 <url><loc>https://fr.notyloops.com/annales/cpge/tsi/modelisation</loc></url>
 <url><loc>https://fr.notyloops.com/annales/cpge/tsi/physique-chimie</loc></url>
 <url><loc>https://fr.notyloops.com/annales/cpge/tsi/si</loc></url>
-<url><loc>https://fr.notyloops.com/annales/tescia</loc></url>
 <url><loc>https://fr.notyloops.com/annales/medecine-dentisterie-wallonie-bruxelles</loc></url>
+<url><loc>https://fr.notyloops.com/annales/tescia</loc></url>
 </urlset>

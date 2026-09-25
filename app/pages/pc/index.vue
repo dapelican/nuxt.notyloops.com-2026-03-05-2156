@@ -21,7 +21,7 @@ const { locale } = useI18n();
           to="/pc/01a070cc-3c7a-7bba-a424-070b4413aab4"
         >Français</ULink>
       </li>
-      <li>
+      <!-- <li>
         <ULink
           class="text-primary"
           to="/pc/019e9c1d-a281-720b-857f-608257e5060b"
@@ -77,7 +77,7 @@ const { locale } = useI18n();
           to="/pc/019e9c17-5004-71c7-bbf9-bbc5e4af79ed"
         >Le secret au quotidien, de Rhonda Byrnes</ULink>
         <span>({{ $t('t_paid') }})</span>
-      </li>
+      </li> -->
     </ul>
 
     <!-- local library -->
