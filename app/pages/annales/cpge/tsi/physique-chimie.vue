@@ -220,5 +220,86 @@ useSeoMeta({
         </tbody>
       </table>
     </figure>
+
+    <h2 class="mt-12">
+      2024
+    </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              CCINP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2024-tsi-ccinp-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2024-tsi-ccinp-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              CCS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2024-tsi-ccs-sujet-1.pdf"
+                target="_blank"
+              >
+                Sujet 1
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2024-tsi-ccs-rapport-1.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2024-tsi-ccs-sujet-2.pdf"
+                target="_blank"
+              >
+                Sujet 2
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-physique-chimie-2024-tsi-ccs-rapport-2.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
   </UContainer>
 </template>

@@ -196,5 +196,70 @@ useSeoMeta({
         </tbody>
       </table>
     </figure>
+
+    <h2 class="mt-12">
+      2024
+    </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              CCINP
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-si-2024-tsi-ccinp-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-si-2024-tsi-ccinp-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              CCS
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-si-2024-tsi-ccs-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-si-2024-tsi-ccs-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
   </UContainer>
 </template>
