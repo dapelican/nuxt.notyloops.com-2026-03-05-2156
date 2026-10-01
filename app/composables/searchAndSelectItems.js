@@ -387,7 +387,7 @@ export const useSearchAndSelectItems = (key) => {
     search_criteria_term.value = '';
 
     if (key === ITEM_TYPE_COLLECTION) {
-      sort_option.value = 'title:asc';
+      sort_option.value = 'created_at:desc';
 
       if (page_number.value === 1) {
         searchItems();
@@ -402,7 +402,7 @@ export const useSearchAndSelectItems = (key) => {
       search_criteria_inclusion_type.value = 'AND';
       search_criteria_exclusion_type.value = 'OR';
 
-      sort_option.value = 'title:asc';
+      sort_option.value = 'created_at:desc';
 
       if (page_number.value === 1) {
         searchItems();
@@ -412,7 +412,7 @@ export const useSearchAndSelectItems = (key) => {
     }
 
     if (key === ITEM_TYPE_TAG) {
-      sort_option.value = 'label:asc';
+      sort_option.value = 'created_at:desc';
       if (page_number.value === 1) {
         searchItems();
       } else {
