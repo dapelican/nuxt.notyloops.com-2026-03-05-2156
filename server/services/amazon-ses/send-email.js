@@ -90,7 +90,7 @@ const sendEmail = async (input) => {
       },
     },
     Destination: destination,
-    FromEmailAddress: 'support@notyloops.com',
+    FromEmailAddress: 'NotyLoops <support@notyloops.com>',
   };
 
   const body = JSON.stringify(data);
