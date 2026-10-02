@@ -125,6 +125,16 @@ const sort_option_list = [
     value: 'updated_at:asc',
   },
   {
+    id: 'last_review_date:desc',
+    label: t('t_last_review_date_from_newest_to_oldest'),
+    value: 'last_review_date:desc',
+  },
+  {
+    id: 'last_review_date:asc',
+    label: t('t_last_review_date_from_oldest_to_newest'),
+    value: 'last_review_date:asc',
+  },
+  {
     id: 'score:asc',
     label: t('t_score_from_lowest_to_highest'),
     value: 'score:asc',

@@ -154,6 +154,8 @@
   "t_last_7_days": "7 derniers jours",
   "t_last_30_days": "30 derniers jours",
   "t_last_90_days": "90 derniers jours",
+  "t_last_review_date_from_newest_to_oldest": "Par date de dernière révision, de la plus récente à la plus ancienne",
+  "t_last_review_date_from_oldest_to_newest": "Par date de dernière révision, de la plus ancienne à la plus récente",
   "t_last_revision_at_with_colon": "Dernière révision : ",
   "t_library": "Bibliothèque",
   "t_limited_feature_title": "Fonctionnalité premium",
