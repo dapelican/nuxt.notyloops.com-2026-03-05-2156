@@ -233,13 +233,14 @@ useSeoMeta({
                 Sujet
               </ULink>
               |
-              <ULink
+              Rapport
+              <!-- <ULink
                 class="text-primary"
                 to="https://annales.notyloops.com/cpge-lva-2023-ec-iena-rapport-portugais.pdf"
                 target="_blank"
               >
                 Rapport
-              </ULink>
+              </ULink> -->
             </td>
           </tr>
         </tbody>
