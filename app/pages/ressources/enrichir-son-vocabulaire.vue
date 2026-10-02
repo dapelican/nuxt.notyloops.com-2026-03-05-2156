@@ -108,11 +108,35 @@ useSeoMeta({
         <span class="underline">1ère technique</span> :
         en se testant à les retrouver à partir de leur sens.
         Pour cela, le plus pratique est d'utiliser la statégie de révision en répétition espacée
-        dans une application de <ULink
+        dans une application de
+        <ULink
           class="text-primary"
           to="/"
           target="_blank"
         >flashcards</ULink>.
+        Pour avoir les définitions des mots,
+        on peut utiliser des dictionnaires en ligne comme
+        <ULink
+          class="text-primary"
+          to="https://dictionnaire.lerobert.com/"
+          target="_blank"
+        >Le Robert</ULink>,
+        le
+        <ULink
+          class="text-primary"
+          to="https://www.dictionnaire-academie.fr/"
+          target="_blank"
+        >Dictionnaire de l'Académie française</ULink>,
+        <ULink
+          class="text-primary"
+          to="https://www.larousse.fr/dictionnaires/francais/"
+          target="_blank"
+        >Larousse</ULink> ou
+        <ULink
+          class="text-primary"
+          to="/"
+          target="_blank"
+        >Dicode</ULink>.
       </li>
       <li>
         <span class="underline">2ème technique</span> :

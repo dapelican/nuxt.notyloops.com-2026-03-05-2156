@@ -49,7 +49,8 @@ useSeoMeta({
       <li>
         <ULink
           class="text-primary"
-          to="/pc/01a070cc-3c7a-7bba-a424-070b4413aab4"
+          to="https://fr.notyloops.com/pc/01a070cc-3c7a-7bba-a424-070b4413aab4"
+          target="_blank"
         >La liste de mots NotyLoops</ULink>
       </li>
       <li>

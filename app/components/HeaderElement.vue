@@ -72,6 +72,11 @@ const private_items = computed(() => [
     label: $t('t_statistics'),
     to: '/statistics',
   },
+  {
+    active: route.path.startsWith('/ressources'),
+    label: $t('t_ressources'),
+    to: '/ressources',
+  },
   // {
   //   active: route.path.startsWith('/pc'),
   //   label: $t('t_library'),

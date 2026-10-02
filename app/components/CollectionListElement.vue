@@ -306,12 +306,13 @@ const user_can_review_notes = computed(() => {
 
         <section v-if="item.type !== COLLECTION_TYPE_PRIVATE">
           {{ $t('t_public_url_with_column') }}
-          <NuxtLink
+          <ULink
             class="text-primary"
             :to="`/pc/${item.id}`"
+            target="_blank"
           >
             {{ `/pc/${item.id}` }}
-          </NuxtLink>
+          </ULink>
         </section>
       </main>
     </UCard>

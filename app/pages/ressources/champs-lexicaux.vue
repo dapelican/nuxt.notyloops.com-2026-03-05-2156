@@ -2417,9 +2417,6 @@ useSeoMeta({
         Stigmatiser.
       </li>
       <li>
-        Vaticination.
-      </li>
-      <li>
         Vilipender.
       </li>
       <li>
@@ -2619,6 +2616,9 @@ useSeoMeta({
       </li>
       <li>
         Truisme.
+      </li>
+      <li>
+        Vaticination.
       </li>
       <li>
         Verbeux, verbiage.
@@ -3357,6 +3357,190 @@ useSeoMeta({
       </li>
       <li>
         Relent.
+      </li>
+    </ul>
+
+    <h2 class="mt-8">
+      Les peurs
+    </h2>
+
+    <ul class="list-disc list-inside">
+      <li>
+        Acrophobie.
+      </li>
+      <li>
+        Aérophobie.
+      </li>
+      <li>
+        Agoraphobie.
+      </li>
+      <li>
+        Ailurophobie.
+      </li>
+      <li>
+        Algophobie.
+      </li>
+      <li>
+        Anglophobie.
+      </li>
+      <li>
+        Anthropophobie.
+      </li>
+      <li>
+        Apiphobie.
+      </li>
+      <li>
+        Aquaphobie.
+      </li>
+      <li>
+        Arachnophobie.
+      </li>
+      <li>
+        Astraphobie.
+      </li>
+      <li>
+        Autophobie.
+      </li>
+      <li>
+        Aviophobie.
+      </li>
+      <li>
+        Bacillophobie.
+      </li>
+      <li>
+        Bathophobie.
+      </li>
+      <li>
+        Brontophobie.
+      </li>
+      <li>
+        Carcinophobie.
+      </li>
+      <li>
+        Claustrophobie.
+      </li>
+      <li>
+        Coulrophobie.
+      </li>
+      <li>
+        Cynophobie.
+      </li>
+      <li>
+        Démonophobie.
+      </li>
+      <li>
+        Dentophobie.
+      </li>
+      <li>
+        Dysmorphophobie.
+      </li>
+      <li>
+        Émétophobie.
+      </li>
+      <li>
+        Entomophobie.
+      </li>
+      <li>
+        Éreutophobie.
+      </li>
+      <li>
+        Ergophobie.
+      </li>
+      <li>
+        Francophobie.
+      </li>
+      <li>
+        Germanophobie.
+      </li>
+      <li>
+        Glossophobie.
+      </li>
+      <li>
+        Gynophobie.
+      </li>
+      <li>
+        Haptophobie.
+      </li>
+      <li>
+        Hématophobie.
+      </li>
+      <li>
+        Héliophobie.
+      </li>
+      <li>
+        Homophobie.
+      </li>
+      <li>
+        Hydrophobie.
+      </li>
+      <li>
+        Kénophobie.
+      </li>
+      <li>
+        Mysophobie.
+      </li>
+      <li>
+        Nécrophobie.
+      </li>
+      <li>
+        Nosophobie.
+      </li>
+      <li>
+        Nyctophobie.
+      </li>
+      <li>
+        Ochlophobie.
+      </li>
+      <li>
+        Ophiophobie.
+      </li>
+      <li>
+        Ornithophobie.
+      </li>
+      <li>
+        Phagophobie.
+      </li>
+      <li>
+        Phobie, phobique.
+      </li>
+      <li>
+        Phonophobie.
+      </li>
+      <li>
+        Photophobie.
+      </li>
+      <li>
+        Pyrophobie.
+      </li>
+      <li>
+        Scolionophobie.
+      </li>
+      <li>
+        Sociophobie.
+      </li>
+      <li>
+        Spectrophobie.
+      </li>
+      <li>
+        Thalassophobie.
+      </li>
+      <li>
+        Thanatophobie.
+      </li>
+      <li>
+        Théophobie.
+      </li>
+      <li>
+        Tokophobie.
+      </li>
+      <li>
+        Trypanophobie.
+      </li>
+      <li>
+        Xénophobie.
+      </li>
+      <li>
+        Zoophobie.
       </li>
     </ul>
 
