@@ -299,6 +299,7 @@ const computed_details = computed(() => {
       available_mc_parts,
       mc_parts_before_is_correct: available_mc_parts.filter((part) => part < 2),
       show_mc_part_2_checkbox: available_mc_parts.includes(2),
+      mc_part_2_number: resolved_mc_parts.slice(0, index).filter((part) => part === 2).length + 1,
       mc_parts_after_is_correct: available_mc_parts.filter((part) => part > 2),
       mc_part_disabled: index === 0,
       show_is_correct: mc_part === 2,
@@ -467,7 +468,7 @@ const createNote = async () => {
                 v-if="detail.show_mc_part_2_checkbox"
                 :model-value="detail.mc_part === 2"
                 :disabled="detail.mc_part_disabled"
-                :label="$t('t_part_2')"
+                :label="`${$t('t_part_2')} ${detail.mc_part_2_number}`"
                 :ui="detail.mc_part_disabled ? disabled_checkbox_ui : checkbox_ui"
                 @update:model-value="(checked) => checked && setMcPart(index, 2)"
               />

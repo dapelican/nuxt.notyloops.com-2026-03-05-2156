@@ -333,6 +333,7 @@ const computed_details = computed(() => {
 
   return details.map((detail, index) => {
     const mc_part = resolved_mc_parts[index];
+    const proposition_number = sub_counters[2] + 1;
     sub_counters[mc_part] += 1;
 
     const prev_part = index > 0 ? resolved_mc_parts[index - 1] : 1;
@@ -349,6 +350,7 @@ const computed_details = computed(() => {
       available_mc_parts,
       mc_parts_before_is_correct: available_mc_parts.filter((part) => part < 2),
       show_mc_part_2_checkbox: available_mc_parts.includes(2),
+      proposition_number,
       mc_parts_after_is_correct: available_mc_parts.filter((part) => part > 2),
       mc_part_disabled: index === 0,
       show_is_correct: mc_part === 2,
@@ -514,7 +516,7 @@ const updateNote = async () => {
                 v-if="detail.show_mc_part_2_checkbox"
                 :model-value="detail.mc_part === 2"
                 :disabled="detail.mc_part_disabled"
-                :label="$t('t_part_2')"
+                :label="`${$t('t_part_2')} ${detail.proposition_number}`"
                 :ui="detail.mc_part_disabled ? disabled_checkbox_ui : checkbox_ui"
                 @update:model-value="(checked) => checked && setMcPart(index, 2)"
               />
