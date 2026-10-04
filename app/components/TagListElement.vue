@@ -52,12 +52,12 @@ const isItemSelected = (item_id) => selected_item_id_set.value.has(item_id);
       <main class="main">
         <section class="actions">
           <UButton
-            class="text-secondary"
             color="secondary"
+            icon="i-lucide-pencil"
             :to="`/manage-${ITEM_TYPE_TAG}s/edit/${item.id}?page_number=${page_number}`"
             variant="outline"
           >
-            {{ $t('t_edit') }}
+            <span class="desktop-only">{{ $t('t_edit') }}</span>
           </UButton>
 
           <DeleteTagPopup
@@ -78,6 +78,7 @@ const isItemSelected = (item_id) => selected_item_id_set.value.has(item_id);
 .actions {
   align-items: center;
   display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
 }
 

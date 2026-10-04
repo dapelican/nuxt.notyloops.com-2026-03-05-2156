@@ -324,6 +324,16 @@ const updateCollection = async () => {
             v-model="collection_form_state.review_strategy"
             :items="review_strategy_list"
           />
+
+          <template #help>
+            <ULink
+              :to="review_strategy_help_url"
+              target="_blank"
+              class="text-primary"
+            >
+              {{ $t('t_know_more_about_review_strategies') }}
+            </ULink>
+          </template>
         </UFormField>
 
         <UFormField

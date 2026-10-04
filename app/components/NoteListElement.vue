@@ -130,12 +130,12 @@ const calculateScore = (score, review_count) => {
       <main class="main">
         <section class="actions">
           <UButton
-            class="text-secondary"
             color="secondary"
+            icon="i-lucide-pencil"
             :to="`/manage-${ITEM_TYPE_NOTE}s/edit/${item.id}?page_number=${page_number}`"
             variant="outline"
           >
-            {{ $t('t_edit') }}
+            <span class="desktop-only">{{ $t('t_edit') }}</span>
           </UButton>
 
           <UButton
@@ -251,6 +251,7 @@ const calculateScore = (score, review_count) => {
 .actions {
   align-items: center;
   display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
 }
 

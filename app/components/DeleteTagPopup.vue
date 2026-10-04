@@ -61,9 +61,11 @@ const deleteTag = async () => {
     <section>
       <UButton
         color="error"
-        :label="$t('t_delete')"
+        icon="i-lucide-trash-2"
         variant="outline"
-      />
+      >
+        <span class="desktop-only">{{ $t('t_delete') }}</span>
+      </UButton>
     </section>
 
     <template #body>

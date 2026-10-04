@@ -200,16 +200,6 @@ const user_can_review_notes = computed(() => {
 
           <UButton
             color="secondary"
-            :disabled="is_exporting_collection_id === item.id"
-            icon="i-lucide-file-down"
-            variant="outline"
-            @click="exportCollection(item.id)"
-          >
-            <span class="desktop-only">{{ $t('t_export_collection') }}</span>
-          </UButton>
-
-          <UButton
-            color="secondary"
             icon="i-lucide-pencil"
             :to="`/manage-${ITEM_TYPE_COLLECTION}s/edit/${item.id}?page_number=${page_number}`"
             variant="outline"
@@ -226,6 +216,16 @@ const user_can_review_notes = computed(() => {
             @click="duplicateCollection(item.id)"
           >
             <span class="desktop-only">{{ $t('t_duplicate') }}</span>
+          </UButton>
+
+          <UButton
+            color="secondary"
+            :disabled="is_exporting_collection_id === item.id"
+            icon="i-lucide-file-down"
+            variant="outline"
+            @click="exportCollection(item.id)"
+          >
+            <span class="desktop-only">{{ $t('t_export_collection') }}</span>
           </UButton>
 
           <DeleteCollectionPopup
@@ -324,7 +324,7 @@ const user_can_review_notes = computed(() => {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .chevron-zone {
