@@ -58,14 +58,19 @@ const premium_status_expiration_date_fr = computed(() => {
 const modifying_email = ref(false);
 
 const email_form_state = reactive({
+  current_password: '',
   new_email: '',
 });
 
 const email_form_schema = z.object({
+  current_password: z.string(t('t_schema_error_empty_string'))
+    .min(1, t('t_schema_error_empty_string')),
   new_email: z.email(),
 });
 
 const email_form_error = ref('');
+
+const email_change_requested = ref(false);
 
 const handling_request_2 = ref(false);
 
@@ -76,12 +81,15 @@ const changeEmail = async (form) => {
     await $fetch('/a/change-email', {
       method: 'POST',
       body: {
-        current_email: current_email.value,
+        current_password: form.data.current_password,
         new_email: form.data.new_email,
       },
     });
 
-    return navigateTo('/a/log-in');
+    email_change_requested.value = true;
+    modifying_email.value = false;
+    email_form_state.current_password = '';
+    email_form_state.new_email = '';
   } catch (error) {
     const error_message = error?.data?.error_message;
 
@@ -89,8 +97,14 @@ const changeEmail = async (form) => {
       case 'error_invalid_email':
         email_form_error.value = t('t_error_invalid_email');
         break;
-      case 'error_email_already_in_use':
-        email_form_error.value = t('t_error_email_already_in_use');
+      case 'error_invalid_password':
+        email_form_error.value = t('t_error_invalid_password');
+        break;
+      case 'error_wrong_credentials':
+        email_form_error.value = t('t_error_wrong_credentials');
+        break;
+      case 'error_email_token_not_sent':
+        email_form_error.value = t('t_error_email_token_not_sent');
         break;
       default:
         handleFrontendError(null, error_message);
@@ -102,6 +116,7 @@ const changeEmail = async (form) => {
 };
 
 const resetEmailForm = () => {
+  email_form_state.current_password = '';
   email_form_state.new_email = '';
   email_form_error.value = '';
   modifying_email.value = false;
@@ -198,7 +213,20 @@ const resetPasswordForm = () => {
         {{ $t('t_email') }}
       </h2>
 
-      <section v-if="!modifying_email">
+      <section v-if="email_change_requested">
+        <p>
+          {{ current_email }}
+        </p>
+
+        <UAlert
+          class="mt-4"
+          color="info"
+          :description="$t('t_check_your_inbox_message')"
+          icon="i-lucide-info"
+        />
+      </section>
+
+      <section v-else-if="!modifying_email">
         <p>
           {{ current_email }}
         </p>
@@ -230,6 +258,13 @@ const resetPasswordForm = () => {
             class="input"
           />
         </UFormField>
+
+        <InputPasswordElement
+          v-model="email_form_state.current_password"
+          :label="$t('t_current_password')"
+          :disabled="handling_request_2"
+          name="current_password"
+        />
 
         <UAlert
           v-if="email_form_error"

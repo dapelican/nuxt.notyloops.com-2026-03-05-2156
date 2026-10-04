@@ -13,16 +13,16 @@ import {
 } from 'h3';
 
 import {
+  COLLECTION_TYPE_PRIVATE,
+} from '#shared/utils/constants.js';
+
+import {
   executeSQLQuery,
 } from '../../../database/query.js';
 
 import {
   handleBackendError,
 } from '../../../helpers/handle-backend-error.js';
-
-import {
-  sanitizeStoredHtml,
-} from '../../../helpers/sanitize-html.js';
 
 import {
   selectNoteIdListOnTagCriteria,
@@ -88,10 +88,7 @@ export default defineEventHandler(async (event) => {
     setResponseStatus(event, HTTP_CODE_200_OK);
 
     return {
-      collection: {
-        ...collection,
-        description: sanitizeStoredHtml(collection.description),
-      },
+      collection,
       collection_belongs_to_connected_user: user?.id && (collection?.user_id === user?.id),
       note_list,
     };

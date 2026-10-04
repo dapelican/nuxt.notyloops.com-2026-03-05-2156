@@ -69,7 +69,7 @@ if (collection_data.value) {
     : c.review_strategy === REVIEW_STRATEGY_DIARY
       ? false
       : c.track_scores;
-  collection_form_state.description = c.description;
+  collection_form_state.description = c.description_markdown ?? c.description_html ?? '';
   collection_form_state.pre_tax_price_in_cents = c.pre_tax_price_in_cents;
   collection_form_state.inclusion_type = c.inclusion_type ?? 'AND';
   collection_form_state.exclusion_type = c.exclusion_type ?? 'OR';
@@ -372,7 +372,7 @@ const updateCollection = async () => {
           v-if="user_status === USER_STATUS_ADMIN
             && [COLLECTION_TYPE_PUBLIC_FREE, COLLECTION_TYPE_PUBLIC_PAYWALLLED]
               .includes(collection_form_state.type)"
-          :label="`${$t('t_description')} (HTML)`"
+          :label="`${$t('t_description')} (Markdown or HTML)`"
           name="description"
         >
           <UTextarea

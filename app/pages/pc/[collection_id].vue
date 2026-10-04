@@ -120,10 +120,14 @@ const collection_price = computed(() => {
         <h1>{{ collection?.title }}</h1>
 
         <section
-          v-if="collection?.description"
+          v-if="collection?.description_markdown || collection?.description_html"
           class="mt-4"
-          v-html="collection?.description"
-        />
+        >
+          <MarkdownContent
+            :markdown="collection.description_markdown"
+            :html="collection.description_html"
+          />
+        </section>
 
         <hr class="separator-1">
 

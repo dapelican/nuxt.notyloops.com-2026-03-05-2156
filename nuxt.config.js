@@ -1,6 +1,10 @@
 'use strict';
 
 import {
+  SECURITY_ROUTE_RULES,
+} from './shared/security-headers.js';
+
+import {
   fileURLToPath,
 } from 'node:url';
 
@@ -71,8 +75,10 @@ export default defineNuxtConfig({
   alias: {
     '#shared': fileURLToPath(new URL('./shared', import.meta.url)),
   },
+  routeRules: SECURITY_ROUTE_RULES,
   compatibilityDate: '2026-03-05',
   nitro: {
+    routeRules: SECURITY_ROUTE_RULES,
     scanDirs: ['server/services'],
     experimental: {
       tasks: true,
@@ -81,6 +87,7 @@ export default defineNuxtConfig({
       '0 3 * * *': ['tasks:delete-notes-permanently'],
       '0 4 * * *': ['tasks:delete-unused-backblaze-files'],
       '0 5 * * *': ['tasks:send-email-to-extend-premium'],
+      '0 6 * * *': ['tasks:update-user-status'],
     },
   },
   eslint: {

@@ -13,7 +13,7 @@ const getLanguageFolder = (subdomain) => {
     return 'fr';
   }
 
-  return 'en';
+  return 'www';
 };
 
 const renderTemplate = async (template_name, subdomain, template_params) => {

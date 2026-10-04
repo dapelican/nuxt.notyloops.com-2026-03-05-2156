@@ -1,6 +1,6 @@
 'use strict';
 
-/* Markdown to HTML for persisted html_content only (no KaTeX). Math renders client-side from markdown_content (shared/render-note-markdown.js). */
+/* Markdown to HTML for persisted html_content and description_html only (no KaTeX). Math renders client-side from markdown (shared/render-note-markdown.js). */
 
 import {
   JSDOM,
@@ -12,23 +12,23 @@ import {
   marked,
 } from 'marked';
 
+import {
+  sanitizeNoteHtml,
+} from '#shared/note-html-policy.js';
+
 const dompurify = createDomPurify(new JSDOM().window);
 
-const sanitizeHtml = (input) => dompurify.sanitize(marked(input), {
-  ADD_ATTR: ['target'],
-});
+const sanitizeHtml = (input) => sanitizeNoteHtml(marked(input), dompurify);
 
-const sanitizeStoredHtml = (input) => {
-  if (input == null) {
+const sanitizeStoredNoteHtml = (input) => {
+  if (!input) {
     return null;
   }
 
-  return dompurify.sanitize(String(input), {
-    ADD_ATTR: ['target'],
-  });
+  return sanitizeNoteHtml(String(input), dompurify);
 };
 
 export {
   sanitizeHtml,
-  sanitizeStoredHtml,
+  sanitizeStoredNoteHtml,
 };

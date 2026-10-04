@@ -3,14 +3,17 @@
 import {
   HTTP_CODE_201_CREATED,
   HTTP_CODE_400_BAD_REQUEST,
-  HTTP_CODE_403_FORBIDDEN,
 } from '../../../helpers/http-status-codes.js';
 
-import { describe, expect, it, vi } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { createTestHandler } from '../create-test-handler.js';
 
 import handler from '../../../routes/a/send-token-to-validate-email.post.js';
+
+import {
+  sendEmail,
+} from '../../../services/amazon-ses/send-email.js';
 
 import { verifyEmail } from '../../../services/emailable/verify-email.js';
 
@@ -22,6 +25,12 @@ vi.mock('../../../services/emailable/verify-email.js', () => ({
   verifyEmail: vi.fn(() => Promise.resolve(true)),
 }));
 
+beforeEach(() => {
+  sendEmail.mockClear();
+  verifyEmail.mockClear();
+  verifyEmail.mockResolvedValue(true);
+});
+
 const request = createTestHandler('post', '/a/send-token-to-validate-email', handler);
 
 const post = (body) => request(new Request('http://localhost/a/send-token-to-validate-email', {
@@ -29,6 +38,10 @@ const post = (body) => request(new Request('http://localhost/a/send-token-to-val
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify(body),
 }));
+
+const SUCCESS_BODY = {
+  success: true,
+};
 
 describe('POST /a/send-token-to-validate-email', () => {
   it('returns 400 when email is invalid', async () => {
@@ -39,36 +52,44 @@ describe('POST /a/send-token-to-validate-email', () => {
     const data = await response.json();
 
     expect(data.error_message).toBe('error_invalid_email');
+    expect(sendEmail).not.toHaveBeenCalled();
+    expect(verifyEmail).not.toHaveBeenCalled();
   });
 
-  it('returns 403 when email belongs to a verified user', async () => {
+  it('returns 201 when email belongs to a verified user', async () => {
     const response = await post({ email: 'confirmed@example.com' });
 
-    expect(response.status).toBe(HTTP_CODE_403_FORBIDDEN);
+    expect(response.status).toBe(HTTP_CODE_201_CREATED);
 
     const data = await response.json();
 
-    expect(data.error_message).toBe('error_email_already_in_use');
+    expect(data).toEqual(SUCCESS_BODY);
+    expect(sendEmail).not.toHaveBeenCalled();
+    expect(verifyEmail).not.toHaveBeenCalled();
   });
 
-  it('returns 403 when a validation token was already sent recently', async () => {
+  it('returns 201 when a validation token was already sent recently', async () => {
     const response = await post({ email: 'unverified-active-token@example.com' });
 
-    expect(response.status).toBe(HTTP_CODE_403_FORBIDDEN);
+    expect(response.status).toBe(HTTP_CODE_201_CREATED);
 
     const data = await response.json();
 
-    expect(data.error_message).toBe('error_email_token_already_sent');
+    expect(data).toEqual(SUCCESS_BODY);
+    expect(sendEmail).not.toHaveBeenCalled();
+    expect(verifyEmail).not.toHaveBeenCalled();
   });
 
-  it('returns 403 when maximum retries are reached', async () => {
+  it('returns 201 when maximum retries are reached', async () => {
     const response = await post({ email: 'unverified-max-retries@example.com' });
 
-    expect(response.status).toBe(HTTP_CODE_403_FORBIDDEN);
+    expect(response.status).toBe(HTTP_CODE_201_CREATED);
 
     const data = await response.json();
 
-    expect(data.error_message).toBe('error_maximum_retries_reached');
+    expect(data).toEqual(SUCCESS_BODY);
+    expect(sendEmail).not.toHaveBeenCalled();
+    expect(verifyEmail).not.toHaveBeenCalled();
   });
 
   it('returns 201 when existing unverified user retries after token expired', async () => {
@@ -78,9 +99,9 @@ describe('POST /a/send-token-to-validate-email', () => {
 
     const data = await response.json();
 
-    expect(data).toEqual({
-      success: true,
-    });
+    expect(data).toEqual(SUCCESS_BODY);
+    expect(sendEmail).toHaveBeenCalledTimes(1);
+    expect(verifyEmail).not.toHaveBeenCalled();
   });
 
   it('returns 400 when email verification reports corrupt email', async () => {
@@ -93,6 +114,7 @@ describe('POST /a/send-token-to-validate-email', () => {
     const data = await response.json();
 
     expect(data.error_message).toBe('error_corrupt_email');
+    expect(sendEmail).not.toHaveBeenCalled();
   });
 
   it('returns 201 and creates user when email is new and valid', async () => {
@@ -104,8 +126,8 @@ describe('POST /a/send-token-to-validate-email', () => {
 
     const data = await response.json();
 
-    expect(data).toEqual({
-      success: true,
-    });
+    expect(data).toEqual(SUCCESS_BODY);
+    expect(sendEmail).toHaveBeenCalledTimes(1);
+    expect(verifyEmail).toHaveBeenCalledTimes(1);
   });
 });

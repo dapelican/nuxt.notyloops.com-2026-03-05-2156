@@ -19,11 +19,16 @@ import {
 
 import {
   executeSQLQuery,
+  executeSQLTransaction,
 } from '../../../database/query.js';
 
 import {
   handleBackendError,
 } from '../../../helpers/handle-backend-error.js';
+
+import {
+  sanitizeStoredNoteHtml,
+} from '../../../helpers/sanitize-html.js';
 
 import {
   selectNoteIdListOnTagCriteria,
@@ -178,40 +183,79 @@ export default defineEventHandler(async (event) => {
 
       const {
         rows: new_note_list,
-      } = await executeSQLQuery(
-        `WITH new_notes AS (
-            INSERT INTO notes (user_id, format, title, swappable_sides, source_note_id, source_collection_id)
-            SELECT $1, format, title, swappable_sides, id, $2
-            FROM notes
-            WHERE id = ANY($3::uuid[])
-            RETURNING id, source_note_id
-          ),
-          inserted_details AS (
-            INSERT INTO note_details (
-              note_id,
-              content_position,
-              content_sub_position,
-              content_type,
-              markdown_content,
-              html_content,
-              file_url,
-              is_correct
+      } = await executeSQLTransaction(async (client) => {
+        const inserted = await client.query(
+          `WITH new_notes AS (
+              INSERT INTO notes (user_id, format, title, swappable_sides, source_note_id, source_collection_id)
+              SELECT $1, format, title, swappable_sides, id, $2
+              FROM notes
+              WHERE id = ANY($3::uuid[])
+              RETURNING id, source_note_id
+            ),
+            inserted_details AS (
+              INSERT INTO note_details (
+                note_id,
+                content_position,
+                content_sub_position,
+                content_type,
+                markdown_content,
+                html_content,
+                file_url,
+                is_correct
+              )
+              SELECT
+                nn.id,
+                nd.content_position,
+                nd.content_sub_position,
+                nd.content_type,
+                nd.markdown_content,
+                nd.html_content,
+                nd.file_url,
+                nd.is_correct
+              FROM note_details nd
+              JOIN new_notes nn ON nd.note_id = nn.source_note_id
             )
-            SELECT
-              nn.id,
-              nd.content_position,
-              nd.content_sub_position,
-              nd.content_type,
-              nd.markdown_content,
-              nd.html_content,
-              nd.file_url,
-              nd.is_correct
-            FROM note_details nd
-            JOIN new_notes nn ON nd.note_id = nn.source_note_id
-          )
-          SELECT id FROM new_notes`,
-        [user.id, collection_id, note_to_copy_id_list]
-      );
+            SELECT id FROM new_notes`,
+          [user.id, collection_id, note_to_copy_id_list]
+        );
+
+        const inserted_note_id_list = inserted.rows.map((note) => note.id);
+
+        if (inserted_note_id_list.length > 0) {
+          const {
+            rows: copied_detail_list,
+          } = await client.query(
+            `SELECT id, html_content
+            FROM note_details
+            WHERE note_id = ANY($1::uuid[])`,
+            [inserted_note_id_list]
+          );
+
+          const detail_id_list = [];
+          const html_content_list = [];
+
+          for (const detail of copied_detail_list) {
+            const sanitized_html = sanitizeStoredNoteHtml(detail.html_content);
+
+            if (sanitized_html !== detail.html_content) {
+              detail_id_list.push(detail.id);
+              html_content_list.push(sanitized_html);
+            }
+          }
+
+          if (detail_id_list.length > 0) {
+            await client.query(
+              `UPDATE note_details AS nd
+              SET html_content = data.html_content
+              FROM UNNEST($1::uuid[], $2::text[]) AS data(id, html_content)
+              WHERE nd.id = data.id`,
+              [detail_id_list, html_content_list]
+            );
+          }
+        }
+
+        return inserted;
+      });
 
       const new_note_id_list = new_note_list.map((note) => note.id);
 

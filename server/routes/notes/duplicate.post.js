@@ -3,6 +3,7 @@
 import {
   FREEMIUM_NOTE_LIMIT,
   USER_STATUS_FREE,
+  USER_STATUS_PENDING,
 } from '#shared/utils/constants.js';
 
 import {
@@ -53,7 +54,7 @@ export default defineEventHandler(async (event) => {
       };
     }
 
-    if (user.status === USER_STATUS_FREE) {
+    if (user.status === USER_STATUS_FREE || user.status === USER_STATUS_PENDING) {
       const {
         rows: note_count_rows,
       } = await executeSQLQuery(

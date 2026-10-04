@@ -1,6 +1,12 @@
 'use strict';
 
 import {
+  COLLECTION_TYPE_LIST,
+  COLLECTION_TYPE_PRIVATE,
+  REVIEW_STRATEGY_LIST,
+} from '#shared/utils/constants.js';
+
+import {
   HTTP_CODE_200_OK,
   HTTP_CODE_400_BAD_REQUEST,
   HTTP_CODE_401_UNAUTHORIZED,
@@ -13,16 +19,16 @@ import {
 } from 'h3';
 
 import {
+  collectionDescriptionColumns,
+} from '../../helpers/collection-description-columns.js';
+
+import {
   executeSQLQuery,
 } from '../../database/query.js';
 
 import {
   handleBackendError,
 } from '../../helpers/handle-backend-error.js';
-
-import {
-  sanitizeStoredHtml,
-} from '../../helpers/sanitize-html.js';
 
 import {
   verifySessionAndReturnUser,
@@ -148,6 +154,11 @@ export default defineEventHandler(async (event) => {
     }
 
     const {
+      description_html,
+      description_markdown,
+    } = collectionDescriptionColumns(description);
+
+    const {
       rows: updated_row_list,
     } = await executeSQLQuery(
       `UPDATE collections SET
@@ -159,9 +170,10 @@ export default defineEventHandler(async (event) => {
         type = $7,
         review_strategy = $8,
         track_scores = $9,
-        description = $10,
-        pre_tax_price_in_cents = $11
-      WHERE id = $1 AND user_id = $12
+        description_markdown = $10,
+        description_html = $11,
+        pre_tax_price_in_cents = $12
+      WHERE id = $1 AND user_id = $13
       RETURNING *`,
       [
         id,
@@ -173,7 +185,8 @@ export default defineEventHandler(async (event) => {
         type,
         review_strategy,
         track_scores,
-        sanitizeStoredHtml(description),
+        description_markdown,
+        description_html,
         pre_tax_price_in_cents,
         user.id,
       ]

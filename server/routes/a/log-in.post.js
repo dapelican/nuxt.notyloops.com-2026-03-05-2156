@@ -33,6 +33,10 @@ import {
 
 import { v7 as uuidv7 } from 'uuid';
 
+// Cost 10, same as stored passwords. Compared only when there is no hash,
+// so a missing or unfinished account takes as long as a wrong password.
+const DUMMY_PASSWORD_HASH = '$2b$10$Rrf0y/3wvcSYwYsQGg8qiuLmM3e1u/tuoVkuZL6.eHKoe/V1C4QiS';
+
 export default defineEventHandler(async (event) => {
   try {
     let {
@@ -71,27 +75,11 @@ export default defineEventHandler(async (event) => {
       [email]
     );
 
-    if (user_list.length === 0) {
-      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
-
-      return {
-        error_message: 'error_wrong_credentials',
-      };
-    }
-
     const user = user_list.at(0);
+    const password_hash = user?.password ?? DUMMY_PASSWORD_HASH;
+    const valid_password = await bcrypt.compare(password, password_hash);
 
-    if (user.password === null) {
-      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
-
-      return {
-        error_message: 'error_account_not_confirmed',
-      };
-    }
-
-    const valid_password = await bcrypt.compare(password, user.password);
-
-    if (!valid_password) {
+    if (!user || user.password === null || !valid_password) {
       setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
 
       return {

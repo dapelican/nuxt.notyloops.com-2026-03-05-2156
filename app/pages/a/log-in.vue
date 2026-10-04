@@ -66,9 +66,6 @@ const logIn = async (form) => {
       case 'error_wrong_credentials':
         form_error.value = t('t_error_wrong_credentials');
         break;
-      case 'error_account_not_confirmed':
-        form_error.value = t('t_error_account_not_confirmed');
-        break;
       default:
         handleFrontendError(error, error_message);
         break;

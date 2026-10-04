@@ -8,7 +8,6 @@ import {
 import {
   HTTP_CODE_201_CREATED,
   HTTP_CODE_400_BAD_REQUEST,
-  HTTP_CODE_403_FORBIDDEN,
 } from '../../helpers/http-status-codes.js';
 
 import {
@@ -119,93 +118,69 @@ export default defineEventHandler(async (event) => {
     if (user_list.length > 0) {
       const user = user_list.at(0);
 
-      if (user.status !== USER_STATUS_UNVERIFIED) {
-        setResponseStatus(event, HTTP_CODE_403_FORBIDDEN);
+      if (user.status === USER_STATUS_UNVERIFIED) {
+        const {
+          rows: active_user_token_list,
+        } = await executeSQLQuery(
+          `SELECT * FROM user_email_tokens
+          WHERE user_id = $1 AND created_at > $2::timestamptz
+          AND blacklisted = $3 AND usage = $4`,
+          [
+            user.id,
+            getEmailTokenDurationHoursAgo(),
+            false,
+            USER_TOKEN_VALIDATE_EMAIL,
+          ]
+        );
 
-        return {
-          error_message: 'error_email_already_in_use',
-        };
+        if (active_user_token_list.length === 0) {
+          const {
+            rows: inactive_user_token_list,
+          } = await executeSQLQuery(
+            `SELECT * FROM user_email_tokens
+            WHERE user_id = $1 AND created_at < $2::timestamptz AND usage = $3`,
+            [
+              user.id,
+              getEmailTokenDurationHoursAgo(),
+              USER_TOKEN_VALIDATE_EMAIL,
+            ]
+          );
+
+          if (inactive_user_token_list.length <= 2) {
+            await sendTokenToValidateEmail(user, subdomain);
+          }
+        }
       }
+    } else {
+      const email_is_verified = await verifyEmail(email);
 
-      const {
-        rows: active_user_token_list,
-      } = await executeSQLQuery(
-        `SELECT * FROM user_email_tokens
-        WHERE user_id = $1 AND created_at > $2::timestamptz
-        AND blacklisted = $3 AND usage = $4`,
-        [
-          user_list.at(0).id,
-          getEmailTokenDurationHoursAgo(),
-          false,
-          USER_TOKEN_VALIDATE_EMAIL,
-        ]
-      );
-
-      if (active_user_token_list.length > 0) {
-        setResponseStatus(event, HTTP_CODE_403_FORBIDDEN);
-
-        return {
-          error_message: 'error_email_token_already_sent',
-        };
-      }
-
-      const {
-        rows: inactive_user_token_list,
-      } = await executeSQLQuery(
-        `SELECT * FROM user_email_tokens
-        WHERE user_id = $1 AND created_at < $2::timestamptz AND usage = $3`,
-        [
-          user_list.at(0).id,
-          getEmailTokenDurationHoursAgo(),
-          USER_TOKEN_VALIDATE_EMAIL,
-        ]
-      );
-
-      if (inactive_user_token_list.length <= 2) {
-        await sendTokenToValidateEmail(user, subdomain);
-
-        setResponseStatus(event, HTTP_CODE_201_CREATED);
-
-        return {
-          success: true,
-        };
-      }
-
-      setResponseStatus(event, HTTP_CODE_403_FORBIDDEN);
-
-      return {
-        error_message: 'error_maximum_retries_reached',
-      };
-    }
-
-    const email_is_verified = await verifyEmail(email);
-
-    if (!email_is_verified) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
-
-      return {
-        error_message: 'error_corrupt_email',
-      };
-    }
-
-    const {
-      rows: new_user_list,
-    } = await executeSQLQuery(
-      'INSERT INTO users (email, status, subdomain) VALUES ($1, $2, $3) RETURNING *',
-      [email, USER_STATUS_UNVERIFIED, subdomain]
-    );
-
-    const new_user = new_user_list.at(0);
-
-    await sendTokenToValidateEmail(new_user, subdomain)
-      // eslint-disable-next-line no-unused-vars
-      .catch((___) => {
+      if (!email_is_verified) {
         setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
         return {
-          error_message: 'error_email_token_not_sent',
+          error_message: 'error_corrupt_email',
         };
-      });
+      }
+
+      const {
+        rows: new_user_list,
+      } = await executeSQLQuery(
+        'INSERT INTO users (email, status, subdomain) VALUES ($1, $2, $3) RETURNING *',
+        [email, USER_STATUS_UNVERIFIED, subdomain]
+      );
+
+      const new_user = new_user_list.at(0);
+
+      await sendTokenToValidateEmail(new_user, subdomain)
+        // eslint-disable-next-line no-unused-vars
+        .catch((___) => {
+          setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+
+          return {
+            error_message: 'error_email_token_not_sent',
+          };
+        });
+    }
 
     setResponseStatus(event, HTTP_CODE_201_CREATED);
 

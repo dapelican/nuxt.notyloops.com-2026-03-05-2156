@@ -15,6 +15,10 @@ import {
   marked,
 } from 'marked';
 
+import {
+  sanitizeNoteHtml,
+} from '#shared/note-html-policy.js';
+
 const PH_FENCE = (index) => `\uE000FENCE${index}\uE001`;
 
 const PH_INLINE = (index) => `\uE000INLINE${index}\uE001`;
@@ -28,72 +32,6 @@ const escape_html = (value) => String(value)
   .replaceAll('"', '&quot;');
 
 const escape_attr = (value) => escape_html(value).replaceAll('\'', '&#39;');
-
-const dompurify_config = () => ({
-  ADD_ATTR: [
-    'target',
-    'class',
-    'style',
-    'aria-hidden',
-    'aria-label',
-    'role',
-    'xmlns',
-    'width',
-    'height',
-    'viewBox',
-    'preserveAspectRatio',
-    'stroke',
-    'stroke-width',
-    'fill',
-    'x',
-    'y',
-    'x1',
-    'y1',
-    'x2',
-    'y2',
-    'd',
-    'transform',
-    'encoding',
-  ],
-  ADD_TAGS: [
-    'math',
-    'semantics',
-    'mrow',
-    'mi',
-    'mo',
-    'mn',
-    'ms',
-    'mtext',
-    'mspace',
-    'msup',
-    'msub',
-    'msubsup',
-    'mfrac',
-    'munder',
-    'mover',
-    'munderover',
-    'mtable',
-    'mtr',
-    'mtd',
-    'mlabeledtr',
-    'menclose',
-    'mstyle',
-    'mpadded',
-    'mphantom',
-    'mfenced',
-    'maction',
-    'annotation',
-    'annotation-xml',
-    'svg',
-    'path',
-    'line',
-    'rect',
-    'g',
-    'defs',
-    'pattern',
-    'marker',
-  ],
-});
 
 const extract_fenced_code = (input, fence_stored) => input.replace(
   /```([\w-]*)\n([\s\S]*?)```/g,
@@ -162,8 +100,10 @@ const restore_placeholders = (html, math_stored, fence_stored, inline_stored, do
     } = math_stored[i];
     const fragment = katex.renderToString(tex, {
       displayMode: display_mode,
-      throwOnError: false,
+      output: 'html',
       strict: 'ignore',
+      throwOnError: false,
+      trust: false,
     });
     out = out.split(PH_MATH(i)).join(fragment);
   }
@@ -177,7 +117,7 @@ const restore_placeholders = (html, math_stored, fence_stored, inline_stored, do
     out = out.split(PH_INLINE(i)).join(`<code>${escaped}</code>`);
   }
 
-  return dompurify.sanitize(out, dompurify_config());
+  return sanitizeNoteHtml(out, dompurify);
 };
 
 /** Second argument is only for tests (pass DOMPurify bound to jsdom `window`). */

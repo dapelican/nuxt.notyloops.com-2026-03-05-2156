@@ -4,6 +4,7 @@ import {
   FREEMIUM_NOTE_LIMIT,
   NOTE_FORMAT_FLASHCARD,
   USER_STATUS_FREE,
+  USER_STATUS_PENDING,
 } from '#shared/utils/constants.js';
 
 import {
@@ -61,7 +62,7 @@ export default defineEventHandler(async (event) => {
       };
     }
 
-    if (user.status === USER_STATUS_FREE) {
+    if (user.status === USER_STATUS_FREE || user.status === USER_STATUS_PENDING) {
       const { rows: note_count_rows } = await executeSQLQuery(
         'SELECT COUNT(*)::int AS count FROM notes WHERE user_id = $1 AND deleted_at IS NULL',
         [user.id]

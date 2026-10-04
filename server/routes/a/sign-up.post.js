@@ -113,6 +113,7 @@ export default defineEventHandler(async (event) => {
 
     const token_user_id = await getActiveEmailTokenUserId({
       max_age_hours: EMAIL_VALIDATION_TOKEN_DURATION_IN_HOURS,
+      pending_email: 'absent',
       token,
       usage: USER_TOKEN_VALIDATE_EMAIL,
     });

@@ -1,3 +1,8 @@
 {
-
+  "t_confirm_email_address": "Confirm email address",
+  "t_confirm_email_change": "Confirm the email change",
+  "t_confirm_email_change_description": "Confirm {email} as the new email address for your account.",
+  "t_email_change_confirmed": "Your email address has been updated.",
+  "t_error_email_already_in_use": "This email address is already in use.",
+  "t_error_invalid_email_token": "This link is invalid or has expired."
 }

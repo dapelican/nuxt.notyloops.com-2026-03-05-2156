@@ -17,11 +17,7 @@ import {
 } from 'h3';
 
 import {
-  executeSQLQuery,
-} from '../../../database/query.js';
-
-import {
-  getActiveEmailTokenUserId,
+  getActiveEmailToken,
 } from '../../../helpers/get-active-email-token-user-id.js';
 
 import {
@@ -34,7 +30,7 @@ import {
 
 export default defineEventHandler(async (event) => {
   try {
-    const token = await getRouterParam(event, 'token_to_validate_email');
+    const token = await getRouterParam(event, 'token');
 
     if (!token || !validateUUID(token)) {
       setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
@@ -44,14 +40,14 @@ export default defineEventHandler(async (event) => {
       };
     }
 
-    const token_user_id = await getActiveEmailTokenUserId({
+    const active_token = await getActiveEmailToken({
       max_age_hours: EMAIL_VALIDATION_TOKEN_DURATION_IN_HOURS,
-      pending_email: 'absent',
+      pending_email: 'present',
       token,
       usage: USER_TOKEN_VALIDATE_EMAIL,
     });
 
-    if (!token_user_id) {
+    if (!active_token) {
       setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
@@ -59,17 +55,10 @@ export default defineEventHandler(async (event) => {
       };
     }
 
-    const {
-      rows: user_list,
-    } = await executeSQLQuery(
-      'SELECT email FROM users WHERE id = $1',
-      [token_user_id]
-    );
-
     setResponseStatus(event, HTTP_CODE_200_OK);
 
     return {
-      email: user_list.at(0).email,
+      pending_email: active_token.pending_email,
     };
   } catch (error) {
     /* c8 ignore next */

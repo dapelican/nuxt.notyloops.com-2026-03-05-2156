@@ -1,10 +1,14 @@
 'use strict';
 
 import {
+  EMAIL_VALIDATION_TOKEN_DURATION_IN_HOURS,
+  USER_TOKEN_VALIDATE_EMAIL,
+} from '../../helpers/constants.js';
+
+import {
   HTTP_CODE_200_OK,
   HTTP_CODE_400_BAD_REQUEST,
   HTTP_CODE_401_UNAUTHORIZED,
-  HTTP_CODE_403_FORBIDDEN,
 } from '../../helpers/http-status-codes.js';
 
 import {
@@ -17,6 +21,8 @@ import {
   validateEmail,
   validateNonEmptyInputFieldList,
 } from '../../helpers/validators.js';
+
+import bcrypt from 'bcrypt';
 
 import {
   executeSQLQuery,
@@ -31,15 +37,26 @@ import {
 } from '../../services/amazon-ses/send-email.js';
 
 import {
+  v7 as uuidv7,
+} from 'uuid';
+
+import {
   verifySessionAndReturnUser,
 } from '../../helpers/verify-session-and-return-user.js';
 
-const sendEmailToNotifyEmailChange = async (user, current_email, new_email) => {
+const sendConfirmationEmail = async ({
+  new_email,
+  subdomain,
+  uuid,
+}) => {
   await sendEmail({
-    subdomain: user.subdomain,
-    template_name: 'email-changed',
-    template_params: { new_email },
-    to: current_email,
+    subdomain,
+    template_name: 'confirm-email-change',
+    template_params: {
+      EMAIL_VALIDATION_TOKEN_DURATION_IN_HOURS,
+      uuid,
+    },
+    to: new_email,
   });
 };
 
@@ -56,16 +73,15 @@ export default defineEventHandler(async (event) => {
     }
 
     let {
-      current_email,
+      current_password,
       new_email,
     } = await readBody(event);
 
-    current_email = current_email?.toLowerCase()?.trim();
     new_email = new_email?.toLowerCase()?.trim();
+    current_password = current_password?.trim();
 
     if (
-      !validateNonEmptyInputFieldList([current_email, new_email])
-      || !validateEmail(current_email)
+      !validateNonEmptyInputFieldList([new_email])
       || !validateEmail(new_email)
     ) {
       setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
@@ -75,36 +91,91 @@ export default defineEventHandler(async (event) => {
       };
     }
 
-    const {
-      rows: user_list,
-    } = await executeSQLQuery(
-      'SELECT * FROM users WHERE email = $1',
-      [new_email]
-    );
-
-    if (user_list.length > 0) {
-      setResponseStatus(event, HTTP_CODE_403_FORBIDDEN);
+    if (!validateNonEmptyInputFieldList([current_password])) {
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
-        error_message: 'error_email_already_in_use',
+        error_message: 'error_invalid_password',
       };
     }
 
     const {
-      rows: updated_user_list,
+      rows: credential_list,
     } = await executeSQLQuery(
-      'UPDATE users SET email = $1 WHERE email = $2 RETURNING *',
-      [new_email, current_email]
+      'SELECT password, subdomain FROM users WHERE id = $1',
+      [user.id]
     );
 
-    const updated_user = updated_user_list.at(0);
+    const existing_user = credential_list.at(0);
 
-    await sendEmailToNotifyEmailChange(updated_user, current_email, new_email);
+    const valid_password = existing_user?.password
+      ? await bcrypt.compare(current_password, existing_user.password)
+      : false;
+
+    if (!valid_password) {
+      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
+
+      return {
+        error_message: 'error_wrong_credentials',
+      };
+    }
+
+    const {
+      rows: user_list,
+    } = await executeSQLQuery(
+      'SELECT id FROM users WHERE email = $1',
+      [new_email]
+    );
+
+    if (user_list.length > 0) {
+      setResponseStatus(event, HTTP_CODE_200_OK);
+
+      return {
+        success: true,
+      };
+    }
+
+    await executeSQLQuery(
+      `UPDATE user_email_tokens
+      SET blacklisted = true
+      WHERE user_id = $1
+      AND usage = $2
+      AND pending_email IS NOT NULL
+      AND blacklisted = false`,
+      [user.id, USER_TOKEN_VALIDATE_EMAIL]
+    );
+
+    const uuid = uuidv7();
+
+    await executeSQLQuery(
+      `INSERT INTO user_email_tokens (user_id, token, usage, pending_email)
+      VALUES ($1, $2, $3, $4)`,
+      [user.id, uuid, USER_TOKEN_VALIDATE_EMAIL, new_email]
+    );
+
+    try {
+      await sendConfirmationEmail({
+        new_email,
+        subdomain: existing_user.subdomain,
+        uuid,
+      });
+    } catch {
+      await executeSQLQuery(
+        'DELETE FROM user_email_tokens WHERE token = $1',
+        [uuid]
+      );
+
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+
+      return {
+        error_message: 'error_email_token_not_sent',
+      };
+    }
 
     setResponseStatus(event, HTTP_CODE_200_OK);
 
     return {
-      email: updated_user.email,
+      success: true,
     };
   } catch (error) {
     /* c8 ignore next */

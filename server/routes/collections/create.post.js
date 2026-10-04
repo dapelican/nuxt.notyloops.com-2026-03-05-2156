@@ -1,6 +1,12 @@
 'use strict';
 
 import {
+  COLLECTION_TYPE_LIST,
+  COLLECTION_TYPE_PRIVATE,
+  REVIEW_STRATEGY_LIST,
+} from '#shared/utils/constants.js';
+
+import {
   HTTP_CODE_201_CREATED,
   HTTP_CODE_400_BAD_REQUEST,
   HTTP_CODE_401_UNAUTHORIZED,
@@ -13,16 +19,16 @@ import {
 } from 'h3';
 
 import {
+  collectionDescriptionColumns,
+} from '../../helpers/collection-description-columns.js';
+
+import {
   executeSQLQuery,
 } from '../../database/query.js';
 
 import {
   handleBackendError,
 } from '../../helpers/handle-backend-error.js';
-
-import {
-  sanitizeStoredHtml,
-} from '../../helpers/sanitize-html.js';
 
 import {
   verifySessionAndReturnUser,
@@ -115,6 +121,11 @@ export default defineEventHandler(async (event) => {
       };
     }
 
+    const {
+      description_html,
+      description_markdown,
+    } = collectionDescriptionColumns(description);
+
     const { rows: new_tag_list } = await executeSQLQuery(
       `INSERT INTO collections (
       user_id,
@@ -126,9 +137,10 @@ export default defineEventHandler(async (event) => {
       type,
       review_strategy,
       track_scores,
-      description,
+      description_markdown,
+      description_html,
       pre_tax_price_in_cents
-      ) VALUES ($1, $2, $3::jsonb, $4, $5::jsonb, $6, $7, $8, $9, $10, $11) RETURNING *`,
+      ) VALUES ($1, $2, $3::jsonb, $4, $5::jsonb, $6, $7, $8, $9, $10, $11, $12) RETURNING *`,
       [
         user.id,
         title,
@@ -139,7 +151,8 @@ export default defineEventHandler(async (event) => {
         type,
         review_strategy,
         track_scores,
-        sanitizeStoredHtml(description),
+        description_markdown,
+        description_html,
         pre_tax_price_in_cents,
       ]
     );

@@ -6,11 +6,15 @@ import {
   HTTP_CODE_401_UNAUTHORIZED,
 } from '../../../helpers/http-status-codes.js';
 
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
+
+import bcrypt from 'bcrypt';
 
 import { createTestHandler } from '../create-test-handler.js';
 
 import handler from '../../../routes/a/log-in.post.js';
+
+const SEEDED_PASSWORD_HASH = '$2b$10$wL7tkbBZQyt/YiigMxI08egh.xU.pP.D87SLSGjq4NJxXAlyj/p0i';
 
 const request = createTestHandler('post', '/a/log-in', handler);
 
@@ -42,33 +46,59 @@ describe('POST /a/log-in', () => {
   });
 
   it('returns 401 when user is not found', async () => {
-    const response = await post({ email: 'nonexistent@example.com', password: 'Test1234!' });
+    const compare_spy = vi.spyOn(bcrypt, 'compare');
 
-    expect(response.status).toBe(HTTP_CODE_401_UNAUTHORIZED);
+    try {
+      const response = await post({ email: 'nonexistent@example.com', password: 'Test1234!' });
 
-    const data = await response.json();
+      expect(response.status).toBe(HTTP_CODE_401_UNAUTHORIZED);
 
-    expect(data.error_message).toBe('error_wrong_credentials');
+      const data = await response.json();
+
+      expect(data.error_message).toBe('error_wrong_credentials');
+      expect(compare_spy).toHaveBeenCalledTimes(1);
+      expect(compare_spy.mock.calls[0][0]).toBe('Test1234!');
+      expect(compare_spy.mock.calls[0][1]).toMatch(/^\$2b\$10\$/);
+      expect(compare_spy.mock.calls[0][1]).not.toBe(SEEDED_PASSWORD_HASH);
+    } finally {
+      compare_spy.mockRestore();
+    }
   });
 
-  it('returns 401 when account is not confirmed (null password)', async () => {
-    const response = await post({ email: 'unconfirmed@example.com', password: 'Test1234!' });
+  it('returns 401 when account has no password', async () => {
+    const compare_spy = vi.spyOn(bcrypt, 'compare');
 
-    expect(response.status).toBe(HTTP_CODE_401_UNAUTHORIZED);
+    try {
+      const response = await post({ email: 'unconfirmed@example.com', password: 'Test1234!' });
 
-    const data = await response.json();
+      expect(response.status).toBe(HTTP_CODE_401_UNAUTHORIZED);
 
-    expect(data.error_message).toBe('error_account_not_confirmed');
+      const data = await response.json();
+
+      expect(data.error_message).toBe('error_wrong_credentials');
+      expect(compare_spy).toHaveBeenCalledTimes(1);
+      expect(compare_spy.mock.calls[0][1]).toMatch(/^\$2b\$10\$/);
+      expect(compare_spy.mock.calls[0][1]).not.toBe(SEEDED_PASSWORD_HASH);
+    } finally {
+      compare_spy.mockRestore();
+    }
   });
 
   it('returns 401 when password is wrong', async () => {
-    const response = await post({ email: 'confirmed@example.com', password: 'WrongPassword!' });
+    const compare_spy = vi.spyOn(bcrypt, 'compare');
 
-    expect(response.status).toBe(HTTP_CODE_401_UNAUTHORIZED);
+    try {
+      const response = await post({ email: 'confirmed@example.com', password: 'WrongPassword!' });
 
-    const data = await response.json();
+      expect(response.status).toBe(HTTP_CODE_401_UNAUTHORIZED);
 
-    expect(data.error_message).toBe('error_wrong_credentials');
+      const data = await response.json();
+
+      expect(data.error_message).toBe('error_wrong_credentials');
+      expect(compare_spy).toHaveBeenCalledWith('WrongPassword!', SEEDED_PASSWORD_HASH);
+    } finally {
+      compare_spy.mockRestore();
+    }
   });
 
   it('returns 200 on successful login', async () => {

@@ -102,10 +102,11 @@ export default defineEventHandler(async (event) => {
       type,
       review_strategy,
       track_scores,
-      description,
+      description_markdown,
+      description_html,
       pre_tax_price_in_cents,
       preview_note_id_list
-      ) VALUES ($1, $2, $3::jsonb, $4, $5::jsonb, $6, $7, $8, $9, $10, $11, $12::jsonb) RETURNING *`,
+      ) VALUES ($1, $2, $3::jsonb, $4, $5::jsonb, $6, $7, $8, $9, $10, $11, $12, $13::jsonb) RETURNING *`,
       [
         user.id,
         new_title,
@@ -116,7 +117,8 @@ export default defineEventHandler(async (event) => {
         collection.type,
         collection.review_strategy,
         collection.track_scores,
-        collection.description,
+        collection.description_markdown,
+        collection.description_html,
         collection.pre_tax_price_in_cents,
         JSON.stringify(collection.preview_note_id_list),
       ]

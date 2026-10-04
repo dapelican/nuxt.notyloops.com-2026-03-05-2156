@@ -4,6 +4,7 @@
 import {
   HTTP_CODE_200_OK,
   HTTP_CODE_400_BAD_REQUEST,
+  HTTP_CODE_500_INTERNAL_SERVER_ERROR,
 } from '../../helpers/http-status-codes.js';
 
 import {
@@ -14,7 +15,7 @@ import {
 } from 'h3';
 
 import {
-  executeSQLQuery,
+  executeSQLTransaction,
 } from '../../database/query.js';
 
 import {
@@ -29,56 +30,69 @@ import {
   handleBackendError,
 } from '../../helpers/handle-backend-error.js';
 
-import {
-  DateTime,
-} from 'luxon';
-
 import Stripe from 'stripe';
 /* eslint-enable sort-imports */
 
+const CHECKOUT_SESSION_ASYNC_PAYMENT_SUCCEEDED = 'checkout.session.async_payment_succeeded';
 const CHECKOUT_SESSION_COMPLETED = 'checkout.session.completed';
+const PAYMENT_STATUS_PAID = 'paid';
+
+const GRANT_CHECKOUT_SESSION_EVENT_TYPES = new Set([
+  CHECKOUT_SESSION_ASYNC_PAYMENT_SUCCEEDED,
+  CHECKOUT_SESSION_COMPLETED,
+]);
 
 const finish_checkout_session_completed_processing = async ({
   user_id,
   collection_id,
   payment_type,
   amount_paid,
+  stripe_checkout_session_id,
 }) => {
-  const {
-    rows: user_list,
-  } = await executeSQLQuery(
-    'SELECT * FROM users WHERE id = $1',
-    [user_id]
-  );
-
-  const user = user_list.at(0);
-
-  const new_premium_status_expiration_date = user.premium_status_expiration_date
-    ? DateTime.fromJSDate(user.premium_status_expiration_date)
-        .plus({ years: 1 })
-        .toISO()
-    : DateTime.utc().plus({ years: 1 }).toISO();
-
-  if (
-    payment_type === PREMIUM_PAYMENT_TYPE
-  ) {
-    await Promise.all([
-      executeSQLQuery(
-        'UPDATE users SET status = $1, premium_status_expiration_date = $2 WHERE id = $3',
-        [USER_STATUS_PREMIUM, new_premium_status_expiration_date, user_id]
-      ),
-      executeSQLQuery(
-        'INSERT INTO payments (payment_type, user_id, price_in_cents) VALUES ($1, $2, $3)',
-        [PREMIUM_PAYMENT_TYPE, user_id, amount_paid]
-      ),
-    ]);
-  } else {
-    await executeSQLQuery(
-      `INSERT INTO payments (payment_type, user_id, collection_id, price_in_cents)
-      VALUES ($1, $2, $3, $4)`,
-      ['premium_notes', user_id, collection_id, amount_paid]
-    );
+  if (!stripe_checkout_session_id) {
+    throw new Error('missing_stripe_checkout_session_id');
   }
+
+  await executeSQLTransaction(async (client) => {
+    if (payment_type === PREMIUM_PAYMENT_TYPE) {
+      const inserted = await client.query(
+        `INSERT INTO payments (payment_type, user_id, price_in_cents, stripe_checkout_session_id)
+        VALUES ($1, $2, $3, $4)
+        ON CONFLICT (stripe_checkout_session_id) DO NOTHING
+        RETURNING id`,
+        [PREMIUM_PAYMENT_TYPE, user_id, amount_paid, stripe_checkout_session_id]
+      );
+
+      if (inserted.rowCount === 0) {
+        return;
+      }
+
+      const updated = await client.query(
+        `UPDATE users
+        SET status = $1,
+            premium_status_expiration_date = COALESCE(premium_status_expiration_date, now()) + interval '1 year'
+        WHERE id = $2`,
+        [USER_STATUS_PREMIUM, user_id]
+      );
+
+      if (updated.rowCount === 0) {
+        throw new Error('premium_user_not_found');
+      }
+
+      return;
+    }
+
+    await client.query(
+      `INSERT INTO payments (payment_type, user_id, collection_id, price_in_cents, stripe_checkout_session_id)
+      VALUES ($1, $2, $3, $4, $5)
+      ON CONFLICT (stripe_checkout_session_id) DO NOTHING`,
+      ['premium_notes', user_id, collection_id, amount_paid, stripe_checkout_session_id]
+    );
+  });
+};
+
+export {
+  finish_checkout_session_completed_processing,
 };
 
 export default defineEventHandler(async (event) => {
@@ -125,25 +139,38 @@ export default defineEventHandler(async (event) => {
       };
     }
 
-    if (stripe_event.type === CHECKOUT_SESSION_COMPLETED) {
+    if (GRANT_CHECKOUT_SESSION_EVENT_TYPES.has(stripe_event.type)) {
       const session_from_event = stripe_event.data.object;
       const session = await stripe_client.checkout.sessions.retrieve(
         session_from_event.id);
+
+      if (session.payment_status !== PAYMENT_STATUS_PAID) {
+        if (stripe_event.type === CHECKOUT_SESSION_ASYNC_PAYMENT_SUCCEEDED) {
+          setResponseStatus(event, HTTP_CODE_500_INTERNAL_SERVER_ERROR);
+
+          return {
+            error_message: 'checkout_session_not_paid',
+          };
+        }
+
+        setResponseStatus(event, HTTP_CODE_200_OK);
+
+        return {
+          received: true,
+        };
+      }
 
       const collection_id = session.metadata?.collection_id ?? null;
       const payment_type = session.metadata?.payment_type ?? null;
       const amount_paid = session.amount_total;
       const user_id = session.client_reference_id;
 
-      const post_ack_processing = finish_checkout_session_completed_processing({
+      await finish_checkout_session_completed_processing({
         user_id,
         collection_id,
         payment_type,
         amount_paid,
-      });
-
-      post_ack_processing.catch((error) => {
-        console.error('stripe_webhook_post_ack_processing_failed', error);
+        stripe_checkout_session_id: session.id,
       });
 
       setResponseStatus(event, HTTP_CODE_200_OK);
