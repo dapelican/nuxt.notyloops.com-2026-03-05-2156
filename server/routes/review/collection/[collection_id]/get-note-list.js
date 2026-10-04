@@ -158,8 +158,8 @@ export default defineEventHandler(async (event) => {
     if (collection.review_strategy === REVIEW_STRATEGY_SUPER_RANDOM) {
       const strategy_list = [
         REVIEW_STRATEGY_RANDOM,
+        REVIEW_STRATEGY_RANDOM,
         REVIEW_STRATEGY_BY_SCORE_LOWEST_TO_HIGHEST,
-        REVIEW_STRATEGY_BY_LAST_REVIEW_DATE_OLDEST_TO_NEWEST,
       ];
 
       const prev_super_random_counter = Number(collection.super_random_counter) || 0;

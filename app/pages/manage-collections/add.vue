@@ -3,7 +3,13 @@ import * as z from 'zod';
 
 definePageMeta({ middleware: 'auth' });
 
-const { t } = useI18n();
+const { locale, t } = useI18n();
+
+const review_strategy_help_url = computed(() => {
+  return locale.value === 'fr'
+    ? '/ressources/strategies-de-revision'
+    : '/resources/review-strategies';
+});
 
 useSeoMeta({
   title: `${t('t_add_collection')} | NotyLoops`,
@@ -47,7 +53,7 @@ const collection_form_state = reactive({
   tag_id_list_to_include: [],
   tag_id_list_to_exclude: [],
   type: COLLECTION_TYPE_PRIVATE,
-  review_strategy: REVIEW_STRATEGY_BY_CREATION_DATE_OLDEST_TO_NEWEST,
+  review_strategy: REVIEW_STRATEGY_SPACED_REPETITION,
   track_scores: true,
   description: '',
   pre_tax_price_in_cents: 0,
@@ -273,6 +279,16 @@ const createCollection = async () => {
           v-model="collection_form_state.review_strategy"
           :items="review_strategy_list"
         />
+
+        <template #help>
+          <ULink
+            :to="review_strategy_help_url"
+            target="_blank"
+            class="text-primary"
+          >
+            {{ $t('t_know_more_about_review_strategies') }}
+          </ULink>
+        </template>
       </UFormField>
 
       <UFormField

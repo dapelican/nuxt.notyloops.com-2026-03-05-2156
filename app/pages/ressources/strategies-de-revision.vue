@@ -53,14 +53,6 @@ useSeoMeta({
         pour déterminer le moment optimal de révision de chaque note.
       </li>
       <li>
-        <b>Éphéméride (1 note par jour)</b>.
-        Cette stratégie présente une note différente par jour pendant un an (365 jours).
-        S'il y a moins de 365 notes, alors une note au hasard est présentée pour les jours restants.
-        Par exemple, si vous avez 100 notes éligibles à la stratégie éphéméride,
-        alors les 100 premiers jours de l'année, vous verrez une note différente,
-        puis les jours suivants, vous verrez une des 100 premières notes au hasard.
-      </li>
-      <li>
         <b>Au hasard</b>.
         A chaque révision, vos notes vous sont présentées dans un ordre au hasard.
       </li>
@@ -73,6 +65,11 @@ useSeoMeta({
         Cela vous permet de réviser en priorité les notes que vous n'avez pas révisées depuis longtemps.
       </li>
       <li>
+        <b>Au hasard et par score du plus faible au plus élevé</b>.
+        2 sessions d'entraînement sur 3 présentent les notes au hasard,
+        1 session d'entraînement sur 3 présente les notes par score du plus faible au plus élevé.
+      </li>
+      <li>
         <b>Par date de création, de la plus ancienne à la plus récente</b>.
         Cette ordre est intéressant si vous voulez garder un ordre précis de révision de vos notes,
         basé sur l'ordre dans lequel vous les avez créées.
@@ -83,18 +80,12 @@ useSeoMeta({
         basé sur le titre des notes.
       </li>
       <li>
-        <b>A3</b>, alternativement une des 3 stratégies de révision suivante :
-        <ol class="list-decimal list-inside ml-6">
-          <li>
-            <b>Au hasard</b>.
-          </li>
-          <li>
-            <b>Par score du plus faible au plus élevé</b>.
-          </li>
-          <li>
-            <b>Par date de dernière révision, de la plus ancienne à la plus récente</b>.
-          </li>
-        </ol>
+        <b>Éphéméride (1 note par jour)</b>.
+        Cette stratégie présente une note différente par jour pendant un an (365 jours).
+        S'il y a moins de 365 notes, alors une note au hasard est présentée pour les jours restants.
+        Par exemple, si vous avez 100 notes éligibles à la stratégie éphéméride,
+        alors les 100 premiers jours de l'année, vous verrez une note différente,
+        puis les jours suivants, vous verrez une des 100 premières notes au hasard.
       </li>
     </ol>
   </UContainer>

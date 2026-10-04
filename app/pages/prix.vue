@@ -19,6 +19,15 @@ const premium_price = computed(() => {
   return `$ ${price}`;
 });
 
+const monthly_premium_price = computed(() => {
+  const price = PREMIUM_ACCESS_PRE_TAX_AMOUNT_IN_CENTS / 100 / 12;
+
+  if (locale.value === 'fr') {
+    return `${price} €`;
+  }
+  return `$ ${price}`;
+});
+
 // useGoogleTag();
 </script>
 
@@ -44,63 +53,70 @@ const premium_price = computed(() => {
                 name="i-lucide-circle-x"
                 class="size-5 shrink-0 text-error"
               />
-              <span>{{ $t('t_free_plan_1', { note_count: FREEMIUM_NOTE_LIMIT }) }}</span>
+              <span>{{ $t('t_free_plan_01', { note_count: FREEMIUM_NOTE_LIMIT }) }}</span>
             </li>
             <li class="flex items-center gap-2">
               <UIcon
                 name="i-lucide-circle-x"
                 class="size-5 shrink-0 text-error"
               />
-              <span>{{ $t('t_free_plan_2', { note_count: FREEMIUM_NOTE_LIMIT }) }}</span>
+              <span>{{ $t('t_free_plan_02', { note_count: FREEMIUM_NOTE_LIMIT }) }}</span>
             </li>
             <li class="flex items-center gap-2">
               <UIcon
                 name="i-lucide-circle-check"
                 class="size-5 shrink-0 text-primary"
               />
-              <span>{{ $t('t_free_plan_3') }}</span>
+              <span>{{ $t('t_free_plan_03') }}</span>
             </li>
             <li class="flex items-center gap-2">
               <UIcon
                 name="i-lucide-circle-x"
                 class="size-5 shrink-0 text-error"
               />
-              <span>{{ $t('t_free_plan_4') }}</span>
+              <span>{{ $t('t_free_plan_04') }}</span>
             </li>
             <li class="flex items-center gap-2">
               <UIcon
                 name="i-lucide-circle-x"
                 class="size-5 shrink-0 text-error"
               />
-              <span>{{ $t('t_free_plan_5') }}</span>
+              <span>{{ $t('t_free_plan_05') }}</span>
             </li>
             <li class="flex items-center gap-2">
               <UIcon
                 name="i-lucide-circle-x"
                 class="size-5 shrink-0 text-error"
               />
-              <span>{{ $t('t_free_plan_6') }}</span>
+              <span>{{ $t('t_free_plan_06') }}</span>
             </li>
             <li class="flex items-center gap-2">
               <UIcon
                 name="i-lucide-circle-x"
                 class="size-5 shrink-0 text-error"
               />
-              <span>{{ $t('t_free_plan_7') }}</span>
+              <span>{{ $t('t_free_plan_07') }}</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <UIcon
+                name="i-lucide-circle-check"
+                class="size-5 shrink-0 text-primary"
+              />
+              <span>{{ $t('t_free_plan_08') }}</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <UIcon
+                name="i-lucide-circle-check"
+                class="size-5 shrink-0 text-primary"
+              />
+              <span>{{ $t('t_free_plan_09') }}</span>
             </li>
             <!-- <li class="flex items-center gap-2">
               <UIcon
-                name="i-lucide-circle-check"
-                class="size-5 shrink-0 text-primary"
-              />
-              <span>{{ $t('t_free_plan_8') }}</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <UIcon
                 name="i-lucide-circle-x"
                 class="size-5 shrink-0 text-error"
               />
-              <span>{{ $t('t_free_plan_9') }}</span>
+              <span>{{ $t('t_free_plan_09') }}</span>
             </li> -->
           </ul>
 
@@ -122,63 +138,70 @@ const premium_price = computed(() => {
                 name="i-lucide-circle-check"
                 class="size-5 shrink-0 text-primary"
               />
-              <span>{{ $t('t_premium_plan_1') }}</span>
+              <span>{{ $t('t_premium_plan_01') }}</span>
             </li>
             <li class="flex items-center gap-2">
               <UIcon
                 name="i-lucide-circle-check"
                 class="size-5 shrink-0 text-primary"
               />
-              <span>{{ $t('t_premium_plan_2') }}</span>
+              <span>{{ $t('t_premium_plan_02') }}</span>
             </li>
             <li class="flex items-center gap-2">
               <UIcon
                 name="i-lucide-circle-check"
                 class="size-5 shrink-0 text-primary"
               />
-              <span>{{ $t('t_premium_plan_3') }}</span>
+              <span>{{ $t('t_premium_plan_03') }}</span>
             </li>
             <li class="flex items-center gap-2">
               <UIcon
                 name="i-lucide-circle-check"
                 class="size-5 shrink-0 text-primary"
               />
-              <span>{{ $t('t_premium_plan_4') }}</span>
+              <span>{{ $t('t_premium_plan_04') }}</span>
             </li>
             <li class="flex items-center gap-2">
               <UIcon
                 name="i-lucide-circle-check"
                 class="size-5 shrink-0 text-primary"
               />
-              <span>{{ $t('t_premium_plan_5') }}</span>
+              <span>{{ $t('t_premium_plan_05') }}</span>
             </li>
             <li class="flex items-center gap-2">
               <UIcon
                 name="i-lucide-circle-check"
                 class="size-5 shrink-0 text-primary"
               />
-              <span>{{ $t('t_premium_plan_6') }}</span>
+              <span>{{ $t('t_premium_plan_06') }}</span>
             </li>
             <li class="flex items-center gap-2">
               <UIcon
                 name="i-lucide-circle-check"
                 class="size-5 shrink-0 text-primary"
               />
-              <span>{{ $t('t_premium_plan_7') }}</span>
+              <span>{{ $t('t_premium_plan_07') }}</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <UIcon
+                name="i-lucide-circle-check"
+                class="size-5 shrink-0 text-primary"
+              />
+              <span>{{ $t('t_premium_plan_08') }}</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <UIcon
+                name="i-lucide-circle-check"
+                class="size-5 shrink-0 text-primary"
+              />
+              <span>{{ $t('t_premium_plan_09') }}</span>
             </li>
             <!-- <li class="flex items-center gap-2">
               <UIcon
                 name="i-lucide-circle-check"
                 class="size-5 shrink-0 text-primary"
               />
-              <span>{{ $t('t_premium_plan_8') }}</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <UIcon
-                name="i-lucide-circle-check"
-                class="size-5 shrink-0 text-primary"
-              />
-              <span>{{ $t('t_premium_plan_9') }}</span>
+              <span>{{ $t('t_premium_plan_09') }}</span>
             </li> -->
           </ul>
 
@@ -189,6 +212,10 @@ const premium_price = computed(() => {
               {{ premium_price }}
             </span>
           </h3>
+
+          <p class="center">
+            ({{ monthly_premium_price }} {{ $t('t_per_month') }})
+          </p>
         </div>
       </section>
     </div>
