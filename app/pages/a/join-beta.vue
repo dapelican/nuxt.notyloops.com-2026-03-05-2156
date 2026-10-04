@@ -26,6 +26,8 @@ const handling_request = ref(false);
 const show_success_message = ref(false);
 
 const sendJoinWaitingListEmail = async (form) => {
+  useTrackEvent('Form: Submission');
+
   handling_request.value = true;
 
   try {

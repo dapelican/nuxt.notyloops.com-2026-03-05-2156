@@ -3,18 +3,25 @@
 import {
   HTTP_CODE_201_CREATED,
   HTTP_CODE_400_BAD_REQUEST,
-  HTTP_CODE_403_FORBIDDEN,
 } from '../../../helpers/http-status-codes.js';
 
-import { describe, expect, it, vi } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { createTestHandler } from '../create-test-handler.js';
 
 import handler from '../../../routes/a/send-token-to-reset-password.post.js';
 
+import {
+  sendEmail,
+} from '../../../services/amazon-ses/send-email.js';
+
 vi.mock('../../../services/amazon-ses/send-email.js', () => ({
   sendEmail: vi.fn(() => Promise.resolve()),
 }));
+
+beforeEach(() => {
+  sendEmail.mockClear();
+});
 
 const request = createTestHandler('post', '/a/send-token-to-reset-password', handler);
 
@@ -45,24 +52,26 @@ describe('POST /a/send-token-to-reset-password', () => {
     expect(data).toEqual({});
   });
 
-  it('returns 403 when a reset token was already sent recently', async () => {
+  it('returns 201 when a reset token was already sent recently', async () => {
     const response = await post({ email: 'reset-active-token@example.com' });
 
-    expect(response.status).toBe(HTTP_CODE_403_FORBIDDEN);
+    expect(response.status).toBe(HTTP_CODE_201_CREATED);
 
     const data = await response.json();
 
-    expect(data.error_message).toBe('error_email_token_already_sent');
+    expect(data).toEqual({});
+    expect(sendEmail).not.toHaveBeenCalled();
   });
 
-  it('returns 403 when maximum retries are reached', async () => {
+  it('returns 201 when maximum retries are reached', async () => {
     const response = await post({ email: 'reset-max-retries@example.com' });
 
-    expect(response.status).toBe(HTTP_CODE_403_FORBIDDEN);
+    expect(response.status).toBe(HTTP_CODE_201_CREATED);
 
     const data = await response.json();
 
-    expect(data.error_message).toBe('error_maximum_retries_reached');
+    expect(data).toEqual({});
+    expect(sendEmail).not.toHaveBeenCalled();
   });
 
   it('returns 201 on successful token send', async () => {
@@ -73,5 +82,6 @@ describe('POST /a/send-token-to-reset-password', () => {
     const data = await response.json();
 
     expect(data).toEqual({});
+    expect(sendEmail).toHaveBeenCalledTimes(1);
   });
 });

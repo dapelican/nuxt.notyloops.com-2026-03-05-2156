@@ -26,6 +26,8 @@ const handling_request = ref(false);
 const show_check_your_inbox_message = ref(false);
 
 const sendValidateEmailToken = async (form) => {
+  useTrackEvent('Form: Submission');
+
   handling_request.value = true;
 
   try {

@@ -44,14 +44,8 @@ const sendPasswordForgottenEmail = async (form) => {
       case 'error_invalid_email':
         form_error.value = t('t_error_invalid_email');
         break;
-      case 'error_no_user_found':
-        form_error.value = t('t_error_no_user_found');
-        break;
       case 'error_email_token_failure':
         form_error.value = t('t_error_email_token_failure');
-        break;
-      case 'error_maximum_retries_reached':
-        form_error.value = t('t_error_maximum_retries_reached');
         break;
       default:
         handleFrontendError(error, error_message);

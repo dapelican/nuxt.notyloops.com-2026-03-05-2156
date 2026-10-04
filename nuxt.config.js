@@ -78,7 +78,9 @@ export default defineNuxtConfig({
       tasks: true,
     },
     scheduledTasks: {
-      '0 3 * * 1': ['tasks:delete-unused-backblaze-files'],
+      '0 3 * * *': ['tasks:delete-notes-permanently'],
+      '0 4 * * *': ['tasks:delete-unused-backblaze-files'],
+      '0 5 * * *': ['tasks:send-email-to-extend-premium'],
     },
   },
   eslint: {
@@ -113,7 +115,7 @@ export default defineNuxtConfig({
     fileDownloads: true,
     // Prevent tracking on localhost
     ignoredHostnames: ['localhost'],
-    formSubmissions: true,
+    formSubmissions: false,
     proxy: true,
   },
 });

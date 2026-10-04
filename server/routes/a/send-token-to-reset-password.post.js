@@ -3,7 +3,6 @@
 import {
   HTTP_CODE_201_CREATED,
   HTTP_CODE_400_BAD_REQUEST,
-  HTTP_CODE_403_FORBIDDEN,
 } from '../../helpers/http-status-codes.js';
 
 import {
@@ -119,11 +118,9 @@ export default defineEventHandler(async (event) => {
     );
 
     if (active_user_token_list.length > 0) {
-      setResponseStatus(event, HTTP_CODE_403_FORBIDDEN);
+      setResponseStatus(event, HTTP_CODE_201_CREATED);
 
-      return {
-        error_message: 'error_email_token_already_sent',
-      };
+      return {};
     }
 
     const {
@@ -139,11 +136,9 @@ export default defineEventHandler(async (event) => {
     );
 
     if (inactive_user_token_list.length >= 3) {
-      setResponseStatus(event, HTTP_CODE_403_FORBIDDEN);
+      setResponseStatus(event, HTTP_CODE_201_CREATED);
 
-      return {
-        error_message: 'error_maximum_retries_reached',
-      };
+      return {};
     }
 
     await sendTokenToResetPassword(user, user.subdomain);
