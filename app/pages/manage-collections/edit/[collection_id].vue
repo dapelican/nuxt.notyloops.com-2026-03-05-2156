@@ -372,7 +372,7 @@ const updateCollection = async () => {
           v-if="user_status === USER_STATUS_ADMIN
             && [COLLECTION_TYPE_PUBLIC_FREE, COLLECTION_TYPE_PUBLIC_PAYWALLLED]
               .includes(collection_form_state.type)"
-          :label="`${$t('t_description')} (Markdown or HTML)`"
+          :label="`${$t('t_description')}`"
           name="description"
         >
           <UTextarea
