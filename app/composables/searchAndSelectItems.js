@@ -2,9 +2,8 @@ import {
   ITEM_TYPE_COLLECTION,
   ITEM_TYPE_NOTE,
   ITEM_TYPE_TAG,
+  MAX_ITEMS_PER_PAGE,
 } from '~/utils/constants';
-
-const MAX_ITEMS_PER_PAGE = 10;
 
 export const MANAGE_LIST_ITEMS_KEY = Symbol('manageListItems');
 

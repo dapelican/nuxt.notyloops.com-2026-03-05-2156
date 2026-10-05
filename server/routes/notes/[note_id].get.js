@@ -75,8 +75,10 @@ export default defineEventHandler(async (event) => {
       ),
       executeSQLQuery(
         `SELECT t.id, t.label
-         FROM note_tags nt LEFT JOIN tags t ON t.id = nt.tag_id WHERE nt.note_id = $1`,
-        [note_id]
+         FROM note_tags nt
+         INNER JOIN tags t ON t.id = nt.tag_id AND t.user_id = $2
+         WHERE nt.note_id = $1 AND nt.user_id = $2`,
+        [note_id, user.id]
       ),
     ]);
 

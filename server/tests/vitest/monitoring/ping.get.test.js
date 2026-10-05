@@ -13,19 +13,15 @@ import handler from '../../../routes/monitoring/ping.get.js';
 const request = createTestHandler('get', '/monitoring/ping', handler);
 
 describe('GET /monitoring/ping', () => {
-  it('returns the first user of the database', async () => {
+  it('returns pong when the database responds', async () => {
     const response = await request(new Request('http://localhost/monitoring/ping'));
 
     expect(response.status).toBe(HTTP_CODE_200_OK);
 
     const data = await response.json();
 
-    expect(data).toHaveProperty('pong');
-    expect(data).toHaveProperty('rows');
-    expect(data.rows.length).toBeGreaterThanOrEqual(1);
-
-    const user = data.rows.at(0);
-
-    expect(user).toHaveProperty('id');
+    expect(data).toEqual({
+      pong: 'pong',
+    });
   });
 });

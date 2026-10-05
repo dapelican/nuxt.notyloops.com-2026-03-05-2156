@@ -15,6 +15,8 @@ import {
 
 import {
   FREEMIUM_NOTE_LIMIT,
+  USER_STATUS_FREE,
+  USER_STATUS_PENDING,
 } from '#shared/utils/constants.js';
 
 import {
@@ -126,12 +128,13 @@ export default defineEventHandler(async (event) => {
     }
 
     if (Array.isArray(tag_id_list) && tag_id_list.length > 0) {
-      for (const tag_id of tag_id_list) {
-        await executeSQLQuery(
-          'INSERT INTO note_tags (user_id, note_id, tag_id) VALUES ($1, $2, $3)',
-          [user.id, note_id, tag_id]
-        );
-      }
+      await executeSQLQuery(
+        `INSERT INTO note_tags (user_id, note_id, tag_id)
+         SELECT $1, $2, t.id
+         FROM tags t
+         WHERE t.user_id = $1 AND t.id = ANY($3::uuid[])`,
+        [user.id, note_id, tag_id_list]
+      );
     }
 
     setResponseStatus(event, HTTP_CODE_201_CREATED);

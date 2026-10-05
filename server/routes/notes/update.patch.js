@@ -127,23 +127,21 @@ export default defineEventHandler(async (event) => {
     }
 
     if (Array.isArray(tag_id_list) && tag_id_list.length > 0) {
-      const {
-        rows: existing_note_tag_list,
-      } = await executeSQLQuery(
-        'SELECT tag_id FROM note_tags WHERE user_id = $1 AND note_id = $2',
-        [user.id, note_id]
+      await executeSQLQuery(
+        `INSERT INTO note_tags (user_id, note_id, tag_id)
+         SELECT $1, $2, t.id
+         FROM tags t
+         WHERE t.user_id = $1
+           AND t.id = ANY($3::uuid[])
+           AND NOT EXISTS (
+             SELECT 1
+             FROM note_tags nt
+             WHERE nt.user_id = $1
+               AND nt.note_id = $2
+               AND nt.tag_id = t.id
+           )`,
+        [user.id, note_id, tag_id_list]
       );
-
-      const existing_tag_id_list = existing_note_tag_list.map((tag) => tag.tag_id);
-
-      const new_tag_id_list = tag_id_list.filter((tag_id) => !existing_tag_id_list.includes(tag_id));
-
-      for (const tag_id of new_tag_id_list) {
-        await executeSQLQuery(
-          'INSERT INTO note_tags (user_id, note_id, tag_id) VALUES ($1, $2, $3)',
-          [user.id, note_id, tag_id]
-        );
-      }
     }
 
     setResponseStatus(event, HTTP_CODE_200_OK);

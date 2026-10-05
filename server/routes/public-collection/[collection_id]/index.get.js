@@ -25,6 +25,10 @@ import {
 } from '../../../helpers/handle-backend-error.js';
 
 import {
+  publicCollectionFields,
+} from '../../../helpers/public-collection-fields.js';
+
+import {
   selectNoteIdListOnTagCriteria,
 } from '../../../helpers/select-note-id-list-on-tag-criteria.js';
 
@@ -85,12 +89,24 @@ export default defineEventHandler(async (event) => {
       [note_id_list]
     );
 
+    const preview_note_id_set = new Set(
+      Array.isArray(collection.preview_note_id_list)
+        ? collection.preview_note_id_list
+        : []
+    );
+
     setResponseStatus(event, HTTP_CODE_200_OK);
 
     return {
-      collection,
+      collection: publicCollectionFields(collection),
       collection_belongs_to_connected_user: user?.id && (collection?.user_id === user?.id),
-      note_list,
+      note_list: note_list.map((note) => {
+        return {
+          id: note.id,
+          is_preview: preview_note_id_set.has(note.id),
+          title: note.title,
+        };
+      }),
     };
   } catch (error) {
     /* c8 ignore next */

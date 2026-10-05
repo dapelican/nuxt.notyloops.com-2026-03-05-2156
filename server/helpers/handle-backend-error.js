@@ -45,7 +45,7 @@ const handleBackendError = async (err, event) => {
   setResponseStatus(event, HTTP_CODE_500_INTERNAL_SERVER_ERROR);
 
   return {
-    error: message,
+    error: 'internal_error',
   };
 };
 

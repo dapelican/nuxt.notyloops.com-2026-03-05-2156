@@ -1,5 +1,8 @@
 <script setup>
 const { locale } = useI18n();
+const runtime_config = useRuntimeConfig();
+
+const is_local_library = (runtime_config.public.domain ?? '').startsWith('localhost');
 </script>
 
 <template>
@@ -14,7 +17,10 @@ const { locale } = useI18n();
 
     <!-- production library -->
 
-    <ul class="mt-4">
+    <ul
+      v-if="!is_local_library"
+      class="mt-4"
+    >
       <li>
         <ULink
           class="text-primary"
@@ -82,7 +88,10 @@ const { locale } = useI18n();
 
     <!-- local library -->
 
-    <!-- <ul class="mt-4">
+    <ul
+      v-else
+      class="mt-4"
+    >
       <li>
         <ULink
           class="text-primary"
@@ -119,6 +128,6 @@ const { locale } = useI18n();
           to="/pc/40000000-0000-4000-8000-000000000006"
         >Drapeaux des pays d'Océanie</ULink>
       </li>
-    </ul> -->
+    </ul>
   </UContainer>
 </template>

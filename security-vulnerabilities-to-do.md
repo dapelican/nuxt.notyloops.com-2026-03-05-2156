@@ -22,54 +22,12 @@ Severity:
 
 ## Medium
 
-### DATA-1. Public collection responses return the whole row
-
-- **Where:** `GET /public-collection/[collection_id]` (`server/routes/public-collection/[collection_id]/index.get.js`) spreads `SELECT *`. `GET /collections/[collection_id]` (`server/routes/collections/[collection_id].get.js`) returns that row to any logged-in user when `type` is not private.
-- **Issue:** Callers receive `user_id`, `tag_id_list_to_include`, `tag_id_list_to_exclude`, `review_strategy`, `super_random_counter`, `preview_note_id_list`, and `pre_tax_price_in_cents`.
-- **Impact:** Owner id and tag ids are exposed. Tag ids feed DATA-3.
-- **Fix:** Return only `id`, `title`, `description_markdown`, `description_html`, `type`, and the price field the page needs. On `GET /collections/[collection_id]`, return the full row only when `user_id` is the caller.
-
-### DATA-2. Paywalled collections list every note title
-
-- **Where:** `GET /public-collection/[collection_id]` builds `note_list` with `SELECT id, title` for every note from `selectNoteIdListOnTagCriteria`, including `public_paywalled`, with no purchase check. `GET /public-collection/[collection_id]/check-copy` also counts those notes for any logged-in user, with no payment check.
-- **Issue:** Note bodies are gated in `GET /public-collection/[collection_id]/note/[note_id]`. Titles and ids are not.
-- **Impact:** The title is often the card prompt. Anyone with the collection id can read the full title list.
-- **Fix:** For `public_paywalled`, return titles only for `preview_note_id_list` unless the caller is the owner or has a `payments` row. Apply the same rule in `check-copy`.
-
-### DATA-3. Note create can attach another user’s tag and then read its label
-
-- **Where:** `POST /notes/create` inserts `note_tags` for every id in `tag_id_list` without `tags.user_id = session user`. `POST /notes/update` does the same for new tag ids. `GET /notes/[note_id]` joins `tags` on `tag_id` only. `POST /notes/search` joins the same way. `POST /note-tags/link` does filter tags by `user_id`.
-- **Issue:** Tag ids for a public collection are in DATA-1. Creating a note with one of those ids makes `GET /notes/{newNoteId}` return that tag’s `label`.
-- **Impact:** Tag names of other users are readable when their ids appear on a public collection.
-- **Fix:** Insert `note_tags` only for tags selected with `WHERE user_id = $sessionUserId`. Filter the joins in the note GET and search the same way.
-
-### DATA-4. Health check returns a real user id
-
-- **Where:** `GET /monitoring/ping` (`server/routes/monitoring/ping.get.js`)
-- **Issue:** Unauthenticated `SELECT id FROM users LIMIT 1`, and the row is returned as `rows`.
-- **Impact:** Leaks a user UUID and hits the database on every probe.
-- **Fix:** Return `{ pong: 'pong' }` with no query. Restrict the route to the monitor’s network if it must stay up.
-
-### ERR-1. HTTP 500 responses include the exception message
-
-- **Where:** `server/helpers/handle-backend-error.js`
-- **Issue:** The client receives `error: err.message`. Postgres errors include the statement and the failing value. This helper is the catch path for every route.
-- **Impact:** Failed requests reveal schema and data that the route would not otherwise return.
-- **Fix:** Log the error server-side. Return a fixed body such as `{ error_message: 'error_internal' }` with no `err.message`.
-
 ### ERR-2. Failed queries write their parameters into `logs`
 
 - **Where:** `server/database/query.js` (`parameter_list` in the `INSERT INTO logs` payload and in `console.error`)
 - **Issue:** A failed sign-up, reset, or password change logs the bcrypt hash and the email. Other failures log whatever was bound, including note text.
 - **Impact:** The `logs` table and process output become a second copy of secrets and note content. ABUSE-1 shows this table is not a safe place for that.
 - **Fix:** Log the query text and the Postgres error code only. Redact parameters.
-
-### LIMIT-2. The free-tier cap is checked outside a transaction
-
-- **Where:** `POST /notes/create` and `POST /notes/duplicate`
-- **Issue:** Both `COUNT` notes, then insert. Concurrent requests can all pass the check and all insert.
-- **Impact:** A free account can end above `FREEMIUM_NOTE_LIMIT` without using LIMIT-1.
-- **Fix:** Take a transaction-scoped lock on the user row (or insert under a constraint) so the count and the insert commit together.
 
 ### LIMIT-3. Search accepts any integer limit and still loads every match
 
@@ -84,13 +42,6 @@ Severity:
 - **Issue:** Premium and admin callers can send a JSON or raw CSV body of any size. `csv-parse` builds the full record list in memory, then inserts row by row with no transaction and no maximum note count.
 - **Impact:** Memory exhaustion. A failed import also leaves a partial set of notes.
 - **Fix:** Reject bodies over a fixed byte size and a fixed row count before parsing. Insert in one transaction.
-
-### LIMIT-5. Text-to-speech records usage and does not enforce it
-
-- **Where:** `POST /files/generate-audio-file-from-text` (`server/routes/files/generate-audio-file-from-text.post.js`). Weekly cap constant: `TEXT_TO_SPEECH_WEEK_CHARACTER_LIMIT` (10_000) in `shared/utils/constants.js`. The read path is `GET /text-to-speech/week-usage`.
-- **Issue:** Each call is limited to `TEXT_TO_SPEECH_FILE_CHARACTER_LIMIT` (500) characters, then the usage row is inserted after Google has already been called. The weekly sum is never compared to the cap. Premium never expiring (PAY-4) makes this permanent.
-- **Impact:** A premium session can spend the Google key without a weekly ceiling.
-- **Fix:** Sum `text_to_speech_usage` for the current week first. Reject when `sum + text.length` exceeds the weekly cap. Insert the usage row in the same transaction before calling Google, or roll it back if Google fails.
 
 ### LIMIT-6. Uploads have a per-file cap and no per-user cap
 
@@ -168,7 +119,7 @@ Severity:
 ## Checked and left as-is
 
 - SQL uses `$1, $2` parameters. `ORDER BY` columns in note, tag, and collection search are allowlists.
-- Note, collection, tag, and review mutations that were inspected scope rows with `user_id`. `POST /note-tags/link` does this for both notes and tags; note create and update do not (DATA-3).
+- Note, collection, tag, and review mutations that were inspected scope rows with `user_id`. `POST /note-tags/link`, note create, and note update select tags with `tags.user_id` before inserting `note_tags`. Note GET and search join `tags` on that same user id.
 - Password reset and sign-up now require a live, unblacklisted email token and bind it to the user. Sign-up updates only `status = unverified` and `password IS NULL`.
 - Paywalled note reads treat a null preview list as none, then allow the note only for the owner or a matching `payments` row.
 - Uploads require a session, a 10 MB cap, and a magic-byte match (residual: UP-1, LIMIT-6, UP-2).
@@ -183,7 +134,7 @@ Severity:
 2. PAY-3, then PAY-4.
 3. ABUSE-1 and DATA-4.
 4. LIMIT-1 and LIMIT-2.
-5. DATA-1, DATA-2, DATA-3.
+5. DATA-2.
 6. ERR-1, ERR-2, ENUM-3.
 7. ABUSE-2, LIMIT-3, LIMIT-4, LIMIT-5, LIMIT-6, PWD-1.
 8. UP-1, UP-2, SEC-1, SEC-2, OPS-1, OPS-2, OPS-3, XSS-3.

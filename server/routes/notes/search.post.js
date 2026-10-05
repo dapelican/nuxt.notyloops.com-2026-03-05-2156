@@ -132,8 +132,8 @@ export default defineEventHandler(async (event) => {
         '[]'::json
       ) AS tag_list
     FROM notes n
-    LEFT JOIN note_tags nt ON nt.note_id = n.id
-    LEFT JOIN tags t ON t.id = nt.tag_id
+    LEFT JOIN note_tags nt ON nt.note_id = n.id AND nt.user_id = $1
+    LEFT JOIN tags t ON t.id = nt.tag_id AND t.user_id = $1
     ${where_clause}
     GROUP BY n.id`;
 

@@ -13,12 +13,20 @@ import {
 } from 'h3';
 
 import {
+  COLLECTION_TYPE_PRIVATE,
+} from '#shared/utils/constants.js';
+
+import {
   executeSQLQuery,
 } from '../../database/query.js';
 
 import {
   handleBackendError,
 } from '../../helpers/handle-backend-error.js';
+
+import {
+  publicCollectionFields,
+} from '../../helpers/public-collection-fields.js';
 
 import {
   verifySessionAndReturnUser,
@@ -77,7 +85,11 @@ export default defineEventHandler(async (event) => {
 
     setResponseStatus(event, HTTP_CODE_200_OK);
 
-    return collection;
+    if (collection.user_id === user.id) {
+      return collection;
+    }
+
+    return publicCollectionFields(collection);
   } catch (error) {
     /* c8 ignore next */
     return handleBackendError(error, event);

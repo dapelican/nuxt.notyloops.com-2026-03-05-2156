@@ -83,6 +83,20 @@
 
 ## Medium
 
+### DATA-3. Note create could attach another user’s tag and then read its label
+
+- **Where:** `POST /notes/create` (`server/routes/notes/create.post.js`), `POST /notes/update` (`server/routes/notes/update.patch.js`), `GET /notes/[note_id]` (`server/routes/notes/[note_id].get.js`), `POST /notes/search` (`server/routes/notes/search.post.js`). `POST /note-tags/link` already filtered tags by `user_id`.
+- **Issue:** Create inserted `note_tags` for every id in `tag_id_list` without `tags.user_id = session user`. Update did the same for new tag ids. Note GET and search joined `tags` on `tag_id` only. Tag ids for a public collection were exposed by DATA-1, so creating a note with one of those ids made `GET /notes/{newNoteId}` return that tag’s `label`.
+- **Impact:** Tag names of other users were readable when their ids appeared on a public collection.
+- **Fix:** Create and update insert `note_tags` only for tags selected with `WHERE user_id = $sessionUserId`. Note GET and search join `tags` with that same user id.
+
+### DATA-1. Public collection responses returned the whole row
+
+- **Where:** `GET /public-collection/[collection_id]` (`server/routes/public-collection/[collection_id]/index.get.js`) and `GET /collections/[collection_id]` (`server/routes/collections/[collection_id].get.js`).
+- **Issue:** Both routes selected the whole `collections` row. The public route returned it to anyone. The logged-in route returned it to any session when `type` was not private.
+- **Impact:** Owner id and tag ids were exposed. Tag ids feed DATA-3.
+- **Fix:** Both responses now return `id`, `title`, `description_markdown`, `description_html`, `type`, and `pre_tax_price_in_cents` unless the caller owns the row. `GET /collections/[collection_id]` still returns the full row to that owner. Preview locks use `is_preview` on each note instead of `preview_note_id_list`.
+
 ### ENUM-2. Sign-up reported that an email is already registered
 
 - **Where:** `POST /a/send-token-to-validate-email` (`server/routes/a/send-token-to-validate-email.post.js`)
@@ -124,3 +138,11 @@
 - **Issue:** Nothing limited script sources or framing, and token URLs could be sent as referrers.
 - **Impact:** XSS-1 and XSS-2 were easier to exploit. Reset, sign-up, and email-change links put the token in the path.
 - **Fix:** Every response gets `X-Content-Type-Options: nosniff`, `Referrer-Policy: no-referrer`, and a Content-Security-Policy of `script-src 'self' 'unsafe-inline'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'`. `'unsafe-inline'` is required for Nuxt's color-mode script and inline runtime config. No third-party script origin is allowed. The policy is in `shared/security-headers.js`, referenced from Nitro `routeRules`, and applied by `server/middleware/security-headers.js`.
+
+### ERR-1. HTTP 500 responses include the exception message
+
+- **Where:** `server/helpers/handle-backend-error.js`
+- **Issue:** The client receives `error: err.message`. Postgres errors include the statement and the failing value. This helper is the catch path for every route.
+- **Impact:** Failed requests reveal schema and data that the route would not otherwise return.
+- **Fix:** Log the error server-side. Return a fixed body such as `{ error_message: 'error_internal' }` with no `err.message`.
+
