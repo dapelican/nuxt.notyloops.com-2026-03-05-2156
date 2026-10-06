@@ -122,7 +122,7 @@ useSeoMeta({
         </span>
       </h2>
 
-      <!-- <p>
+      <p>
         {{ $t('t_feature_3_description_a') }}
         <NuxtLink
           to="/ressources/strategies-de-revision"
@@ -130,12 +130,6 @@ useSeoMeta({
         >
           {{ $t('t_feature_3_description_b') }}
         </NuxtLink>,
-        {{ $t('t_feature_3_description_c') }}
-      </p> -->
-
-      <p>
-        {{ $t('t_feature_3_description_a') }}
-        {{ $t('t_feature_3_description_b') }}
         {{ $t('t_feature_3_description_c') }}
       </p>
     </section>
@@ -145,17 +139,10 @@ useSeoMeta({
     <hr class="separator-2">
 
     <nav class="flex justify-center">
-      <!-- <UButton
+      <UButton
         :to="'/a/sign-up-1'"
       >
         <span>{{ $t('t_sign_up_for_free') }}</span>
-      </UButton> -->
-
-      <UButton
-        class="cursor-pointer hover:text-inverted!"
-        :to="'/a/join-beta'"
-      >
-        <span>{{ $t('t_join_beta') }}</span>
       </UButton>
     </nav>
 

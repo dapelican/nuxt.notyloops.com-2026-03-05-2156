@@ -40,15 +40,10 @@ const public_items = computed(() => [
     to: '/a/log-in',
   },
   {
-    active: route.path.startsWith('/a/join-beta'),
-    label: $t('t_join_beta'),
-    to: '/a/join-beta',
+    active: route.path.startsWith('/a/sign-up-1'),
+    label: $t('t_sign_up'),
+    to: '/a/sign-up-1',
   },
-  // {
-  //   active: route.path.startsWith('/a/sign-up-1'),
-  //   label: $t('t_sign_up'),
-  //   to: '/a/sign-up-1',
-  // },
 ]);
 
 const private_items = computed(() => [

@@ -61,13 +61,13 @@ useSeoMeta({
         Cela vous permet de réviser en priorité les notes que vous maîtrisez le moins.
       </li>
       <li>
-        <b>Par date de dernière révision, de la plus ancienne à la plus récente</b>.
-        Cela vous permet de réviser en priorité les notes que vous n'avez pas révisées depuis longtemps.
-      </li>
-      <li>
         <b>Au hasard et par score du plus faible au plus élevé</b>.
         2 sessions d'entraînement sur 3 présentent les notes au hasard,
         1 session d'entraînement sur 3 présente les notes par score du plus faible au plus élevé.
+      </li>
+      <li>
+        <b>Par date de dernière révision, de la plus ancienne à la plus récente</b>.
+        Cela vous permet de réviser en priorité les notes que vous n'avez pas révisées depuis longtemps.
       </li>
       <li>
         <b>Par date de création, de la plus ancienne à la plus récente</b>.

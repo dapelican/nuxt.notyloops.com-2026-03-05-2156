@@ -232,16 +232,10 @@ const premium_price = computed(() => {
     <hr class="separator-2">
 
     <nav class="flex justify-center">
-      <!-- <UButton
+      <UButton
         :to="'/a/sign-up-1'"
       >
         <span>{{ $t('t_sign_up_for_free') }}</span>
-      </UButton> -->
-
-      <UButton
-        :to="'/a/join-beta'"
-      >
-        <span>{{ $t('t_join_beta') }}</span>
       </UButton>
     </nav>
 

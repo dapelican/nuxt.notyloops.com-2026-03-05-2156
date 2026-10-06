@@ -57,8 +57,8 @@ const monthly_premium_price = computed(() => {
             </li>
             <li class="flex items-center gap-2">
               <UIcon
-                name="i-lucide-circle-x"
-                class="size-5 shrink-0 text-error"
+                name="i-lucide-circle-check"
+                class="size-5 shrink-0 text-primary"
               />
               <span>{{ $t('t_free_plan_02', { note_count: FREEMIUM_NOTE_LIMIT }) }}</span>
             </li>
@@ -102,7 +102,12 @@ const monthly_premium_price = computed(() => {
                 name="i-lucide-circle-check"
                 class="size-5 shrink-0 text-primary"
               />
-              <span>{{ $t('t_free_plan_08') }}</span>
+              <ULink
+                to="/ressources/strategies-de-revision"
+                class="text-primary"
+              >
+                {{ $t('t_free_plan_08') }}
+              </ULink>
             </li>
             <li class="flex items-center gap-2">
               <UIcon
@@ -173,7 +178,12 @@ const monthly_premium_price = computed(() => {
                 name="i-lucide-circle-check"
                 class="size-5 shrink-0 text-primary"
               />
-              <span>{{ $t('t_premium_plan_06') }}</span>
+              <ULink
+                to="/ressources/langues-synthese-vocale"
+                class="text-primary"
+              >
+                {{ $t('t_premium_plan_06') }}
+              </ULink>
             </li>
             <li class="flex items-center gap-2">
               <UIcon
@@ -187,7 +197,12 @@ const monthly_premium_price = computed(() => {
                 name="i-lucide-circle-check"
                 class="size-5 shrink-0 text-primary"
               />
-              <span>{{ $t('t_premium_plan_08') }}</span>
+              <ULink
+                to="/ressources/strategies-de-revision"
+                class="text-primary"
+              >
+                {{ $t('t_premium_plan_08') }}
+              </ULink>
             </li>
             <li class="flex items-center gap-2">
               <UIcon
@@ -223,16 +238,10 @@ const monthly_premium_price = computed(() => {
     <hr class="separator-2">
 
     <nav class="flex justify-center">
-      <!-- <UButton
+      <UButton
         :to="'/a/sign-up-1'"
       >
         <span>{{ $t('t_sign_up_for_free') }}</span>
-      </UButton> -->
-
-      <UButton
-        :to="'/a/join-beta'"
-      >
-        <span>{{ $t('t_join_beta') }}</span>
       </UButton>
     </nav>
 
