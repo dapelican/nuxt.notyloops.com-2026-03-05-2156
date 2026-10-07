@@ -75,7 +75,7 @@ useSeoMeta({
         </span>
       </h2>
 
-      <!-- <p>
+      <p>
         {{ $t('t_feature_1_description_a') }}
         (<NuxtLink
           to="/ressources/langues-synthese-vocale"
@@ -83,11 +83,6 @@ useSeoMeta({
         >
           {{ $t('t_feature_1_description_b') }}
         </NuxtLink>).
-      </p> -->
-
-      <p>
-        {{ $t('t_feature_1_description_a') }}
-        ({{ $t('t_feature_1_description_b') }}).
       </p>
     </section>
 
