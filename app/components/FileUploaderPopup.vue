@@ -110,7 +110,7 @@ const handleDrop = (event) => {
     return;
   }
 
-  const file = event.dataTransfer?.files?.at(0);
+  const file = event.dataTransfer?.files?.[0];
 
   if (!file) {
     return;
@@ -121,7 +121,7 @@ const handleDrop = (event) => {
 };
 
 const handleFileInputChange = (event) => {
-  const file = event.target?.files?.at(0);
+  const file = event.target?.files?.[0];
 
   if (!file) {
     return;
