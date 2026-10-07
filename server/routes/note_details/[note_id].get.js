@@ -15,14 +15,15 @@ import {
 } from '../../helpers/http-status-codes.js';
 
 import {
+  assignContentPosition,
+  buildGroupedNoteDetailList,
+} from '../../helpers/build-grouped-note-detail-list.js';
+
+import {
   defineEventHandler,
   getRouterParam,
   setResponseStatus,
 } from 'h3';
-
-import {
-  buildGroupedNoteDetailList,
-} from '../../helpers/build-grouped-note-detail-list.js';
 
 import {
   executeSQLQuery,
@@ -109,10 +110,7 @@ export default defineEventHandler(async (event) => {
 
     if (note.format === NOTE_FORMAT_FLASHCARD && note.swappable_sides) {
       const shuffled_group = shuffleArray(grouped)
-        .map((group, index) => ({
-          ...group,
-          content_position: index + 1,
-        }));
+        .map((group, index) => assignContentPosition(group, index + 1));
 
       setResponseStatus(event, HTTP_CODE_200_OK);
 

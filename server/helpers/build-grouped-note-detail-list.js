@@ -8,6 +8,20 @@ import {
   shuffleArray,
 } from './shuffle-array.js';
 
+export const assignContentPosition = (group, content_position) => {
+  if (Array.isArray(group)) {
+    return group.map((detail) => ({
+      ...detail,
+      content_position,
+    }));
+  }
+
+  return {
+    ...group,
+    content_position,
+  };
+};
+
 export const buildGroupedNoteDetailList = (note_type, note_details) => {
   const groups = [];
   let current_group = [];

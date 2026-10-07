@@ -13,14 +13,15 @@ import {
 } from '../../../../helpers/http-status-codes.js';
 
 import {
+  assignContentPosition,
+  buildGroupedNoteDetailList,
+} from '../../../../helpers/build-grouped-note-detail-list.js';
+
+import {
   defineEventHandler,
   getRouterParam,
   setResponseStatus,
 } from 'h3';
-
-import {
-  buildGroupedNoteDetailList,
-} from '../../../../helpers/build-grouped-note-detail-list.js';
 
 import {
   executeSQLQuery,
@@ -167,7 +168,8 @@ export default defineEventHandler(async (event) => {
       setResponseStatus(event, HTTP_CODE_200_OK);
 
       return {
-        note_detail_list: shuffleArray(grouped),
+        note_detail_list: shuffleArray(grouped)
+          .map((group, index) => assignContentPosition(group, index + 1)),
         note_format: note.format,
       };
     }

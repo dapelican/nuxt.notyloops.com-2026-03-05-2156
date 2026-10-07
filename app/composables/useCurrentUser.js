@@ -17,6 +17,10 @@ export const USER_FETCH_KEY_PUBLIC_COLLECTION = 'fetch-user-public-collection-pa
 export const useCurrentUser = (key) => {
   return useFetch('/a/user', {
     key,
-    getCachedData: () => undefined,
+    getCachedData: (cache_key, nuxt_app) => {
+      if (nuxt_app.isHydrating) {
+        return nuxt_app.payload.data[cache_key];
+      }
+    },
   });
 };
