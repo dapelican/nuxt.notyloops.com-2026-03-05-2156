@@ -127,20 +127,36 @@ useSeoMeta({
         </NuxtLink>,
         {{ $t('t_feature_3_description_c') }}
       </p>
+
+      <hr class="separator-2">
+
+      <nav class="flex justify-center">
+        <UButton
+          :to="'/a/sign-up-1'"
+        >
+          <span>{{ $t('t_sign_up_for_free') }}</span>
+        </UButton>
+      </nav>
+
+      <hr class="separator-2">
+
+      <h2>
+        Démo
+      </h2>
+
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/Tc8m9kj2YWE?si=02uK5h7suuC5U7ja?rel=0&showinfo=0"
+        title="Créer et revoir des flashcards sur NotyLoops"
+        frameborder="0"
+        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+        loading="lazy"
+      />
+
+      <hr class="separator-2">
     </section>
-
-    <hr class="separator-2">
-
-    <hr class="separator-2">
-
-    <nav class="flex justify-center">
-      <UButton
-        :to="'/a/sign-up-1'"
-      >
-        <span>{{ $t('t_sign_up_for_free') }}</span>
-      </UButton>
-    </nav>
-
-    <hr class="separator-2">
   </UContainer>
 </template>
