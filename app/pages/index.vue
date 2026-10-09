@@ -145,8 +145,7 @@ useSeoMeta({
       </h2>
 
       <iframe
-        width="560"
-        height="315"
+        class="responsive-video"
         src="https://www.youtube.com/embed/Tc8m9kj2YWE?si=02uK5h7suuC5U7ja?rel=0&showinfo=0"
         title="Créer et revoir des flashcards sur NotyLoops"
         frameborder="0"
@@ -160,3 +159,11 @@ useSeoMeta({
     </section>
   </UContainer>
 </template>
+
+<style scoped>
+.responsive-video {
+  aspect-ratio: 16 / 9;
+  margin-top: 1rem;
+  width: 100%;
+}
+</style>
