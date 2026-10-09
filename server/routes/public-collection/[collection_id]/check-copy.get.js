@@ -1,6 +1,12 @@
 'use strict';
 
 import {
+  COLLECTION_TYPE_PRIVATE,
+  COLLECTION_TYPE_PUBLIC_PREMIUM,
+  USER_STATUS_PREMIUM,
+} from '#shared/utils/constants.js';
+
+import {
   HTTP_CODE_200_OK,
   HTTP_CODE_400_BAD_REQUEST,
   HTTP_CODE_401_UNAUTHORIZED,
@@ -11,10 +17,6 @@ import {
   getRouterParam,
   setResponseStatus,
 } from 'h3';
-
-import {
-  COLLECTION_TYPE_PRIVATE,
-} from '#shared/utils/constants.js';
 
 import {
   executeSQLQuery,
@@ -80,6 +82,17 @@ export default defineEventHandler(async (event) => {
 
       return {
         error_message: 'error_unauthorized',
+      };
+    }
+
+    if (
+      collection.type === COLLECTION_TYPE_PUBLIC_PREMIUM
+      && user.status !== USER_STATUS_PREMIUM
+    ) {
+      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
+
+      return {
+        error_message: 'error_unauthorized_collection_feature',
       };
     }
 

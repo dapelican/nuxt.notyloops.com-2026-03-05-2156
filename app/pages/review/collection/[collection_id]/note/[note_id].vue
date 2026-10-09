@@ -1,6 +1,4 @@
 <script setup>
-definePageMeta({ middleware: 'auth' });
-
 const { t } = useI18n();
 
 useSeoMeta({
@@ -12,65 +10,19 @@ const route = useRoute();
 const collection_id = route.params.collection_id;
 const note_id = computed(() => route.params.note_id);
 
-const {
-  data: note_details_payload,
-  error: note_details_error,
-  pending: note_details_pending,
-} = await useFetch(
-  () => `/note_details/${note_id.value}`,
-  {
-    key: computed(() => `collection-note-details-${note_id.value}`),
-    watch: [note_id],
-  }
-);
-
-const {
-  data: note_row_payload,
-  error: note_row_error,
-  pending: note_row_pending,
-} = await useFetch(
-  () => `/notes/${note_id.value}`,
-  {
-    key: computed(() => `collection-note-row-${note_id.value}`),
-    watch: [note_id],
-  }
-);
-
-if (note_details_error.value) {
-  handleFrontendError(null, note_details_error.value.data?.error_message);
-}
-
-if (note_row_error.value) {
-  handleFrontendError(null, note_row_error.value.data?.error_message);
-}
-
-if (note_details_payload.value?.error_message) {
-  handleFrontendError(null, note_details_payload.value.error_message);
-}
-
-if (note_row_payload.value?.error_message) {
-  handleFrontendError(null, note_row_payload.value.error_message);
-}
-
-const note_detail_list = computed(() => note_details_payload.value?.note_detail_list ?? []);
-
-const note_title = computed(() => note_row_payload.value?.title ?? '');
-
-const note_format = computed(() =>
-  note_details_payload.value?.note_format
-  ?? note_row_payload.value?.format
-  ?? NOTE_FORMAT_FREE);
-
-const pending = computed(() => note_details_pending.value || note_row_pending.value);
-
+const note_detail_list = ref([]);
+const note_title = ref('');
+const note_format = ref(NOTE_FORMAT_FREE);
+const pending = ref(true);
 const submitting_feedback = ref(false);
+const navigating_next = ref(false);
 
-const read_track_scores_enabled_from_storage = () => {
+const read_boolean_from_storage = (storage_key) => {
   if (!import.meta.client) {
     return true;
   }
 
-  const raw = localStorage.getItem(LOCAL_STORAGE_KEY_REVIEW_COLLECTION_TRACK_SCORES);
+  const raw = localStorage.getItem(storage_key);
 
   if (raw === null) {
     return true;
@@ -83,9 +35,97 @@ const read_track_scores_enabled_from_storage = () => {
   }
 };
 
-const track_scores_enabled = ref(read_track_scores_enabled_from_storage());
+const read_track_scores_enabled_from_storage = () => {
+  return read_boolean_from_storage(LOCAL_STORAGE_KEY_REVIEW_COLLECTION_TRACK_SCORES);
+};
 
-const navigating_next = ref(false);
+const read_persist_scores_enabled_from_storage = () => {
+  return read_boolean_from_storage(LOCAL_STORAGE_KEY_REVIEW_COLLECTION_PERSIST_SCORES);
+};
+
+const track_scores_enabled = ref(true);
+const persist_scores_enabled = ref(true);
+
+let load_sequence = 0;
+
+const load_note = async () => {
+  const sequence = load_sequence + 1;
+  load_sequence = sequence;
+  pending.value = true;
+
+  persist_scores_enabled.value = read_persist_scores_enabled_from_storage();
+  track_scores_enabled.value = read_track_scores_enabled_from_storage();
+
+  try {
+    if (!persist_scores_enabled.value) {
+      const data = await $fetch(`/public-collection/${collection_id}/note/${note_id.value}`);
+
+      if (sequence !== load_sequence) {
+        return;
+      }
+
+      if (data?.error_message) {
+        handleFrontendError(null, data.error_message);
+        return;
+      }
+
+      note_detail_list.value = data.note_detail_list ?? [];
+      note_title.value = data.title ?? '';
+      note_format.value = data.note_format ?? NOTE_FORMAT_FREE;
+      return;
+    }
+
+    const [
+      note_details_payload,
+      note_row_payload,
+    ] = await Promise.all([
+      $fetch(`/note_details/${note_id.value}`),
+      $fetch(`/notes/${note_id.value}`),
+    ]);
+
+    if (sequence !== load_sequence) {
+      return;
+    }
+
+    if (note_details_payload?.error_message) {
+      handleFrontendError(null, note_details_payload.error_message);
+      return;
+    }
+
+    if (note_row_payload?.error_message) {
+      handleFrontendError(null, note_row_payload.error_message);
+      return;
+    }
+
+    note_detail_list.value = note_details_payload?.note_detail_list ?? [];
+    note_title.value = note_row_payload?.title ?? '';
+    note_format.value = note_details_payload?.note_format
+      ?? note_row_payload?.format
+      ?? NOTE_FORMAT_FREE;
+  } catch (error) {
+    if (sequence !== load_sequence) {
+      return;
+    }
+
+    handleFrontendError(error, error?.data?.error_message);
+  } finally {
+    if (sequence === load_sequence) {
+      pending.value = false;
+    }
+  }
+};
+
+onMounted(() => {
+  load_note();
+});
+
+watch(note_id, () => {
+  if (!import.meta.client) {
+    return;
+  }
+
+  load_note();
+});
 
 const parse_note_id_list_from_storage = () => {
   if (!import.meta.client) {
@@ -146,10 +186,24 @@ const continue_to_next_note_or_end = async () => {
   }
 };
 
+const remember_local_score = (feedback) => {
+  const score = Number(localStorage.getItem(LOCAL_STORAGE_KEY_REVIEW_COLLECTION_SCORE) ?? 0);
+
+  if (feedback === 'positive') {
+    localStorage.setItem(LOCAL_STORAGE_KEY_REVIEW_COLLECTION_SCORE, String(score + 1));
+  }
+};
+
 const submit_feedback = async (feedback) => {
   submitting_feedback.value = true;
 
   try {
+    if (!persist_scores_enabled.value) {
+      remember_local_score(feedback);
+      await navigate_to_next_note_or_end();
+      return;
+    }
+
     await $fetch(`/review/collection/${collection_id}/feedback`, {
       body: {
         feedback,
@@ -158,10 +212,7 @@ const submit_feedback = async (feedback) => {
       method: 'POST',
     });
 
-    const score = Number(localStorage.getItem(LOCAL_STORAGE_KEY_REVIEW_COLLECTION_SCORE) ?? 0);
-    if (feedback === 'positive') {
-      localStorage.setItem(LOCAL_STORAGE_KEY_REVIEW_COLLECTION_SCORE, String(score + 1));
-    }
+    remember_local_score(feedback);
 
     await navigate_to_next_note_or_end();
   } catch (error) {

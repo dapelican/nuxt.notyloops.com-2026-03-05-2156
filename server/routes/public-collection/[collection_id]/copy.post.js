@@ -3,6 +3,8 @@
 import {
   COLLECTION_TYPE_PRIVATE,
   COLLECTION_TYPE_PUBLIC_PAYWALLLED,
+  COLLECTION_TYPE_PUBLIC_PREMIUM,
+  USER_STATUS_PREMIUM,
 } from '#shared/utils/constants.js';
 
 import {
@@ -106,6 +108,17 @@ export default defineEventHandler(async (event) => {
           error_message: 'error_unauthorized_collection_feature',
         };
       }
+    }
+
+    if (
+      collection.type === COLLECTION_TYPE_PUBLIC_PREMIUM
+      && user.status !== USER_STATUS_PREMIUM
+    ) {
+      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
+
+      return {
+        error_message: 'error_unauthorized_collection_feature',
+      };
     }
 
     const {

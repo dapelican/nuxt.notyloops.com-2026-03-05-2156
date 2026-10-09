@@ -1,6 +1,7 @@
 'use strict';
 
 import {
+  COLLECTION_TYPE_PRIVATE,
   FREEMIUM_NOTE_LIMIT,
   REVIEW_STRATEGY_SUPER_RANDOM,
   USER_STATUS_FREE,
@@ -19,6 +20,11 @@ import {
   getRouterParam,
   setResponseStatus,
 } from 'h3';
+
+import {
+  public_collection_requires_account,
+  user_can_review_public_collection,
+} from '../../../../helpers/public-collection-access.js';
 
 import {
   executeSQLQuery,
@@ -102,14 +108,6 @@ export default defineEventHandler(async (event) => {
   try {
     const user = await verifySessionAndReturnUser(event);
 
-    if (user === null) {
-      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
-
-      return {
-        error_message: 'error_unauthorized',
-      };
-    }
-
     const collection_id = getRouterParam(event, 'collection_id');
 
     if (!z.uuid().safeParse(collection_id).success) {
@@ -121,8 +119,8 @@ export default defineEventHandler(async (event) => {
     }
 
     const { rows: collection_list } = await executeSQLQuery(
-      'SELECT * FROM collections WHERE id = $1 and user_id = $2',
-      [collection_id, user.id]
+      'SELECT * FROM collections WHERE id = $1',
+      [collection_id]
     );
 
     const collection = collection_list.at(0);
@@ -131,7 +129,53 @@ export default defineEventHandler(async (event) => {
       setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
-        error_message: 'error_no_item_found_for_user',
+        error_message: 'error_no_item_found',
+      };
+    }
+
+    if (collection.type !== COLLECTION_TYPE_PRIVATE) {
+      const can_review = await user_can_review_public_collection(user, collection);
+
+      if (!can_review) {
+        if (user === null && public_collection_requires_account(collection.type)) {
+          setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
+
+          return {
+            error_message: 'error_unauthorized',
+          };
+        }
+
+        setResponseStatus(event, HTTP_CODE_403_FORBIDDEN);
+
+        return {
+          error_message: 'error_forbidden',
+        };
+      }
+
+      const public_note_id_list = await selectNoteIdListOnTagCriteria(collection.user_id, collection);
+
+      setResponseStatus(event, HTTP_CODE_200_OK);
+
+      return {
+        note_id_list_to_review: shuffleArray(public_note_id_list),
+        persist_scores: false,
+        track_scores: true,
+      };
+    }
+
+    if (user === null) {
+      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
+
+      return {
+        error_message: 'error_unauthorized',
+      };
+    }
+
+    if (collection.user_id !== user.id) {
+      setResponseStatus(event, HTTP_CODE_403_FORBIDDEN);
+
+      return {
+        error_message: 'error_forbidden',
       };
     }
 
@@ -185,6 +229,7 @@ export default defineEventHandler(async (event) => {
 
     return {
       note_id_list_to_review,
+      persist_scores: true,
       track_scores: collection.track_scores,
     };
   } catch (error) {

@@ -1,4 +1,5 @@
 {
+  "t_account_required": "Compte requis",
   "t_account_type": "Type de compte",
   "t_actions": "Actions",
   "t_active_days": "Jours actifs",
@@ -228,7 +229,12 @@
   "t_public_free_collection": "Collection publique gratuite",
   "t_public_paywalled": "publique payante",
   "t_public_paywalled_collection": "Collection publique payante",
+  "t_public_premium": "publique premium",
+  "t_public_premium_collection": "Collection publique premium",
   "t_public_url_with_column": "URL publique : ",
+  "t_public_without_account": "publique sans compte",
+  "t_public_without_account_collection": "Collection publique sans compte",
+  "t_purchase_required": "Achat requis",
   "t_random": "Au hasard",
   "t_remove": "Retirer",
   "t_remove_tags": "Retirer des tags",
@@ -318,8 +324,11 @@
   "t_you_can_share_your_collection_with_this_link": "Vous pouvez partager votre collection avec ce lien :",
   "t_you_have_reached_the_freemium_limit_for_creating_notes": "Vous avez atteint la limite de notes pour un compte gratuit. Vous devez devenir premium pour créer plus de notes.",
   "t_you_have_reached_the_freemium_limit_for_reviewing_notes": "Vous avez atteint la limite de révisions pour un compte gratuit. Vous devez devenir premium pour continuer à revoir vos notes.",
-  "t_you_must_have_a_premium_account_to_buy_this_collection": "Vous devez avoir un compte premium pour pouvoir acheter cette collection.",
-  "t_you_must_log_in_or_sign_up_to_copy_this_collection": "Vous devez être connecté ou vous inscrire pour voir les notes de cette collection et pouvoir les copier",
+  "t_you_must_buy_this_collection": "Achetez cette collection pour revoir ses notes et pouvoir les copier.",
+  "t_you_must_have_a_premium_account_and_buy_this_collection": "Vous devez avoir un compte premium et acheter cette collection pour revoir ses notes et pouvoir les copier.",
+  "t_you_must_have_a_premium_account_to_access_this_collection": "Vous devez avoir un compte premium pour revoir cette collection et copier ses notes.",
+  "t_you_must_log_in_or_sign_up_to_copy_these_notes": "Vous devez avoir un compte pour copier les notes de cette collection.",
+  "t_you_must_log_in_or_sign_up_to_copy_this_collection": "Vous devez avoir un compte pour voir les notes de cette collection et pouvoir les copier.",
   "t_you_own_this_collection_you_cannot_copy_it": "Vous possédez déjà cette collection : vous ne pouvez pas la copier.",
   "t_your_message_has_been_sent": "Votre message a bien été envoyé. Nous vous répondrons dans les meilleurs délais."
 }

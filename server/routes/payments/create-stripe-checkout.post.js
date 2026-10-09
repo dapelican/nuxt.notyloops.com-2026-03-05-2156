@@ -5,6 +5,7 @@ import {
   HTTP_CODE_200_OK,
   HTTP_CODE_400_BAD_REQUEST,
   HTTP_CODE_401_UNAUTHORIZED,
+  HTTP_CODE_403_FORBIDDEN,
 } from '../../helpers/http-status-codes.js';
 
 import {
@@ -27,6 +28,10 @@ import {
 } from '../../helpers/handle-backend-error.js';
 
 import {
+  user_has_premium_status,
+} from '../../helpers/public-collection-access.js';
+
+import {
   verifySessionAndReturnUser,
 } from '../../helpers/verify-session-and-return-user.js';
 
@@ -34,6 +39,7 @@ import {
   COLLECTION_TYPE_PUBLIC_PAYWALLLED,
   EUR_TO_USD_EXCHANGE_RATE,
   PREMIUM_ACCESS_PRE_TAX_AMOUNT_IN_CENTS,
+  USER_STATUS_ADMIN,
 } from '#shared/utils/constants.js';
 
 import {
@@ -185,6 +191,17 @@ export default defineEventHandler(async (event) => {
 
         return {
           error_message: 'error_collection_already_purchased',
+        };
+      }
+
+      if (
+        !user_has_premium_status(authenticated_user)
+        && authenticated_user.status !== USER_STATUS_ADMIN
+      ) {
+        setResponseStatus(event, HTTP_CODE_403_FORBIDDEN);
+
+        return {
+          error_message: 'error_premium_required_to_buy_collection',
         };
       }
 

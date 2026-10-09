@@ -1,4 +1,21 @@
 <script setup>
+const props = defineProps({
+  title: {
+    type: String,
+    default: '',
+  },
+});
+
+const { t } = useI18n();
+
+const popup_title = computed(() => {
+  if (props.title) {
+    return props.title;
+  }
+
+  return t('t_limited_feature_title');
+});
+
 const show_popup = ref(false);
 
 const close = () => {
@@ -14,7 +31,7 @@ const close = () => {
       class: 'cursor-pointer',
       onClick: close,
     }"
-    :title="$t('t_limited_feature_title')"
+    :title="popup_title"
   >
     <slot />
 

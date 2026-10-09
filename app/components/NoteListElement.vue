@@ -8,10 +8,6 @@ const props = defineProps({
     type: String,
     default: '',
   },
-  preview_note_id_list: {
-    type: Array,
-    default: undefined,
-  },
 });
 
 const {
@@ -238,7 +234,6 @@ const calculateScore = (score, review_count) => {
           :collection_id="props.collection_id"
           :collection_type="props.collection_type"
           :note_id="item.id"
-          :preview_note_id_list="props.preview_note_id_list"
           :show_lock="false"
           :title="item.title"
         />

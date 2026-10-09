@@ -2,7 +2,6 @@
 
 import {
   COLLECTION_TYPE_PRIVATE,
-  COLLECTION_TYPE_PUBLIC_PAYWALLLED,
   NOTE_FORMAT_FLASHCARD,
 } from '#shared/utils/constants.js';
 
@@ -38,6 +37,10 @@ import {
 import {
   shuffleArray,
 } from '../../../../helpers/shuffle-array.js';
+
+import {
+  user_can_read_public_note,
+} from '../../../../helpers/public-collection-access.js';
 
 import {
   verifySessionAndReturnUser,
@@ -93,37 +96,15 @@ export default defineEventHandler(async (event) => {
       };
     }
 
-    if (collection.type === COLLECTION_TYPE_PUBLIC_PAYWALLLED) {
-      const preview_note_id_list = Array.isArray(collection.preview_note_id_list)
-        ? collection.preview_note_id_list
-        : [];
+    const user = await verifySessionAndReturnUser(event);
+    const can_read = await user_can_read_public_note(user, collection, note_id);
 
-      if (!preview_note_id_list.includes(note_id)) {
-        const user = await verifySessionAndReturnUser(event);
-        const is_owner = user?.id === collection.user_id;
-        let has_purchased = false;
+    if (!can_read) {
+      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
 
-        if (user?.id && !is_owner) {
-          const {
-            rows: payment_row_list,
-          } = await executeSQLQuery(
-            `SELECT 1 FROM payments
-            WHERE user_id = $1 AND collection_id = $2
-            LIMIT 1`,
-            [user.id, collection_id]
-          );
-
-          has_purchased = payment_row_list.length > 0;
-        }
-
-        if (!is_owner && !has_purchased) {
-          setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
-
-          return {
-            error_message: 'error_unauthorized',
-          };
-        }
-      }
+      return {
+        error_message: 'error_unauthorized',
+      };
     }
 
     const note_id_list = await selectNoteIdListOnTagCriteria(collection.user_id, collection);
@@ -171,6 +152,7 @@ export default defineEventHandler(async (event) => {
         note_detail_list: shuffleArray(grouped)
           .map((group, index) => assignContentPosition(group, index + 1)),
         note_format: note.format,
+        title: note.title,
       };
     }
 
@@ -179,6 +161,7 @@ export default defineEventHandler(async (event) => {
     return {
       note_detail_list: grouped,
       note_format: note.format,
+      title: note.title,
     };
   } catch (error) {
     /* c8 ignore next */

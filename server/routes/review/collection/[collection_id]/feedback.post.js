@@ -8,9 +8,14 @@ import {
 
 import {
   defineEventHandler,
+  getRouterParam,
   readBody,
   setResponseStatus,
 } from 'h3';
+
+import {
+  COLLECTION_TYPE_PRIVATE,
+} from '#shared/utils/constants.js';
 
 import {
   DateTime,
@@ -34,16 +39,6 @@ const ALLOWED_FEEDBACK_VALUES = ['positive', 'negative'];
 
 export default defineEventHandler(async (event) => {
   try {
-    const user = await verifySessionAndReturnUser(event);
-
-    if (user === null) {
-      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
-
-      return {
-        error_message: 'error_unauthorized',
-      };
-    }
-
     const collection_id = getRouterParam(event, 'collection_id');
 
     if (!z.uuid().safeParse(collection_id).success) {
@@ -51,6 +46,31 @@ export default defineEventHandler(async (event) => {
 
       return {
         error_message: 'error_invalid_collection_id',
+      };
+    }
+
+    const {
+      rows: collection_by_id_list,
+    } = await executeSQLQuery(
+      'SELECT type FROM collections WHERE id = $1',
+      [collection_id]
+    );
+
+    const collection_by_id = collection_by_id_list.at(0);
+
+    if (collection_by_id && collection_by_id.type !== COLLECTION_TYPE_PRIVATE) {
+      setResponseStatus(event, HTTP_CODE_200_OK);
+
+      return {};
+    }
+
+    const user = await verifySessionAndReturnUser(event);
+
+    if (user === null) {
+      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
+
+      return {
+        error_message: 'error_unauthorized',
       };
     }
 

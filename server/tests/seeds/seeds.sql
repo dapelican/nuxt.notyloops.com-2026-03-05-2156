@@ -6046,6 +6046,253 @@ VALUES (
 );
 
 -- =============================================
+-- Public collection access samples for a@a.com, b@b.com and c@c.com
+-- One tag and two text notes per user, linked to four public collections.
+-- b@b.com has purchased a@a.com's paywalled collection.
+-- =============================================
+INSERT INTO tags (id, user_id, label, lowercase_label)
+VALUES
+  ('20000000-0000-4000-8000-000000000008', '10000000-0000-4000-8000-000000000001', 'Accès public a', 'accès public a'),
+  ('20000000-0000-4000-8000-000000000009', '10000000-0000-4000-8000-000000000002', 'Accès public b', 'accès public b'),
+  ('20000000-0000-4000-8000-00000000000a', '10000000-0000-4000-8000-000000000003', 'Accès public c', 'accès public c');
+
+INSERT INTO notes (id, user_id, format, title)
+VALUES
+  ('30000000-0000-4000-8000-0000000000d1', '10000000-0000-4000-8000-000000000001', 'free_form', 'a — note 1'),
+  ('30000000-0000-4000-8000-0000000000d2', '10000000-0000-4000-8000-000000000001', 'free_form', 'a — note 2'),
+  ('30000000-0000-4000-8000-0000000000d3', '10000000-0000-4000-8000-000000000002', 'free_form', 'b — note 1'),
+  ('30000000-0000-4000-8000-0000000000d4', '10000000-0000-4000-8000-000000000002', 'free_form', 'b — note 2'),
+  ('30000000-0000-4000-8000-0000000000d5', '10000000-0000-4000-8000-000000000003', 'free_form', 'c — note 1'),
+  ('30000000-0000-4000-8000-0000000000d6', '10000000-0000-4000-8000-000000000003', 'free_form', 'c — note 2');
+
+INSERT INTO note_details (
+  note_id,
+  content_position,
+  content_sub_position,
+  content_type,
+  markdown_content,
+  html_content
+)
+VALUES
+  ('30000000-0000-4000-8000-0000000000d1', 1, 1, 'text', 'Contenu de la note 1 de a', '<p>Contenu de la note 1 de a</p>'),
+  ('30000000-0000-4000-8000-0000000000d2', 1, 1, 'text', 'Contenu de la note 2 de a', '<p>Contenu de la note 2 de a</p>'),
+  ('30000000-0000-4000-8000-0000000000d3', 1, 1, 'text', 'Contenu de la note 1 de b', '<p>Contenu de la note 1 de b</p>'),
+  ('30000000-0000-4000-8000-0000000000d4', 1, 1, 'text', 'Contenu de la note 2 de b', '<p>Contenu de la note 2 de b</p>'),
+  ('30000000-0000-4000-8000-0000000000d5', 1, 1, 'text', 'Contenu de la note 1 de c', '<p>Contenu de la note 1 de c</p>'),
+  ('30000000-0000-4000-8000-0000000000d6', 1, 1, 'text', 'Contenu de la note 2 de c', '<p>Contenu de la note 2 de c</p>');
+
+INSERT INTO note_tags (user_id, note_id, tag_id)
+VALUES
+  ('10000000-0000-4000-8000-000000000001', '30000000-0000-4000-8000-0000000000d1', '20000000-0000-4000-8000-000000000008'),
+  ('10000000-0000-4000-8000-000000000001', '30000000-0000-4000-8000-0000000000d2', '20000000-0000-4000-8000-000000000008'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000d3', '20000000-0000-4000-8000-000000000009'),
+  ('10000000-0000-4000-8000-000000000002', '30000000-0000-4000-8000-0000000000d4', '20000000-0000-4000-8000-000000000009'),
+  ('10000000-0000-4000-8000-000000000003', '30000000-0000-4000-8000-0000000000d5', '20000000-0000-4000-8000-00000000000a'),
+  ('10000000-0000-4000-8000-000000000003', '30000000-0000-4000-8000-0000000000d6', '20000000-0000-4000-8000-00000000000a');
+
+INSERT INTO collections (
+  id,
+  user_id,
+  type,
+  title,
+  description_html,
+  tag_id_list_to_include,
+  inclusion_type,
+  tag_id_list_to_exclude,
+  exclusion_type,
+  review_strategy,
+  preview_note_id_list,
+  pre_tax_price_in_cents
+)
+VALUES
+(
+  '40000000-0000-4000-8000-000000000008',
+  '10000000-0000-4000-8000-000000000001',
+  'public_free',
+  'a — publique gratuite',
+  'Collection publique gratuite de a',
+  jsonb_build_array('20000000-0000-4000-8000-000000000008'::uuid),
+  'AND',
+  '[]'::jsonb,
+  'AND',
+  'random',
+  NULL,
+  NULL
+),
+(
+  '40000000-0000-4000-8000-000000000009',
+  '10000000-0000-4000-8000-000000000001',
+  'public_paywalled',
+  'a — publique payante',
+  'Collection publique payante de a',
+  jsonb_build_array('20000000-0000-4000-8000-000000000008'::uuid),
+  'AND',
+  '[]'::jsonb,
+  'AND',
+  'random',
+  jsonb_build_array('30000000-0000-4000-8000-0000000000d1'::uuid),
+  500
+),
+(
+  '40000000-0000-4000-8000-00000000000a',
+  '10000000-0000-4000-8000-000000000001',
+  'public_without_account',
+  'a — publique sans compte',
+  'Collection publique sans compte de a',
+  jsonb_build_array('20000000-0000-4000-8000-000000000008'::uuid),
+  'AND',
+  '[]'::jsonb,
+  'AND',
+  'random',
+  NULL,
+  NULL
+),
+(
+  '40000000-0000-4000-8000-00000000000b',
+  '10000000-0000-4000-8000-000000000001',
+  'public_premium',
+  'a — publique premium',
+  'Collection publique premium de a',
+  jsonb_build_array('20000000-0000-4000-8000-000000000008'::uuid),
+  'AND',
+  '[]'::jsonb,
+  'AND',
+  'random',
+  NULL,
+  NULL
+),
+(
+  '40000000-0000-4000-8000-00000000000c',
+  '10000000-0000-4000-8000-000000000002',
+  'public_free',
+  'b — publique gratuite',
+  'Collection publique gratuite de b',
+  jsonb_build_array('20000000-0000-4000-8000-000000000009'::uuid),
+  'AND',
+  '[]'::jsonb,
+  'AND',
+  'random',
+  NULL,
+  NULL
+),
+(
+  '40000000-0000-4000-8000-00000000000d',
+  '10000000-0000-4000-8000-000000000002',
+  'public_paywalled',
+  'b — publique payante',
+  'Collection publique payante de b',
+  jsonb_build_array('20000000-0000-4000-8000-000000000009'::uuid),
+  'AND',
+  '[]'::jsonb,
+  'AND',
+  'random',
+  jsonb_build_array('30000000-0000-4000-8000-0000000000d3'::uuid),
+  500
+),
+(
+  '40000000-0000-4000-8000-00000000000e',
+  '10000000-0000-4000-8000-000000000002',
+  'public_without_account',
+  'b — publique sans compte',
+  'Collection publique sans compte de b',
+  jsonb_build_array('20000000-0000-4000-8000-000000000009'::uuid),
+  'AND',
+  '[]'::jsonb,
+  'AND',
+  'random',
+  NULL,
+  NULL
+),
+(
+  '40000000-0000-4000-8000-00000000000f',
+  '10000000-0000-4000-8000-000000000002',
+  'public_premium',
+  'b — publique premium',
+  'Collection publique premium de b',
+  jsonb_build_array('20000000-0000-4000-8000-000000000009'::uuid),
+  'AND',
+  '[]'::jsonb,
+  'AND',
+  'random',
+  NULL,
+  NULL
+),
+(
+  '40000000-0000-4000-8000-000000000010',
+  '10000000-0000-4000-8000-000000000003',
+  'public_free',
+  'c — publique gratuite',
+  'Collection publique gratuite de c',
+  jsonb_build_array('20000000-0000-4000-8000-00000000000a'::uuid),
+  'AND',
+  '[]'::jsonb,
+  'AND',
+  'random',
+  NULL,
+  NULL
+),
+(
+  '40000000-0000-4000-8000-000000000011',
+  '10000000-0000-4000-8000-000000000003',
+  'public_paywalled',
+  'c — publique payante',
+  'Collection publique payante de c',
+  jsonb_build_array('20000000-0000-4000-8000-00000000000a'::uuid),
+  'AND',
+  '[]'::jsonb,
+  'AND',
+  'random',
+  jsonb_build_array('30000000-0000-4000-8000-0000000000d5'::uuid),
+  500
+),
+(
+  '40000000-0000-4000-8000-000000000012',
+  '10000000-0000-4000-8000-000000000003',
+  'public_without_account',
+  'c — publique sans compte',
+  'Collection publique sans compte de c',
+  jsonb_build_array('20000000-0000-4000-8000-00000000000a'::uuid),
+  'AND',
+  '[]'::jsonb,
+  'AND',
+  'random',
+  NULL,
+  NULL
+),
+(
+  '40000000-0000-4000-8000-000000000013',
+  '10000000-0000-4000-8000-000000000003',
+  'public_premium',
+  'c — publique premium',
+  'Collection publique premium de c',
+  jsonb_build_array('20000000-0000-4000-8000-00000000000a'::uuid),
+  'AND',
+  '[]'::jsonb,
+  'AND',
+  'random',
+  NULL,
+  NULL
+);
+
+INSERT INTO payments (user_id, collection_id, payment_type, price_in_cents)
+VALUES (
+  '10000000-0000-4000-8000-000000000002',
+  '40000000-0000-4000-8000-000000000009',
+  'collection',
+  500
+);
+
+-- Free session for public_premium refusal tests (c@c.com)
+INSERT INTO user_session_tokens (id, user_id, token, expires_at, blacklisted)
+VALUES (
+  'c1000000-0000-4000-8000-000000000003',
+  '10000000-0000-4000-8000-000000000003',
+  'c-free-session-token',
+  now() + interval '30 days',
+  false
+);
+
+-- =============================================
 -- User for: ping test (GET /monitoring/ping)
 -- =============================================
 INSERT INTO users (id, email, status, subdomain)

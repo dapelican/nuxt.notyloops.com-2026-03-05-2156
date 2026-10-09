@@ -28,6 +28,12 @@ const user_is_premium = computed(() => {
   return user_data.value?.status === USER_STATUS_PREMIUM;
 });
 
+const user_is_premium_or_admin = computed(() => {
+  const status = user_data.value?.status;
+
+  return status === USER_STATUS_PREMIUM || status === USER_STATUS_ADMIN;
+});
+
 const {
   data: collection_data,
   error: collection_error,
@@ -48,6 +54,10 @@ const user_has_purchased_collection = ref(false);
 const handling_checkout_request = ref(false);
 
 const goToStripeCheckout = async () => {
+  if (!user_is_premium_or_admin.value) {
+    return;
+  }
+
   if (handling_checkout_request.value) {
     return;
   }
@@ -108,6 +118,120 @@ const collection_price = computed(() => {
 
   return `$ ${Math.ceil(price * EUR_TO_USD_EXCHANGE_RATE)}`;
 });
+
+const can_review = computed(() => {
+  if (collection_belongs_to_connected_user.value) {
+    return true;
+  }
+
+  const collection_type = collection.value?.type;
+
+  if (collection_type === COLLECTION_TYPE_PUBLIC_WITHOUT_ACCOUNT) {
+    return true;
+  }
+
+  if (collection_type === COLLECTION_TYPE_PUBLIC_FREE) {
+    return logged_in.value;
+  }
+
+  if (collection_type === COLLECTION_TYPE_PUBLIC_PREMIUM) {
+    return user_is_premium.value;
+  }
+
+  if (collection_type === COLLECTION_TYPE_PUBLIC_PAYWALLLED) {
+    return user_has_purchased_collection.value;
+  }
+
+  return false;
+});
+
+const can_copy = computed(() => {
+  if (collection_belongs_to_connected_user.value) {
+    return false;
+  }
+
+  const collection_type = collection.value?.type;
+
+  if (collection_type === COLLECTION_TYPE_PUBLIC_WITHOUT_ACCOUNT) {
+    return logged_in.value;
+  }
+
+  if (collection_type === COLLECTION_TYPE_PUBLIC_FREE) {
+    return logged_in.value;
+  }
+
+  if (collection_type === COLLECTION_TYPE_PUBLIC_PREMIUM) {
+    return user_is_premium.value;
+  }
+
+  if (collection_type === COLLECTION_TYPE_PUBLIC_PAYWALLLED) {
+    return user_has_purchased_collection.value;
+  }
+
+  return false;
+});
+
+const review_lock_reason = computed(() => {
+  const collection_type = collection.value?.type;
+
+  if (collection_type === COLLECTION_TYPE_PUBLIC_PAYWALLLED) {
+    return 'purchase';
+  }
+
+  if (collection_type === COLLECTION_TYPE_PUBLIC_PREMIUM) {
+    return 'premium';
+  }
+
+  return 'login';
+});
+
+const copy_lock_reason = computed(() => {
+  const collection_type = collection.value?.type;
+
+  if (collection_type === COLLECTION_TYPE_PUBLIC_WITHOUT_ACCOUNT) {
+    return 'login_copy_only';
+  }
+
+  if (collection_type === COLLECTION_TYPE_PUBLIC_PAYWALLLED) {
+    return 'purchase';
+  }
+
+  if (collection_type === COLLECTION_TYPE_PUBLIC_PREMIUM) {
+    return 'premium';
+  }
+
+  return 'login';
+});
+
+const note_is_locked = (note) => {
+  if (collection_belongs_to_connected_user.value) {
+    return false;
+  }
+
+  const collection_type = collection.value?.type;
+
+  if (collection_type === COLLECTION_TYPE_PUBLIC_WITHOUT_ACCOUNT) {
+    return false;
+  }
+
+  if (collection_type === COLLECTION_TYPE_PUBLIC_FREE) {
+    return !logged_in.value;
+  }
+
+  if (collection_type === COLLECTION_TYPE_PUBLIC_PREMIUM) {
+    return !user_is_premium.value;
+  }
+
+  if (collection_type === COLLECTION_TYPE_PUBLIC_PAYWALLLED) {
+    if (note.is_preview) {
+      return false;
+    }
+
+    return !user_has_purchased_collection.value;
+  }
+
+  return true;
+};
 </script>
 
 <template>
@@ -131,81 +255,61 @@ const collection_price = computed(() => {
 
         <hr class="separator-1">
 
-        <UAlert
-          v-if="!logged_in"
-          color="info"
-          variant="subtle"
-          icon="i-lucide-info"
-        >
-          <template #description>
-            <p class="m-0">
-              {{ $t('t_you_must_log_in_or_sign_up_to_copy_this_collection') }}
-            </p>
-          </template>
-        </UAlert>
-
-        <LimitedFeaturePopup
-          v-else-if="logged_in
-            && user_is_premium
-            && collection_belongs_to_connected_user"
-        >
+        <nav class="flex flex-wrap gap-12">
           <UButton
-            color="primary"
-            variant="solid"
+            v-if="can_review"
+            :to="`/review/collection/${collection_id}`"
           >
-            <span>{{ $t('t_copy_collection') }}</span>
+            <span>{{ $t('t_review') }}</span>
           </UButton>
 
-          <template #content>
-            <p class="m-0">
-              {{ $t('t_you_own_this_collection_you_cannot_copy_it') }}
-            </p>
-          </template>
-        </LimitedFeaturePopup>
-
-        <LimitedFeaturePopup
-          v-else-if="logged_in
-            && !user_is_premium
-            && collection?.type === COLLECTION_TYPE_PUBLIC_PAYWALLLED
-            && !user_has_purchased_collection"
-        >
-          <UButton
-            color="primary"
-            variant="solid"
+          <PublicCollectionAccessPopup
+            v-else
+            :handling_checkout_request="handling_checkout_request"
+            :logged_in="logged_in"
+            :price_label="collection_price"
+            :reason="review_lock_reason"
+            :user_is_premium_or_admin="user_is_premium_or_admin"
+            @checkout="goToStripeCheckout"
           >
-            <span>{{ $t('t_copy_collection') }}</span>
-          </UButton>
+            <UButton icon="i-lucide-lock">
+              <span>{{ $t('t_review') }}</span>
+            </UButton>
+          </PublicCollectionAccessPopup>
 
-          <template #content>
-            <p class="m-0">
-              {{ $t('t_you_must_have_a_premium_account_to_buy_this_collection') }}
-            </p>
-          </template>
+          <LimitedFeaturePopup
+            v-if="collection_belongs_to_connected_user"
+          >
+            <UButton>
+              <span>{{ $t('t_copy_collection') }}</span>
+            </UButton>
 
-          <template #footer>
-            <section class="flex justify-end">
-              <BecomePremiumButtonElement />
-            </section>
-          </template>
-        </LimitedFeaturePopup>
+            <template #content>
+              <p class="m-0">
+                {{ $t('t_you_own_this_collection_you_cannot_copy_it') }}
+              </p>
+            </template>
+          </LimitedFeaturePopup>
 
-        <UButton
-          v-else-if="logged_in
-            && user_is_premium
-            && collection?.type === COLLECTION_TYPE_PUBLIC_PAYWALLLED
-            && !user_has_purchased_collection"
-          color="primary"
-          variant="solid"
-          :loading="handling_checkout_request"
-          @click="goToStripeCheckout"
-        >
-          <span>{{ $t('t_buy_collection') }} - {{ collection_price }}</span>
-        </UButton>
+          <CopyCollectionPopup
+            v-else-if="can_copy"
+            :collection_title="collection?.title"
+          />
 
-        <CopyCollectionPopup
-          v-else
-          :collection_title="collection?.title"
-        />
+          <PublicCollectionAccessPopup
+            v-else
+            :handling_checkout_request="handling_checkout_request"
+            :logged_in="logged_in"
+            :price_label="collection_price"
+            :reason="copy_lock_reason"
+            :user_is_premium_or_admin="user_is_premium_or_admin"
+            @checkout="goToStripeCheckout"
+          >
+            <UButton icon="i-lucide-lock">
+              <span>{{ $t('t_copy_collection') }}</span>
+            </UButton>
+          </PublicCollectionAccessPopup>
+        </nav>
 
         <hr class="separator-1">
 
@@ -220,10 +324,9 @@ const collection_price = computed(() => {
 
           <NoteCollapsibleContentElement
             :collection_id="collection_id"
-            :collection_type="collection?.type ?? 'public_free'"
+            :collection_type="collection?.type ?? COLLECTION_TYPE_PUBLIC_FREE"
             :note_id="note.id"
-            :preview_note_id_list="collection?.preview_note_id_list"
-            :show_lock="!collection_belongs_to_connected_user && !user_has_purchased_collection"
+            :show_lock="note_is_locked(note)"
             :title="note.title"
           />
         </section>

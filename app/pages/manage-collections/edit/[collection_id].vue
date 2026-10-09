@@ -370,8 +370,7 @@ const updateCollection = async () => {
 
         <UFormField
           v-if="user_status === USER_STATUS_ADMIN
-            && [COLLECTION_TYPE_PUBLIC_FREE, COLLECTION_TYPE_PUBLIC_PAYWALLLED]
-              .includes(collection_form_state.type)"
+            && collection_form_state.type !== COLLECTION_TYPE_PRIVATE"
           :label="`${$t('t_description')}`"
           name="description"
         >

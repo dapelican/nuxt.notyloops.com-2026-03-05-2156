@@ -12,10 +12,6 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  preview_note_id_list: {
-    type: Array,
-    default: undefined,
-  },
   show_lock: {
     type: Boolean,
     default: true,
@@ -34,25 +30,7 @@ const note_format = ref(NOTE_FORMAT_FREE);
 const { loggedIn: logged_in } = useUserSession();
 
 const show_locked_preview = computed(() => {
-  if (!props.show_lock) {
-    return false;
-  }
-
-  if (!logged_in.value) {
-    return true;
-  }
-
-  if (props.collection_type === COLLECTION_TYPE_PUBLIC_FREE) {
-    return false;
-  }
-
-  const list = props.preview_note_id_list;
-
-  if (!Array.isArray(list)) {
-    return true;
-  }
-
-  return !list.includes(props.note_id);
+  return props.show_lock;
 });
 
 const note_detail_fetch_url = computed(() => {
@@ -94,7 +72,13 @@ const load_note_detail_list = async () => {
 const on_content_open_change = async (is_open) => {
   content_open.value = is_open;
 
-  if (is_open && !show_locked_preview.value && logged_in.value) {
+  if (!is_open || show_locked_preview.value) {
+    return;
+  }
+
+  const is_public_collection = props.collection_type.startsWith('public_');
+
+  if (is_public_collection || logged_in.value) {
     await load_note_detail_list();
   }
 };

@@ -1,6 +1,4 @@
 <script setup>
-definePageMeta({ middleware: 'auth' });
-
 const { t } = useI18n();
 
 useSeoMeta({

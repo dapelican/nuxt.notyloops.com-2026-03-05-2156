@@ -88,46 +88,166 @@ const is_local_library = (runtime_config.public.domain ?? '').startsWith('localh
 
     <!-- local library -->
 
-    <ul
+    <div
       v-else
       class="mt-4"
     >
-      <li>
-        <ULink
-          class="text-primary"
-          to="/pc/40000000-0000-4000-8000-000000000001"
-        >Drapeaux des pays d'Afrique</ULink>
-      </li>
-      <li>
-        <ULink
-          class="text-primary"
-          to="/pc/40000000-0000-4000-8000-000000000002"
-        >Drapeaux des pays d'Amérique du Nord</ULink>
-      </li>
-      <li>
-        <ULink
-          class="text-primary"
-          to="/pc/40000000-0000-4000-8000-000000000003"
-        >Drapeaux des pays d'Amérique du Sud</ULink>
-      </li>
-      <li>
-        <ULink
-          class="text-primary"
-          to="/pc/40000000-0000-4000-8000-000000000004"
-        >Drapeaux des pays d'Asie (Payant)</ULink>
-      </li>
-      <li>
-        <ULink
-          class="text-primary"
-          to="/pc/40000000-0000-4000-8000-000000000005"
-        >Drapeaux des pays d'Europe</ULink>
-      </li>
-      <li>
-        <ULink
-          class="text-primary"
-          to="/pc/40000000-0000-4000-8000-000000000006"
-        >Drapeaux des pays d'Océanie</ULink>
-      </li>
-    </ul>
+      <h2>
+        {{ $t('t_public_without_account_collection') }}
+      </h2>
+      <ul>
+        <li class="flex items-center gap-2">
+          <ULink
+            class="text-primary"
+            to="/pc/40000000-0000-4000-8000-00000000000a"
+          >a — publique sans compte</ULink>
+          <span>({{ $t('t_public_without_account') }})</span>
+        </li>
+        <li class="flex items-center gap-2">
+          <ULink
+            class="text-primary"
+            to="/pc/40000000-0000-4000-8000-00000000000e"
+          >b — publique sans compte</ULink>
+          <span>({{ $t('t_public_without_account') }})</span>
+        </li>
+        <li class="flex items-center gap-2">
+          <ULink
+            class="text-primary"
+            to="/pc/40000000-0000-4000-8000-000000000012"
+          >c — publique sans compte</ULink>
+          <span>({{ $t('t_public_without_account') }})</span>
+        </li>
+      </ul>
+
+      <h2 class="mt-6">
+        {{ $t('t_public_free_collection') }}
+      </h2>
+      <ul>
+        <li class="flex items-center gap-2">
+          <ULink
+            class="text-primary"
+            to="/pc/40000000-0000-4000-8000-000000000001"
+          >Drapeaux des pays d'Afrique</ULink>
+          <span>({{ $t('t_public_free') }})</span>
+        </li>
+        <li class="flex items-center gap-2">
+          <ULink
+            class="text-primary"
+            to="/pc/40000000-0000-4000-8000-000000000002"
+          >Drapeaux des pays d'Amérique du Nord</ULink>
+          <span>({{ $t('t_public_free') }})</span>
+        </li>
+        <li class="flex items-center gap-2">
+          <ULink
+            class="text-primary"
+            to="/pc/40000000-0000-4000-8000-000000000003"
+          >Drapeaux des pays d'Amérique du Sud</ULink>
+          <span>({{ $t('t_public_free') }})</span>
+        </li>
+        <li class="flex items-center gap-2">
+          <ULink
+            class="text-primary"
+            to="/pc/40000000-0000-4000-8000-000000000005"
+          >Drapeaux des pays d'Europe</ULink>
+          <span>({{ $t('t_public_free') }})</span>
+        </li>
+        <li class="flex items-center gap-2">
+          <ULink
+            class="text-primary"
+            to="/pc/40000000-0000-4000-8000-000000000006"
+          >Drapeaux des pays d'Océanie</ULink>
+          <span>({{ $t('t_public_free') }})</span>
+        </li>
+        <li class="flex items-center gap-2">
+          <ULink
+            class="text-primary"
+            to="/pc/40000000-0000-4000-8000-000000000008"
+          >a — publique gratuite</ULink>
+          <span>({{ $t('t_public_free') }})</span>
+        </li>
+        <li class="flex items-center gap-2">
+          <ULink
+            class="text-primary"
+            to="/pc/40000000-0000-4000-8000-00000000000c"
+          >b — publique gratuite</ULink>
+          <span>({{ $t('t_public_free') }})</span>
+        </li>
+        <li class="flex items-center gap-2">
+          <ULink
+            class="text-primary"
+            to="/pc/40000000-0000-4000-8000-000000000010"
+          >c — publique gratuite</ULink>
+          <span>({{ $t('t_public_free') }})</span>
+        </li>
+      </ul>
+
+      <h2 class="mt-6">
+        {{ $t('t_public_premium_collection') }}
+      </h2>
+      <ul>
+        <li class="flex items-center gap-2">
+          <ULink
+            class="text-primary"
+            to="/pc/40000000-0000-4000-8000-00000000000b"
+          >a — publique premium</ULink>
+          <span>({{ $t('t_public_premium') }})</span>
+        </li>
+        <li class="flex items-center gap-2">
+          <ULink
+            class="text-primary"
+            to="/pc/40000000-0000-4000-8000-00000000000f"
+          >b — publique premium</ULink>
+          <span>({{ $t('t_public_premium') }})</span>
+        </li>
+        <li class="flex items-center gap-2">
+          <ULink
+            class="text-primary"
+            to="/pc/40000000-0000-4000-8000-000000000013"
+          >c — publique premium</ULink>
+          <span>({{ $t('t_public_premium') }})</span>
+        </li>
+      </ul>
+
+      <h2 class="mt-6">
+        {{ $t('t_public_paywalled_collection') }}
+      </h2>
+      <ul>
+        <li class="flex items-center gap-2">
+          <ULink
+            class="text-primary"
+            to="/pc/40000000-0000-4000-8000-000000000004"
+          >Drapeaux des pays d'Asie</ULink>
+          <span>({{ $t('t_public_paywalled') }})</span>
+        </li>
+        <li class="flex items-center gap-2">
+          <ULink
+            class="text-primary"
+            to="/pc/40000000-0000-4000-8000-000000000007"
+          >Drapeaux d'Asie (apercu)</ULink>
+          <span>({{ $t('t_public_paywalled') }})</span>
+        </li>
+        <li class="flex items-center gap-2">
+          <ULink
+            class="text-primary"
+            to="/pc/40000000-0000-4000-8000-000000000009"
+          >a — publique payante</ULink>
+          <span>({{ $t('t_public_paywalled') }})</span>
+        </li>
+        <li class="flex items-center gap-2">
+          <ULink
+            class="text-primary"
+            to="/pc/40000000-0000-4000-8000-00000000000d"
+          >b — publique payante</ULink>
+          <span>({{ $t('t_public_paywalled') }})</span>
+        </li>
+        <li class="flex items-center gap-2">
+          <ULink
+            class="text-primary"
+            to="/pc/40000000-0000-4000-8000-000000000011"
+          >c — publique payante</ULink>
+          <span>({{ $t('t_public_paywalled') }})</span>
+        </li>
+      </ul>
+    </div>
   </UContainer>
 </template>
