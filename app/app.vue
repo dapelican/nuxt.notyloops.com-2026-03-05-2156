@@ -1,21 +1,16 @@
 <script setup>
 useSchema();
 
-const i18n_head = useLocaleHead({ seo: false });
-const request_url = useRequestURL();
-const route = useRoute();
+const { locale, locales } = useI18n();
+
+const current_language = computed(() => (
+  locales.value.find((item) => item.code === locale.value)?.language || locale.value
+));
 
 useHead(() => ({
   htmlAttrs: {
-    ...i18n_head.value.htmlAttrs,
+    lang: current_language.value,
   },
-  link: [
-    {
-      key: 'canonical',
-      rel: 'canonical',
-      href: `${request_url.origin}${route.path}`,
-    },
-  ],
 }));
 </script>
 
