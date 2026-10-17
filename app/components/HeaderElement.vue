@@ -30,7 +30,7 @@ const public_items = computed(() => [
     to: '/',
   },
   {
-    active: route.path === '/pricing',
+    active: ['/pricing', '/prix'].includes(route.path),
     label: $t('t_pricing'),
     to: locale.value === 'fr' ? '/prix' : '/pricing',
   },

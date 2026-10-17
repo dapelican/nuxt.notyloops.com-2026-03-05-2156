@@ -55,4 +55,3 @@ Rule of thumb: **1 unit = 0.25rem** (e.g. `size-5` = 1.25rem).
 | 72 | 18rem |
 | 80 | 20rem |
 | 96 | 24rem |
-

@@ -280,7 +280,7 @@ describe('checkout.session.completed grants', () => {
 
     expect(response.status).toBe(HTTP_CODE_500_INTERNAL_SERVER_ERROR);
     expect(await response.json()).toEqual({
-      error: 'premium_user_not_found',
+      error: 'internal_error',
     });
 
     const {

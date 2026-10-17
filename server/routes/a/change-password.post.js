@@ -57,19 +57,11 @@ export default defineEventHandler(async (event) => {
       };
     }
 
-    const {
-      email,
-    } = await readBody(event);
-
-    let {
-      current_password,
-      new_password_1,
-      new_password_2,
-    } = await readBody(event);
-
-    current_password = current_password?.trim();
-    new_password_1 = new_password_1?.trim();
-    new_password_2 = new_password_2?.trim();
+    const body = await readBody(event);
+    const email = body.email;
+    const current_password = body.current_password?.trim();
+    const new_password_1 = body.new_password_1?.trim();
+    const new_password_2 = body.new_password_2?.trim();
 
     if (!validateEmail(email)) {
       setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);

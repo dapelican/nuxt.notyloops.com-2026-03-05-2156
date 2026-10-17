@@ -1,3 +1,5 @@
+'use strict';
+
 export const USER_FETCH_KEY_COLLECTIONS = 'fetch-user-for-collections';
 
 export const USER_FETCH_KEY_MANAGE_NOTES_PAGE = 'fetch-user-manage-notes-page';
