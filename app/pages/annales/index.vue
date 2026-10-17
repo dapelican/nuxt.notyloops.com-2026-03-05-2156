@@ -2,7 +2,7 @@
 const meta_description = 'Les sujets, rapports et parfois corrigés et bonnes copies des examens et concours francophones.';
 
 useSeoMeta({
-  title: 'Annales | NotyLoops',
+  title: 'Annales | ${WEBSITE_NAME}',
   description: meta_description,
 });
 

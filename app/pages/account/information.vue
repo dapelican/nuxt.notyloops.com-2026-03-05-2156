@@ -11,7 +11,7 @@ const {
 const { t } = useI18n();
 
 useSeoMeta({
-  title: `${t('t_my_information')} | NotyLoops`,
+  title: `${t('t_my_information')} | ${WEBSITE_NAME}`,
 });
 
 const handling_request_1 = ref(true);

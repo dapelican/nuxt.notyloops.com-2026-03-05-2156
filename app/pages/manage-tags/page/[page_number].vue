@@ -4,7 +4,7 @@ definePageMeta({ middleware: 'auth' });
 const { t } = useI18n();
 
 useSeoMeta({
-  title: `${t('t_manage_tags')} | NotyLoops`,
+  title: `${t('t_manage_tags')} | ${WEBSITE_NAME}`,
 });
 
 const {

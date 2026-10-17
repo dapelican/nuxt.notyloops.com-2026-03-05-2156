@@ -15,12 +15,12 @@ import {
 import {
   USER_STATUS_FREE,
   USER_STATUS_UNVERIFIED,
+  WEBSITE_DOMAIN_NAME,
 } from '#shared/utils/constants.js';
 
 import {
   defineEventHandler,
   readBody,
-  setResponseStatus,
 } from 'h3';
 
 import {
@@ -68,7 +68,7 @@ export default defineEventHandler(async (event) => {
       !validateNonEmptyInputFieldList([email])
       || !validateEmail(email)
     ) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_email',
@@ -79,7 +79,7 @@ export default defineEventHandler(async (event) => {
       !validateNonEmptyInputFieldList([password_1, password_2])
       || password_1 !== password_2
     ) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_password',
@@ -87,7 +87,7 @@ export default defineEventHandler(async (event) => {
     }
 
     if (!token || !validateUUID(token)) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_email_token',
@@ -102,7 +102,7 @@ export default defineEventHandler(async (event) => {
     );
 
     if (user_list.length === 0) {
-      setResponseStatus(event, HTTP_CODE_403_FORBIDDEN);
+      event.res.status = HTTP_CODE_403_FORBIDDEN;
 
       return {
         error_message: 'error_no_user_found',
@@ -119,7 +119,7 @@ export default defineEventHandler(async (event) => {
     });
 
     if (!token_user_id || token_user_id !== user.id) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_email_token',
@@ -150,7 +150,7 @@ export default defineEventHandler(async (event) => {
     const updated_user = updated_user_list.at(0);
 
     if (!updated_user) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_email_token',
@@ -196,10 +196,10 @@ export default defineEventHandler(async (event) => {
         id: updated_user.id,
         subdomain: updated_user.subdomain,
       },
-      to: 'support@notyloops.com',
+      to: `support@${WEBSITE_DOMAIN_NAME}`,
     });
 
-    setResponseStatus(event, HTTP_CODE_201_CREATED);
+    event.res.status = HTTP_CODE_201_CREATED;
 
     return {
       success: true,

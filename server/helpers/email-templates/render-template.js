@@ -1,5 +1,10 @@
 'use strict';
 
+import {
+  WEBSITE_DOMAIN_NAME,
+  WEBSITE_NAME,
+} from '#shared/utils/constants.js';
+
 import ejs from 'ejs';
 
 import { join } from 'path';
@@ -20,6 +25,8 @@ const renderTemplate = async (template_name, subdomain, template_params) => {
   const language_folder = getLanguageFolder(subdomain);
 
   const data = {
+    WEBSITE_DOMAIN_NAME,
+    WEBSITE_NAME,
     ...template_params,
   };
 

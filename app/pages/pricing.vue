@@ -44,7 +44,7 @@ useSchema({
 });
 
 useSeoMeta({
-  title: `${t('t_pricing')} | NotyLoops`,
+  title: `${t('t_pricing')} | ${WEBSITE_NAME}`,
   description: meta_description,
 });
 

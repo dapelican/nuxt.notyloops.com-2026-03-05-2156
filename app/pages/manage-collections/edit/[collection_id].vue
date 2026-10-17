@@ -6,7 +6,7 @@ definePageMeta({ middleware: 'auth' });
 const { t } = useI18n();
 
 useSeoMeta({
-  title: `${t('t_edit_collection')} | NotyLoops`,
+  title: `${t('t_edit_collection')} | ${WEBSITE_NAME}`,
 });
 
 const route = useRoute();

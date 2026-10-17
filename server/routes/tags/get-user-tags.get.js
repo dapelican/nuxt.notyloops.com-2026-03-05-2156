@@ -7,7 +7,6 @@ import {
 
 import {
   defineEventHandler,
-  setResponseStatus,
 } from 'h3';
 
 import {
@@ -27,7 +26,7 @@ export default defineEventHandler(async (event) => {
     const user = await verifySessionAndReturnUser(event);
 
     if (user === null) {
-      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
+      event.res.status = HTTP_CODE_401_UNAUTHORIZED;
 
       return {
         error_message: 'error_unauthorized',
@@ -41,7 +40,7 @@ export default defineEventHandler(async (event) => {
       [user.id]
     );
 
-    setResponseStatus(event, HTTP_CODE_200_OK);
+    event.res.status = HTTP_CODE_200_OK;
 
     return {
       all_user_tag_list,

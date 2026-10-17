@@ -5,7 +5,7 @@ const { loggedIn: logged_in } = useUserSession();
 const meta_description = 'Contactez-nous pour toute question ou suggestion.';
 
 useSeoMeta({
-  title: `${t('t_contact')} | NotyLoops`,
+  title: `${t('t_contact')} | ${WEBSITE_NAME}`,
   description: meta_description,
 });
 

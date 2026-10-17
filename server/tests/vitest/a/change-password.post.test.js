@@ -8,9 +8,19 @@ import {
 
 import { describe, expect, it, vi } from 'vitest';
 
+import bcrypt from 'bcrypt';
+
 import { createTestHandler } from '../create-test-handler.js';
 
+import {
+  executeSQLQuery,
+} from '../../../database/query.js';
+
 import handler from '../../../routes/a/change-password.post.js';
+
+import {
+  sendEmail,
+} from '../../../services/amazon-ses/send-email.js';
 
 vi.mock('../../../services/amazon-ses/send-email.js', () => ({
   sendEmail: vi.fn(() => Promise.resolve()),
@@ -62,6 +72,23 @@ describe('POST /a/change-password', () => {
     const data = await response.json();
 
     expect(data.error_message).toBe('error_invalid_email');
+  });
+
+  it('returns 400 when the new passwords are missing', async () => {
+    getUserSession.mockResolvedValueOnce({
+      session_token_id: SESSION_TOKEN_ID,
+    });
+
+    const response = await post({
+      email: USER_EMAIL,
+      current_password: 'Test1234!',
+    });
+
+    expect(response.status).toBe(HTTP_CODE_400_BAD_REQUEST);
+
+    const data = await response.json();
+
+    expect(data.error_message).toBe('error_invalid_password');
   });
 
   it('returns 400 when new passwords do not match', async () => {
@@ -138,5 +165,27 @@ describe('POST /a/change-password', () => {
     const data = await response.json();
 
     expect(data).toEqual({ success: true });
+
+    const {
+      rows: user_rows,
+    } = await executeSQLQuery(
+      'SELECT password FROM users WHERE email = $1',
+      [USER_EMAIL]
+    );
+
+    expect(await bcrypt.compare('BrandNew1!', user_rows.at(0).password)).toBe(true);
+
+    const {
+      rows: session_rows,
+    } = await executeSQLQuery(
+      'SELECT blacklisted FROM user_session_tokens WHERE id = $1',
+      [SESSION_TOKEN_ID]
+    );
+
+    expect(session_rows.at(0).blacklisted).toBe(true);
+    expect(sendEmail).toHaveBeenCalledWith(expect.objectContaining({
+      template_name: 'password-changed',
+      to: USER_EMAIL,
+    }));
   });
 });

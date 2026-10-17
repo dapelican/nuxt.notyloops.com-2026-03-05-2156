@@ -2,7 +2,6 @@
 
 import {
   defineEventHandler,
-  setResponseStatus,
 } from 'h3';
 
 import {
@@ -27,7 +26,7 @@ export default defineEventHandler(async (event) => {
 
     const eur_to_usd_exchange_rate = exchange_rate_data?.rates?.USD;
 
-    setResponseStatus(event, HTTP_CODE_200_OK);
+    event.res.status = HTTP_CODE_200_OK;
 
     return {
       eur_to_usd_exchange_rate,

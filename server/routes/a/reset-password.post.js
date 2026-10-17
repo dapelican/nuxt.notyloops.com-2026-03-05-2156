@@ -13,7 +13,6 @@ import {
 import {
   defineEventHandler,
   readBody,
-  setResponseStatus,
 } from 'h3';
 
 import {
@@ -67,7 +66,7 @@ export default defineEventHandler(async (event) => {
       !validateNonEmptyInputFieldList([email])
       || !validateEmail(email)
     ) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_email',
@@ -75,7 +74,7 @@ export default defineEventHandler(async (event) => {
     }
 
     if (!token || !validateUUID(token)) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_email_token',
@@ -86,7 +85,7 @@ export default defineEventHandler(async (event) => {
       !validateNonEmptyInputFieldList([password_1, password_2])
       || password_1 !== password_2
     ) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_password',
@@ -100,7 +99,7 @@ export default defineEventHandler(async (event) => {
     });
 
     if (!token_user_id) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_email_token',
@@ -117,7 +116,7 @@ export default defineEventHandler(async (event) => {
     const user = user_list.at(0);
 
     if (!user || user.email.toLowerCase() !== email) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_email_token',
@@ -148,7 +147,7 @@ export default defineEventHandler(async (event) => {
 
     await sendEmailToNotifyPasswordReset(user);
 
-    setResponseStatus(event, HTTP_CODE_200_OK);
+    event.res.status = HTTP_CODE_200_OK;
 
     return {
       success: true,

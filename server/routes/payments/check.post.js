@@ -9,7 +9,6 @@ import {
 import {
   defineEventHandler,
   readBody,
-  setResponseStatus,
 } from 'h3';
 
 import {
@@ -33,7 +32,7 @@ export default defineEventHandler(async (event) => {
     const user = await verifySessionAndReturnUser(event);
 
     if (user === null) {
-      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
+      event.res.status = HTTP_CODE_401_UNAUTHORIZED;
 
       return {
         error_message: 'error_unauthorized',
@@ -44,7 +43,7 @@ export default defineEventHandler(async (event) => {
     const collection_id = body?.collection_id;
 
     if (!z.uuid().safeParse(collection_id).success) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_collection_id',
@@ -62,7 +61,7 @@ export default defineEventHandler(async (event) => {
 
     const has_purchased = payment_row_list.length > 0;
 
-    setResponseStatus(event, HTTP_CODE_200_OK);
+    event.res.status = HTTP_CODE_200_OK;
 
     return {
       has_purchased,

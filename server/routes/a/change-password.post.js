@@ -9,7 +9,6 @@ import {
 import {
   defineEventHandler,
   readBody,
-  setResponseStatus,
 } from 'h3';
 
 import {
@@ -50,7 +49,7 @@ export default defineEventHandler(async (event) => {
     const user = await verifySessionAndReturnUser(event);
 
     if (user === null) {
-      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
+      event.res.status = HTTP_CODE_401_UNAUTHORIZED;
 
       return {
         error_message: 'error_unauthorized',
@@ -64,7 +63,7 @@ export default defineEventHandler(async (event) => {
     const new_password_2 = body.new_password_2?.trim();
 
     if (!validateEmail(email)) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_email',
@@ -75,7 +74,7 @@ export default defineEventHandler(async (event) => {
       !validateNonEmptyInputFieldList([current_password, new_password_1, new_password_2])
       || new_password_1 !== new_password_2
     ) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_password',
@@ -83,7 +82,7 @@ export default defineEventHandler(async (event) => {
     }
 
     if (email !== user.email) {
-      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
+      event.res.status = HTTP_CODE_401_UNAUTHORIZED;
 
       return {
         error_message: 'error_unauthorized',
@@ -102,7 +101,7 @@ export default defineEventHandler(async (event) => {
     const valid_password = await bcrypt.compare(current_password, existing_user.password);
 
     if (!valid_password) {
-      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
+      event.res.status = HTTP_CODE_401_UNAUTHORIZED;
 
       return {
         error_message: 'error_wrong_credentials',
@@ -124,7 +123,7 @@ export default defineEventHandler(async (event) => {
 
     await sendEmailToNotifyPasswordChange(existing_user);
 
-    setResponseStatus(event, HTTP_CODE_200_OK);
+    event.res.status = HTTP_CODE_200_OK;
 
     return {
       success: true,

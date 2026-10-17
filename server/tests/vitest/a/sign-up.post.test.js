@@ -8,6 +8,8 @@ import {
 
 import { describe, expect, it, vi } from 'vitest';
 
+import bcrypt from 'bcrypt';
+
 import { createTestHandler } from '../create-test-handler.js';
 
 import {
@@ -16,13 +18,19 @@ import {
 
 import handler from '../../../routes/a/sign-up.post.js';
 
+import {
+  sendEmail,
+} from '../../../services/amazon-ses/send-email.js';
+
 vi.mock('../../../services/amazon-ses/send-email.js', () => ({
   sendEmail: vi.fn(() => Promise.resolve()),
 }));
 
 const request = createTestHandler('post', '/a/sign-up', handler);
 
+const SIGN_UP_TOKEN = 'aabbccdd-1111-4111-8111-aabbccddeeff';
 const SEEDED_PASSWORD_HASH = '$2b$10$wL7tkbBZQyt/YiigMxI08egh.xU.pP.D87SLSGjq4NJxXAlyj/p0i';
+const USER_EMAIL = 'signup@example.com';
 
 const post = (body) => request(new Request('http://localhost/a/sign-up', {
   method: 'POST',
@@ -42,12 +50,11 @@ const getUserRow = async (email) => {
 };
 
 describe('POST /a/sign-up', () => {
-  it('returns 400 when email is invalid', async () => {
+  it('returns 400 when email is missing', async () => {
     const response = await post({
-      email: 'bad-email',
       password_1: 'Test1234!',
       password_2: 'Test1234!',
-      token: 'aabbccdd-1111-4111-8111-aabbccddeeff',
+      token: SIGN_UP_TOKEN,
     });
 
     expect(response.status).toBe(HTTP_CODE_400_BAD_REQUEST);
@@ -57,12 +64,46 @@ describe('POST /a/sign-up', () => {
     expect(data.error_message).toBe('error_invalid_email');
   });
 
+  it('returns 400 when email is invalid', async () => {
+    const response = await post({
+      email: 'bad-email',
+      password_1: 'Test1234!',
+      password_2: 'Test1234!',
+      token: SIGN_UP_TOKEN,
+    });
+
+    expect(response.status).toBe(HTTP_CODE_400_BAD_REQUEST);
+
+    const data = await response.json();
+
+    expect(data.error_message).toBe('error_invalid_email');
+  });
+
+  it('returns 400 when passwords are empty', async () => {
+    const response = await post({
+      email: USER_EMAIL,
+      password_1: '',
+      password_2: '',
+      token: SIGN_UP_TOKEN,
+    });
+
+    expect(response.status).toBe(HTTP_CODE_400_BAD_REQUEST);
+
+    const data = await response.json();
+
+    expect(data.error_message).toBe('error_invalid_password');
+    expect(await getUserRow(USER_EMAIL)).toEqual({
+      password: null,
+      status: 'unverified',
+    });
+  });
+
   it('returns 400 when passwords do not match', async () => {
     const response = await post({
-      email: 'signup@example.com',
+      email: USER_EMAIL,
       password_1: 'Test1234!',
       password_2: 'Different!',
-      token: 'aabbccdd-1111-4111-8111-aabbccddeeff',
+      token: SIGN_UP_TOKEN,
     });
 
     expect(response.status).toBe(HTTP_CODE_400_BAD_REQUEST);
@@ -77,7 +118,7 @@ describe('POST /a/sign-up', () => {
       email: 'nobody@example.com',
       password_1: 'Test1234!',
       password_2: 'Test1234!',
-      token: 'aabbccdd-1111-4111-8111-aabbccddeeff',
+      token: SIGN_UP_TOKEN,
     });
 
     expect(response.status).toBe(HTTP_CODE_403_FORBIDDEN);
@@ -89,7 +130,7 @@ describe('POST /a/sign-up', () => {
 
   it('returns 400 when the token is missing', async () => {
     const response = await post({
-      email: 'signup@example.com',
+      email: USER_EMAIL,
       password_1: 'Test1234!',
       password_2: 'Test1234!',
     });
@@ -99,7 +140,7 @@ describe('POST /a/sign-up', () => {
     const data = await response.json();
 
     expect(data.error_message).toBe('error_invalid_email_token');
-    expect(await getUserRow('signup@example.com')).toEqual({
+    expect(await getUserRow(USER_EMAIL)).toEqual({
       password: null,
       status: 'unverified',
     });
@@ -108,7 +149,7 @@ describe('POST /a/sign-up', () => {
 
   it('returns 400 when the token is invalid', async () => {
     const response = await post({
-      email: 'signup@example.com',
+      email: USER_EMAIL,
       password_1: 'Test1234!',
       password_2: 'Test1234!',
       token: 'not-a-uuid',
@@ -119,7 +160,27 @@ describe('POST /a/sign-up', () => {
     const data = await response.json();
 
     expect(data.error_message).toBe('error_invalid_email_token');
-    expect(await getUserRow('signup@example.com')).toEqual({
+    expect(await getUserRow(USER_EMAIL)).toEqual({
+      password: null,
+      status: 'unverified',
+    });
+    expect(setUserSession).not.toHaveBeenCalled();
+  });
+
+  it('returns 400 when the token is not an active validation token', async () => {
+    const response = await post({
+      email: USER_EMAIL,
+      password_1: 'Test1234!',
+      password_2: 'Test1234!',
+      token: 'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb',
+    });
+
+    expect(response.status).toBe(HTTP_CODE_400_BAD_REQUEST);
+
+    const data = await response.json();
+
+    expect(data.error_message).toBe('error_invalid_email_token');
+    expect(await getUserRow(USER_EMAIL)).toEqual({
       password: null,
       status: 'unverified',
     });
@@ -128,7 +189,7 @@ describe('POST /a/sign-up', () => {
 
   it('returns 400 when the token belongs to another user', async () => {
     const response = await post({
-      email: 'signup@example.com',
+      email: USER_EMAIL,
       password_1: 'Test1234!',
       password_2: 'Test1234!',
       token: '33333333-3333-4333-8333-333333333333',
@@ -139,7 +200,7 @@ describe('POST /a/sign-up', () => {
     const data = await response.json();
 
     expect(data.error_message).toBe('error_invalid_email_token');
-    expect(await getUserRow('signup@example.com')).toEqual({
+    expect(await getUserRow(USER_EMAIL)).toEqual({
       password: null,
       status: 'unverified',
     });
@@ -172,10 +233,10 @@ describe('POST /a/sign-up', () => {
 
   it('returns 201 on successful sign-up', async () => {
     const response = await post({
-      email: 'signup@example.com',
+      email: USER_EMAIL,
       password_1: 'NewPass123!',
       password_2: 'NewPass123!',
-      token: 'aabbccdd-1111-4111-8111-aabbccddeeff',
+      token: SIGN_UP_TOKEN,
     });
 
     expect(response.status).toBe(HTTP_CODE_201_CREATED);
@@ -184,5 +245,25 @@ describe('POST /a/sign-up', () => {
 
     expect(data).toEqual({ success: true });
     expect(setUserSession).toHaveBeenCalled();
+
+    const user_row = await getUserRow(USER_EMAIL);
+
+    expect(user_row.status).toBe('free');
+    expect(await bcrypt.compare('NewPass123!', user_row.password)).toBe(true);
+
+    const {
+      rows,
+    } = await executeSQLQuery(
+      'SELECT blacklisted FROM user_email_tokens WHERE token = $1',
+      [SIGN_UP_TOKEN]
+    );
+
+    expect(rows.at(0).blacklisted).toBe(true);
+    expect(sendEmail).toHaveBeenCalledWith(expect.objectContaining({
+      template_name: 'admin-new-sign-up',
+      template_params: expect.objectContaining({
+        email: USER_EMAIL,
+      }),
+    }));
   });
 });

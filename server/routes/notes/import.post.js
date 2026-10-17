@@ -20,7 +20,6 @@ import {
   getHeader,
   readBody,
   readRawBody,
-  setResponseStatus,
 } from 'h3';
 
 import {
@@ -246,7 +245,7 @@ export default defineEventHandler(async (event) => {
     const user = await verifySessionAndReturnUser(event);
 
     if (user === null) {
-      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
+      event.res.status = HTTP_CODE_401_UNAUTHORIZED;
 
       return {
         error_message: 'error_unauthorized',
@@ -257,7 +256,7 @@ export default defineEventHandler(async (event) => {
       user.status !== USER_STATUS_PREMIUM
       && user.status !== USER_STATUS_ADMIN
     ) {
-      setResponseStatus(event, HTTP_CODE_403_FORBIDDEN);
+      event.res.status = HTTP_CODE_403_FORBIDDEN;
 
       return {
         error_message: 'error_unauthorized_note_feature',
@@ -272,7 +271,7 @@ export default defineEventHandler(async (event) => {
       csv_text = body?.csv;
 
       if (typeof csv_text !== 'string') {
-        setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+        event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
         return {
           error_message: 'error_invalid_input',
@@ -282,7 +281,7 @@ export default defineEventHandler(async (event) => {
       csv_text = await readRawBody(event, 'utf8');
 
       if (typeof csv_text !== 'string' || csv_text.length === 0) {
-        setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+        event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
         return {
           error_message: 'error_invalid_input',
@@ -294,7 +293,7 @@ export default defineEventHandler(async (event) => {
       if (body && typeof body.csv === 'string') {
         csv_text = body.csv;
       } else {
-        setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+        event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
         return {
           error_message: 'error_invalid_input',
@@ -311,7 +310,7 @@ export default defineEventHandler(async (event) => {
         relax_column_count: true,
       });
     } catch {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_input',
@@ -319,7 +318,7 @@ export default defineEventHandler(async (event) => {
     }
 
     if (!Array.isArray(records) || records.length === 0) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_input',
@@ -332,7 +331,7 @@ export default defineEventHandler(async (event) => {
       const file_note_id = parse_int_or_null(raw_row.id);
 
       if (file_note_id === null) {
-        setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+        event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
         return {
           error_message: 'error_invalid_input',
@@ -350,7 +349,7 @@ export default defineEventHandler(async (event) => {
 
     for (const file_note_id of sorted_file_ids) {
       if (!validate_row_list(groups.get(file_note_id))) {
-        setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+        event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
         return {
           error_message: 'error_invalid_input',
@@ -439,7 +438,7 @@ export default defineEventHandler(async (event) => {
       );
     }
 
-    setResponseStatus(event, HTTP_CODE_201_CREATED);
+    event.res.status = HTTP_CODE_201_CREATED;
 
     return {
       created_detail_count,

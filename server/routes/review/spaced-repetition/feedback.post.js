@@ -16,7 +16,6 @@ import {
 import {
   defineEventHandler,
   readBody,
-  setResponseStatus,
 } from 'h3';
 
 import {
@@ -54,7 +53,7 @@ export default defineEventHandler(async (event) => {
     const user = await verifySessionAndReturnUser(event);
 
     if (user === null) {
-      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
+      event.res.status = HTTP_CODE_401_UNAUTHORIZED;
 
       return {
         error_message: 'error_unauthorized',
@@ -67,7 +66,7 @@ export default defineEventHandler(async (event) => {
     } = await readBody(event);
 
     if (!z.uuid().safeParse(note_id).success) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_note_id',
@@ -75,7 +74,7 @@ export default defineEventHandler(async (event) => {
     }
 
     if (!ALLOWED_FEEDBACK_VALUES.includes(feedback)) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_feedback',
@@ -92,7 +91,7 @@ export default defineEventHandler(async (event) => {
     );
 
     if (note_list.length === 0) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_no_item_found_for_user',
@@ -109,7 +108,7 @@ export default defineEventHandler(async (event) => {
     const row = rows.at(0);
 
     if (!row) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_input',
@@ -195,7 +194,7 @@ export default defineEventHandler(async (event) => {
       ),
     ]);
 
-    setResponseStatus(event, HTTP_CODE_200_OK);
+    event.res.status = HTTP_CODE_200_OK;
 
     return {};
   } catch (error) {

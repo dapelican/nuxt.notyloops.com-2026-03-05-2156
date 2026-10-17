@@ -10,7 +10,6 @@ import {
 import {
   defineEventHandler,
   readBody,
-  setResponseStatus,
 } from 'h3';
 
 import {
@@ -44,7 +43,7 @@ export default defineEventHandler(async (event) => {
     const user = await verifySessionAndReturnUser(event);
 
     if (user === null) {
-      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
+      event.res.status = HTTP_CODE_401_UNAUTHORIZED;
 
       return {
         error_message: 'error_unauthorized',
@@ -60,7 +59,7 @@ export default defineEventHandler(async (event) => {
       const total_user_note_count = note_count_rows.at(0).count;
 
       if (total_user_note_count >= FREEMIUM_NOTE_LIMIT) {
-        setResponseStatus(event, HTTP_CODE_403_FORBIDDEN);
+        event.res.status = HTTP_CODE_403_FORBIDDEN;
 
         return {
           error_message: 'error_unauthorized_note_feature',
@@ -77,7 +76,7 @@ export default defineEventHandler(async (event) => {
     } = await readBody(event);
 
     if (!title) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
       return { error_message: 'error_invalid_input' };
     }
 
@@ -85,7 +84,7 @@ export default defineEventHandler(async (event) => {
       Array.isArray(note_details)
       && note_details.some((detail) => !isApplicationBucketFileUrl(detail.file_url))
     ) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_input',
@@ -137,7 +136,7 @@ export default defineEventHandler(async (event) => {
       );
     }
 
-    setResponseStatus(event, HTTP_CODE_201_CREATED);
+    event.res.status = HTTP_CODE_201_CREATED;
 
     return {
       success: true,

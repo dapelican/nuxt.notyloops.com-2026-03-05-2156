@@ -4,7 +4,7 @@ import * as z from 'zod';
 const { t } = useI18n();
 
 useSeoMeta({
-  title: `${t('t_password_forgotten')} | NotyLoops`,
+  title: `${t('t_password_forgotten')} | ${WEBSITE_NAME}`,
 });
 
 const form_fields = ref([
@@ -24,6 +24,8 @@ const form_schema = z.object({
 const form_error = ref('');
 const handling_request = ref(false);
 const show_check_your_inbox_message = ref(false);
+const turnstile_element = ref(null);
+const turnstile_token = ref('');
 
 const sendPasswordForgottenEmail = async (form) => {
   handling_request.value = true;
@@ -33,6 +35,7 @@ const sendPasswordForgottenEmail = async (form) => {
       method: 'POST',
       body: {
         email: form.data.email,
+        turnstile_token: turnstile_token.value,
       },
     });
 
@@ -47,12 +50,19 @@ const sendPasswordForgottenEmail = async (form) => {
       case 'error_email_token_failure':
         form_error.value = t('t_error_email_token_failure');
         break;
+      case 'error_invalid_turnstile':
+        form_error.value = t('t_error_invalid_turnstile');
+        break;
+      case 'error_password_reset_limit_reached':
+        form_error.value = t('t_error_password_reset_limit_reached');
+        break;
       default:
         handleFrontendError(error, error_message);
         break;
     }
   } finally {
     handling_request.value = false;
+    turnstile_element.value?.reset();
   }
 };
 </script>
@@ -74,6 +84,10 @@ const sendPasswordForgottenEmail = async (form) => {
         @submit="sendPasswordForgottenEmail"
       >
         <template #validation>
+          <TurnstileElement
+            ref="turnstile_element"
+            v-model="turnstile_token"
+          />
           <UAlert
             v-if="form_error"
             color="error"

@@ -4,7 +4,7 @@ definePageMeta({ middleware: 'auth' });
 const { t } = useI18n();
 
 useSeoMeta({
-  title: `${t('t_review_spaced_repetition_note')} | NotyLoops`,
+  title: `${t('t_review_spaced_repetition_note')} | ${WEBSITE_NAME}`,
 });
 
 const route = useRoute();

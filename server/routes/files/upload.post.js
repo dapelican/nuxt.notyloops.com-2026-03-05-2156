@@ -9,7 +9,6 @@ import {
 import {
   defineEventHandler,
   readMultipartFormData,
-  setResponseStatus,
 } from 'h3';
 
 import {
@@ -37,7 +36,7 @@ export default defineEventHandler(async (event) => {
     const user = await verifySessionAndReturnUser(event);
 
     if (user === null) {
-      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
+      event.res.status = HTTP_CODE_401_UNAUTHORIZED;
 
       return {
         error_message: 'error_unauthorized',
@@ -49,7 +48,7 @@ export default defineEventHandler(async (event) => {
     const file_part = parts?.find((p) => p.name === 'file');
 
     if (!file_part || !file_part.data || file_part.data.length === 0) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_input',
@@ -57,7 +56,7 @@ export default defineEventHandler(async (event) => {
     }
 
     if (file_part.data.length > MAX_UPLOAD_FILE_BYTES) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_input',
@@ -67,7 +66,7 @@ export default defineEventHandler(async (event) => {
     const canonical_mime = resolveUploadMime(file_part.type, file_part.data);
 
     if (!canonical_mime) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_input',
@@ -76,7 +75,7 @@ export default defineEventHandler(async (event) => {
 
     const file_url = await uploadFile(file_part.data, canonical_mime);
 
-    setResponseStatus(event, HTTP_CODE_200_OK);
+    event.res.status = HTTP_CODE_200_OK;
 
     return {
       file_url,

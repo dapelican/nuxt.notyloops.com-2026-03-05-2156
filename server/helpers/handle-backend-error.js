@@ -42,7 +42,7 @@ const handleBackendError = async (err, event) => {
     console.error('Failed to log error to database:', log_error);
   }
 
-  setResponseStatus(event, HTTP_CODE_500_INTERNAL_SERVER_ERROR);
+  event.res.status = HTTP_CODE_500_INTERNAL_SERVER_ERROR;
 
   return {
     error: 'internal_error',

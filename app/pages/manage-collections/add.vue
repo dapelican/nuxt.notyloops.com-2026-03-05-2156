@@ -12,7 +12,7 @@ const review_strategy_help_url = computed(() => {
 });
 
 useSeoMeta({
-  title: `${t('t_add_collection')} | NotyLoops`,
+  title: `${t('t_add_collection')} | ${WEBSITE_NAME}`,
 });
 
 const {

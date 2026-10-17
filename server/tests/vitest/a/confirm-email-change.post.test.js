@@ -30,7 +30,6 @@ const USER_ID = '50000000-0000-4000-8000-0000000000d1';
 const USER_EMAIL = 'confirm-change@example.com';
 const PASSWORD_HASH = '$2b$10$wL7tkbBZQyt/YiigMxI08egh.xU.pP.D87SLSGjq4NJxXAlyj/p0i';
 const SIGN_UP_TOKEN = 'aabbccdd-1111-4111-8111-aabbccddeeff';
-const EXPIRED_TOKEN = 'c1111111-1111-4111-8111-111111111111';
 const ACTIVE_TOKEN = 'c2222222-2222-4222-8222-222222222222';
 const TAKEN_TOKEN = 'c3333333-3333-4333-8333-333333333333';
 const PENDING_EMAIL = 'pending-confirm@example.com';
@@ -75,12 +74,6 @@ describe('email change confirmation', () => {
     );
 
     await insertToken({
-      created_at_sql: 'now() - interval \'100 hours\'',
-      pending_email: 'expired-pending@example.com',
-      token: EXPIRED_TOKEN,
-    });
-
-    await insertToken({
       pending_email: PENDING_EMAIL,
       token: ACTIVE_TOKEN,
     });
@@ -117,16 +110,6 @@ describe('email change confirmation', () => {
     expect(data.error_message).toBe('error_invalid_email_token');
   });
 
-  it('returns 400 when the verify token is expired', async () => {
-    const response = await verify(EXPIRED_TOKEN);
-
-    expect(response.status).toBe(HTTP_CODE_400_BAD_REQUEST);
-
-    const data = await response.json();
-
-    expect(data.error_message).toBe('error_invalid_email_token');
-  });
-
   it('returns the pending email for an active change token', async () => {
     const response = await verify(ACTIVE_TOKEN);
 
@@ -135,6 +118,17 @@ describe('email change confirmation', () => {
     const data = await response.json();
 
     expect(data.pending_email).toBe(PENDING_EMAIL);
+  });
+
+  it('returns 400 when the confirm token is missing', async () => {
+    const response = await confirm();
+
+    expect(response.status).toBe(HTTP_CODE_400_BAD_REQUEST);
+
+    const data = await response.json();
+
+    expect(data.error_message).toBe('error_invalid_email_token');
+    expect(sendEmail).not.toHaveBeenCalled();
   });
 
   it('returns 400 when the confirm token format is invalid', async () => {

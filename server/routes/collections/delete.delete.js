@@ -9,7 +9,6 @@ import {
 import {
   defineEventHandler,
   readBody,
-  setResponseStatus,
 } from 'h3';
 
 import {
@@ -29,7 +28,7 @@ export default defineEventHandler(async (event) => {
     const user = await verifySessionAndReturnUser(event);
 
     if (user === null) {
-      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
+      event.res.status = HTTP_CODE_401_UNAUTHORIZED;
 
       return {
         error_message: 'error_unauthorized',
@@ -41,7 +40,7 @@ export default defineEventHandler(async (event) => {
     } = await readBody(event);
 
     if (!Array.isArray(collection_id_list) || collection_id_list.length === 0) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_input',
@@ -63,7 +62,7 @@ export default defineEventHandler(async (event) => {
       [final_collection_id_list]
     );
 
-    setResponseStatus(event, HTTP_CODE_204_NO_CONTENT);
+    event.res.status = HTTP_CODE_204_NO_CONTENT;
 
     return {
       success: true,

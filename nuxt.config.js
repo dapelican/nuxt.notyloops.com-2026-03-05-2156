@@ -1,10 +1,6 @@
 'use strict';
 
 import {
-  SECURITY_ROUTE_RULES,
-} from './shared/security-headers.js';
-
-import {
   fileURLToPath,
 } from 'node:url';
 
@@ -14,7 +10,9 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxtjs/i18n',
     '@nuxtjs/plausible',
+    '@nuxtjs/turnstile',
     'nuxt-auth-utils',
+    'nuxt-security',
   ],
   // to prevent weird warnings in the console locally
   devtools: {
@@ -67,6 +65,14 @@ export default defineNuxtConfig({
     public: {
       domain: process.env.DOMAIN,
     },
+    turnstile: {
+      // Dummy secret in dev so local checks do not call Siteverify.
+      // CLOUDFLARE_TURNSTILE_SECRET_KEY replaces this in production.
+      secretKey: process.env.CLOUDFLARE_TURNSTILE_SECRET_KEY
+        || (process.env.NODE_ENV === 'development'
+          ? '1x0000000000000000000000000000000AA'
+          : ''),
+    },
     session: {
       // Implicitly used by nuxt-auth-utils to st the cookie lifespan
       maxAge: 60 * 60 * 24 * Number(process.env.SESSION_MAX_AGE_DAYS),
@@ -75,10 +81,8 @@ export default defineNuxtConfig({
   alias: {
     '#shared': fileURLToPath(new URL('./shared', import.meta.url)),
   },
-  routeRules: SECURITY_ROUTE_RULES,
   compatibilityDate: '2026-03-05',
   nitro: {
-    routeRules: SECURITY_ROUTE_RULES,
     scanDirs: ['server/services'],
     experimental: {
       tasks: true,
@@ -101,17 +105,23 @@ export default defineNuxtConfig({
     differentDomains: true,
     locales: [
       {
+        // Internal locale id for routing / switching
         code: 'en',
         domain: `www.${process.env.DOMAIN}`,
         file: 'en.json',
+        // Real language tag for browsers/SEO ('en', 'fr', or richer like 'en-US')
         language: 'en',
+        // Human-readable label in UI (e.g. language switcher)
         name: 'English',
       },
       {
+        // Internal locale id for routing / switching
         code: 'fr',
         domain: `fr.${process.env.DOMAIN}`,
         file: 'fr.json',
+        // Real language tag for browsers/SEO ('en', 'fr', or richer like 'en-US')
         language: 'fr',
+        // Human-readable label in UI (e.g. language switcher)
         name: 'Français',
       },
     ],
@@ -124,5 +134,59 @@ export default defineNuxtConfig({
     ignoredHostnames: ['localhost'],
     formSubmissions: false,
     proxy: true,
+  },
+  // Headers only. Other nuxt-security middleware stays off until the app uses it.
+  // 'unsafe-inline' in script-src is the CSP Level 2 fallback; a nonce makes browsers ignore it.
+  // strict-dynamic is omitted: @nuxtjs/turnstile 1.1.3 does not nonce its external script,
+  // and CSP3 would then ignore the Cloudflare host allowlist.
+  security: {
+    nonce: true,
+    hidePoweredBy: true,
+    sri: true,
+    requestSizeLimiter: false,
+    rateLimiter: false,
+    xssValidator: false,
+    corsHandler: false,
+    allowedMethodsRestricter: false,
+    csrf: false,
+    removeLoggers: false,
+    headers: {
+      referrerPolicy: 'no-referrer',
+      xContentTypeOptions: 'nosniff',
+      xFrameOptions: 'DENY',
+      contentSecurityPolicy: {
+        'default-src': ['\'self\''],
+        'script-src': [
+          '\'self\'',
+          'https://challenges.cloudflare.com',
+          '\'nonce-{{nonce}}\'',
+          '\'unsafe-inline\'',
+        ],
+        'script-src-attr': ['\'none\''],
+        'frame-src': [
+          'https://challenges.cloudflare.com',
+          'https://www.youtube.com',
+        ],
+        'connect-src': ['\'self\'', 'https://challenges.cloudflare.com'],
+        'style-src': ['\'self\'', '\'unsafe-inline\''],
+        'img-src': [
+          '\'self\'',
+          'data:',
+          'https://*.backblazeb2.com',
+        ],
+        'media-src': [
+          '\'self\'',
+          'https://*.backblazeb2.com',
+        ],
+        'font-src': ['\'self\'', 'data:'],
+        'object-src': ['\'none\''],
+        'base-uri': ['\'self\''],
+        'form-action': ['\'self\''],
+        'frame-ancestors': ['\'none\''],
+      },
+    },
+  },
+  turnstile: {
+    siteKey: process.env.CLOUDFLARE_TURNSTILE_PUBLIC_SITE_KEY,
   },
 });

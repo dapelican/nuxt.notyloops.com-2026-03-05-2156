@@ -1,7 +1,6 @@
 'use strict';
 
 import { beforeEach, vi } from 'vitest';
-import { setResponseStatus } from 'h3';
 
 globalThis.useRuntimeConfig = vi.fn(() => ({
   B2_BUCKET_NAME: 'test-bucket',
@@ -10,14 +9,15 @@ globalThis.useRuntimeConfig = vi.fn(() => ({
   SESSION_MAX_AGE_DAYS: '30',
   STRIPE_ENDPOINT_SECRET: 'test-stripe-endpoint-secret',
   STRIPE_SECRET_API_KEY: 'test-stripe-secret-key',
+  turnstile: {
+    secretKey: '1x0000000000000000000000000000000AA',
+  },
 }));
 
 globalThis.setUserSession = vi.fn(async () => {});
 globalThis.getUserSession = vi.fn(async () => ({}));
 globalThis.clearUserSession = vi.fn(async () => {});
 globalThis.replaceUserSession = vi.fn(async () => {});
-
-globalThis.setResponseStatus = setResponseStatus;
 
 beforeEach(() => {
   vi.mocked(globalThis.useRuntimeConfig).mockReturnValue({
@@ -27,6 +27,9 @@ beforeEach(() => {
     SESSION_MAX_AGE_DAYS: '30',
     STRIPE_ENDPOINT_SECRET: 'test-stripe-endpoint-secret',
     STRIPE_SECRET_API_KEY: 'test-stripe-secret-key',
+    turnstile: {
+      secretKey: '1x0000000000000000000000000000000AA',
+    },
   });
   vi.mocked(globalThis.setUserSession).mockReset().mockResolvedValue(undefined);
   vi.mocked(globalThis.getUserSession).mockReset().mockResolvedValue({});

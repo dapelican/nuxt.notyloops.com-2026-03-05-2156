@@ -2,7 +2,7 @@
 const { t } = useI18n();
 
 useSeoMeta({
-  title: `${t('t_confirm_email_change')} | NotyLoops`,
+  title: `${t('t_confirm_email_change')} | ${WEBSITE_NAME}`,
 });
 
 const route = useRoute();

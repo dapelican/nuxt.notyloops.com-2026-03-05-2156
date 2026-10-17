@@ -49,7 +49,7 @@ useSchema({
 });
 
 useSeoMeta({
-  title: `${t('t_the_notes_made_to_be_reviewed')} | NotyLoops`,
+  title: `${t('t_the_notes_made_to_be_reviewed')} | ${WEBSITE_NAME}`,
   description: meta_description,
 });
 

@@ -1,4 +1,8 @@
-const SITE_NAME = 'NotyLoops';
+'use strict';
+
+import {
+  WEBSITE_NAME,
+} from '#shared/utils/constants.js';
 
 const createBreadcrumbSchema = (items) => {
   return {
@@ -62,13 +66,13 @@ export const useSchema = (page_options) => {
           '@type': 'WebSite',
           '@id': `${site_url}/#website`,
           'url': site_url,
-          'name': SITE_NAME,
+          'name': WEBSITE_NAME,
           'inLanguage': in_language,
         },
         {
           '@type': 'WebApplication',
           '@id': `${site_url}/#webapp`,
-          'name': SITE_NAME,
+          'name': WEBSITE_NAME,
           'url': site_url,
           'applicationCategory': 'EducationalApplication',
           'operatingSystem': 'Web',

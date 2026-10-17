@@ -2,7 +2,7 @@
 const { t } = useI18n();
 
 useSeoMeta({
-  title: `${t('t_end_of_review_session')} | NotyLoops`,
+  title: `${t('t_end_of_review_session')} | ${WEBSITE_NAME}`,
 });
 
 const total_card_count = computed(() => {

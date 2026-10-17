@@ -6,7 +6,7 @@ definePageMeta({ middleware: 'auth' });
 const { locale, t } = useI18n();
 
 useSeoMeta({
-  title: `${t('t_manage_collections')} | NotyLoops`,
+  title: `${t('t_manage_collections')} | ${WEBSITE_NAME}`,
 });
 
 const {

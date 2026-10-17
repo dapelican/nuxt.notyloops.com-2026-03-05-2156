@@ -22,7 +22,6 @@ import {
 import {
   defineEventHandler,
   getRouterParam,
-  setResponseStatus,
 } from 'h3';
 
 import {
@@ -46,7 +45,7 @@ export default defineEventHandler(async (event) => {
     const user = await verifySessionAndReturnUser(event);
 
     if (user === null) {
-      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
+      event.res.status = HTTP_CODE_401_UNAUTHORIZED;
 
       return {
         error_message: 'error_unauthorized',
@@ -56,7 +55,7 @@ export default defineEventHandler(async (event) => {
     const note_id = getRouterParam(event, 'note_id');
 
     if (!note_id) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_input',
@@ -72,7 +71,7 @@ export default defineEventHandler(async (event) => {
       const total_user_note_count = note_count_rows.at(0).count;
 
       if (total_user_note_count >= FREEMIUM_NOTE_LIMIT) {
-        setResponseStatus(event, HTTP_CODE_403_FORBIDDEN);
+        event.res.status = HTTP_CODE_403_FORBIDDEN;
 
         return {
           error_message: 'error_unauthorized_note_feature',
@@ -88,7 +87,7 @@ export default defineEventHandler(async (event) => {
     );
 
     if (note_list.length === 0) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_unauthorized',
@@ -112,7 +111,7 @@ export default defineEventHandler(async (event) => {
       const shuffled_group = shuffleArray(grouped)
         .map((group, index) => assignContentPosition(group, index + 1));
 
-      setResponseStatus(event, HTTP_CODE_200_OK);
+      event.res.status = HTTP_CODE_200_OK;
 
       return {
         note_detail_list: shuffled_group,
@@ -120,7 +119,7 @@ export default defineEventHandler(async (event) => {
       };
     }
 
-    setResponseStatus(event, HTTP_CODE_200_OK);
+    event.res.status = HTTP_CODE_200_OK;
 
     return {
       note_detail_list: grouped,

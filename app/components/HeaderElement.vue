@@ -111,7 +111,7 @@ const private_items = computed(() => [
   <!-- HeaderElement.vue -->
   <UHeader toggle-side="left">
     <template #title>
-      <span class="header-element-title-font">NotyLoops</span>
+      <span class="header-element-title-font">{{ WEBSITE_NAME }}</span>
     </template>
 
     <UNavigationMenu

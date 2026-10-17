@@ -10,7 +10,6 @@ import {
 import {
   defineEventHandler,
   readBody,
-  setResponseStatus,
 } from 'h3';
 
 import {
@@ -41,7 +40,7 @@ export default defineEventHandler(async (event) => {
     const user = await verifySessionAndReturnUser(event);
 
     if (user === null) {
-      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
+      event.res.status = HTTP_CODE_401_UNAUTHORIZED;
 
       return {
         error_message: 'error_unauthorized',
@@ -54,7 +53,7 @@ export default defineEventHandler(async (event) => {
     } = await readBody(event);
 
     if (!z.uuid().safeParse(collection_id).success) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_collection_id',
@@ -62,7 +61,7 @@ export default defineEventHandler(async (event) => {
     }
 
     if (!AUTHORIZED_LANGUAGE_LIST.includes(language)) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_language',
@@ -79,7 +78,7 @@ export default defineEventHandler(async (event) => {
     const collection = collection_list.at(0);
 
     if (collection === undefined) {
-      setResponseStatus(event, HTTP_CODE_403_FORBIDDEN);
+      event.res.status = HTTP_CODE_403_FORBIDDEN;
 
       return {
         error_message: 'error_forbidden',
@@ -126,7 +125,7 @@ export default defineEventHandler(async (event) => {
 
     const new_collection = new_collection_list.at(0);
 
-    setResponseStatus(event, HTTP_CODE_201_CREATED);
+    event.res.status = HTTP_CODE_201_CREATED;
 
     return {
       id: new_collection.id,

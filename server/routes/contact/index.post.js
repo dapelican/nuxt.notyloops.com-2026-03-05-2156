@@ -8,7 +8,6 @@ import {
 import {
   defineEventHandler,
   readBody,
-  setResponseStatus,
 } from 'h3';
 
 import {
@@ -50,7 +49,7 @@ export default defineEventHandler(async (event) => {
       || first_name.length > FIRST_NAME_MAX_LENGTH
       || message.length > MESSAGE_MAX_LENGTH
     ) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_input',
@@ -58,7 +57,7 @@ export default defineEventHandler(async (event) => {
     }
 
     if (!validateEmail(email)) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_email',
@@ -76,7 +75,7 @@ export default defineEventHandler(async (event) => {
       to: 'support@notyloops.com',
     });
 
-    setResponseStatus(event, HTTP_CODE_201_CREATED);
+    event.res.status = HTTP_CODE_201_CREATED;
 
     return {
       success: true,

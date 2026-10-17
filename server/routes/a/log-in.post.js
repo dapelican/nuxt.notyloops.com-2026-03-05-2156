@@ -9,7 +9,6 @@ import {
 import {
   defineEventHandler,
   readBody,
-  setResponseStatus,
 } from 'h3';
 
 import {
@@ -33,6 +32,10 @@ import {
 
 import { v7 as uuidv7 } from 'uuid';
 
+import {
+  verifyTurnstileToken,
+} from '../../helpers/verify-turnstile-token.js';
+
 // Cost 10, same as stored passwords. Compared only when there is no hash,
 // so a missing or unfinished account takes as long as a wrong password.
 const DUMMY_PASSWORD_HASH = '$2b$10$Rrf0y/3wvcSYwYsQGg8qiuLmM3e1u/tuoVkuZL6.eHKoe/V1C4QiS';
@@ -42,7 +45,18 @@ export default defineEventHandler(async (event) => {
     let {
       email,
       password,
+      turnstile_token,
     } = await readBody(event);
+
+    const turnstile_token_is_valid = await verifyTurnstileToken(turnstile_token);
+
+    if (!turnstile_token_is_valid) {
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+
+      return {
+        error_message: 'error_invalid_turnstile',
+      };
+    }
 
     email = email?.toLowerCase()?.trim();
     password = password?.trim();
@@ -51,7 +65,7 @@ export default defineEventHandler(async (event) => {
       !validateNonEmptyInputFieldList([email])
       || !validateEmail(email)
     ) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_email',
@@ -61,7 +75,7 @@ export default defineEventHandler(async (event) => {
     if (
       !validateNonEmptyInputFieldList([password])
     ) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_password',
@@ -80,7 +94,7 @@ export default defineEventHandler(async (event) => {
     const valid_password = await bcrypt.compare(password, password_hash);
 
     if (!user || user.password === null || !valid_password) {
-      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
+      event.res.status = HTTP_CODE_401_UNAUTHORIZED;
 
       return {
         error_message: 'error_wrong_credentials',
@@ -111,7 +125,7 @@ export default defineEventHandler(async (event) => {
       ]
     );
 
-    setResponseStatus(event, HTTP_CODE_200_OK);
+    event.res.status = HTTP_CODE_200_OK;
 
     return {
       success: true,

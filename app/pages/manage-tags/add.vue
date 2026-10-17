@@ -6,7 +6,7 @@ definePageMeta({ middleware: 'auth' });
 const { t } = useI18n();
 
 useSeoMeta({
-  title: `${t('t_add_note')} | NotyLoops`,
+  title: `${t('t_add_note')} | ${WEBSITE_NAME}`,
 });
 
 const handling_request = ref(false);

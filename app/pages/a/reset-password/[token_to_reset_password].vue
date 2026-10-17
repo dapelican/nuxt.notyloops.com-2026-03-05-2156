@@ -6,7 +6,7 @@ import * as z from 'zod';
 const { t } = useI18n();
 
 useSeoMeta({
-  title: `${t('t_reset_my_password')} | NotyLoops`,
+  title: `${t('t_reset_my_password')} | ${WEBSITE_NAME}`,
 });
 
 const page_error = ref('');

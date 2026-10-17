@@ -19,7 +19,6 @@ import {
 import {
   defineEventHandler,
   getRouterParam,
-  setResponseStatus,
 } from 'h3';
 
 import {
@@ -56,7 +55,7 @@ export default defineEventHandler(async (event) => {
     const note_id = getRouterParam(event, 'note_id');
 
     if (!z.uuid().safeParse(collection_id).success) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_collection_id',
@@ -64,7 +63,7 @@ export default defineEventHandler(async (event) => {
     }
 
     if (!z.uuid().safeParse(note_id).success) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_collection_id',
@@ -81,7 +80,7 @@ export default defineEventHandler(async (event) => {
     const collection = collection_list.at(0);
 
     if (collection === undefined) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_no_item_found',
@@ -89,7 +88,7 @@ export default defineEventHandler(async (event) => {
     }
 
     if (collection.type === COLLECTION_TYPE_PRIVATE) {
-      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
+      event.res.status = HTTP_CODE_401_UNAUTHORIZED;
 
       return {
         error_message: 'error_unauthorized',
@@ -100,7 +99,7 @@ export default defineEventHandler(async (event) => {
     const can_read = await user_can_read_public_note(user, collection, note_id);
 
     if (!can_read) {
-      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
+      event.res.status = HTTP_CODE_401_UNAUTHORIZED;
 
       return {
         error_message: 'error_unauthorized',
@@ -110,7 +109,7 @@ export default defineEventHandler(async (event) => {
     const note_id_list = await selectNoteIdListOnTagCriteria(collection.user_id, collection);
 
     if (!note_id_list.includes(note_id)) {
-      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
+      event.res.status = HTTP_CODE_401_UNAUTHORIZED;
 
       return {
         error_message: 'error_unauthorized',
@@ -125,7 +124,7 @@ export default defineEventHandler(async (event) => {
     );
 
     if (note_list.length === 0) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_unauthorized',
@@ -146,7 +145,7 @@ export default defineEventHandler(async (event) => {
     const grouped = buildGroupedNoteDetailList(note.format, note_detail_list);
 
     if (note.format === NOTE_FORMAT_FLASHCARD && note.swappable_sides) {
-      setResponseStatus(event, HTTP_CODE_200_OK);
+      event.res.status = HTTP_CODE_200_OK;
 
       return {
         note_detail_list: shuffleArray(grouped)
@@ -156,7 +155,7 @@ export default defineEventHandler(async (event) => {
       };
     }
 
-    setResponseStatus(event, HTTP_CODE_200_OK);
+    event.res.status = HTTP_CODE_200_OK;
 
     return {
       note_detail_list: grouped,

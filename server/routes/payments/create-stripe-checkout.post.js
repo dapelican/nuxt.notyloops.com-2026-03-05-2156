@@ -11,7 +11,6 @@ import {
 import {
   defineEventHandler,
   readBody,
-  setResponseStatus,
 } from 'h3';
 
 import {
@@ -69,7 +68,7 @@ export default defineEventHandler(async (event) => {
     const authenticated_user = await verifySessionAndReturnUser(event);
 
     if (authenticated_user === null) {
-      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
+      event.res.status = HTTP_CODE_401_UNAUTHORIZED;
 
       return {
         error_message: 'error_unauthorized',
@@ -81,7 +80,7 @@ export default defineEventHandler(async (event) => {
     const body_parse_result = request_body_schema.safeParse(body);
 
     if (!body_parse_result.success) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_checkout_input',
@@ -99,7 +98,7 @@ export default defineEventHandler(async (event) => {
     } = useRuntimeConfig();
 
     if (!STRIPE_SECRET_API_KEY) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'stripe_not_configured',
@@ -116,7 +115,7 @@ export default defineEventHandler(async (event) => {
     const user = user_list.at(0);
 
     if (user === undefined) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_user_id',
@@ -154,7 +153,7 @@ export default defineEventHandler(async (event) => {
       const collection = collection_list.at(0);
 
       if (collection === undefined) {
-        setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+        event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
         return {
           error_message: 'error_invalid_collection_id',
@@ -162,7 +161,7 @@ export default defineEventHandler(async (event) => {
       }
 
       if (collection.type !== COLLECTION_TYPE_PUBLIC_PAYWALLLED) {
-        setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+        event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
         return {
           error_message: 'error_collection_not_paywalled',
@@ -170,7 +169,7 @@ export default defineEventHandler(async (event) => {
       }
 
       if (!collection.pre_tax_price_in_cents || collection.pre_tax_price_in_cents <= 0) {
-        setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+        event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
         return {
           error_message: 'error_collection_price_not_set',
@@ -187,7 +186,7 @@ export default defineEventHandler(async (event) => {
       );
 
       if (payment_row_list.length > 0) {
-        setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+        event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
         return {
           error_message: 'error_collection_already_purchased',
@@ -198,7 +197,7 @@ export default defineEventHandler(async (event) => {
         !user_has_premium_status(authenticated_user)
         && authenticated_user.status !== USER_STATUS_ADMIN
       ) {
-        setResponseStatus(event, HTTP_CODE_403_FORBIDDEN);
+        event.res.status = HTTP_CODE_403_FORBIDDEN;
 
         return {
           error_message: 'error_premium_required_to_buy_collection',
@@ -232,14 +231,14 @@ export default defineEventHandler(async (event) => {
     });
 
     if (checkout_result.error_message) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: checkout_result.error_message,
       };
     }
 
-    setResponseStatus(event, HTTP_CODE_200_OK);
+    event.res.status = HTTP_CODE_200_OK;
 
     return {
       checkout_url: checkout_result.checkout_url,

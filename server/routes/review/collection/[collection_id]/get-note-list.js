@@ -18,7 +18,6 @@ import {
 import {
   defineEventHandler,
   getRouterParam,
-  setResponseStatus,
 } from 'h3';
 
 import {
@@ -111,7 +110,7 @@ export default defineEventHandler(async (event) => {
     const collection_id = getRouterParam(event, 'collection_id');
 
     if (!z.uuid().safeParse(collection_id).success) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_input',
@@ -126,7 +125,7 @@ export default defineEventHandler(async (event) => {
     const collection = collection_list.at(0);
 
     if (collection === undefined) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_no_item_found',
@@ -138,14 +137,14 @@ export default defineEventHandler(async (event) => {
 
       if (!can_review) {
         if (user === null && public_collection_requires_account(collection.type)) {
-          setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
+          event.res.status = HTTP_CODE_401_UNAUTHORIZED;
 
           return {
             error_message: 'error_unauthorized',
           };
         }
 
-        setResponseStatus(event, HTTP_CODE_403_FORBIDDEN);
+        event.res.status = HTTP_CODE_403_FORBIDDEN;
 
         return {
           error_message: 'error_forbidden',
@@ -154,7 +153,7 @@ export default defineEventHandler(async (event) => {
 
       const public_note_id_list = await selectNoteIdListOnTagCriteria(collection.user_id, collection);
 
-      setResponseStatus(event, HTTP_CODE_200_OK);
+      event.res.status = HTTP_CODE_200_OK;
 
       return {
         note_id_list_to_review: shuffleArray(public_note_id_list),
@@ -164,7 +163,7 @@ export default defineEventHandler(async (event) => {
     }
 
     if (user === null) {
-      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
+      event.res.status = HTTP_CODE_401_UNAUTHORIZED;
 
       return {
         error_message: 'error_unauthorized',
@@ -172,7 +171,7 @@ export default defineEventHandler(async (event) => {
     }
 
     if (collection.user_id !== user.id) {
-      setResponseStatus(event, HTTP_CODE_403_FORBIDDEN);
+      event.res.status = HTTP_CODE_403_FORBIDDEN;
 
       return {
         error_message: 'error_forbidden',
@@ -188,7 +187,7 @@ export default defineEventHandler(async (event) => {
       const total_user_note_count = note_count_rows.at(0).count;
 
       if (total_user_note_count >= FREEMIUM_NOTE_LIMIT) {
-        setResponseStatus(event, HTTP_CODE_403_FORBIDDEN);
+        event.res.status = HTTP_CODE_403_FORBIDDEN;
 
         return {
           error_message: 'error_unauthorized_collection_feature',
@@ -225,7 +224,7 @@ export default defineEventHandler(async (event) => {
       note_id_list_to_review = await applyReviewStrategy(note_id_list, collection.review_strategy);
     }
 
-    setResponseStatus(event, HTTP_CODE_200_OK);
+    event.res.status = HTTP_CODE_200_OK;
 
     return {
       note_id_list_to_review,

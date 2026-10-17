@@ -28,10 +28,41 @@ const request = createTestHandler('post', '/a/send-token-to-reset-password', han
 const post = (body) => request(new Request('http://localhost/a/send-token-to-reset-password', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify(body),
+  body: JSON.stringify({
+    turnstile_token: 'test-token',
+    ...body,
+  }),
 }));
 
 describe('POST /a/send-token-to-reset-password', () => {
+  it('returns 400 when the turnstile token is missing', async () => {
+    const response = await request(new Request('http://localhost/a/send-token-to-reset-password', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: 'reset-success@example.com',
+      }),
+    }));
+
+    expect(response.status).toBe(HTTP_CODE_400_BAD_REQUEST);
+
+    const data = await response.json();
+
+    expect(data.error_message).toBe('error_invalid_turnstile');
+    expect(sendEmail).not.toHaveBeenCalled();
+  });
+
+  it('returns 400 when email is missing', async () => {
+    const response = await post({});
+
+    expect(response.status).toBe(HTTP_CODE_400_BAD_REQUEST);
+
+    const data = await response.json();
+
+    expect(data.error_message).toBe('error_invalid_email');
+    expect(sendEmail).not.toHaveBeenCalled();
+  });
+
   it('returns 400 when email is invalid', async () => {
     const response = await post({ email: 'bad' });
 
@@ -63,14 +94,14 @@ describe('POST /a/send-token-to-reset-password', () => {
     expect(sendEmail).not.toHaveBeenCalled();
   });
 
-  it('returns 201 when maximum retries are reached', async () => {
+  it('returns 400 when maximum retries are reached', async () => {
     const response = await post({ email: 'reset-max-retries@example.com' });
 
-    expect(response.status).toBe(HTTP_CODE_201_CREATED);
+    expect(response.status).toBe(HTTP_CODE_400_BAD_REQUEST);
 
     const data = await response.json();
 
-    expect(data).toEqual({});
+    expect(data.error_message).toBe('error_password_reset_limit_reached');
     expect(sendEmail).not.toHaveBeenCalled();
   });
 

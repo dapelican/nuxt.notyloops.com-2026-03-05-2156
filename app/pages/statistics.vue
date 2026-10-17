@@ -6,7 +6,7 @@ definePageMeta({ middleware: 'auth' });
 const { t } = useI18n();
 
 useSeoMeta({
-  title: `${t('t_statistics')} | NotyLoops`,
+  title: `${t('t_statistics')} | ${WEBSITE_NAME}`,
 });
 
 const period_in_days = ref(7);

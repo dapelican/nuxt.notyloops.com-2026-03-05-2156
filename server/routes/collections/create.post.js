@@ -15,7 +15,6 @@ import {
 import {
   defineEventHandler,
   readBody,
-  setResponseStatus,
 } from 'h3';
 
 import {
@@ -43,7 +42,7 @@ export default defineEventHandler(async (event) => {
     const user = await verifySessionAndReturnUser(event);
 
     if (user === null) {
-      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
+      event.res.status = HTTP_CODE_401_UNAUTHORIZED;
 
       return {
         error_message: 'error_unauthorized',
@@ -64,7 +63,7 @@ export default defineEventHandler(async (event) => {
     } = await readBody(event);
 
     if (!AND_OR_LIST.includes(inclusion_type)) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_inclusion_type',
@@ -72,7 +71,7 @@ export default defineEventHandler(async (event) => {
     }
 
     if (!AND_OR_LIST.includes(exclusion_type)) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_exclusion_type',
@@ -80,7 +79,7 @@ export default defineEventHandler(async (event) => {
     }
 
     if (!z.string().min(1).safeParse(title).success) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_collection_title',
@@ -88,7 +87,7 @@ export default defineEventHandler(async (event) => {
     }
 
     if (!COLLECTION_TYPE_LIST.includes(type)) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_collection_type',
@@ -96,7 +95,7 @@ export default defineEventHandler(async (event) => {
     }
 
     if (type === COLLECTION_TYPE_PRIVATE && !REVIEW_STRATEGY_LIST.includes(review_strategy)) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_collection_review_strategy',
@@ -106,7 +105,7 @@ export default defineEventHandler(async (event) => {
     const uuid_array_schema = z.array(z.uuid()).nullable().optional();
 
     if (!uuid_array_schema.safeParse(tag_id_list_to_include).success) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_tag_id_list_to_include',
@@ -114,7 +113,7 @@ export default defineEventHandler(async (event) => {
     }
 
     if (!uuid_array_schema.safeParse(tag_id_list_to_exclude).success) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_tag_id_list_to_exclude',
@@ -157,7 +156,7 @@ export default defineEventHandler(async (event) => {
       ]
     );
 
-    setResponseStatus(event, HTTP_CODE_201_CREATED);
+    event.res.status = HTTP_CODE_201_CREATED;
 
     return new_tag_list.at(0);
   } catch (error) {

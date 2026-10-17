@@ -14,7 +14,6 @@ import {
 
 import {
   defineEventHandler,
-  setResponseStatus,
 } from 'h3';
 
 import {
@@ -127,7 +126,7 @@ export default defineEventHandler(async (event) => {
     const user = await verifySessionAndReturnUser(event);
 
     if (user === null) {
-      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
+      event.res.status = HTTP_CODE_401_UNAUTHORIZED;
 
       return {
         error_message: 'error_unauthorized',
@@ -135,7 +134,7 @@ export default defineEventHandler(async (event) => {
     }
 
     if (user.status !== USER_STATUS_PREMIUM && user.status !== USER_STATUS_ADMIN) {
-      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
+      event.res.status = HTTP_CODE_401_UNAUTHORIZED;
 
       return {
         error_message: 'error_unauthorized',
@@ -143,7 +142,7 @@ export default defineEventHandler(async (event) => {
     }
 
     if (text?.length === 0 || !authorized_language_code_list.includes(language_code)) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_input',
@@ -151,7 +150,7 @@ export default defineEventHandler(async (event) => {
     }
 
     if (typeof text === 'string' && text.length > TEXT_TO_SPEECH_FILE_CHARACTER_LIMIT) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 't_error_text_to_speech_file_character_limit',
@@ -169,7 +168,7 @@ export default defineEventHandler(async (event) => {
       ]
     );
 
-    setResponseStatus(event, HTTP_CODE_200_OK);
+    event.res.status = HTTP_CODE_200_OK;
 
     return {
       audio_url,

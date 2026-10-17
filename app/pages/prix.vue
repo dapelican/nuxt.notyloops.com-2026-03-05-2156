@@ -6,7 +6,7 @@ const { locale, t } = useI18n();
 const meta_description = 'Les 2 offres pour utiliser NotyLoops : ofrre gratuite limitée ou offre payante illimitée.';
 
 useSeoMeta({
-  title: `${t('t_pricing')} | NotyLoops`,
+  title: `${t('t_pricing')} | ${WEBSITE_NAME}`,
   description: meta_description,
 });
 

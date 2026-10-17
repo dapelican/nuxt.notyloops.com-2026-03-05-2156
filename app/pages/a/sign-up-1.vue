@@ -4,7 +4,7 @@ import * as z from 'zod';
 const { t } = useI18n();
 
 useSeoMeta({
-  title: `${t('t_sign_up_step_1_of_2')} | NotyLoops`,
+  title: `${t('t_sign_up_step_1_of_2')} | ${WEBSITE_NAME}`,
 });
 
 const form_fields = ref([
@@ -24,6 +24,8 @@ const form_schema = z.object({
 const form_error = ref('');
 const handling_request = ref(false);
 const show_check_your_inbox_message = ref(false);
+const turnstile_element = ref(null);
+const turnstile_token = ref('');
 
 const sendValidateEmailToken = async (form) => {
   useTrackEvent('Form: Submission');
@@ -36,6 +38,7 @@ const sendValidateEmailToken = async (form) => {
       method: 'POST',
       body: {
         email: form.data.email,
+        turnstile_token: turnstile_token.value,
       },
     });
 
@@ -62,12 +65,16 @@ const sendValidateEmailToken = async (form) => {
       case 'error_email_token_not_sent':
         form_error.value = t('t_error_email_token_not_sent');
         break;
+      case 'error_invalid_turnstile':
+        form_error.value = t('t_error_invalid_turnstile');
+        break;
       default:
         handleFrontendError(error, error_message);
         break;
     }
   } finally {
     handling_request.value = false;
+    turnstile_element.value?.reset();
   }
 };
 
@@ -91,6 +98,10 @@ const sendValidateEmailToken = async (form) => {
         @submit="sendValidateEmailToken"
       >
         <template #validation>
+          <TurnstileElement
+            ref="turnstile_element"
+            v-model="turnstile_token"
+          />
           <UAlert
             v-if="form_error"
             color="error"

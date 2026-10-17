@@ -11,7 +11,6 @@ import {
   defineEventHandler,
   getHeader,
   readRawBody,
-  setResponseStatus,
 } from 'h3';
 
 import {
@@ -103,7 +102,7 @@ export default defineEventHandler(async (event) => {
     } = useRuntimeConfig();
 
     if (!STRIPE_SECRET_API_KEY || !STRIPE_ENDPOINT_SECRET) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'stripe_not_configured',
@@ -114,7 +113,7 @@ export default defineEventHandler(async (event) => {
     const stripe_signature = getHeader(event, 'stripe-signature');
 
     if (!stripe_signature || raw_body === undefined || raw_body === null) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'invalid_webhook_request',
@@ -132,7 +131,7 @@ export default defineEventHandler(async (event) => {
         STRIPE_ENDPOINT_SECRET
       );
     } catch {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'invalid_stripe_signature',
@@ -146,14 +145,14 @@ export default defineEventHandler(async (event) => {
 
       if (session.payment_status !== PAYMENT_STATUS_PAID) {
         if (stripe_event.type === CHECKOUT_SESSION_ASYNC_PAYMENT_SUCCEEDED) {
-          setResponseStatus(event, HTTP_CODE_500_INTERNAL_SERVER_ERROR);
+          event.res.status = HTTP_CODE_500_INTERNAL_SERVER_ERROR;
 
           return {
             error_message: 'checkout_session_not_paid',
           };
         }
 
-        setResponseStatus(event, HTTP_CODE_200_OK);
+        event.res.status = HTTP_CODE_200_OK;
 
         return {
           received: true,
@@ -173,14 +172,14 @@ export default defineEventHandler(async (event) => {
         stripe_checkout_session_id: session.id,
       });
 
-      setResponseStatus(event, HTTP_CODE_200_OK);
+      event.res.status = HTTP_CODE_200_OK;
 
       return {
         received: true,
       };
     }
 
-    setResponseStatus(event, HTTP_CODE_200_OK);
+    event.res.status = HTTP_CODE_200_OK;
 
     return {
       received: true,

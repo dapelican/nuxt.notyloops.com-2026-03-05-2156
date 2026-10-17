@@ -8,7 +8,6 @@ import {
 import {
   defineEventHandler,
   getQuery,
-  setResponseStatus,
 } from 'h3';
 
 import { DateTime } from 'luxon';
@@ -52,7 +51,7 @@ export default defineEventHandler(async (event) => {
     const user = await verifySessionAndReturnUser(event);
 
     if (user === null) {
-      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
+      event.res.status = HTTP_CODE_401_UNAUTHORIZED;
 
       return {
         error_message: 'error_unauthorized',
@@ -73,7 +72,7 @@ export default defineEventHandler(async (event) => {
     );
 
     if (spaced_repetition_collection_list.length === 0) {
-      setResponseStatus(event, HTTP_CODE_200_OK);
+      event.res.status = HTTP_CODE_200_OK;
 
       return {
         spaced_repetition_due_note_count: 0,
@@ -122,7 +121,7 @@ export default defineEventHandler(async (event) => {
       const spaced_repetition_note_id_list = due_rows.map((row) => row.note_id);
 
       if (spaced_repetition_note_id_list.length > 0) {
-        setResponseStatus(event, HTTP_CODE_200_OK);
+        event.res.status = HTTP_CODE_200_OK;
 
         return {
           spaced_repetition_due_note_count: spaced_repetition_note_id_list.length,
@@ -143,7 +142,7 @@ export default defineEventHandler(async (event) => {
       next_due_date = next_rows.at(0)?.next_due_date ?? null;
     }
 
-    setResponseStatus(event, HTTP_CODE_200_OK);
+    event.res.status = HTTP_CODE_200_OK;
 
     return {
       spaced_repetition_due_note_count: 0,

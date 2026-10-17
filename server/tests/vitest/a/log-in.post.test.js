@@ -12,8 +12,13 @@ import bcrypt from 'bcrypt';
 
 import { createTestHandler } from '../create-test-handler.js';
 
+import {
+  executeSQLQuery,
+} from '../../../database/query.js';
+
 import handler from '../../../routes/a/log-in.post.js';
 
+const CONFIRMED_USER_ID = '50000000-0000-4000-8000-000000000002';
 const SEEDED_PASSWORD_HASH = '$2b$10$wL7tkbBZQyt/YiigMxI08egh.xU.pP.D87SLSGjq4NJxXAlyj/p0i';
 
 const request = createTestHandler('post', '/a/log-in', handler);
@@ -21,10 +26,41 @@ const request = createTestHandler('post', '/a/log-in', handler);
 const post = (body) => request(new Request('http://localhost/a/log-in', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify(body),
+  body: JSON.stringify({
+    turnstile_token: 'test-token',
+    ...body,
+  }),
 }));
 
 describe('POST /a/log-in', () => {
+  it('returns 400 when the turnstile token is missing', async () => {
+    const response = await request(new Request('http://localhost/a/log-in', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: 'confirmed@example.com',
+        password: 'Test1234!',
+      }),
+    }));
+
+    expect(response.status).toBe(HTTP_CODE_400_BAD_REQUEST);
+
+    const data = await response.json();
+
+    expect(data.error_message).toBe('error_invalid_turnstile');
+    expect(globalThis.setUserSession).not.toHaveBeenCalled();
+  });
+
+  it('returns 400 when email is missing', async () => {
+    const response = await post({ password: 'Test1234!' });
+
+    expect(response.status).toBe(HTTP_CODE_400_BAD_REQUEST);
+
+    const data = await response.json();
+
+    expect(data.error_message).toBe('error_invalid_email');
+  });
+
   it('returns 400 when email is invalid', async () => {
     const response = await post({ email: 'not-an-email', password: 'Test1234!' });
 
@@ -109,5 +145,21 @@ describe('POST /a/log-in', () => {
     const data = await response.json();
 
     expect(data).toEqual({ success: true });
+    expect(globalThis.setUserSession).toHaveBeenCalledWith(
+      expect.anything(),
+      expect.objectContaining({
+        session_token_id: expect.any(String),
+      })
+    );
+
+    const {
+      rows,
+    } = await executeSQLQuery(
+      `SELECT id FROM user_email_tokens
+      WHERE user_id = $1 AND usage = 'connect'`,
+      [CONFIRMED_USER_ID]
+    );
+
+    expect(rows).toHaveLength(1);
   });
 });

@@ -9,7 +9,6 @@ import {
 import {
   defineEventHandler,
   readBody,
-  setResponseStatus,
 } from 'h3';
 
 import {
@@ -38,7 +37,7 @@ export default defineEventHandler(async (event) => {
     const user = await verifySessionAndReturnUser(event);
 
     if (user === null) {
-      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
+      event.res.status = HTTP_CODE_401_UNAUTHORIZED;
 
       return {
         error_message: 'error_unauthorized',
@@ -61,7 +60,7 @@ export default defineEventHandler(async (event) => {
       !z.coerce.number().int().safeParse(limit).success
       || !z.coerce.number().int().safeParse(offset).success
     ) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_limit_or_offset',
@@ -72,7 +71,7 @@ export default defineEventHandler(async (event) => {
       !ALLOWED_SORT_COLUMNS.includes(sort_by)
       || !ALLOWED_SORT_ORDERS.includes(sort_order)
     ) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_input',
@@ -151,7 +150,7 @@ export default defineEventHandler(async (event) => {
 
     const { rows: current_page_note_list } = await executeSQLQuery(sql_query, parameter_list);
 
-    setResponseStatus(event, HTTP_CODE_200_OK);
+    event.res.status = HTTP_CODE_200_OK;
 
     return {
       current_page_note_list,

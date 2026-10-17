@@ -13,7 +13,6 @@ import {
 import {
   defineEventHandler,
   getRouterParam,
-  setResponseStatus,
 } from 'h3';
 
 import {
@@ -33,7 +32,7 @@ export default defineEventHandler(async (event) => {
     const token = await getRouterParam(event, 'token');
 
     if (!token || !validateUUID(token)) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_email_token',
@@ -48,14 +47,14 @@ export default defineEventHandler(async (event) => {
     });
 
     if (!active_token) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_email_token',
       };
     }
 
-    setResponseStatus(event, HTTP_CODE_200_OK);
+    event.res.status = HTTP_CODE_200_OK;
 
     return {
       pending_email: active_token.pending_email,

@@ -2,7 +2,7 @@
 const { t } = useI18n();
 
 useSeoMeta({
-  title: `${t('t_review_collection_note')} | NotyLoops`,
+  title: `${t('t_review_collection_note')} | ${WEBSITE_NAME}`,
 });
 
 const route = useRoute();

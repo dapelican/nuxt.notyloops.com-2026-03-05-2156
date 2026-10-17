@@ -8,6 +8,10 @@ import {
 
 import { createTestHandler } from '../create-test-handler.js';
 
+import {
+  executeSQLQuery,
+} from '../../../database/query.js';
+
 import handler from '../../../routes/a/log-out.post.js';
 
 const request = createTestHandler('post', '/a/log-out', handler);
@@ -31,6 +35,15 @@ describe('POST /a/log-out', () => {
 
     expect(data).toEqual({ success: true });
     expect(clearUserSession).toHaveBeenCalled();
+
+    const {
+      rows,
+    } = await executeSQLQuery(
+      'SELECT blacklisted FROM user_session_tokens WHERE id = $1',
+      ['a0000000-0000-4000-8000-000000000001']
+    );
+
+    expect(rows.at(0).blacklisted).toBe(true);
   });
 
   it('returns 200 when no session exists', async () => {

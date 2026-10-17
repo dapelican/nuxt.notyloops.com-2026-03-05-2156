@@ -6,7 +6,7 @@ import * as z from 'zod';
 const { t } = useI18n();
 
 useSeoMeta({
-  title: `${t('t_sign_up_step_2_of_2')} | NotyLoops`,
+  title: `${t('t_sign_up_step_2_of_2')} | ${WEBSITE_NAME}`,
 });
 
 const page_error = ref('');

@@ -4,7 +4,7 @@ import * as z from 'zod';
 const { t } = useI18n();
 
 useSeoMeta({
-  title: `${t('t_log_in')} | NotyLoops`,
+  title: `${t('t_log_in')} | ${WEBSITE_NAME}`,
 });
 
 const form_fields = ref([
@@ -33,6 +33,8 @@ const form_schema = z.object({
 const form_error = ref('');
 
 const handling_request = ref(false);
+const turnstile_element = ref(null);
+const turnstile_token = ref('');
 
 const {
   fetch: refreshSession,
@@ -47,6 +49,7 @@ const logIn = async (form) => {
       body: {
         email: form.data.email,
         password: form.data.password,
+        turnstile_token: turnstile_token.value,
       },
     });
 
@@ -66,12 +69,16 @@ const logIn = async (form) => {
       case 'error_wrong_credentials':
         form_error.value = t('t_error_wrong_credentials');
         break;
+      case 'error_invalid_turnstile':
+        form_error.value = t('t_error_invalid_turnstile');
+        break;
       default:
         handleFrontendError(error, error_message);
         break;
     }
   } finally {
     handling_request.value = false;
+    turnstile_element.value?.reset();
   }
 };
 </script>
@@ -93,6 +100,10 @@ const logIn = async (form) => {
         @submit="logIn"
       >
         <template #validation>
+          <TurnstileElement
+            ref="turnstile_element"
+            v-model="turnstile_token"
+          />
           <UAlert
             v-if="form_error"
             color="error"

@@ -30,7 +30,7 @@ useSchema({
 });
 
 useSeoMeta({
-  title: `${page_title} | NotyLoops`,
+  title: `${page_title} | ${WEBSITE_NAME}`,
   description: meta_description,
 });
 

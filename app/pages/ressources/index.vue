@@ -2,7 +2,7 @@
 const meta_description = 'Ressources.';
 
 useSeoMeta({
-  title: 'Ressources | NotyLoops',
+  title: 'Ressources | ${WEBSITE_NAME}',
   description: meta_description,
 });
 

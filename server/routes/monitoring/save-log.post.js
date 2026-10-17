@@ -3,7 +3,6 @@
 import {
   defineEventHandler,
   readBody,
-  setResponseStatus,
 } from 'h3';
 
 import {
@@ -29,7 +28,7 @@ export default defineEventHandler(async (event) => {
       [content]
     );
 
-    setResponseStatus(event, HTTP_CODE_201_CREATED);
+    event.res.status = HTTP_CODE_201_CREATED;
 
     return {};
   } catch (error) {

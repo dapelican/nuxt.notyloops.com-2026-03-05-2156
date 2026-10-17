@@ -2,7 +2,6 @@
 
 import {
   defineEventHandler,
-  setResponseStatus,
 } from 'h3';
 
 import {
@@ -27,7 +26,7 @@ export default defineEventHandler(async (event) => {
       throw new Error('error_database_health_check_failed');
     }
 
-    setResponseStatus(event, HTTP_CODE_200_OK);
+    event.res.status = HTTP_CODE_200_OK;
 
     return {
       pong: 'pong',

@@ -13,7 +13,6 @@ import {
 import {
   defineEventHandler,
   readBody,
-  setResponseStatus,
 } from 'h3';
 
 import {
@@ -40,6 +39,10 @@ import {
 import {
   v7 as uuidv7,
 } from 'uuid';
+
+import {
+  verifyTurnstileToken,
+} from '../../helpers/verify-turnstile-token.js';
 
 const getEmailTokenDurationHoursAgo = () => DateTime
   .now()
@@ -73,7 +76,18 @@ export default defineEventHandler(async (event) => {
   try {
     let {
       email,
+      turnstile_token,
     } = await readBody(event);
+
+    const turnstile_token_is_valid = await verifyTurnstileToken(turnstile_token);
+
+    if (!turnstile_token_is_valid) {
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+
+      return {
+        error_message: 'error_invalid_turnstile',
+      };
+    }
 
     email = email?.toLowerCase()?.trim();
 
@@ -81,7 +95,7 @@ export default defineEventHandler(async (event) => {
       !validateNonEmptyInputFieldList([email])
       || !validateEmail(email)
     ) {
-      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
       return {
         error_message: 'error_invalid_email',
@@ -96,7 +110,7 @@ export default defineEventHandler(async (event) => {
     );
 
     if (user_list.length === 0) {
-      setResponseStatus(event, HTTP_CODE_201_CREATED);
+      event.res.status = HTTP_CODE_201_CREATED;
 
       return {};
     }
@@ -118,7 +132,7 @@ export default defineEventHandler(async (event) => {
     );
 
     if (active_user_token_list.length > 0) {
-      setResponseStatus(event, HTTP_CODE_201_CREATED);
+      event.res.status = HTTP_CODE_201_CREATED;
 
       return {};
     }
@@ -136,14 +150,16 @@ export default defineEventHandler(async (event) => {
     );
 
     if (inactive_user_token_list.length >= 3) {
-      setResponseStatus(event, HTTP_CODE_201_CREATED);
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
 
-      return {};
+      return {
+        error_message: 'error_password_reset_limit_reached',
+      };
     }
 
     await sendTokenToResetPassword(user, user.subdomain);
 
-    setResponseStatus(event, HTTP_CODE_201_CREATED);
+    event.res.status = HTTP_CODE_201_CREATED;
 
     return {};
   } catch (error) {
