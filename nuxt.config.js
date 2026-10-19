@@ -136,6 +136,7 @@ export default defineNuxtConfig({
     proxy: true,
   },
   // Headers only. Other nuxt-security middleware stays off until the app uses it.
+  // YouTube embeds need a Referer and must not be blocked by COEP.
   // 'unsafe-inline' in script-src is the CSP Level 2 fallback; a nonce makes browsers ignore it.
   // strict-dynamic is omitted: @nuxtjs/turnstile 1.1.3 does not nonce its external script,
   // and CSP3 would then ignore the Cloudflare host allowlist.
@@ -151,7 +152,8 @@ export default defineNuxtConfig({
     csrf: false,
     removeLoggers: false,
     headers: {
-      referrerPolicy: 'no-referrer',
+      referrerPolicy: 'strict-origin-when-cross-origin',
+      crossOriginEmbedderPolicy: 'unsafe-none',
       xContentTypeOptions: 'nosniff',
       xFrameOptions: 'DENY',
       contentSecurityPolicy: {
@@ -165,7 +167,7 @@ export default defineNuxtConfig({
         'script-src-attr': ['\'none\''],
         'frame-src': [
           'https://challenges.cloudflare.com',
-          'https://www.youtube.com',
+          'https://www.youtube-nocookie.com',
         ],
         'connect-src': ['\'self\'', 'https://challenges.cloudflare.com'],
         'style-src': ['\'self\'', '\'unsafe-inline\''],

@@ -46,7 +46,8 @@ describe('security response headers', () => {
     const content_security_policy = nuxt_config.security.headers.contentSecurityPolicy;
 
     expect(nuxt_config.security.headers).toMatchObject({
-      referrerPolicy: 'no-referrer',
+      referrerPolicy: 'strict-origin-when-cross-origin',
+      crossOriginEmbedderPolicy: 'unsafe-none',
       xContentTypeOptions: 'nosniff',
       xFrameOptions: 'DENY',
     });
@@ -60,7 +61,7 @@ describe('security response headers', () => {
     expect(content_security_policy['script-src-attr']).toEqual(['\'none\'']);
     expect(content_security_policy['frame-src']).toEqual([
       'https://challenges.cloudflare.com',
-      'https://www.youtube.com',
+      'https://www.youtube-nocookie.com',
     ]);
     expect(content_security_policy['connect-src']).toEqual([
       '\'self\'',
