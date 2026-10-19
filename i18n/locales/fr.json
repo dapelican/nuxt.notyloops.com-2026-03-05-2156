@@ -73,7 +73,7 @@
   "t_contact_us_description": "Vous pouvez nous envoyer un e-mail directement à l'adresse suivante :",
   "t_content": "Contenu",
   "t_continue_to_next_note": "Continuer",
-  "t_copy_collection": "Copier les notes",
+  "t_copy_collection": "Copier les notes dans mon compte",
   "t_copy_missing_notes": "Copier les notes manquantes",
   "t_correct_proposition": "Proposition correcte",
   "t_created": "Créé le",
@@ -330,5 +330,6 @@
   "t_you_must_log_in_or_sign_up_to_copy_these_notes": "Vous devez avoir un compte pour copier les notes de cette collection.",
   "t_you_must_log_in_or_sign_up_to_copy_this_collection": "Vous devez avoir un compte pour voir les notes de cette collection et pouvoir les copier.",
   "t_you_own_this_collection_you_cannot_copy_it": "Vous possédez déjà cette collection : vous ne pouvez pas la copier.",
+  "t_your_collection": "Votre collection",
   "t_your_message_has_been_sent": "Votre message a bien été envoyé. Nous vous répondrons dans les meilleurs délais."
 }

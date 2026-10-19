@@ -253,9 +253,9 @@ const note_is_locked = (note) => {
           />
         </section>
 
-        <hr class="separator-1">
+        <hr class="separator-2">
 
-        <nav class="flex flex-wrap gap-12">
+        <nav class="flex flex-wrap gap-12 gap-y-4">
           <UButton
             v-if="can_review"
             :to="`/review/collection/${collection_id}`"
@@ -279,6 +279,7 @@ const note_is_locked = (note) => {
 
           <LimitedFeaturePopup
             v-if="collection_belongs_to_connected_user"
+            :title="$t('t_your_collection')"
           >
             <UButton>
               <span>{{ $t('t_copy_collection') }}</span>
@@ -311,7 +312,7 @@ const note_is_locked = (note) => {
           </PublicCollectionAccessPopup>
         </nav>
 
-        <hr class="separator-1">
+        <hr class="separator-2">
 
         <section
           v-for="(note, index) in note_list ?? []"
