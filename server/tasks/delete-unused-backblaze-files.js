@@ -2,7 +2,7 @@ import { deleteUnusedBackblazeFiles } from '../scripts/delete-unused-backblaze-f
 
 export default defineTask({
   meta: {
-    name: 'tasks:delete-unused-backblaze-files',
+    name: 'delete-unused-backblaze-files',
     description: 'Delete unused Backblaze files',
   },
   async run() {

@@ -88,10 +88,10 @@ export default defineNuxtConfig({
       tasks: true,
     },
     scheduledTasks: {
-      '0 3 * * *': ['tasks:delete-notes-permanently'],
-      '0 4 * * *': ['tasks:delete-unused-backblaze-files'],
-      '0 5 * * *': ['tasks:send-email-to-extend-premium'],
-      '0 6 * * *': ['tasks:update-user-status'],
+      '0 3 * * *': ['delete-notes-permanently'],
+      '0 4 * * *': ['delete-unused-backblaze-files'],
+      '0 5 * * *': ['send-email-to-extend-premium'],
+      '0 6 * * *': ['update-user-status'],
     },
   },
   eslint: {

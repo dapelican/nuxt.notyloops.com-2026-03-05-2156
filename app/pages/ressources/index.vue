@@ -2,7 +2,7 @@
 const meta_description = 'Ressources.';
 
 useSeoMeta({
-  title: 'Ressources | ${WEBSITE_NAME}',
+  title: `Ressources | ${WEBSITE_NAME}`,
   description: meta_description,
 });
 
@@ -66,6 +66,12 @@ useSeoMeta({
     </h2>
 
     <ul class="list-disc list-inside">
+      <li>
+        <ULink
+          class="text-primary"
+          to="/ressources/flashcards-creation-revision"
+        >Comment créer et revoir des flashcards sur NotyLoops ?</ULink>
+      </li>
       <li>
         <ULink
           class="text-primary"
