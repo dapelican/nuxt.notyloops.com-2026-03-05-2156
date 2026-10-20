@@ -23,9 +23,9 @@ import handler from '../../../routes/a/reset-password.post.js';
 
 import {
   sendEmail,
-} from '../../../services/amazon-ses/send-email.js';
+} from '../../../services/smtp2go/send-email.js';
 
-vi.mock('../../../services/amazon-ses/send-email.js', () => ({
+vi.mock('../../../services/smtp2go/send-email.js', () => ({
   sendEmail: vi.fn(() => Promise.resolve()),
 }));
 

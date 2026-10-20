@@ -33,7 +33,7 @@ import {
 
 import {
   sendEmail,
-} from '../../services/amazon-ses/send-email.js';
+} from '../../services/smtp2go/send-email.js';
 
 import {
   v7 as uuidv7,

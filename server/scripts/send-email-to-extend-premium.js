@@ -14,7 +14,7 @@ import {
 
 import {
   sendEmail,
-} from '../services/amazon-ses/send-email.js';
+} from '../services/smtp2go/send-email.js';
 
 const getDayRange = (today, day_count) => {
   const range_start = today.plus({ days: day_count });

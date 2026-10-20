@@ -16,6 +16,10 @@ import {
 } from '../../helpers/validators.js';
 
 import {
+  WEBSITE_DOMAIN_NAME,
+} from '#shared/utils/constants.js';
+
+import {
   getSubdomain,
 } from '../../helpers/get-subdomain.js';
 
@@ -25,7 +29,15 @@ import {
 
 import {
   sendEmail,
-} from '../../services/amazon-ses/send-email.js';
+} from '../../services/smtp2go/send-email.js';
+
+import {
+  verifyEmail,
+} from '../../services/emailable/verify-email.js';
+
+import {
+  verifyTurnstileToken,
+} from '../../helpers/verify-turnstile-token.js';
 
 const FIRST_NAME_MAX_LENGTH = 100;
 const MESSAGE_MAX_LENGTH = 5000;
@@ -36,7 +48,18 @@ export default defineEventHandler(async (event) => {
       email,
       first_name,
       message,
+      turnstile_token,
     } = await readBody(event);
+
+    const turnstile_token_is_valid = await verifyTurnstileToken(turnstile_token);
+
+    if (!turnstile_token_is_valid) {
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+
+      return {
+        error_message: 'error_invalid_turnstile',
+      };
+    }
 
     email = email?.toLowerCase()?.trim();
     first_name = first_name?.trim();
@@ -64,6 +87,16 @@ export default defineEventHandler(async (event) => {
       };
     }
 
+    const email_is_verified = await verifyEmail(email);
+
+    if (!email_is_verified) {
+      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+
+      return {
+        error_message: 'error_corrupt_email',
+      };
+    }
+
     await sendEmail({
       subdomain,
       template_name: 'admin-new-contact-message',
@@ -72,7 +105,7 @@ export default defineEventHandler(async (event) => {
         first_name,
         message,
       },
-      to: 'support@notyloops.com',
+      to: `support@${WEBSITE_DOMAIN_NAME}`,
     });
 
     event.res.status = HTTP_CODE_201_CREATED;
