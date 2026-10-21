@@ -39,7 +39,7 @@ if (sentry_dsn) {
 
 export default defineNuxtConfig({
   modules: [
-    '@nuxt/eslint',
+    ...(!is_production ? ['@nuxt/eslint'] : []),
     '@nuxt/ui',
     '@nuxtjs/i18n',
     '@nuxtjs/plausible',
@@ -134,11 +134,15 @@ export default defineNuxtConfig({
       '0 6 * * *': ['update-user-status'],
     },
   },
-  eslint: {
-    config: {
-      stylistic: true,
-    },
-  },
+  ...(!is_production
+    ? {
+        eslint: {
+          config: {
+            stylistic: true,
+          },
+        },
+      }
+    : {}),
   i18n: {
     defaultLocale: 'en',
     detectBrowserLanguage: false,
