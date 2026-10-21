@@ -123,6 +123,10 @@ export default defineNuxtConfig({
     : false,
   compatibilityDate: '2026-03-05',
   nitro: {
+    externals: {
+      // pg's CommonJS dependencies use extensionless subpath imports that Node ESM cannot resolve.
+      external: ['pg'],
+    },
     scanDirs: ['server/services'],
     experimental: {
       tasks: true,
