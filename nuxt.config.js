@@ -4,6 +4,39 @@ import {
   fileURLToPath,
 } from 'node:url';
 
+const getNonEmptyEnvironmentVariable = (name) => {
+  const value = process.env[name]?.trim();
+
+  return value || undefined;
+};
+
+const getTraceSampleRate = () => {
+  const value = Number(getNonEmptyEnvironmentVariable('NUXT_PUBLIC_SENTRY_TRACES_SAMPLE_RATE') ?? 0.1);
+
+  return Number.isFinite(value) && value >= 0 && value <= 1 ? value : 0.1;
+};
+
+const sentry_dsn = getNonEmptyEnvironmentVariable('NUXT_PUBLIC_SENTRY_DSN');
+const sentry_environment = getNonEmptyEnvironmentVariable('NUXT_PUBLIC_SENTRY_ENVIRONMENT');
+const sentry_traces_sample_rate = getTraceSampleRate();
+const sentry_auth_token = getNonEmptyEnvironmentVariable('SENTRY_AUTH_TOKEN');
+const sentry_org = getNonEmptyEnvironmentVariable('SENTRY_ORG');
+const sentry_project = getNonEmptyEnvironmentVariable('SENTRY_PROJECT');
+const is_production = process.env.NODE_ENV === 'production';
+const is_sentry_enabled = is_production && Boolean(sentry_dsn);
+const can_upload_sentry_source_maps = is_sentry_enabled
+  && Boolean(sentry_auth_token && sentry_org && sentry_project);
+
+let sentry_ingest_origin;
+
+if (sentry_dsn) {
+  try {
+    sentry_ingest_origin = new URL(sentry_dsn).origin;
+  } catch {
+    sentry_ingest_origin = undefined;
+  }
+}
+
 export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
@@ -13,6 +46,7 @@ export default defineNuxtConfig({
     '@nuxtjs/turnstile',
     'nuxt-auth-utils',
     'nuxt-security',
+    ...(is_sentry_enabled ? ['@sentry/nuxt/module'] : []),
   ],
   // to prevent weird warnings in the console locally
   devtools: {
@@ -65,6 +99,9 @@ export default defineNuxtConfig({
     STRIPE_SECRET_API_KEY: process.env.STRIPE_SECRET_API_KEY,
     public: {
       domain: process.env.DOMAIN,
+      sentry_dsn,
+      sentry_environment,
+      sentry_traces_sample_rate,
     },
     turnstile: {
       // Dummy secret in dev so local checks do not call Siteverify.
@@ -82,6 +119,12 @@ export default defineNuxtConfig({
   alias: {
     '#shared': fileURLToPath(new URL('./shared', import.meta.url)),
   },
+  sourcemap: is_production
+    ? {
+        client: 'hidden',
+        server: 'hidden',
+      }
+    : false,
   compatibilityDate: '2026-03-05',
   nitro: {
     scanDirs: ['server/services'],
@@ -170,7 +213,11 @@ export default defineNuxtConfig({
           'https://challenges.cloudflare.com',
           'https://www.youtube-nocookie.com',
         ],
-        'connect-src': ['\'self\'', 'https://challenges.cloudflare.com'],
+        'connect-src': [
+          '\'self\'',
+          'https://challenges.cloudflare.com',
+          ...(sentry_ingest_origin ? [sentry_ingest_origin] : []),
+        ],
         'style-src': ['\'self\'', '\'unsafe-inline\''],
         'img-src': [
           '\'self\'',
@@ -187,6 +234,19 @@ export default defineNuxtConfig({
         'form-action': ['\'self\''],
         'frame-ancestors': ['\'none\''],
       },
+    },
+  },
+  sentry: {
+    enabled: is_sentry_enabled,
+    ...(can_upload_sentry_source_maps
+      ? {
+          authToken: sentry_auth_token,
+          org: sentry_org,
+          project: sentry_project,
+        }
+      : {}),
+    sourcemaps: {
+      disable: !can_upload_sentry_source_maps,
     },
   },
   turnstile: {

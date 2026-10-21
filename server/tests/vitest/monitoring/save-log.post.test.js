@@ -44,6 +44,8 @@ describe('POST /monitoring/save-log', () => {
 
   it('returns 404 in production', async () => {
     vi.stubEnv('NODE_ENV', 'production');
+    vi.stubEnv('NUXT_PUBLIC_SENTRY_DSN', '');
+    vi.stubEnv('SENTRY_AUTH_TOKEN', '');
 
     const response = await postLog({ content: JSON.stringify({ message: 'test log entry' }) });
 
