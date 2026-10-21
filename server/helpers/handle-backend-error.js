@@ -10,7 +10,23 @@ import {
   executeSQLQuery,
 } from '../database/query.js';
 
-import { getRequestURL } from 'h3';
+import {
+  getRequestURL,
+} from 'h3';
+
+const serializeError = (err) => {
+  if (err instanceof Error) {
+    return {
+      name: err.name,
+      message: err.message,
+      stack: err.stack,
+    };
+  }
+
+  return {
+    message: String(err),
+  };
+};
 
 /**
  * Nitro/h3 error handler. Call from a route's catch block, e.g.:
@@ -20,22 +36,23 @@ import { getRequestURL } from 'h3';
  * @returns {{ error: string }} JSON body for 500 response
  */
 const handleBackendError = async (err, event) => {
-  const message = err?.message ?? String(err);
+  const serialized_error = serializeError(err);
   const request_url = getRequestURL(event)?.toString?.() ?? event.node?.req?.url ?? '';
   const request_method = event.method ?? event.node?.req?.method ?? '';
+  const timestamp = DateTime.utc().toISO();
 
-  console.log('============== ERROR ==============');
-  console.log('request', `[${DateTime.utc().toISO()}] ${request_method} ${request_url}`);
-  console.log(message);
-  console.log('===================================');
+  console.error('============== ERROR ==============');
+  console.error('request', `[${timestamp}] ${request_method} ${request_url}`);
+  console.error(serialized_error.stack ?? serialized_error.message);
+  console.error('===================================');
 
   try {
     await executeSQLQuery('INSERT INTO logs (content) VALUES ($1)',
       [JSON.stringify({
-        error: err,
+        error: serialized_error,
         request_method,
         request_url,
-        timestamp: DateTime.utc().toISO(),
+        timestamp,
       })]
     );
   } catch (log_error) {

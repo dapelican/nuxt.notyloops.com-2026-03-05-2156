@@ -1,4 +1,5 @@
 {
+  "name": "notyloops",
   "type": "module",
   "scripts": {
     "build": "NODE_OPTIONS=--max-old-space-size=4096 nuxt build",

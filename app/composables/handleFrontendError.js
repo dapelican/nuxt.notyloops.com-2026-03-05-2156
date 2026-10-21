@@ -1,29 +1,48 @@
 'use strict';
 
+const serializeError = (error) => {
+  if (error instanceof Error) {
+    return {
+      name: error.name,
+      message: error.message,
+      stack: error.stack,
+      status_code: error.statusCode ?? error.status,
+      data: error.data,
+    };
+  }
+
+  return error;
+};
+
 export const handleFrontendError = (error, message) => {
   switch (message) {
     case 'error_no_user_found':
-      return navigateTo('/a/log-in');
+      navigateTo('/a/log-in');
+      break;
     case 'error_unauthorized':
-      return navigateTo('/a/log-in');
-    case 'invalid_url':
-      throw createError({ statusCode: 404, fatal: true });
+      navigateTo('/a/log-in');
+      break;
     default:
-      $fetch('/monitoring/save-log', {
-        method: 'POST',
-        body: {
-          content: JSON.stringify({
-            error,
-            message,
-          }),
-        },
-      });
+      if (import.meta.dev) {
+        $fetch('/monitoring/save-log', {
+          method: 'POST',
+          body: {
+            content: JSON.stringify({
+              error: serializeError(error),
+              message,
+            }),
+          },
+        }).catch((log_error) => {
+          console.error('Failed to save frontend error log:', log_error);
+        });
+      }
 
       throw createError({
         statusCode: 500,
-        statusMessage: message ?? 'Internal Server Error',
-        message: message ?? error?.message ?? 'An unexpected error occurred',
+        statusMessage: 'Internal Server Error',
+        message: 'An unexpected error occurred',
         fatal: true,
+        cause: error,
       });
   }
 };
