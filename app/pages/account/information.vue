@@ -1,6 +1,5 @@
 <script setup>
 import * as z from 'zod';
-import { DateTime } from 'luxon';
 
 definePageMeta({ middleware: 'auth' });
 
@@ -26,33 +25,9 @@ if (user_error.value) {
   handleFrontendError(null, user_error.value.data?.error_message);
 }
 
-const user_status = computed(() => user_data.value?.status);
-
 const current_email = computed(() => user_data.value?.email);
 
 handling_request_1.value = false;
-
-const route = useRoute();
-
-onMounted(async () => {
-  if (route.query.checkout === 'success') {
-    await refreshNuxtData(USER_FETCH_KEY_ACCOUNT_INFORMATION);
-  }
-});
-
-const premium_status_expiration_date_fr = computed(() => {
-  const raw = user_data.value?.premium_status_expiration_date;
-
-  if (raw == null || raw === '') {
-    return '';
-  }
-
-  const dt = DateTime.fromISO(String(raw));
-
-  return dt.isValid
-    ? dt.setLocale('fr').toFormat('d MMMM yyyy')
-    : '';
-});
 
 // email
 const modifying_email = ref(false);
@@ -363,39 +338,6 @@ const resetPasswordForm = () => {
           </UButton>
         </nav>
       </UForm>
-
-      <hr class="separator-2">
-
-      <h2>
-        {{ $t('t_account_type') }}
-      </h2>
-
-      <section
-        v-if="[USER_STATUS_FREE, USER_STATUS_PENDING].includes(user_status)"
-      >
-        <p class="mb-4">
-          {{ $t('t_free_account') }}
-        </p>
-
-        <BecomePremiumButtonElement />
-      </section>
-
-      <section
-        v-if="user_status === USER_STATUS_PREMIUM"
-      >
-        <p>
-          {{ $t('t_premium_account_until') }} {{ premium_status_expiration_date_fr }}
-        </p>
-
-        <BecomePremiumButtonElement
-          class="mt-4"
-          extend_premium
-        />
-      </section>
-
-      <p v-if="user_status === USER_STATUS_ADMIN">
-        {{ $t('t_admin_account') }}
-      </p>
     </section>
   </UContainer>
 </template>

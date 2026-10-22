@@ -1,5 +1,3 @@
-'use strict';
-
 // You need to run at least `npx nuxt prepare`` or `npx nuxt build` or `npm run local`
 // once before ESLint can work with this config.
 // After that initial preparation, ESLint works normally.

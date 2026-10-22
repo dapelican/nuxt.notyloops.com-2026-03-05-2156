@@ -1,5 +1,3 @@
-'use strict';
-
 /* Authored collection text may be markdown, HTML, or both. Blank input stores neither form. */
 
 import {

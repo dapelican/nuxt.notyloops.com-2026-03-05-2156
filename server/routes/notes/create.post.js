@@ -1,4 +1,8 @@
-'use strict';
+import {
+  FREEMIUM_NOTE_LIMIT,
+  USER_STATUS_FREE,
+  USER_STATUS_PENDING,
+} from '#shared/utils/constants.js';
 
 import {
   HTTP_CODE_201_CREATED,
@@ -11,12 +15,6 @@ import {
   defineEventHandler,
   readBody,
 } from 'h3';
-
-import {
-  FREEMIUM_NOTE_LIMIT,
-  USER_STATUS_FREE,
-  USER_STATUS_PENDING,
-} from '#shared/utils/constants.js';
 
 import {
   executeSQLQuery,

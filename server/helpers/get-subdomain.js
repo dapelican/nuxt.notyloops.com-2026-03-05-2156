@@ -1,5 +1,3 @@
-'use strict';
-
 import { getRequestURL } from 'h3';
 
 /**

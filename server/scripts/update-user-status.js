@@ -1,8 +1,7 @@
-'use strict';
-
 import {
   USER_STATUS_PENDING,
-  USER_STATUS_PREMIUM,
+  USER_STATUS_PREMIUM_MONTHLY,
+  USER_STATUS_PREMIUM_YEARLY,
 } from '#shared/utils/constants.js';
 
 import {
@@ -20,11 +19,12 @@ const updateUserStatus = async () => {
     const result = await executeSQLQuery(
       `UPDATE users
       SET status = $1
-      WHERE status = $2
-        AND premium_status_expiration_date <= $3`,
+      WHERE status IN ($2, $3)
+        AND premium_status_expiration_date <= $4`,
       [
         USER_STATUS_PENDING,
-        USER_STATUS_PREMIUM,
+        USER_STATUS_PREMIUM_MONTHLY,
+        USER_STATUS_PREMIUM_YEARLY,
         now,
       ]
     );

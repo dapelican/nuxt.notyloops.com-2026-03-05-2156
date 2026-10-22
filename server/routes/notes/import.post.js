@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   HTTP_CODE_201_CREATED,
   HTTP_CODE_400_BAD_REQUEST,
@@ -12,14 +10,12 @@ import {
   NOTE_FORMAT_FREE,
   NOTE_FORMAT_MULTIPLE_CHOICE,
   USER_STATUS_ADMIN,
-  USER_STATUS_PREMIUM,
+  userHasPremiumAccess,
 } from '#shared/utils/constants.js';
 
 import {
   defineEventHandler,
-  getHeader,
   readBody,
-  readRawBody,
 } from 'h3';
 
 import {
@@ -253,7 +249,7 @@ export default defineEventHandler(async (event) => {
     }
 
     if (
-      user.status !== USER_STATUS_PREMIUM
+      !userHasPremiumAccess(user.status)
       && user.status !== USER_STATUS_ADMIN
     ) {
       event.res.status = HTTP_CODE_403_FORBIDDEN;
@@ -263,7 +259,7 @@ export default defineEventHandler(async (event) => {
       };
     }
 
-    const content_type = getHeader(event, 'content-type') ?? '';
+    const content_type = event.req.headers.get('content-type') ?? '';
     let csv_text;
 
     if (content_type.includes('application/json')) {
@@ -278,7 +274,7 @@ export default defineEventHandler(async (event) => {
         };
       }
     } else if (content_type.includes('text/csv') || content_type.includes('text/plain')) {
-      csv_text = await readRawBody(event, 'utf8');
+      csv_text = await event.req.text();
 
       if (typeof csv_text !== 'string' || csv_text.length === 0) {
         event.res.status = HTTP_CODE_400_BAD_REQUEST;

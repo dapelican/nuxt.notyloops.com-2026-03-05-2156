@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   HTTP_CODE_204_NO_CONTENT,
   HTTP_CODE_400_BAD_REQUEST,

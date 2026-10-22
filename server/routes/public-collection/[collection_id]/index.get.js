@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   HTTP_CODE_200_OK,
   HTTP_CODE_400_BAD_REQUEST,
@@ -26,6 +24,10 @@ import {
 import {
   publicCollectionFields,
 } from '../../../helpers/public-collection-fields.js';
+
+import {
+  selectCollectionPriceList,
+} from '../../../helpers/collection-prices.js';
 
 import {
   selectNoteIdListOnTagCriteria,
@@ -94,10 +96,12 @@ export default defineEventHandler(async (event) => {
         : []
     );
 
+    const price_list = await selectCollectionPriceList(collection_id);
+
     event.res.status = HTTP_CODE_200_OK;
 
     return {
-      collection: publicCollectionFields(collection),
+      collection: publicCollectionFields(collection, price_list),
       collection_belongs_to_connected_user: user?.id && (collection?.user_id === user?.id),
       note_list: note_list.map((note) => {
         return {

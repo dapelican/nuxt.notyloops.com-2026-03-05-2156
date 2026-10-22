@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   HTTP_CODE_200_OK,
   HTTP_CODE_400_BAD_REQUEST,
@@ -26,6 +24,10 @@ import {
 import {
   publicCollectionFields,
 } from '../../helpers/public-collection-fields.js';
+
+import {
+  selectCollectionPriceList,
+} from '../../helpers/collection-prices.js';
 
 import {
   verifySessionAndReturnUser,
@@ -82,13 +84,18 @@ export default defineEventHandler(async (event) => {
       };
     }
 
+    const price_list = await selectCollectionPriceList(collection_id);
+
     event.res.status = HTTP_CODE_200_OK;
 
     if (collection.user_id === user.id) {
-      return collection;
+      return {
+        ...collection,
+        price_list,
+      };
     }
 
-    return publicCollectionFields(collection);
+    return publicCollectionFields(collection, price_list);
   } catch (error) {
     /* c8 ignore next */
     return handleBackendError(error, event);

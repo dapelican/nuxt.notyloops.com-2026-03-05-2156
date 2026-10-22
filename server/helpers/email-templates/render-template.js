@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   WEBSITE_DOMAIN_NAME,
   WEBSITE_NAME,

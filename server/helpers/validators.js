@@ -1,5 +1,3 @@
-'use strict';
-
 import { z } from 'zod';
 
 const validateEmail = (email) => z.email().safeParse(email).success;

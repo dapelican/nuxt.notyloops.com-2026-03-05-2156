@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   NOTE_FORMAT_MULTIPLE_CHOICE,
 } from '#shared/utils/constants.js';

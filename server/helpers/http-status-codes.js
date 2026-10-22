@@ -1,5 +1,3 @@
-'use strict';
-
 const HTTP_CODE_200_OK = 200;
 const HTTP_CODE_201_CREATED = 201;
 const HTTP_CODE_204_NO_CONTENT = 204;

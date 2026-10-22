@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   FREEMIUM_NOTE_LIMIT,
   USER_STATUS_FREE,

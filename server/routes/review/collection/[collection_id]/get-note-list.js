@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   COLLECTION_TYPE_PRIVATE,
   FREEMIUM_NOTE_LIMIT,

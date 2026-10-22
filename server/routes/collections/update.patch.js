@@ -1,8 +1,7 @@
-'use strict';
-
 import {
   COLLECTION_TYPE_LIST,
   COLLECTION_TYPE_PRIVATE,
+  COLLECTION_TYPE_PUBLIC_PAYWALLLED,
   REVIEW_STRATEGY_LIST,
 } from '#shared/utils/constants.js';
 
@@ -18,12 +17,18 @@ import {
 } from 'h3';
 
 import {
-  collectionDescriptionColumns,
-} from '../../helpers/collection-description-columns.js';
+  executeSQLQuery,
+  executeSQLTransaction,
+} from '../../database/query.js';
 
 import {
-  executeSQLQuery,
-} from '../../database/query.js';
+  parseCollectionPriceList,
+  replaceCollectionPriceList,
+} from '../../helpers/collection-prices.js';
+
+import {
+  collectionDescriptionColumns,
+} from '../../helpers/collection-description-columns.js';
 
 import {
   handleBackendError,
@@ -52,7 +57,7 @@ export default defineEventHandler(async (event) => {
       exclusion_type,
       id,
       inclusion_type,
-      pre_tax_price_in_cents,
+      price_list,
       review_strategy,
       tag_id_list_to_exclude,
       tag_id_list_to_include,
@@ -129,6 +134,20 @@ export default defineEventHandler(async (event) => {
       };
     }
 
+    let parsed_price_list = [];
+
+    if (type === COLLECTION_TYPE_PUBLIC_PAYWALLLED) {
+      parsed_price_list = parseCollectionPriceList(price_list);
+
+      if (parsed_price_list === null) {
+        event.res.status = HTTP_CODE_400_BAD_REQUEST;
+
+        return {
+          error_message: 'error_invalid_collection_price_list',
+        };
+      }
+    }
+
     const {
       rows: existing_collection_list,
     } = await executeSQLQuery(
@@ -157,45 +176,50 @@ export default defineEventHandler(async (event) => {
       description_markdown,
     } = collectionDescriptionColumns(description);
 
-    const {
-      rows: updated_row_list,
-    } = await executeSQLQuery(
-      `UPDATE collections SET
-        title = $2,
-        tag_id_list_to_include = $3::jsonb,
-        inclusion_type = $4,
-        tag_id_list_to_exclude = $5::jsonb,
-        exclusion_type = $6,
-        type = $7,
-        review_strategy = $8,
-        track_scores = $9,
-        description_markdown = $10,
-        description_html = $11,
-        pre_tax_price_in_cents = $12
-      WHERE id = $1 AND user_id = $13
-      RETURNING *`,
-      [
-        id,
-        title,
-        JSON.stringify(tag_id_list_to_include),
-        inclusion_type,
-        JSON.stringify(tag_id_list_to_exclude),
-        exclusion_type,
-        type,
-        review_strategy,
-        track_scores,
-        description_markdown,
-        description_html,
-        pre_tax_price_in_cents,
-        user.id,
-      ]
-    );
+    const updated_collection = await executeSQLTransaction(async (client) => {
+      const {
+        rows: updated_row_list,
+      } = await client.query(
+        `UPDATE collections SET
+          title = $2,
+          tag_id_list_to_include = $3::jsonb,
+          inclusion_type = $4,
+          tag_id_list_to_exclude = $5::jsonb,
+          exclusion_type = $6,
+          type = $7,
+          review_strategy = $8,
+          track_scores = $9,
+          description_markdown = $10,
+          description_html = $11
+        WHERE id = $1 AND user_id = $12
+        RETURNING *`,
+        [
+          id,
+          title,
+          JSON.stringify(tag_id_list_to_include),
+          inclusion_type,
+          JSON.stringify(tag_id_list_to_exclude),
+          exclusion_type,
+          type,
+          review_strategy,
+          track_scores,
+          description_markdown,
+          description_html,
+          user.id,
+        ]
+      );
 
-    const updated_collection = updated_row_list.at(0);
+      await replaceCollectionPriceList(client, id, parsed_price_list);
+
+      return updated_row_list.at(0);
+    });
 
     event.res.status = HTTP_CODE_200_OK;
 
-    return updated_collection;
+    return {
+      ...updated_collection,
+      price_list: parsed_price_list,
+    };
   } catch (error) {
     /* c8 ignore next */
     return handleBackendError(error, event);

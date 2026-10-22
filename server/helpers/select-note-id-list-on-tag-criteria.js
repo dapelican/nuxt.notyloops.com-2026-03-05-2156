@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   executeSQLQuery,
 } from '../database/query.js';

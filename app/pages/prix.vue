@@ -1,7 +1,6 @@
 <script setup>
-import { PREMIUM_ACCESS_PRE_TAX_AMOUNT_IN_CENTS } from '#shared/utils/constants.js';
-
-const { locale, t } = useI18n();
+const { t } = useI18n();
+const { currency } = useCurrency();
 
 const meta_description = 'Les 2 offres pour utiliser NotyLoops : ofrre gratuite limitée ou offre payante illimitée.';
 
@@ -10,22 +9,30 @@ useSeoMeta({
   description: meta_description,
 });
 
-const premium_price = computed(() => {
-  const price = PREMIUM_ACCESS_PRE_TAX_AMOUNT_IN_CENTS / 100;
+const is_yearly = ref(false);
 
-  if (locale.value === 'fr') {
-    return `${price} €`;
-  }
-  return `$ ${price}`;
+const premium_yearly_price = computed(() => {
+  return PREMIUM.YEARLY[currency.value].text;
 });
 
-const monthly_premium_price = computed(() => {
-  const price = PREMIUM_ACCESS_PRE_TAX_AMOUNT_IN_CENTS / 100 / 12;
+const premium_monthly_price = computed(() => {
+  return PREMIUM.MONTHLY[currency.value].text;
+});
 
-  if (locale.value === 'fr') {
-    return `${price} €`;
-  }
-  return `$ ${price}`;
+const premium_price = computed(() => {
+  return is_yearly.value ? premium_yearly_price.value : premium_monthly_price.value;
+});
+
+const premium_interval_label = computed(() => {
+  return is_yearly.value ? t('t_per_year') : t('t_per_month');
+});
+
+const yearly_discount_percent = computed(() => {
+  const monthly_amount = PREMIUM.MONTHLY[currency.value].amount;
+  const yearly_amount = PREMIUM.YEARLY[currency.value].amount;
+  const yearly_at_monthly_rate = monthly_amount * 12;
+
+  return Math.round((1 - yearly_amount / yearly_at_monthly_rate) * 100);
 });
 
 // useGoogleTag();
@@ -38,6 +45,18 @@ const monthly_premium_price = computed(() => {
       <h1 class="center">
         {{ $t('t_pricing') }}
       </h1>
+
+      <hr class="separator-2">
+
+      <div class="mb-6 flex items-center justify-center gap-3">
+        <span>{{ $t('t_monthly') }}</span>
+        <USwitch v-model="is_yearly" />
+        <span>{{ $t('t_yearly') }}</span>
+        <UBadge
+          color="success"
+          :label="$t('t_yearly_discount', { percent: yearly_discount_percent })"
+        />
+      </div>
 
       <hr class="separator-2">
 
@@ -108,6 +127,13 @@ const monthly_premium_price = computed(() => {
               >
                 {{ $t('t_comparison_strategies') }}
               </ULink>
+            </li>
+            <li class="flex items-center gap-2">
+              <UIcon
+                name="i-lucide-circle-check"
+                class="size-5 shrink-0 text-primary"
+              />
+              <span>{{ $t('t_comparison_csv_export') }}</span>
             </li>
             <li class="flex items-center gap-2">
               <UIcon
@@ -209,6 +235,13 @@ const monthly_premium_price = computed(() => {
                 name="i-lucide-circle-check"
                 class="size-5 shrink-0 text-primary"
               />
+              <span>{{ $t('t_comparison_csv_export') }}</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <UIcon
+                name="i-lucide-circle-check"
+                class="size-5 shrink-0 text-primary"
+              />
               <span>{{ $t('t_comparison_csv_import_premium') }}</span>
             </li>
             <li class="flex items-center gap-2">
@@ -222,15 +255,9 @@ const monthly_premium_price = computed(() => {
 
           <hr class="separator-1">
 
-          <h3 class="numbers">
-            <span>
-              {{ premium_price }}
-            </span>
+          <h3 class="center">
+            {{ premium_price }} {{ premium_interval_label }}
           </h3>
-
-          <p class="center">
-            ({{ monthly_premium_price }} {{ $t('t_per_month') }})
-          </p>
         </div>
       </section>
     </div>
@@ -271,12 +298,6 @@ const monthly_premium_price = computed(() => {
 .no-bullets li {
   padding-left: 0;
   margin-left: 0;
-}
-
-.numbers {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
 }
 
 .strikethrough {

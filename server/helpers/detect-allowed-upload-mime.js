@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   canonicalizeUploadMimeType,
 } from '#shared/utils/canonicalize-upload-mime-type.js';

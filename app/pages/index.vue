@@ -1,6 +1,4 @@
 <script setup>
-import { PREMIUM_ACCESS_PRE_TAX_AMOUNT_IN_CENTS } from '#shared/utils/constants.js';
-
 const { locale, t } = useI18n();
 const request_url = useRequestURL();
 
@@ -10,8 +8,9 @@ if (locale.value === 'fr') {
   meta_description = 'L\'application pour créer des notes et les revoir en utilisant la répétition espacée, le hasard ou une autre stratégie.';
 }
 
-const premium_price_amount = PREMIUM_ACCESS_PRE_TAX_AMOUNT_IN_CENTS / 100;
 const price_currency = locale.value === 'fr' ? 'EUR' : 'USD';
+const monthly_premium_price_amount = PREMIUM.MONTHLY[price_currency].amount;
+const yearly_premium_price_amount = PREMIUM.YEARLY[price_currency].amount;
 
 useSchema({
   name: t('t_the_notes_made_to_be_reviewed'),
@@ -32,8 +31,21 @@ useSchema({
         },
         {
           '@type': 'Offer',
-          'name': t('t_premium_plan'),
-          'price': String(premium_price_amount),
+          'name': t('t_premium_monthly_plan'),
+          'price': String(monthly_premium_price_amount),
+          'priceCurrency': price_currency,
+          'url': `${request_url.origin}${request_url.pathname}`,
+          'availability': 'https://schema.org/OnlineOnly',
+          'eligibleDuration': {
+            '@type': 'QuantitativeValue',
+            'value': 1,
+            'unitCode': 'MON',
+          },
+        },
+        {
+          '@type': 'Offer',
+          'name': t('t_premium_yearly_plan'),
+          'price': String(yearly_premium_price_amount),
           'priceCurrency': price_currency,
           'url': `${request_url.origin}${request_url.pathname}`,
           'availability': 'https://schema.org/OnlineOnly',

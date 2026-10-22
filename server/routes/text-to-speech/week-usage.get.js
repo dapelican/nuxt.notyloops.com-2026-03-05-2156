@@ -1,15 +1,15 @@
-'use strict';
-
 import {
   HTTP_CODE_200_OK,
   HTTP_CODE_401_UNAUTHORIZED,
 } from '../../helpers/http-status-codes.js';
 
 import {
+  DateTime,
+} from 'luxon';
+
+import {
   defineEventHandler,
 } from 'h3';
-
-import { DateTime } from 'luxon';
 
 import {
   executeSQLQuery,

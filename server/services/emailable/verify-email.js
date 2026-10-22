@@ -1,5 +1,3 @@
-'use strict';
-
 import axios from 'axios';
 
 const verifyEmail = async (email) => {

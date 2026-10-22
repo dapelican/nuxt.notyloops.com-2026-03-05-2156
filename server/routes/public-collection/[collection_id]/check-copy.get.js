@@ -1,9 +1,7 @@
-'use strict';
-
 import {
   COLLECTION_TYPE_PRIVATE,
   COLLECTION_TYPE_PUBLIC_PREMIUM,
-  USER_STATUS_PREMIUM,
+  userHasPremiumAccess,
 } from '#shared/utils/constants.js';
 
 import {
@@ -86,7 +84,7 @@ export default defineEventHandler(async (event) => {
 
     if (
       collection.type === COLLECTION_TYPE_PUBLIC_PREMIUM
-      && user.status !== USER_STATUS_PREMIUM
+      && !userHasPremiumAccess(user.status)
     ) {
       event.res.status = HTTP_CODE_401_UNAUTHORIZED;
 

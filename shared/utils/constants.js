@@ -1,5 +1,3 @@
-'use strict';
-
 const ALLOWED_AUDIO_UPLOAD_ACCEPT = 'audio/mpeg,audio/mp3';
 
 const ALLOWED_IMAGE_UPLOAD_ACCEPT = 'image/jpeg,image/png,image/webp';
@@ -16,6 +14,14 @@ const ALLOWED_UPLOAD_MIME_TYPE_LIST = [
   'audio/mpeg',
 ];
 
+const CURRENCY_EUR = 'EUR';
+const CURRENCY_USD = 'USD';
+
+const CURRENCY_LIST = [
+  CURRENCY_EUR,
+  CURRENCY_USD,
+];
+
 const COLLECTION_TYPE_PRIVATE = 'private';
 const COLLECTION_TYPE_PUBLIC_FREE = 'public_free';
 const COLLECTION_TYPE_PUBLIC_PAYWALLLED = 'public_paywalled';
@@ -30,7 +36,7 @@ const COLLECTION_TYPE_LIST = [
   COLLECTION_TYPE_PUBLIC_PAYWALLLED,
 ];
 
-const EUR_TO_USD_EXCHANGE_RATE = 1.2;
+const DEFAULT_CURRENCY = CURRENCY_EUR;
 
 const FREEMIUM_NOTE_LIMIT = 100;
 
@@ -431,7 +437,15 @@ const USER_STATUS_ADMIN = 'admin';
 const USER_STATUS_FREE = 'free';
 const USER_STATUS_PENDING = 'pending';
 const USER_STATUS_PREMIUM = 'premium';
+const USER_STATUS_PREMIUM_MONTHLY = 'premium_monthly';
+const USER_STATUS_PREMIUM_YEARLY = 'premium_yearly';
 const USER_STATUS_UNVERIFIED = 'unverified';
+
+const userHasPremiumAccess = (status) => {
+  return status === USER_STATUS_PREMIUM
+    || status === USER_STATUS_PREMIUM_MONTHLY
+    || status === USER_STATUS_PREMIUM_YEARLY;
+};
 
 const WEBSITE_DOMAIN_NAME = 'notyloops.com';
 const WEBSITE_NAME = 'NotyLoops';
@@ -447,7 +461,10 @@ export {
   COLLECTION_TYPE_PUBLIC_PAYWALLLED,
   COLLECTION_TYPE_PUBLIC_PREMIUM,
   COLLECTION_TYPE_PUBLIC_WITHOUT_ACCOUNT,
-  EUR_TO_USD_EXCHANGE_RATE,
+  CURRENCY_EUR,
+  CURRENCY_LIST,
+  CURRENCY_USD,
+  DEFAULT_CURRENCY,
   FREEMIUM_NOTE_LIMIT,
   GOOGLE_TEXT_TO_SPEECH_LANGUAGE_LIST,
   MAX_ITEMS_PER_PAGE,
@@ -471,7 +488,10 @@ export {
   USER_STATUS_FREE,
   USER_STATUS_PENDING,
   USER_STATUS_PREMIUM,
+  USER_STATUS_PREMIUM_MONTHLY,
+  USER_STATUS_PREMIUM_YEARLY,
   USER_STATUS_UNVERIFIED,
+  userHasPremiumAccess,
   WEBSITE_DOMAIN_NAME,
   WEBSITE_NAME,
 };

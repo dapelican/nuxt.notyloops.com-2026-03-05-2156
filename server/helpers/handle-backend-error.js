@@ -1,5 +1,3 @@
-'use strict';
-
 import { DateTime } from 'luxon';
 
 import {

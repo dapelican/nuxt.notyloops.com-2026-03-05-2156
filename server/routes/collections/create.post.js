@@ -1,8 +1,7 @@
-'use strict';
-
 import {
   COLLECTION_TYPE_LIST,
   COLLECTION_TYPE_PRIVATE,
+  COLLECTION_TYPE_PUBLIC_PAYWALLLED,
   REVIEW_STRATEGY_LIST,
 } from '#shared/utils/constants.js';
 
@@ -18,11 +17,16 @@ import {
 } from 'h3';
 
 import {
+  parseCollectionPriceList,
+  replaceCollectionPriceList,
+} from '../../helpers/collection-prices.js';
+
+import {
   collectionDescriptionColumns,
 } from '../../helpers/collection-description-columns.js';
 
 import {
-  executeSQLQuery,
+  executeSQLTransaction,
 } from '../../database/query.js';
 
 import {
@@ -53,7 +57,7 @@ export default defineEventHandler(async (event) => {
       description,
       exclusion_type,
       inclusion_type,
-      pre_tax_price_in_cents,
+      price_list,
       review_strategy,
       tag_id_list_to_exclude,
       tag_id_list_to_include,
@@ -120,45 +124,68 @@ export default defineEventHandler(async (event) => {
       };
     }
 
+    let parsed_price_list = [];
+
+    if (type === COLLECTION_TYPE_PUBLIC_PAYWALLLED) {
+      parsed_price_list = parseCollectionPriceList(price_list);
+
+      if (parsed_price_list === null) {
+        event.res.status = HTTP_CODE_400_BAD_REQUEST;
+
+        return {
+          error_message: 'error_invalid_collection_price_list',
+        };
+      }
+    }
+
     const {
       description_html,
       description_markdown,
     } = collectionDescriptionColumns(description);
 
-    const { rows: new_tag_list } = await executeSQLQuery(
-      `INSERT INTO collections (
-      user_id,
-      title,
-      tag_id_list_to_include,
-      inclusion_type,
-      tag_id_list_to_exclude,
-      exclusion_type,
-      type,
-      review_strategy,
-      track_scores,
-      description_markdown,
-      description_html,
-      pre_tax_price_in_cents
-      ) VALUES ($1, $2, $3::jsonb, $4, $5::jsonb, $6, $7, $8, $9, $10, $11, $12) RETURNING *`,
-      [
-        user.id,
+    const new_collection = await executeSQLTransaction(async (client) => {
+      const { rows: new_collection_list } = await client.query(
+        `INSERT INTO collections (
+        user_id,
         title,
-        JSON.stringify(tag_id_list_to_include),
+        tag_id_list_to_include,
         inclusion_type,
-        JSON.stringify(tag_id_list_to_exclude),
+        tag_id_list_to_exclude,
         exclusion_type,
         type,
         review_strategy,
         track_scores,
         description_markdown,
-        description_html,
-        pre_tax_price_in_cents,
-      ]
-    );
+        description_html
+        ) VALUES ($1, $2, $3::jsonb, $4, $5::jsonb, $6, $7, $8, $9, $10, $11) RETURNING *`,
+        [
+          user.id,
+          title,
+          JSON.stringify(tag_id_list_to_include),
+          inclusion_type,
+          JSON.stringify(tag_id_list_to_exclude),
+          exclusion_type,
+          type,
+          review_strategy,
+          track_scores,
+          description_markdown,
+          description_html,
+        ]
+      );
+
+      const created_collection = new_collection_list.at(0);
+
+      await replaceCollectionPriceList(client, created_collection.id, parsed_price_list);
+
+      return created_collection;
+    });
 
     event.res.status = HTTP_CODE_201_CREATED;
 
-    return new_tag_list.at(0);
+    return {
+      ...new_collection,
+      price_list: parsed_price_list,
+    };
   } catch (error) {
     /* c8 ignore next */
     return handleBackendError(error, event);

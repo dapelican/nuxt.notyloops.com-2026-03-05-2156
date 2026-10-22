@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   HTTP_CODE_200_OK,
   HTTP_CODE_401_UNAUTHORIZED,
@@ -79,10 +77,11 @@ describe('public collection fields', () => {
       'description_html',
       'description_markdown',
       'id',
-      'pre_tax_price_in_cents',
+      'price_list',
       'title',
       'type',
     ]);
+    expect(data.collection.price_list).toEqual([]);
     expect(data.collection.id).toBe(SEEDED_PUBLIC_FREE_ID);
     expect(data.collection.type).toBe('public_free');
 
@@ -102,7 +101,10 @@ describe('public collection fields', () => {
     const preview_note = data.note_list.find((note) => note.id === PREVIEW_NOTE_ID);
 
     expect(data.collection).not.toHaveProperty('preview_note_id_list');
-    expect(data.collection.pre_tax_price_in_cents).toBe(500);
+    expect(data.collection.price_list).toEqual([
+      { amount: 5, currency: 'EUR', text: '5 €' },
+      { amount: 6, currency: 'USD', text: '$6' },
+    ]);
     expect(preview_note.is_preview).toBe(true);
     expect(data.note_list.some((note) => note.id !== PREVIEW_NOTE_ID && note.is_preview === true)).toBe(false);
   });
@@ -120,16 +122,15 @@ describe('public collection fields', () => {
         tag_id_list_to_exclude,
         review_strategy,
         super_random_counter,
-        preview_note_id_list,
-        pre_tax_price_in_cents
+        preview_note_id_list
       ) VALUES (
         $1, $2, 'public_free', 'vitest public fields',
         '<p>Public</p>', 'Public',
-        $3::jsonb, '[]'::jsonb, 'random', 4, $4::jsonb, 1200
+        $3::jsonb, '[]'::jsonb, 'random', 4, $4::jsonb
       ), (
         $5, $2, 'private', 'vitest private fields',
         NULL, NULL,
-        '[]'::jsonb, '[]'::jsonb, 'random', 0, '[]'::jsonb, NULL
+        '[]'::jsonb, '[]'::jsonb, 'random', 0, '[]'::jsonb
       )`,
       [
         PUBLIC_COLLECTION_ID,
@@ -138,6 +139,12 @@ describe('public collection fields', () => {
         JSON.stringify([PREVIEW_NOTE_ID]),
         PRIVATE_COLLECTION_ID,
       ]
+    );
+
+    await executeSQLQuery(
+      `INSERT INTO collection_prices (collection_id, currency, amount, text)
+      VALUES ($1, 'EUR', 12, '12 €'), ($1, 'USD', 14, '$14')`,
+      [PUBLIC_COLLECTION_ID]
     );
 
     as_session(OWNER_SESSION_TOKEN_ID);
@@ -155,6 +162,10 @@ describe('public collection fields', () => {
     expect(owner_data.review_strategy).toBe('random');
     expect(owner_data.super_random_counter).toBe(4);
     expect(owner_data.preview_note_id_list).toEqual([PREVIEW_NOTE_ID]);
+    expect(owner_data.price_list).toEqual([
+      { amount: 12, currency: 'EUR', text: '12 €' },
+      { amount: 14, currency: 'USD', text: '$14' },
+    ]);
 
     await executeSQLQuery(
       `INSERT INTO user_session_tokens (id, user_id, token, expires_at, blacklisted)
@@ -176,11 +187,14 @@ describe('public collection fields', () => {
       'description_html',
       'description_markdown',
       'id',
-      'pre_tax_price_in_cents',
+      'price_list',
       'title',
       'type',
     ]);
-    expect(other_data.pre_tax_price_in_cents).toBe(1200);
+    expect(other_data.price_list).toEqual([
+      { amount: 12, currency: 'EUR', text: '12 €' },
+      { amount: 14, currency: 'USD', text: '$14' },
+    ]);
 
     for (const field_name of HIDDEN_FIELD_LIST) {
       expect(other_data).not.toHaveProperty(field_name);

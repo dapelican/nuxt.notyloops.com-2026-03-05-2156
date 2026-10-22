@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * Client-side note HTML from markdown: custom math delimiters, marked, KaTeX, DOMPurify.
  * Math: inline `$$...$$`, display `$$$...$$$` (block extracted before inline).

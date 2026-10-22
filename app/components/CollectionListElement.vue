@@ -114,7 +114,7 @@ const duplicateCollection = async (collection_id) => {
 const user_is_premium_or_admin = computed(() => {
   const s = user_data.value?.status;
 
-  return s === USER_STATUS_PREMIUM || s === USER_STATUS_ADMIN;
+  return userHasPremiumAccess(s) || s === USER_STATUS_ADMIN;
 });
 
 const user_can_review_notes = computed(() => {
@@ -193,7 +193,13 @@ const user_can_review_notes = computed(() => {
 
             <template #footer>
               <section class="flex justify-end">
-                <BecomePremiumButtonElement />
+                <UButton
+                  color="primary"
+                  to="/account/payments"
+                  variant="solid"
+                >
+                  {{ $t('t_become_premium') }}
+                </UButton>
               </section>
             </template>
           </LimitedFeaturePopup>

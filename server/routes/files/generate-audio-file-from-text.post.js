@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   HTTP_CODE_200_OK,
   HTTP_CODE_400_BAD_REQUEST,
@@ -9,7 +7,7 @@ import {
 import {
   TEXT_TO_SPEECH_FILE_CHARACTER_LIMIT,
   USER_STATUS_ADMIN,
-  USER_STATUS_PREMIUM,
+  userHasPremiumAccess,
 } from '#shared/utils/constants.js';
 
 import {
@@ -133,7 +131,7 @@ export default defineEventHandler(async (event) => {
       };
     }
 
-    if (user.status !== USER_STATUS_PREMIUM && user.status !== USER_STATUS_ADMIN) {
+    if (!userHasPremiumAccess(user.status) && user.status !== USER_STATUS_ADMIN) {
       event.res.status = HTTP_CODE_401_UNAUTHORIZED;
 
       return {

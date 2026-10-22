@@ -1,10 +1,8 @@
-'use strict';
-
 import {
   COLLECTION_TYPE_PRIVATE,
   COLLECTION_TYPE_PUBLIC_PAYWALLLED,
   COLLECTION_TYPE_PUBLIC_PREMIUM,
-  USER_STATUS_PREMIUM,
+  userHasPremiumAccess,
 } from '#shared/utils/constants.js';
 
 import {
@@ -94,7 +92,7 @@ export default defineEventHandler(async (event) => {
       const {
         rows: payment_row_list,
       } = await executeSQLQuery(
-        `SELECT 1 FROM payments
+        `SELECT 1 FROM stripe_payments
         WHERE user_id = $1 AND collection_id = $2
         LIMIT 1`,
         [user.id, collection_id]
@@ -111,7 +109,7 @@ export default defineEventHandler(async (event) => {
 
     if (
       collection.type === COLLECTION_TYPE_PUBLIC_PREMIUM
-      && user.status !== USER_STATUS_PREMIUM
+      && !userHasPremiumAccess(user.status)
     ) {
       event.res.status = HTTP_CODE_401_UNAUTHORIZED;
 

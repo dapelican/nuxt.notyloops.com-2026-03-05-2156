@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   HTTP_CODE_200_OK,
 } from '../../helpers/http-status-codes.js';

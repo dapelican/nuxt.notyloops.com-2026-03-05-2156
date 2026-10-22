@@ -1,15 +1,13 @@
-'use strict';
-
-import {
-  sanitizeHtml,
-  sanitizeStoredNoteHtml,
-} from '../../helpers/sanitize-html.js';
-
 import {
   describe,
   expect,
   it,
 } from 'vitest';
+
+import {
+  sanitizeHtml,
+  sanitizeStoredNoteHtml,
+} from '../../helpers/sanitize-html.js';
 
 describe('sanitizeStoredNoteHtml', () => {
   it('returns null for nullish input', () => {

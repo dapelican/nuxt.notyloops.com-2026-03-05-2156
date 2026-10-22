@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   HTTP_CODE_200_OK,
   HTTP_CODE_400_BAD_REQUEST,
@@ -53,7 +51,7 @@ export default defineEventHandler(async (event) => {
     const {
       rows: payment_row_list,
     } = await executeSQLQuery(
-      `SELECT 1 FROM payments
+      `SELECT 1 FROM stripe_payments
       WHERE user_id = $1 AND collection_id = $2
       LIMIT 1`,
       [user.id, collection_id]
