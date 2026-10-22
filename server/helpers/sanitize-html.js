@@ -1,5 +1,3 @@
-'use strict';
-
 /* Markdown to HTML for persisted html_content and description_html only (no KaTeX). Math renders client-side from markdown (shared/render-note-markdown.js). */
 
 import {

@@ -1,5 +1,3 @@
-'use strict';
-
 import { createApp, createRouter, toWebHandler } from 'h3';
 
 export function createTestHandler(method, path, handler) {

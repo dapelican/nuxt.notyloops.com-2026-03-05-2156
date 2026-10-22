@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   HTTP_CODE_200_OK,
   HTTP_CODE_400_BAD_REQUEST,
@@ -13,6 +11,7 @@ import {
 import {
   defineEventHandler,
   getRouterParam,
+  setResponseStatus,
 } from 'h3';
 
 import {
@@ -36,7 +35,7 @@ export default defineEventHandler(async (event) => {
     const token = await getRouterParam(event, 'token_to_reset_password');
 
     if (!token || !validateUUID(token)) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_email_token',
@@ -50,7 +49,7 @@ export default defineEventHandler(async (event) => {
     });
 
     if (!token_user_id) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_email_token',
@@ -64,7 +63,7 @@ export default defineEventHandler(async (event) => {
       [token_user_id]
     );
 
-    event.res.status = HTTP_CODE_200_OK;
+    setResponseStatus(event, HTTP_CODE_200_OK);
 
     return {
       email: user_list.at(0).email,

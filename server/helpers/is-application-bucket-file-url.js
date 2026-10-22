@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   getCachedDownloadUrl,
 } from '../services/backblaze/get-authorization-data.js';

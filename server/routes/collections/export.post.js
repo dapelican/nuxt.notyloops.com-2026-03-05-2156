@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   HTTP_CODE_200_OK,
   HTTP_CODE_400_BAD_REQUEST,
@@ -11,6 +9,7 @@ import {
   defineEventHandler,
   readBody,
   setHeader,
+  setResponseStatus,
 } from 'h3';
 
 import {
@@ -75,7 +74,7 @@ export default defineEventHandler(async (event) => {
     const user = await verifySessionAndReturnUser(event);
 
     if (user === null) {
-      event.res.status = HTTP_CODE_401_UNAUTHORIZED;
+      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
 
       return {
         error_message: 'error_unauthorized',
@@ -87,7 +86,7 @@ export default defineEventHandler(async (event) => {
     } = await readBody(event);
 
     if (!z.uuid().safeParse(collection_id).success) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_collection_id',
@@ -104,7 +103,7 @@ export default defineEventHandler(async (event) => {
     const collection = collection_list.at(0);
 
     if (collection === undefined) {
-      event.res.status = HTTP_CODE_403_FORBIDDEN;
+      setResponseStatus(event, HTTP_CODE_403_FORBIDDEN);
 
       return {
         error_message: 'error_forbidden',
@@ -174,7 +173,7 @@ export default defineEventHandler(async (event) => {
       header: true,
     });
 
-    event.res.status = HTTP_CODE_200_OK;
+    setResponseStatus(event, HTTP_CODE_200_OK);
     setHeader(event, 'Content-Type', 'text/csv; charset=utf-8');
     setHeader(
       event,

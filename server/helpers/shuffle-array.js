@@ -1,5 +1,3 @@
-'use strict';
-
 // Fisher-Yates shuffle
 const shuffleArray = (array) => {
   const new_array = array.slice();

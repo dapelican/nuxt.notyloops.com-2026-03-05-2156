@@ -1,13 +1,13 @@
 <script setup>
-import { PREMIUM_ACCESS_PRE_TAX_AMOUNT_IN_CENTS } from '#shared/utils/constants.js';
-
 const { locale, t } = useI18n();
+const { currency } = useCurrency();
 const request_url = useRequestURL();
 
 const meta_description = 'Compare NotyLoops free and premium plans for spaced repetition note-taking.';
 
-const premium_price_amount = PREMIUM_ACCESS_PRE_TAX_AMOUNT_IN_CENTS / 100;
 const price_currency = locale.value === 'fr' ? 'EUR' : 'USD';
+const monthly_premium_price_amount = PREMIUM.MONTHLY[price_currency].amount;
+const yearly_premium_price_amount = PREMIUM.YEARLY[price_currency].amount;
 
 useSchema({
   name: t('t_pricing'),
@@ -27,8 +27,21 @@ useSchema({
         },
         {
           '@type': 'Offer',
-          'name': t('t_premium_plan'),
-          'price': String(premium_price_amount),
+          'name': t('t_premium_monthly_plan'),
+          'price': String(monthly_premium_price_amount),
+          'priceCurrency': price_currency,
+          'url': `${request_url.origin}${request_url.pathname}`,
+          'availability': 'https://schema.org/OnlineOnly',
+          'eligibleDuration': {
+            '@type': 'QuantitativeValue',
+            'value': 1,
+            'unitCode': 'MON',
+          },
+        },
+        {
+          '@type': 'Offer',
+          'name': t('t_premium_yearly_plan'),
+          'price': String(yearly_premium_price_amount),
           'priceCurrency': price_currency,
           'url': `${request_url.origin}${request_url.pathname}`,
           'availability': 'https://schema.org/OnlineOnly',
@@ -48,11 +61,12 @@ useSeoMeta({
   description: meta_description,
 });
 
-const premium_price = computed(() => {
-  if (locale.value === 'fr') {
-    return `${premium_price_amount} €`;
-  }
-  return `$ ${premium_price_amount}`;
+const yearly_premium_price = computed(() => {
+  return PREMIUM.YEARLY[currency.value].text;
+});
+
+const monthly_premium_price = computed(() => {
+  return PREMIUM.MONTHLY[currency.value].text;
 });
 
 // useGoogleTag();
@@ -222,9 +236,13 @@ const premium_price = computed(() => {
 
           <h3 class="numbers">
             <span>
-              {{ premium_price }}
+              {{ yearly_premium_price }}
             </span>
           </h3>
+
+          <p class="center">
+            ({{ monthly_premium_price }} {{ $t('t_per_month') }})
+          </p>
         </div>
       </section>
     </div>

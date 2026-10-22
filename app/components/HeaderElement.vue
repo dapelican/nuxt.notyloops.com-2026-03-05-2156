@@ -97,6 +97,11 @@ const private_items = computed(() => [
         to: '/account/information',
       },
       {
+        active: route.path.startsWith('/account/payments'),
+        label: $t('t_payments'),
+        to: '/account/payments',
+      },
+      {
         active: route.path.startsWith('/account/information'),
         class: 'cursor-pointer text-warning',
         label: $t('t_log_out'),
@@ -130,6 +135,8 @@ const private_items = computed(() => [
         <UColorModeButton class="cursor-pointer" />
 
         <!-- <LanguageSelectorElement /> -->
+
+        <!-- <CurrencySelectorElement /> -->
       </section>
     </template>
 

@@ -13,3 +13,25 @@ export const LOCAL_STORAGE_KEY_REVIEW_COLLECTION_PERSIST_SCORES = 'local_storage
 export const LOCAL_STORAGE_KEY_SPACED_REPETITION_CURRENT_INDEX = 'local_storage_key_spaced_repetition_current_index';
 export const LOCAL_STORAGE_KEY_SPACED_REPETITION_NOTE_ID_LIST = 'local_storage_key_spaced_repetition_note_id_list';
 export const LOCAL_STORAGE_KEY_SPACED_REPETITION_SCORE = 'local_storage_key_spaced_repetition_score';
+export const PREMIUM = {
+  MONTHLY: {
+    EUR: {
+      amount: 6,
+      text: '6 €',
+    },
+    USD: {
+      amount: 6,
+      text: '$6',
+    },
+  },
+  YEARLY: {
+    EUR: {
+      amount: 60,
+      text: '60 €',
+    },
+    USD: {
+      amount: 60,
+      text: '$60',
+    },
+  },
+};

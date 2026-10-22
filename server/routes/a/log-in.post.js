@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   HTTP_CODE_200_OK,
   HTTP_CODE_400_BAD_REQUEST,
@@ -9,6 +7,7 @@ import {
 import {
   defineEventHandler,
   readBody,
+  setResponseStatus,
 } from 'h3';
 
 import {
@@ -51,7 +50,7 @@ export default defineEventHandler(async (event) => {
     const turnstile_token_is_valid = await verifyTurnstileToken(turnstile_token);
 
     if (!turnstile_token_is_valid) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_turnstile',
@@ -65,7 +64,7 @@ export default defineEventHandler(async (event) => {
       !validateNonEmptyInputFieldList([email])
       || !validateEmail(email)
     ) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_email',
@@ -75,7 +74,7 @@ export default defineEventHandler(async (event) => {
     if (
       !validateNonEmptyInputFieldList([password])
     ) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_password',
@@ -94,7 +93,7 @@ export default defineEventHandler(async (event) => {
     const valid_password = await bcrypt.compare(password, password_hash);
 
     if (!user || user.password === null || !valid_password) {
-      event.res.status = HTTP_CODE_401_UNAUTHORIZED;
+      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
 
       return {
         error_message: 'error_wrong_credentials',
@@ -125,7 +124,7 @@ export default defineEventHandler(async (event) => {
       ]
     );
 
-    event.res.status = HTTP_CODE_200_OK;
+    setResponseStatus(event, HTTP_CODE_200_OK);
 
     return {
       success: true,

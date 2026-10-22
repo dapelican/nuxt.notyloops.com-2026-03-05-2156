@@ -1,11 +1,10 @@
-'use strict';
-
 import {
   HTTP_CODE_200_OK,
 } from '../../helpers/http-status-codes.js';
 
 import {
   defineEventHandler,
+  setResponseStatus,
 } from 'h3';
 
 import {
@@ -29,7 +28,7 @@ export default defineEventHandler(async (event) => {
 
     await clearUserSession(event);
 
-    event.res.status = HTTP_CODE_200_OK;
+    setResponseStatus(event, HTTP_CODE_200_OK);
 
     return {
       success: true,

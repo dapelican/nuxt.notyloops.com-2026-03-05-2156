@@ -1,5 +1,3 @@
-'use strict';
-
 import * as Sentry from '@sentry/nuxt';
 
 const getTraceSampleRate = (value) => {

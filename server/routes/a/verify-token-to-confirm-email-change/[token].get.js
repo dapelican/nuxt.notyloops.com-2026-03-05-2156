@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   EMAIL_VALIDATION_TOKEN_DURATION_IN_HOURS,
   USER_TOKEN_VALIDATE_EMAIL,
@@ -13,6 +11,7 @@ import {
 import {
   defineEventHandler,
   getRouterParam,
+  setResponseStatus,
 } from 'h3';
 
 import {
@@ -32,7 +31,7 @@ export default defineEventHandler(async (event) => {
     const token = await getRouterParam(event, 'token');
 
     if (!token || !validateUUID(token)) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_email_token',
@@ -47,14 +46,14 @@ export default defineEventHandler(async (event) => {
     });
 
     if (!active_token) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_email_token',
       };
     }
 
-    event.res.status = HTTP_CODE_200_OK;
+    setResponseStatus(event, HTTP_CODE_200_OK);
 
     return {
       pending_email: active_token.pending_email,

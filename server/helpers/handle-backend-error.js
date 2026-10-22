@@ -1,5 +1,3 @@
-'use strict';
-
 import { DateTime } from 'luxon';
 
 import {
@@ -16,6 +14,7 @@ import {
 
 import {
   getRequestURL,
+  setResponseStatus,
 } from 'h3';
 
 const serializeError = (error) => {
@@ -76,7 +75,7 @@ const handleBackendError = async (err, event) => {
     });
   }
 
-  event.res.status = HTTP_CODE_500_INTERNAL_SERVER_ERROR;
+  setResponseStatus(event, HTTP_CODE_500_INTERNAL_SERVER_ERROR);
 
   return {
     error: 'internal_error',

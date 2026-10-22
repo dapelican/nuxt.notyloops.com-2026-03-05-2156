@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   HTTP_CODE_201_CREATED,
   HTTP_CODE_400_BAD_REQUEST,
@@ -9,6 +7,7 @@ import {
 import {
   defineEventHandler,
   readBody,
+  setResponseStatus,
 } from 'h3';
 
 import {
@@ -28,7 +27,7 @@ export default defineEventHandler(async (event) => {
     const user = await verifySessionAndReturnUser(event);
 
     if (user === null) {
-      event.res.status = HTTP_CODE_401_UNAUTHORIZED;
+      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
 
       return {
         error_message: 'error_unauthorized',
@@ -40,7 +39,7 @@ export default defineEventHandler(async (event) => {
     } = await readBody(event);
 
     if (!label) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_input',
@@ -58,7 +57,7 @@ export default defineEventHandler(async (event) => {
     );
 
     if (existing_tag_list.length > 0) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_tag_already_exists',
@@ -70,7 +69,7 @@ export default defineEventHandler(async (event) => {
       [user.id, label, lowercase_label]
     );
 
-    event.res.status = HTTP_CODE_201_CREATED;
+    setResponseStatus(event, HTTP_CODE_201_CREATED);
 
     return {
       id: new_tag_list.at(0).id,

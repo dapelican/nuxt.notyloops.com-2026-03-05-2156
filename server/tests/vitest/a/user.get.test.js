@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   HTTP_CODE_200_OK,
   HTTP_CODE_401_UNAUTHORIZED,
@@ -46,5 +44,8 @@ describe('GET /a/user', () => {
     expect(data).toHaveProperty('id');
     expect(data.email).toBe('userget@example.com');
     expect(data.status).toBe(USER_STATUS_PREMIUM);
+    expect(data.subscription_cancel_at_period_end).toBe(false);
+    expect(data.stripe_customer_id).toBeUndefined();
+    expect(data.stripe_subscription_id).toBeUndefined();
   });
 });

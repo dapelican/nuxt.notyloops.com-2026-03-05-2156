@@ -1,5 +1,3 @@
-'use strict';
-
 export const USER_FETCH_KEY_COLLECTIONS = 'fetch-user-for-collections';
 
 export const USER_FETCH_KEY_MANAGE_NOTES_PAGE = 'fetch-user-manage-notes-page';
@@ -13,6 +11,8 @@ export const USER_FETCH_KEY_MANAGE_COLLECTIONS_ADD = 'fetch-user-manage-collecti
 export const USER_FETCH_KEY_MANAGE_COLLECTIONS_EDIT = 'fetch-user-manage-collections-edit';
 
 export const USER_FETCH_KEY_ACCOUNT_INFORMATION = 'fetch-user-account-information';
+
+export const USER_FETCH_KEY_ACCOUNT_PAYMENTS = 'fetch-user-account-payments';
 
 export const USER_FETCH_KEY_PUBLIC_COLLECTION = 'fetch-user-public-collection-page';
 

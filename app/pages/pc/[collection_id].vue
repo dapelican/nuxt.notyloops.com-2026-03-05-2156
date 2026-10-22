@@ -1,11 +1,8 @@
 <script setup>
-import {
-  EUR_TO_USD_EXCHANGE_RATE,
-} from '#shared/utils/constants.js';
-
 const { collection_id } = useRoute().params;
 
 const { locale } = useI18n();
+const { collectionPriceText, currency } = useCurrency();
 
 const handling_request = ref(true);
 
@@ -25,13 +22,13 @@ if (user_error.value) {
 }
 
 const user_is_premium = computed(() => {
-  return user_data.value?.status === USER_STATUS_PREMIUM;
+  return userHasPremiumAccess(user_data.value?.status);
 });
 
 const user_is_premium_or_admin = computed(() => {
   const status = user_data.value?.status;
 
-  return status === USER_STATUS_PREMIUM || status === USER_STATUS_ADMIN;
+  return userHasPremiumAccess(status) || status === USER_STATUS_ADMIN;
 });
 
 const {
@@ -68,6 +65,7 @@ const goToStripeCheckout = async () => {
     const response = await $fetch('/payments/create-stripe-checkout', {
       body: {
         collection_id,
+        currency: currency.value,
         locale: locale.value,
       },
       method: 'POST',
@@ -110,13 +108,7 @@ if (collection.value?.type === COLLECTION_TYPE_PUBLIC_PAYWALLLED && logged_in.va
 handling_request.value = false;
 
 const collection_price = computed(() => {
-  const price = collection.value?.pre_tax_price_in_cents / 100;
-
-  if (locale.value === 'fr') {
-    return `${price} €`;
-  }
-
-  return `$ ${Math.ceil(price * EUR_TO_USD_EXCHANGE_RATE)}`;
+  return collectionPriceText(collection.value?.price_list);
 });
 
 const can_review = computed(() => {
@@ -232,6 +224,10 @@ const note_is_locked = (note) => {
 
   return true;
 };
+
+useSeoMeta({
+  title: `${collection.value?.title} | ${WEBSITE_NAME}`,
+});
 </script>
 
 <template>

@@ -51,7 +51,8 @@ const collection_form_state = reactive({
   review_strategy: '',
   track_scores: true,
   description: '',
-  pre_tax_price_in_cents: 0,
+  eur_price_amount: null,
+  usd_price_amount: null,
   inclusion_type: 'AND',
   exclusion_type: 'OR',
 });
@@ -70,7 +71,10 @@ if (collection_data.value) {
       ? false
       : c.track_scores;
   collection_form_state.description = c.description_markdown ?? c.description_html ?? '';
-  collection_form_state.pre_tax_price_in_cents = c.pre_tax_price_in_cents;
+  collection_form_state.eur_price_amount = c.price_list
+    ?.find((price) => price.currency === CURRENCY_EUR)?.amount ?? null;
+  collection_form_state.usd_price_amount = c.price_list
+    ?.find((price) => price.currency === CURRENCY_USD)?.amount ?? null;
   collection_form_state.inclusion_type = c.inclusion_type ?? 'AND';
   collection_form_state.exclusion_type = c.exclusion_type ?? 'OR';
 }
@@ -202,7 +206,10 @@ const updateCollection = async () => {
         review_strategy: collection_form_state.review_strategy,
         track_scores: collection_form_state.track_scores,
         description: collection_form_state.description,
-        pre_tax_price_in_cents: collection_form_state.pre_tax_price_in_cents,
+        price_list: CURRENCY_LIST.map((currency) => ({
+          currency,
+          amount: collection_form_state[`${currency.toLowerCase()}_price_amount`],
+        })),
       },
     });
 
@@ -351,20 +358,33 @@ const updateCollection = async () => {
 
         <UFormField
           v-if="collection_form_state.type === COLLECTION_TYPE_PUBLIC_PAYWALLLED"
-          :label="$t('t_pre_tax_price_in_cents')"
-          name="pre_tax_price_in_cents"
+          :label="$t('t_pre_tax_price_in_eur')"
+          name="eur_price_amount"
+          required
         >
           <UInputNumber
-            v-model="collection_form_state.pre_tax_price_in_cents"
+            v-model="collection_form_state.eur_price_amount"
             :decrement="{ class: 'cursor-pointer' }"
-            :format-options="{
-              style: 'currency',
-              currency: 'EUR',
-              currencyDisplay: 'code',
-              currencySign: 'accounting',
-            }"
+            :format-options="{ maximumFractionDigits: 0 }"
             :increment="{ class: 'cursor-pointer' }"
-            :min="5"
+            :min="1"
+            :step="1"
+          />
+        </UFormField>
+
+        <UFormField
+          v-if="collection_form_state.type === COLLECTION_TYPE_PUBLIC_PAYWALLLED"
+          :label="$t('t_pre_tax_price_in_usd')"
+          name="usd_price_amount"
+          required
+        >
+          <UInputNumber
+            v-model="collection_form_state.usd_price_amount"
+            :decrement="{ class: 'cursor-pointer' }"
+            :format-options="{ maximumFractionDigits: 0 }"
+            :increment="{ class: 'cursor-pointer' }"
+            :min="1"
+            :step="1"
           />
         </UFormField>
 

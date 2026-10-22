@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   HTTP_CODE_201_CREATED,
   HTTP_CODE_400_BAD_REQUEST,
@@ -10,6 +8,7 @@ import {
 import {
   defineEventHandler,
   readBody,
+  setResponseStatus,
 } from 'h3';
 
 import {
@@ -33,7 +32,7 @@ const isJsonString = (value) => {
 
 export default defineEventHandler(async (event) => {
   if (process.env.NODE_ENV === 'production') {
-    event.res.status = HTTP_CODE_404_NOT_FOUND;
+    setResponseStatus(event, HTTP_CODE_404_NOT_FOUND);
 
     return {
       error_message: 'error_not_found',
@@ -45,7 +44,7 @@ export default defineEventHandler(async (event) => {
     const content = body?.content;
 
     if (typeof content !== 'string' || !isJsonString(content)) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_input',
@@ -53,7 +52,7 @@ export default defineEventHandler(async (event) => {
     }
 
     if (Buffer.byteLength(content, 'utf8') > CONTENT_MAX_BYTES) {
-      event.res.status = HTTP_CODE_413_PAYLOAD_TOO_LARGE;
+      setResponseStatus(event, HTTP_CODE_413_PAYLOAD_TOO_LARGE);
 
       return {
         error_message: 'error_payload_too_large',
@@ -65,7 +64,7 @@ export default defineEventHandler(async (event) => {
       [content]
     );
 
-    event.res.status = HTTP_CODE_201_CREATED;
+    setResponseStatus(event, HTTP_CODE_201_CREATED);
 
     return {};
   } catch (error) {

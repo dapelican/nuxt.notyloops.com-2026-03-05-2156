@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   EMAIL_VALIDATION_TOKEN_DURATION_IN_HOURS,
   USER_TOKEN_VALIDATE_EMAIL,
@@ -18,6 +16,7 @@ import {
 import {
   defineEventHandler,
   readBody,
+  setResponseStatus,
 } from 'h3';
 
 import {
@@ -101,7 +100,7 @@ export default defineEventHandler(async (event) => {
     const turnstile_token_is_valid = await verifyTurnstileToken(turnstile_token);
 
     if (!turnstile_token_is_valid) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_turnstile',
@@ -116,7 +115,7 @@ export default defineEventHandler(async (event) => {
       !validateNonEmptyInputFieldList([email])
       || !validateEmail(email)
     ) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_email',
@@ -170,7 +169,7 @@ export default defineEventHandler(async (event) => {
       const email_is_verified = await verifyEmail(email);
 
       if (!email_is_verified) {
-        event.res.status = HTTP_CODE_400_BAD_REQUEST;
+        setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
         return {
           error_message: 'error_corrupt_email',
@@ -189,7 +188,7 @@ export default defineEventHandler(async (event) => {
       await sendTokenToValidateEmail(new_user, subdomain)
         // eslint-disable-next-line no-unused-vars
         .catch((___) => {
-          event.res.status = HTTP_CODE_400_BAD_REQUEST;
+          setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
           return {
             error_message: 'error_email_token_not_sent',
@@ -197,7 +196,7 @@ export default defineEventHandler(async (event) => {
         });
     }
 
-    event.res.status = HTTP_CODE_201_CREATED;
+    setResponseStatus(event, HTTP_CODE_201_CREATED);
 
     return {
       success: true,

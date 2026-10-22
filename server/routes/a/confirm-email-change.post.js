@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   EMAIL_VALIDATION_TOKEN_DURATION_IN_HOURS,
   USER_TOKEN_VALIDATE_EMAIL,
@@ -14,6 +12,7 @@ import {
 import {
   defineEventHandler,
   readBody,
+  setResponseStatus,
 } from 'h3';
 
 import {
@@ -63,7 +62,7 @@ export default defineEventHandler(async (event) => {
     token = token?.trim();
 
     if (!token || !validateUUID(token)) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_email_token',
@@ -78,7 +77,7 @@ export default defineEventHandler(async (event) => {
     });
 
     if (!active_token) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_email_token',
@@ -111,7 +110,7 @@ export default defineEventHandler(async (event) => {
     await blacklistToken(token);
 
     if (updated_user_list.length === 0) {
-      event.res.status = HTTP_CODE_403_FORBIDDEN;
+      setResponseStatus(event, HTTP_CODE_403_FORBIDDEN);
 
       return {
         error_message: 'error_email_already_in_use',
@@ -127,7 +126,7 @@ export default defineEventHandler(async (event) => {
 
     await sendEmailToNotifyEmailChange(user, previous_email, active_token.pending_email);
 
-    event.res.status = HTTP_CODE_200_OK;
+    setResponseStatus(event, HTTP_CODE_200_OK);
 
     return {
       success: true,

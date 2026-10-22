@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   HTTP_CODE_200_OK,
   HTTP_CODE_400_BAD_REQUEST,
@@ -9,6 +7,7 @@ import {
 import {
   defineEventHandler,
   readBody,
+  setResponseStatus,
 } from 'h3';
 
 import {
@@ -36,7 +35,7 @@ export default defineEventHandler(async (event) => {
     const user = await verifySessionAndReturnUser(event);
 
     if (user === null) {
-      event.res.status = HTTP_CODE_401_UNAUTHORIZED;
+      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
 
       return {
         error_message: 'error_unauthorized',
@@ -53,7 +52,7 @@ export default defineEventHandler(async (event) => {
     } = await readBody(event);
 
     if (!note_id || !title) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_input',
@@ -64,7 +63,7 @@ export default defineEventHandler(async (event) => {
       Array.isArray(note_details)
       && note_details.some((detail) => !isApplicationBucketFileUrl(detail.file_url))
     ) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_input',
@@ -80,7 +79,7 @@ export default defineEventHandler(async (event) => {
     );
 
     if (note_list.length === 0) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_no_item_found_for_user',
@@ -143,7 +142,7 @@ export default defineEventHandler(async (event) => {
       );
     }
 
-    event.res.status = HTTP_CODE_200_OK;
+    setResponseStatus(event, HTTP_CODE_200_OK);
 
     return {
       success: true,

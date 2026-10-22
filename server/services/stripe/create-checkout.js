@@ -1,21 +1,56 @@
-'use strict';
-
 import Stripe from 'stripe';
 
-const createStripeCheckout = async ({
+const buildSubscriptionCheckoutSessionParams = ({
+  billing_interval,
   client_reference_id,
-  currency = 'eur',
+  customer_email,
+  locale,
+  payment_type,
+  price_id,
+  return_page_url,
+  stripe_customer_id,
+  user_id,
+}) => {
+  const metadata = {
+    billing_interval,
+    payment_type,
+    user_id,
+  };
+
+  return {
+    allow_promotion_codes: true,
+    cancel_url: `${return_page_url}?checkout=cancelled`,
+    client_reference_id,
+    line_items: [
+      {
+        price: price_id,
+        quantity: 1,
+      },
+    ],
+    metadata,
+    mode: 'subscription',
+    subscription_data: {
+      metadata,
+    },
+    success_url: `${return_page_url}?checkout=success`,
+    ...(stripe_customer_id
+      ? { customer: stripe_customer_id }
+      : { customer_email }),
+    ...(locale !== undefined && { locale }),
+  };
+};
+
+const buildPaymentCheckoutSessionParams = ({
+  client_reference_id,
+  currency,
   customer_email,
   locale,
   product_name,
   return_page_url,
   session_metadata,
-  stripe_secret_api_key,
   unit_amount_in_cents,
 }) => {
-  const stripe_client = new Stripe(stripe_secret_api_key);
-
-  const checkout_session_params = {
+  return {
     allow_promotion_codes: true,
     // billing_address_collection: 'required',
     cancel_url: `${return_page_url}?checkout=cancelled`,
@@ -43,6 +78,49 @@ const createStripeCheckout = async ({
     success_url: `${return_page_url}?checkout=success`,
     ...(locale !== undefined && { locale }),
   };
+};
+
+const createStripeCheckout = async ({
+  billing_interval,
+  client_reference_id,
+  currency = 'eur',
+  customer_email,
+  locale,
+  mode = 'payment',
+  payment_type,
+  price_id,
+  product_name,
+  return_page_url,
+  session_metadata,
+  stripe_customer_id,
+  stripe_secret_api_key,
+  unit_amount_in_cents,
+  user_id,
+}) => {
+  const stripe_client = new Stripe(stripe_secret_api_key);
+
+  const checkout_session_params = mode === 'subscription'
+    ? buildSubscriptionCheckoutSessionParams({
+        billing_interval,
+        client_reference_id,
+        customer_email,
+        locale,
+        payment_type,
+        price_id,
+        return_page_url,
+        stripe_customer_id,
+        user_id,
+      })
+    : buildPaymentCheckoutSessionParams({
+        client_reference_id,
+        currency,
+        customer_email,
+        locale,
+        product_name,
+        return_page_url,
+        session_metadata,
+        unit_amount_in_cents,
+      });
 
   const checkout_session = await stripe_client.checkout.sessions.create(checkout_session_params);
 

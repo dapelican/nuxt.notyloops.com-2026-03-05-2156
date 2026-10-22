@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * One DOMPurify policy for note HTML on the server and in the browser.
  * Markdown tags plus the elements KaTeX emits in HTML mode (span, svg, path, line).

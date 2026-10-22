@@ -1,10 +1,8 @@
-'use strict';
-
 import {
   COLLECTION_TYPE_PRIVATE,
   COLLECTION_TYPE_PUBLIC_PAYWALLLED,
   COLLECTION_TYPE_PUBLIC_PREMIUM,
-  USER_STATUS_PREMIUM,
+  userHasPremiumAccess,
 } from '#shared/utils/constants.js';
 
 import {
@@ -16,6 +14,7 @@ import {
 import {
   defineEventHandler,
   getRouterParam,
+  setResponseStatus,
 } from 'h3';
 
 import {
@@ -48,7 +47,7 @@ export default defineEventHandler(async (event) => {
     const user = await verifySessionAndReturnUser(event);
 
     if (!user?.id) {
-      event.res.status = HTTP_CODE_401_UNAUTHORIZED;
+      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
 
       return {
         error_message: 'error_unauthorized',
@@ -58,7 +57,7 @@ export default defineEventHandler(async (event) => {
     const collection_id = getRouterParam(event, 'collection_id');
 
     if (!z.uuid().safeParse(collection_id).success) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_collection_id',
@@ -75,7 +74,7 @@ export default defineEventHandler(async (event) => {
     const collection = collection_list.at(0);
 
     if (collection === undefined) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_no_item_found',
@@ -83,7 +82,7 @@ export default defineEventHandler(async (event) => {
     }
 
     if (collection.type === COLLECTION_TYPE_PRIVATE) {
-      event.res.status = HTTP_CODE_401_UNAUTHORIZED;
+      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
 
       return {
         error_message: 'error_unauthorized',
@@ -94,14 +93,14 @@ export default defineEventHandler(async (event) => {
       const {
         rows: payment_row_list,
       } = await executeSQLQuery(
-        `SELECT 1 FROM payments
+        `SELECT 1 FROM stripe_payments
         WHERE user_id = $1 AND collection_id = $2
         LIMIT 1`,
         [user.id, collection_id]
       );
 
       if (payment_row_list.length === 0) {
-        event.res.status = HTTP_CODE_401_UNAUTHORIZED;
+        setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
 
         return {
           error_message: 'error_unauthorized_collection_feature',
@@ -111,9 +110,9 @@ export default defineEventHandler(async (event) => {
 
     if (
       collection.type === COLLECTION_TYPE_PUBLIC_PREMIUM
-      && user.status !== USER_STATUS_PREMIUM
+      && !userHasPremiumAccess(user.status)
     ) {
-      event.res.status = HTTP_CODE_401_UNAUTHORIZED;
+      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
 
       return {
         error_message: 'error_unauthorized_collection_feature',
@@ -143,7 +142,7 @@ export default defineEventHandler(async (event) => {
     }
 
     if (note_to_copy_id_list.length === 0) {
-      event.res.status = HTTP_CODE_200_OK;
+      setResponseStatus(event, HTTP_CODE_200_OK);
 
       return {
         success: true,
@@ -287,7 +286,7 @@ export default defineEventHandler(async (event) => {
         ]
       );
 
-      event.res.status = HTTP_CODE_200_OK;
+      setResponseStatus(event, HTTP_CODE_200_OK);
 
       return {
         success: true,

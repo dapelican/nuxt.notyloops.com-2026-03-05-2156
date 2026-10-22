@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   HTTP_CODE_200_OK,
   HTTP_CODE_400_BAD_REQUEST,
@@ -16,6 +14,7 @@ import {
 import {
   defineEventHandler,
   readBody,
+  setResponseStatus,
 } from 'h3';
 
 import {
@@ -53,7 +52,7 @@ export default defineEventHandler(async (event) => {
     const user = await verifySessionAndReturnUser(event);
 
     if (user === null) {
-      event.res.status = HTTP_CODE_401_UNAUTHORIZED;
+      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
 
       return {
         error_message: 'error_unauthorized',
@@ -66,7 +65,7 @@ export default defineEventHandler(async (event) => {
     } = await readBody(event);
 
     if (!z.uuid().safeParse(note_id).success) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_note_id',
@@ -74,7 +73,7 @@ export default defineEventHandler(async (event) => {
     }
 
     if (!ALLOWED_FEEDBACK_VALUES.includes(feedback)) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_feedback',
@@ -91,7 +90,7 @@ export default defineEventHandler(async (event) => {
     );
 
     if (note_list.length === 0) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_no_item_found_for_user',
@@ -108,7 +107,7 @@ export default defineEventHandler(async (event) => {
     const row = rows.at(0);
 
     if (!row) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_input',
@@ -194,7 +193,7 @@ export default defineEventHandler(async (event) => {
       ),
     ]);
 
-    event.res.status = HTTP_CODE_200_OK;
+    setResponseStatus(event, HTTP_CODE_200_OK);
 
     return {};
   } catch (error) {

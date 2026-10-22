@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   HTTP_CODE_200_OK,
   HTTP_CODE_400_BAD_REQUEST,
@@ -9,6 +7,7 @@ import {
 import {
   defineEventHandler,
   readBody,
+  setResponseStatus,
 } from 'h3';
 
 import {
@@ -32,7 +31,7 @@ export default defineEventHandler(async (event) => {
     const user = await verifySessionAndReturnUser(event);
 
     if (user === null) {
-      event.res.status = HTTP_CODE_401_UNAUTHORIZED;
+      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
 
       return {
         error_message: 'error_unauthorized',
@@ -43,7 +42,7 @@ export default defineEventHandler(async (event) => {
     const collection_id = body?.collection_id;
 
     if (!z.uuid().safeParse(collection_id).success) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_collection_id',
@@ -53,7 +52,7 @@ export default defineEventHandler(async (event) => {
     const {
       rows: payment_row_list,
     } = await executeSQLQuery(
-      `SELECT 1 FROM payments
+      `SELECT 1 FROM stripe_payments
       WHERE user_id = $1 AND collection_id = $2
       LIMIT 1`,
       [user.id, collection_id]
@@ -61,7 +60,7 @@ export default defineEventHandler(async (event) => {
 
     const has_purchased = payment_row_list.length > 0;
 
-    event.res.status = HTTP_CODE_200_OK;
+    setResponseStatus(event, HTTP_CODE_200_OK);
 
     return {
       has_purchased,

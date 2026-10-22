@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   HTTP_CODE_200_OK,
   HTTP_CODE_400_BAD_REQUEST,
@@ -9,6 +7,7 @@ import {
 import {
   defineEventHandler,
   getRouterParam,
+  setResponseStatus,
 } from 'h3';
 
 import {
@@ -26,6 +25,10 @@ import {
 import {
   publicCollectionFields,
 } from '../../../helpers/public-collection-fields.js';
+
+import {
+  selectCollectionPriceList,
+} from '../../../helpers/collection-prices.js';
 
 import {
   selectNoteIdListOnTagCriteria,
@@ -46,7 +49,7 @@ export default defineEventHandler(async (event) => {
     const collection_id = getRouterParam(event, 'collection_id');
 
     if (!z.uuid().safeParse(collection_id).success) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_collection_id',
@@ -63,7 +66,7 @@ export default defineEventHandler(async (event) => {
     const collection = collection_list.at(0);
 
     if (collection === undefined) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_no_item_found',
@@ -71,7 +74,7 @@ export default defineEventHandler(async (event) => {
     }
 
     if (collection.type === COLLECTION_TYPE_PRIVATE) {
-      event.res.status = HTTP_CODE_401_UNAUTHORIZED;
+      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
 
       return {
         error_message: 'error_unauthorized',
@@ -94,10 +97,12 @@ export default defineEventHandler(async (event) => {
         : []
     );
 
-    event.res.status = HTTP_CODE_200_OK;
+    const price_list = await selectCollectionPriceList(collection_id);
+
+    setResponseStatus(event, HTTP_CODE_200_OK);
 
     return {
-      collection: publicCollectionFields(collection),
+      collection: publicCollectionFields(collection, price_list),
       collection_belongs_to_connected_user: user?.id && (collection?.user_id === user?.id),
       note_list: note_list.map((note) => {
         return {

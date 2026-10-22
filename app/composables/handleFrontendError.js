@@ -1,5 +1,3 @@
-'use strict';
-
 const serializeError = (error) => {
   if (error instanceof Error) {
     return {

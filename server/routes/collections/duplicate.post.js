@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   HTTP_CODE_201_CREATED,
   HTTP_CODE_400_BAD_REQUEST,
@@ -10,10 +8,12 @@ import {
 import {
   defineEventHandler,
   readBody,
+  setResponseStatus,
 } from 'h3';
 
 import {
   executeSQLQuery,
+  executeSQLTransaction,
 } from '../../database/query.js';
 
 import {
@@ -40,7 +40,7 @@ export default defineEventHandler(async (event) => {
     const user = await verifySessionAndReturnUser(event);
 
     if (user === null) {
-      event.res.status = HTTP_CODE_401_UNAUTHORIZED;
+      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
 
       return {
         error_message: 'error_unauthorized',
@@ -53,7 +53,7 @@ export default defineEventHandler(async (event) => {
     } = await readBody(event);
 
     if (!z.uuid().safeParse(collection_id).success) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_collection_id',
@@ -61,7 +61,7 @@ export default defineEventHandler(async (event) => {
     }
 
     if (!AUTHORIZED_LANGUAGE_LIST.includes(language)) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_language',
@@ -78,7 +78,7 @@ export default defineEventHandler(async (event) => {
     const collection = collection_list.at(0);
 
     if (collection === undefined) {
-      event.res.status = HTTP_CODE_403_FORBIDDEN;
+      setResponseStatus(event, HTTP_CODE_403_FORBIDDEN);
 
       return {
         error_message: 'error_forbidden',
@@ -88,44 +88,54 @@ export default defineEventHandler(async (event) => {
     const duplicated_label = DUPLICATED_LABEL_BY_LANGUAGE[language];
     const new_title = `${collection.title} (${duplicated_label})`;
 
-    const {
-      rows: new_collection_list,
-    } = await executeSQLQuery(
-      `INSERT INTO collections (
-      user_id,
-      title,
-      tag_id_list_to_include,
-      inclusion_type,
-      tag_id_list_to_exclude,
-      exclusion_type,
-      type,
-      review_strategy,
-      track_scores,
-      description_markdown,
-      description_html,
-      pre_tax_price_in_cents,
-      preview_note_id_list
-      ) VALUES ($1, $2, $3::jsonb, $4, $5::jsonb, $6, $7, $8, $9, $10, $11, $12, $13::jsonb) RETURNING *`,
-      [
-        user.id,
-        new_title,
-        JSON.stringify(collection.tag_id_list_to_include),
-        collection.inclusion_type,
-        JSON.stringify(collection.tag_id_list_to_exclude),
-        collection.exclusion_type,
-        collection.type,
-        collection.review_strategy,
-        collection.track_scores,
-        collection.description_markdown,
-        collection.description_html,
-        collection.pre_tax_price_in_cents,
-        JSON.stringify(collection.preview_note_id_list),
-      ]
-    );
+    const new_collection = await executeSQLTransaction(async (client) => {
+      const {
+        rows: new_collection_list,
+      } = await client.query(
+        `INSERT INTO collections (
+        user_id,
+        title,
+        tag_id_list_to_include,
+        inclusion_type,
+        tag_id_list_to_exclude,
+        exclusion_type,
+        type,
+        review_strategy,
+        track_scores,
+        description_markdown,
+        description_html,
+        preview_note_id_list
+        ) VALUES ($1, $2, $3::jsonb, $4, $5::jsonb, $6, $7, $8, $9, $10, $11, $12::jsonb) RETURNING *`,
+        [
+          user.id,
+          new_title,
+          JSON.stringify(collection.tag_id_list_to_include),
+          collection.inclusion_type,
+          JSON.stringify(collection.tag_id_list_to_exclude),
+          collection.exclusion_type,
+          collection.type,
+          collection.review_strategy,
+          collection.track_scores,
+          collection.description_markdown,
+          collection.description_html,
+          JSON.stringify(collection.preview_note_id_list),
+        ]
+      );
 
-    const new_collection = new_collection_list.at(0);
+      const created_collection = new_collection_list.at(0);
 
-    event.res.status = HTTP_CODE_201_CREATED;
+      await client.query(
+        `INSERT INTO collection_prices (collection_id, currency, amount, text)
+        SELECT $1, currency, amount, text
+        FROM collection_prices
+        WHERE collection_id = $2`,
+        [created_collection.id, collection.id]
+      );
+
+      return created_collection;
+    });
+
+    setResponseStatus(event, HTTP_CODE_201_CREATED);
 
     return {
       id: new_collection.id,

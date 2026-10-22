@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   beforeAll,
   describe,
@@ -75,6 +73,16 @@ describe('security response headers', () => {
     expect(content_security_policy['media-src']).toEqual([
       '\'self\'',
       'https://*.backblazeb2.com',
+    ]);
+    expect(content_security_policy['style-src']).toEqual([
+      '\'self\'',
+      '\'unsafe-inline\'',
+      'https://fonts.googleapis.com',
+    ]);
+    expect(content_security_policy['font-src']).toEqual([
+      '\'self\'',
+      'data:',
+      'https://fonts.gstatic.com',
     ]);
     expect(content_security_policy['frame-ancestors']).toEqual(['\'none\'']);
     expect(content_security_policy['default-src']).toEqual(['\'self\'']);

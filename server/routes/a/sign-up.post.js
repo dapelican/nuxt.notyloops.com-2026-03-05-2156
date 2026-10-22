@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   EMAIL_VALIDATION_TOKEN_DURATION_IN_HOURS,
   USER_TOKEN_CONNECT,
@@ -21,6 +19,7 @@ import {
 import {
   defineEventHandler,
   readBody,
+  setResponseStatus,
 } from 'h3';
 
 import {
@@ -68,7 +67,7 @@ export default defineEventHandler(async (event) => {
       !validateNonEmptyInputFieldList([email])
       || !validateEmail(email)
     ) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_email',
@@ -79,7 +78,7 @@ export default defineEventHandler(async (event) => {
       !validateNonEmptyInputFieldList([password_1, password_2])
       || password_1 !== password_2
     ) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_password',
@@ -87,7 +86,7 @@ export default defineEventHandler(async (event) => {
     }
 
     if (!token || !validateUUID(token)) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_email_token',
@@ -102,7 +101,7 @@ export default defineEventHandler(async (event) => {
     );
 
     if (user_list.length === 0) {
-      event.res.status = HTTP_CODE_403_FORBIDDEN;
+      setResponseStatus(event, HTTP_CODE_403_FORBIDDEN);
 
       return {
         error_message: 'error_no_user_found',
@@ -119,7 +118,7 @@ export default defineEventHandler(async (event) => {
     });
 
     if (!token_user_id || token_user_id !== user.id) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_email_token',
@@ -150,7 +149,7 @@ export default defineEventHandler(async (event) => {
     const updated_user = updated_user_list.at(0);
 
     if (!updated_user) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_email_token',
@@ -199,7 +198,7 @@ export default defineEventHandler(async (event) => {
       to: `support@${WEBSITE_DOMAIN_NAME}`,
     });
 
-    event.res.status = HTTP_CODE_201_CREATED;
+    setResponseStatus(event, HTTP_CODE_201_CREATED);
 
     return {
       success: true,

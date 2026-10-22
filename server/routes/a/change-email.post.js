@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   EMAIL_VALIDATION_TOKEN_DURATION_IN_HOURS,
   USER_TOKEN_VALIDATE_EMAIL,
@@ -14,6 +12,7 @@ import {
 import {
   defineEventHandler,
   readBody,
+  setResponseStatus,
 } from 'h3';
 
 import {
@@ -64,7 +63,7 @@ export default defineEventHandler(async (event) => {
     const user = await verifySessionAndReturnUser(event);
 
     if (user === null) {
-      event.res.status = HTTP_CODE_401_UNAUTHORIZED;
+      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
 
       return {
         error_message: 'error_unauthorized',
@@ -83,7 +82,7 @@ export default defineEventHandler(async (event) => {
       !validateNonEmptyInputFieldList([new_email])
       || !validateEmail(new_email)
     ) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_email',
@@ -91,7 +90,7 @@ export default defineEventHandler(async (event) => {
     }
 
     if (!validateNonEmptyInputFieldList([current_password])) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_password',
@@ -112,7 +111,7 @@ export default defineEventHandler(async (event) => {
       : false;
 
     if (!valid_password) {
-      event.res.status = HTTP_CODE_401_UNAUTHORIZED;
+      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
 
       return {
         error_message: 'error_wrong_credentials',
@@ -127,7 +126,7 @@ export default defineEventHandler(async (event) => {
     );
 
     if (user_list.length > 0) {
-      event.res.status = HTTP_CODE_200_OK;
+      setResponseStatus(event, HTTP_CODE_200_OK);
 
       return {
         success: true,
@@ -164,14 +163,14 @@ export default defineEventHandler(async (event) => {
         [uuid]
       );
 
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_email_token_not_sent',
       };
     }
 
-    event.res.status = HTTP_CODE_200_OK;
+    setResponseStatus(event, HTTP_CODE_200_OK);
 
     return {
       success: true,

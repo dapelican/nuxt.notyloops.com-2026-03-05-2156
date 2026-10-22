@@ -1,5 +1,3 @@
-'use strict';
-
 import { beforeEach, vi } from 'vitest';
 
 globalThis.useRuntimeConfig = vi.fn(() => ({
@@ -8,6 +6,10 @@ globalThis.useRuntimeConfig = vi.fn(() => ({
   EMAILABLE_API_KEY: 'test-emailable-key',
   SESSION_MAX_AGE_DAYS: '30',
   STRIPE_ENDPOINT_SECRET: 'test-stripe-endpoint-secret',
+  STRIPE_PREMIUM_MONTHLY_EUR_PRICE_ID: 'price_month_eur',
+  STRIPE_PREMIUM_MONTHLY_USD_PRICE_ID: 'price_month_usd',
+  STRIPE_PREMIUM_YEARLY_EUR_PRICE_ID: 'price_year_eur',
+  STRIPE_PREMIUM_YEARLY_USD_PRICE_ID: 'price_year_usd',
   STRIPE_SECRET_API_KEY: 'test-stripe-secret-key',
   turnstile: {
     secretKey: '1x0000000000000000000000000000000AA',
@@ -26,6 +28,10 @@ beforeEach(() => {
     EMAILABLE_API_KEY: 'test-emailable-key',
     SESSION_MAX_AGE_DAYS: '30',
     STRIPE_ENDPOINT_SECRET: 'test-stripe-endpoint-secret',
+    STRIPE_PREMIUM_MONTHLY_EUR_PRICE_ID: 'price_month_eur',
+    STRIPE_PREMIUM_MONTHLY_USD_PRICE_ID: 'price_month_usd',
+    STRIPE_PREMIUM_YEARLY_EUR_PRICE_ID: 'price_year_eur',
+    STRIPE_PREMIUM_YEARLY_USD_PRICE_ID: 'price_year_usd',
     STRIPE_SECRET_API_KEY: 'test-stripe-secret-key',
     turnstile: {
       secretKey: '1x0000000000000000000000000000000AA',

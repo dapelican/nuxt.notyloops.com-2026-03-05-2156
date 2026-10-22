@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   HTTP_CODE_200_OK,
   HTTP_CODE_401_UNAUTHORIZED,
@@ -8,6 +6,7 @@ import {
 import {
   defineEventHandler,
   getQuery,
+  setResponseStatus,
 } from 'h3';
 
 import { DateTime } from 'luxon';
@@ -103,7 +102,7 @@ export default defineEventHandler(async (event) => {
     const user = await verifySessionAndReturnUser(event);
 
     if (user === null) {
-      event.res.status = HTTP_CODE_401_UNAUTHORIZED;
+      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
 
       return {
         error_message: 'error_unauthorized',
@@ -193,7 +192,7 @@ export default defineEventHandler(async (event) => {
 
     const streak = computeStreaks(active_date_list, today_iso);
 
-    event.res.status = HTTP_CODE_200_OK;
+    setResponseStatus(event, HTTP_CODE_200_OK);
 
     return {
       period_in_days,

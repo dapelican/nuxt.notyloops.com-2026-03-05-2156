@@ -1,8 +1,7 @@
-'use strict';
-
 import {
   HTTP_CODE_200_OK,
   HTTP_CODE_201_CREATED,
+  HTTP_CODE_400_BAD_REQUEST,
 } from '../../../helpers/http-status-codes.js';
 
 import {
@@ -51,7 +50,7 @@ const collection_body = (description, title) => ({
   description,
   exclusion_type: 'OR',
   inclusion_type: 'AND',
-  pre_tax_price_in_cents: null,
+  price_list: [],
   review_strategy: 'random',
   tag_id_list_to_exclude: [],
   tag_id_list_to_include: [],
@@ -211,5 +210,167 @@ describe('collection descriptions', () => {
 
     expect(data.collection.description_markdown).toBeNull();
     expect(data.collection.description_html).toBe(legacy_html);
+  });
+});
+
+const paywalled_body = (title, price_list) => ({
+  ...collection_body('', title),
+  price_list,
+  type: 'public_paywalled',
+});
+
+const selectPriceList = async (collection_id) => {
+  const { rows } = await executeSQLQuery(
+    `SELECT currency, amount, text FROM collection_prices
+    WHERE collection_id = $1 ORDER BY currency`,
+    [collection_id]
+  );
+
+  return rows;
+};
+
+const PRICE_LIST = [
+  { amount: 7, currency: 'EUR' },
+  { amount: 8, currency: 'USD' },
+];
+
+const STORED_PRICE_LIST = [
+  { amount: 7, currency: 'EUR', text: '7 €' },
+  { amount: 8, currency: 'USD', text: '$8' },
+];
+
+describe('collection prices', () => {
+  it('stores EUR and USD prices with generated text for a paywalled collection', async () => {
+    as_user();
+
+    const response = await post_json(
+      create_request,
+      'http://localhost/collections/create',
+      paywalled_body('vitest prices create', PRICE_LIST)
+    );
+
+    expect(response.status).toBe(HTTP_CODE_201_CREATED);
+
+    const data = await response.json();
+
+    expect(data).not.toHaveProperty('pre_tax_price_in_cents');
+    expect(data.price_list).toEqual(STORED_PRICE_LIST);
+    expect(await selectPriceList(data.id)).toEqual(STORED_PRICE_LIST);
+  });
+
+  it('rejects a paywalled collection without both positive integer prices', async () => {
+    for (const price_list of [
+      undefined,
+      [{ amount: 7, currency: 'EUR' }],
+      [{ amount: 7, currency: 'EUR' }, { amount: 0, currency: 'USD' }],
+      [{ amount: 7, currency: 'EUR' }, { amount: 8.5, currency: 'USD' }],
+      [{ amount: 7, currency: 'EUR' }, { amount: 8, currency: 'EUR' }],
+    ]) {
+      as_user();
+
+      const response = await post_json(
+        create_request,
+        'http://localhost/collections/create',
+        paywalled_body('vitest prices invalid', price_list)
+      );
+
+      expect(response.status).toBe(HTTP_CODE_400_BAD_REQUEST);
+      expect(await response.json()).toEqual({
+        error_message: 'error_invalid_collection_price_list',
+      });
+    }
+  });
+
+  it('ignores prices for a collection that is not paywalled', async () => {
+    as_user();
+
+    const response = await post_json(
+      create_request,
+      'http://localhost/collections/create',
+      {
+        ...collection_body('', 'vitest prices free'),
+        price_list: PRICE_LIST,
+      }
+    );
+
+    expect(response.status).toBe(HTTP_CODE_201_CREATED);
+
+    const data = await response.json();
+
+    expect(await selectPriceList(data.id)).toEqual([]);
+  });
+
+  it('replaces prices on update and deletes them when the collection is no longer paywalled', async () => {
+    as_user();
+
+    const created = await post_json(
+      create_request,
+      'http://localhost/collections/create',
+      paywalled_body('vitest prices update', PRICE_LIST)
+    );
+    const created_data = await created.json();
+
+    as_user();
+
+    const updated = await post_json(
+      update_request,
+      'http://localhost/collections/update',
+      {
+        ...paywalled_body('vitest prices update', [
+          { amount: 9, currency: 'USD' },
+          { amount: 10, currency: 'EUR' },
+        ]),
+        id: created_data.id,
+      }
+    );
+
+    expect(updated.status).toBe(HTTP_CODE_200_OK);
+    expect(await selectPriceList(created_data.id)).toEqual([
+      { amount: 10, currency: 'EUR', text: '10 €' },
+      { amount: 9, currency: 'USD', text: '$9' },
+    ]);
+
+    as_user();
+
+    const made_free = await post_json(
+      update_request,
+      'http://localhost/collections/update',
+      {
+        ...collection_body('', 'vitest prices update'),
+        id: created_data.id,
+      }
+    );
+
+    expect(made_free.status).toBe(HTTP_CODE_200_OK);
+    expect((await made_free.json()).price_list).toEqual([]);
+    expect(await selectPriceList(created_data.id)).toEqual([]);
+  });
+
+  it('copies prices when duplicating', async () => {
+    as_user();
+
+    const created = await post_json(
+      create_request,
+      'http://localhost/collections/create',
+      paywalled_body('vitest prices duplicate', PRICE_LIST)
+    );
+    const created_data = await created.json();
+
+    as_user();
+
+    const response = await post_json(
+      duplicate_request,
+      'http://localhost/collections/duplicate',
+      {
+        collection_id: created_data.id,
+        language: 'en',
+      }
+    );
+
+    expect(response.status).toBe(HTTP_CODE_201_CREATED);
+
+    const data = await response.json();
+
+    expect(await selectPriceList(data.id)).toEqual(STORED_PRICE_LIST);
   });
 });

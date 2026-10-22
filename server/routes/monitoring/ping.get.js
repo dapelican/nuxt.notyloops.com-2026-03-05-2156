@@ -1,12 +1,11 @@
-'use strict';
-
-import {
-  defineEventHandler,
-} from 'h3';
-
 import {
   HTTP_CODE_200_OK,
 } from '../../helpers/http-status-codes.js';
+
+import {
+  defineEventHandler,
+  setResponseStatus,
+} from 'h3';
 
 import {
   executeSQLQuery,
@@ -26,7 +25,7 @@ export default defineEventHandler(async (event) => {
       throw new Error('error_database_health_check_failed');
     }
 
-    event.res.status = HTTP_CODE_200_OK;
+    setResponseStatus(event, HTTP_CODE_200_OK);
 
     return {
       pong: 'pong',

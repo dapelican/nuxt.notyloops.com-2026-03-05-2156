@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   fileURLToPath,
 } from 'node:url';
@@ -92,6 +90,10 @@ export default defineNuxtConfig({
     SESSION_MAX_AGE_DAYS: process.env.SESSION_MAX_AGE_DAYS,
     SMTP2GO_API_KEY: process.env.SMTP2GO_API_KEY,
     STRIPE_ENDPOINT_SECRET: process.env.STRIPE_ENDPOINT_SECRET,
+    STRIPE_PREMIUM_MONTHLY_EUR_PRICE_ID: process.env.STRIPE_PREMIUM_MONTHLY_EUR_PRICE_ID,
+    STRIPE_PREMIUM_MONTHLY_USD_PRICE_ID: process.env.STRIPE_PREMIUM_MONTHLY_USD_PRICE_ID,
+    STRIPE_PREMIUM_YEARLY_EUR_PRICE_ID: process.env.STRIPE_PREMIUM_YEARLY_EUR_PRICE_ID,
+    STRIPE_PREMIUM_YEARLY_USD_PRICE_ID: process.env.STRIPE_PREMIUM_YEARLY_USD_PRICE_ID,
     STRIPE_SECRET_API_KEY: process.env.STRIPE_SECRET_API_KEY,
     public: {
       domain: process.env.DOMAIN,
@@ -134,7 +136,7 @@ export default defineNuxtConfig({
     scheduledTasks: {
       '0 3 * * *': ['delete-notes-permanently'],
       '0 4 * * *': ['delete-unused-backblaze-files'],
-      '0 5 * * *': ['send-email-to-extend-premium'],
+      '0 5 * * *': ['send-email-before-premium-yearly-renewal'],
       '0 6 * * *': ['update-user-status'],
     },
   },
@@ -222,7 +224,12 @@ export default defineNuxtConfig({
           'https://challenges.cloudflare.com',
           ...(sentry_ingest_origin ? [sentry_ingest_origin] : []),
         ],
-        'style-src': ['\'self\'', '\'unsafe-inline\''],
+        // HeaderElement loads Permanent Marker: CSS from fonts.googleapis.com, files from fonts.gstatic.com.
+        'style-src': [
+          '\'self\'',
+          '\'unsafe-inline\'',
+          'https://fonts.googleapis.com',
+        ],
         'img-src': [
           '\'self\'',
           'data:',
@@ -232,7 +239,11 @@ export default defineNuxtConfig({
           '\'self\'',
           'https://*.backblazeb2.com',
         ],
-        'font-src': ['\'self\'', 'data:'],
+        'font-src': [
+          '\'self\'',
+          'data:',
+          'https://fonts.gstatic.com',
+        ],
         'object-src': ['\'none\''],
         'base-uri': ['\'self\''],
         'form-action': ['\'self\''],

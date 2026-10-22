@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   DateTime,
 } from 'luxon';
@@ -40,7 +38,7 @@ const getUploadUrl = async (auth_token, api_url) => {
     };
   } catch (error) {
     console.error('B2 get upload URL error:', error.response?.data || error.message);
-    throw new Error('Failed to get upload URL from B2');
+    throw new Error('Failed to get upload URL from B2', { cause: error });
   }
 };
 
@@ -67,7 +65,7 @@ const uploadFile = async (file_buffer, content_type) => {
     return `${download_url}/file/${B2_BUCKET_NAME}/${response.data.fileName}`;
   } catch (error) {
     console.error('Failed to uplaod file: ', error.response?.data || error.message);
-    throw new Error('Failed to uplaod file');
+    throw new Error('Failed to uplaod file', { cause: error });
   }
 };
 

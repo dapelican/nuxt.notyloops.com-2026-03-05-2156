@@ -1,6 +1,10 @@
 <script setup>
 const { t } = useI18n();
 
+const {
+  loggedIn: logged_in,
+} = useUserSession();
+
 useSeoMeta({
   title: `${t('t_end_of_review_session')} | ${WEBSITE_NAME}`,
 });
@@ -70,7 +74,18 @@ const track_scores_enabled = ref(read_track_scores_enabled_from_storage());
 
     <hr class="separator-1">
 
-    <nav class="flex justify-center">
+    <UAlert
+      v-if="!logged_in"
+      class="mb-8"
+      color="info"
+      :description="$t('t_incentive_to_go_premium')"
+      icon="i-lucide-info"
+    />
+
+    <nav
+      v-if="logged_in"
+      class="flex justify-center"
+    >
       <UButton
         :to="'/manage-collections/page/1'"
       >

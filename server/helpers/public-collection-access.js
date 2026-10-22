@@ -1,11 +1,9 @@
-'use strict';
-
 import {
   COLLECTION_TYPE_PUBLIC_FREE,
   COLLECTION_TYPE_PUBLIC_PAYWALLLED,
   COLLECTION_TYPE_PUBLIC_PREMIUM,
   COLLECTION_TYPE_PUBLIC_WITHOUT_ACCOUNT,
-  USER_STATUS_PREMIUM,
+  userHasPremiumAccess,
 } from '#shared/utils/constants.js';
 
 import {
@@ -17,14 +15,14 @@ const user_is_collection_owner = (user, collection) => {
 };
 
 const user_has_premium_status = (user) => {
-  return user?.status === USER_STATUS_PREMIUM;
+  return userHasPremiumAccess(user?.status);
 };
 
 const user_has_purchased_collection = async (user_id, collection_id) => {
   const {
     rows: payment_row_list,
   } = await executeSQLQuery(
-    `SELECT 1 FROM payments
+    `SELECT 1 FROM stripe_payments
     WHERE user_id = $1 AND collection_id = $2
     LIMIT 1`,
     [user_id, collection_id]

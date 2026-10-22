@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   FREEMIUM_NOTE_LIMIT,
   USER_STATUS_FREE,
@@ -16,6 +14,7 @@ import {
 import {
   defineEventHandler,
   readBody,
+  setResponseStatus,
 } from 'h3';
 
 import {
@@ -46,7 +45,7 @@ export default defineEventHandler(async (event) => {
     const user = await verifySessionAndReturnUser(event);
 
     if (user === null) {
-      event.res.status = HTTP_CODE_401_UNAUTHORIZED;
+      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
 
       return {
         error_message: 'error_unauthorized',
@@ -64,7 +63,7 @@ export default defineEventHandler(async (event) => {
       const total_user_note_count = note_count_rows.at(0).count;
 
       if (total_user_note_count >= FREEMIUM_NOTE_LIMIT) {
-        event.res.status = HTTP_CODE_403_FORBIDDEN;
+        setResponseStatus(event, HTTP_CODE_403_FORBIDDEN);
 
         return {
           error_message: 'error_unauthorized_note_feature',
@@ -78,7 +77,7 @@ export default defineEventHandler(async (event) => {
     } = await readBody(event);
 
     if (!z.uuid().safeParse(note_id).success) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_note_id',
@@ -86,7 +85,7 @@ export default defineEventHandler(async (event) => {
     }
 
     if (!AUTHORIZED_LANGUAGE_LIST.includes(language)) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_language',
@@ -103,7 +102,7 @@ export default defineEventHandler(async (event) => {
     const note = note_list.at(0);
 
     if (note === undefined) {
-      event.res.status = HTTP_CODE_403_FORBIDDEN;
+      setResponseStatus(event, HTTP_CODE_403_FORBIDDEN);
 
       return {
         error_message: 'error_forbidden',
@@ -157,7 +156,7 @@ export default defineEventHandler(async (event) => {
       [new_note.id, note_id, user.id]
     );
 
-    event.res.status = HTTP_CODE_201_CREATED;
+    setResponseStatus(event, HTTP_CODE_201_CREATED);
 
     return {
       id: new_note.id,

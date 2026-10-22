@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   HTTP_CODE_201_CREATED,
   HTTP_CODE_400_BAD_REQUEST,
@@ -12,14 +10,15 @@ import {
   NOTE_FORMAT_FREE,
   NOTE_FORMAT_MULTIPLE_CHOICE,
   USER_STATUS_ADMIN,
-  USER_STATUS_PREMIUM,
+  userHasPremiumAccess,
 } from '#shared/utils/constants.js';
 
 import {
   defineEventHandler,
-  getHeader,
+  getRequestHeader,
   readBody,
   readRawBody,
+  setResponseStatus,
 } from 'h3';
 
 import {
@@ -245,7 +244,7 @@ export default defineEventHandler(async (event) => {
     const user = await verifySessionAndReturnUser(event);
 
     if (user === null) {
-      event.res.status = HTTP_CODE_401_UNAUTHORIZED;
+      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
 
       return {
         error_message: 'error_unauthorized',
@@ -253,17 +252,17 @@ export default defineEventHandler(async (event) => {
     }
 
     if (
-      user.status !== USER_STATUS_PREMIUM
+      !userHasPremiumAccess(user.status)
       && user.status !== USER_STATUS_ADMIN
     ) {
-      event.res.status = HTTP_CODE_403_FORBIDDEN;
+      setResponseStatus(event, HTTP_CODE_403_FORBIDDEN);
 
       return {
         error_message: 'error_unauthorized_note_feature',
       };
     }
 
-    const content_type = getHeader(event, 'content-type') ?? '';
+    const content_type = getRequestHeader(event, 'content-type') ?? '';
     let csv_text;
 
     if (content_type.includes('application/json')) {
@@ -271,17 +270,17 @@ export default defineEventHandler(async (event) => {
       csv_text = body?.csv;
 
       if (typeof csv_text !== 'string') {
-        event.res.status = HTTP_CODE_400_BAD_REQUEST;
+        setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
         return {
           error_message: 'error_invalid_input',
         };
       }
     } else if (content_type.includes('text/csv') || content_type.includes('text/plain')) {
-      csv_text = await readRawBody(event, 'utf8');
+      csv_text = await readRawBody(event);
 
       if (typeof csv_text !== 'string' || csv_text.length === 0) {
-        event.res.status = HTTP_CODE_400_BAD_REQUEST;
+        setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
         return {
           error_message: 'error_invalid_input',
@@ -293,7 +292,7 @@ export default defineEventHandler(async (event) => {
       if (body && typeof body.csv === 'string') {
         csv_text = body.csv;
       } else {
-        event.res.status = HTTP_CODE_400_BAD_REQUEST;
+        setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
         return {
           error_message: 'error_invalid_input',
@@ -310,7 +309,7 @@ export default defineEventHandler(async (event) => {
         relax_column_count: true,
       });
     } catch {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_input',
@@ -318,7 +317,7 @@ export default defineEventHandler(async (event) => {
     }
 
     if (!Array.isArray(records) || records.length === 0) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_input',
@@ -331,7 +330,7 @@ export default defineEventHandler(async (event) => {
       const file_note_id = parse_int_or_null(raw_row.id);
 
       if (file_note_id === null) {
-        event.res.status = HTTP_CODE_400_BAD_REQUEST;
+        setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
         return {
           error_message: 'error_invalid_input',
@@ -349,7 +348,7 @@ export default defineEventHandler(async (event) => {
 
     for (const file_note_id of sorted_file_ids) {
       if (!validate_row_list(groups.get(file_note_id))) {
-        event.res.status = HTTP_CODE_400_BAD_REQUEST;
+        setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
         return {
           error_message: 'error_invalid_input',
@@ -438,7 +437,7 @@ export default defineEventHandler(async (event) => {
       );
     }
 
-    event.res.status = HTTP_CODE_201_CREATED;
+    setResponseStatus(event, HTTP_CODE_201_CREATED);
 
     return {
       created_detail_count,

@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   HTTP_CODE_201_CREATED,
   HTTP_CODE_400_BAD_REQUEST,
@@ -8,6 +6,7 @@ import {
 import {
   defineEventHandler,
   readBody,
+  setResponseStatus,
 } from 'h3';
 
 import {
@@ -54,7 +53,7 @@ export default defineEventHandler(async (event) => {
     const turnstile_token_is_valid = await verifyTurnstileToken(turnstile_token);
 
     if (!turnstile_token_is_valid) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_turnstile',
@@ -72,7 +71,7 @@ export default defineEventHandler(async (event) => {
       || first_name.length > FIRST_NAME_MAX_LENGTH
       || message.length > MESSAGE_MAX_LENGTH
     ) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_input',
@@ -80,7 +79,7 @@ export default defineEventHandler(async (event) => {
     }
 
     if (!validateEmail(email)) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_email',
@@ -90,7 +89,7 @@ export default defineEventHandler(async (event) => {
     const email_is_verified = await verifyEmail(email);
 
     if (!email_is_verified) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_corrupt_email',
@@ -108,7 +107,7 @@ export default defineEventHandler(async (event) => {
       to: `support@${WEBSITE_DOMAIN_NAME}`,
     });
 
-    event.res.status = HTTP_CODE_201_CREATED;
+    setResponseStatus(event, HTTP_CODE_201_CREATED);
 
     return {
       success: true,

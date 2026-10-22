@@ -5932,8 +5932,7 @@ INSERT INTO collections (
   inclusion_type,
   tag_id_list_to_exclude,
   exclusion_type,
-  review_strategy,
-  pre_tax_price_in_cents
+  review_strategy
 )
 VALUES
 (
@@ -5946,8 +5945,7 @@ VALUES
   'AND',
   '[]'::jsonb,
   'AND',
-  'random',
-  NULL
+  'random'
 ),
 (
   '40000000-0000-4000-8000-000000000002',
@@ -5959,8 +5957,7 @@ VALUES
   'AND',
   '[]'::jsonb,
   'AND',
-  'random',
-  NULL
+  'random'
 ),
 (
   '40000000-0000-4000-8000-000000000003',
@@ -5972,8 +5969,7 @@ VALUES
   'AND',
   '[]'::jsonb,
   'AND',
-  'random',
-  NULL
+  'random'
 ),
 (
   '40000000-0000-4000-8000-000000000004',
@@ -5985,8 +5981,7 @@ VALUES
   'AND',
   '[]'::jsonb,
   'AND',
-  'random',
-  500
+  'random'
 ),
 (
   '40000000-0000-4000-8000-000000000005',
@@ -5998,8 +5993,7 @@ VALUES
   'AND',
   '[]'::jsonb,
   'AND',
-  'random',
-  NULL
+  'random'
 ),
 (
   '40000000-0000-4000-8000-000000000006',
@@ -6011,8 +6005,7 @@ VALUES
   'AND',
   '[]'::jsonb,
   'AND',
-  'random',
-  NULL
+  'random'
 );
 
 -- Paywalled collection with a non-null preview list for public note GET tests
@@ -6027,8 +6020,7 @@ INSERT INTO collections (
   tag_id_list_to_exclude,
   exclusion_type,
   review_strategy,
-  preview_note_id_list,
-  pre_tax_price_in_cents
+  preview_note_id_list
 )
 VALUES (
   '40000000-0000-4000-8000-000000000007',
@@ -6041,8 +6033,7 @@ VALUES (
   '[]'::jsonb,
   'AND',
   'random',
-  jsonb_build_array('30000000-0000-4000-8000-00000000005a'::uuid),
-  500
+  jsonb_build_array('30000000-0000-4000-8000-00000000005a'::uuid)
 );
 
 -- =============================================
@@ -6101,8 +6092,7 @@ INSERT INTO collections (
   tag_id_list_to_exclude,
   exclusion_type,
   review_strategy,
-  preview_note_id_list,
-  pre_tax_price_in_cents
+  preview_note_id_list
 )
 VALUES
 (
@@ -6116,7 +6106,6 @@ VALUES
   '[]'::jsonb,
   'AND',
   'random',
-  NULL,
   NULL
 ),
 (
@@ -6130,8 +6119,7 @@ VALUES
   '[]'::jsonb,
   'AND',
   'random',
-  jsonb_build_array('30000000-0000-4000-8000-0000000000d1'::uuid),
-  500
+  jsonb_build_array('30000000-0000-4000-8000-0000000000d1'::uuid)
 ),
 (
   '40000000-0000-4000-8000-00000000000a',
@@ -6144,7 +6132,6 @@ VALUES
   '[]'::jsonb,
   'AND',
   'random',
-  NULL,
   NULL
 ),
 (
@@ -6158,7 +6145,6 @@ VALUES
   '[]'::jsonb,
   'AND',
   'random',
-  NULL,
   NULL
 ),
 (
@@ -6172,7 +6158,6 @@ VALUES
   '[]'::jsonb,
   'AND',
   'random',
-  NULL,
   NULL
 ),
 (
@@ -6186,8 +6171,7 @@ VALUES
   '[]'::jsonb,
   'AND',
   'random',
-  jsonb_build_array('30000000-0000-4000-8000-0000000000d3'::uuid),
-  500
+  jsonb_build_array('30000000-0000-4000-8000-0000000000d3'::uuid)
 ),
 (
   '40000000-0000-4000-8000-00000000000e',
@@ -6200,7 +6184,6 @@ VALUES
   '[]'::jsonb,
   'AND',
   'random',
-  NULL,
   NULL
 ),
 (
@@ -6214,7 +6197,6 @@ VALUES
   '[]'::jsonb,
   'AND',
   'random',
-  NULL,
   NULL
 ),
 (
@@ -6228,7 +6210,6 @@ VALUES
   '[]'::jsonb,
   'AND',
   'random',
-  NULL,
   NULL
 ),
 (
@@ -6242,8 +6223,7 @@ VALUES
   '[]'::jsonb,
   'AND',
   'random',
-  jsonb_build_array('30000000-0000-4000-8000-0000000000d5'::uuid),
-  500
+  jsonb_build_array('30000000-0000-4000-8000-0000000000d5'::uuid)
 ),
 (
   '40000000-0000-4000-8000-000000000012',
@@ -6256,7 +6236,6 @@ VALUES
   '[]'::jsonb,
   'AND',
   'random',
-  NULL,
   NULL
 ),
 (
@@ -6270,11 +6249,23 @@ VALUES
   '[]'::jsonb,
   'AND',
   'random',
-  NULL,
   NULL
 );
 
-INSERT INTO payments (user_id, collection_id, payment_type, price_in_cents)
+INSERT INTO collection_prices (collection_id, currency, amount, text)
+VALUES
+  ('40000000-0000-4000-8000-000000000004', 'EUR', 5, '5 €'),
+  ('40000000-0000-4000-8000-000000000004', 'USD', 6, '$6'),
+  ('40000000-0000-4000-8000-000000000007', 'EUR', 5, '5 €'),
+  ('40000000-0000-4000-8000-000000000007', 'USD', 6, '$6'),
+  ('40000000-0000-4000-8000-000000000009', 'EUR', 5, '5 €'),
+  ('40000000-0000-4000-8000-000000000009', 'USD', 6, '$6'),
+  ('40000000-0000-4000-8000-00000000000d', 'EUR', 5, '5 €'),
+  ('40000000-0000-4000-8000-00000000000d', 'USD', 6, '$6'),
+  ('40000000-0000-4000-8000-000000000011', 'EUR', 5, '5 €'),
+  ('40000000-0000-4000-8000-000000000011', 'USD', 6, '$6');
+
+INSERT INTO stripe_payments (user_id, collection_id, payment_type, price_in_cents)
 VALUES (
   '10000000-0000-4000-8000-000000000002',
   '40000000-0000-4000-8000-000000000009',
@@ -6321,7 +6312,7 @@ VALUES (
   false
 );
 
-INSERT INTO payments (user_id, collection_id, payment_type, price_in_cents)
+INSERT INTO stripe_payments (user_id, collection_id, payment_type, price_in_cents)
 VALUES (
   '50000000-0000-4000-8000-000000000015',
   '40000000-0000-4000-8000-000000000004',

@@ -1,17 +1,14 @@
 <script setup>
-import {
-  EUR_TO_USD_EXCHANGE_RATE,
-  PREMIUM_ACCESS_PRE_TAX_AMOUNT_IN_CENTS,
-} from '#shared/utils/constants.js';
-
 const props = defineProps({
-  extend_premium: {
-    type: Boolean,
-    default: false,
+  billing_interval: {
+    type: String,
+    required: true,
+    validator: (value) => value === 'month' || value === 'year',
   },
 });
 
 const { locale } = useI18n();
+const { currency } = useCurrency();
 
 const handling_request = ref(false);
 
@@ -25,6 +22,8 @@ const goToStripeCheckout = async () => {
   try {
     const response = await $fetch('/payments/create-stripe-checkout', {
       body: {
+        billing_interval: props.billing_interval,
+        currency: currency.value,
         locale: locale.value,
       },
       method: 'POST',
@@ -49,19 +48,15 @@ const goToStripeCheckout = async () => {
 };
 
 const text = computed(() => {
-  const eur_price = PREMIUM_ACCESS_PRE_TAX_AMOUNT_IN_CENTS / 100;
+  const price_by_interval = props.billing_interval === 'year'
+    ? PREMIUM.YEARLY
+    : PREMIUM.MONTHLY;
+  const price = price_by_interval[currency.value].text;
+  const interval_label = props.billing_interval === 'year'
+    ? $t('t_per_year')
+    : $t('t_per_month');
 
-  let price = '';
-
-  if (locale.value === 'fr') {
-    price = `${eur_price} €`;
-  } else {
-    price = `$ ${Math.ceil(eur_price * EUR_TO_USD_EXCHANGE_RATE)}`;
-  }
-
-  return props.extend_premium
-    ? `${$t('t_extend_premium')} (${price})`
-    : `${$t('t_become_premium')} (${price})`;
+  return `${$t('t_become_premium')} (${price} ${interval_label})`;
 });
 </script>
 

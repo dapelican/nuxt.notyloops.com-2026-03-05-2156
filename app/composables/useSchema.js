@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   WEBSITE_NAME,
 } from '#shared/utils/constants.js';

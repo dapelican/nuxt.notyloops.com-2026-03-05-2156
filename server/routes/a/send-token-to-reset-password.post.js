@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   HTTP_CODE_201_CREATED,
   HTTP_CODE_400_BAD_REQUEST,
@@ -13,6 +11,7 @@ import {
 import {
   defineEventHandler,
   readBody,
+  setResponseStatus,
 } from 'h3';
 
 import {
@@ -82,7 +81,7 @@ export default defineEventHandler(async (event) => {
     const turnstile_token_is_valid = await verifyTurnstileToken(turnstile_token);
 
     if (!turnstile_token_is_valid) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_turnstile',
@@ -95,7 +94,7 @@ export default defineEventHandler(async (event) => {
       !validateNonEmptyInputFieldList([email])
       || !validateEmail(email)
     ) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_email',
@@ -110,7 +109,7 @@ export default defineEventHandler(async (event) => {
     );
 
     if (user_list.length === 0) {
-      event.res.status = HTTP_CODE_201_CREATED;
+      setResponseStatus(event, HTTP_CODE_201_CREATED);
 
       return {};
     }
@@ -132,7 +131,7 @@ export default defineEventHandler(async (event) => {
     );
 
     if (active_user_token_list.length > 0) {
-      event.res.status = HTTP_CODE_201_CREATED;
+      setResponseStatus(event, HTTP_CODE_201_CREATED);
 
       return {};
     }
@@ -150,7 +149,7 @@ export default defineEventHandler(async (event) => {
     );
 
     if (inactive_user_token_list.length >= 3) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_password_reset_limit_reached',
@@ -159,7 +158,7 @@ export default defineEventHandler(async (event) => {
 
     await sendTokenToResetPassword(user, user.subdomain);
 
-    event.res.status = HTTP_CODE_201_CREATED;
+    setResponseStatus(event, HTTP_CODE_201_CREATED);
 
     return {};
   } catch (error) {

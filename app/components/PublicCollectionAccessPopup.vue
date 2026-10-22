@@ -122,7 +122,13 @@ const show_buy_button = computed(() => {
         v-else-if="show_become_premium"
         class="flex justify-end"
       >
-        <BecomePremiumButtonElement />
+        <UButton
+          color="primary"
+          to="/account/payments"
+          variant="solid"
+        >
+          {{ $t('t_become_premium') }}
+        </UButton>
       </section>
 
       <section

@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   ALLOWED_UPLOAD_MIME_TYPE_ALIAS,
   ALLOWED_UPLOAD_MIME_TYPE_LIST,

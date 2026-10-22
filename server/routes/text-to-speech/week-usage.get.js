@@ -1,15 +1,16 @@
-'use strict';
-
 import {
   HTTP_CODE_200_OK,
   HTTP_CODE_401_UNAUTHORIZED,
 } from '../../helpers/http-status-codes.js';
 
 import {
-  defineEventHandler,
-} from 'h3';
+  DateTime,
+} from 'luxon';
 
-import { DateTime } from 'luxon';
+import {
+  defineEventHandler,
+  setResponseStatus,
+} from 'h3';
 
 import {
   executeSQLQuery,
@@ -28,7 +29,7 @@ export default defineEventHandler(async (event) => {
     const user = await verifySessionAndReturnUser(event);
 
     if (user === null) {
-      event.res.status = HTTP_CODE_401_UNAUTHORIZED;
+      setResponseStatus(event, HTTP_CODE_401_UNAUTHORIZED);
 
       return {
         error_message: 'error_unauthorized',
@@ -52,7 +53,7 @@ export default defineEventHandler(async (event) => {
       ]
     );
 
-    event.res.status = HTTP_CODE_200_OK;
+    setResponseStatus(event, HTTP_CODE_200_OK);
 
     return {
       character_count: rows.at(0).character_count,

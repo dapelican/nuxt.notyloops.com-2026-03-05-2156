@@ -1,5 +1,3 @@
-'use strict';
-
 import {
   HTTP_CODE_200_OK,
   HTTP_CODE_400_BAD_REQUEST,
@@ -13,6 +11,7 @@ import {
 import {
   defineEventHandler,
   readBody,
+  setResponseStatus,
 } from 'h3';
 
 import {
@@ -66,7 +65,7 @@ export default defineEventHandler(async (event) => {
       !validateNonEmptyInputFieldList([email])
       || !validateEmail(email)
     ) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_email',
@@ -74,7 +73,7 @@ export default defineEventHandler(async (event) => {
     }
 
     if (!token || !validateUUID(token)) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_email_token',
@@ -85,7 +84,7 @@ export default defineEventHandler(async (event) => {
       !validateNonEmptyInputFieldList([password_1, password_2])
       || password_1 !== password_2
     ) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_password',
@@ -99,7 +98,7 @@ export default defineEventHandler(async (event) => {
     });
 
     if (!token_user_id) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_email_token',
@@ -116,7 +115,7 @@ export default defineEventHandler(async (event) => {
     const user = user_list.at(0);
 
     if (!user || user.email.toLowerCase() !== email) {
-      event.res.status = HTTP_CODE_400_BAD_REQUEST;
+      setResponseStatus(event, HTTP_CODE_400_BAD_REQUEST);
 
       return {
         error_message: 'error_invalid_email_token',
@@ -147,7 +146,7 @@ export default defineEventHandler(async (event) => {
 
     await sendEmailToNotifyPasswordReset(user);
 
-    event.res.status = HTTP_CODE_200_OK;
+    setResponseStatus(event, HTTP_CODE_200_OK);
 
     return {
       success: true,
