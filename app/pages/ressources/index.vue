@@ -56,6 +56,13 @@ useSeoMeta({
       <li>
         <ULink
           class="text-primary"
+          to="https://fr.notyloops.com/pc/01a0fda7-72f9-7daf-bb0a-b3cedc48dfdc"
+          target="_blank"
+        >La liste de mots d'Oxence</ULink>
+      </li>
+      <li>
+        <ULink
+          class="text-primary"
           to="/ressources/champs-lexicaux"
         >Quelques champs lexicaux</ULink>
       </li>
