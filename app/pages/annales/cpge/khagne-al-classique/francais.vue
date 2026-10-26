@@ -515,5 +515,86 @@ useSeoMeta({
         </li>
       </ul>
     </section>
+
+    <h2 class="mt-12">
+      2023
+    </h2>
+
+    <figure>
+      <table>
+        <thead>
+          <tr>
+            <th>
+              Banque d'épreuve
+            </th>
+            <th>
+              Documents
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              BCE
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-dissertation-2023-al-bce-sujet.pdf"
+                target="_blank"
+              >
+                Dissertation littéraire
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-dissertation-2023-al-bce-rapport-litteraire.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+              <br>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-etude-et-synthese-de-textes-2023-ec-escp-hec-sujet.pdf"
+                target="_blank"
+              >
+                Etude et synthèse de textes
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/cpge-etude-et-synthese-de-textes-2023-ec-escp-hec-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              BEL
+            </td>
+            <td>
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-francais-2023-al-bel-sujet.pdf"
+                target="_blank"
+              >
+                Sujet
+              </ULink>
+              |
+              <ULink
+                class="text-primary"
+                to="https://annales.notyloops.com/khagne-francais-2023-al-bel-rapport.pdf"
+                target="_blank"
+              >
+                Rapport
+              </ULink>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </figure>
   </UContainer>
 </template>
