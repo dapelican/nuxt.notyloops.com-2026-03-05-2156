@@ -89,7 +89,39 @@ describe('security response headers', () => {
     expect(content_security_policy['object-src']).toEqual(['\'none\'']);
     expect(content_security_policy['base-uri']).toEqual(['\'self\'']);
     expect(content_security_policy['form-action']).toEqual(['\'self\'']);
+    // Cache and redirects may live in Nitro route rules. Security headers must not:
+    // a second policy there would override the module config above.
     expect(nuxt_config.routeRules).toBeUndefined();
-    expect(nuxt_config.nitro.routeRules).toBeUndefined();
+    expect(getSecurityRouteRuleOverrides(nuxt_config.nitro?.routeRules)).toEqual([]);
   });
 });
+
+const security_header_names = [
+  'content-security-policy',
+  'content-security-policy-report-only',
+  'cross-origin-embedder-policy',
+  'cross-origin-opener-policy',
+  'cross-origin-resource-policy',
+  'origin-agent-cluster',
+  'permissions-policy',
+  'referrer-policy',
+  'strict-transport-security',
+  'x-content-type-options',
+  'x-dns-prefetch-control',
+  'x-download-options',
+  'x-frame-options',
+  'x-permitted-cross-domain-policies',
+  'x-xss-protection',
+];
+
+const getSecurityRouteRuleOverrides = (route_rules = {}) => {
+  return Object.entries(route_rules).flatMap(([path, rule]) => {
+    const header_names = Object.keys(rule.headers ?? {})
+      .filter((name) => security_header_names.includes(name.toLowerCase()));
+
+    return [
+      ...(rule.security ? [`${path}: security`] : []),
+      ...header_names.map((name) => `${path}: ${name}`),
+    ];
+  });
+};
