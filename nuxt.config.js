@@ -2,6 +2,10 @@ import {
   fileURLToPath,
 } from 'node:url';
 
+import {
+  redirections_map,
+} from './redirections.js';
+
 const getNonEmptyEnvironmentVariable = (name) => {
   const value = process.env[name]?.trim();
 
@@ -34,6 +38,18 @@ if (sentry_dsn) {
     sentry_ingest_origin = undefined;
   }
 }
+
+const redirections = Object.fromEntries(
+  Array.from(redirections_map, ([oldPath, newPath]) => [
+    oldPath,
+    {
+      redirect: {
+        to: newPath,
+        statusCode: 301,
+      },
+    },
+  ])
+);
 
 export default defineNuxtConfig({
   modules: [
@@ -138,6 +154,14 @@ export default defineNuxtConfig({
       '0 4 * * *': ['delete-unused-backblaze-files'],
       '0 5 * * *': ['send-email-before-premium-yearly-renewal'],
       '0 6 * * *': ['update-user-status'],
+    },
+    routeRules: {
+      ...redirections,
+      '/': {
+        headers: {
+          'Cache-Control': 'public, max-age=3600, must-revalidate',
+        },
+      },
     },
   },
   ...(!is_production
