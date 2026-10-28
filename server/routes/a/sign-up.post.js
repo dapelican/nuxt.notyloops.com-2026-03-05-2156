@@ -13,7 +13,6 @@ import {
 import {
   USER_STATUS_FREE,
   USER_STATUS_UNVERIFIED,
-  WEBSITE_DOMAIN_NAME,
 } from '#shared/utils/constants.js';
 
 import {
@@ -41,10 +40,6 @@ import {
 import {
   handleBackendError,
 } from '../../helpers/handle-backend-error.js';
-
-import {
-  sendEmail,
-} from '../../services/smtp2go/send-email.js';
 
 import { v7 as uuidv7 } from 'uuid';
 
@@ -186,17 +181,6 @@ export default defineEventHandler(async (event) => {
         USER_TOKEN_CONNECT,
       ]
     );
-
-    sendEmail({
-      subdomain: updated_user.subdomain,
-      template_name: 'admin-new-sign-up',
-      template_params: {
-        email: updated_user.email,
-        id: updated_user.id,
-        subdomain: updated_user.subdomain,
-      },
-      to: `support@${WEBSITE_DOMAIN_NAME}`,
-    });
 
     setResponseStatus(event, HTTP_CODE_201_CREATED);
 

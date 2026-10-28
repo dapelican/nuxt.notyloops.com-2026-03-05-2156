@@ -31,7 +31,10 @@ html {
   }
 }
 
-@theme static{
+@theme static {
+  --font-sans: "Lato", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+  "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-display: "Permanent Marker", cursive;
   --color-brand-50: #f1f1ff;
   --color-brand-100: #e7e6ff;
   --color-brand-200: #d1d1ff;

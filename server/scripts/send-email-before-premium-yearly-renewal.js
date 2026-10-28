@@ -12,7 +12,7 @@ import {
 
 import {
   sendEmail,
-} from '../services/smtp2go/send-email.js';
+} from '../services/bento/send-email.js';
 
 const sendEmailBeforePremiumYearlyRenewal = async () => {
   const today = DateTime.utc().startOf('day');
@@ -50,7 +50,6 @@ const sendEmailBeforePremiumYearlyRenewal = async () => {
 
       try {
         await sendEmail({
-          bcc: 'support@notyloops.com',
           subdomain: user.subdomain,
           template_name: 'premium-yearly-renewal',
           template_params: {

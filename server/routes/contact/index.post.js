@@ -28,7 +28,7 @@ import {
 
 import {
   sendEmail,
-} from '../../services/smtp2go/send-email.js';
+} from '../../services/bento/send-email.js';
 
 import {
   verifyEmail,
@@ -97,6 +97,7 @@ export default defineEventHandler(async (event) => {
     }
 
     await sendEmail({
+      from: `contact@${WEBSITE_DOMAIN_NAME}`,
       subdomain,
       template_name: 'admin-new-contact-message',
       template_params: {

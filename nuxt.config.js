@@ -100,6 +100,9 @@ export default defineNuxtConfig({
     B2_APPLICATION_KEY_ID: process.env.B2_APPLICATION_KEY_ID,
     B2_BUCKET_ID: process.env.B2_BUCKET_ID,
     B2_BUCKET_NAME: process.env.B2_BUCKET_NAME,
+    BENTO_PUBLISHABLE_KEY: process.env.BENTO_PUBLISHABLE_KEY,
+    BENTO_SECRET_KEY: process.env.BENTO_SECRET_KEY,
+    BENTO_SITE_UUID: process.env.BENTO_SITE_UUID,
     DB_CONNECTION_STRING: process.env.DB_CONNECTION_STRING,
     EMAILABLE_API_KEY: process.env.EMAILABLE_API_KEY,
     GOOGLE_CLOUD_API_KEY: process.env.GOOGLE_CLOUD_API_KEY,
@@ -154,6 +157,23 @@ export default defineNuxtConfig({
       '0 4 * * *': ['delete-unused-backblaze-files'],
       '0 5 * * *': ['send-email-before-premium-yearly-renewal'],
       '0 6 * * *': ['update-user-status'],
+    },
+    fonts: {
+      families: [
+        {
+          name: 'Lato',
+          provider: 'google',
+          weights: [400, 700],
+          styles: ['normal', 'italic'],
+          global: true,
+        },
+        {
+          name: 'Permanent Marker',
+          provider: 'google',
+          weights: [400],
+          global: true,
+        },
+      ],
     },
     routeRules: {
       ...redirections,

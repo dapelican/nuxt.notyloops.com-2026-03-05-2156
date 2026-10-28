@@ -36,7 +36,7 @@ import {
 
 import {
   sendEmail,
-} from '../../services/smtp2go/send-email.js';
+} from '../../services/bento/send-email.js';
 
 const SALT_ROUND = 10;
 

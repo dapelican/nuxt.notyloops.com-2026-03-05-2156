@@ -18,8 +18,6 @@ const toAddressList = (addresses) => {
 
 const sendEmail = async (input) => {
   const {
-    bcc,
-    cc,
     sender,
     subdomain,
     template_name,
@@ -35,14 +33,6 @@ const sendEmail = async (input) => {
     subject,
     to: toAddressList(to),
   };
-
-  if (cc) {
-    data.cc = toAddressList(cc);
-  }
-
-  if (bcc) {
-    data.bcc = toAddressList(bcc);
-  }
 
   return axios.post(
     'https://api.smtp2go.com/v3/email/send',

@@ -4,7 +4,7 @@ import {
   HTTP_CODE_403_FORBIDDEN,
 } from '../../../helpers/http-status-codes.js';
 
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 
 import bcrypt from 'bcrypt';
 
@@ -15,14 +15,6 @@ import {
 } from '../../../database/query.js';
 
 import handler from '../../../routes/a/sign-up.post.js';
-
-import {
-  sendEmail,
-} from '../../../services/smtp2go/send-email.js';
-
-vi.mock('../../../services/smtp2go/send-email.js', () => ({
-  sendEmail: vi.fn(() => Promise.resolve()),
-}));
 
 const request = createTestHandler('post', '/a/sign-up', handler);
 
@@ -257,11 +249,5 @@ describe('POST /a/sign-up', () => {
     );
 
     expect(rows.at(0).blacklisted).toBe(true);
-    expect(sendEmail).toHaveBeenCalledWith(expect.objectContaining({
-      template_name: 'admin-new-sign-up',
-      template_params: expect.objectContaining({
-        email: USER_EMAIL,
-      }),
-    }));
   });
 });

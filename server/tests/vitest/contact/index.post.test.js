@@ -15,11 +15,11 @@ import handler from '../../../routes/contact/index.post.js';
 
 import {
   sendEmail,
-} from '../../../services/smtp2go/send-email.js';
+} from '../../../services/bento/send-email.js';
 
 import { verifyEmail } from '../../../services/emailable/verify-email.js';
 
-vi.mock('../../../services/smtp2go/send-email.js', () => ({
+vi.mock('../../../services/bento/send-email.js', () => ({
   sendEmail: vi.fn(() => Promise.resolve()),
 }));
 
@@ -163,6 +163,7 @@ describe('POST /contact', () => {
     });
     expect(verifyEmail).toHaveBeenCalledWith('ada@example.com');
     expect(sendEmail).toHaveBeenCalledWith({
+      from: `contact@${WEBSITE_DOMAIN_NAME}`,
       subdomain: 'www',
       template_name: 'admin-new-contact-message',
       template_params: {

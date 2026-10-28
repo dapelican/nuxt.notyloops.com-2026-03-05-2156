@@ -116,7 +116,7 @@ const private_items = computed(() => [
   <!-- HeaderElement.vue -->
   <UHeader toggle-side="left">
     <template #title>
-      <span class="header-element-title-font">{{ WEBSITE_NAME }}</span>
+      <span class="font-display text-[1.7rem] font-normal">{{ WEBSITE_NAME }}</span>
     </template>
 
     <UNavigationMenu
@@ -155,10 +155,3 @@ const private_items = computed(() => [
     </template>
   </UHeader>
 </template>
-
-<style scoped>
-.header-element-title-font {
-  font-family: 'Permanent Marker', cursive;
-  font-size: 1.7rem;
-}
-</style>

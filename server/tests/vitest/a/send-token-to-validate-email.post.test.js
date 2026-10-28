@@ -15,11 +15,11 @@ import handler from '../../../routes/a/send-token-to-validate-email.post.js';
 
 import {
   sendEmail,
-} from '../../../services/smtp2go/send-email.js';
+} from '../../../services/bento/send-email.js';
 
 import { verifyEmail } from '../../../services/emailable/verify-email.js';
 
-vi.mock('../../../services/smtp2go/send-email.js', () => ({
+vi.mock('../../../services/bento/send-email.js', () => ({
   sendEmail: vi.fn(() => Promise.resolve()),
 }));
 
