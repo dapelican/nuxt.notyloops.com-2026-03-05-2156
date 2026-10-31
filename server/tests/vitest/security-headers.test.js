@@ -64,6 +64,7 @@ describe('security response headers', () => {
     expect(content_security_policy['connect-src']).toEqual([
       '\'self\'',
       'https://challenges.cloudflare.com',
+      'https://*.sentry.io',
     ]);
     expect(content_security_policy['img-src']).toEqual([
       '\'self\'',

@@ -29,15 +29,24 @@ const is_sentry_enabled = is_production && Boolean(sentry_dsn);
 const can_upload_sentry_source_maps = is_sentry_enabled
   && Boolean(sentry_auth_token && sentry_org && sentry_project);
 
-let sentry_ingest_origin;
+// The DSN is often injected only at runtime, after this policy is compiled.
+// Allow every HTTPS Sentry host so regional ingest endpoints stay permitted.
+const sentry_envelope_origin = 'https://*.sentry.io';
+
+let sentry_dsn_origin;
 
 if (sentry_dsn) {
   try {
-    sentry_ingest_origin = new URL(sentry_dsn).origin;
+    sentry_dsn_origin = new URL(sentry_dsn).origin;
   } catch {
-    sentry_ingest_origin = undefined;
+    sentry_dsn_origin = undefined;
   }
 }
+
+const sentry_connect_sources = [...new Set([
+  sentry_envelope_origin,
+  ...(sentry_dsn_origin ? [sentry_dsn_origin] : []),
+])];
 
 const redirections = Object.fromEntries(
   Array.from(redirections_map, ([oldPath, newPath]) => [
@@ -266,7 +275,7 @@ export default defineNuxtConfig({
         'connect-src': [
           '\'self\'',
           'https://challenges.cloudflare.com',
-          ...(sentry_ingest_origin ? [sentry_ingest_origin] : []),
+          ...sentry_connect_sources,
         ],
         // HeaderElement loads Permanent Marker: CSS from fonts.googleapis.com, files from fonts.gstatic.com.
         'style-src': [
