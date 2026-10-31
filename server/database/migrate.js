@@ -64,7 +64,10 @@ const main = async () => {
 
     process.exit(0);
   } catch (error) {
+    console.error('================= ERROR =====================');
+    console.error('file:', 'server/database/migrate.js');
     console.error('Error:', error.message);
+    console.error('=============================================');
     process.exit(1);
   }
 };

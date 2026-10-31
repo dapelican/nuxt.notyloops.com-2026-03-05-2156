@@ -15,6 +15,7 @@ export default async () => {
     console.error('file:', 'server/plugins/01.migrations.js');
     console.error('Failed to start app:', error);
     console.error('=============================================');
+
     captureSentryException(error, {
       tags: {
         startup_phase: 'migrations',
