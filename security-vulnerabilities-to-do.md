@@ -88,7 +88,7 @@ Severity:
 
 ### SEC-2. The Google API key is sent in the query string
 
-- **Where:** `server/services/google/get-speech-buffer-from-text.js` (`texttospeech.googleapis.com/v1/text:synthesize?key=`)
+- **Where:** `server/services/google-tts/get-speech-buffer-from-text.js` (`texttospeech.googleapis.com/v1/text:synthesize?key=`)
 - **Issue:** The key is on the URL. Axios and proxies often log request URLs. The module also calls `useRuntimeConfig()` at import time.
 - **Fix:** Send the key in a header if this API allows it, or restrict the key to the Text-to-Speech API and this server’s egress IP. Read the config inside the function.
 

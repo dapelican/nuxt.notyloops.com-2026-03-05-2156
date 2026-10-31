@@ -44,7 +44,10 @@ const executeSQLTransaction = async (callback) => {
     try {
       await client.query('ROLLBACK');
     } catch (rollback_error) {
+      console.error('================= ERROR =====================');
+      console.error('file:', 'server/database/query.js');
       console.error('Failed to roll back transaction:', rollback_error);
+      console.error('=============================================');
     }
 
     throw error;

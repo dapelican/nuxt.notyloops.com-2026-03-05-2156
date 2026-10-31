@@ -31,7 +31,10 @@ export const handleFrontendError = (error, message) => {
             }),
           },
         }).catch((log_error) => {
+          console.error('================= ERROR =====================');
+          console.error('file:', 'app/composables/handleFrontendError.js');
           console.error('Failed to save frontend error log:', log_error);
+          console.error('=============================================');
         });
       }
 

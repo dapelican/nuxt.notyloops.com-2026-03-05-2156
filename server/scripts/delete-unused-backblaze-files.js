@@ -61,13 +61,17 @@ const deleteUnusedBackblazeFiles = async () => {
       }
     }
 
-    console.log('======================================');
-    console.log('used_url_count:', used_url_count);
-    console.log('unused_url_count:', unused_url_count);
-    console.log('deleted_url_count:', deleted_url_count);
-    console.log('======================================');
+    console.info('================= INFO ===============================');
+    console.info('file:', 'server/scripts/delete-unused-backblaze-files.js');
+    console.info('used_url_count:', used_url_count);
+    console.info('unused_url_count:', unused_url_count);
+    console.info('deleted_url_count:', deleted_url_count);
+    console.info('======================================================');
   } catch (error) {
+    console.error('================= ERROR =====================');
+    console.error('file:', 'server/scripts/delete-unused-backblaze-files.js');
     console.error('Error getting URLs:', error.message);
+    console.error('=============================================');
     throw error;
   }
 };

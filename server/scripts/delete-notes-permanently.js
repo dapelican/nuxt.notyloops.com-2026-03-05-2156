@@ -24,13 +24,17 @@ const deleteNotesPermanently = async () => {
       [deleted_at_threshold]
     );
 
-    console.log('======================================');
-    console.log('deleted_at_threshold:', deleted_at_threshold);
-    console.log('deleted_note_details_count:', note_details_result.rowCount);
-    console.log('deleted_notes_count:', notes_result.rowCount);
-    console.log('======================================');
+    console.info('================= INFO ===============================');
+    console.info('file:', 'server/scripts/delete-notes-permanently.js');
+    console.info('deleted_at_threshold:', deleted_at_threshold);
+    console.info('deleted_note_details_count:', note_details_result.rowCount);
+    console.info('deleted_notes_count:', notes_result.rowCount);
+    console.info('======================================================');
   } catch (error) {
+    console.error('================= ERROR =====================');
+    console.error('file:', 'server/scripts/delete-notes-permanently.js');
     console.error('Error deleting notes permanently:', error.message);
+    console.error('=============================================');
     throw error;
   }
 };

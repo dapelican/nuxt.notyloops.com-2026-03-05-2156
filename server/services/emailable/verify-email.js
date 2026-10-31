@@ -11,7 +11,13 @@ const verifyEmail = async (email) => {
         email,
       },
     })
-    .catch(() => 'error');
+    .catch((error) => {
+      console.error('================= ERROR =====================');
+      console.error('file:', 'server/services/emailable/verify-email.js');
+      console.error('Error from Emailable:', error);
+      console.error('=============================================');
+      return 'error';
+    });
 
   if (response?.data?.state === 'undeliverable') {
     return false;

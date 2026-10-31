@@ -62,10 +62,16 @@ const getSpeechBufferFromText = async (text, language_code) => {
 
     return audio_buffer;
   } catch (error) {
-    console.error('❌ Error generating speech:', error.message);
+    console.error('================= ERROR =====================');
+    console.error('file:', 'server/services/google/get-speech-buffer-from-text.js');
+    console.error('❌ Error from Google TTS:', error.message);
+    console.error('=============================================');
     // Log the detailed error response from Google
     if (error.response?.data) {
-      console.error('Google API Error Details:', JSON.stringify(error.response.data, null, 2));
+      console.error('================= ERROR =====================');
+      console.error('file:', 'server/services/google/get-speech-buffer-from-text.js');
+      console.error('Google TTS error details:', JSON.stringify(error.response.data, null, 2));
+      console.error('=============================================');
     }
     throw error;
   }

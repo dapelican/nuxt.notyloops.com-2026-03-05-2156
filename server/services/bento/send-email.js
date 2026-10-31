@@ -61,6 +61,13 @@ const sendEmail = async (input) => {
       params: {
         site_uuid: BENTO_SITE_UUID,
       },
+    })
+    .catch((error) => {
+      console.error('================= ERROR =====================');
+      console.error('file:', 'server/services/bento/send-email.js');
+      console.error('Error from Bento:', error);
+      console.error('=============================================');
+      throw error;
     });
 };
 

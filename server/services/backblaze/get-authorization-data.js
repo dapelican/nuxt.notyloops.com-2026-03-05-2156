@@ -44,7 +44,10 @@ const getAuthorizationData = async () => {
 
     return authorization_data;
   } catch (error) {
+    console.error('================= ERROR =====================');
+    console.error('file:', 'server/services/backblaze/get-authorization-data.js');
     console.error('B2 authorization error:', error.response?.data || error.message);
+    console.error('=============================================');
     throw new Error('Failed to authorize with B2', {
       cause: error,
     });

@@ -52,7 +52,10 @@ const initializeData = async () => {
 try {
   await initializeData();
 } catch (err) {
+  console.error('================= ERROR =====================');
+  console.error('file:', 'server/tests/seeds/initializeData.js');
   console.error(err);
+  console.error('=============================================');
   process.exitCode = 1;
 } finally {
   await closePool();

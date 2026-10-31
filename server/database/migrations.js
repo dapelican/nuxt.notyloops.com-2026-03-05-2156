@@ -97,7 +97,10 @@ const runMigrations = async (migrationsDir = MIGRATIONS_DIR) => {
 
     console.log('All migrations completed successfully');
   } catch (error) {
+    console.error('================= ERROR =====================');
+    console.error('file:', 'server/database/migrations.js');
     console.error('Migration failed:', error);
+    console.error('=============================================');
     throw error;
   }
 };

@@ -37,7 +37,10 @@ const getUploadUrl = async (auth_token, api_url) => {
       upload_url: response.data.uploadUrl,
     };
   } catch (error) {
+    console.error('================= ERROR =====================');
+    console.error('file:', 'server/services/backblaze/upload-file.js');
     console.error('B2 get upload URL error:', error.response?.data || error.message);
+    console.error('=============================================');
     throw new Error('Failed to get upload URL from B2', { cause: error });
   }
 };

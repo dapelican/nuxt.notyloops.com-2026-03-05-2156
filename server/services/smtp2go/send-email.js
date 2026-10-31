@@ -42,6 +42,13 @@ const sendEmail = async (input) => {
         'Content-Type': 'application/json',
         'X-Smtp2go-Api-Key': useRuntimeConfig().SMTP2GO_API_KEY,
       },
+    })
+    .catch((error) => {
+      console.error('================= ERROR =====================');
+      console.error('file:', 'server/services/smtp2go/send-email.js');
+      console.error('Error from SMTP2Go:', error);
+      console.error('=============================================');
+      throw error;
     });
 };
 

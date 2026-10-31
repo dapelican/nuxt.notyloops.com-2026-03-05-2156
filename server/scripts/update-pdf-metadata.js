@@ -42,7 +42,10 @@ async function updateFolderPdfMetadata() {
       await updatePdfMetadata(file_path, title);
       console.log(`Updated metadata: ${entry.name}`);
     } catch (error) {
+      console.error('================= ERROR =====================');
+      console.error('file:', 'server/scripts/update-pdf-metadata.js');
       console.error(`Failed to update ${entry.name}: ${error.message}`);
+      console.error('=============================================');
     }
   }
 }

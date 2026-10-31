@@ -1,3 +1,8 @@
+import {
+  getRequestURL,
+  setResponseStatus,
+} from 'h3';
+
 import { DateTime } from 'luxon';
 
 import {
@@ -11,11 +16,6 @@ import {
 import {
   executeSQLQuery,
 } from '../database/query.js';
-
-import {
-  getRequestURL,
-  setResponseStatus,
-} from 'h3';
 
 const serializeError = (error) => {
   if (error instanceof Error) {
@@ -47,10 +47,11 @@ const handleBackendError = async (err, event) => {
     const serialized_error = serializeError(err);
     const timestamp = DateTime.utc().toISO();
 
-    console.error('============== ERROR ==============');
+    console.error('================= ERROR =====================');
+    console.error('file:', 'server/helpers/handle-backend-error.js');
     console.error('request', `[${timestamp}] ${request_method} ${request_url}`);
     console.error(serialized_error.stack ?? serialized_error.message);
-    console.error('===================================');
+    console.error('=============================================');
 
     try {
       await executeSQLQuery('INSERT INTO logs (content) VALUES ($1)',

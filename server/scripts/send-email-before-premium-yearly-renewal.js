@@ -62,16 +62,23 @@ const sendEmailBeforePremiumYearlyRenewal = async () => {
         sent_email_count += 1;
       } catch (error) {
         failed_email_count += 1;
+        console.error('================= ERROR =====================');
+        console.error('file:', 'server/scripts/send-email-before-premium-yearly-renewal.js');
         console.error('Error sending yearly renewal email to', user.email, error.message);
+        console.error('=============================================');
       }
     }
 
-    console.log('======================================');
-    console.log('sent_email_count:', sent_email_count);
-    console.log('failed_email_count:', failed_email_count);
-    console.log('======================================');
+    console.info('================= INFO ===============================');
+    console.info('file:', 'server/scripts/send-email-before-premium-yearly-renewal.js');
+    console.info('sent_email_count:', sent_email_count);
+    console.info('failed_email_count:', failed_email_count);
+    console.info('======================================================');
   } catch (error) {
+    console.error('================= ERROR =====================');
+    console.error('file:', 'server/scripts/send-email-before-premium-yearly-renewal.js');
     console.error('Error sending yearly renewal emails:', error.message);
+    console.error('=============================================');
     throw error;
   }
 

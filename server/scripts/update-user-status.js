@@ -29,12 +29,16 @@ const updateUserStatus = async () => {
       ]
     );
 
-    console.log('======================================');
-    console.log('expiration_threshold:', now);
-    console.log('updated_user_count:', result.rowCount);
-    console.log('======================================');
+    console.info('================= INFO ===============================');
+    console.info('file:', 'server/scripts/update-user-status.js');
+    console.info('expiration_threshold:', now);
+    console.info('updated_user_count:', result.rowCount);
+    console.info('======================================================');
   } catch (error) {
+    console.error('================= ERROR =====================');
+    console.error('file:', 'server/scripts/update-user-status.js');
     console.error('Error updating expired premium users:', error.message);
+    console.error('=============================================');
     throw error;
   }
 };

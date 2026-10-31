@@ -55,7 +55,10 @@ const main = async () => {
         break;
 
       default:
+        console.error('================= ERROR =====================');
+        console.error('file:', 'server/database/migrate.js');
         console.error(`Unknown command: ${command}`);
+        console.error('=============================================');
         showUsage();
     }
 

@@ -23,7 +23,7 @@ import fs from 'fs/promises';
 
 import {
   getSpeechBufferFromText,
-} from '../../services/google/get-speech-buffer-from-text.js';
+} from '../../services/google-tts/get-speech-buffer-from-text.js';
 
 import {
   handleBackendError,
@@ -99,7 +99,10 @@ const generateSpeechLink = async (text, language_code, user_id) => {
 
     return audio_url;
   } catch (err) {
+    console.error('================= ERROR =====================');
+    console.error('file:', 'server/routes/files/generate-audio-file-from-text.post.js');
     console.error('Speech generation error:', err);
+    console.error('=============================================');
 
     // Clean up the temporary file if it exists
     if (file_path) {
@@ -107,7 +110,10 @@ const generateSpeechLink = async (text, language_code, user_id) => {
         await fs.unlink(file_path);
         console.log(`🗑️ Cleaned up temporary file after error: ${file_path}`);
       } catch (cleanup_err) {
+        console.error('================= ERROR =====================');
+        console.error('file:', 'server/routes/files/generate-audio-file-from-text.post.js');
         console.error('Error cleaning up file:', cleanup_err);
+        console.error('=============================================');
       }
     }
 

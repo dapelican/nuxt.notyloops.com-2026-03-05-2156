@@ -62,7 +62,10 @@ const deleteFile = async (file_id, file_name) => {
 
     return backblaze_data;
   } catch (error) {
-    console.error('Error deleting file:', error.response ? error.response.data : error.message);
+    console.error('================= ERROR =====================');
+    console.error('file:', 'server/services/backblaze/delete-file.js');
+    console.error('Error from Backblaze:', error.response ? error.response.data : error.message);
+    console.error('=============================================');
     throw error;
   }
 };
